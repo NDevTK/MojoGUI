@@ -180,9 +180,11 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -196,12 +198,13 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorageReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SaveCredentials
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SaveCredentials (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -212,7 +215,7 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorageReceiver = class {
         // Try Method 1: GetPublicCredentials
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPublicCredentials (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -223,7 +226,7 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorageReceiver = class {
         // Try Method 2: GetPrivateCredentials
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPrivateCredentials (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -234,7 +237,7 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorageReceiver = class {
         // Try Method 3: UpdateLocalCredential
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateLocalCredential (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -251,7 +254,7 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.saveCredentials');
           const result = this.impl.saveCredentials(params.local_credentials, params.shared_credentials, params.public_credential_type);
           if (header.expectsResponse) {
@@ -264,7 +267,7 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorageReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getPublicCredentials');
           const result = this.impl.getPublicCredentials(params.public_credential_type);
           if (header.expectsResponse) {
@@ -277,7 +280,7 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorageReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getPrivateCredentials');
           const result = this.impl.getPrivateCredentials();
           if (header.expectsResponse) {
@@ -290,7 +293,7 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorageReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.updateLocalCredential');
           const result = this.impl.updateLocalCredential(params.local_credential);
           if (header.expectsResponse) {

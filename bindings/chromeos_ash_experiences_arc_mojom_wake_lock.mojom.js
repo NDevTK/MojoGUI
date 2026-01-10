@@ -126,9 +126,11 @@ arc.mojom.WakeLockHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -142,12 +144,13 @@ arc.mojom.WakeLockHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AcquirePartialWakeLock
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.WakeLockHost_AcquirePartialWakeLock_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.WakeLockHost_AcquirePartialWakeLock_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AcquirePartialWakeLock (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -158,7 +161,7 @@ arc.mojom.WakeLockHostReceiver = class {
         // Try Method 1: ReleasePartialWakeLock
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.WakeLockHost_ReleasePartialWakeLock_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.WakeLockHost_ReleasePartialWakeLock_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReleasePartialWakeLock (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -175,7 +178,7 @@ arc.mojom.WakeLockHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.WakeLockHost_AcquirePartialWakeLock_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.WakeLockHost_AcquirePartialWakeLock_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.acquirePartialWakeLock');
           const result = this.impl.acquirePartialWakeLock();
           if (header.expectsResponse) {
@@ -188,7 +191,7 @@ arc.mojom.WakeLockHostReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.WakeLockHost_ReleasePartialWakeLock_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.WakeLockHost_ReleasePartialWakeLock_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.releasePartialWakeLock');
           const result = this.impl.releasePartialWakeLock();
           if (header.expectsResponse) {
@@ -298,9 +301,11 @@ arc.mojom.WakeLockInstanceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -314,12 +319,13 @@ arc.mojom.WakeLockInstanceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.WakeLockInstance_Init_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.WakeLockInstance_Init_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -336,7 +342,7 @@ arc.mojom.WakeLockInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.WakeLockInstance_Init_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.WakeLockInstance_Init_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {

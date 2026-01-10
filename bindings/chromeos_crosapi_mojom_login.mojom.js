@@ -120,9 +120,11 @@ crosapi.mojom.ExternalLogoutRequestObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -136,12 +138,13 @@ crosapi.mojom.ExternalLogoutRequestObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnRequestExternalLogout
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.ExternalLogoutRequestObserver_OnRequestExternalLogout_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.ExternalLogoutRequestObserver_OnRequestExternalLogout_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRequestExternalLogout (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -158,7 +161,7 @@ crosapi.mojom.ExternalLogoutRequestObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.ExternalLogoutRequestObserver_OnRequestExternalLogout_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.ExternalLogoutRequestObserver_OnRequestExternalLogout_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onRequestExternalLogout');
           const result = this.impl.onRequestExternalLogout();
           break;
@@ -434,9 +437,11 @@ crosapi.mojom.LoginReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -450,12 +455,13 @@ crosapi.mojom.LoginReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AddExternalLogoutRequestObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.Login_AddExternalLogoutRequestObserver_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.Login_AddExternalLogoutRequestObserver_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddExternalLogoutRequestObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -466,7 +472,7 @@ crosapi.mojom.LoginReceiver = class {
         // Try Method 1: NotifyOnExternalLogoutDone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.Login_NotifyOnExternalLogoutDone_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.Login_NotifyOnExternalLogoutDone_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyOnExternalLogoutDone (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -477,7 +483,7 @@ crosapi.mojom.LoginReceiver = class {
         // Try Method 2: REMOVED_0
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.Login_REMOVED_0_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.Login_REMOVED_0_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> REMOVED_0 (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -488,7 +494,7 @@ crosapi.mojom.LoginReceiver = class {
         // Try Method 3: REMOVED_4
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.Login_REMOVED_4_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.Login_REMOVED_4_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> REMOVED_4 (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -499,7 +505,7 @@ crosapi.mojom.LoginReceiver = class {
         // Try Method 4: REMOVED_5
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.Login_REMOVED_5_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.Login_REMOVED_5_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> REMOVED_5 (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -510,7 +516,7 @@ crosapi.mojom.LoginReceiver = class {
         // Try Method 5: REMOVED_6
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.Login_REMOVED_6_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.Login_REMOVED_6_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> REMOVED_6 (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -521,7 +527,7 @@ crosapi.mojom.LoginReceiver = class {
         // Try Method 6: REMOVED_7
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.Login_REMOVED_7_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.Login_REMOVED_7_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> REMOVED_7 (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -532,7 +538,7 @@ crosapi.mojom.LoginReceiver = class {
         // Try Method 7: REMOVED_10
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.Login_REMOVED_10_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.Login_REMOVED_10_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> REMOVED_10 (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -543,7 +549,7 @@ crosapi.mojom.LoginReceiver = class {
         // Try Method 8: REMOVED_12
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.Login_REMOVED_12_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.Login_REMOVED_12_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> REMOVED_12 (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -560,21 +566,21 @@ crosapi.mojom.LoginReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.Login_AddExternalLogoutRequestObserver_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.Login_AddExternalLogoutRequestObserver_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addExternalLogoutRequestObserver');
           const result = this.impl.addExternalLogoutRequestObserver(params.observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.Login_NotifyOnExternalLogoutDone_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.Login_NotifyOnExternalLogoutDone_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.notifyOnExternalLogoutDone');
           const result = this.impl.notifyOnExternalLogoutDone();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.Login_REMOVED_0_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.Login_REMOVED_0_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.rEMOVED_0');
           const result = this.impl.rEMOVED_0(params.password);
           if (header.expectsResponse) {
@@ -587,7 +593,7 @@ crosapi.mojom.LoginReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.Login_REMOVED_4_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.Login_REMOVED_4_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.rEMOVED_4');
           const result = this.impl.rEMOVED_4(params.password);
           if (header.expectsResponse) {
@@ -600,7 +606,7 @@ crosapi.mojom.LoginReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.Login_REMOVED_5_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.Login_REMOVED_5_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.rEMOVED_5');
           const result = this.impl.rEMOVED_5(params.password);
           if (header.expectsResponse) {
@@ -613,7 +619,7 @@ crosapi.mojom.LoginReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.Login_REMOVED_6_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.Login_REMOVED_6_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.rEMOVED_6');
           const result = this.impl.rEMOVED_6(params.password);
           if (header.expectsResponse) {
@@ -626,7 +632,7 @@ crosapi.mojom.LoginReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.Login_REMOVED_7_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.Login_REMOVED_7_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.rEMOVED_7');
           const result = this.impl.rEMOVED_7(params.password);
           if (header.expectsResponse) {
@@ -639,7 +645,7 @@ crosapi.mojom.LoginReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.Login_REMOVED_10_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.Login_REMOVED_10_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.rEMOVED_10');
           const result = this.impl.rEMOVED_10(params.properties);
           if (header.expectsResponse) {
@@ -652,7 +658,7 @@ crosapi.mojom.LoginReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.Login_REMOVED_12_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.Login_REMOVED_12_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.rEMOVED_12');
           const result = this.impl.rEMOVED_12(params.password);
           if (header.expectsResponse) {

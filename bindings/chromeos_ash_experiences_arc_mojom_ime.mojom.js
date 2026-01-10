@@ -275,9 +275,11 @@ arc.mojom.ImeHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -291,12 +293,13 @@ arc.mojom.ImeHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnTextInputTypeChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.ImeHost_OnTextInputTypeChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.ImeHost_OnTextInputTypeChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTextInputTypeChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -307,7 +310,7 @@ arc.mojom.ImeHostReceiver = class {
         // Try Method 1: OnCursorRectChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.ImeHost_OnCursorRectChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.ImeHost_OnCursorRectChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCursorRectChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -318,7 +321,7 @@ arc.mojom.ImeHostReceiver = class {
         // Try Method 2: OnCancelComposition
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.ImeHost_OnCancelComposition_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.ImeHost_OnCancelComposition_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCancelComposition (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -329,7 +332,7 @@ arc.mojom.ImeHostReceiver = class {
         // Try Method 3: ShowVirtualKeyboardIfEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.ImeHost_ShowVirtualKeyboardIfEnabled_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.ImeHost_ShowVirtualKeyboardIfEnabled_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowVirtualKeyboardIfEnabled (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -340,7 +343,7 @@ arc.mojom.ImeHostReceiver = class {
         // Try Method 4: OnCursorRectChangedWithSurroundingText
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.ImeHost_OnCursorRectChangedWithSurroundingText_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.ImeHost_OnCursorRectChangedWithSurroundingText_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCursorRectChangedWithSurroundingText (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -351,7 +354,7 @@ arc.mojom.ImeHostReceiver = class {
         // Try Method 5: SendKeyEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.ImeHost_SendKeyEvent_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.ImeHost_SendKeyEvent_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendKeyEvent (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -368,42 +371,42 @@ arc.mojom.ImeHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.ImeHost_OnTextInputTypeChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.ImeHost_OnTextInputTypeChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onTextInputTypeChanged');
           const result = this.impl.onTextInputTypeChanged(params.type, params.is_personalized_learning_allowed, params.flags);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.ImeHost_OnCursorRectChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.ImeHost_OnCursorRectChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onCursorRectChanged');
           const result = this.impl.onCursorRectChanged(params.rect, params.coordinateSpace);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.ImeHost_OnCancelComposition_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.ImeHost_OnCancelComposition_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onCancelComposition');
           const result = this.impl.onCancelComposition();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.ImeHost_ShowVirtualKeyboardIfEnabled_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.ImeHost_ShowVirtualKeyboardIfEnabled_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.showVirtualKeyboardIfEnabled');
           const result = this.impl.showVirtualKeyboardIfEnabled();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.ImeHost_OnCursorRectChangedWithSurroundingText_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.ImeHost_OnCursorRectChangedWithSurroundingText_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onCursorRectChangedWithSurroundingText');
           const result = this.impl.onCursorRectChangedWithSurroundingText(params.rect, params.text_range, params.text_in_range, params.selection_range, params.coordinateSpace);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.ImeHost_SendKeyEvent_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.ImeHost_SendKeyEvent_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.sendKeyEvent');
           const result = this.impl.sendKeyEvent(params.key_event_data);
           if (header.expectsResponse) {
@@ -636,9 +639,11 @@ arc.mojom.ImeInstanceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -652,12 +657,13 @@ arc.mojom.ImeInstanceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.ImeInstance_Init_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.ImeInstance_Init_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -668,7 +674,7 @@ arc.mojom.ImeInstanceReceiver = class {
         // Try Method 1: SetCompositionText
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.ImeInstance_SetCompositionText_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.ImeInstance_SetCompositionText_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCompositionText (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -679,7 +685,7 @@ arc.mojom.ImeInstanceReceiver = class {
         // Try Method 2: SetSelectionText
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.ImeInstance_SetSelectionText_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.ImeInstance_SetSelectionText_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSelectionText (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -690,7 +696,7 @@ arc.mojom.ImeInstanceReceiver = class {
         // Try Method 3: ConfirmCompositionText
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.ImeInstance_ConfirmCompositionText_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.ImeInstance_ConfirmCompositionText_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConfirmCompositionText (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -701,7 +707,7 @@ arc.mojom.ImeInstanceReceiver = class {
         // Try Method 4: InsertText
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.ImeInstance_InsertText_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.ImeInstance_InsertText_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InsertText (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -712,7 +718,7 @@ arc.mojom.ImeInstanceReceiver = class {
         // Try Method 5: OnKeyboardAppearanceChanging
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.ImeInstance_OnKeyboardAppearanceChanging_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.ImeInstance_OnKeyboardAppearanceChanging_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnKeyboardAppearanceChanging (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -723,7 +729,7 @@ arc.mojom.ImeInstanceReceiver = class {
         // Try Method 6: ExtendSelectionAndDelete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.ImeInstance_ExtendSelectionAndDelete_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.ImeInstance_ExtendSelectionAndDelete_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExtendSelectionAndDelete (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -734,7 +740,7 @@ arc.mojom.ImeInstanceReceiver = class {
         // Try Method 7: SetComposingRegion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.ImeInstance_SetComposingRegion_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.ImeInstance_SetComposingRegion_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetComposingRegion (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -751,7 +757,7 @@ arc.mojom.ImeInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.ImeInstance_Init_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.ImeInstance_Init_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -764,49 +770,49 @@ arc.mojom.ImeInstanceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.ImeInstance_SetCompositionText_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.ImeInstance_SetCompositionText_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setCompositionText');
           const result = this.impl.setCompositionText(params.text, params.segments, params.selection_range);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.ImeInstance_SetSelectionText_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.ImeInstance_SetSelectionText_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setSelectionText');
           const result = this.impl.setSelectionText(params.selection);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.ImeInstance_ConfirmCompositionText_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.ImeInstance_ConfirmCompositionText_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.confirmCompositionText');
           const result = this.impl.confirmCompositionText();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.ImeInstance_InsertText_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.ImeInstance_InsertText_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.insertText');
           const result = this.impl.insertText(params.text, params.new_cursor_position);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.ImeInstance_OnKeyboardAppearanceChanging_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.ImeInstance_OnKeyboardAppearanceChanging_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onKeyboardAppearanceChanging');
           const result = this.impl.onKeyboardAppearanceChanging(params.new_bounds, params.is_available);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.ImeInstance_ExtendSelectionAndDelete_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.ImeInstance_ExtendSelectionAndDelete_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.extendSelectionAndDelete');
           const result = this.impl.extendSelectionAndDelete(params.before, params.after);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.ImeInstance_SetComposingRegion_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.ImeInstance_SetComposingRegion_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setComposingRegion');
           const result = this.impl.setComposingRegion(params.range);
           break;

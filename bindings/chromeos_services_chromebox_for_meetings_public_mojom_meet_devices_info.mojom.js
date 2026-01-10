@@ -205,9 +205,11 @@ chromeos.cfm.mojom.MeetDevicesInfoReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -221,12 +223,13 @@ chromeos.cfm.mojom.MeetDevicesInfoReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AddDeviceSettingsObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddDeviceSettingsObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -237,7 +240,7 @@ chromeos.cfm.mojom.MeetDevicesInfoReceiver = class {
         // Try Method 1: GetPolicyInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPolicyInfo (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -248,7 +251,7 @@ chromeos.cfm.mojom.MeetDevicesInfoReceiver = class {
         // Try Method 2: GetSysInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSysInfo (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -259,7 +262,7 @@ chromeos.cfm.mojom.MeetDevicesInfoReceiver = class {
         // Try Method 3: GetMachineStatisticsInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMachineStatisticsInfo (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -276,14 +279,14 @@ chromeos.cfm.mojom.MeetDevicesInfoReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addDeviceSettingsObserver');
           const result = this.impl.addDeviceSettingsObserver(params.observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getPolicyInfo');
           const result = this.impl.getPolicyInfo();
           if (header.expectsResponse) {
@@ -296,7 +299,7 @@ chromeos.cfm.mojom.MeetDevicesInfoReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getSysInfo');
           const result = this.impl.getSysInfo();
           if (header.expectsResponse) {
@@ -309,7 +312,7 @@ chromeos.cfm.mojom.MeetDevicesInfoReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getMachineStatisticsInfo');
           const result = this.impl.getMachineStatisticsInfo();
           if (header.expectsResponse) {
@@ -414,9 +417,11 @@ chromeos.cfm.mojom.PolicyInfoObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -430,12 +435,13 @@ chromeos.cfm.mojom.PolicyInfoObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnPolicyInfoChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPolicyInfoChange (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -452,7 +458,7 @@ chromeos.cfm.mojom.PolicyInfoObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onPolicyInfoChange');
           const result = this.impl.onPolicyInfoChange(params.info);
           break;

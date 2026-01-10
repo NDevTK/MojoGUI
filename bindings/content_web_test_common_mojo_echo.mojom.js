@@ -832,9 +832,11 @@ content.mojom.MojoEchoReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -848,12 +850,13 @@ content.mojom.MojoEchoReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: EchoBoolFromUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.MojoEcho_EchoBoolFromUnion_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.MojoEcho_EchoBoolFromUnion_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoBoolFromUnion (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -864,7 +867,7 @@ content.mojom.MojoEchoReceiver = class {
         // Try Method 1: EchoInt32FromUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.MojoEcho_EchoInt32FromUnion_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.MojoEcho_EchoInt32FromUnion_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoInt32FromUnion (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -875,7 +878,7 @@ content.mojom.MojoEchoReceiver = class {
         // Try Method 2: EchoStringFromUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.MojoEcho_EchoStringFromUnion_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.MojoEcho_EchoStringFromUnion_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoStringFromUnion (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -886,7 +889,7 @@ content.mojom.MojoEchoReceiver = class {
         // Try Method 3: EchoBoolAsUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.MojoEcho_EchoBoolAsUnion_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.MojoEcho_EchoBoolAsUnion_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoBoolAsUnion (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -897,7 +900,7 @@ content.mojom.MojoEchoReceiver = class {
         // Try Method 4: EchoInt32AsUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.MojoEcho_EchoInt32AsUnion_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.MojoEcho_EchoInt32AsUnion_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoInt32AsUnion (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -908,7 +911,7 @@ content.mojom.MojoEchoReceiver = class {
         // Try Method 5: EchoStringAsUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.MojoEcho_EchoStringAsUnion_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.MojoEcho_EchoStringAsUnion_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoStringAsUnion (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -919,7 +922,7 @@ content.mojom.MojoEchoReceiver = class {
         // Try Method 6: EchoNullFromOptionalUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.MojoEcho_EchoNullFromOptionalUnion_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.MojoEcho_EchoNullFromOptionalUnion_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoNullFromOptionalUnion (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -930,7 +933,7 @@ content.mojom.MojoEchoReceiver = class {
         // Try Method 7: EchoBoolFromOptionalUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoBoolFromOptionalUnion (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -941,7 +944,7 @@ content.mojom.MojoEchoReceiver = class {
         // Try Method 8: EchoInt32FromOptionalUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoInt32FromOptionalUnion (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -952,7 +955,7 @@ content.mojom.MojoEchoReceiver = class {
         // Try Method 9: EchoStringFromOptionalUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.MojoEcho_EchoStringFromOptionalUnion_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.MojoEcho_EchoStringFromOptionalUnion_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoStringFromOptionalUnion (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -963,7 +966,7 @@ content.mojom.MojoEchoReceiver = class {
         // Try Method 10: EchoNullAsOptionalUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.MojoEcho_EchoNullAsOptionalUnion_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.MojoEcho_EchoNullAsOptionalUnion_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoNullAsOptionalUnion (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -974,7 +977,7 @@ content.mojom.MojoEchoReceiver = class {
         // Try Method 11: EchoBoolAsOptionalUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoBoolAsOptionalUnion (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -985,7 +988,7 @@ content.mojom.MojoEchoReceiver = class {
         // Try Method 12: EchoInt32AsOptionalUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoInt32AsOptionalUnion (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -996,7 +999,7 @@ content.mojom.MojoEchoReceiver = class {
         // Try Method 13: EchoStringAsOptionalUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.MojoEcho_EchoStringAsOptionalUnion_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.MojoEcho_EchoStringAsOptionalUnion_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoStringAsOptionalUnion (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1007,7 +1010,7 @@ content.mojom.MojoEchoReceiver = class {
         // Try Method 14: EchoInt8FromNestedUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.MojoEcho_EchoInt8FromNestedUnion_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.MojoEcho_EchoInt8FromNestedUnion_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoInt8FromNestedUnion (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1018,7 +1021,7 @@ content.mojom.MojoEchoReceiver = class {
         // Try Method 15: EchoBoolFromNestedUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.MojoEcho_EchoBoolFromNestedUnion_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.MojoEcho_EchoBoolFromNestedUnion_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoBoolFromNestedUnion (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1029,7 +1032,7 @@ content.mojom.MojoEchoReceiver = class {
         // Try Method 16: EchoStringFromNestedUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.MojoEcho_EchoStringFromNestedUnion_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.MojoEcho_EchoStringFromNestedUnion_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoStringFromNestedUnion (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -1040,7 +1043,7 @@ content.mojom.MojoEchoReceiver = class {
         // Try Method 17: EchoInt8AsNestedUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.MojoEcho_EchoInt8AsNestedUnion_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.MojoEcho_EchoInt8AsNestedUnion_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoInt8AsNestedUnion (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -1051,7 +1054,7 @@ content.mojom.MojoEchoReceiver = class {
         // Try Method 18: EchoBoolAsNestedUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.MojoEcho_EchoBoolAsNestedUnion_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.MojoEcho_EchoBoolAsNestedUnion_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoBoolAsNestedUnion (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -1062,7 +1065,7 @@ content.mojom.MojoEchoReceiver = class {
         // Try Method 19: EchoStringAsNestedUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.MojoEcho_EchoStringAsNestedUnion_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.MojoEcho_EchoStringAsNestedUnion_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoStringAsNestedUnion (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -1073,7 +1076,7 @@ content.mojom.MojoEchoReceiver = class {
         // Try Method 20: EchoNullFromOptionalNestedUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoNullFromOptionalNestedUnion (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -1084,7 +1087,7 @@ content.mojom.MojoEchoReceiver = class {
         // Try Method 21: EchoInt8FromOptionalNestedUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoInt8FromOptionalNestedUnion (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -1095,7 +1098,7 @@ content.mojom.MojoEchoReceiver = class {
         // Try Method 22: EchoBoolFromOptionalNestedUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoBoolFromOptionalNestedUnion (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
@@ -1106,7 +1109,7 @@ content.mojom.MojoEchoReceiver = class {
         // Try Method 23: EchoStringFromOptionalNestedUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoStringFromOptionalNestedUnion (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
@@ -1117,7 +1120,7 @@ content.mojom.MojoEchoReceiver = class {
         // Try Method 24: EchoNullAsOptionalNestedUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoNullAsOptionalNestedUnion (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
@@ -1128,7 +1131,7 @@ content.mojom.MojoEchoReceiver = class {
         // Try Method 25: EchoInt8AsOptionalNestedUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoInt8AsOptionalNestedUnion (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
@@ -1139,7 +1142,7 @@ content.mojom.MojoEchoReceiver = class {
         // Try Method 26: EchoBoolAsOptionalNestedUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoBoolAsOptionalNestedUnion (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
@@ -1150,7 +1153,7 @@ content.mojom.MojoEchoReceiver = class {
         // Try Method 27: EchoStringAsOptionalNestedUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoStringAsOptionalNestedUnion (27)');
              this.mapOrdinal(header.ordinal, 27);
              dispatchId = 27;
@@ -1161,7 +1164,7 @@ content.mojom.MojoEchoReceiver = class {
         // Try Method 28: EchoBoolArray
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.MojoEcho_EchoBoolArray_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.MojoEcho_EchoBoolArray_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoBoolArray (28)');
              this.mapOrdinal(header.ordinal, 28);
              dispatchId = 28;
@@ -1178,7 +1181,7 @@ content.mojom.MojoEchoReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.MojoEcho_EchoBoolFromUnion_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.MojoEcho_EchoBoolFromUnion_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.echoBoolFromUnion');
           const result = this.impl.echoBoolFromUnion(params.test_union);
           if (header.expectsResponse) {
@@ -1191,7 +1194,7 @@ content.mojom.MojoEchoReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.MojoEcho_EchoInt32FromUnion_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.MojoEcho_EchoInt32FromUnion_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.echoInt32FromUnion');
           const result = this.impl.echoInt32FromUnion(params.test_union);
           if (header.expectsResponse) {
@@ -1204,7 +1207,7 @@ content.mojom.MojoEchoReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.MojoEcho_EchoStringFromUnion_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.MojoEcho_EchoStringFromUnion_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.echoStringFromUnion');
           const result = this.impl.echoStringFromUnion(params.test_union);
           if (header.expectsResponse) {
@@ -1217,7 +1220,7 @@ content.mojom.MojoEchoReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.MojoEcho_EchoBoolAsUnion_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.MojoEcho_EchoBoolAsUnion_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.echoBoolAsUnion');
           const result = this.impl.echoBoolAsUnion(params.value);
           if (header.expectsResponse) {
@@ -1230,7 +1233,7 @@ content.mojom.MojoEchoReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.MojoEcho_EchoInt32AsUnion_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.MojoEcho_EchoInt32AsUnion_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.echoInt32AsUnion');
           const result = this.impl.echoInt32AsUnion(params.value);
           if (header.expectsResponse) {
@@ -1243,7 +1246,7 @@ content.mojom.MojoEchoReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.MojoEcho_EchoStringAsUnion_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.MojoEcho_EchoStringAsUnion_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.echoStringAsUnion');
           const result = this.impl.echoStringAsUnion(params.value);
           if (header.expectsResponse) {
@@ -1256,7 +1259,7 @@ content.mojom.MojoEchoReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.MojoEcho_EchoNullFromOptionalUnion_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.MojoEcho_EchoNullFromOptionalUnion_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.echoNullFromOptionalUnion');
           const result = this.impl.echoNullFromOptionalUnion(params.test_union);
           if (header.expectsResponse) {
@@ -1269,7 +1272,7 @@ content.mojom.MojoEchoReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.echoBoolFromOptionalUnion');
           const result = this.impl.echoBoolFromOptionalUnion(params.test_union);
           if (header.expectsResponse) {
@@ -1282,7 +1285,7 @@ content.mojom.MojoEchoReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.echoInt32FromOptionalUnion');
           const result = this.impl.echoInt32FromOptionalUnion(params.test_union);
           if (header.expectsResponse) {
@@ -1295,7 +1298,7 @@ content.mojom.MojoEchoReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.MojoEcho_EchoStringFromOptionalUnion_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.MojoEcho_EchoStringFromOptionalUnion_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.echoStringFromOptionalUnion');
           const result = this.impl.echoStringFromOptionalUnion(params.test_union);
           if (header.expectsResponse) {
@@ -1308,7 +1311,7 @@ content.mojom.MojoEchoReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.MojoEcho_EchoNullAsOptionalUnion_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.MojoEcho_EchoNullAsOptionalUnion_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.echoNullAsOptionalUnion');
           const result = this.impl.echoNullAsOptionalUnion();
           if (header.expectsResponse) {
@@ -1321,7 +1324,7 @@ content.mojom.MojoEchoReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.echoBoolAsOptionalUnion');
           const result = this.impl.echoBoolAsOptionalUnion(params.value);
           if (header.expectsResponse) {
@@ -1334,7 +1337,7 @@ content.mojom.MojoEchoReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.echoInt32AsOptionalUnion');
           const result = this.impl.echoInt32AsOptionalUnion(params.value);
           if (header.expectsResponse) {
@@ -1347,7 +1350,7 @@ content.mojom.MojoEchoReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.MojoEcho_EchoStringAsOptionalUnion_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.MojoEcho_EchoStringAsOptionalUnion_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.echoStringAsOptionalUnion');
           const result = this.impl.echoStringAsOptionalUnion(params.value);
           if (header.expectsResponse) {
@@ -1360,7 +1363,7 @@ content.mojom.MojoEchoReceiver = class {
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.MojoEcho_EchoInt8FromNestedUnion_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.MojoEcho_EchoInt8FromNestedUnion_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.echoInt8FromNestedUnion');
           const result = this.impl.echoInt8FromNestedUnion(params.test_union);
           if (header.expectsResponse) {
@@ -1373,7 +1376,7 @@ content.mojom.MojoEchoReceiver = class {
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.MojoEcho_EchoBoolFromNestedUnion_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.MojoEcho_EchoBoolFromNestedUnion_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.echoBoolFromNestedUnion');
           const result = this.impl.echoBoolFromNestedUnion(params.test_union);
           if (header.expectsResponse) {
@@ -1386,7 +1389,7 @@ content.mojom.MojoEchoReceiver = class {
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.MojoEcho_EchoStringFromNestedUnion_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.MojoEcho_EchoStringFromNestedUnion_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.echoStringFromNestedUnion');
           const result = this.impl.echoStringFromNestedUnion(params.test_union);
           if (header.expectsResponse) {
@@ -1399,7 +1402,7 @@ content.mojom.MojoEchoReceiver = class {
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.MojoEcho_EchoInt8AsNestedUnion_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.MojoEcho_EchoInt8AsNestedUnion_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.echoInt8AsNestedUnion');
           const result = this.impl.echoInt8AsNestedUnion(params.value);
           if (header.expectsResponse) {
@@ -1412,7 +1415,7 @@ content.mojom.MojoEchoReceiver = class {
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.MojoEcho_EchoBoolAsNestedUnion_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.MojoEcho_EchoBoolAsNestedUnion_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.echoBoolAsNestedUnion');
           const result = this.impl.echoBoolAsNestedUnion(params.value);
           if (header.expectsResponse) {
@@ -1425,7 +1428,7 @@ content.mojom.MojoEchoReceiver = class {
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.MojoEcho_EchoStringAsNestedUnion_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.MojoEcho_EchoStringAsNestedUnion_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.echoStringAsNestedUnion');
           const result = this.impl.echoStringAsNestedUnion(params.value);
           if (header.expectsResponse) {
@@ -1438,7 +1441,7 @@ content.mojom.MojoEchoReceiver = class {
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.echoNullFromOptionalNestedUnion');
           const result = this.impl.echoNullFromOptionalNestedUnion(params.test_union);
           if (header.expectsResponse) {
@@ -1451,7 +1454,7 @@ content.mojom.MojoEchoReceiver = class {
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.echoInt8FromOptionalNestedUnion');
           const result = this.impl.echoInt8FromOptionalNestedUnion(params.test_union);
           if (header.expectsResponse) {
@@ -1464,7 +1467,7 @@ content.mojom.MojoEchoReceiver = class {
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.echoBoolFromOptionalNestedUnion');
           const result = this.impl.echoBoolFromOptionalNestedUnion(params.test_union);
           if (header.expectsResponse) {
@@ -1477,7 +1480,7 @@ content.mojom.MojoEchoReceiver = class {
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.echoStringFromOptionalNestedUnion');
           const result = this.impl.echoStringFromOptionalNestedUnion(params.test_union);
           if (header.expectsResponse) {
@@ -1490,7 +1493,7 @@ content.mojom.MojoEchoReceiver = class {
         }
         case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.echoNullAsOptionalNestedUnion');
           const result = this.impl.echoNullAsOptionalNestedUnion();
           if (header.expectsResponse) {
@@ -1503,7 +1506,7 @@ content.mojom.MojoEchoReceiver = class {
         }
         case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.echoInt8AsOptionalNestedUnion');
           const result = this.impl.echoInt8AsOptionalNestedUnion(params.value);
           if (header.expectsResponse) {
@@ -1516,7 +1519,7 @@ content.mojom.MojoEchoReceiver = class {
         }
         case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.echoBoolAsOptionalNestedUnion');
           const result = this.impl.echoBoolAsOptionalNestedUnion(params.value);
           if (header.expectsResponse) {
@@ -1529,7 +1532,7 @@ content.mojom.MojoEchoReceiver = class {
         }
         case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.echoStringAsOptionalNestedUnion');
           const result = this.impl.echoStringAsOptionalNestedUnion(params.value);
           if (header.expectsResponse) {
@@ -1542,7 +1545,7 @@ content.mojom.MojoEchoReceiver = class {
         }
         case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.MojoEcho_EchoBoolArray_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.MojoEcho_EchoBoolArray_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.echoBoolArray');
           const result = this.impl.echoBoolArray(params.values);
           if (header.expectsResponse) {

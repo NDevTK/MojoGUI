@@ -202,9 +202,11 @@ chromeos_camera.mojom.MjpegDecodeAcceleratorReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -218,12 +220,13 @@ chromeos_camera.mojom.MjpegDecodeAcceleratorReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Initialize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos_camera.mojom.MjpegDecodeAccelerator_Initialize_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos_camera.mojom.MjpegDecodeAccelerator_Initialize_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Initialize (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -234,7 +237,7 @@ chromeos_camera.mojom.MjpegDecodeAcceleratorReceiver = class {
         // Try Method 1: Decode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Decode (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -245,7 +248,7 @@ chromeos_camera.mojom.MjpegDecodeAcceleratorReceiver = class {
         // Try Method 2: DecodeWithDmaBuf
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DecodeWithDmaBuf (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -256,7 +259,7 @@ chromeos_camera.mojom.MjpegDecodeAcceleratorReceiver = class {
         // Try Method 3: Uninitialize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos_camera.mojom.MjpegDecodeAccelerator_Uninitialize_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos_camera.mojom.MjpegDecodeAccelerator_Uninitialize_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Uninitialize (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -273,7 +276,7 @@ chromeos_camera.mojom.MjpegDecodeAcceleratorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos_camera.mojom.MjpegDecodeAccelerator_Initialize_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos_camera.mojom.MjpegDecodeAccelerator_Initialize_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.initialize');
           const result = this.impl.initialize();
           if (header.expectsResponse) {
@@ -286,7 +289,7 @@ chromeos_camera.mojom.MjpegDecodeAcceleratorReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.decode');
           const result = this.impl.decode(params.input_buffer, params.coded_size, params.output_handle, params.output_buffer_size);
           if (header.expectsResponse) {
@@ -299,7 +302,7 @@ chromeos_camera.mojom.MjpegDecodeAcceleratorReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.decodeWithDmaBuf');
           const result = this.impl.decodeWithDmaBuf(params.task_id, params.src_dmabuf_fd, params.src_size, params.src_offset, params.dst_frame);
           if (header.expectsResponse) {
@@ -312,7 +315,7 @@ chromeos_camera.mojom.MjpegDecodeAcceleratorReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos_camera.mojom.MjpegDecodeAccelerator_Uninitialize_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos_camera.mojom.MjpegDecodeAccelerator_Uninitialize_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.uninitialize');
           const result = this.impl.uninitialize();
           break;

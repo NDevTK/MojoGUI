@@ -142,9 +142,11 @@ extensions.mime_handler.MimeHandlerServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -158,12 +160,13 @@ extensions.mime_handler.MimeHandlerServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetStreamInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(extensions.mime_handler.MimeHandlerService_GetStreamInfo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(extensions.mime_handler.MimeHandlerService_GetStreamInfo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetStreamInfo (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -174,7 +177,7 @@ extensions.mime_handler.MimeHandlerServiceReceiver = class {
         // Try Method 1: SetPdfPluginAttributes
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPdfPluginAttributes (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -191,7 +194,7 @@ extensions.mime_handler.MimeHandlerServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(extensions.mime_handler.MimeHandlerService_GetStreamInfo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(extensions.mime_handler.MimeHandlerService_GetStreamInfo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getStreamInfo');
           const result = this.impl.getStreamInfo();
           if (header.expectsResponse) {
@@ -204,7 +207,7 @@ extensions.mime_handler.MimeHandlerServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setPdfPluginAttributes');
           const result = this.impl.setPdfPluginAttributes(params.pdf_plugin_attributes);
           break;
@@ -308,9 +311,11 @@ extensions.mime_handler.BeforeUnloadControlReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -324,12 +329,13 @@ extensions.mime_handler.BeforeUnloadControlReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetShowBeforeUnloadDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetShowBeforeUnloadDialog (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -346,7 +352,7 @@ extensions.mime_handler.BeforeUnloadControlReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setShowBeforeUnloadDialog');
           const result = this.impl.setShowBeforeUnloadDialog(params.show_dialog);
           if (header.expectsResponse) {

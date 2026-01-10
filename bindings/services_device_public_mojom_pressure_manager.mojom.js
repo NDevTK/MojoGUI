@@ -198,9 +198,11 @@ device.mojom.PressureManagerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -214,12 +216,13 @@ device.mojom.PressureManagerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AddVirtualPressureSource
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.PressureManager_AddVirtualPressureSource_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.PressureManager_AddVirtualPressureSource_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddVirtualPressureSource (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -230,7 +233,7 @@ device.mojom.PressureManagerReceiver = class {
         // Try Method 1: RemoveVirtualPressureSource
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.PressureManager_RemoveVirtualPressureSource_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.PressureManager_RemoveVirtualPressureSource_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveVirtualPressureSource (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -241,7 +244,7 @@ device.mojom.PressureManagerReceiver = class {
         // Try Method 2: UpdateVirtualPressureSourceData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.PressureManager_UpdateVirtualPressureSourceData_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.PressureManager_UpdateVirtualPressureSourceData_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateVirtualPressureSourceData (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -252,7 +255,7 @@ device.mojom.PressureManagerReceiver = class {
         // Try Method 3: AddClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.PressureManager_AddClient_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.PressureManager_AddClient_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddClient (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -269,7 +272,7 @@ device.mojom.PressureManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.PressureManager_AddVirtualPressureSource_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.PressureManager_AddVirtualPressureSource_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addVirtualPressureSource');
           const result = this.impl.addVirtualPressureSource(params.token, params.source, params.metadata);
           if (header.expectsResponse) {
@@ -282,7 +285,7 @@ device.mojom.PressureManagerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.PressureManager_RemoveVirtualPressureSource_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.PressureManager_RemoveVirtualPressureSource_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.removeVirtualPressureSource');
           const result = this.impl.removeVirtualPressureSource(params.token, params.source);
           if (header.expectsResponse) {
@@ -295,7 +298,7 @@ device.mojom.PressureManagerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.PressureManager_UpdateVirtualPressureSourceData_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.PressureManager_UpdateVirtualPressureSourceData_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.updateVirtualPressureSourceData');
           const result = this.impl.updateVirtualPressureSourceData(params.token, params.source, params.state, params.own_contribution_estimate);
           if (header.expectsResponse) {
@@ -308,7 +311,7 @@ device.mojom.PressureManagerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.PressureManager_AddClient_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.PressureManager_AddClient_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addClient');
           const result = this.impl.addClient(params.source, params.token, params.client);
           if (header.expectsResponse) {
@@ -413,9 +416,11 @@ device.mojom.PressureClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -429,12 +434,13 @@ device.mojom.PressureClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnPressureUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.PressureClient_OnPressureUpdated_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.PressureClient_OnPressureUpdated_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPressureUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -451,7 +457,7 @@ device.mojom.PressureClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.PressureClient_OnPressureUpdated_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.PressureClient_OnPressureUpdated_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onPressureUpdated');
           const result = this.impl.onPressureUpdated(params.update);
           break;

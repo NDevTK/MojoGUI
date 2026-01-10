@@ -580,9 +580,11 @@ updater.mojom.UpdateServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -596,12 +598,13 @@ updater.mojom.UpdateServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetVersion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(updater.mojom.UpdateService_GetVersion_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(updater.mojom.UpdateService_GetVersion_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetVersion (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -612,7 +615,7 @@ updater.mojom.UpdateServiceReceiver = class {
         // Try Method 1: FetchPolicies
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(updater.mojom.UpdateService_FetchPolicies_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(updater.mojom.UpdateService_FetchPolicies_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FetchPolicies (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -623,7 +626,7 @@ updater.mojom.UpdateServiceReceiver = class {
         // Try Method 2: RegisterApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(updater.mojom.UpdateService_RegisterApp_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(updater.mojom.UpdateService_RegisterApp_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterApp (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -634,7 +637,7 @@ updater.mojom.UpdateServiceReceiver = class {
         // Try Method 3: GetAppStates
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(updater.mojom.UpdateService_GetAppStates_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(updater.mojom.UpdateService_GetAppStates_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAppStates (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -645,7 +648,7 @@ updater.mojom.UpdateServiceReceiver = class {
         // Try Method 4: RunPeriodicTasks
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(updater.mojom.UpdateService_RunPeriodicTasks_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(updater.mojom.UpdateService_RunPeriodicTasks_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunPeriodicTasks (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -656,7 +659,7 @@ updater.mojom.UpdateServiceReceiver = class {
         // Try Method 5: UpdateAll
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(updater.mojom.UpdateService_UpdateAll_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(updater.mojom.UpdateService_UpdateAll_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateAll (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -667,7 +670,7 @@ updater.mojom.UpdateServiceReceiver = class {
         // Try Method 6: Update
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(updater.mojom.UpdateService_Update_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(updater.mojom.UpdateService_Update_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Update (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -678,7 +681,7 @@ updater.mojom.UpdateServiceReceiver = class {
         // Try Method 7: Install
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(updater.mojom.UpdateService_Install_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(updater.mojom.UpdateService_Install_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Install (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -689,7 +692,7 @@ updater.mojom.UpdateServiceReceiver = class {
         // Try Method 8: CancelInstalls
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(updater.mojom.UpdateService_CancelInstalls_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(updater.mojom.UpdateService_CancelInstalls_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelInstalls (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -700,7 +703,7 @@ updater.mojom.UpdateServiceReceiver = class {
         // Try Method 9: RunInstaller
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(updater.mojom.UpdateService_RunInstaller_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(updater.mojom.UpdateService_RunInstaller_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunInstaller (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -711,7 +714,7 @@ updater.mojom.UpdateServiceReceiver = class {
         // Try Method 10: CheckForUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(updater.mojom.UpdateService_CheckForUpdate_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(updater.mojom.UpdateService_CheckForUpdate_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CheckForUpdate (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -722,7 +725,7 @@ updater.mojom.UpdateServiceReceiver = class {
         // Try Method 11: GetUpdaterState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(updater.mojom.UpdateService_GetUpdaterState_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(updater.mojom.UpdateService_GetUpdaterState_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUpdaterState (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -733,7 +736,7 @@ updater.mojom.UpdateServiceReceiver = class {
         // Try Method 12: GetUpdaterPolicies
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(updater.mojom.UpdateService_GetUpdaterPolicies_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(updater.mojom.UpdateService_GetUpdaterPolicies_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUpdaterPolicies (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -744,7 +747,7 @@ updater.mojom.UpdateServiceReceiver = class {
         // Try Method 13: GetAppPolicies
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(updater.mojom.UpdateService_GetAppPolicies_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(updater.mojom.UpdateService_GetAppPolicies_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAppPolicies (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -761,7 +764,7 @@ updater.mojom.UpdateServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(updater.mojom.UpdateService_GetVersion_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(updater.mojom.UpdateService_GetVersion_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getVersion');
           const result = this.impl.getVersion();
           if (header.expectsResponse) {
@@ -774,7 +777,7 @@ updater.mojom.UpdateServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(updater.mojom.UpdateService_FetchPolicies_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(updater.mojom.UpdateService_FetchPolicies_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.fetchPolicies');
           const result = this.impl.fetchPolicies(params.reason);
           if (header.expectsResponse) {
@@ -787,7 +790,7 @@ updater.mojom.UpdateServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(updater.mojom.UpdateService_RegisterApp_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(updater.mojom.UpdateService_RegisterApp_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.registerApp');
           const result = this.impl.registerApp(params.request);
           if (header.expectsResponse) {
@@ -800,7 +803,7 @@ updater.mojom.UpdateServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(updater.mojom.UpdateService_GetAppStates_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(updater.mojom.UpdateService_GetAppStates_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getAppStates');
           const result = this.impl.getAppStates();
           if (header.expectsResponse) {
@@ -813,7 +816,7 @@ updater.mojom.UpdateServiceReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(updater.mojom.UpdateService_RunPeriodicTasks_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(updater.mojom.UpdateService_RunPeriodicTasks_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.runPeriodicTasks');
           const result = this.impl.runPeriodicTasks();
           if (header.expectsResponse) {
@@ -826,7 +829,7 @@ updater.mojom.UpdateServiceReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(updater.mojom.UpdateService_UpdateAll_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(updater.mojom.UpdateService_UpdateAll_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.updateAll');
           const result = this.impl.updateAll();
           if (header.expectsResponse) {
@@ -839,7 +842,7 @@ updater.mojom.UpdateServiceReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(updater.mojom.UpdateService_Update_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(updater.mojom.UpdateService_Update_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.update');
           const result = this.impl.update(params.app_id, params.install_data_index, params.priority, params.policy_same_version_update, params.do_update_check_only, params.language);
           if (header.expectsResponse) {
@@ -852,7 +855,7 @@ updater.mojom.UpdateServiceReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(updater.mojom.UpdateService_Install_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(updater.mojom.UpdateService_Install_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.install');
           const result = this.impl.install(params.registration, params.client_install_data, params.install_data_index, params.priority, params.language);
           if (header.expectsResponse) {
@@ -865,14 +868,14 @@ updater.mojom.UpdateServiceReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(updater.mojom.UpdateService_CancelInstalls_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(updater.mojom.UpdateService_CancelInstalls_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.cancelInstalls');
           const result = this.impl.cancelInstalls(params.app_id);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(updater.mojom.UpdateService_RunInstaller_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(updater.mojom.UpdateService_RunInstaller_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.runInstaller');
           const result = this.impl.runInstaller(params.app_id, params.installer_path, params.install_args, params.install_data, params.install_settings, params.language);
           if (header.expectsResponse) {
@@ -885,7 +888,7 @@ updater.mojom.UpdateServiceReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(updater.mojom.UpdateService_CheckForUpdate_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(updater.mojom.UpdateService_CheckForUpdate_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.checkForUpdate');
           const result = this.impl.checkForUpdate(params.app_id, params.priority, params.policy_same_version_update, params.language);
           if (header.expectsResponse) {
@@ -898,7 +901,7 @@ updater.mojom.UpdateServiceReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(updater.mojom.UpdateService_GetUpdaterState_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(updater.mojom.UpdateService_GetUpdaterState_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getUpdaterState');
           const result = this.impl.getUpdaterState();
           if (header.expectsResponse) {
@@ -911,7 +914,7 @@ updater.mojom.UpdateServiceReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(updater.mojom.UpdateService_GetUpdaterPolicies_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(updater.mojom.UpdateService_GetUpdaterPolicies_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getUpdaterPolicies');
           const result = this.impl.getUpdaterPolicies();
           if (header.expectsResponse) {
@@ -924,7 +927,7 @@ updater.mojom.UpdateServiceReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(updater.mojom.UpdateService_GetAppPolicies_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(updater.mojom.UpdateService_GetAppPolicies_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getAppPolicies');
           const result = this.impl.getAppPolicies();
           if (header.expectsResponse) {
@@ -1046,9 +1049,11 @@ updater.mojom.StateChangeObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1062,12 +1067,13 @@ updater.mojom.StateChangeObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnStateChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(updater.mojom.StateChangeObserver_OnStateChange_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(updater.mojom.StateChangeObserver_OnStateChange_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStateChange (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1078,7 +1084,7 @@ updater.mojom.StateChangeObserverReceiver = class {
         // Try Method 1: OnComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(updater.mojom.StateChangeObserver_OnComplete_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(updater.mojom.StateChangeObserver_OnComplete_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnComplete (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1095,14 +1101,14 @@ updater.mojom.StateChangeObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(updater.mojom.StateChangeObserver_OnStateChange_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(updater.mojom.StateChangeObserver_OnStateChange_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onStateChange');
           const result = this.impl.onStateChange(params.state);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(updater.mojom.StateChangeObserver_OnComplete_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(updater.mojom.StateChangeObserver_OnComplete_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onComplete');
           const result = this.impl.onComplete(params.result);
           break;

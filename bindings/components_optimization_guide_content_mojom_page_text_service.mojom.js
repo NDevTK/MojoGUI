@@ -129,9 +129,11 @@ optimization_guide.mojom.PageTextConsumerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -145,12 +147,13 @@ optimization_guide.mojom.PageTextConsumerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnTextDumpChunk
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTextDumpChunk (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -161,7 +164,7 @@ optimization_guide.mojom.PageTextConsumerReceiver = class {
         // Try Method 1: OnChunksEnd
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(optimization_guide.mojom.PageTextConsumer_OnChunksEnd_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(optimization_guide.mojom.PageTextConsumer_OnChunksEnd_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnChunksEnd (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -178,14 +181,14 @@ optimization_guide.mojom.PageTextConsumerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onTextDumpChunk');
           const result = this.impl.onTextDumpChunk(params.chunk);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(optimization_guide.mojom.PageTextConsumer_OnChunksEnd_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(optimization_guide.mojom.PageTextConsumer_OnChunksEnd_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onChunksEnd');
           const result = this.impl.onChunksEnd();
           break;
@@ -285,9 +288,11 @@ optimization_guide.mojom.PageTextServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -301,12 +306,13 @@ optimization_guide.mojom.PageTextServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: RequestPageTextDump
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestPageTextDump (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -323,7 +329,7 @@ optimization_guide.mojom.PageTextServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestPageTextDump');
           const result = this.impl.requestPageTextDump(params.request, params.consumer);
           break;

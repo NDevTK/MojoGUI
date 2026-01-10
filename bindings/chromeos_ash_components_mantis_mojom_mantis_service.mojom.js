@@ -117,9 +117,11 @@ mantis.mojom.PlatformModelProgressObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -133,12 +135,13 @@ mantis.mojom.PlatformModelProgressObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Progress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(mantis.mojom.PlatformModelProgressObserver_Progress_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(mantis.mojom.PlatformModelProgressObserver_Progress_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Progress (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -155,7 +158,7 @@ mantis.mojom.PlatformModelProgressObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(mantis.mojom.PlatformModelProgressObserver_Progress_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(mantis.mojom.PlatformModelProgressObserver_Progress_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.progress');
           const result = this.impl.progress(params.progress);
           break;
@@ -285,9 +288,11 @@ mantis.mojom.MantisServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -301,12 +306,13 @@ mantis.mojom.MantisServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetMantisFeatureStatus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(mantis.mojom.MantisService_GetMantisFeatureStatus_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(mantis.mojom.MantisService_GetMantisFeatureStatus_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMantisFeatureStatus (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -317,7 +323,7 @@ mantis.mojom.MantisServiceReceiver = class {
         // Try Method 1: Initialize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(mantis.mojom.MantisService_Initialize_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(mantis.mojom.MantisService_Initialize_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Initialize (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -334,7 +340,7 @@ mantis.mojom.MantisServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(mantis.mojom.MantisService_GetMantisFeatureStatus_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(mantis.mojom.MantisService_GetMantisFeatureStatus_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getMantisFeatureStatus');
           const result = this.impl.getMantisFeatureStatus();
           if (header.expectsResponse) {
@@ -347,7 +353,7 @@ mantis.mojom.MantisServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(mantis.mojom.MantisService_Initialize_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(mantis.mojom.MantisService_Initialize_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.initialize');
           const result = this.impl.initialize(params.progress_observer, params.processor, params.dlc_uuid, params.text_classifier);
           if (header.expectsResponse) {

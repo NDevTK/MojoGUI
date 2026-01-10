@@ -192,9 +192,11 @@ arc.mojom.PolicyHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -208,12 +210,13 @@ arc.mojom.PolicyHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetPolicies
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.PolicyHost_GetPolicies_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.PolicyHost_GetPolicies_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPolicies (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -224,7 +227,7 @@ arc.mojom.PolicyHostReceiver = class {
         // Try Method 1: ReportCompliance
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.PolicyHost_ReportCompliance_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.PolicyHost_ReportCompliance_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportCompliance (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -235,7 +238,7 @@ arc.mojom.PolicyHostReceiver = class {
         // Try Method 2: ReportDPCVersion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.PolicyHost_ReportDPCVersion_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.PolicyHost_ReportDPCVersion_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportDPCVersion (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -246,7 +249,7 @@ arc.mojom.PolicyHostReceiver = class {
         // Try Method 3: ReportPlayStoreLocalPolicySet
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.PolicyHost_ReportPlayStoreLocalPolicySet_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.PolicyHost_ReportPlayStoreLocalPolicySet_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportPlayStoreLocalPolicySet (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -263,7 +266,7 @@ arc.mojom.PolicyHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.PolicyHost_GetPolicies_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.PolicyHost_GetPolicies_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getPolicies');
           const result = this.impl.getPolicies();
           if (header.expectsResponse) {
@@ -276,7 +279,7 @@ arc.mojom.PolicyHostReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.PolicyHost_ReportCompliance_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.PolicyHost_ReportCompliance_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.reportCompliance');
           const result = this.impl.reportCompliance(params.request);
           if (header.expectsResponse) {
@@ -289,14 +292,14 @@ arc.mojom.PolicyHostReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.PolicyHost_ReportDPCVersion_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.PolicyHost_ReportDPCVersion_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.reportDPCVersion');
           const result = this.impl.reportDPCVersion(params.version);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.PolicyHost_ReportPlayStoreLocalPolicySet_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.PolicyHost_ReportPlayStoreLocalPolicySet_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.reportPlayStoreLocalPolicySet');
           const result = this.impl.reportPlayStoreLocalPolicySet(params.time, params.package_names);
           break;
@@ -439,9 +442,11 @@ arc.mojom.PolicyInstanceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -455,12 +460,13 @@ arc.mojom.PolicyInstanceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.PolicyInstance_Init_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.PolicyInstance_Init_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -471,7 +477,7 @@ arc.mojom.PolicyInstanceReceiver = class {
         // Try Method 1: OnPolicyUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.PolicyInstance_OnPolicyUpdated_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.PolicyInstance_OnPolicyUpdated_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPolicyUpdated (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -482,7 +488,7 @@ arc.mojom.PolicyInstanceReceiver = class {
         // Try Method 2: OnCommandReceived
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.PolicyInstance_OnCommandReceived_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.PolicyInstance_OnCommandReceived_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCommandReceived (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -499,7 +505,7 @@ arc.mojom.PolicyInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.PolicyInstance_Init_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.PolicyInstance_Init_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -512,14 +518,14 @@ arc.mojom.PolicyInstanceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.PolicyInstance_OnPolicyUpdated_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.PolicyInstance_OnPolicyUpdated_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onPolicyUpdated');
           const result = this.impl.onPolicyUpdated();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.PolicyInstance_OnCommandReceived_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.PolicyInstance_OnCommandReceived_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onCommandReceived');
           const result = this.impl.onCommandReceived(params.command);
           if (header.expectsResponse) {

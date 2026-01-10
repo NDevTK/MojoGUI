@@ -182,9 +182,11 @@ arc.mojom.ArcWifiHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -198,12 +200,13 @@ arc.mojom.ArcWifiHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetWifiEnabledState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.ArcWifiHost_GetWifiEnabledState_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.ArcWifiHost_GetWifiEnabledState_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetWifiEnabledState (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -214,7 +217,7 @@ arc.mojom.ArcWifiHostReceiver = class {
         // Try Method 1: SetWifiEnabledState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.ArcWifiHost_SetWifiEnabledState_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.ArcWifiHost_SetWifiEnabledState_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetWifiEnabledState (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -225,7 +228,7 @@ arc.mojom.ArcWifiHostReceiver = class {
         // Try Method 2: StartScan
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.ArcWifiHost_StartScan_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.ArcWifiHost_StartScan_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartScan (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -236,7 +239,7 @@ arc.mojom.ArcWifiHostReceiver = class {
         // Try Method 3: GetScanResults
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.ArcWifiHost_GetScanResults_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.ArcWifiHost_GetScanResults_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetScanResults (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -253,7 +256,7 @@ arc.mojom.ArcWifiHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.ArcWifiHost_GetWifiEnabledState_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.ArcWifiHost_GetWifiEnabledState_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getWifiEnabledState');
           const result = this.impl.getWifiEnabledState();
           if (header.expectsResponse) {
@@ -266,7 +269,7 @@ arc.mojom.ArcWifiHostReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.ArcWifiHost_SetWifiEnabledState_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.ArcWifiHost_SetWifiEnabledState_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setWifiEnabledState');
           const result = this.impl.setWifiEnabledState(params.enabled);
           if (header.expectsResponse) {
@@ -279,14 +282,14 @@ arc.mojom.ArcWifiHostReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.ArcWifiHost_StartScan_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.ArcWifiHost_StartScan_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.startScan');
           const result = this.impl.startScan();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.ArcWifiHost_GetScanResults_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.ArcWifiHost_GetScanResults_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getScanResults');
           const result = this.impl.getScanResults();
           if (header.expectsResponse) {
@@ -429,9 +432,11 @@ arc.mojom.ArcWifiInstanceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -445,12 +450,13 @@ arc.mojom.ArcWifiInstanceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.ArcWifiInstance_Init_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.ArcWifiInstance_Init_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -461,7 +467,7 @@ arc.mojom.ArcWifiInstanceReceiver = class {
         // Try Method 1: WifiEnabledStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.ArcWifiInstance_WifiEnabledStateChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.ArcWifiInstance_WifiEnabledStateChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WifiEnabledStateChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -472,7 +478,7 @@ arc.mojom.ArcWifiInstanceReceiver = class {
         // Try Method 2: ScanCompleted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.ArcWifiInstance_ScanCompleted_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.ArcWifiInstance_ScanCompleted_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ScanCompleted (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -489,7 +495,7 @@ arc.mojom.ArcWifiInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.ArcWifiInstance_Init_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.ArcWifiInstance_Init_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -502,14 +508,14 @@ arc.mojom.ArcWifiInstanceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.ArcWifiInstance_WifiEnabledStateChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.ArcWifiInstance_WifiEnabledStateChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.wifiEnabledStateChanged');
           const result = this.impl.wifiEnabledStateChanged(params.enabled);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.ArcWifiInstance_ScanCompleted_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.ArcWifiInstance_ScanCompleted_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.scanCompleted');
           const result = this.impl.scanCompleted();
           break;

@@ -133,9 +133,11 @@ chrome.mojom.NetworkEasterEggReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -149,12 +151,13 @@ chrome.mojom.NetworkEasterEggReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetHighScore
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.NetworkEasterEgg_GetHighScore_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.NetworkEasterEgg_GetHighScore_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetHighScore (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -165,7 +168,7 @@ chrome.mojom.NetworkEasterEggReceiver = class {
         // Try Method 1: UpdateHighScore
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.NetworkEasterEgg_UpdateHighScore_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.NetworkEasterEgg_UpdateHighScore_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateHighScore (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -176,7 +179,7 @@ chrome.mojom.NetworkEasterEggReceiver = class {
         // Try Method 2: ResetHighScore
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.NetworkEasterEgg_ResetHighScore_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.NetworkEasterEgg_ResetHighScore_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResetHighScore (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -193,7 +196,7 @@ chrome.mojom.NetworkEasterEggReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.NetworkEasterEgg_GetHighScore_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.NetworkEasterEgg_GetHighScore_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getHighScore');
           const result = this.impl.getHighScore();
           if (header.expectsResponse) {
@@ -206,14 +209,14 @@ chrome.mojom.NetworkEasterEggReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.NetworkEasterEgg_UpdateHighScore_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.NetworkEasterEgg_UpdateHighScore_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.updateHighScore');
           const result = this.impl.updateHighScore(params.high_score);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.NetworkEasterEgg_ResetHighScore_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.NetworkEasterEgg_ResetHighScore_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.resetHighScore');
           const result = this.impl.resetHighScore();
           break;

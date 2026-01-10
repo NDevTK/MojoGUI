@@ -162,9 +162,11 @@ translate.mojom.TranslateAgentReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -178,12 +180,13 @@ translate.mojom.TranslateAgentReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: TranslateFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(translate.mojom.TranslateAgent_TranslateFrame_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(translate.mojom.TranslateAgent_TranslateFrame_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TranslateFrame (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -194,7 +197,7 @@ translate.mojom.TranslateAgentReceiver = class {
         // Try Method 1: RevertTranslation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(translate.mojom.TranslateAgent_RevertTranslation_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(translate.mojom.TranslateAgent_RevertTranslation_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RevertTranslation (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -211,7 +214,7 @@ translate.mojom.TranslateAgentReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(translate.mojom.TranslateAgent_TranslateFrame_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(translate.mojom.TranslateAgent_TranslateFrame_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.translateFrame');
           const result = this.impl.translateFrame(params.translate_script, params.source_lang, params.target_lang);
           if (header.expectsResponse) {
@@ -224,7 +227,7 @@ translate.mojom.TranslateAgentReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(translate.mojom.TranslateAgent_RevertTranslation_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(translate.mojom.TranslateAgent_RevertTranslation_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.revertTranslation');
           const result = this.impl.revertTranslation();
           break;
@@ -325,9 +328,11 @@ translate.mojom.ContentTranslateDriverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -341,12 +346,13 @@ translate.mojom.ContentTranslateDriverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: RegisterPage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(translate.mojom.ContentTranslateDriver_RegisterPage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(translate.mojom.ContentTranslateDriver_RegisterPage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterPage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -363,7 +369,7 @@ translate.mojom.ContentTranslateDriverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(translate.mojom.ContentTranslateDriver_RegisterPage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(translate.mojom.ContentTranslateDriver_RegisterPage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.registerPage');
           const result = this.impl.registerPage(params.translate_agent, params.details, params.translation_critiera_met);
           break;

@@ -270,9 +270,11 @@ browsing_topics.mojom.PageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -286,12 +288,13 @@ browsing_topics.mojom.PageHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetBrowsingTopicsConfiguration
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetBrowsingTopicsConfiguration (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -302,7 +305,7 @@ browsing_topics.mojom.PageHandlerReceiver = class {
         // Try Method 1: GetBrowsingTopicsState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetBrowsingTopicsState (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -313,7 +316,7 @@ browsing_topics.mojom.PageHandlerReceiver = class {
         // Try Method 2: GetModelInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(browsing_topics.mojom.PageHandler_GetModelInfo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(browsing_topics.mojom.PageHandler_GetModelInfo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetModelInfo (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -324,7 +327,7 @@ browsing_topics.mojom.PageHandlerReceiver = class {
         // Try Method 3: ClassifyHosts
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(browsing_topics.mojom.PageHandler_ClassifyHosts_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(browsing_topics.mojom.PageHandler_ClassifyHosts_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClassifyHosts (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -341,7 +344,7 @@ browsing_topics.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getBrowsingTopicsConfiguration');
           const result = this.impl.getBrowsingTopicsConfiguration();
           if (header.expectsResponse) {
@@ -354,7 +357,7 @@ browsing_topics.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getBrowsingTopicsState');
           const result = this.impl.getBrowsingTopicsState(params.calculate_now);
           if (header.expectsResponse) {
@@ -367,7 +370,7 @@ browsing_topics.mojom.PageHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(browsing_topics.mojom.PageHandler_GetModelInfo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(browsing_topics.mojom.PageHandler_GetModelInfo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getModelInfo');
           const result = this.impl.getModelInfo();
           if (header.expectsResponse) {
@@ -380,7 +383,7 @@ browsing_topics.mojom.PageHandlerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(browsing_topics.mojom.PageHandler_ClassifyHosts_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(browsing_topics.mojom.PageHandler_ClassifyHosts_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.classifyHosts');
           const result = this.impl.classifyHosts(params.hosts);
           if (header.expectsResponse) {

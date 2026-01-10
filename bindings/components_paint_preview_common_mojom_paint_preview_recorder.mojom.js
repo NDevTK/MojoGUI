@@ -191,9 +191,11 @@ paint_preview.mojom.PaintPreviewRecorderReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -207,12 +209,13 @@ paint_preview.mojom.PaintPreviewRecorderReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CapturePaintPreview
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(paint_preview.mojom.PaintPreviewRecorder_CapturePaintPreview_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(paint_preview.mojom.PaintPreviewRecorder_CapturePaintPreview_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CapturePaintPreview (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -223,7 +226,7 @@ paint_preview.mojom.PaintPreviewRecorderReceiver = class {
         // Try Method 1: GetGeometryMetadata
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetGeometryMetadata (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -240,14 +243,14 @@ paint_preview.mojom.PaintPreviewRecorderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(paint_preview.mojom.PaintPreviewRecorder_CapturePaintPreview_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(paint_preview.mojom.PaintPreviewRecorder_CapturePaintPreview_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.capturePaintPreview');
           const result = this.impl.capturePaintPreview(params.params);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getGeometryMetadata');
           const result = this.impl.getGeometryMetadata(params.params);
           if (header.expectsResponse) {

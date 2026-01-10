@@ -250,9 +250,11 @@ font_data_service.mojom.FontDataServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -266,12 +268,13 @@ font_data_service.mojom.FontDataServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: MatchFamilyName
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(font_data_service.mojom.FontDataService_MatchFamilyName_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(font_data_service.mojom.FontDataService_MatchFamilyName_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MatchFamilyName (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -282,7 +285,7 @@ font_data_service.mojom.FontDataServiceReceiver = class {
         // Try Method 1: MatchFamilyNameCharacter
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MatchFamilyNameCharacter (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -293,7 +296,7 @@ font_data_service.mojom.FontDataServiceReceiver = class {
         // Try Method 2: GetAllFamilyNames
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(font_data_service.mojom.FontDataService_GetAllFamilyNames_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(font_data_service.mojom.FontDataService_GetAllFamilyNames_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAllFamilyNames (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -304,7 +307,7 @@ font_data_service.mojom.FontDataServiceReceiver = class {
         // Try Method 3: LegacyMakeTypeface
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(font_data_service.mojom.FontDataService_LegacyMakeTypeface_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(font_data_service.mojom.FontDataService_LegacyMakeTypeface_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LegacyMakeTypeface (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -321,7 +324,7 @@ font_data_service.mojom.FontDataServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(font_data_service.mojom.FontDataService_MatchFamilyName_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(font_data_service.mojom.FontDataService_MatchFamilyName_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.matchFamilyName');
           const result = this.impl.matchFamilyName(params.family_name, params.style);
           if (header.expectsResponse) {
@@ -334,7 +337,7 @@ font_data_service.mojom.FontDataServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.matchFamilyNameCharacter');
           const result = this.impl.matchFamilyNameCharacter(params.family_name, params.style, params.bcp47s, params.character);
           if (header.expectsResponse) {
@@ -347,7 +350,7 @@ font_data_service.mojom.FontDataServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(font_data_service.mojom.FontDataService_GetAllFamilyNames_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(font_data_service.mojom.FontDataService_GetAllFamilyNames_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getAllFamilyNames');
           const result = this.impl.getAllFamilyNames();
           if (header.expectsResponse) {
@@ -360,7 +363,7 @@ font_data_service.mojom.FontDataServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(font_data_service.mojom.FontDataService_LegacyMakeTypeface_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(font_data_service.mojom.FontDataService_LegacyMakeTypeface_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.legacyMakeTypeface');
           const result = this.impl.legacyMakeTypeface(params.family_name, params.style);
           if (header.expectsResponse) {

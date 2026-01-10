@@ -172,9 +172,11 @@ storage.mojom.QuotaClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -188,12 +190,13 @@ storage.mojom.QuotaClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetBucketUsage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(storage.mojom.QuotaClient_GetBucketUsage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(storage.mojom.QuotaClient_GetBucketUsage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetBucketUsage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -204,7 +207,7 @@ storage.mojom.QuotaClientReceiver = class {
         // Try Method 1: GetDefaultStorageKeys
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(storage.mojom.QuotaClient_GetDefaultStorageKeys_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(storage.mojom.QuotaClient_GetDefaultStorageKeys_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDefaultStorageKeys (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -215,7 +218,7 @@ storage.mojom.QuotaClientReceiver = class {
         // Try Method 2: DeleteBucketData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(storage.mojom.QuotaClient_DeleteBucketData_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(storage.mojom.QuotaClient_DeleteBucketData_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteBucketData (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -226,7 +229,7 @@ storage.mojom.QuotaClientReceiver = class {
         // Try Method 3: PerformStorageCleanup
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(storage.mojom.QuotaClient_PerformStorageCleanup_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(storage.mojom.QuotaClient_PerformStorageCleanup_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PerformStorageCleanup (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -243,7 +246,7 @@ storage.mojom.QuotaClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.QuotaClient_GetBucketUsage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(storage.mojom.QuotaClient_GetBucketUsage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getBucketUsage');
           const result = this.impl.getBucketUsage(params.bucket);
           if (header.expectsResponse) {
@@ -256,7 +259,7 @@ storage.mojom.QuotaClientReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.QuotaClient_GetDefaultStorageKeys_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(storage.mojom.QuotaClient_GetDefaultStorageKeys_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getDefaultStorageKeys');
           const result = this.impl.getDefaultStorageKeys();
           if (header.expectsResponse) {
@@ -269,7 +272,7 @@ storage.mojom.QuotaClientReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.QuotaClient_DeleteBucketData_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(storage.mojom.QuotaClient_DeleteBucketData_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.deleteBucketData');
           const result = this.impl.deleteBucketData(params.bucket);
           if (header.expectsResponse) {
@@ -282,7 +285,7 @@ storage.mojom.QuotaClientReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.QuotaClient_PerformStorageCleanup_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(storage.mojom.QuotaClient_PerformStorageCleanup_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.performStorageCleanup');
           const result = this.impl.performStorageCleanup();
           if (header.expectsResponse) {

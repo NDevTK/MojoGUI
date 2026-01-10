@@ -164,9 +164,11 @@ blink.mojom.CookieStoreReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -180,12 +182,13 @@ blink.mojom.CookieStoreReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AddSubscriptions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.CookieStore_AddSubscriptions_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.CookieStore_AddSubscriptions_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddSubscriptions (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -196,7 +199,7 @@ blink.mojom.CookieStoreReceiver = class {
         // Try Method 1: RemoveSubscriptions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.CookieStore_RemoveSubscriptions_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.CookieStore_RemoveSubscriptions_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveSubscriptions (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -207,7 +210,7 @@ blink.mojom.CookieStoreReceiver = class {
         // Try Method 2: GetSubscriptions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.CookieStore_GetSubscriptions_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.CookieStore_GetSubscriptions_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSubscriptions (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -224,7 +227,7 @@ blink.mojom.CookieStoreReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.CookieStore_AddSubscriptions_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.CookieStore_AddSubscriptions_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addSubscriptions');
           const result = this.impl.addSubscriptions(params.service_worker_registration_id, params.subscription);
           if (header.expectsResponse) {
@@ -237,7 +240,7 @@ blink.mojom.CookieStoreReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.CookieStore_RemoveSubscriptions_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.CookieStore_RemoveSubscriptions_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.removeSubscriptions');
           const result = this.impl.removeSubscriptions(params.service_worker_registration_id, params.subscription);
           if (header.expectsResponse) {
@@ -250,7 +253,7 @@ blink.mojom.CookieStoreReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.CookieStore_GetSubscriptions_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.CookieStore_GetSubscriptions_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getSubscriptions');
           const result = this.impl.getSubscriptions(params.service_worker_registration_id);
           if (header.expectsResponse) {

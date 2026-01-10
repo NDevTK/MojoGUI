@@ -138,9 +138,11 @@ prefs.mojom.TrackedPreferenceValidationDelegateReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -154,12 +156,13 @@ prefs.mojom.TrackedPreferenceValidationDelegateReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnAtomicPreferenceValidation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAtomicPreferenceValidation (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -170,7 +173,7 @@ prefs.mojom.TrackedPreferenceValidationDelegateReceiver = class {
         // Try Method 1: OnSplitPreferenceValidation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSplitPreferenceValidation (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -187,14 +190,14 @@ prefs.mojom.TrackedPreferenceValidationDelegateReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onAtomicPreferenceValidation');
           const result = this.impl.onAtomicPreferenceValidation(params.pref_path, params.value, params.value_state, params.external_validation_value_state, params.is_personal);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onSplitPreferenceValidation');
           const result = this.impl.onSplitPreferenceValidation(params.pref_path, params.invalid_keys, params.external_validation_invalid_keys, params.value_state, params.external_validation_value_state, params.is_personal);
           break;

@@ -160,9 +160,11 @@ metrics_reporter.mojom.PageMetricsHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -176,12 +178,13 @@ metrics_reporter.mojom.PageMetricsHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnPageRemoteCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPageRemoteCreated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -192,7 +195,7 @@ metrics_reporter.mojom.PageMetricsHostReceiver = class {
         // Try Method 1: OnGetMark
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(metrics_reporter.mojom.PageMetricsHost_OnGetMark_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(metrics_reporter.mojom.PageMetricsHost_OnGetMark_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnGetMark (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -203,7 +206,7 @@ metrics_reporter.mojom.PageMetricsHostReceiver = class {
         // Try Method 2: OnClearMark
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(metrics_reporter.mojom.PageMetricsHost_OnClearMark_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(metrics_reporter.mojom.PageMetricsHost_OnClearMark_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnClearMark (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -214,7 +217,7 @@ metrics_reporter.mojom.PageMetricsHostReceiver = class {
         // Try Method 3: OnUmaReportTime
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnUmaReportTime (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -231,14 +234,14 @@ metrics_reporter.mojom.PageMetricsHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onPageRemoteCreated');
           const result = this.impl.onPageRemoteCreated(params.page);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(metrics_reporter.mojom.PageMetricsHost_OnGetMark_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(metrics_reporter.mojom.PageMetricsHost_OnGetMark_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onGetMark');
           const result = this.impl.onGetMark(params.name);
           if (header.expectsResponse) {
@@ -251,14 +254,14 @@ metrics_reporter.mojom.PageMetricsHostReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(metrics_reporter.mojom.PageMetricsHost_OnClearMark_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(metrics_reporter.mojom.PageMetricsHost_OnClearMark_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onClearMark');
           const result = this.impl.onClearMark(params.name);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onUmaReportTime');
           const result = this.impl.onUmaReportTime(params.name, params.time);
           break;
@@ -380,9 +383,11 @@ metrics_reporter.mojom.PageMetricsReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -396,12 +401,13 @@ metrics_reporter.mojom.PageMetricsReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnGetMark
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(metrics_reporter.mojom.PageMetrics_OnGetMark_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(metrics_reporter.mojom.PageMetrics_OnGetMark_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnGetMark (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -412,7 +418,7 @@ metrics_reporter.mojom.PageMetricsReceiver = class {
         // Try Method 1: OnClearMark
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(metrics_reporter.mojom.PageMetrics_OnClearMark_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(metrics_reporter.mojom.PageMetrics_OnClearMark_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnClearMark (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -429,7 +435,7 @@ metrics_reporter.mojom.PageMetricsReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(metrics_reporter.mojom.PageMetrics_OnGetMark_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(metrics_reporter.mojom.PageMetrics_OnGetMark_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onGetMark');
           const result = this.impl.onGetMark(params.name);
           if (header.expectsResponse) {
@@ -442,7 +448,7 @@ metrics_reporter.mojom.PageMetricsReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(metrics_reporter.mojom.PageMetrics_OnClearMark_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(metrics_reporter.mojom.PageMetrics_OnClearMark_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onClearMark');
           const result = this.impl.onClearMark(params.name);
           break;

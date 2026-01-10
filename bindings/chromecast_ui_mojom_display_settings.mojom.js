@@ -240,9 +240,11 @@ chromecast.mojom.DisplaySettingsReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -256,12 +258,13 @@ chromecast.mojom.DisplaySettingsReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetColorTemperature
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromecast.mojom.DisplaySettings_SetColorTemperature_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromecast.mojom.DisplaySettings_SetColorTemperature_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetColorTemperature (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -272,7 +275,7 @@ chromecast.mojom.DisplaySettingsReceiver = class {
         // Try Method 1: SetColorTemperatureSmooth
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromecast.mojom.DisplaySettings_SetColorTemperatureSmooth_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromecast.mojom.DisplaySettings_SetColorTemperatureSmooth_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetColorTemperatureSmooth (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -283,7 +286,7 @@ chromecast.mojom.DisplaySettingsReceiver = class {
         // Try Method 2: ResetColorTemperature
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromecast.mojom.DisplaySettings_ResetColorTemperature_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromecast.mojom.DisplaySettings_ResetColorTemperature_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResetColorTemperature (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -294,7 +297,7 @@ chromecast.mojom.DisplaySettingsReceiver = class {
         // Try Method 3: SetBrightness
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromecast.mojom.DisplaySettings_SetBrightness_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromecast.mojom.DisplaySettings_SetBrightness_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBrightness (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -305,7 +308,7 @@ chromecast.mojom.DisplaySettingsReceiver = class {
         // Try Method 4: SetBrightnessSmooth
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromecast.mojom.DisplaySettings_SetBrightnessSmooth_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromecast.mojom.DisplaySettings_SetBrightnessSmooth_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBrightnessSmooth (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -316,7 +319,7 @@ chromecast.mojom.DisplaySettingsReceiver = class {
         // Try Method 5: ResetBrightness
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromecast.mojom.DisplaySettings_ResetBrightness_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromecast.mojom.DisplaySettings_ResetBrightness_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResetBrightness (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -327,7 +330,7 @@ chromecast.mojom.DisplaySettingsReceiver = class {
         // Try Method 6: SetScreenOn
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromecast.mojom.DisplaySettings_SetScreenOn_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromecast.mojom.DisplaySettings_SetScreenOn_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetScreenOn (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -338,7 +341,7 @@ chromecast.mojom.DisplaySettingsReceiver = class {
         // Try Method 7: SetAllowScreenPowerOff
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromecast.mojom.DisplaySettings_SetAllowScreenPowerOff_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromecast.mojom.DisplaySettings_SetAllowScreenPowerOff_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAllowScreenPowerOff (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -349,7 +352,7 @@ chromecast.mojom.DisplaySettingsReceiver = class {
         // Try Method 8: AddDisplaySettingsObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromecast.mojom.DisplaySettings_AddDisplaySettingsObserver_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromecast.mojom.DisplaySettings_AddDisplaySettingsObserver_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddDisplaySettingsObserver (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -366,63 +369,63 @@ chromecast.mojom.DisplaySettingsReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.mojom.DisplaySettings_SetColorTemperature_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromecast.mojom.DisplaySettings_SetColorTemperature_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setColorTemperature');
           const result = this.impl.setColorTemperature(params.kelvin);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.mojom.DisplaySettings_SetColorTemperatureSmooth_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromecast.mojom.DisplaySettings_SetColorTemperatureSmooth_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setColorTemperatureSmooth');
           const result = this.impl.setColorTemperatureSmooth(params.kelvin, params.duration);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.mojom.DisplaySettings_ResetColorTemperature_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromecast.mojom.DisplaySettings_ResetColorTemperature_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.resetColorTemperature');
           const result = this.impl.resetColorTemperature();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.mojom.DisplaySettings_SetBrightness_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromecast.mojom.DisplaySettings_SetBrightness_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setBrightness');
           const result = this.impl.setBrightness(params.brightness);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.mojom.DisplaySettings_SetBrightnessSmooth_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromecast.mojom.DisplaySettings_SetBrightnessSmooth_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setBrightnessSmooth');
           const result = this.impl.setBrightnessSmooth(params.brightness, params.duration);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.mojom.DisplaySettings_ResetBrightness_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromecast.mojom.DisplaySettings_ResetBrightness_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.resetBrightness');
           const result = this.impl.resetBrightness();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.mojom.DisplaySettings_SetScreenOn_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromecast.mojom.DisplaySettings_SetScreenOn_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setScreenOn');
           const result = this.impl.setScreenOn(params.display_on);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.mojom.DisplaySettings_SetAllowScreenPowerOff_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromecast.mojom.DisplaySettings_SetAllowScreenPowerOff_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setAllowScreenPowerOff');
           const result = this.impl.setAllowScreenPowerOff(params.allow_power_off);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.mojom.DisplaySettings_AddDisplaySettingsObserver_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromecast.mojom.DisplaySettings_AddDisplaySettingsObserver_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addDisplaySettingsObserver');
           const result = this.impl.addDisplaySettingsObserver(params.observer);
           break;
@@ -521,9 +524,11 @@ chromecast.mojom.DisplaySettingsObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -537,12 +542,13 @@ chromecast.mojom.DisplaySettingsObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnDisplayBrightnessChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromecast.mojom.DisplaySettingsObserver_OnDisplayBrightnessChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromecast.mojom.DisplaySettingsObserver_OnDisplayBrightnessChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDisplayBrightnessChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -559,7 +565,7 @@ chromecast.mojom.DisplaySettingsObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.mojom.DisplaySettingsObserver_OnDisplayBrightnessChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromecast.mojom.DisplaySettingsObserver_OnDisplayBrightnessChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onDisplayBrightnessChanged');
           const result = this.impl.onDisplayBrightnessChanged(params.brightness);
           break;

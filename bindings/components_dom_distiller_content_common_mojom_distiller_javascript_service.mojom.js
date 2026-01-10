@@ -145,9 +145,11 @@ dom_distiller.mojom.DistillerJavaScriptServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -161,12 +163,13 @@ dom_distiller.mojom.DistillerJavaScriptServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: HandleDistillerOpenSettingsCall
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleDistillerOpenSettingsCall (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -177,7 +180,7 @@ dom_distiller.mojom.DistillerJavaScriptServiceReceiver = class {
         // Try Method 1: HandleStoreThemePref
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleStoreThemePref (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -188,7 +191,7 @@ dom_distiller.mojom.DistillerJavaScriptServiceReceiver = class {
         // Try Method 2: HandleStoreFontFamilyPref
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleStoreFontFamilyPref (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -199,7 +202,7 @@ dom_distiller.mojom.DistillerJavaScriptServiceReceiver = class {
         // Try Method 3: HandleStoreFontScalingPref
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleStoreFontScalingPref (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -216,28 +219,28 @@ dom_distiller.mojom.DistillerJavaScriptServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.handleDistillerOpenSettingsCall');
           const result = this.impl.handleDistillerOpenSettingsCall();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.handleStoreThemePref');
           const result = this.impl.handleStoreThemePref(params.theme);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.handleStoreFontFamilyPref');
           const result = this.impl.handleStoreFontFamilyPref(params.font_family);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.handleStoreFontScalingPref');
           const result = this.impl.handleStoreFontScalingPref(params.font_scale);
           break;

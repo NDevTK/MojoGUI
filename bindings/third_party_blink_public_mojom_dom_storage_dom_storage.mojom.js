@@ -102,9 +102,11 @@ blink.mojom.DomStorageProviderReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -118,12 +120,13 @@ blink.mojom.DomStorageProviderReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: BindDomStorage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.DomStorageProvider_BindDomStorage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.DomStorageProvider_BindDomStorage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindDomStorage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -140,7 +143,7 @@ blink.mojom.DomStorageProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.DomStorageProvider_BindDomStorage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.DomStorageProvider_BindDomStorage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindDomStorage');
           const result = this.impl.bindDomStorage(params.receiver, params.client);
           break;
@@ -279,9 +282,11 @@ blink.mojom.DomStorageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -295,12 +300,13 @@ blink.mojom.DomStorageReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OpenLocalStorage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.DomStorage_OpenLocalStorage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.DomStorage_OpenLocalStorage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenLocalStorage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -311,7 +317,7 @@ blink.mojom.DomStorageReceiver = class {
         // Try Method 1: BindSessionStorageNamespace
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.DomStorage_BindSessionStorageNamespace_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.DomStorage_BindSessionStorageNamespace_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindSessionStorageNamespace (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -322,7 +328,7 @@ blink.mojom.DomStorageReceiver = class {
         // Try Method 2: BindSessionStorageArea
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.DomStorage_BindSessionStorageArea_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.DomStorage_BindSessionStorageArea_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindSessionStorageArea (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -339,21 +345,21 @@ blink.mojom.DomStorageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.DomStorage_OpenLocalStorage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.DomStorage_OpenLocalStorage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.openLocalStorage');
           const result = this.impl.openLocalStorage(params.storage_key, params.local_frame_token, params.area);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.DomStorage_BindSessionStorageNamespace_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.DomStorage_BindSessionStorageNamespace_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindSessionStorageNamespace');
           const result = this.impl.bindSessionStorageNamespace(params.namespace_id, params.receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.DomStorage_BindSessionStorageArea_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.DomStorage_BindSessionStorageArea_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindSessionStorageArea');
           const result = this.impl.bindSessionStorageArea(params.storage_key, params.local_frame_token, params.namespace_id, params.session_namespace);
           break;
@@ -467,9 +473,11 @@ blink.mojom.DomStorageClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -483,12 +491,13 @@ blink.mojom.DomStorageClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ResetSessionStorageConnections
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.DomStorageClient_ResetSessionStorageConnections_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.DomStorageClient_ResetSessionStorageConnections_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResetSessionStorageConnections (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -499,7 +508,7 @@ blink.mojom.DomStorageClientReceiver = class {
         // Try Method 1: ResetLocalStorageConnections
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.DomStorageClient_ResetLocalStorageConnections_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.DomStorageClient_ResetLocalStorageConnections_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResetLocalStorageConnections (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -516,14 +525,14 @@ blink.mojom.DomStorageClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.DomStorageClient_ResetSessionStorageConnections_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.DomStorageClient_ResetSessionStorageConnections_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.resetSessionStorageConnections');
           const result = this.impl.resetSessionStorageConnections();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.DomStorageClient_ResetLocalStorageConnections_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.DomStorageClient_ResetLocalStorageConnections_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.resetLocalStorageConnections');
           const result = this.impl.resetLocalStorageConnections();
           break;

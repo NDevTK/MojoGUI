@@ -109,9 +109,11 @@ customize_buttons.mojom.CustomizeButtonsHandlerFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -125,12 +127,13 @@ customize_buttons.mojom.CustomizeButtonsHandlerFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateCustomizeButtonsHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHandler_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHandler_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateCustomizeButtonsHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -147,7 +150,7 @@ customize_buttons.mojom.CustomizeButtonsHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHandler_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHandler_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createCustomizeButtonsHandler');
           const result = this.impl.createCustomizeButtonsHandler(params.page, params.handler);
           break;
@@ -280,9 +283,11 @@ customize_buttons.mojom.CustomizeButtonsHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -296,12 +301,13 @@ customize_buttons.mojom.CustomizeButtonsHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: IncrementCustomizeChromeButtonOpenCount
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(customize_buttons.mojom.CustomizeButtonsHandler_IncrementCustomizeChromeButtonOpenCount_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(customize_buttons.mojom.CustomizeButtonsHandler_IncrementCustomizeChromeButtonOpenCount_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IncrementCustomizeChromeButtonOpenCount (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -312,7 +318,7 @@ customize_buttons.mojom.CustomizeButtonsHandlerReceiver = class {
         // Try Method 1: IncrementWallpaperSearchButtonShownCount
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(customize_buttons.mojom.CustomizeButtonsHandler_IncrementWallpaperSearchButtonShownCount_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(customize_buttons.mojom.CustomizeButtonsHandler_IncrementWallpaperSearchButtonShownCount_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IncrementWallpaperSearchButtonShownCount (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -323,7 +329,7 @@ customize_buttons.mojom.CustomizeButtonsHandlerReceiver = class {
         // Try Method 2: SetCustomizeChromeSidePanelVisible
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisible_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisible_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCustomizeChromeSidePanelVisible (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -340,21 +346,21 @@ customize_buttons.mojom.CustomizeButtonsHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(customize_buttons.mojom.CustomizeButtonsHandler_IncrementCustomizeChromeButtonOpenCount_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(customize_buttons.mojom.CustomizeButtonsHandler_IncrementCustomizeChromeButtonOpenCount_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.incrementCustomizeChromeButtonOpenCount');
           const result = this.impl.incrementCustomizeChromeButtonOpenCount();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(customize_buttons.mojom.CustomizeButtonsHandler_IncrementWallpaperSearchButtonShownCount_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(customize_buttons.mojom.CustomizeButtonsHandler_IncrementWallpaperSearchButtonShownCount_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.incrementWallpaperSearchButtonShownCount');
           const result = this.impl.incrementWallpaperSearchButtonShownCount();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisible_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisible_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setCustomizeChromeSidePanelVisible');
           const result = this.impl.setCustomizeChromeSidePanelVisible(params.visible, params.section, params.trigger);
           break;
@@ -453,9 +459,11 @@ customize_buttons.mojom.CustomizeButtonsDocumentReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -469,12 +477,13 @@ customize_buttons.mojom.CustomizeButtonsDocumentReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetCustomizeChromeSidePanelVisibility
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(customize_buttons.mojom.CustomizeButtonsDocument_SetCustomizeChromeSidePanelVisibility_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(customize_buttons.mojom.CustomizeButtonsDocument_SetCustomizeChromeSidePanelVisibility_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCustomizeChromeSidePanelVisibility (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -491,7 +500,7 @@ customize_buttons.mojom.CustomizeButtonsDocumentReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(customize_buttons.mojom.CustomizeButtonsDocument_SetCustomizeChromeSidePanelVisibility_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(customize_buttons.mojom.CustomizeButtonsDocument_SetCustomizeChromeSidePanelVisibility_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setCustomizeChromeSidePanelVisibility');
           const result = this.impl.setCustomizeChromeSidePanelVisibility(params.visible);
           break;

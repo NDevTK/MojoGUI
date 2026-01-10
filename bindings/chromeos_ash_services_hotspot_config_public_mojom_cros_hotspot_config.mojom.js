@@ -327,9 +327,11 @@ ash.hotspot_config.mojom.CrosHotspotConfigReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -343,12 +345,13 @@ ash.hotspot_config.mojom.CrosHotspotConfigReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AddObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.hotspot_config.mojom.CrosHotspotConfig_AddObserver_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.hotspot_config.mojom.CrosHotspotConfig_AddObserver_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -359,7 +362,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigReceiver = class {
         // Try Method 1: ObserveEnabledStateChanges
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.hotspot_config.mojom.CrosHotspotConfig_ObserveEnabledStateChanges_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.hotspot_config.mojom.CrosHotspotConfig_ObserveEnabledStateChanges_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveEnabledStateChanges (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -370,7 +373,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigReceiver = class {
         // Try Method 2: GetHotspotInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetHotspotInfo (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -381,7 +384,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigReceiver = class {
         // Try Method 3: SetHotspotConfig
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetHotspotConfig (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -392,7 +395,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigReceiver = class {
         // Try Method 4: EnableHotspot
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableHotspot (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -403,7 +406,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigReceiver = class {
         // Try Method 5: DisableHotspot
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisableHotspot (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -420,21 +423,21 @@ ash.hotspot_config.mojom.CrosHotspotConfigReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.hotspot_config.mojom.CrosHotspotConfig_AddObserver_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.hotspot_config.mojom.CrosHotspotConfig_AddObserver_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.hotspot_config.mojom.CrosHotspotConfig_ObserveEnabledStateChanges_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.hotspot_config.mojom.CrosHotspotConfig_ObserveEnabledStateChanges_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.observeEnabledStateChanges');
           const result = this.impl.observeEnabledStateChanges(params.observer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getHotspotInfo');
           const result = this.impl.getHotspotInfo();
           if (header.expectsResponse) {
@@ -447,7 +450,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setHotspotConfig');
           const result = this.impl.setHotspotConfig(params.config);
           if (header.expectsResponse) {
@@ -460,7 +463,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.enableHotspot');
           const result = this.impl.enableHotspot();
           if (header.expectsResponse) {
@@ -473,7 +476,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.disableHotspot');
           const result = this.impl.disableHotspot();
           if (header.expectsResponse) {
@@ -577,9 +580,11 @@ ash.hotspot_config.mojom.CrosHotspotConfigObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -593,12 +598,13 @@ ash.hotspot_config.mojom.CrosHotspotConfigObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnHotspotInfoChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.hotspot_config.mojom.CrosHotspotConfigObserver_OnHotspotInfoChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.hotspot_config.mojom.CrosHotspotConfigObserver_OnHotspotInfoChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHotspotInfoChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -615,7 +621,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.hotspot_config.mojom.CrosHotspotConfigObserver_OnHotspotInfoChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.hotspot_config.mojom.CrosHotspotConfigObserver_OnHotspotInfoChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onHotspotInfoChanged');
           const result = this.impl.onHotspotInfoChanged();
           break;
@@ -730,9 +736,11 @@ ash.hotspot_config.mojom.HotspotEnabledStateObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -746,12 +754,13 @@ ash.hotspot_config.mojom.HotspotEnabledStateObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnHotspotTurnedOn
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOn_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOn_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHotspotTurnedOn (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -762,7 +771,7 @@ ash.hotspot_config.mojom.HotspotEnabledStateObserverReceiver = class {
         // Try Method 1: OnHotspotTurnedOff
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOff_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOff_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHotspotTurnedOff (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -779,14 +788,14 @@ ash.hotspot_config.mojom.HotspotEnabledStateObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOn_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOn_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onHotspotTurnedOn');
           const result = this.impl.onHotspotTurnedOn();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOff_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOff_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onHotspotTurnedOff');
           const result = this.impl.onHotspotTurnedOff(params.reason);
           break;

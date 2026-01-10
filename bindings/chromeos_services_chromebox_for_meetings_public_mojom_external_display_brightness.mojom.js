@@ -159,9 +159,11 @@ chromeos.cfm.mojom.ExternalDisplayBrightnessReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -175,12 +177,13 @@ chromeos.cfm.mojom.ExternalDisplayBrightnessReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetExternalDisplayALSBrightness
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.cfm.mojom.ExternalDisplayBrightness_SetExternalDisplayALSBrightness_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.cfm.mojom.ExternalDisplayBrightness_SetExternalDisplayALSBrightness_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetExternalDisplayALSBrightness (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -191,7 +194,7 @@ chromeos.cfm.mojom.ExternalDisplayBrightnessReceiver = class {
         // Try Method 1: GetExternalDisplayALSBrightness
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayALSBrightness_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayALSBrightness_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetExternalDisplayALSBrightness (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -202,7 +205,7 @@ chromeos.cfm.mojom.ExternalDisplayBrightnessReceiver = class {
         // Try Method 2: SetExternalDisplayBrightnessPercent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.cfm.mojom.ExternalDisplayBrightness_SetExternalDisplayBrightnessPercent_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.cfm.mojom.ExternalDisplayBrightness_SetExternalDisplayBrightnessPercent_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetExternalDisplayBrightnessPercent (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -213,7 +216,7 @@ chromeos.cfm.mojom.ExternalDisplayBrightnessReceiver = class {
         // Try Method 3: GetExternalDisplayBrightnessPercent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayBrightnessPercent_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayBrightnessPercent_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetExternalDisplayBrightnessPercent (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -230,14 +233,14 @@ chromeos.cfm.mojom.ExternalDisplayBrightnessReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.cfm.mojom.ExternalDisplayBrightness_SetExternalDisplayALSBrightness_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.cfm.mojom.ExternalDisplayBrightness_SetExternalDisplayALSBrightness_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setExternalDisplayALSBrightness');
           const result = this.impl.setExternalDisplayALSBrightness(params.enabled);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayALSBrightness_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayALSBrightness_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getExternalDisplayALSBrightness');
           const result = this.impl.getExternalDisplayALSBrightness();
           if (header.expectsResponse) {
@@ -250,14 +253,14 @@ chromeos.cfm.mojom.ExternalDisplayBrightnessReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.cfm.mojom.ExternalDisplayBrightness_SetExternalDisplayBrightnessPercent_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.cfm.mojom.ExternalDisplayBrightness_SetExternalDisplayBrightnessPercent_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setExternalDisplayBrightnessPercent');
           const result = this.impl.setExternalDisplayBrightnessPercent(params.percent);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayBrightnessPercent_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayBrightnessPercent_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getExternalDisplayBrightnessPercent');
           const result = this.impl.getExternalDisplayBrightnessPercent();
           if (header.expectsResponse) {

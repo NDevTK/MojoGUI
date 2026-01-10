@@ -164,9 +164,11 @@ blink.mojom.BlobURLStoreReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -180,12 +182,13 @@ blink.mojom.BlobURLStoreReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Register
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.BlobURLStore_Register_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.BlobURLStore_Register_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Register (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -196,7 +199,7 @@ blink.mojom.BlobURLStoreReceiver = class {
         // Try Method 1: Revoke
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.BlobURLStore_Revoke_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.BlobURLStore_Revoke_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Revoke (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -207,7 +210,7 @@ blink.mojom.BlobURLStoreReceiver = class {
         // Try Method 2: ResolveAsURLLoaderFactory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.BlobURLStore_ResolveAsURLLoaderFactory_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.BlobURLStore_ResolveAsURLLoaderFactory_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResolveAsURLLoaderFactory (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -218,7 +221,7 @@ blink.mojom.BlobURLStoreReceiver = class {
         // Try Method 3: ResolveAsBlobURLToken
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.BlobURLStore_ResolveAsBlobURLToken_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.BlobURLStore_ResolveAsBlobURLToken_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResolveAsBlobURLToken (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -235,7 +238,7 @@ blink.mojom.BlobURLStoreReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.BlobURLStore_Register_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.BlobURLStore_Register_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.register');
           const result = this.impl.register(params.blob, params.url);
           if (header.expectsResponse) {
@@ -248,21 +251,21 @@ blink.mojom.BlobURLStoreReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.BlobURLStore_Revoke_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.BlobURLStore_Revoke_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.revoke');
           const result = this.impl.revoke(params.url);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.BlobURLStore_ResolveAsURLLoaderFactory_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.BlobURLStore_ResolveAsURLLoaderFactory_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.resolveAsURLLoaderFactory');
           const result = this.impl.resolveAsURLLoaderFactory(params.url, params.factory);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.BlobURLStore_ResolveAsBlobURLToken_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.BlobURLStore_ResolveAsBlobURLToken_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.resolveAsBlobURLToken');
           const result = this.impl.resolveAsBlobURLToken(params.url, params.token, params.is_top_level_navigation);
           break;
@@ -383,9 +386,11 @@ blink.mojom.BlobURLTokenReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -399,12 +404,13 @@ blink.mojom.BlobURLTokenReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Clone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.BlobURLToken_Clone_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.BlobURLToken_Clone_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clone (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -415,7 +421,7 @@ blink.mojom.BlobURLTokenReceiver = class {
         // Try Method 1: GetToken
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.BlobURLToken_GetToken_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.BlobURLToken_GetToken_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetToken (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -432,14 +438,14 @@ blink.mojom.BlobURLTokenReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.BlobURLToken_Clone_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.BlobURLToken_Clone_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.token);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.BlobURLToken_GetToken_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.BlobURLToken_GetToken_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getToken');
           const result = this.impl.getToken();
           if (header.expectsResponse) {

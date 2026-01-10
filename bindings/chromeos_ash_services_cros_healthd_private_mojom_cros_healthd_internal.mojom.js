@@ -204,9 +204,11 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollectorReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -220,12 +222,13 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollectorReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetTouchscreenDevices
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTouchscreenDevices (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -236,7 +239,7 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollectorReceiver = class {
         // Try Method 1: GetTouchpadLibraryName
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTouchpadLibraryName (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -247,7 +250,7 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollectorReceiver = class {
         // Try Method 2: SetPrivacyScreenState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPrivacyScreenState (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -258,7 +261,7 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollectorReceiver = class {
         // Try Method 3: DEPRECATED_SetAudioOutputMute
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DEPRECATED_SetAudioOutputMute (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -275,7 +278,7 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollectorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getTouchscreenDevices');
           const result = this.impl.getTouchscreenDevices();
           if (header.expectsResponse) {
@@ -288,7 +291,7 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollectorReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getTouchpadLibraryName');
           const result = this.impl.getTouchpadLibraryName();
           if (header.expectsResponse) {
@@ -301,7 +304,7 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollectorReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setPrivacyScreenState');
           const result = this.impl.setPrivacyScreenState(params.state);
           if (header.expectsResponse) {
@@ -314,7 +317,7 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollectorReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_SetAudioOutputMute');
           const result = this.impl.dEPRECATED_SetAudioOutputMute(params.mute_on);
           if (header.expectsResponse) {

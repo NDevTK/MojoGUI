@@ -143,9 +143,11 @@ ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -159,12 +161,13 @@ ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnPowerwash
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnPowerwash_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnPowerwash_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPowerwash (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -175,7 +178,7 @@ ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerReceiver = class {
         // Try Method 1: OnRecreateUser
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnRecreateUser_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnRecreateUser_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRecreateUser (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -186,7 +189,7 @@ ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerReceiver = class {
         // Try Method 2: OnCancel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnCancel_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnCancel_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCancel (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -197,7 +200,7 @@ ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerReceiver = class {
         // Try Method 3: OnBack
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnBack_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnBack_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBack (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -214,28 +217,28 @@ ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnPowerwash_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnPowerwash_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onPowerwash');
           const result = this.impl.onPowerwash();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnRecreateUser_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnRecreateUser_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onRecreateUser');
           const result = this.impl.onRecreateUser();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnCancel_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnCancel_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onCancel');
           const result = this.impl.onCancel();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnBack_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnBack_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onBack');
           const result = this.impl.onBack();
           break;

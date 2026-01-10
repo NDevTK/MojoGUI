@@ -231,9 +231,11 @@ crosapi.mojom.PrintPreviewCrosDelegateReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -247,12 +249,13 @@ crosapi.mojom.PrintPreviewCrosDelegateReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: RequestPrintPreview
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestPrintPreview (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -263,7 +266,7 @@ crosapi.mojom.PrintPreviewCrosDelegateReceiver = class {
         // Try Method 1: PrintPreviewDone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PrintPreviewDone (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -280,7 +283,7 @@ crosapi.mojom.PrintPreviewCrosDelegateReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestPrintPreview');
           const result = this.impl.requestPrintPreview(params.token, params.params);
           if (header.expectsResponse) {
@@ -293,7 +296,7 @@ crosapi.mojom.PrintPreviewCrosDelegateReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.printPreviewDone');
           const result = this.impl.printPreviewDone(params.token);
           if (header.expectsResponse) {
@@ -428,9 +431,11 @@ crosapi.mojom.PrintPreviewCrosClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -444,12 +449,13 @@ crosapi.mojom.PrintPreviewCrosClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GeneratePrintPreview
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GeneratePrintPreview (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -460,7 +466,7 @@ crosapi.mojom.PrintPreviewCrosClientReceiver = class {
         // Try Method 1: HandleDialogClosed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleDialogClosed (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -477,7 +483,7 @@ crosapi.mojom.PrintPreviewCrosClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.generatePrintPreview');
           const result = this.impl.generatePrintPreview(params.token, params.settings);
           if (header.expectsResponse) {
@@ -490,7 +496,7 @@ crosapi.mojom.PrintPreviewCrosClientReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.handleDialogClosed');
           const result = this.impl.handleDialogClosed(params.token);
           if (header.expectsResponse) {

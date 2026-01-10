@@ -251,9 +251,11 @@ blink.mojom.FindInPageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -267,12 +269,13 @@ blink.mojom.FindInPageReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Find
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FindInPage_Find_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FindInPage_Find_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Find (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -283,7 +286,7 @@ blink.mojom.FindInPageReceiver = class {
         // Try Method 1: StopFinding
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FindInPage_StopFinding_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FindInPage_StopFinding_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopFinding (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -294,7 +297,7 @@ blink.mojom.FindInPageReceiver = class {
         // Try Method 2: ClearActiveFindMatch
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FindInPage_ClearActiveFindMatch_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FindInPage_ClearActiveFindMatch_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearActiveFindMatch (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -305,7 +308,7 @@ blink.mojom.FindInPageReceiver = class {
         // Try Method 3: SetClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FindInPage_SetClient_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FindInPage_SetClient_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetClient (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -316,7 +319,7 @@ blink.mojom.FindInPageReceiver = class {
         // Try Method 4: GetNearestFindResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FindInPage_GetNearestFindResult_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FindInPage_GetNearestFindResult_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNearestFindResult (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -327,7 +330,7 @@ blink.mojom.FindInPageReceiver = class {
         // Try Method 5: ActivateNearestFindResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FindInPage_ActivateNearestFindResult_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FindInPage_ActivateNearestFindResult_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ActivateNearestFindResult (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -338,7 +341,7 @@ blink.mojom.FindInPageReceiver = class {
         // Try Method 6: FindMatchRects
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FindInPage_FindMatchRects_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FindInPage_FindMatchRects_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FindMatchRects (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -355,35 +358,35 @@ blink.mojom.FindInPageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FindInPage_Find_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FindInPage_Find_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.find');
           const result = this.impl.find(params.request_id, params.search_text, params.options);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FindInPage_StopFinding_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FindInPage_StopFinding_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.stopFinding');
           const result = this.impl.stopFinding(params.action);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FindInPage_ClearActiveFindMatch_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FindInPage_ClearActiveFindMatch_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.clearActiveFindMatch');
           const result = this.impl.clearActiveFindMatch();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FindInPage_SetClient_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FindInPage_SetClient_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setClient');
           const result = this.impl.setClient(params.client);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FindInPage_GetNearestFindResult_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FindInPage_GetNearestFindResult_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getNearestFindResult');
           const result = this.impl.getNearestFindResult(params.point);
           if (header.expectsResponse) {
@@ -396,14 +399,14 @@ blink.mojom.FindInPageReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FindInPage_ActivateNearestFindResult_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FindInPage_ActivateNearestFindResult_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.activateNearestFindResult');
           const result = this.impl.activateNearestFindResult(params.request_id, params.point);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FindInPage_FindMatchRects_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FindInPage_FindMatchRects_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.findMatchRects');
           const result = this.impl.findMatchRects(params.current_version);
           if (header.expectsResponse) {
@@ -530,9 +533,11 @@ blink.mojom.FindInPageClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -546,12 +551,13 @@ blink.mojom.FindInPageClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetNumberOfMatches
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FindInPageClient_SetNumberOfMatches_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FindInPageClient_SetNumberOfMatches_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetNumberOfMatches (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -562,7 +568,7 @@ blink.mojom.FindInPageClientReceiver = class {
         // Try Method 1: SetActiveMatch
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FindInPageClient_SetActiveMatch_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FindInPageClient_SetActiveMatch_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetActiveMatch (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -579,14 +585,14 @@ blink.mojom.FindInPageClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FindInPageClient_SetNumberOfMatches_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FindInPageClient_SetNumberOfMatches_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setNumberOfMatches');
           const result = this.impl.setNumberOfMatches(params.request_id, params.number_of_matches, params.update_type);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FindInPageClient_SetActiveMatch_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FindInPageClient_SetActiveMatch_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setActiveMatch');
           const result = this.impl.setActiveMatch(params.request_id, params.active_match_rect, params.active_match_ordinal, params.update_type);
           break;

@@ -285,9 +285,11 @@ arc.mojom.PowerHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -301,12 +303,13 @@ arc.mojom.PowerHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnAcquireDisplayWakeLock
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.PowerHost_OnAcquireDisplayWakeLock_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.PowerHost_OnAcquireDisplayWakeLock_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAcquireDisplayWakeLock (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -317,7 +320,7 @@ arc.mojom.PowerHostReceiver = class {
         // Try Method 1: OnReleaseDisplayWakeLock
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.PowerHost_OnReleaseDisplayWakeLock_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.PowerHost_OnReleaseDisplayWakeLock_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReleaseDisplayWakeLock (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -328,7 +331,7 @@ arc.mojom.PowerHostReceiver = class {
         // Try Method 2: OnWakefulnessChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.PowerHost_OnWakefulnessChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.PowerHost_OnWakefulnessChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWakefulnessChanged (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -339,7 +342,7 @@ arc.mojom.PowerHostReceiver = class {
         // Try Method 3: IsDisplayOn
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.PowerHost_IsDisplayOn_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.PowerHost_IsDisplayOn_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsDisplayOn (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -350,7 +353,7 @@ arc.mojom.PowerHostReceiver = class {
         // Try Method 4: OnScreenBrightnessUpdateRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.PowerHost_OnScreenBrightnessUpdateRequest_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.PowerHost_OnScreenBrightnessUpdateRequest_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnScreenBrightnessUpdateRequest (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -361,7 +364,7 @@ arc.mojom.PowerHostReceiver = class {
         // Try Method 5: OnPreAnr
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.PowerHost_OnPreAnr_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.PowerHost_OnPreAnr_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPreAnr (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -372,7 +375,7 @@ arc.mojom.PowerHostReceiver = class {
         // Try Method 6: OnAnrRecoveryFailed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.PowerHost_OnAnrRecoveryFailed_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.PowerHost_OnAnrRecoveryFailed_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAnrRecoveryFailed (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -383,7 +386,7 @@ arc.mojom.PowerHostReceiver = class {
         // Try Method 7: GetBatterySaverModeState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.PowerHost_GetBatterySaverModeState_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.PowerHost_GetBatterySaverModeState_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetBatterySaverModeState (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -400,28 +403,28 @@ arc.mojom.PowerHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.PowerHost_OnAcquireDisplayWakeLock_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.PowerHost_OnAcquireDisplayWakeLock_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onAcquireDisplayWakeLock');
           const result = this.impl.onAcquireDisplayWakeLock(params.type);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.PowerHost_OnReleaseDisplayWakeLock_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.PowerHost_OnReleaseDisplayWakeLock_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onReleaseDisplayWakeLock');
           const result = this.impl.onReleaseDisplayWakeLock(params.type);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.PowerHost_OnWakefulnessChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.PowerHost_OnWakefulnessChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onWakefulnessChanged');
           const result = this.impl.onWakefulnessChanged(params.mode);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.PowerHost_IsDisplayOn_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.PowerHost_IsDisplayOn_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.isDisplayOn');
           const result = this.impl.isDisplayOn();
           if (header.expectsResponse) {
@@ -434,28 +437,28 @@ arc.mojom.PowerHostReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.PowerHost_OnScreenBrightnessUpdateRequest_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.PowerHost_OnScreenBrightnessUpdateRequest_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onScreenBrightnessUpdateRequest');
           const result = this.impl.onScreenBrightnessUpdateRequest(params.percent);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.PowerHost_OnPreAnr_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.PowerHost_OnPreAnr_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onPreAnr');
           const result = this.impl.onPreAnr(params.type);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.PowerHost_OnAnrRecoveryFailed_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.PowerHost_OnAnrRecoveryFailed_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onAnrRecoveryFailed');
           const result = this.impl.onAnrRecoveryFailed(params.type);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.PowerHost_GetBatterySaverModeState_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.PowerHost_GetBatterySaverModeState_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getBatterySaverModeState');
           const result = this.impl.getBatterySaverModeState();
           if (header.expectsResponse) {
@@ -725,9 +728,11 @@ arc.mojom.PowerInstanceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -741,12 +746,13 @@ arc.mojom.PowerInstanceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.PowerInstance_Init_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.PowerInstance_Init_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -757,7 +763,7 @@ arc.mojom.PowerInstanceReceiver = class {
         // Try Method 1: SetInteractiveDeprecated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.PowerInstance_SetInteractiveDeprecated_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.PowerInstance_SetInteractiveDeprecated_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetInteractiveDeprecated (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -768,7 +774,7 @@ arc.mojom.PowerInstanceReceiver = class {
         // Try Method 2: Suspend
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.PowerInstance_Suspend_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.PowerInstance_Suspend_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Suspend (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -779,7 +785,7 @@ arc.mojom.PowerInstanceReceiver = class {
         // Try Method 3: Resume
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.PowerInstance_Resume_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.PowerInstance_Resume_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Resume (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -790,7 +796,7 @@ arc.mojom.PowerInstanceReceiver = class {
         // Try Method 4: UpdateScreenBrightnessSettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.PowerInstance_UpdateScreenBrightnessSettings_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.PowerInstance_UpdateScreenBrightnessSettings_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateScreenBrightnessSettings (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -801,7 +807,7 @@ arc.mojom.PowerInstanceReceiver = class {
         // Try Method 5: PowerSupplyInfoChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.PowerInstance_PowerSupplyInfoChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.PowerInstance_PowerSupplyInfoChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PowerSupplyInfoChanged (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -812,7 +818,7 @@ arc.mojom.PowerInstanceReceiver = class {
         // Try Method 6: GetWakefulnessMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.PowerInstance_GetWakefulnessMode_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.PowerInstance_GetWakefulnessMode_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetWakefulnessMode (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -823,7 +829,7 @@ arc.mojom.PowerInstanceReceiver = class {
         // Try Method 7: OnCpuRestrictionChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.PowerInstance_OnCpuRestrictionChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.PowerInstance_OnCpuRestrictionChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCpuRestrictionChanged (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -834,7 +840,7 @@ arc.mojom.PowerInstanceReceiver = class {
         // Try Method 8: OnBatterySaverModeStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.PowerInstance_OnBatterySaverModeStateChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.PowerInstance_OnBatterySaverModeStateChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBatterySaverModeStateChanged (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -845,7 +851,7 @@ arc.mojom.PowerInstanceReceiver = class {
         // Try Method 9: SetIdleState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.PowerInstance_SetIdleState_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.PowerInstance_SetIdleState_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIdleState (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -862,7 +868,7 @@ arc.mojom.PowerInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.PowerInstance_Init_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.PowerInstance_Init_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -875,14 +881,14 @@ arc.mojom.PowerInstanceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.PowerInstance_SetInteractiveDeprecated_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.PowerInstance_SetInteractiveDeprecated_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setInteractiveDeprecated');
           const result = this.impl.setInteractiveDeprecated(params.enabled);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.PowerInstance_Suspend_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.PowerInstance_Suspend_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.suspend');
           const result = this.impl.suspend();
           if (header.expectsResponse) {
@@ -895,28 +901,28 @@ arc.mojom.PowerInstanceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.PowerInstance_Resume_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.PowerInstance_Resume_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.resume');
           const result = this.impl.resume();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.PowerInstance_UpdateScreenBrightnessSettings_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.PowerInstance_UpdateScreenBrightnessSettings_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.updateScreenBrightnessSettings');
           const result = this.impl.updateScreenBrightnessSettings(params.percent);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.PowerInstance_PowerSupplyInfoChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.PowerInstance_PowerSupplyInfoChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.powerSupplyInfoChanged');
           const result = this.impl.powerSupplyInfoChanged();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.PowerInstance_GetWakefulnessMode_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.PowerInstance_GetWakefulnessMode_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getWakefulnessMode');
           const result = this.impl.getWakefulnessMode();
           if (header.expectsResponse) {
@@ -929,21 +935,21 @@ arc.mojom.PowerInstanceReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.PowerInstance_OnCpuRestrictionChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.PowerInstance_OnCpuRestrictionChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onCpuRestrictionChanged');
           const result = this.impl.onCpuRestrictionChanged(params.state);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.PowerInstance_OnBatterySaverModeStateChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.PowerInstance_OnBatterySaverModeStateChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onBatterySaverModeStateChanged');
           const result = this.impl.onBatterySaverModeStateChanged(params.state);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.PowerInstance_SetIdleState_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.PowerInstance_SetIdleState_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setIdleState');
           const result = this.impl.setIdleState(params.state);
           break;

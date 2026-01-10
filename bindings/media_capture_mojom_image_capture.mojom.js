@@ -314,9 +314,11 @@ media.mojom.ImageCaptureReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -330,12 +332,13 @@ media.mojom.ImageCaptureReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetPhotoState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.ImageCapture_GetPhotoState_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.ImageCapture_GetPhotoState_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPhotoState (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -346,7 +349,7 @@ media.mojom.ImageCaptureReceiver = class {
         // Try Method 1: SetPhotoOptions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.ImageCapture_SetPhotoOptions_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.ImageCapture_SetPhotoOptions_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPhotoOptions (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -357,7 +360,7 @@ media.mojom.ImageCaptureReceiver = class {
         // Try Method 2: TakePhoto
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.ImageCapture_TakePhoto_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.ImageCapture_TakePhoto_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TakePhoto (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -374,7 +377,7 @@ media.mojom.ImageCaptureReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.ImageCapture_GetPhotoState_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.ImageCapture_GetPhotoState_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getPhotoState');
           const result = this.impl.getPhotoState(params.source_id);
           if (header.expectsResponse) {
@@ -387,7 +390,7 @@ media.mojom.ImageCaptureReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.ImageCapture_SetPhotoOptions_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.ImageCapture_SetPhotoOptions_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setPhotoOptions');
           const result = this.impl.setPhotoOptions(params.source_id, params.settings);
           if (header.expectsResponse) {
@@ -400,7 +403,7 @@ media.mojom.ImageCaptureReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.ImageCapture_TakePhoto_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.ImageCapture_TakePhoto_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.takePhoto');
           const result = this.impl.takePhoto(params.source_id);
           if (header.expectsResponse) {

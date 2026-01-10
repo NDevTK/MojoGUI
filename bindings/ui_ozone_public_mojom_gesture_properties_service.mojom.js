@@ -220,9 +220,11 @@ ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -236,12 +238,13 @@ ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ListDevices
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ui.ozone.mojom.GesturePropertiesService_ListDevices_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ui.ozone.mojom.GesturePropertiesService_ListDevices_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ListDevices (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -252,7 +255,7 @@ ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
         // Try Method 1: ListProperties
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ui.ozone.mojom.GesturePropertiesService_ListProperties_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ui.ozone.mojom.GesturePropertiesService_ListProperties_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ListProperties (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -263,7 +266,7 @@ ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
         // Try Method 2: GetProperty
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ui.ozone.mojom.GesturePropertiesService_GetProperty_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ui.ozone.mojom.GesturePropertiesService_GetProperty_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetProperty (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -274,7 +277,7 @@ ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
         // Try Method 3: SetProperty
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ui.ozone.mojom.GesturePropertiesService_SetProperty_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ui.ozone.mojom.GesturePropertiesService_SetProperty_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetProperty (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -291,7 +294,7 @@ ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ui.ozone.mojom.GesturePropertiesService_ListDevices_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ui.ozone.mojom.GesturePropertiesService_ListDevices_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.listDevices');
           const result = this.impl.listDevices();
           if (header.expectsResponse) {
@@ -304,7 +307,7 @@ ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ui.ozone.mojom.GesturePropertiesService_ListProperties_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ui.ozone.mojom.GesturePropertiesService_ListProperties_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.listProperties');
           const result = this.impl.listProperties(params.device_id);
           if (header.expectsResponse) {
@@ -317,7 +320,7 @@ ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ui.ozone.mojom.GesturePropertiesService_GetProperty_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ui.ozone.mojom.GesturePropertiesService_GetProperty_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getProperty');
           const result = this.impl.getProperty(params.device_id, params.name);
           if (header.expectsResponse) {
@@ -330,7 +333,7 @@ ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ui.ozone.mojom.GesturePropertiesService_SetProperty_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ui.ozone.mojom.GesturePropertiesService_SetProperty_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setProperty');
           const result = this.impl.setProperty(params.device_id, params.name, params.value);
           if (header.expectsResponse) {

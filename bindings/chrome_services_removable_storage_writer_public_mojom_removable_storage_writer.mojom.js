@@ -132,9 +132,11 @@ chrome.mojom.RemovableStorageWriterReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -148,12 +150,13 @@ chrome.mojom.RemovableStorageWriterReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Write
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.RemovableStorageWriter_Write_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.RemovableStorageWriter_Write_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Write (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -164,7 +167,7 @@ chrome.mojom.RemovableStorageWriterReceiver = class {
         // Try Method 1: Verify
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.RemovableStorageWriter_Verify_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.RemovableStorageWriter_Verify_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Verify (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -181,14 +184,14 @@ chrome.mojom.RemovableStorageWriterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.RemovableStorageWriter_Write_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.RemovableStorageWriter_Write_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.write');
           const result = this.impl.write(params.source, params.target, params.client);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.RemovableStorageWriter_Verify_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.RemovableStorageWriter_Verify_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.verify');
           const result = this.impl.verify(params.source, params.target, params.client);
           break;
@@ -304,9 +307,11 @@ chrome.mojom.RemovableStorageWriterClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -320,12 +325,13 @@ chrome.mojom.RemovableStorageWriterClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Progress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.RemovableStorageWriterClient_Progress_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.RemovableStorageWriterClient_Progress_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Progress (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -336,7 +342,7 @@ chrome.mojom.RemovableStorageWriterClientReceiver = class {
         // Try Method 1: Complete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.RemovableStorageWriterClient_Complete_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.RemovableStorageWriterClient_Complete_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Complete (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -353,14 +359,14 @@ chrome.mojom.RemovableStorageWriterClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.RemovableStorageWriterClient_Progress_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.RemovableStorageWriterClient_Progress_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.progress');
           const result = this.impl.progress(params.progress);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.RemovableStorageWriterClient_Complete_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.RemovableStorageWriterClient_Complete_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.complete');
           const result = this.impl.complete(params.error);
           break;

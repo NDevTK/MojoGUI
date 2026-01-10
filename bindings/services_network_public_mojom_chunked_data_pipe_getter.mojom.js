@@ -117,9 +117,11 @@ network.mojom.ChunkedDataPipeGetterReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -133,12 +135,13 @@ network.mojom.ChunkedDataPipeGetterReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetSize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.ChunkedDataPipeGetter_GetSize_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.ChunkedDataPipeGetter_GetSize_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSize (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -149,7 +152,7 @@ network.mojom.ChunkedDataPipeGetterReceiver = class {
         // Try Method 1: StartReading
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.ChunkedDataPipeGetter_StartReading_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.ChunkedDataPipeGetter_StartReading_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartReading (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -166,7 +169,7 @@ network.mojom.ChunkedDataPipeGetterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.ChunkedDataPipeGetter_GetSize_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.ChunkedDataPipeGetter_GetSize_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getSize');
           const result = this.impl.getSize();
           if (header.expectsResponse) {
@@ -179,7 +182,7 @@ network.mojom.ChunkedDataPipeGetterReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.ChunkedDataPipeGetter_StartReading_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.ChunkedDataPipeGetter_StartReading_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.startReading');
           const result = this.impl.startReading(params.pipe);
           break;

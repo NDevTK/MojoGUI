@@ -254,9 +254,11 @@ cros.mojom.KioskVisionObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -270,12 +272,13 @@ cros.mojom.KioskVisionObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnFrameProcessed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cros.mojom.KioskVisionObserver_OnFrameProcessed_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cros.mojom.KioskVisionObserver_OnFrameProcessed_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFrameProcessed (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -286,7 +289,7 @@ cros.mojom.KioskVisionObserverReceiver = class {
         // Try Method 1: OnTrackCompleted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cros.mojom.KioskVisionObserver_OnTrackCompleted_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cros.mojom.KioskVisionObserver_OnTrackCompleted_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTrackCompleted (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -297,7 +300,7 @@ cros.mojom.KioskVisionObserverReceiver = class {
         // Try Method 2: OnError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cros.mojom.KioskVisionObserver_OnError_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cros.mojom.KioskVisionObserver_OnError_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnError (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -314,21 +317,21 @@ cros.mojom.KioskVisionObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cros.mojom.KioskVisionObserver_OnFrameProcessed_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cros.mojom.KioskVisionObserver_OnFrameProcessed_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onFrameProcessed');
           const result = this.impl.onFrameProcessed(params.detection);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cros.mojom.KioskVisionObserver_OnTrackCompleted_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cros.mojom.KioskVisionObserver_OnTrackCompleted_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onTrackCompleted');
           const result = this.impl.onTrackCompleted(params.track);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cros.mojom.KioskVisionObserver_OnError_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cros.mojom.KioskVisionObserver_OnError_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.error);
           break;
@@ -435,9 +438,11 @@ cros.mojom.CameraHalDispatcherReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -451,12 +456,13 @@ cros.mojom.CameraHalDispatcherReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: RegisterClientWithToken
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cros.mojom.CameraHalDispatcher_RegisterClientWithToken_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cros.mojom.CameraHalDispatcher_RegisterClientWithToken_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterClientWithToken (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -473,7 +479,7 @@ cros.mojom.CameraHalDispatcherReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cros.mojom.CameraHalDispatcher_RegisterClientWithToken_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cros.mojom.CameraHalDispatcher_RegisterClientWithToken_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.registerClientWithToken');
           const result = this.impl.registerClientWithToken(params.client, params.type, params.auth_token);
           if (header.expectsResponse) {
@@ -649,9 +655,11 @@ cros.mojom.CrosCameraServiceObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -665,12 +673,13 @@ cros.mojom.CrosCameraServiceObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CameraDeviceActivityChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cros.mojom.CrosCameraServiceObserver_CameraDeviceActivityChange_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cros.mojom.CrosCameraServiceObserver_CameraDeviceActivityChange_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CameraDeviceActivityChange (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -681,7 +690,7 @@ cros.mojom.CrosCameraServiceObserverReceiver = class {
         // Try Method 1: CameraPrivacySwitchStateChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cros.mojom.CrosCameraServiceObserver_CameraPrivacySwitchStateChange_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cros.mojom.CrosCameraServiceObserver_CameraPrivacySwitchStateChange_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CameraPrivacySwitchStateChange (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -692,7 +701,7 @@ cros.mojom.CrosCameraServiceObserverReceiver = class {
         // Try Method 2: CameraSWPrivacySwitchStateChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cros.mojom.CrosCameraServiceObserver_CameraSWPrivacySwitchStateChange_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cros.mojom.CrosCameraServiceObserver_CameraSWPrivacySwitchStateChange_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CameraSWPrivacySwitchStateChange (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -703,7 +712,7 @@ cros.mojom.CrosCameraServiceObserverReceiver = class {
         // Try Method 3: CameraEffectChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cros.mojom.CrosCameraServiceObserver_CameraEffectChange_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cros.mojom.CrosCameraServiceObserver_CameraEffectChange_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CameraEffectChange (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -714,7 +723,7 @@ cros.mojom.CrosCameraServiceObserverReceiver = class {
         // Try Method 4: AutoFramingStateChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cros.mojom.CrosCameraServiceObserver_AutoFramingStateChange_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cros.mojom.CrosCameraServiceObserver_AutoFramingStateChange_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AutoFramingStateChange (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -731,35 +740,35 @@ cros.mojom.CrosCameraServiceObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cros.mojom.CrosCameraServiceObserver_CameraDeviceActivityChange_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cros.mojom.CrosCameraServiceObserver_CameraDeviceActivityChange_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.cameraDeviceActivityChange');
           const result = this.impl.cameraDeviceActivityChange(params.camera_id, params.opened, params.type);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cros.mojom.CrosCameraServiceObserver_CameraPrivacySwitchStateChange_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cros.mojom.CrosCameraServiceObserver_CameraPrivacySwitchStateChange_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.cameraPrivacySwitchStateChange');
           const result = this.impl.cameraPrivacySwitchStateChange(params.state, params.camera_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cros.mojom.CrosCameraServiceObserver_CameraSWPrivacySwitchStateChange_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cros.mojom.CrosCameraServiceObserver_CameraSWPrivacySwitchStateChange_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.cameraSWPrivacySwitchStateChange');
           const result = this.impl.cameraSWPrivacySwitchStateChange(params.state);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cros.mojom.CrosCameraServiceObserver_CameraEffectChange_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cros.mojom.CrosCameraServiceObserver_CameraEffectChange_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.cameraEffectChange');
           const result = this.impl.cameraEffectChange(params.config);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cros.mojom.CrosCameraServiceObserver_AutoFramingStateChange_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cros.mojom.CrosCameraServiceObserver_AutoFramingStateChange_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.autoFramingStateChange');
           const result = this.impl.autoFramingStateChange(params.state);
           break;
@@ -1017,9 +1026,11 @@ cros.mojom.CrosCameraServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1033,12 +1044,13 @@ cros.mojom.CrosCameraServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetCameraModule
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cros.mojom.CrosCameraService_GetCameraModule_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cros.mojom.CrosCameraService_GetCameraModule_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCameraModule (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1049,7 +1061,7 @@ cros.mojom.CrosCameraServiceReceiver = class {
         // Try Method 1: SetTracingEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cros.mojom.CrosCameraService_SetTracingEnabled_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cros.mojom.CrosCameraService_SetTracingEnabled_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTracingEnabled (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1060,7 +1072,7 @@ cros.mojom.CrosCameraServiceReceiver = class {
         // Try Method 2: SetAutoFramingState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cros.mojom.CrosCameraService_SetAutoFramingState_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cros.mojom.CrosCameraService_SetAutoFramingState_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAutoFramingState (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1071,7 +1083,7 @@ cros.mojom.CrosCameraServiceReceiver = class {
         // Try Method 3: GetCameraSWPrivacySwitchState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cros.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cros.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCameraSWPrivacySwitchState (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1082,7 +1094,7 @@ cros.mojom.CrosCameraServiceReceiver = class {
         // Try Method 4: SetCameraSWPrivacySwitchState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cros.mojom.CrosCameraService_SetCameraSWPrivacySwitchState_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cros.mojom.CrosCameraService_SetCameraSWPrivacySwitchState_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCameraSWPrivacySwitchState (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1093,7 +1105,7 @@ cros.mojom.CrosCameraServiceReceiver = class {
         // Try Method 5: GetAutoFramingSupported
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cros.mojom.CrosCameraService_GetAutoFramingSupported_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cros.mojom.CrosCameraService_GetAutoFramingSupported_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAutoFramingSupported (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1104,7 +1116,7 @@ cros.mojom.CrosCameraServiceReceiver = class {
         // Try Method 6: SetCameraEffect
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cros.mojom.CrosCameraService_SetCameraEffect_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cros.mojom.CrosCameraService_SetCameraEffect_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCameraEffect (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1115,7 +1127,7 @@ cros.mojom.CrosCameraServiceReceiver = class {
         // Try Method 7: AddCrosCameraServiceObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cros.mojom.CrosCameraService_AddCrosCameraServiceObserver_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cros.mojom.CrosCameraService_AddCrosCameraServiceObserver_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddCrosCameraServiceObserver (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1126,7 +1138,7 @@ cros.mojom.CrosCameraServiceReceiver = class {
         // Try Method 8: StartKioskVisionDetection
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cros.mojom.CrosCameraService_StartKioskVisionDetection_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cros.mojom.CrosCameraService_StartKioskVisionDetection_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartKioskVisionDetection (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1143,7 +1155,7 @@ cros.mojom.CrosCameraServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cros.mojom.CrosCameraService_GetCameraModule_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cros.mojom.CrosCameraService_GetCameraModule_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getCameraModule');
           const result = this.impl.getCameraModule(params.type);
           if (header.expectsResponse) {
@@ -1156,21 +1168,21 @@ cros.mojom.CrosCameraServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cros.mojom.CrosCameraService_SetTracingEnabled_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cros.mojom.CrosCameraService_SetTracingEnabled_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setTracingEnabled');
           const result = this.impl.setTracingEnabled(params.enabled);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cros.mojom.CrosCameraService_SetAutoFramingState_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cros.mojom.CrosCameraService_SetAutoFramingState_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setAutoFramingState');
           const result = this.impl.setAutoFramingState(params.state);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cros.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cros.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getCameraSWPrivacySwitchState');
           const result = this.impl.getCameraSWPrivacySwitchState();
           if (header.expectsResponse) {
@@ -1183,14 +1195,14 @@ cros.mojom.CrosCameraServiceReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cros.mojom.CrosCameraService_SetCameraSWPrivacySwitchState_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cros.mojom.CrosCameraService_SetCameraSWPrivacySwitchState_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setCameraSWPrivacySwitchState');
           const result = this.impl.setCameraSWPrivacySwitchState(params.state);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cros.mojom.CrosCameraService_GetAutoFramingSupported_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cros.mojom.CrosCameraService_GetAutoFramingSupported_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getAutoFramingSupported');
           const result = this.impl.getAutoFramingSupported();
           if (header.expectsResponse) {
@@ -1203,7 +1215,7 @@ cros.mojom.CrosCameraServiceReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cros.mojom.CrosCameraService_SetCameraEffect_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cros.mojom.CrosCameraService_SetCameraEffect_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setCameraEffect');
           const result = this.impl.setCameraEffect(params.config);
           if (header.expectsResponse) {
@@ -1216,14 +1228,14 @@ cros.mojom.CrosCameraServiceReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cros.mojom.CrosCameraService_AddCrosCameraServiceObserver_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cros.mojom.CrosCameraService_AddCrosCameraServiceObserver_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addCrosCameraServiceObserver');
           const result = this.impl.addCrosCameraServiceObserver(params.observer);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cros.mojom.CrosCameraService_StartKioskVisionDetection_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cros.mojom.CrosCameraService_StartKioskVisionDetection_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.startKioskVisionDetection');
           const result = this.impl.startKioskVisionDetection(params.dlc_path, params.observer);
           break;

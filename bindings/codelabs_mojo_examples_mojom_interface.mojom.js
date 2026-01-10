@@ -103,9 +103,11 @@ codelabs.mojom.ObjectAReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -119,12 +121,13 @@ codelabs.mojom.ObjectAReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: DoA
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(codelabs.mojom.ObjectA_DoA_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(codelabs.mojom.ObjectA_DoA_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DoA (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -141,7 +144,7 @@ codelabs.mojom.ObjectAReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(codelabs.mojom.ObjectA_DoA_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(codelabs.mojom.ObjectA_DoA_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.doA');
           const result = this.impl.doA();
           break;
@@ -239,9 +242,11 @@ codelabs.mojom.ObjectBReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -255,12 +260,13 @@ codelabs.mojom.ObjectBReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: DoB
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(codelabs.mojom.ObjectB_DoB_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(codelabs.mojom.ObjectB_DoB_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DoB (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -277,7 +283,7 @@ codelabs.mojom.ObjectBReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(codelabs.mojom.ObjectB_DoB_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(codelabs.mojom.ObjectB_DoB_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.doB');
           const result = this.impl.doB();
           break;
@@ -376,9 +382,11 @@ codelabs.mojom.AssociatedProcessReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -392,12 +400,13 @@ codelabs.mojom.AssociatedProcessReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetProcess
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(codelabs.mojom.AssociatedProcess_SetProcess_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(codelabs.mojom.AssociatedProcess_SetProcess_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetProcess (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -414,7 +423,7 @@ codelabs.mojom.AssociatedProcessReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(codelabs.mojom.AssociatedProcess_SetProcess_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(codelabs.mojom.AssociatedProcess_SetProcess_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setProcess');
           const result = this.impl.setProcess(params.process);
           break;
@@ -496,9 +505,11 @@ codelabs.mojom.GenericInterfaceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -512,6 +523,7 @@ codelabs.mojom.GenericInterfaceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         if (dispatchId === undefined) {
@@ -632,9 +644,11 @@ codelabs.mojom.ProcessReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -648,12 +662,13 @@ codelabs.mojom.ProcessReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SayHello
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(codelabs.mojom.Process_SayHello_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(codelabs.mojom.Process_SayHello_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SayHello (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -664,7 +679,7 @@ codelabs.mojom.ProcessReceiver = class {
         // Try Method 1: GetAssociatedInterface
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(codelabs.mojom.Process_GetAssociatedInterface_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(codelabs.mojom.Process_GetAssociatedInterface_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAssociatedInterface (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -681,14 +696,14 @@ codelabs.mojom.ProcessReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(codelabs.mojom.Process_SayHello_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(codelabs.mojom.Process_SayHello_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.sayHello');
           const result = this.impl.sayHello();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(codelabs.mojom.Process_GetAssociatedInterface_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(codelabs.mojom.Process_GetAssociatedInterface_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getAssociatedInterface');
           const result = this.impl.getAssociatedInterface(params.name, params.receiver);
           break;

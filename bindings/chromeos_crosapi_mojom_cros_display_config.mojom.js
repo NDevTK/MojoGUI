@@ -486,9 +486,11 @@ crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -502,12 +504,13 @@ crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AddObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.CrosDisplayConfigController_AddObserver_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigController_AddObserver_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -518,7 +521,7 @@ crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
         // Try Method 1: GetDisplayLayoutInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDisplayLayoutInfo (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -529,7 +532,7 @@ crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
         // Try Method 2: SetDisplayLayoutInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDisplayLayoutInfo (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -540,7 +543,7 @@ crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
         // Try Method 3: GetDisplayUnitInfoList
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDisplayUnitInfoList (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -551,7 +554,7 @@ crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
         // Try Method 4: SetDisplayProperties
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDisplayProperties (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -562,7 +565,7 @@ crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
         // Try Method 5: SetUnifiedDesktopEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.CrosDisplayConfigController_SetUnifiedDesktopEnabled_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigController_SetUnifiedDesktopEnabled_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUnifiedDesktopEnabled (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -573,7 +576,7 @@ crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
         // Try Method 6: OverscanCalibration
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OverscanCalibration (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -584,7 +587,7 @@ crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
         // Try Method 7: TouchCalibration
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TouchCalibration (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -595,7 +598,7 @@ crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
         // Try Method 8: HighlightDisplay
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.CrosDisplayConfigController_HighlightDisplay_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigController_HighlightDisplay_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HighlightDisplay (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -606,7 +609,7 @@ crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
         // Try Method 9: DragDisplayDelta
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.CrosDisplayConfigController_DragDisplayDelta_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigController_DragDisplayDelta_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DragDisplayDelta (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -623,14 +626,14 @@ crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.CrosDisplayConfigController_AddObserver_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigController_AddObserver_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getDisplayLayoutInfo');
           const result = this.impl.getDisplayLayoutInfo();
           if (header.expectsResponse) {
@@ -643,7 +646,7 @@ crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setDisplayLayoutInfo');
           const result = this.impl.setDisplayLayoutInfo(params.info);
           if (header.expectsResponse) {
@@ -656,7 +659,7 @@ crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getDisplayUnitInfoList');
           const result = this.impl.getDisplayUnitInfoList(params.single_unified);
           if (header.expectsResponse) {
@@ -669,7 +672,7 @@ crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setDisplayProperties');
           const result = this.impl.setDisplayProperties(params.id, params.properties, params.source);
           if (header.expectsResponse) {
@@ -682,14 +685,14 @@ crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.CrosDisplayConfigController_SetUnifiedDesktopEnabled_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigController_SetUnifiedDesktopEnabled_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setUnifiedDesktopEnabled');
           const result = this.impl.setUnifiedDesktopEnabled(params.enabled);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.overscanCalibration');
           const result = this.impl.overscanCalibration(params.display_id, params.op, params.delta);
           if (header.expectsResponse) {
@@ -702,7 +705,7 @@ crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.touchCalibration');
           const result = this.impl.touchCalibration(params.display_id, params.op, params.calibration);
           if (header.expectsResponse) {
@@ -715,14 +718,14 @@ crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.CrosDisplayConfigController_HighlightDisplay_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigController_HighlightDisplay_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.highlightDisplay');
           const result = this.impl.highlightDisplay(params.id);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.CrosDisplayConfigController_DragDisplayDelta_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigController_DragDisplayDelta_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.dragDisplayDelta');
           const result = this.impl.dragDisplayDelta(params.display_id, params.delta_x, params.delta_y);
           break;
@@ -820,9 +823,11 @@ crosapi.mojom.CrosDisplayConfigObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -836,12 +841,13 @@ crosapi.mojom.CrosDisplayConfigObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnDisplayConfigChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.CrosDisplayConfigObserver_OnDisplayConfigChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigObserver_OnDisplayConfigChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDisplayConfigChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -858,7 +864,7 @@ crosapi.mojom.CrosDisplayConfigObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.CrosDisplayConfigObserver_OnDisplayConfigChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigObserver_OnDisplayConfigChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onDisplayConfigChanged');
           const result = this.impl.onDisplayConfigChanged();
           break;

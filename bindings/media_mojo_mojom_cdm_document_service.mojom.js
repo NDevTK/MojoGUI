@@ -225,9 +225,11 @@ media.mojom.CdmDocumentServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -241,12 +243,13 @@ media.mojom.CdmDocumentServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ChallengePlatform
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ChallengePlatform (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -257,7 +260,7 @@ media.mojom.CdmDocumentServiceReceiver = class {
         // Try Method 1: GetStorageId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.CdmDocumentService_GetStorageId_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.CdmDocumentService_GetStorageId_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetStorageId (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -268,7 +271,7 @@ media.mojom.CdmDocumentServiceReceiver = class {
         // Try Method 2: IsVerifiedAccessEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsVerifiedAccessEnabled (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -279,7 +282,7 @@ media.mojom.CdmDocumentServiceReceiver = class {
         // Try Method 3: GetMediaFoundationCdmData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMediaFoundationCdmData (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -290,7 +293,7 @@ media.mojom.CdmDocumentServiceReceiver = class {
         // Try Method 4: SetCdmClientToken
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCdmClientToken (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -301,7 +304,7 @@ media.mojom.CdmDocumentServiceReceiver = class {
         // Try Method 5: OnCdmEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCdmEvent (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -318,7 +321,7 @@ media.mojom.CdmDocumentServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.challengePlatform');
           const result = this.impl.challengePlatform(params.service_id, params.challenge);
           if (header.expectsResponse) {
@@ -331,7 +334,7 @@ media.mojom.CdmDocumentServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.CdmDocumentService_GetStorageId_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.CdmDocumentService_GetStorageId_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getStorageId');
           const result = this.impl.getStorageId(params.version);
           if (header.expectsResponse) {
@@ -344,7 +347,7 @@ media.mojom.CdmDocumentServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.isVerifiedAccessEnabled');
           const result = this.impl.isVerifiedAccessEnabled();
           if (header.expectsResponse) {
@@ -357,7 +360,7 @@ media.mojom.CdmDocumentServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getMediaFoundationCdmData');
           const result = this.impl.getMediaFoundationCdmData();
           if (header.expectsResponse) {
@@ -370,14 +373,14 @@ media.mojom.CdmDocumentServiceReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setCdmClientToken');
           const result = this.impl.setCdmClientToken(params.client_token);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onCdmEvent');
           const result = this.impl.onCdmEvent(params.event, params.hresult);
           break;

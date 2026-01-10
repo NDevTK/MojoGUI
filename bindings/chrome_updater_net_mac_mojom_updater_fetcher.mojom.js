@@ -158,9 +158,11 @@ updater.mojom.PostRequestObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -174,12 +176,13 @@ updater.mojom.PostRequestObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnResponseStarted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(updater.mojom.PostRequestObserver_OnResponseStarted_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(updater.mojom.PostRequestObserver_OnResponseStarted_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnResponseStarted (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -190,7 +193,7 @@ updater.mojom.PostRequestObserverReceiver = class {
         // Try Method 1: OnProgress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(updater.mojom.PostRequestObserver_OnProgress_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(updater.mojom.PostRequestObserver_OnProgress_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnProgress (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -201,7 +204,7 @@ updater.mojom.PostRequestObserverReceiver = class {
         // Try Method 2: OnRequestComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(updater.mojom.PostRequestObserver_OnRequestComplete_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(updater.mojom.PostRequestObserver_OnRequestComplete_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRequestComplete (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -218,21 +221,21 @@ updater.mojom.PostRequestObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(updater.mojom.PostRequestObserver_OnResponseStarted_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(updater.mojom.PostRequestObserver_OnResponseStarted_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onResponseStarted');
           const result = this.impl.onResponseStarted(params.http_status_code, params.content_length);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(updater.mojom.PostRequestObserver_OnProgress_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(updater.mojom.PostRequestObserver_OnProgress_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onProgress');
           const result = this.impl.onProgress(params.current);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(updater.mojom.PostRequestObserver_OnRequestComplete_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(updater.mojom.PostRequestObserver_OnRequestComplete_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onRequestComplete');
           const result = this.impl.onRequestComplete(params.response_body, params.net_error, params.header_etag, params.header_x_cup_server_proof, params.header_set_cookie, params.xheader_retry_after_sec);
           break;
@@ -369,9 +372,11 @@ updater.mojom.FileDownloadObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -385,12 +390,13 @@ updater.mojom.FileDownloadObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnResponseStarted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(updater.mojom.FileDownloadObserver_OnResponseStarted_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(updater.mojom.FileDownloadObserver_OnResponseStarted_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnResponseStarted (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -401,7 +407,7 @@ updater.mojom.FileDownloadObserverReceiver = class {
         // Try Method 1: OnProgress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(updater.mojom.FileDownloadObserver_OnProgress_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(updater.mojom.FileDownloadObserver_OnProgress_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnProgress (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -412,7 +418,7 @@ updater.mojom.FileDownloadObserverReceiver = class {
         // Try Method 2: OnDownloadComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDownloadComplete (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -429,21 +435,21 @@ updater.mojom.FileDownloadObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(updater.mojom.FileDownloadObserver_OnResponseStarted_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(updater.mojom.FileDownloadObserver_OnResponseStarted_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onResponseStarted');
           const result = this.impl.onResponseStarted(params.http_status_code, params.content_length);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(updater.mojom.FileDownloadObserver_OnProgress_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(updater.mojom.FileDownloadObserver_OnProgress_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onProgress');
           const result = this.impl.onProgress(params.current);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onDownloadComplete');
           const result = this.impl.onDownloadComplete(params.net_error, params.content_size);
           break;
@@ -575,9 +581,11 @@ updater.mojom.FetchServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -591,12 +599,13 @@ updater.mojom.FetchServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: PostRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(updater.mojom.FetchService_PostRequest_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(updater.mojom.FetchService_PostRequest_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PostRequest (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -607,7 +616,7 @@ updater.mojom.FetchServiceReceiver = class {
         // Try Method 1: DownloadToFile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(updater.mojom.FetchService_DownloadToFile_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(updater.mojom.FetchService_DownloadToFile_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DownloadToFile (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -624,7 +633,7 @@ updater.mojom.FetchServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(updater.mojom.FetchService_PostRequest_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(updater.mojom.FetchService_PostRequest_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.postRequest');
           const result = this.impl.postRequest(params.url, params.post_data, params.content_type, params.additional_headers);
           if (header.expectsResponse) {
@@ -637,7 +646,7 @@ updater.mojom.FetchServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(updater.mojom.FetchService_DownloadToFile_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(updater.mojom.FetchService_DownloadToFile_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.downloadToFile');
           const result = this.impl.downloadToFile(params.url, params.output_file);
           if (header.expectsResponse) {

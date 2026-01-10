@@ -175,9 +175,11 @@ chromeos.payments.mojom.PaymentAppInstanceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -191,12 +193,13 @@ chromeos.payments.mojom.PaymentAppInstanceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: IsPaymentImplemented
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsPaymentImplemented (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -207,7 +210,7 @@ chromeos.payments.mojom.PaymentAppInstanceReceiver = class {
         // Try Method 1: IsReadyToPay
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsReadyToPay (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -218,7 +221,7 @@ chromeos.payments.mojom.PaymentAppInstanceReceiver = class {
         // Try Method 2: InvokePaymentApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InvokePaymentApp (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -229,7 +232,7 @@ chromeos.payments.mojom.PaymentAppInstanceReceiver = class {
         // Try Method 3: AbortPaymentApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AbortPaymentApp (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -246,7 +249,7 @@ chromeos.payments.mojom.PaymentAppInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.isPaymentImplemented');
           const result = this.impl.isPaymentImplemented(params.package_name);
           if (header.expectsResponse) {
@@ -259,7 +262,7 @@ chromeos.payments.mojom.PaymentAppInstanceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.isReadyToPay');
           const result = this.impl.isReadyToPay(params.parameters);
           if (header.expectsResponse) {
@@ -272,7 +275,7 @@ chromeos.payments.mojom.PaymentAppInstanceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.invokePaymentApp');
           const result = this.impl.invokePaymentApp(params.parameters);
           if (header.expectsResponse) {
@@ -285,7 +288,7 @@ chromeos.payments.mojom.PaymentAppInstanceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.abortPaymentApp');
           const result = this.impl.abortPaymentApp(params.request_token);
           if (header.expectsResponse) {

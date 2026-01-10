@@ -191,9 +191,11 @@ media.mojom.AudioEncoderReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -207,12 +209,13 @@ media.mojom.AudioEncoderReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Initialize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.AudioEncoder_Initialize_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.AudioEncoder_Initialize_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Initialize (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -223,7 +226,7 @@ media.mojom.AudioEncoderReceiver = class {
         // Try Method 1: Encode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.AudioEncoder_Encode_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.AudioEncoder_Encode_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Encode (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -234,7 +237,7 @@ media.mojom.AudioEncoderReceiver = class {
         // Try Method 2: Flush
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.AudioEncoder_Flush_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.AudioEncoder_Flush_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Flush (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -251,7 +254,7 @@ media.mojom.AudioEncoderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.AudioEncoder_Initialize_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.AudioEncoder_Initialize_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.initialize');
           const result = this.impl.initialize(params.client, params.config);
           if (header.expectsResponse) {
@@ -264,7 +267,7 @@ media.mojom.AudioEncoderReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.AudioEncoder_Encode_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.AudioEncoder_Encode_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.encode');
           const result = this.impl.encode(params.buffer);
           if (header.expectsResponse) {
@@ -277,7 +280,7 @@ media.mojom.AudioEncoderReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.AudioEncoder_Flush_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.AudioEncoder_Flush_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.flush');
           const result = this.impl.flush();
           if (header.expectsResponse) {
@@ -383,9 +386,11 @@ media.mojom.AudioEncoderClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -399,12 +404,13 @@ media.mojom.AudioEncoderClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnEncodedBufferReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.AudioEncoderClient_OnEncodedBufferReady_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.AudioEncoderClient_OnEncodedBufferReady_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnEncodedBufferReady (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -421,7 +427,7 @@ media.mojom.AudioEncoderClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.AudioEncoderClient_OnEncodedBufferReady_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.AudioEncoderClient_OnEncodedBufferReady_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onEncodedBufferReady');
           const result = this.impl.onEncodedBufferReady(params.buffer, params.description);
           break;

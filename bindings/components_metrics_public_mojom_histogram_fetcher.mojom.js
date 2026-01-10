@@ -115,9 +115,11 @@ metrics.mojom.ChildHistogramFetcherFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -131,12 +133,13 @@ metrics.mojom.ChildHistogramFetcherFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateFetcher
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateFetcher (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -153,7 +156,7 @@ metrics.mojom.ChildHistogramFetcherFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createFetcher');
           const result = this.impl.createFetcher(params.shared_memory, params.child_histogram_fetcher);
           break;
@@ -279,9 +282,11 @@ metrics.mojom.ChildHistogramFetcherReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -295,12 +300,13 @@ metrics.mojom.ChildHistogramFetcherReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetChildNonPersistentHistogramData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetChildNonPersistentHistogramData (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -311,7 +317,7 @@ metrics.mojom.ChildHistogramFetcherReceiver = class {
         // Try Method 1: Ping
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(metrics.mojom.ChildHistogramFetcher_Ping_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(metrics.mojom.ChildHistogramFetcher_Ping_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Ping (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -328,7 +334,7 @@ metrics.mojom.ChildHistogramFetcherReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getChildNonPersistentHistogramData');
           const result = this.impl.getChildNonPersistentHistogramData();
           if (header.expectsResponse) {
@@ -341,7 +347,7 @@ metrics.mojom.ChildHistogramFetcherReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(metrics.mojom.ChildHistogramFetcher_Ping_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(metrics.mojom.ChildHistogramFetcher_Ping_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.ping');
           const result = this.impl.ping(params.call_source);
           if (header.expectsResponse) {

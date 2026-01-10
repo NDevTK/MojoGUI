@@ -126,9 +126,11 @@ chrome.mojom.NetErrorPageSupportReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -142,12 +144,13 @@ chrome.mojom.NetErrorPageSupportReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: DownloadPageLater
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.NetErrorPageSupport_DownloadPageLater_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.NetErrorPageSupport_DownloadPageLater_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DownloadPageLater (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -158,7 +161,7 @@ chrome.mojom.NetErrorPageSupportReceiver = class {
         // Try Method 1: SetIsShowingDownloadButtonInErrorPage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIsShowingDownloadButtonInErrorPage (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -169,7 +172,7 @@ chrome.mojom.NetErrorPageSupportReceiver = class {
         // Try Method 2: ShowPortalSignin
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.NetErrorPageSupport_ShowPortalSignin_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.NetErrorPageSupport_ShowPortalSignin_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowPortalSignin (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -186,21 +189,21 @@ chrome.mojom.NetErrorPageSupportReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.NetErrorPageSupport_DownloadPageLater_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.NetErrorPageSupport_DownloadPageLater_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.downloadPageLater');
           const result = this.impl.downloadPageLater();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setIsShowingDownloadButtonInErrorPage');
           const result = this.impl.setIsShowingDownloadButtonInErrorPage(params.showing_download_button);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.NetErrorPageSupport_ShowPortalSignin_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.NetErrorPageSupport_ShowPortalSignin_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.showPortalSignin');
           const result = this.impl.showPortalSignin();
           break;

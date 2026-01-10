@@ -422,9 +422,11 @@ arc.mojom.CustomTabSessionReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -438,12 +440,13 @@ arc.mojom.CustomTabSessionReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnOpenInChromeClicked
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.CustomTabSession_OnOpenInChromeClicked_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.CustomTabSession_OnOpenInChromeClicked_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnOpenInChromeClicked (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -460,7 +463,7 @@ arc.mojom.CustomTabSessionReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.CustomTabSession_OnOpenInChromeClicked_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.CustomTabSession_OnOpenInChromeClicked_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onOpenInChromeClicked');
           const result = this.impl.onOpenInChromeClicked();
           break;
@@ -899,9 +902,11 @@ arc.mojom.IntentHelperHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -915,12 +920,13 @@ arc.mojom.IntentHelperHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnIconInvalidated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.IntentHelperHost_OnIconInvalidated_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.IntentHelperHost_OnIconInvalidated_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnIconInvalidated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -931,7 +937,7 @@ arc.mojom.IntentHelperHostReceiver = class {
         // Try Method 1: OnIntentFiltersUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.IntentHelperHost_OnIntentFiltersUpdated_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.IntentHelperHost_OnIntentFiltersUpdated_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnIntentFiltersUpdated (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -942,7 +948,7 @@ arc.mojom.IntentHelperHostReceiver = class {
         // Try Method 2: OnOpenDownloads
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.IntentHelperHost_OnOpenDownloads_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.IntentHelperHost_OnOpenDownloads_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnOpenDownloads (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -953,7 +959,7 @@ arc.mojom.IntentHelperHostReceiver = class {
         // Try Method 3: OnOpenUrl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.IntentHelperHost_OnOpenUrl_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.IntentHelperHost_OnOpenUrl_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnOpenUrl (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -964,7 +970,7 @@ arc.mojom.IntentHelperHostReceiver = class {
         // Try Method 4: OnOpenCustomTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.IntentHelperHost_OnOpenCustomTab_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.IntentHelperHost_OnOpenCustomTab_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnOpenCustomTab (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -975,7 +981,7 @@ arc.mojom.IntentHelperHostReceiver = class {
         // Try Method 5: OpenWallpaperPicker
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.IntentHelperHost_OpenWallpaperPicker_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.IntentHelperHost_OpenWallpaperPicker_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenWallpaperPicker (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -986,7 +992,7 @@ arc.mojom.IntentHelperHostReceiver = class {
         // Try Method 6: OpenVolumeControl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.IntentHelperHost_OpenVolumeControl_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.IntentHelperHost_OpenVolumeControl_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenVolumeControl (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -997,7 +1003,7 @@ arc.mojom.IntentHelperHostReceiver = class {
         // Try Method 7: OnOpenChromePage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.IntentHelperHost_OnOpenChromePage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.IntentHelperHost_OnOpenChromePage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnOpenChromePage (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1008,7 +1014,7 @@ arc.mojom.IntentHelperHostReceiver = class {
         // Try Method 8: OnOpenWebApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.IntentHelperHost_OnOpenWebApp_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.IntentHelperHost_OnOpenWebApp_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnOpenWebApp (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1019,7 +1025,7 @@ arc.mojom.IntentHelperHostReceiver = class {
         // Try Method 9: FactoryResetArc
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.IntentHelperHost_FactoryResetArc_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.IntentHelperHost_FactoryResetArc_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FactoryResetArc (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1030,7 +1036,7 @@ arc.mojom.IntentHelperHostReceiver = class {
         // Try Method 10: LaunchCameraApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.IntentHelperHost_LaunchCameraApp_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.IntentHelperHost_LaunchCameraApp_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LaunchCameraApp (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1041,7 +1047,7 @@ arc.mojom.IntentHelperHostReceiver = class {
         // Try Method 11: OnIntentFiltersUpdatedForPackage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.IntentHelperHost_OnIntentFiltersUpdatedForPackage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.IntentHelperHost_OnIntentFiltersUpdatedForPackage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnIntentFiltersUpdatedForPackage (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1052,7 +1058,7 @@ arc.mojom.IntentHelperHostReceiver = class {
         // Try Method 12: CloseCameraApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.IntentHelperHost_CloseCameraApp_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.IntentHelperHost_CloseCameraApp_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseCameraApp (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1063,7 +1069,7 @@ arc.mojom.IntentHelperHostReceiver = class {
         // Try Method 13: IsChromeAppEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.IntentHelperHost_IsChromeAppEnabled_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.IntentHelperHost_IsChromeAppEnabled_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsChromeAppEnabled (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1074,7 +1080,7 @@ arc.mojom.IntentHelperHostReceiver = class {
         // Try Method 14: OnSupportedLinksChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.IntentHelperHost_OnSupportedLinksChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.IntentHelperHost_OnSupportedLinksChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSupportedLinksChanged (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1085,7 +1091,7 @@ arc.mojom.IntentHelperHostReceiver = class {
         // Try Method 15: OnDownloadAddedDeprecated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.IntentHelperHost_OnDownloadAddedDeprecated_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.IntentHelperHost_OnDownloadAddedDeprecated_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDownloadAddedDeprecated (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1096,7 +1102,7 @@ arc.mojom.IntentHelperHostReceiver = class {
         // Try Method 16: OnOpenAppWithIntent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.IntentHelperHost_OnOpenAppWithIntent_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.IntentHelperHost_OnOpenAppWithIntent_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnOpenAppWithIntent (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -1107,7 +1113,7 @@ arc.mojom.IntentHelperHostReceiver = class {
         // Try Method 17: OnOpenGlobalActions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.IntentHelperHost_OnOpenGlobalActions_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.IntentHelperHost_OnOpenGlobalActions_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnOpenGlobalActions (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -1118,7 +1124,7 @@ arc.mojom.IntentHelperHostReceiver = class {
         // Try Method 18: OnCloseSystemDialogs
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.IntentHelperHost_OnCloseSystemDialogs_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.IntentHelperHost_OnCloseSystemDialogs_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCloseSystemDialogs (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -1129,7 +1135,7 @@ arc.mojom.IntentHelperHostReceiver = class {
         // Try Method 19: OnAndroidSettingChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.IntentHelperHost_OnAndroidSettingChange_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.IntentHelperHost_OnAndroidSettingChange_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAndroidSettingChange (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -1146,35 +1152,35 @@ arc.mojom.IntentHelperHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.IntentHelperHost_OnIconInvalidated_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.IntentHelperHost_OnIconInvalidated_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onIconInvalidated');
           const result = this.impl.onIconInvalidated(params.package_name);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.IntentHelperHost_OnIntentFiltersUpdated_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.IntentHelperHost_OnIntentFiltersUpdated_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onIntentFiltersUpdated');
           const result = this.impl.onIntentFiltersUpdated(params.intent_filters);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.IntentHelperHost_OnOpenDownloads_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.IntentHelperHost_OnOpenDownloads_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onOpenDownloads');
           const result = this.impl.onOpenDownloads();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.IntentHelperHost_OnOpenUrl_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.IntentHelperHost_OnOpenUrl_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onOpenUrl');
           const result = this.impl.onOpenUrl(params.url);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.IntentHelperHost_OnOpenCustomTab_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.IntentHelperHost_OnOpenCustomTab_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onOpenCustomTab');
           const result = this.impl.onOpenCustomTab(params.url, params.task_id);
           if (header.expectsResponse) {
@@ -1187,63 +1193,63 @@ arc.mojom.IntentHelperHostReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.IntentHelperHost_OpenWallpaperPicker_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.IntentHelperHost_OpenWallpaperPicker_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.openWallpaperPicker');
           const result = this.impl.openWallpaperPicker();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.IntentHelperHost_OpenVolumeControl_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.IntentHelperHost_OpenVolumeControl_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.openVolumeControl');
           const result = this.impl.openVolumeControl();
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.IntentHelperHost_OnOpenChromePage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.IntentHelperHost_OnOpenChromePage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onOpenChromePage');
           const result = this.impl.onOpenChromePage(params.page);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.IntentHelperHost_OnOpenWebApp_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.IntentHelperHost_OnOpenWebApp_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onOpenWebApp');
           const result = this.impl.onOpenWebApp(params.url);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.IntentHelperHost_FactoryResetArc_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.IntentHelperHost_FactoryResetArc_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.factoryResetArc');
           const result = this.impl.factoryResetArc();
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.IntentHelperHost_LaunchCameraApp_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.IntentHelperHost_LaunchCameraApp_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.launchCameraApp');
           const result = this.impl.launchCameraApp(params.intent_id, params.mode, params.should_handle_result, params.should_down_scale, params.is_secure, params.task_id);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.IntentHelperHost_OnIntentFiltersUpdatedForPackage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.IntentHelperHost_OnIntentFiltersUpdatedForPackage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onIntentFiltersUpdatedForPackage');
           const result = this.impl.onIntentFiltersUpdatedForPackage(params.package_name, params.intent_filters);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.IntentHelperHost_CloseCameraApp_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.IntentHelperHost_CloseCameraApp_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.closeCameraApp');
           const result = this.impl.closeCameraApp();
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.IntentHelperHost_IsChromeAppEnabled_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.IntentHelperHost_IsChromeAppEnabled_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.isChromeAppEnabled');
           const result = this.impl.isChromeAppEnabled(params.app);
           if (header.expectsResponse) {
@@ -1256,42 +1262,42 @@ arc.mojom.IntentHelperHostReceiver = class {
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.IntentHelperHost_OnSupportedLinksChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.IntentHelperHost_OnSupportedLinksChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onSupportedLinksChanged');
           const result = this.impl.onSupportedLinksChanged(params.added_packages, params.removed_packages, params.source);
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.IntentHelperHost_OnDownloadAddedDeprecated_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.IntentHelperHost_OnDownloadAddedDeprecated_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onDownloadAddedDeprecated');
           const result = this.impl.onDownloadAddedDeprecated(params.relative_path, params.owner_package_name);
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.IntentHelperHost_OnOpenAppWithIntent_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.IntentHelperHost_OnOpenAppWithIntent_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onOpenAppWithIntent');
           const result = this.impl.onOpenAppWithIntent(params.start_url, params.intent);
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.IntentHelperHost_OnOpenGlobalActions_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.IntentHelperHost_OnOpenGlobalActions_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onOpenGlobalActions');
           const result = this.impl.onOpenGlobalActions();
           break;
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.IntentHelperHost_OnCloseSystemDialogs_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.IntentHelperHost_OnCloseSystemDialogs_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onCloseSystemDialogs');
           const result = this.impl.onCloseSystemDialogs();
           break;
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.IntentHelperHost_OnAndroidSettingChange_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.IntentHelperHost_OnAndroidSettingChange_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onAndroidSettingChange');
           const result = this.impl.onAndroidSettingChange(params.setting, params.is_enabled);
           break;
@@ -1697,9 +1703,11 @@ arc.mojom.IntentHelperInstanceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1713,12 +1721,13 @@ arc.mojom.IntentHelperInstanceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AddPreferredPackage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.IntentHelperInstance_AddPreferredPackage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.IntentHelperInstance_AddPreferredPackage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddPreferredPackage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1729,7 +1738,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
         // Try Method 1: SetVerifiedLinks
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.IntentHelperInstance_SetVerifiedLinks_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.IntentHelperInstance_SetVerifiedLinks_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetVerifiedLinks (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1740,7 +1749,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
         // Try Method 2: HandleIntent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.IntentHelperInstance_HandleIntent_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.IntentHelperInstance_HandleIntent_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleIntent (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1751,7 +1760,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
         // Try Method 3: HandleIntentWithWindowInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.IntentHelperInstance_HandleIntentWithWindowInfo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.IntentHelperInstance_HandleIntentWithWindowInfo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleIntentWithWindowInfo (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1762,7 +1771,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
         // Try Method 4: HandleUrl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.IntentHelperInstance_HandleUrl_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.IntentHelperInstance_HandleUrl_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleUrl (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1773,7 +1782,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
         // Try Method 5: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.IntentHelperInstance_Init_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.IntentHelperInstance_Init_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1784,7 +1793,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
         // Try Method 6: RequestActivityIcons
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.IntentHelperInstance_RequestActivityIcons_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.IntentHelperInstance_RequestActivityIcons_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestActivityIcons (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1795,7 +1804,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
         // Try Method 7: RequestIntentHandlerList
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestIntentHandlerList (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1806,7 +1815,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
         // Try Method 8: RequestUrlHandlerList
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.IntentHelperInstance_RequestUrlHandlerList_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.IntentHelperInstance_RequestUrlHandlerList_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestUrlHandlerList (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1817,7 +1826,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
         // Try Method 9: RequestUrlListHandlerList
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestUrlListHandlerList (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1828,7 +1837,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
         // Try Method 10: SendBroadcast
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.IntentHelperInstance_SendBroadcast_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.IntentHelperInstance_SendBroadcast_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendBroadcast (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1839,7 +1848,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
         // Try Method 11: RequestTextSelectionActions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestTextSelectionActions (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1850,7 +1859,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
         // Try Method 12: HandleCameraResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.IntentHelperInstance_HandleCameraResult_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.IntentHelperInstance_HandleCameraResult_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleCameraResult (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1861,7 +1870,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
         // Try Method 13: RequestDomainVerificationStatusUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.IntentHelperInstance_RequestDomainVerificationStatusUpdate_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.IntentHelperInstance_RequestDomainVerificationStatusUpdate_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestDomainVerificationStatusUpdate (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1872,7 +1881,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
         // Try Method 14: SetCaptionStyle
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.IntentHelperInstance_SetCaptionStyle_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.IntentHelperInstance_SetCaptionStyle_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCaptionStyle (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1883,7 +1892,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
         // Try Method 15: EnableAccessibilityFeatures
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.IntentHelperInstance_EnableAccessibilityFeatures_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.IntentHelperInstance_EnableAccessibilityFeatures_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableAccessibilityFeatures (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1900,42 +1909,42 @@ arc.mojom.IntentHelperInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.IntentHelperInstance_AddPreferredPackage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.IntentHelperInstance_AddPreferredPackage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addPreferredPackage');
           const result = this.impl.addPreferredPackage(params.package_name);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.IntentHelperInstance_SetVerifiedLinks_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.IntentHelperInstance_SetVerifiedLinks_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setVerifiedLinks');
           const result = this.impl.setVerifiedLinks(params.package_names, params.always_open);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.IntentHelperInstance_HandleIntent_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.IntentHelperInstance_HandleIntent_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.handleIntent');
           const result = this.impl.handleIntent(params.intent, params.activity);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.IntentHelperInstance_HandleIntentWithWindowInfo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.IntentHelperInstance_HandleIntentWithWindowInfo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.handleIntentWithWindowInfo');
           const result = this.impl.handleIntentWithWindowInfo(params.intent, params.activity, params.window_info);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.IntentHelperInstance_HandleUrl_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.IntentHelperInstance_HandleUrl_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.handleUrl');
           const result = this.impl.handleUrl(params.url, params.package_name);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.IntentHelperInstance_Init_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.IntentHelperInstance_Init_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -1948,7 +1957,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.IntentHelperInstance_RequestActivityIcons_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.IntentHelperInstance_RequestActivityIcons_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestActivityIcons');
           const result = this.impl.requestActivityIcons(params.activities, params.scale_factor);
           if (header.expectsResponse) {
@@ -1961,7 +1970,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestIntentHandlerList');
           const result = this.impl.requestIntentHandlerList(params.intent);
           if (header.expectsResponse) {
@@ -1974,7 +1983,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.IntentHelperInstance_RequestUrlHandlerList_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.IntentHelperInstance_RequestUrlHandlerList_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestUrlHandlerList');
           const result = this.impl.requestUrlHandlerList(params.url);
           if (header.expectsResponse) {
@@ -1987,7 +1996,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestUrlListHandlerList');
           const result = this.impl.requestUrlListHandlerList(params.urls);
           if (header.expectsResponse) {
@@ -2000,14 +2009,14 @@ arc.mojom.IntentHelperInstanceReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.IntentHelperInstance_SendBroadcast_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.IntentHelperInstance_SendBroadcast_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.sendBroadcast');
           const result = this.impl.sendBroadcast(params.action, params.package_name, params.cls, params.extras);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestTextSelectionActions');
           const result = this.impl.requestTextSelectionActions(params.text, params.scale_factor);
           if (header.expectsResponse) {
@@ -2020,7 +2029,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.IntentHelperInstance_HandleCameraResult_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.IntentHelperInstance_HandleCameraResult_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.handleCameraResult');
           const result = this.impl.handleCameraResult(params.intent_id, params.action, params.data);
           if (header.expectsResponse) {
@@ -2033,21 +2042,21 @@ arc.mojom.IntentHelperInstanceReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.IntentHelperInstance_RequestDomainVerificationStatusUpdate_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.IntentHelperInstance_RequestDomainVerificationStatusUpdate_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestDomainVerificationStatusUpdate');
           const result = this.impl.requestDomainVerificationStatusUpdate();
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.IntentHelperInstance_SetCaptionStyle_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.IntentHelperInstance_SetCaptionStyle_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setCaptionStyle');
           const result = this.impl.setCaptionStyle(params.style);
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.IntentHelperInstance_EnableAccessibilityFeatures_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.IntentHelperInstance_EnableAccessibilityFeatures_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.enableAccessibilityFeatures');
           const result = this.impl.enableAccessibilityFeatures(params.features);
           break;

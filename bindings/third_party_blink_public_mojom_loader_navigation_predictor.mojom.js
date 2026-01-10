@@ -397,9 +397,11 @@ blink.mojom.AnchorElementMetricsHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -413,12 +415,13 @@ blink.mojom.AnchorElementMetricsHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ReportAnchorElementClick
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AnchorElementMetricsHost_ReportAnchorElementClick_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AnchorElementMetricsHost_ReportAnchorElementClick_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportAnchorElementClick (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -429,7 +432,7 @@ blink.mojom.AnchorElementMetricsHostReceiver = class {
         // Try Method 1: ReportNewAnchorElements
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AnchorElementMetricsHost_ReportNewAnchorElements_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AnchorElementMetricsHost_ReportNewAnchorElements_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportNewAnchorElements (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -440,7 +443,7 @@ blink.mojom.AnchorElementMetricsHostReceiver = class {
         // Try Method 2: ReportAnchorElementsEnteredViewport
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsEnteredViewport_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsEnteredViewport_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportAnchorElementsEnteredViewport (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -451,7 +454,7 @@ blink.mojom.AnchorElementMetricsHostReceiver = class {
         // Try Method 3: ReportAnchorElementsLeftViewport
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsLeftViewport_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsLeftViewport_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportAnchorElementsLeftViewport (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -462,7 +465,7 @@ blink.mojom.AnchorElementMetricsHostReceiver = class {
         // Try Method 4: ReportAnchorElementsPositionUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsPositionUpdate_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsPositionUpdate_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportAnchorElementsPositionUpdate (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -473,7 +476,7 @@ blink.mojom.AnchorElementMetricsHostReceiver = class {
         // Try Method 5: ReportAnchorElementPointerOver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOver_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOver_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportAnchorElementPointerOver (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -484,7 +487,7 @@ blink.mojom.AnchorElementMetricsHostReceiver = class {
         // Try Method 6: ReportAnchorElementPointerOut
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOut_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOut_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportAnchorElementPointerOut (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -495,7 +498,7 @@ blink.mojom.AnchorElementMetricsHostReceiver = class {
         // Try Method 7: ReportAnchorElementPointerDown
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDown_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDown_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportAnchorElementPointerDown (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -506,7 +509,7 @@ blink.mojom.AnchorElementMetricsHostReceiver = class {
         // Try Method 8: ReportAnchorElementPointerDataOnHoverTimerFired
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDataOnHoverTimerFired_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDataOnHoverTimerFired_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportAnchorElementPointerDataOnHoverTimerFired (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -517,7 +520,7 @@ blink.mojom.AnchorElementMetricsHostReceiver = class {
         // Try Method 9: ProcessPointerEventUsingMLModel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AnchorElementMetricsHost_ProcessPointerEventUsingMLModel_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AnchorElementMetricsHost_ProcessPointerEventUsingMLModel_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ProcessPointerEventUsingMLModel (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -528,7 +531,7 @@ blink.mojom.AnchorElementMetricsHostReceiver = class {
         // Try Method 10: ShouldSkipUpdateDelays
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShouldSkipUpdateDelays (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -545,77 +548,77 @@ blink.mojom.AnchorElementMetricsHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AnchorElementMetricsHost_ReportAnchorElementClick_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AnchorElementMetricsHost_ReportAnchorElementClick_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.reportAnchorElementClick');
           const result = this.impl.reportAnchorElementClick(params.clicked);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AnchorElementMetricsHost_ReportNewAnchorElements_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AnchorElementMetricsHost_ReportNewAnchorElements_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.reportNewAnchorElements');
           const result = this.impl.reportNewAnchorElements(params.metrics, params.removed_elements);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsEnteredViewport_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsEnteredViewport_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.reportAnchorElementsEnteredViewport');
           const result = this.impl.reportAnchorElementsEnteredViewport(params.elements);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsLeftViewport_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsLeftViewport_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.reportAnchorElementsLeftViewport');
           const result = this.impl.reportAnchorElementsLeftViewport(params.elements);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsPositionUpdate_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsPositionUpdate_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.reportAnchorElementsPositionUpdate');
           const result = this.impl.reportAnchorElementsPositionUpdate(params.elements);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOver_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOver_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.reportAnchorElementPointerOver');
           const result = this.impl.reportAnchorElementPointerOver(params.pointer_over_event);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOut_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOut_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.reportAnchorElementPointerOut');
           const result = this.impl.reportAnchorElementPointerOut(params.hover_event);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDown_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDown_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.reportAnchorElementPointerDown');
           const result = this.impl.reportAnchorElementPointerDown(params.pointer_down_event);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDataOnHoverTimerFired_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDataOnHoverTimerFired_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.reportAnchorElementPointerDataOnHoverTimerFired');
           const result = this.impl.reportAnchorElementPointerDataOnHoverTimerFired(params.pointer_data);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AnchorElementMetricsHost_ProcessPointerEventUsingMLModel_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AnchorElementMetricsHost_ProcessPointerEventUsingMLModel_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.processPointerEventUsingMLModel');
           const result = this.impl.processPointerEventUsingMLModel(params.pointer_event);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.shouldSkipUpdateDelays');
           const result = this.impl.shouldSkipUpdateDelays();
           if (header.expectsResponse) {

@@ -177,9 +177,11 @@ blink.mojom.AnchorElementInteractionHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -193,12 +195,13 @@ blink.mojom.AnchorElementInteractionHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnPointerDown
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AnchorElementInteractionHost_OnPointerDown_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AnchorElementInteractionHost_OnPointerDown_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPointerDown (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -209,7 +212,7 @@ blink.mojom.AnchorElementInteractionHostReceiver = class {
         // Try Method 1: OnPointerHoverEager
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPointerHoverEager (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -220,7 +223,7 @@ blink.mojom.AnchorElementInteractionHostReceiver = class {
         // Try Method 2: OnPointerHoverModerate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPointerHoverModerate (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -231,7 +234,7 @@ blink.mojom.AnchorElementInteractionHostReceiver = class {
         // Try Method 3: OnModerateViewportHeuristicTriggered
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnModerateViewportHeuristicTriggered (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -242,7 +245,7 @@ blink.mojom.AnchorElementInteractionHostReceiver = class {
         // Try Method 4: OnEagerViewportHeuristicTriggered
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnEagerViewportHeuristicTriggered (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -259,35 +262,35 @@ blink.mojom.AnchorElementInteractionHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AnchorElementInteractionHost_OnPointerDown_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AnchorElementInteractionHost_OnPointerDown_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onPointerDown');
           const result = this.impl.onPointerDown(params.target);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onPointerHoverEager');
           const result = this.impl.onPointerHoverEager(params.target, params.mouse_data);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onPointerHoverModerate');
           const result = this.impl.onPointerHoverModerate(params.target, params.mouse_data);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onModerateViewportHeuristicTriggered');
           const result = this.impl.onModerateViewportHeuristicTriggered(params.target);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onEagerViewportHeuristicTriggered');
           const result = this.impl.onEagerViewportHeuristicTriggered(params.targets);
           break;

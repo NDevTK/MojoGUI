@@ -243,9 +243,11 @@ chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -259,12 +261,13 @@ chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AddFolder
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.remote_apps.mojom.RemoteApps_AddFolder_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.remote_apps.mojom.RemoteApps_AddFolder_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddFolder (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -275,7 +278,7 @@ chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
         // Try Method 1: AddApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.remote_apps.mojom.RemoteApps_AddApp_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.remote_apps.mojom.RemoteApps_AddApp_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddApp (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -286,7 +289,7 @@ chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
         // Try Method 2: DeleteApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteApp (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -297,7 +300,7 @@ chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
         // Try Method 3: SortLauncherWithRemoteAppsFirst
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SortLauncherWithRemoteAppsFirst (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -308,7 +311,7 @@ chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
         // Try Method 4: SetPinnedApps
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPinnedApps (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -325,7 +328,7 @@ chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.remote_apps.mojom.RemoteApps_AddFolder_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.remote_apps.mojom.RemoteApps_AddFolder_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addFolder');
           const result = this.impl.addFolder(params.name, params.add_to_front);
           if (header.expectsResponse) {
@@ -338,7 +341,7 @@ chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.remote_apps.mojom.RemoteApps_AddApp_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.remote_apps.mojom.RemoteApps_AddApp_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addApp');
           const result = this.impl.addApp(params.source_id, params.name, params.folder_id, params.icon_url, params.add_to_front);
           if (header.expectsResponse) {
@@ -351,7 +354,7 @@ chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.deleteApp');
           const result = this.impl.deleteApp(params.app_id);
           if (header.expectsResponse) {
@@ -364,7 +367,7 @@ chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.sortLauncherWithRemoteAppsFirst');
           const result = this.impl.sortLauncherWithRemoteAppsFirst();
           if (header.expectsResponse) {
@@ -377,7 +380,7 @@ chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setPinnedApps');
           const result = this.impl.setPinnedApps(params.app_ids);
           if (header.expectsResponse) {
@@ -484,9 +487,11 @@ chromeos.remote_apps.mojom.RemoteAppsFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -500,12 +505,13 @@ chromeos.remote_apps.mojom.RemoteAppsFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: BindRemoteAppsAndAppLaunchObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.remote_apps.mojom.RemoteAppsFactory_BindRemoteAppsAndAppLaunchObserver_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.remote_apps.mojom.RemoteAppsFactory_BindRemoteAppsAndAppLaunchObserver_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindRemoteAppsAndAppLaunchObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -522,7 +528,7 @@ chromeos.remote_apps.mojom.RemoteAppsFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.remote_apps.mojom.RemoteAppsFactory_BindRemoteAppsAndAppLaunchObserver_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.remote_apps.mojom.RemoteAppsFactory_BindRemoteAppsAndAppLaunchObserver_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindRemoteAppsAndAppLaunchObserver');
           const result = this.impl.bindRemoteAppsAndAppLaunchObserver(params.source_id, params.remote_apps, params.observer);
           break;
@@ -622,9 +628,11 @@ chromeos.remote_apps.mojom.RemoteAppLaunchObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -638,12 +646,13 @@ chromeos.remote_apps.mojom.RemoteAppLaunchObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnRemoteAppLaunched
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.remote_apps.mojom.RemoteAppLaunchObserver_OnRemoteAppLaunched_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.remote_apps.mojom.RemoteAppLaunchObserver_OnRemoteAppLaunched_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRemoteAppLaunched (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -660,7 +669,7 @@ chromeos.remote_apps.mojom.RemoteAppLaunchObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.remote_apps.mojom.RemoteAppLaunchObserver_OnRemoteAppLaunched_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.remote_apps.mojom.RemoteAppLaunchObserver_OnRemoteAppLaunched_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onRemoteAppLaunched');
           const result = this.impl.onRemoteAppLaunched(params.app_id, params.source_id);
           break;

@@ -128,9 +128,11 @@ auction_worklet.mojom.LoadSellerWorkletClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -144,12 +146,13 @@ auction_worklet.mojom.LoadSellerWorkletClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SellerWorkletLoaded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(auction_worklet.mojom.LoadSellerWorkletClient_SellerWorkletLoaded_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(auction_worklet.mojom.LoadSellerWorkletClient_SellerWorkletLoaded_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SellerWorkletLoaded (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -166,7 +169,7 @@ auction_worklet.mojom.LoadSellerWorkletClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(auction_worklet.mojom.LoadSellerWorkletClient_SellerWorkletLoaded_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(auction_worklet.mojom.LoadSellerWorkletClient_SellerWorkletLoaded_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.sellerWorkletLoaded');
           const result = this.impl.sellerWorkletLoaded(params.trusted_signals_url_allowed);
           break;
@@ -326,9 +329,11 @@ auction_worklet.mojom.AuctionWorkletServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -342,12 +347,13 @@ auction_worklet.mojom.AuctionWorkletServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetTrustedSignalsCache
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(auction_worklet.mojom.AuctionWorkletService_SetTrustedSignalsCache_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(auction_worklet.mojom.AuctionWorkletService_SetTrustedSignalsCache_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTrustedSignalsCache (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -358,7 +364,7 @@ auction_worklet.mojom.AuctionWorkletServiceReceiver = class {
         // Try Method 1: LoadBidderWorklet
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(auction_worklet.mojom.AuctionWorkletService_LoadBidderWorklet_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(auction_worklet.mojom.AuctionWorkletService_LoadBidderWorklet_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadBidderWorklet (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -369,7 +375,7 @@ auction_worklet.mojom.AuctionWorkletServiceReceiver = class {
         // Try Method 2: LoadSellerWorklet
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(auction_worklet.mojom.AuctionWorkletService_LoadSellerWorklet_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(auction_worklet.mojom.AuctionWorkletService_LoadSellerWorklet_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadSellerWorklet (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -386,21 +392,21 @@ auction_worklet.mojom.AuctionWorkletServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(auction_worklet.mojom.AuctionWorkletService_SetTrustedSignalsCache_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(auction_worklet.mojom.AuctionWorkletService_SetTrustedSignalsCache_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setTrustedSignalsCache');
           const result = this.impl.setTrustedSignalsCache(params.trusted_signals_cache);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(auction_worklet.mojom.AuctionWorkletService_LoadBidderWorklet_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(auction_worklet.mojom.AuctionWorkletService_LoadBidderWorklet_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.loadBidderWorklet');
           const result = this.impl.loadBidderWorklet(params.bidder_worklet, params.shared_storage_hosts, params.pause_for_debugger_on_start, params.url_loader_factory, params.auction_network_events_handler, params.script_source_load, params.wasm_helper_load, params.trusted_bidding_signals_url, params.trusted_bidding_signals_slot_size_param, params.top_window_origin, params.permissions_policy_state, params.experiment_group_id, params.public_key);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(auction_worklet.mojom.AuctionWorkletService_LoadSellerWorklet_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(auction_worklet.mojom.AuctionWorkletService_LoadSellerWorklet_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.loadSellerWorklet');
           const result = this.impl.loadSellerWorklet(params.seller_worklet, params.shared_storage_hosts, params.pause_for_debugger_on_start, params.url_loader_factory, params.auction_network_events_handler, params.script_source_load, params.trusted_scoring_signals_url, params.top_window_origin, params.permissions_policy_state, params.experiment_group_id, params.send_creative_scanning_metadata, params.public_key, params.load_seller_worklet_client);
           break;

@@ -303,9 +303,11 @@ ash.mojom.status_area_internals.PageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -319,12 +321,13 @@ ash.mojom.status_area_internals.PageHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ToggleImeTray
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_ToggleImeTray_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.mojom.status_area_internals.PageHandler_ToggleImeTray_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ToggleImeTray (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -335,7 +338,7 @@ ash.mojom.status_area_internals.PageHandlerReceiver = class {
         // Try Method 1: TogglePaletteTray
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_TogglePaletteTray_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.mojom.status_area_internals.PageHandler_TogglePaletteTray_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TogglePaletteTray (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -346,7 +349,7 @@ ash.mojom.status_area_internals.PageHandlerReceiver = class {
         // Try Method 2: ToggleLogoutTray
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_ToggleLogoutTray_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.mojom.status_area_internals.PageHandler_ToggleLogoutTray_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ToggleLogoutTray (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -357,7 +360,7 @@ ash.mojom.status_area_internals.PageHandlerReceiver = class {
         // Try Method 3: ToggleVirtualKeyboardTray
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_ToggleVirtualKeyboardTray_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.mojom.status_area_internals.PageHandler_ToggleVirtualKeyboardTray_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ToggleVirtualKeyboardTray (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -368,7 +371,7 @@ ash.mojom.status_area_internals.PageHandlerReceiver = class {
         // Try Method 4: ToggleDictationTray
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_ToggleDictationTray_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.mojom.status_area_internals.PageHandler_ToggleDictationTray_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ToggleDictationTray (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -379,7 +382,7 @@ ash.mojom.status_area_internals.PageHandlerReceiver = class {
         // Try Method 5: ToggleVideoConferenceTray
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_ToggleVideoConferenceTray_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.mojom.status_area_internals.PageHandler_ToggleVideoConferenceTray_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ToggleVideoConferenceTray (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -390,7 +393,7 @@ ash.mojom.status_area_internals.PageHandlerReceiver = class {
         // Try Method 6: ToggleAnnotationTray
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_ToggleAnnotationTray_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.mojom.status_area_internals.PageHandler_ToggleAnnotationTray_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ToggleAnnotationTray (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -401,7 +404,7 @@ ash.mojom.status_area_internals.PageHandlerReceiver = class {
         // Try Method 7: SetIsInUserChildSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_SetIsInUserChildSession_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.mojom.status_area_internals.PageHandler_SetIsInUserChildSession_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIsInUserChildSession (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -412,7 +415,7 @@ ash.mojom.status_area_internals.PageHandlerReceiver = class {
         // Try Method 8: TriggerPrivacyIndicators
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_TriggerPrivacyIndicators_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.mojom.status_area_internals.PageHandler_TriggerPrivacyIndicators_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TriggerPrivacyIndicators (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -423,7 +426,7 @@ ash.mojom.status_area_internals.PageHandlerReceiver = class {
         // Try Method 9: ResetHmrConsentStatus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_ResetHmrConsentStatus_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.mojom.status_area_internals.PageHandler_ResetHmrConsentStatus_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResetHmrConsentStatus (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -434,7 +437,7 @@ ash.mojom.status_area_internals.PageHandlerReceiver = class {
         // Try Method 10: SetBatteryIcon
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBatteryIcon (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -445,7 +448,7 @@ ash.mojom.status_area_internals.PageHandlerReceiver = class {
         // Try Method 11: SetBatteryPercent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_SetBatteryPercent_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.mojom.status_area_internals.PageHandler_SetBatteryPercent_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBatteryPercent (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -462,84 +465,84 @@ ash.mojom.status_area_internals.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_ToggleImeTray_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.mojom.status_area_internals.PageHandler_ToggleImeTray_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.toggleImeTray');
           const result = this.impl.toggleImeTray(params.visible);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_TogglePaletteTray_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.mojom.status_area_internals.PageHandler_TogglePaletteTray_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.togglePaletteTray');
           const result = this.impl.togglePaletteTray(params.visible);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_ToggleLogoutTray_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.mojom.status_area_internals.PageHandler_ToggleLogoutTray_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.toggleLogoutTray');
           const result = this.impl.toggleLogoutTray(params.visible);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_ToggleVirtualKeyboardTray_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.mojom.status_area_internals.PageHandler_ToggleVirtualKeyboardTray_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.toggleVirtualKeyboardTray');
           const result = this.impl.toggleVirtualKeyboardTray(params.visible);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_ToggleDictationTray_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.mojom.status_area_internals.PageHandler_ToggleDictationTray_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.toggleDictationTray');
           const result = this.impl.toggleDictationTray(params.visible);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_ToggleVideoConferenceTray_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.mojom.status_area_internals.PageHandler_ToggleVideoConferenceTray_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.toggleVideoConferenceTray');
           const result = this.impl.toggleVideoConferenceTray(params.visible);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_ToggleAnnotationTray_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.mojom.status_area_internals.PageHandler_ToggleAnnotationTray_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.toggleAnnotationTray');
           const result = this.impl.toggleAnnotationTray(params.visible);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_SetIsInUserChildSession_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.mojom.status_area_internals.PageHandler_SetIsInUserChildSession_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setIsInUserChildSession');
           const result = this.impl.setIsInUserChildSession(params.in_child_session);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_TriggerPrivacyIndicators_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.mojom.status_area_internals.PageHandler_TriggerPrivacyIndicators_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.triggerPrivacyIndicators');
           const result = this.impl.triggerPrivacyIndicators(params.app_id, params.app_name, params.is_camera_used, params.is_microphone_used);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_ResetHmrConsentStatus_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.mojom.status_area_internals.PageHandler_ResetHmrConsentStatus_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.resetHmrConsentStatus');
           const result = this.impl.resetHmrConsentStatus();
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setBatteryIcon');
           const result = this.impl.setBatteryIcon(params.icon);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_SetBatteryPercent_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.mojom.status_area_internals.PageHandler_SetBatteryPercent_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setBatteryPercent');
           const result = this.impl.setBatteryPercent(params.percent);
           break;

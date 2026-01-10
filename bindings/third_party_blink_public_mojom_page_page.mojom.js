@@ -366,9 +366,11 @@ blink.mojom.PageBroadcastReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -382,12 +384,13 @@ blink.mojom.PageBroadcastReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetPageLifecycleState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.PageBroadcast_SetPageLifecycleState_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.PageBroadcast_SetPageLifecycleState_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPageLifecycleState (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -398,7 +401,7 @@ blink.mojom.PageBroadcastReceiver = class {
         // Try Method 1: AudioStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.PageBroadcast_AudioStateChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.PageBroadcast_AudioStateChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AudioStateChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -409,7 +412,7 @@ blink.mojom.PageBroadcastReceiver = class {
         // Try Method 2: ActivatePrerenderedPage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.PageBroadcast_ActivatePrerenderedPage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.PageBroadcast_ActivatePrerenderedPage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ActivatePrerenderedPage (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -420,7 +423,7 @@ blink.mojom.PageBroadcastReceiver = class {
         // Try Method 3: UpdateWebPreferences
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.PageBroadcast_UpdateWebPreferences_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.PageBroadcast_UpdateWebPreferences_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateWebPreferences (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -431,7 +434,7 @@ blink.mojom.PageBroadcastReceiver = class {
         // Try Method 4: UpdateRendererPreferences
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.PageBroadcast_UpdateRendererPreferences_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.PageBroadcast_UpdateRendererPreferences_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateRendererPreferences (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -442,7 +445,7 @@ blink.mojom.PageBroadcastReceiver = class {
         // Try Method 5: SetHistoryIndexAndLength
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.PageBroadcast_SetHistoryIndexAndLength_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.PageBroadcast_SetHistoryIndexAndLength_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetHistoryIndexAndLength (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -453,7 +456,7 @@ blink.mojom.PageBroadcastReceiver = class {
         // Try Method 6: SetPageBaseBackgroundColor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.PageBroadcast_SetPageBaseBackgroundColor_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.PageBroadcast_SetPageBaseBackgroundColor_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPageBaseBackgroundColor (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -464,7 +467,7 @@ blink.mojom.PageBroadcastReceiver = class {
         // Try Method 7: CreateRemoteMainFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.PageBroadcast_CreateRemoteMainFrame_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.PageBroadcast_CreateRemoteMainFrame_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateRemoteMainFrame (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -475,7 +478,7 @@ blink.mojom.PageBroadcastReceiver = class {
         // Try Method 8: UpdatePageBrowsingContextGroup
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.PageBroadcast_UpdatePageBrowsingContextGroup_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.PageBroadcast_UpdatePageBrowsingContextGroup_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdatePageBrowsingContextGroup (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -486,7 +489,7 @@ blink.mojom.PageBroadcastReceiver = class {
         // Try Method 9: SetPageAttributionSupport
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.PageBroadcast_SetPageAttributionSupport_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.PageBroadcast_SetPageAttributionSupport_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPageAttributionSupport (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -497,7 +500,7 @@ blink.mojom.PageBroadcastReceiver = class {
         // Try Method 10: UpdateColorProviders
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.PageBroadcast_UpdateColorProviders_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.PageBroadcast_UpdateColorProviders_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateColorProviders (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -508,7 +511,7 @@ blink.mojom.PageBroadcastReceiver = class {
         // Try Method 11: SetSupportsDraggableRegions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.PageBroadcast_SetSupportsDraggableRegions_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.PageBroadcast_SetSupportsDraggableRegions_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSupportsDraggableRegions (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -525,7 +528,7 @@ blink.mojom.PageBroadcastReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PageBroadcast_SetPageLifecycleState_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.PageBroadcast_SetPageLifecycleState_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setPageLifecycleState');
           const result = this.impl.setPageLifecycleState(params.state, params.page_restore_params);
           if (header.expectsResponse) {
@@ -538,14 +541,14 @@ blink.mojom.PageBroadcastReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PageBroadcast_AudioStateChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.PageBroadcast_AudioStateChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.audioStateChanged');
           const result = this.impl.audioStateChanged(params.is_audio_playing);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PageBroadcast_ActivatePrerenderedPage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.PageBroadcast_ActivatePrerenderedPage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.activatePrerenderedPage');
           const result = this.impl.activatePrerenderedPage(params.prerender_page_activation_params);
           if (header.expectsResponse) {
@@ -558,63 +561,63 @@ blink.mojom.PageBroadcastReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PageBroadcast_UpdateWebPreferences_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.PageBroadcast_UpdateWebPreferences_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.updateWebPreferences');
           const result = this.impl.updateWebPreferences(params.preferences);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PageBroadcast_UpdateRendererPreferences_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.PageBroadcast_UpdateRendererPreferences_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.updateRendererPreferences');
           const result = this.impl.updateRendererPreferences(params.preferences);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PageBroadcast_SetHistoryIndexAndLength_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.PageBroadcast_SetHistoryIndexAndLength_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setHistoryIndexAndLength');
           const result = this.impl.setHistoryIndexAndLength(params.index, params.length);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PageBroadcast_SetPageBaseBackgroundColor_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.PageBroadcast_SetPageBaseBackgroundColor_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setPageBaseBackgroundColor');
           const result = this.impl.setPageBaseBackgroundColor(params.color);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PageBroadcast_CreateRemoteMainFrame_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.PageBroadcast_CreateRemoteMainFrame_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createRemoteMainFrame');
           const result = this.impl.createRemoteMainFrame(params.token, params.opener_frame_token, params.replication_state, params.is_loading, params.devtools_frame_token, params.navigation_metrics_token, params.remote_frame_interfaces, params.remote_main_frame_interfaces);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PageBroadcast_UpdatePageBrowsingContextGroup_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.PageBroadcast_UpdatePageBrowsingContextGroup_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.updatePageBrowsingContextGroup');
           const result = this.impl.updatePageBrowsingContextGroup(params.browsing_context_group_token);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PageBroadcast_SetPageAttributionSupport_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.PageBroadcast_SetPageAttributionSupport_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setPageAttributionSupport');
           const result = this.impl.setPageAttributionSupport(params.support);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PageBroadcast_UpdateColorProviders_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.PageBroadcast_UpdateColorProviders_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.updateColorProviders');
           const result = this.impl.updateColorProviders(params.color_provider_colors);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PageBroadcast_SetSupportsDraggableRegions_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.PageBroadcast_SetSupportsDraggableRegions_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setSupportsDraggableRegions');
           const result = this.impl.setSupportsDraggableRegions(params.supports_draggable_regions);
           break;

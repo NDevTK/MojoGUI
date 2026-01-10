@@ -126,9 +126,11 @@ extensions.mojom.GuestViewReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -142,12 +144,13 @@ extensions.mojom.GuestViewReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ReadyToCreateMimeHandlerView
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(extensions.mojom.GuestView_ReadyToCreateMimeHandlerView_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(extensions.mojom.GuestView_ReadyToCreateMimeHandlerView_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadyToCreateMimeHandlerView (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -158,7 +161,7 @@ extensions.mojom.GuestViewReceiver = class {
         // Try Method 1: CanExecuteContentScript
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(extensions.mojom.GuestView_CanExecuteContentScript_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(extensions.mojom.GuestView_CanExecuteContentScript_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CanExecuteContentScript (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -175,14 +178,14 @@ extensions.mojom.GuestViewReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(extensions.mojom.GuestView_ReadyToCreateMimeHandlerView_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(extensions.mojom.GuestView_ReadyToCreateMimeHandlerView_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.readyToCreateMimeHandlerView');
           const result = this.impl.readyToCreateMimeHandlerView(params.success);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(extensions.mojom.GuestView_CanExecuteContentScript_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(extensions.mojom.GuestView_CanExecuteContentScript_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.canExecuteContentScript');
           const result = this.impl.canExecuteContentScript(params.script_id);
           if (header.expectsResponse) {
@@ -344,9 +347,11 @@ extensions.mojom.MimeHandlerViewContainerManagerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -360,12 +365,13 @@ extensions.mojom.MimeHandlerViewContainerManagerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetInternalId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(extensions.mojom.MimeHandlerViewContainerManager_SetInternalId_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(extensions.mojom.MimeHandlerViewContainerManager_SetInternalId_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetInternalId (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -376,7 +382,7 @@ extensions.mojom.MimeHandlerViewContainerManagerReceiver = class {
         // Try Method 1: CreateBeforeUnloadControl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateBeforeUnloadControl (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -387,7 +393,7 @@ extensions.mojom.MimeHandlerViewContainerManagerReceiver = class {
         // Try Method 2: DestroyFrameContainer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(extensions.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(extensions.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DestroyFrameContainer (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -398,7 +404,7 @@ extensions.mojom.MimeHandlerViewContainerManagerReceiver = class {
         // Try Method 3: DidLoad
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(extensions.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(extensions.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidLoad (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -415,14 +421,14 @@ extensions.mojom.MimeHandlerViewContainerManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(extensions.mojom.MimeHandlerViewContainerManager_SetInternalId_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(extensions.mojom.MimeHandlerViewContainerManager_SetInternalId_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setInternalId');
           const result = this.impl.setInternalId(params.token_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createBeforeUnloadControl');
           const result = this.impl.createBeforeUnloadControl();
           if (header.expectsResponse) {
@@ -435,14 +441,14 @@ extensions.mojom.MimeHandlerViewContainerManagerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(extensions.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(extensions.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.destroyFrameContainer');
           const result = this.impl.destroyFrameContainer(params.element_instance_id);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(extensions.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(extensions.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.didLoad');
           const result = this.impl.didLoad(params.mime_handler_view_guest_element_instance_id, params.resource_url);
           break;

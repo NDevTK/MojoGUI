@@ -124,9 +124,11 @@ extensions.mojom.ServiceWorkerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -140,12 +142,13 @@ extensions.mojom.ServiceWorkerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: UpdatePermissions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(extensions.mojom.ServiceWorker_UpdatePermissions_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(extensions.mojom.ServiceWorker_UpdatePermissions_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdatePermissions (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -156,7 +159,7 @@ extensions.mojom.ServiceWorkerReceiver = class {
         // Try Method 1: DispatchOnConnect
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(extensions.mojom.ServiceWorker_DispatchOnConnect_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(extensions.mojom.ServiceWorker_DispatchOnConnect_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchOnConnect (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -173,14 +176,14 @@ extensions.mojom.ServiceWorkerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(extensions.mojom.ServiceWorker_UpdatePermissions_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(extensions.mojom.ServiceWorker_UpdatePermissions_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.updatePermissions');
           const result = this.impl.updatePermissions(params.active_permissions, params.withheld_permissions);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(extensions.mojom.ServiceWorker_DispatchOnConnect_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(extensions.mojom.ServiceWorker_DispatchOnConnect_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.dispatchOnConnect');
           const result = this.impl.dispatchOnConnect(params.port_id, params.channel_type, params.channel_name, params.tab_info, params.external_connection_info, params.port, params.port_host);
           if (header.expectsResponse) {

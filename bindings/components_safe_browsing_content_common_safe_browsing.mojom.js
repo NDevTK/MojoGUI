@@ -238,9 +238,11 @@ safe_browsing.mojom.SafeBrowsingReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -254,12 +256,13 @@ safe_browsing.mojom.SafeBrowsingReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateCheckerAndCheck
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateCheckerAndCheck (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -270,7 +273,7 @@ safe_browsing.mojom.SafeBrowsingReceiver = class {
         // Try Method 1: Clone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(safe_browsing.mojom.SafeBrowsing_Clone_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(safe_browsing.mojom.SafeBrowsing_Clone_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clone (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -287,7 +290,7 @@ safe_browsing.mojom.SafeBrowsingReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createCheckerAndCheck');
           const result = this.impl.createCheckerAndCheck(params.frame_token, params.receiver, params.url, params.method, params.headers, params.load_flags, params.has_user_gesture, params.originated_from_service_worker);
           if (header.expectsResponse) {
@@ -300,7 +303,7 @@ safe_browsing.mojom.SafeBrowsingReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(safe_browsing.mojom.SafeBrowsing_Clone_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(safe_browsing.mojom.SafeBrowsing_Clone_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.receiver);
           break;
@@ -404,9 +407,11 @@ safe_browsing.mojom.ThreatReporterReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -420,12 +425,13 @@ safe_browsing.mojom.ThreatReporterReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetThreatDOMDetails
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetThreatDOMDetails (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -442,7 +448,7 @@ safe_browsing.mojom.ThreatReporterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getThreatDOMDetails');
           const result = this.impl.getThreatDOMDetails();
           if (header.expectsResponse) {
@@ -555,9 +561,11 @@ safe_browsing.mojom.PhishingDetectorReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -571,12 +579,13 @@ safe_browsing.mojom.PhishingDetectorReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: StartPhishingDetection
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartPhishingDetection (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -593,7 +602,7 @@ safe_browsing.mojom.PhishingDetectorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.startPhishingDetection');
           const result = this.impl.startPhishingDetection(params.url, params.request_type);
           if (header.expectsResponse) {
@@ -773,9 +782,11 @@ safe_browsing.mojom.PhishingModelSetterReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -789,12 +800,13 @@ safe_browsing.mojom.PhishingModelSetterReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetImageEmbeddingAndPhishingFlatBufferModel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetImageEmbeddingAndPhishingFlatBufferModel (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -805,7 +817,7 @@ safe_browsing.mojom.PhishingModelSetterReceiver = class {
         // Try Method 1: AttachImageEmbeddingModel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AttachImageEmbeddingModel (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -816,7 +828,7 @@ safe_browsing.mojom.PhishingModelSetterReceiver = class {
         // Try Method 2: SetPhishingFlatBufferModel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPhishingFlatBufferModel (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -827,7 +839,7 @@ safe_browsing.mojom.PhishingModelSetterReceiver = class {
         // Try Method 3: ClearScorer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearScorer (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -838,7 +850,7 @@ safe_browsing.mojom.PhishingModelSetterReceiver = class {
         // Try Method 4: SetTestObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTestObserver (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -855,35 +867,35 @@ safe_browsing.mojom.PhishingModelSetterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setImageEmbeddingAndPhishingFlatBufferModel');
           const result = this.impl.setImageEmbeddingAndPhishingFlatBufferModel(params.region, params.tflite_model, params.image_embedding_model);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.attachImageEmbeddingModel');
           const result = this.impl.attachImageEmbeddingModel(params.image_embedding_model);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setPhishingFlatBufferModel');
           const result = this.impl.setPhishingFlatBufferModel(params.region, params.tflite_model);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.clearScorer');
           const result = this.impl.clearScorer();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setTestObserver');
           const result = this.impl.setTestObserver(params.observer);
           if (header.expectsResponse) {
@@ -987,9 +999,11 @@ safe_browsing.mojom.PhishingModelSetterTestObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1003,12 +1017,13 @@ safe_browsing.mojom.PhishingModelSetterTestObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: PhishingModelUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(safe_browsing.mojom.PhishingModelSetterTestObserver_PhishingModelUpdated_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(safe_browsing.mojom.PhishingModelSetterTestObserver_PhishingModelUpdated_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PhishingModelUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1025,7 +1040,7 @@ safe_browsing.mojom.PhishingModelSetterTestObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(safe_browsing.mojom.PhishingModelSetterTestObserver_PhishingModelUpdated_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(safe_browsing.mojom.PhishingModelSetterTestObserver_PhishingModelUpdated_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.phishingModelUpdated');
           const result = this.impl.phishingModelUpdated();
           break;
@@ -1131,9 +1146,11 @@ safe_browsing.mojom.PhishingImageEmbedderDetectorReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1147,12 +1164,13 @@ safe_browsing.mojom.PhishingImageEmbedderDetectorReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: StartImageEmbedding
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartImageEmbedding (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1169,7 +1187,7 @@ safe_browsing.mojom.PhishingImageEmbedderDetectorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.startImageEmbedding');
           const result = this.impl.startImageEmbedding(params.url);
           if (header.expectsResponse) {
@@ -1294,9 +1312,11 @@ safe_browsing.mojom.ExtensionWebRequestReporterReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1310,12 +1330,13 @@ safe_browsing.mojom.ExtensionWebRequestReporterReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SendWebRequestData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendWebRequestData (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1326,7 +1347,7 @@ safe_browsing.mojom.ExtensionWebRequestReporterReceiver = class {
         // Try Method 1: Clone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(safe_browsing.mojom.ExtensionWebRequestReporter_Clone_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(safe_browsing.mojom.ExtensionWebRequestReporter_Clone_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clone (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1343,14 +1364,14 @@ safe_browsing.mojom.ExtensionWebRequestReporterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.sendWebRequestData');
           const result = this.impl.sendWebRequestData(params.origin_extension_id, params.telemetry_url, params.protocol_type, params.contact_initiator_type);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(safe_browsing.mojom.ExtensionWebRequestReporter_Clone_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(safe_browsing.mojom.ExtensionWebRequestReporter_Clone_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.receiver);
           break;

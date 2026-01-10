@@ -143,9 +143,11 @@ blink.mojom.ServiceWorkerFetchResponseCallbackReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -159,12 +161,13 @@ blink.mojom.ServiceWorkerFetchResponseCallbackReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnResponse
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.ServiceWorkerFetchResponseCallback_OnResponse_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.ServiceWorkerFetchResponseCallback_OnResponse_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnResponse (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -175,7 +178,7 @@ blink.mojom.ServiceWorkerFetchResponseCallbackReceiver = class {
         // Try Method 1: OnResponseStream
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.ServiceWorkerFetchResponseCallback_OnResponseStream_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.ServiceWorkerFetchResponseCallback_OnResponseStream_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnResponseStream (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -186,7 +189,7 @@ blink.mojom.ServiceWorkerFetchResponseCallbackReceiver = class {
         // Try Method 2: OnFallback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.ServiceWorkerFetchResponseCallback_OnFallback_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.ServiceWorkerFetchResponseCallback_OnFallback_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFallback (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -203,21 +206,21 @@ blink.mojom.ServiceWorkerFetchResponseCallbackReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerFetchResponseCallback_OnResponse_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.ServiceWorkerFetchResponseCallback_OnResponse_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onResponse');
           const result = this.impl.onResponse(params.response, params.timing);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerFetchResponseCallback_OnResponseStream_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.ServiceWorkerFetchResponseCallback_OnResponseStream_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onResponseStream');
           const result = this.impl.onResponseStream(params.response, params.body_as_stream, params.timing);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerFetchResponseCallback_OnFallback_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.ServiceWorkerFetchResponseCallback_OnFallback_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onFallback');
           const result = this.impl.onFallback(params.request_body, params.timing);
           break;

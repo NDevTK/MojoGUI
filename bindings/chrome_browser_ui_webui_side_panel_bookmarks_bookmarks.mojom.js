@@ -175,9 +175,11 @@ side_panel.mojom.BookmarksPageHandlerFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -191,12 +193,13 @@ side_panel.mojom.BookmarksPageHandlerFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateBookmarksPageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(side_panel.mojom.BookmarksPageHandlerFactory_CreateBookmarksPageHandler_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandlerFactory_CreateBookmarksPageHandler_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateBookmarksPageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -213,7 +216,7 @@ side_panel.mojom.BookmarksPageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.mojom.BookmarksPageHandlerFactory_CreateBookmarksPageHandler_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandlerFactory_CreateBookmarksPageHandler_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createBookmarksPageHandler');
           const result = this.impl.createBookmarksPageHandler(params.page, params.handler);
           break;
@@ -723,9 +726,11 @@ side_panel.mojom.BookmarksPageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -739,12 +744,13 @@ side_panel.mojom.BookmarksPageHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: BookmarkCurrentTabInFolder
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_BookmarkCurrentTabInFolder_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_BookmarkCurrentTabInFolder_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BookmarkCurrentTabInFolder (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -755,7 +761,7 @@ side_panel.mojom.BookmarksPageHandlerReceiver = class {
         // Try Method 1: CreateFolder
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_CreateFolder_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_CreateFolder_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateFolder (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -766,7 +772,7 @@ side_panel.mojom.BookmarksPageHandlerReceiver = class {
         // Try Method 2: DropBookmarks
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_DropBookmarks_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_DropBookmarks_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DropBookmarks (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -777,7 +783,7 @@ side_panel.mojom.BookmarksPageHandlerReceiver = class {
         // Try Method 3: ExecuteEditCommand
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_ExecuteEditCommand_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_ExecuteEditCommand_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExecuteEditCommand (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -788,7 +794,7 @@ side_panel.mojom.BookmarksPageHandlerReceiver = class {
         // Try Method 4: ExecuteMoveCommand
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_ExecuteMoveCommand_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_ExecuteMoveCommand_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExecuteMoveCommand (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -799,7 +805,7 @@ side_panel.mojom.BookmarksPageHandlerReceiver = class {
         // Try Method 5: ExecuteOpenInNewTabCommand
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabCommand_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabCommand_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExecuteOpenInNewTabCommand (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -810,7 +816,7 @@ side_panel.mojom.BookmarksPageHandlerReceiver = class {
         // Try Method 6: ExecuteOpenInNewWindowCommand
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewWindowCommand_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewWindowCommand_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExecuteOpenInNewWindowCommand (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -821,7 +827,7 @@ side_panel.mojom.BookmarksPageHandlerReceiver = class {
         // Try Method 7: ExecuteOpenInIncognitoWindowCommand
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_ExecuteOpenInIncognitoWindowCommand_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_ExecuteOpenInIncognitoWindowCommand_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExecuteOpenInIncognitoWindowCommand (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -832,7 +838,7 @@ side_panel.mojom.BookmarksPageHandlerReceiver = class {
         // Try Method 8: ExecuteOpenInNewTabGroupCommand
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabGroupCommand_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabGroupCommand_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExecuteOpenInNewTabGroupCommand (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -843,7 +849,7 @@ side_panel.mojom.BookmarksPageHandlerReceiver = class {
         // Try Method 9: ExecuteOpenInSplitViewCommand
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_ExecuteOpenInSplitViewCommand_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_ExecuteOpenInSplitViewCommand_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExecuteOpenInSplitViewCommand (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -854,7 +860,7 @@ side_panel.mojom.BookmarksPageHandlerReceiver = class {
         // Try Method 10: ExecuteAddToBookmarksBarCommand
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_ExecuteAddToBookmarksBarCommand_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_ExecuteAddToBookmarksBarCommand_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExecuteAddToBookmarksBarCommand (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -865,7 +871,7 @@ side_panel.mojom.BookmarksPageHandlerReceiver = class {
         // Try Method 11: ExecuteRemoveFromBookmarksBarCommand
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_ExecuteRemoveFromBookmarksBarCommand_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_ExecuteRemoveFromBookmarksBarCommand_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExecuteRemoveFromBookmarksBarCommand (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -876,7 +882,7 @@ side_panel.mojom.BookmarksPageHandlerReceiver = class {
         // Try Method 12: ExecuteDeleteCommand
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_ExecuteDeleteCommand_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_ExecuteDeleteCommand_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExecuteDeleteCommand (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -887,7 +893,7 @@ side_panel.mojom.BookmarksPageHandlerReceiver = class {
         // Try Method 13: OpenBookmark
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_OpenBookmark_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_OpenBookmark_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenBookmark (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -898,7 +904,7 @@ side_panel.mojom.BookmarksPageHandlerReceiver = class {
         // Try Method 14: Undo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_Undo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_Undo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Undo (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -909,7 +915,7 @@ side_panel.mojom.BookmarksPageHandlerReceiver = class {
         // Try Method 15: RenameBookmark
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_RenameBookmark_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_RenameBookmark_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RenameBookmark (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -920,7 +926,7 @@ side_panel.mojom.BookmarksPageHandlerReceiver = class {
         // Try Method 16: MoveBookmark
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_MoveBookmark_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_MoveBookmark_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MoveBookmark (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -931,7 +937,7 @@ side_panel.mojom.BookmarksPageHandlerReceiver = class {
         // Try Method 17: RemoveBookmarks
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_RemoveBookmarks_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_RemoveBookmarks_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveBookmarks (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -942,7 +948,7 @@ side_panel.mojom.BookmarksPageHandlerReceiver = class {
         // Try Method 18: SetSortOrder
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_SetSortOrder_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_SetSortOrder_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSortOrder (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -953,7 +959,7 @@ side_panel.mojom.BookmarksPageHandlerReceiver = class {
         // Try Method 19: SetViewType
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_SetViewType_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_SetViewType_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetViewType (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -964,7 +970,7 @@ side_panel.mojom.BookmarksPageHandlerReceiver = class {
         // Try Method 20: ShowContextMenu
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_ShowContextMenu_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_ShowContextMenu_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowContextMenu (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -975,7 +981,7 @@ side_panel.mojom.BookmarksPageHandlerReceiver = class {
         // Try Method 21: ShowUI
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_ShowUI_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_ShowUI_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowUI (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -986,7 +992,7 @@ side_panel.mojom.BookmarksPageHandlerReceiver = class {
         // Try Method 22: GetAllBookmarks
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAllBookmarks (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
@@ -1003,14 +1009,14 @@ side_panel.mojom.BookmarksPageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_BookmarkCurrentTabInFolder_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_BookmarkCurrentTabInFolder_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bookmarkCurrentTabInFolder');
           const result = this.impl.bookmarkCurrentTabInFolder(params.folder_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_CreateFolder_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_CreateFolder_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createFolder');
           const result = this.impl.createFolder(params.folder_id, params.title);
           if (header.expectsResponse) {
@@ -1023,7 +1029,7 @@ side_panel.mojom.BookmarksPageHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_DropBookmarks_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_DropBookmarks_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.dropBookmarks');
           const result = this.impl.dropBookmarks(params.folder_id);
           if (header.expectsResponse) {
@@ -1036,105 +1042,105 @@ side_panel.mojom.BookmarksPageHandlerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_ExecuteEditCommand_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_ExecuteEditCommand_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.executeEditCommand');
           const result = this.impl.executeEditCommand(params.node_ids, params.source);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_ExecuteMoveCommand_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_ExecuteMoveCommand_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.executeMoveCommand');
           const result = this.impl.executeMoveCommand(params.node_ids, params.source);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabCommand_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabCommand_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.executeOpenInNewTabCommand');
           const result = this.impl.executeOpenInNewTabCommand(params.side_panel_ids, params.source);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewWindowCommand_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewWindowCommand_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.executeOpenInNewWindowCommand');
           const result = this.impl.executeOpenInNewWindowCommand(params.side_panel_ids, params.source);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_ExecuteOpenInIncognitoWindowCommand_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_ExecuteOpenInIncognitoWindowCommand_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.executeOpenInIncognitoWindowCommand');
           const result = this.impl.executeOpenInIncognitoWindowCommand(params.side_panel_ids, params.source);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabGroupCommand_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabGroupCommand_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.executeOpenInNewTabGroupCommand');
           const result = this.impl.executeOpenInNewTabGroupCommand(params.side_panel_ids, params.source);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_ExecuteOpenInSplitViewCommand_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_ExecuteOpenInSplitViewCommand_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.executeOpenInSplitViewCommand');
           const result = this.impl.executeOpenInSplitViewCommand(params.node_ids, params.source);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_ExecuteAddToBookmarksBarCommand_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_ExecuteAddToBookmarksBarCommand_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.executeAddToBookmarksBarCommand');
           const result = this.impl.executeAddToBookmarksBarCommand(params.node_id, params.source);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_ExecuteRemoveFromBookmarksBarCommand_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_ExecuteRemoveFromBookmarksBarCommand_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.executeRemoveFromBookmarksBarCommand');
           const result = this.impl.executeRemoveFromBookmarksBarCommand(params.node_id, params.source);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_ExecuteDeleteCommand_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_ExecuteDeleteCommand_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.executeDeleteCommand');
           const result = this.impl.executeDeleteCommand(params.node_ids, params.source);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_OpenBookmark_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_OpenBookmark_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.openBookmark');
           const result = this.impl.openBookmark(params.node_id, params.parent_folder_depth, params.click_modifiers, params.source);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_Undo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_Undo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.undo');
           const result = this.impl.undo();
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_RenameBookmark_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_RenameBookmark_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.renameBookmark');
           const result = this.impl.renameBookmark(params.node_id, params.new_title);
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_MoveBookmark_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_MoveBookmark_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.moveBookmark');
           const result = this.impl.moveBookmark(params.node_id, params.folder_id);
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_RemoveBookmarks_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_RemoveBookmarks_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.removeBookmarks');
           const result = this.impl.removeBookmarks(params.node_ids);
           if (header.expectsResponse) {
@@ -1147,35 +1153,35 @@ side_panel.mojom.BookmarksPageHandlerReceiver = class {
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_SetSortOrder_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_SetSortOrder_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setSortOrder');
           const result = this.impl.setSortOrder(params.sort_order);
           break;
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_SetViewType_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_SetViewType_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setViewType');
           const result = this.impl.setViewType(params.view_type);
           break;
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_ShowContextMenu_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_ShowContextMenu_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.showContextMenu');
           const result = this.impl.showContextMenu(params.id, params.point, params.source);
           break;
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_ShowUI_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_ShowUI_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.showUI');
           const result = this.impl.showUI();
           break;
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getAllBookmarks');
           const result = this.impl.getAllBookmarks();
           if (header.expectsResponse) {
@@ -1354,9 +1360,11 @@ side_panel.mojom.BookmarksPageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1370,12 +1378,13 @@ side_panel.mojom.BookmarksPageReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnBookmarkNodeAdded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(side_panel.mojom.BookmarksPage_OnBookmarkNodeAdded_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(side_panel.mojom.BookmarksPage_OnBookmarkNodeAdded_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBookmarkNodeAdded (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1386,7 +1395,7 @@ side_panel.mojom.BookmarksPageReceiver = class {
         // Try Method 1: OnBookmarkNodesRemoved
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(side_panel.mojom.BookmarksPage_OnBookmarkNodesRemoved_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(side_panel.mojom.BookmarksPage_OnBookmarkNodesRemoved_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBookmarkNodesRemoved (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1397,7 +1406,7 @@ side_panel.mojom.BookmarksPageReceiver = class {
         // Try Method 2: OnBookmarkParentFolderChildrenReordered
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(side_panel.mojom.BookmarksPage_OnBookmarkParentFolderChildrenReordered_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(side_panel.mojom.BookmarksPage_OnBookmarkParentFolderChildrenReordered_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBookmarkParentFolderChildrenReordered (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1408,7 +1417,7 @@ side_panel.mojom.BookmarksPageReceiver = class {
         // Try Method 3: OnBookmarkNodeMoved
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(side_panel.mojom.BookmarksPage_OnBookmarkNodeMoved_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(side_panel.mojom.BookmarksPage_OnBookmarkNodeMoved_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBookmarkNodeMoved (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1419,7 +1428,7 @@ side_panel.mojom.BookmarksPageReceiver = class {
         // Try Method 4: OnBookmarkNodeChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(side_panel.mojom.BookmarksPage_OnBookmarkNodeChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(side_panel.mojom.BookmarksPage_OnBookmarkNodeChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBookmarkNodeChanged (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1436,35 +1445,35 @@ side_panel.mojom.BookmarksPageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.mojom.BookmarksPage_OnBookmarkNodeAdded_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(side_panel.mojom.BookmarksPage_OnBookmarkNodeAdded_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onBookmarkNodeAdded');
           const result = this.impl.onBookmarkNodeAdded(params.node);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.mojom.BookmarksPage_OnBookmarkNodesRemoved_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(side_panel.mojom.BookmarksPage_OnBookmarkNodesRemoved_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onBookmarkNodesRemoved');
           const result = this.impl.onBookmarkNodesRemoved(params.node_ids);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.mojom.BookmarksPage_OnBookmarkParentFolderChildrenReordered_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(side_panel.mojom.BookmarksPage_OnBookmarkParentFolderChildrenReordered_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onBookmarkParentFolderChildrenReordered');
           const result = this.impl.onBookmarkParentFolderChildrenReordered(params.folder_id, params.children_ordered_ids);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.mojom.BookmarksPage_OnBookmarkNodeMoved_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(side_panel.mojom.BookmarksPage_OnBookmarkNodeMoved_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onBookmarkNodeMoved');
           const result = this.impl.onBookmarkNodeMoved(params.old_parent_index, params.old_node_index, params.new_parent_index, params.new_node_index);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.mojom.BookmarksPage_OnBookmarkNodeChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(side_panel.mojom.BookmarksPage_OnBookmarkNodeChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onBookmarkNodeChanged');
           const result = this.impl.onBookmarkNodeChanged(params.id, params.new_title, params.new_url);
           break;

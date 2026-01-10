@@ -243,9 +243,11 @@ ash.cellular_setup.mojom.ESimManagerObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -259,12 +261,13 @@ ash.cellular_setup.mojom.ESimManagerObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnAvailableEuiccListChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.cellular_setup.mojom.ESimManagerObserver_OnAvailableEuiccListChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.cellular_setup.mojom.ESimManagerObserver_OnAvailableEuiccListChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAvailableEuiccListChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -275,7 +278,7 @@ ash.cellular_setup.mojom.ESimManagerObserverReceiver = class {
         // Try Method 1: OnProfileListChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.cellular_setup.mojom.ESimManagerObserver_OnProfileListChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.cellular_setup.mojom.ESimManagerObserver_OnProfileListChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnProfileListChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -286,7 +289,7 @@ ash.cellular_setup.mojom.ESimManagerObserverReceiver = class {
         // Try Method 2: OnEuiccChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.cellular_setup.mojom.ESimManagerObserver_OnEuiccChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.cellular_setup.mojom.ESimManagerObserver_OnEuiccChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnEuiccChanged (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -297,7 +300,7 @@ ash.cellular_setup.mojom.ESimManagerObserverReceiver = class {
         // Try Method 3: OnProfileChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.cellular_setup.mojom.ESimManagerObserver_OnProfileChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.cellular_setup.mojom.ESimManagerObserver_OnProfileChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnProfileChanged (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -314,28 +317,28 @@ ash.cellular_setup.mojom.ESimManagerObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cellular_setup.mojom.ESimManagerObserver_OnAvailableEuiccListChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.cellular_setup.mojom.ESimManagerObserver_OnAvailableEuiccListChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onAvailableEuiccListChanged');
           const result = this.impl.onAvailableEuiccListChanged();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cellular_setup.mojom.ESimManagerObserver_OnProfileListChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.cellular_setup.mojom.ESimManagerObserver_OnProfileListChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onProfileListChanged');
           const result = this.impl.onProfileListChanged(params.euicc);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cellular_setup.mojom.ESimManagerObserver_OnEuiccChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.cellular_setup.mojom.ESimManagerObserver_OnEuiccChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onEuiccChanged');
           const result = this.impl.onEuiccChanged(params.euicc);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cellular_setup.mojom.ESimManagerObserver_OnProfileChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.cellular_setup.mojom.ESimManagerObserver_OnProfileChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onProfileChanged');
           const result = this.impl.onProfileChanged(params.profile);
           break;
@@ -456,9 +459,11 @@ ash.cellular_setup.mojom.ESimManagerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -472,12 +477,13 @@ ash.cellular_setup.mojom.ESimManagerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AddObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.cellular_setup.mojom.ESimManager_AddObserver_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.cellular_setup.mojom.ESimManager_AddObserver_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -488,7 +494,7 @@ ash.cellular_setup.mojom.ESimManagerReceiver = class {
         // Try Method 1: GetAvailableEuiccs
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.cellular_setup.mojom.ESimManager_GetAvailableEuiccs_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.cellular_setup.mojom.ESimManager_GetAvailableEuiccs_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAvailableEuiccs (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -505,14 +511,14 @@ ash.cellular_setup.mojom.ESimManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cellular_setup.mojom.ESimManager_AddObserver_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.cellular_setup.mojom.ESimManager_AddObserver_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cellular_setup.mojom.ESimManager_GetAvailableEuiccs_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.cellular_setup.mojom.ESimManager_GetAvailableEuiccs_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getAvailableEuiccs');
           const result = this.impl.getAvailableEuiccs();
           if (header.expectsResponse) {
@@ -737,9 +743,11 @@ ash.cellular_setup.mojom.EuiccReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -753,12 +761,13 @@ ash.cellular_setup.mojom.EuiccReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetProperties
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.cellular_setup.mojom.Euicc_GetProperties_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.cellular_setup.mojom.Euicc_GetProperties_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetProperties (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -769,7 +778,7 @@ ash.cellular_setup.mojom.EuiccReceiver = class {
         // Try Method 1: GetProfileList
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.cellular_setup.mojom.Euicc_GetProfileList_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.cellular_setup.mojom.Euicc_GetProfileList_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetProfileList (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -780,7 +789,7 @@ ash.cellular_setup.mojom.EuiccReceiver = class {
         // Try Method 2: RequestAvailableProfiles
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestAvailableProfiles (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -791,7 +800,7 @@ ash.cellular_setup.mojom.EuiccReceiver = class {
         // Try Method 3: RefreshInstalledProfiles
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RefreshInstalledProfiles (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -802,7 +811,7 @@ ash.cellular_setup.mojom.EuiccReceiver = class {
         // Try Method 4: InstallProfileFromActivationCode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InstallProfileFromActivationCode (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -813,7 +822,7 @@ ash.cellular_setup.mojom.EuiccReceiver = class {
         // Try Method 5: GetEidQRCode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.cellular_setup.mojom.Euicc_GetEidQRCode_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.cellular_setup.mojom.Euicc_GetEidQRCode_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetEidQRCode (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -830,7 +839,7 @@ ash.cellular_setup.mojom.EuiccReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cellular_setup.mojom.Euicc_GetProperties_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.cellular_setup.mojom.Euicc_GetProperties_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getProperties');
           const result = this.impl.getProperties();
           if (header.expectsResponse) {
@@ -843,7 +852,7 @@ ash.cellular_setup.mojom.EuiccReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cellular_setup.mojom.Euicc_GetProfileList_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.cellular_setup.mojom.Euicc_GetProfileList_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getProfileList');
           const result = this.impl.getProfileList();
           if (header.expectsResponse) {
@@ -856,7 +865,7 @@ ash.cellular_setup.mojom.EuiccReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestAvailableProfiles');
           const result = this.impl.requestAvailableProfiles();
           if (header.expectsResponse) {
@@ -869,7 +878,7 @@ ash.cellular_setup.mojom.EuiccReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.refreshInstalledProfiles');
           const result = this.impl.refreshInstalledProfiles();
           if (header.expectsResponse) {
@@ -882,7 +891,7 @@ ash.cellular_setup.mojom.EuiccReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.installProfileFromActivationCode');
           const result = this.impl.installProfileFromActivationCode(params.activation_code, params.confirmation_code, params.install_method);
           if (header.expectsResponse) {
@@ -895,7 +904,7 @@ ash.cellular_setup.mojom.EuiccReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cellular_setup.mojom.Euicc_GetEidQRCode_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.cellular_setup.mojom.Euicc_GetEidQRCode_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getEidQRCode');
           const result = this.impl.getEidQRCode();
           if (header.expectsResponse) {
@@ -1073,9 +1082,11 @@ ash.cellular_setup.mojom.ESimProfileReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1089,12 +1100,13 @@ ash.cellular_setup.mojom.ESimProfileReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetProperties
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.cellular_setup.mojom.ESimProfile_GetProperties_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.cellular_setup.mojom.ESimProfile_GetProperties_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetProperties (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1105,7 +1117,7 @@ ash.cellular_setup.mojom.ESimProfileReceiver = class {
         // Try Method 1: InstallProfile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.cellular_setup.mojom.ESimProfile_InstallProfile_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.cellular_setup.mojom.ESimProfile_InstallProfile_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InstallProfile (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1116,7 +1128,7 @@ ash.cellular_setup.mojom.ESimProfileReceiver = class {
         // Try Method 2: UninstallProfile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.cellular_setup.mojom.ESimProfile_UninstallProfile_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.cellular_setup.mojom.ESimProfile_UninstallProfile_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UninstallProfile (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1127,7 +1139,7 @@ ash.cellular_setup.mojom.ESimProfileReceiver = class {
         // Try Method 3: SetProfileNickname
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetProfileNickname (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1144,7 +1156,7 @@ ash.cellular_setup.mojom.ESimProfileReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cellular_setup.mojom.ESimProfile_GetProperties_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.cellular_setup.mojom.ESimProfile_GetProperties_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getProperties');
           const result = this.impl.getProperties();
           if (header.expectsResponse) {
@@ -1157,7 +1169,7 @@ ash.cellular_setup.mojom.ESimProfileReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cellular_setup.mojom.ESimProfile_InstallProfile_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.cellular_setup.mojom.ESimProfile_InstallProfile_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.installProfile');
           const result = this.impl.installProfile(params.confirmation_code);
           if (header.expectsResponse) {
@@ -1170,7 +1182,7 @@ ash.cellular_setup.mojom.ESimProfileReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cellular_setup.mojom.ESimProfile_UninstallProfile_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.cellular_setup.mojom.ESimProfile_UninstallProfile_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.uninstallProfile');
           const result = this.impl.uninstallProfile();
           if (header.expectsResponse) {
@@ -1183,7 +1195,7 @@ ash.cellular_setup.mojom.ESimProfileReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setProfileNickname');
           const result = this.impl.setProfileNickname(params.nickname);
           if (header.expectsResponse) {

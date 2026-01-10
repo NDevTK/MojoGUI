@@ -147,9 +147,11 @@ chrome.mojom.FileUtilServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -163,12 +165,13 @@ chrome.mojom.FileUtilServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: BindZipFileCreator
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.FileUtilService_BindZipFileCreator_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.FileUtilService_BindZipFileCreator_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindZipFileCreator (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -179,7 +182,7 @@ chrome.mojom.FileUtilServiceReceiver = class {
         // Try Method 1: BindSafeArchiveAnalyzer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.FileUtilService_BindSafeArchiveAnalyzer_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.FileUtilService_BindSafeArchiveAnalyzer_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindSafeArchiveAnalyzer (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -190,7 +193,7 @@ chrome.mojom.FileUtilServiceReceiver = class {
         // Try Method 2: BindSingleFileTarFileExtractor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.FileUtilService_BindSingleFileTarFileExtractor_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.FileUtilService_BindSingleFileTarFileExtractor_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindSingleFileTarFileExtractor (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -201,7 +204,7 @@ chrome.mojom.FileUtilServiceReceiver = class {
         // Try Method 3: BindSingleFileTarXzFileExtractor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.FileUtilService_BindSingleFileTarXzFileExtractor_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.FileUtilService_BindSingleFileTarXzFileExtractor_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindSingleFileTarXzFileExtractor (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -218,28 +221,28 @@ chrome.mojom.FileUtilServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.FileUtilService_BindZipFileCreator_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.FileUtilService_BindZipFileCreator_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindZipFileCreator');
           const result = this.impl.bindZipFileCreator(params.receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.FileUtilService_BindSafeArchiveAnalyzer_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.FileUtilService_BindSafeArchiveAnalyzer_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindSafeArchiveAnalyzer');
           const result = this.impl.bindSafeArchiveAnalyzer(params.receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.FileUtilService_BindSingleFileTarFileExtractor_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.FileUtilService_BindSingleFileTarFileExtractor_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindSingleFileTarFileExtractor');
           const result = this.impl.bindSingleFileTarFileExtractor(params.receiver);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.FileUtilService_BindSingleFileTarXzFileExtractor_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.FileUtilService_BindSingleFileTarXzFileExtractor_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindSingleFileTarXzFileExtractor');
           const result = this.impl.bindSingleFileTarXzFileExtractor(params.receiver);
           break;

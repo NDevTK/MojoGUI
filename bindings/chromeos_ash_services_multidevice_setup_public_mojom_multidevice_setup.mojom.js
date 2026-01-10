@@ -263,9 +263,11 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegateReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -279,12 +281,13 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegateReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnPotentialHostExistsForNewUser
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnPotentialHostExistsForNewUser_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnPotentialHostExistsForNewUser_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPotentialHostExistsForNewUser (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -295,7 +298,7 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegateReceiver = class {
         // Try Method 1: OnNoLongerNewUser
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnNoLongerNewUser_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnNoLongerNewUser_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNoLongerNewUser (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -306,7 +309,7 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegateReceiver = class {
         // Try Method 2: OnConnectedHostSwitchedForExistingUser
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnConnectedHostSwitchedForExistingUser_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnConnectedHostSwitchedForExistingUser_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnConnectedHostSwitchedForExistingUser (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -317,7 +320,7 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegateReceiver = class {
         // Try Method 3: OnNewChromebookAddedForExistingUser
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnNewChromebookAddedForExistingUser_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnNewChromebookAddedForExistingUser_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNewChromebookAddedForExistingUser (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -328,7 +331,7 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegateReceiver = class {
         // Try Method 4: OnBecameEligibleForWifiSync
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnBecameEligibleForWifiSync_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnBecameEligibleForWifiSync_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBecameEligibleForWifiSync (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -345,35 +348,35 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegateReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnPotentialHostExistsForNewUser_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnPotentialHostExistsForNewUser_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onPotentialHostExistsForNewUser');
           const result = this.impl.onPotentialHostExistsForNewUser();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnNoLongerNewUser_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnNoLongerNewUser_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onNoLongerNewUser');
           const result = this.impl.onNoLongerNewUser();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnConnectedHostSwitchedForExistingUser_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnConnectedHostSwitchedForExistingUser_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onConnectedHostSwitchedForExistingUser');
           const result = this.impl.onConnectedHostSwitchedForExistingUser(params.new_host_device_name);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnNewChromebookAddedForExistingUser_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnNewChromebookAddedForExistingUser_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onNewChromebookAddedForExistingUser');
           const result = this.impl.onNewChromebookAddedForExistingUser(params.new_host_device_name);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnBecameEligibleForWifiSync_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnBecameEligibleForWifiSync_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onBecameEligibleForWifiSync');
           const result = this.impl.onBecameEligibleForWifiSync();
           break;
@@ -473,9 +476,11 @@ ash.multidevice_setup.mojom.HostStatusObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -489,12 +494,13 @@ ash.multidevice_setup.mojom.HostStatusObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnHostStatusChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.multidevice_setup.mojom.HostStatusObserver_OnHostStatusChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.multidevice_setup.mojom.HostStatusObserver_OnHostStatusChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHostStatusChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -511,7 +517,7 @@ ash.multidevice_setup.mojom.HostStatusObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.multidevice_setup.mojom.HostStatusObserver_OnHostStatusChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.HostStatusObserver_OnHostStatusChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onHostStatusChanged');
           const result = this.impl.onHostStatusChanged(params.host_status, params.host_device);
           break;
@@ -610,9 +616,11 @@ ash.multidevice_setup.mojom.FeatureStateObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -626,12 +634,13 @@ ash.multidevice_setup.mojom.FeatureStateObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnFeatureStatesChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.multidevice_setup.mojom.FeatureStateObserver_OnFeatureStatesChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.multidevice_setup.mojom.FeatureStateObserver_OnFeatureStatesChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFeatureStatesChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -648,7 +657,7 @@ ash.multidevice_setup.mojom.FeatureStateObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.multidevice_setup.mojom.FeatureStateObserver_OnFeatureStatesChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.FeatureStateObserver_OnFeatureStatesChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onFeatureStatesChanged');
           const result = this.impl.onFeatureStatesChanged(params.feature_states_map);
           break;
@@ -1019,9 +1028,11 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1035,12 +1046,13 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetAccountStatusChangeDelegate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.multidevice_setup.mojom.MultiDeviceSetup_SetAccountStatusChangeDelegate_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_SetAccountStatusChangeDelegate_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAccountStatusChangeDelegate (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1051,7 +1063,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
         // Try Method 1: AddHostStatusObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.multidevice_setup.mojom.MultiDeviceSetup_AddHostStatusObserver_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_AddHostStatusObserver_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddHostStatusObserver (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1062,7 +1074,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
         // Try Method 2: AddFeatureStateObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.multidevice_setup.mojom.MultiDeviceSetup_AddFeatureStateObserver_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_AddFeatureStateObserver_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddFeatureStateObserver (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1073,7 +1085,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
         // Try Method 3: GetEligibleHostDevices
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleHostDevices_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleHostDevices_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetEligibleHostDevices (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1084,7 +1096,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
         // Try Method 4: GetEligibleActiveHostDevices
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetEligibleActiveHostDevices (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1095,7 +1107,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
         // Try Method 5: SetHostDevice
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.multidevice_setup.mojom.MultiDeviceSetup_SetHostDevice_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_SetHostDevice_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetHostDevice (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1106,7 +1118,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
         // Try Method 6: RemoveHostDevice
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.multidevice_setup.mojom.MultiDeviceSetup_RemoveHostDevice_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_RemoveHostDevice_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveHostDevice (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1117,7 +1129,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
         // Try Method 7: GetHostStatus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetHostStatus (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1128,7 +1140,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
         // Try Method 8: SetFeatureEnabledState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetFeatureEnabledState (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1139,7 +1151,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
         // Try Method 9: GetFeatureStates
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFeatureStates (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1150,7 +1162,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
         // Try Method 10: RetrySetHostNow
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.multidevice_setup.mojom.MultiDeviceSetup_RetrySetHostNow_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_RetrySetHostNow_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RetrySetHostNow (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1161,7 +1173,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
         // Try Method 11: TriggerEventForDebugging
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TriggerEventForDebugging (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1172,7 +1184,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
         // Try Method 12: SetQuickStartPhoneInstanceID
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.multidevice_setup.mojom.MultiDeviceSetup_SetQuickStartPhoneInstanceID_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_SetQuickStartPhoneInstanceID_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetQuickStartPhoneInstanceID (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1183,7 +1195,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
         // Try Method 13: GetQuickStartPhoneInstanceID
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.multidevice_setup.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetQuickStartPhoneInstanceID (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1200,28 +1212,28 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.multidevice_setup.mojom.MultiDeviceSetup_SetAccountStatusChangeDelegate_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_SetAccountStatusChangeDelegate_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setAccountStatusChangeDelegate');
           const result = this.impl.setAccountStatusChangeDelegate(params.delegate);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.multidevice_setup.mojom.MultiDeviceSetup_AddHostStatusObserver_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_AddHostStatusObserver_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addHostStatusObserver');
           const result = this.impl.addHostStatusObserver(params.observer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.multidevice_setup.mojom.MultiDeviceSetup_AddFeatureStateObserver_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_AddFeatureStateObserver_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addFeatureStateObserver');
           const result = this.impl.addFeatureStateObserver(params.observer);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleHostDevices_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleHostDevices_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getEligibleHostDevices');
           const result = this.impl.getEligibleHostDevices();
           if (header.expectsResponse) {
@@ -1234,7 +1246,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getEligibleActiveHostDevices');
           const result = this.impl.getEligibleActiveHostDevices();
           if (header.expectsResponse) {
@@ -1247,7 +1259,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.multidevice_setup.mojom.MultiDeviceSetup_SetHostDevice_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_SetHostDevice_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setHostDevice');
           const result = this.impl.setHostDevice(params.instance_id_or_legacy_device_id, params.auth_token);
           if (header.expectsResponse) {
@@ -1260,14 +1272,14 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.multidevice_setup.mojom.MultiDeviceSetup_RemoveHostDevice_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_RemoveHostDevice_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.removeHostDevice');
           const result = this.impl.removeHostDevice();
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getHostStatus');
           const result = this.impl.getHostStatus();
           if (header.expectsResponse) {
@@ -1280,7 +1292,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setFeatureEnabledState');
           const result = this.impl.setFeatureEnabledState(params.feature, params.enabled, params.auth_token);
           if (header.expectsResponse) {
@@ -1293,7 +1305,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getFeatureStates');
           const result = this.impl.getFeatureStates();
           if (header.expectsResponse) {
@@ -1306,7 +1318,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.multidevice_setup.mojom.MultiDeviceSetup_RetrySetHostNow_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_RetrySetHostNow_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.retrySetHostNow');
           const result = this.impl.retrySetHostNow();
           if (header.expectsResponse) {
@@ -1319,7 +1331,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.triggerEventForDebugging');
           const result = this.impl.triggerEventForDebugging(params.type);
           if (header.expectsResponse) {
@@ -1332,14 +1344,14 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.multidevice_setup.mojom.MultiDeviceSetup_SetQuickStartPhoneInstanceID_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_SetQuickStartPhoneInstanceID_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setQuickStartPhoneInstanceID');
           const result = this.impl.setQuickStartPhoneInstanceID(params.qs_phone_instance_id);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.multidevice_setup.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getQuickStartPhoneInstanceID');
           const result = this.impl.getQuickStartPhoneInstanceID();
           if (header.expectsResponse) {
@@ -1450,9 +1462,11 @@ ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1466,12 +1480,13 @@ ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetHostDevice
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetHostDevice (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1488,7 +1503,7 @@ ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setHostDevice');
           const result = this.impl.setHostDevice(params.instance_id_or_legacy_device_id);
           if (header.expectsResponse) {

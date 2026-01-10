@@ -166,9 +166,11 @@ cc.mojom.RenderFrameMetadataObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -182,12 +184,13 @@ cc.mojom.RenderFrameMetadataObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: UpdateRootScrollOffsetUpdateFrequency
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cc.mojom.RenderFrameMetadataObserver_UpdateRootScrollOffsetUpdateFrequency_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cc.mojom.RenderFrameMetadataObserver_UpdateRootScrollOffsetUpdateFrequency_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateRootScrollOffsetUpdateFrequency (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -198,7 +201,7 @@ cc.mojom.RenderFrameMetadataObserverReceiver = class {
         // Try Method 1: ReportAllFrameSubmissionsForTesting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportAllFrameSubmissionsForTesting (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -215,14 +218,14 @@ cc.mojom.RenderFrameMetadataObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cc.mojom.RenderFrameMetadataObserver_UpdateRootScrollOffsetUpdateFrequency_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cc.mojom.RenderFrameMetadataObserver_UpdateRootScrollOffsetUpdateFrequency_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.updateRootScrollOffsetUpdateFrequency');
           const result = this.impl.updateRootScrollOffsetUpdateFrequency(params.frequency);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.reportAllFrameSubmissionsForTesting');
           const result = this.impl.reportAllFrameSubmissionsForTesting(params.enabled);
           break;
@@ -356,9 +359,11 @@ cc.mojom.RenderFrameMetadataObserverClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -372,12 +377,13 @@ cc.mojom.RenderFrameMetadataObserverClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnRenderFrameMetadataChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRenderFrameMetadataChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -388,7 +394,7 @@ cc.mojom.RenderFrameMetadataObserverClientReceiver = class {
         // Try Method 1: OnFrameSubmissionForTesting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cc.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cc.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFrameSubmissionForTesting (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -399,7 +405,7 @@ cc.mojom.RenderFrameMetadataObserverClientReceiver = class {
         // Try Method 2: OnRootScrollOffsetChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cc.mojom.RenderFrameMetadataObserverClient_OnRootScrollOffsetChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cc.mojom.RenderFrameMetadataObserverClient_OnRootScrollOffsetChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRootScrollOffsetChanged (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -416,21 +422,21 @@ cc.mojom.RenderFrameMetadataObserverClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onRenderFrameMetadataChanged');
           const result = this.impl.onRenderFrameMetadataChanged(params.frame_token, params.metadata);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cc.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cc.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onFrameSubmissionForTesting');
           const result = this.impl.onFrameSubmissionForTesting(params.frame_token);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cc.mojom.RenderFrameMetadataObserverClient_OnRootScrollOffsetChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cc.mojom.RenderFrameMetadataObserverClient_OnRootScrollOffsetChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onRootScrollOffsetChanged');
           const result = this.impl.onRootScrollOffsetChanged(params.root_scroll_offset);
           break;

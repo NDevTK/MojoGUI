@@ -223,9 +223,11 @@ viz.mojom.LayerContextReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -239,12 +241,13 @@ viz.mojom.LayerContextReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetVisible
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.LayerContext_SetVisible_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.LayerContext_SetVisible_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetVisible (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -255,7 +258,7 @@ viz.mojom.LayerContextReceiver = class {
         // Try Method 1: UpdateDisplayTree
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.LayerContext_UpdateDisplayTree_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.LayerContext_UpdateDisplayTree_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateDisplayTree (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -266,7 +269,7 @@ viz.mojom.LayerContextReceiver = class {
         // Try Method 2: UpdateDisplayTiling
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateDisplayTiling (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -283,21 +286,21 @@ viz.mojom.LayerContextReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.LayerContext_SetVisible_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.LayerContext_SetVisible_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setVisible');
           const result = this.impl.setVisible(params.visible);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.LayerContext_UpdateDisplayTree_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.LayerContext_UpdateDisplayTree_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.updateDisplayTree');
           const result = this.impl.updateDisplayTree(params.update);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.updateDisplayTiling');
           const result = this.impl.updateDisplayTiling(params.tiling);
           break;
@@ -414,9 +417,11 @@ viz.mojom.LayerContextClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -430,12 +435,13 @@ viz.mojom.LayerContextClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnRequestCommitForFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRequestCommitForFrame (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -446,7 +452,7 @@ viz.mojom.LayerContextClientReceiver = class {
         // Try Method 1: OnTilingsReadyForCleanup
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTilingsReadyForCleanup (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -463,14 +469,14 @@ viz.mojom.LayerContextClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onRequestCommitForFrame');
           const result = this.impl.onRequestCommitForFrame(params.args);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onTilingsReadyForCleanup');
           const result = this.impl.onTilingsReadyForCleanup(params.layer_id, params.tiling_scales_to_clean_up);
           break;

@@ -135,9 +135,11 @@ unzip.mojom.UnzipFilterReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -151,12 +153,13 @@ unzip.mojom.UnzipFilterReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ShouldUnzipFile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(unzip.mojom.UnzipFilter_ShouldUnzipFile_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(unzip.mojom.UnzipFilter_ShouldUnzipFile_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShouldUnzipFile (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -173,7 +176,7 @@ unzip.mojom.UnzipFilterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(unzip.mojom.UnzipFilter_ShouldUnzipFile_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(unzip.mojom.UnzipFilter_ShouldUnzipFile_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.shouldUnzipFile');
           const result = this.impl.shouldUnzipFile(params.path);
           if (header.expectsResponse) {
@@ -278,9 +281,11 @@ unzip.mojom.UnzipListenerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -294,12 +299,13 @@ unzip.mojom.UnzipListenerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnProgress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(unzip.mojom.UnzipListener_OnProgress_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(unzip.mojom.UnzipListener_OnProgress_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnProgress (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -316,7 +322,7 @@ unzip.mojom.UnzipListenerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(unzip.mojom.UnzipListener_OnProgress_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(unzip.mojom.UnzipListener_OnProgress_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onProgress');
           const result = this.impl.onProgress(params.bytes);
           break;
@@ -495,9 +501,11 @@ unzip.mojom.UnzipperReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -511,12 +519,13 @@ unzip.mojom.UnzipperReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Unzip
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(unzip.mojom.Unzipper_Unzip_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(unzip.mojom.Unzipper_Unzip_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Unzip (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -527,7 +536,7 @@ unzip.mojom.UnzipperReceiver = class {
         // Try Method 1: DetectEncoding
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(unzip.mojom.Unzipper_DetectEncoding_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(unzip.mojom.Unzipper_DetectEncoding_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DetectEncoding (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -538,7 +547,7 @@ unzip.mojom.UnzipperReceiver = class {
         // Try Method 2: GetExtractedInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(unzip.mojom.Unzipper_GetExtractedInfo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(unzip.mojom.Unzipper_GetExtractedInfo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetExtractedInfo (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -549,7 +558,7 @@ unzip.mojom.UnzipperReceiver = class {
         // Try Method 3: DecodeXz
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(unzip.mojom.Unzipper_DecodeXz_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(unzip.mojom.Unzipper_DecodeXz_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DecodeXz (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -566,7 +575,7 @@ unzip.mojom.UnzipperReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(unzip.mojom.Unzipper_Unzip_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(unzip.mojom.Unzipper_Unzip_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.unzip');
           const result = this.impl.unzip(params.zip_file, params.output_dir, params.options, params.filter, params.listener);
           if (header.expectsResponse) {
@@ -579,7 +588,7 @@ unzip.mojom.UnzipperReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(unzip.mojom.Unzipper_DetectEncoding_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(unzip.mojom.Unzipper_DetectEncoding_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.detectEncoding');
           const result = this.impl.detectEncoding(params.zip_file);
           if (header.expectsResponse) {
@@ -592,7 +601,7 @@ unzip.mojom.UnzipperReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(unzip.mojom.Unzipper_GetExtractedInfo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(unzip.mojom.Unzipper_GetExtractedInfo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getExtractedInfo');
           const result = this.impl.getExtractedInfo(params.zip_file);
           if (header.expectsResponse) {
@@ -605,7 +614,7 @@ unzip.mojom.UnzipperReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(unzip.mojom.Unzipper_DecodeXz_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(unzip.mojom.Unzipper_DecodeXz_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.decodeXz');
           const result = this.impl.decodeXz(params.in_file, params.out_file);
           if (header.expectsResponse) {

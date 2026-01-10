@@ -269,9 +269,11 @@ ash.cfm.mojom.XuCameraReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -285,12 +287,13 @@ ash.cfm.mojom.XuCameraReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetUnitId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.cfm.mojom.XuCamera_GetUnitId_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.cfm.mojom.XuCamera_GetUnitId_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUnitId (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -301,7 +304,7 @@ ash.cfm.mojom.XuCameraReceiver = class {
         // Try Method 1: MapCtrl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.cfm.mojom.XuCamera_MapCtrl_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.cfm.mojom.XuCamera_MapCtrl_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MapCtrl (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -312,7 +315,7 @@ ash.cfm.mojom.XuCameraReceiver = class {
         // Try Method 2: GetCtrl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.cfm.mojom.XuCamera_GetCtrl_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.cfm.mojom.XuCamera_GetCtrl_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCtrl (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -323,7 +326,7 @@ ash.cfm.mojom.XuCameraReceiver = class {
         // Try Method 3: SetCtrl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.cfm.mojom.XuCamera_SetCtrl_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.cfm.mojom.XuCamera_SetCtrl_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCtrl (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -340,7 +343,7 @@ ash.cfm.mojom.XuCameraReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cfm.mojom.XuCamera_GetUnitId_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.cfm.mojom.XuCamera_GetUnitId_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getUnitId');
           const result = this.impl.getUnitId(params.id, params.guid);
           if (header.expectsResponse) {
@@ -353,7 +356,7 @@ ash.cfm.mojom.XuCameraReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cfm.mojom.XuCamera_MapCtrl_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.cfm.mojom.XuCamera_MapCtrl_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.mapCtrl');
           const result = this.impl.mapCtrl(params.id, params.mapping_ctrl);
           if (header.expectsResponse) {
@@ -366,7 +369,7 @@ ash.cfm.mojom.XuCameraReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cfm.mojom.XuCamera_GetCtrl_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.cfm.mojom.XuCamera_GetCtrl_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getCtrl');
           const result = this.impl.getCtrl(params.id, params.ctrl, params.fn);
           if (header.expectsResponse) {
@@ -379,7 +382,7 @@ ash.cfm.mojom.XuCameraReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cfm.mojom.XuCamera_SetCtrl_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.cfm.mojom.XuCamera_SetCtrl_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setCtrl');
           const result = this.impl.setCtrl(params.id, params.ctrl, params.data);
           if (header.expectsResponse) {

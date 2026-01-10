@@ -250,9 +250,11 @@ nearby_share.mojom.ShareTargetListenerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -266,12 +268,13 @@ nearby_share.mojom.ShareTargetListenerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnShareTargetDiscovered
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnShareTargetDiscovered (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -282,7 +285,7 @@ nearby_share.mojom.ShareTargetListenerReceiver = class {
         // Try Method 1: OnShareTargetLost
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(nearby_share.mojom.ShareTargetListener_OnShareTargetLost_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(nearby_share.mojom.ShareTargetListener_OnShareTargetLost_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnShareTargetLost (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -299,14 +302,14 @@ nearby_share.mojom.ShareTargetListenerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onShareTargetDiscovered');
           const result = this.impl.onShareTargetDiscovered(params.share_target);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(nearby_share.mojom.ShareTargetListener_OnShareTargetLost_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(nearby_share.mojom.ShareTargetListener_OnShareTargetLost_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onShareTargetLost');
           const result = this.impl.onShareTargetLost(params.share_target);
           break;
@@ -406,9 +409,11 @@ nearby_share.mojom.TransferUpdateListenerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -422,12 +427,13 @@ nearby_share.mojom.TransferUpdateListenerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnTransferUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTransferUpdate (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -444,7 +450,7 @@ nearby_share.mojom.TransferUpdateListenerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onTransferUpdate');
           const result = this.impl.onTransferUpdate(params.status, params.token);
           break;
@@ -559,9 +565,11 @@ nearby_share.mojom.DiscoveryObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -575,12 +583,13 @@ nearby_share.mojom.DiscoveryObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnNearbyProcessStopped
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(nearby_share.mojom.DiscoveryObserver_OnNearbyProcessStopped_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(nearby_share.mojom.DiscoveryObserver_OnNearbyProcessStopped_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNearbyProcessStopped (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -591,7 +600,7 @@ nearby_share.mojom.DiscoveryObserverReceiver = class {
         // Try Method 1: OnStartDiscoveryResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(nearby_share.mojom.DiscoveryObserver_OnStartDiscoveryResult_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(nearby_share.mojom.DiscoveryObserver_OnStartDiscoveryResult_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStartDiscoveryResult (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -608,14 +617,14 @@ nearby_share.mojom.DiscoveryObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(nearby_share.mojom.DiscoveryObserver_OnNearbyProcessStopped_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(nearby_share.mojom.DiscoveryObserver_OnNearbyProcessStopped_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onNearbyProcessStopped');
           const result = this.impl.onNearbyProcessStopped();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(nearby_share.mojom.DiscoveryObserver_OnStartDiscoveryResult_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(nearby_share.mojom.DiscoveryObserver_OnStartDiscoveryResult_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onStartDiscoveryResult');
           const result = this.impl.onStartDiscoveryResult(params.success);
           break;
@@ -805,9 +814,11 @@ nearby_share.mojom.DiscoveryManagerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -821,12 +832,13 @@ nearby_share.mojom.DiscoveryManagerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AddDiscoveryObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(nearby_share.mojom.DiscoveryManager_AddDiscoveryObserver_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(nearby_share.mojom.DiscoveryManager_AddDiscoveryObserver_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddDiscoveryObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -837,7 +849,7 @@ nearby_share.mojom.DiscoveryManagerReceiver = class {
         // Try Method 1: StartDiscovery
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(nearby_share.mojom.DiscoveryManager_StartDiscovery_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(nearby_share.mojom.DiscoveryManager_StartDiscovery_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartDiscovery (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -848,7 +860,7 @@ nearby_share.mojom.DiscoveryManagerReceiver = class {
         // Try Method 2: StopDiscovery
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(nearby_share.mojom.DiscoveryManager_StopDiscovery_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(nearby_share.mojom.DiscoveryManager_StopDiscovery_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopDiscovery (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -859,7 +871,7 @@ nearby_share.mojom.DiscoveryManagerReceiver = class {
         // Try Method 3: SelectShareTarget
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(nearby_share.mojom.DiscoveryManager_SelectShareTarget_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(nearby_share.mojom.DiscoveryManager_SelectShareTarget_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectShareTarget (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -870,7 +882,7 @@ nearby_share.mojom.DiscoveryManagerReceiver = class {
         // Try Method 4: GetPayloadPreview
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPayloadPreview (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -887,14 +899,14 @@ nearby_share.mojom.DiscoveryManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(nearby_share.mojom.DiscoveryManager_AddDiscoveryObserver_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(nearby_share.mojom.DiscoveryManager_AddDiscoveryObserver_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addDiscoveryObserver');
           const result = this.impl.addDiscoveryObserver(params.observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(nearby_share.mojom.DiscoveryManager_StartDiscovery_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(nearby_share.mojom.DiscoveryManager_StartDiscovery_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.startDiscovery');
           const result = this.impl.startDiscovery(params.listener);
           if (header.expectsResponse) {
@@ -907,7 +919,7 @@ nearby_share.mojom.DiscoveryManagerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(nearby_share.mojom.DiscoveryManager_StopDiscovery_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(nearby_share.mojom.DiscoveryManager_StopDiscovery_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.stopDiscovery');
           const result = this.impl.stopDiscovery();
           if (header.expectsResponse) {
@@ -920,7 +932,7 @@ nearby_share.mojom.DiscoveryManagerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(nearby_share.mojom.DiscoveryManager_SelectShareTarget_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(nearby_share.mojom.DiscoveryManager_SelectShareTarget_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.selectShareTarget');
           const result = this.impl.selectShareTarget(params.share_target_id);
           if (header.expectsResponse) {
@@ -933,7 +945,7 @@ nearby_share.mojom.DiscoveryManagerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getPayloadPreview');
           const result = this.impl.getPayloadPreview();
           if (header.expectsResponse) {
@@ -1087,9 +1099,11 @@ nearby_share.mojom.ConfirmationManagerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1103,12 +1117,13 @@ nearby_share.mojom.ConfirmationManagerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Accept
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(nearby_share.mojom.ConfirmationManager_Accept_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(nearby_share.mojom.ConfirmationManager_Accept_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Accept (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1119,7 +1134,7 @@ nearby_share.mojom.ConfirmationManagerReceiver = class {
         // Try Method 1: Reject
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(nearby_share.mojom.ConfirmationManager_Reject_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(nearby_share.mojom.ConfirmationManager_Reject_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Reject (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1130,7 +1145,7 @@ nearby_share.mojom.ConfirmationManagerReceiver = class {
         // Try Method 2: Cancel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(nearby_share.mojom.ConfirmationManager_Cancel_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(nearby_share.mojom.ConfirmationManager_Cancel_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Cancel (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1147,7 +1162,7 @@ nearby_share.mojom.ConfirmationManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(nearby_share.mojom.ConfirmationManager_Accept_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(nearby_share.mojom.ConfirmationManager_Accept_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.accept');
           const result = this.impl.accept();
           if (header.expectsResponse) {
@@ -1160,7 +1175,7 @@ nearby_share.mojom.ConfirmationManagerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(nearby_share.mojom.ConfirmationManager_Reject_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(nearby_share.mojom.ConfirmationManager_Reject_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.reject');
           const result = this.impl.reject();
           if (header.expectsResponse) {
@@ -1173,7 +1188,7 @@ nearby_share.mojom.ConfirmationManagerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(nearby_share.mojom.ConfirmationManager_Cancel_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(nearby_share.mojom.ConfirmationManager_Cancel_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.cancel');
           const result = this.impl.cancel();
           if (header.expectsResponse) {
@@ -1328,9 +1343,11 @@ nearby_share.mojom.ReceiveObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1344,12 +1361,13 @@ nearby_share.mojom.ReceiveObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnHighVisibilityChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(nearby_share.mojom.ReceiveObserver_OnHighVisibilityChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(nearby_share.mojom.ReceiveObserver_OnHighVisibilityChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHighVisibilityChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1360,7 +1378,7 @@ nearby_share.mojom.ReceiveObserverReceiver = class {
         // Try Method 1: OnTransferUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(nearby_share.mojom.ReceiveObserver_OnTransferUpdate_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(nearby_share.mojom.ReceiveObserver_OnTransferUpdate_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTransferUpdate (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1371,7 +1389,7 @@ nearby_share.mojom.ReceiveObserverReceiver = class {
         // Try Method 2: OnNearbyProcessStopped
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(nearby_share.mojom.ReceiveObserver_OnNearbyProcessStopped_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(nearby_share.mojom.ReceiveObserver_OnNearbyProcessStopped_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNearbyProcessStopped (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1382,7 +1400,7 @@ nearby_share.mojom.ReceiveObserverReceiver = class {
         // Try Method 3: OnStartAdvertisingFailure
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(nearby_share.mojom.ReceiveObserver_OnStartAdvertisingFailure_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(nearby_share.mojom.ReceiveObserver_OnStartAdvertisingFailure_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStartAdvertisingFailure (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1399,28 +1417,28 @@ nearby_share.mojom.ReceiveObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(nearby_share.mojom.ReceiveObserver_OnHighVisibilityChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(nearby_share.mojom.ReceiveObserver_OnHighVisibilityChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onHighVisibilityChanged');
           const result = this.impl.onHighVisibilityChanged(params.in_high_visibility);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(nearby_share.mojom.ReceiveObserver_OnTransferUpdate_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(nearby_share.mojom.ReceiveObserver_OnTransferUpdate_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onTransferUpdate');
           const result = this.impl.onTransferUpdate(params.share_target, params.metadata);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(nearby_share.mojom.ReceiveObserver_OnNearbyProcessStopped_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(nearby_share.mojom.ReceiveObserver_OnNearbyProcessStopped_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onNearbyProcessStopped');
           const result = this.impl.onNearbyProcessStopped();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(nearby_share.mojom.ReceiveObserver_OnStartAdvertisingFailure_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(nearby_share.mojom.ReceiveObserver_OnStartAdvertisingFailure_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onStartAdvertisingFailure');
           const result = this.impl.onStartAdvertisingFailure();
           break;
@@ -1648,9 +1666,11 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1664,12 +1684,13 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AddReceiveObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(nearby_share.mojom.ReceiveManager_AddReceiveObserver_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(nearby_share.mojom.ReceiveManager_AddReceiveObserver_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddReceiveObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1680,7 +1701,7 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
         // Try Method 1: IsInHighVisibility
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(nearby_share.mojom.ReceiveManager_IsInHighVisibility_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(nearby_share.mojom.ReceiveManager_IsInHighVisibility_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsInHighVisibility (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1691,7 +1712,7 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
         // Try Method 2: RegisterForegroundReceiveSurface
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterForegroundReceiveSurface (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1702,7 +1723,7 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
         // Try Method 3: UnregisterForegroundReceiveSurface
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UnregisterForegroundReceiveSurface (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1713,7 +1734,7 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
         // Try Method 4: Accept
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(nearby_share.mojom.ReceiveManager_Accept_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(nearby_share.mojom.ReceiveManager_Accept_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Accept (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1724,7 +1745,7 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
         // Try Method 5: Reject
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(nearby_share.mojom.ReceiveManager_Reject_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(nearby_share.mojom.ReceiveManager_Reject_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Reject (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1735,7 +1756,7 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
         // Try Method 6: RecordFastInitiationNotificationUsage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(nearby_share.mojom.ReceiveManager_RecordFastInitiationNotificationUsage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(nearby_share.mojom.ReceiveManager_RecordFastInitiationNotificationUsage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordFastInitiationNotificationUsage (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1752,14 +1773,14 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(nearby_share.mojom.ReceiveManager_AddReceiveObserver_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(nearby_share.mojom.ReceiveManager_AddReceiveObserver_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addReceiveObserver');
           const result = this.impl.addReceiveObserver(params.observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(nearby_share.mojom.ReceiveManager_IsInHighVisibility_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(nearby_share.mojom.ReceiveManager_IsInHighVisibility_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.isInHighVisibility');
           const result = this.impl.isInHighVisibility();
           if (header.expectsResponse) {
@@ -1772,7 +1793,7 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.registerForegroundReceiveSurface');
           const result = this.impl.registerForegroundReceiveSurface();
           if (header.expectsResponse) {
@@ -1785,7 +1806,7 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.unregisterForegroundReceiveSurface');
           const result = this.impl.unregisterForegroundReceiveSurface();
           if (header.expectsResponse) {
@@ -1798,7 +1819,7 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(nearby_share.mojom.ReceiveManager_Accept_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(nearby_share.mojom.ReceiveManager_Accept_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.accept');
           const result = this.impl.accept(params.share_target_id);
           if (header.expectsResponse) {
@@ -1811,7 +1832,7 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(nearby_share.mojom.ReceiveManager_Reject_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(nearby_share.mojom.ReceiveManager_Reject_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.reject');
           const result = this.impl.reject(params.share_target_id);
           if (header.expectsResponse) {
@@ -1824,7 +1845,7 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(nearby_share.mojom.ReceiveManager_RecordFastInitiationNotificationUsage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(nearby_share.mojom.ReceiveManager_RecordFastInitiationNotificationUsage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.recordFastInitiationNotificationUsage');
           const result = this.impl.recordFastInitiationNotificationUsage(params.success);
           break;

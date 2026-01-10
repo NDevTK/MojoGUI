@@ -127,9 +127,11 @@ tracing.mojom.BackgroundTracingAgentClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -143,12 +145,13 @@ tracing.mojom.BackgroundTracingAgentClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnInitialized
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnInitialized (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -159,7 +162,7 @@ tracing.mojom.BackgroundTracingAgentClientReceiver = class {
         // Try Method 1: OnTriggerBackgroundTrace
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTriggerBackgroundTrace (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -176,14 +179,14 @@ tracing.mojom.BackgroundTracingAgentClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onInitialized');
           const result = this.impl.onInitialized();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onTriggerBackgroundTrace');
           const result = this.impl.onTriggerBackgroundTrace(params.rule, params.histogram_value, params.flow_id);
           break;
@@ -302,9 +305,11 @@ tracing.mojom.BackgroundTracingAgentReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -318,12 +323,13 @@ tracing.mojom.BackgroundTracingAgentReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetUMACallback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUMACallback (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -334,7 +340,7 @@ tracing.mojom.BackgroundTracingAgentReceiver = class {
         // Try Method 1: ClearUMACallback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearUMACallback (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -351,14 +357,14 @@ tracing.mojom.BackgroundTracingAgentReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setUMACallback');
           const result = this.impl.setUMACallback(params.rule, params.histogram_name, params.histogram_lower_value, params.histogram_upper_value);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.clearUMACallback');
           const result = this.impl.clearUMACallback(params.rule);
           break;
@@ -459,9 +465,11 @@ tracing.mojom.BackgroundTracingAgentProviderReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -475,12 +483,13 @@ tracing.mojom.BackgroundTracingAgentProviderReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Create
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Create (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -497,7 +506,7 @@ tracing.mojom.BackgroundTracingAgentProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.create');
           const result = this.impl.create(params.tracing_process_id, params.client, params.agent);
           break;

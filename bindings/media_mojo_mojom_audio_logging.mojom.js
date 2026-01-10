@@ -226,9 +226,11 @@ media.mojom.AudioLogReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -242,12 +244,13 @@ media.mojom.AudioLogReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.AudioLog_OnCreated_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.AudioLog_OnCreated_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCreated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -258,7 +261,7 @@ media.mojom.AudioLogReceiver = class {
         // Try Method 1: OnStarted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.AudioLog_OnStarted_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.AudioLog_OnStarted_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStarted (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -269,7 +272,7 @@ media.mojom.AudioLogReceiver = class {
         // Try Method 2: OnStopped
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.AudioLog_OnStopped_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.AudioLog_OnStopped_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStopped (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -280,7 +283,7 @@ media.mojom.AudioLogReceiver = class {
         // Try Method 3: OnClosed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.AudioLog_OnClosed_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.AudioLog_OnClosed_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnClosed (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -291,7 +294,7 @@ media.mojom.AudioLogReceiver = class {
         // Try Method 4: OnError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.AudioLog_OnError_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.AudioLog_OnError_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnError (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -302,7 +305,7 @@ media.mojom.AudioLogReceiver = class {
         // Try Method 5: OnSetVolume
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.AudioLog_OnSetVolume_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.AudioLog_OnSetVolume_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSetVolume (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -313,7 +316,7 @@ media.mojom.AudioLogReceiver = class {
         // Try Method 6: OnProcessingStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.AudioLog_OnProcessingStateChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.AudioLog_OnProcessingStateChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnProcessingStateChanged (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -324,7 +327,7 @@ media.mojom.AudioLogReceiver = class {
         // Try Method 7: OnLogMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.AudioLog_OnLogMessage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.AudioLog_OnLogMessage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLogMessage (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -341,56 +344,56 @@ media.mojom.AudioLogReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.AudioLog_OnCreated_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.AudioLog_OnCreated_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onCreated');
           const result = this.impl.onCreated(params.params, params.device_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.AudioLog_OnStarted_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.AudioLog_OnStarted_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onStarted');
           const result = this.impl.onStarted();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.AudioLog_OnStopped_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.AudioLog_OnStopped_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onStopped');
           const result = this.impl.onStopped();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.AudioLog_OnClosed_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.AudioLog_OnClosed_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onClosed');
           const result = this.impl.onClosed();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.AudioLog_OnError_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.AudioLog_OnError_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.AudioLog_OnSetVolume_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.AudioLog_OnSetVolume_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onSetVolume');
           const result = this.impl.onSetVolume(params.volume);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.AudioLog_OnProcessingStateChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.AudioLog_OnProcessingStateChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onProcessingStateChanged');
           const result = this.impl.onProcessingStateChanged(params.message);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.AudioLog_OnLogMessage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.AudioLog_OnLogMessage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onLogMessage');
           const result = this.impl.onLogMessage(params.message);
           break;
@@ -491,9 +494,11 @@ media.mojom.AudioLogFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -507,12 +512,13 @@ media.mojom.AudioLogFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateAudioLog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.AudioLogFactory_CreateAudioLog_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.AudioLogFactory_CreateAudioLog_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateAudioLog (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -529,7 +535,7 @@ media.mojom.AudioLogFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.AudioLogFactory_CreateAudioLog_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.AudioLogFactory_CreateAudioLog_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createAudioLog');
           const result = this.impl.createAudioLog(params.component, params.component_id, params.audio_log_receiver);
           break;

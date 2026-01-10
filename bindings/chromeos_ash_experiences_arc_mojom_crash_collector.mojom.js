@@ -159,9 +159,11 @@ arc.mojom.CrashCollectorHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -175,12 +177,13 @@ arc.mojom.CrashCollectorHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: DumpCrash
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.CrashCollectorHost_DumpCrash_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.CrashCollectorHost_DumpCrash_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DumpCrash (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -191,7 +194,7 @@ arc.mojom.CrashCollectorHostReceiver = class {
         // Try Method 1: SetBuildProperties
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.CrashCollectorHost_SetBuildProperties_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.CrashCollectorHost_SetBuildProperties_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBuildProperties (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -202,7 +205,7 @@ arc.mojom.CrashCollectorHostReceiver = class {
         // Try Method 2: DumpNativeCrash
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.CrashCollectorHost_DumpNativeCrash_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.CrashCollectorHost_DumpNativeCrash_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DumpNativeCrash (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -213,7 +216,7 @@ arc.mojom.CrashCollectorHostReceiver = class {
         // Try Method 3: DumpKernelCrash
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.CrashCollectorHost_DumpKernelCrash_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.CrashCollectorHost_DumpKernelCrash_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DumpKernelCrash (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -230,28 +233,28 @@ arc.mojom.CrashCollectorHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.CrashCollectorHost_DumpCrash_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.CrashCollectorHost_DumpCrash_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.dumpCrash');
           const result = this.impl.dumpCrash(params.type, params.pipe, params.uptime);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.CrashCollectorHost_SetBuildProperties_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.CrashCollectorHost_SetBuildProperties_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setBuildProperties');
           const result = this.impl.setBuildProperties(params.device, params.board, params.cpu_abi, params.fingerprint);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.CrashCollectorHost_DumpNativeCrash_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.CrashCollectorHost_DumpNativeCrash_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.dumpNativeCrash');
           const result = this.impl.dumpNativeCrash(params.exec_name, params.pid, params.timestamp, params.minidump_fd);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.CrashCollectorHost_DumpKernelCrash_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.CrashCollectorHost_DumpKernelCrash_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.dumpKernelCrash');
           const result = this.impl.dumpKernelCrash(params.ramoops_handle);
           break;
@@ -355,9 +358,11 @@ arc.mojom.CrashCollectorInstanceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -371,12 +376,13 @@ arc.mojom.CrashCollectorInstanceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.CrashCollectorInstance_Init_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.CrashCollectorInstance_Init_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -393,7 +399,7 @@ arc.mojom.CrashCollectorInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.CrashCollectorInstance_Init_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.CrashCollectorInstance_Init_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {

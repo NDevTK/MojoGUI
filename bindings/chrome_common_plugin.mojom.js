@@ -134,9 +134,11 @@ chrome.mojom.PluginHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -150,12 +152,13 @@ chrome.mojom.PluginHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OpenPDF
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.PluginHost_OpenPDF_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.PluginHost_OpenPDF_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenPDF (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -172,7 +175,7 @@ chrome.mojom.PluginHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.PluginHost_OpenPDF_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.PluginHost_OpenPDF_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.openPDF');
           const result = this.impl.openPDF(params.url);
           break;
@@ -272,9 +275,11 @@ chrome.mojom.PluginAuthHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -288,12 +293,13 @@ chrome.mojom.PluginAuthHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: BlockedUnauthorizedPlugin
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BlockedUnauthorizedPlugin (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -310,7 +316,7 @@ chrome.mojom.PluginAuthHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.blockedUnauthorizedPlugin');
           const result = this.impl.blockedUnauthorizedPlugin(params.name, params.group_id);
           break;
@@ -417,9 +423,11 @@ chrome.mojom.PluginInfoHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -433,12 +441,13 @@ chrome.mojom.PluginInfoHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetPluginInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.PluginInfoHost_GetPluginInfo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.PluginInfoHost_GetPluginInfo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPluginInfo (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -455,7 +464,7 @@ chrome.mojom.PluginInfoHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.PluginInfoHost_GetPluginInfo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.PluginInfoHost_GetPluginInfo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getPluginInfo');
           const result = this.impl.getPluginInfo(params.url, params.origin, params.mime_type);
           if (header.expectsResponse) {

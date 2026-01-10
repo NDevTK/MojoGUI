@@ -120,9 +120,11 @@ arc.mojom.EnterpriseReportingHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -136,12 +138,13 @@ arc.mojom.EnterpriseReportingHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ReportCloudDpcOperationTime
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.EnterpriseReportingHost_ReportCloudDpcOperationTime_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.EnterpriseReportingHost_ReportCloudDpcOperationTime_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportCloudDpcOperationTime (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -158,7 +161,7 @@ arc.mojom.EnterpriseReportingHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.EnterpriseReportingHost_ReportCloudDpcOperationTime_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.EnterpriseReportingHost_ReportCloudDpcOperationTime_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.reportCloudDpcOperationTime');
           const result = this.impl.reportCloudDpcOperationTime(params.time_ms, params.op, params.success);
           break;
@@ -285,9 +288,11 @@ arc.mojom.EnterpriseReportingInstanceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -301,12 +306,13 @@ arc.mojom.EnterpriseReportingInstanceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.EnterpriseReportingInstance_Init_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.EnterpriseReportingInstance_Init_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -317,7 +323,7 @@ arc.mojom.EnterpriseReportingInstanceReceiver = class {
         // Try Method 1: GetStatus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.EnterpriseReportingInstance_GetStatus_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.EnterpriseReportingInstance_GetStatus_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetStatus (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -334,7 +340,7 @@ arc.mojom.EnterpriseReportingInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.EnterpriseReportingInstance_Init_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.EnterpriseReportingInstance_Init_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -347,7 +353,7 @@ arc.mojom.EnterpriseReportingInstanceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.EnterpriseReportingInstance_GetStatus_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.EnterpriseReportingInstance_GetStatus_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getStatus');
           const result = this.impl.getStatus();
           if (header.expectsResponse) {

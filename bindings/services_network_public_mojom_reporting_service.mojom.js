@@ -173,9 +173,11 @@ network.mojom.ReportingApiObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -189,12 +191,13 @@ network.mojom.ReportingApiObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnReportAdded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.ReportingApiObserver_OnReportAdded_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.ReportingApiObserver_OnReportAdded_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReportAdded (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -205,7 +208,7 @@ network.mojom.ReportingApiObserverReceiver = class {
         // Try Method 1: OnReportUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.ReportingApiObserver_OnReportUpdated_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.ReportingApiObserver_OnReportUpdated_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReportUpdated (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -216,7 +219,7 @@ network.mojom.ReportingApiObserverReceiver = class {
         // Try Method 2: OnEndpointsUpdatedForOrigin
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.ReportingApiObserver_OnEndpointsUpdatedForOrigin_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.ReportingApiObserver_OnEndpointsUpdatedForOrigin_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnEndpointsUpdatedForOrigin (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -233,21 +236,21 @@ network.mojom.ReportingApiObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.ReportingApiObserver_OnReportAdded_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.ReportingApiObserver_OnReportAdded_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onReportAdded');
           const result = this.impl.onReportAdded(params.report);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.ReportingApiObserver_OnReportUpdated_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.ReportingApiObserver_OnReportUpdated_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onReportUpdated');
           const result = this.impl.onReportUpdated(params.report);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.ReportingApiObserver_OnEndpointsUpdatedForOrigin_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.ReportingApiObserver_OnEndpointsUpdatedForOrigin_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onEndpointsUpdatedForOrigin');
           const result = this.impl.onEndpointsUpdatedForOrigin(params.endpoints);
           break;

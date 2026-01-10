@@ -178,9 +178,11 @@ network.mojom.NetworkChangeManagerClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -194,12 +196,13 @@ network.mojom.NetworkChangeManagerClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnInitialConnectionType
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnInitialConnectionType (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -210,7 +213,7 @@ network.mojom.NetworkChangeManagerClientReceiver = class {
         // Try Method 1: OnNetworkChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.NetworkChangeManagerClient_OnNetworkChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.NetworkChangeManagerClient_OnNetworkChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNetworkChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -227,14 +230,14 @@ network.mojom.NetworkChangeManagerClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onInitialConnectionType');
           const result = this.impl.onInitialConnectionType(params.type);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkChangeManagerClient_OnNetworkChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.NetworkChangeManagerClient_OnNetworkChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onNetworkChanged');
           const result = this.impl.onNetworkChanged(params.type);
           break;
@@ -372,9 +375,11 @@ network.mojom.NetworkChangeManagerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -388,12 +393,13 @@ network.mojom.NetworkChangeManagerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: RequestNotifications
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.NetworkChangeManager_RequestNotifications_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.NetworkChangeManager_RequestNotifications_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestNotifications (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -404,7 +410,7 @@ network.mojom.NetworkChangeManagerReceiver = class {
         // Try Method 1: OnNetworkChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.NetworkChangeManager_OnNetworkChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.NetworkChangeManager_OnNetworkChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNetworkChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -415,7 +421,7 @@ network.mojom.NetworkChangeManagerReceiver = class {
         // Try Method 2: BindNetworkInterfaceChangeListener
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindNetworkInterfaceChangeListener (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -432,21 +438,21 @@ network.mojom.NetworkChangeManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkChangeManager_RequestNotifications_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.NetworkChangeManager_RequestNotifications_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestNotifications');
           const result = this.impl.requestNotifications(params.client_remote);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkChangeManager_OnNetworkChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.NetworkChangeManager_OnNetworkChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onNetworkChanged');
           const result = this.impl.onNetworkChanged(params.dns_changed, params.ip_address_change_type, params.connection_type_changed, params.new_connection_type, params.connection_subtype_changed, params.new_connection_subtype);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindNetworkInterfaceChangeListener');
           const result = this.impl.bindNetworkInterfaceChangeListener(params.notifier);
           break;

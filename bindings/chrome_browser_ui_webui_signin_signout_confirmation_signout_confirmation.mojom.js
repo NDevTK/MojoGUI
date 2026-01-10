@@ -126,9 +126,11 @@ signout_confirmation.mojom.PageHandlerFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -142,12 +144,13 @@ signout_confirmation.mojom.PageHandlerFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateSignoutConfirmationHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(signout_confirmation.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(signout_confirmation.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateSignoutConfirmationHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -164,7 +167,7 @@ signout_confirmation.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(signout_confirmation.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(signout_confirmation.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createSignoutConfirmationHandler');
           const result = this.impl.createSignoutConfirmationHandler(params.page, params.handler);
           break;
@@ -329,9 +332,11 @@ signout_confirmation.mojom.PageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -345,12 +350,13 @@ signout_confirmation.mojom.PageHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: UpdateViewHeight
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(signout_confirmation.mojom.PageHandler_UpdateViewHeight_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(signout_confirmation.mojom.PageHandler_UpdateViewHeight_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateViewHeight (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -361,7 +367,7 @@ signout_confirmation.mojom.PageHandlerReceiver = class {
         // Try Method 1: Accept
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(signout_confirmation.mojom.PageHandler_Accept_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(signout_confirmation.mojom.PageHandler_Accept_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Accept (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -372,7 +378,7 @@ signout_confirmation.mojom.PageHandlerReceiver = class {
         // Try Method 2: Cancel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(signout_confirmation.mojom.PageHandler_Cancel_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(signout_confirmation.mojom.PageHandler_Cancel_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Cancel (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -383,7 +389,7 @@ signout_confirmation.mojom.PageHandlerReceiver = class {
         // Try Method 3: PerformReauth
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(signout_confirmation.mojom.PageHandler_PerformReauth_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(signout_confirmation.mojom.PageHandler_PerformReauth_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PerformReauth (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -394,7 +400,7 @@ signout_confirmation.mojom.PageHandlerReceiver = class {
         // Try Method 4: Close
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(signout_confirmation.mojom.PageHandler_Close_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(signout_confirmation.mojom.PageHandler_Close_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Close (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -411,35 +417,35 @@ signout_confirmation.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(signout_confirmation.mojom.PageHandler_UpdateViewHeight_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(signout_confirmation.mojom.PageHandler_UpdateViewHeight_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.updateViewHeight');
           const result = this.impl.updateViewHeight(params.height);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(signout_confirmation.mojom.PageHandler_Accept_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(signout_confirmation.mojom.PageHandler_Accept_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.accept');
           const result = this.impl.accept(params.uninstall_account_extensions);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(signout_confirmation.mojom.PageHandler_Cancel_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(signout_confirmation.mojom.PageHandler_Cancel_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.cancel');
           const result = this.impl.cancel(params.uninstall_account_extensions);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(signout_confirmation.mojom.PageHandler_PerformReauth_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(signout_confirmation.mojom.PageHandler_PerformReauth_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.performReauth');
           const result = this.impl.performReauth();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(signout_confirmation.mojom.PageHandler_Close_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(signout_confirmation.mojom.PageHandler_Close_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.close');
           const result = this.impl.close();
           break;
@@ -538,9 +544,11 @@ signout_confirmation.mojom.PageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -554,12 +562,13 @@ signout_confirmation.mojom.PageReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SendSignoutConfirmationData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(signout_confirmation.mojom.Page_SendSignoutConfirmationData_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(signout_confirmation.mojom.Page_SendSignoutConfirmationData_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendSignoutConfirmationData (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -576,7 +585,7 @@ signout_confirmation.mojom.PageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(signout_confirmation.mojom.Page_SendSignoutConfirmationData_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(signout_confirmation.mojom.Page_SendSignoutConfirmationData_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.sendSignoutConfirmationData');
           const result = this.impl.sendSignoutConfirmationData(params.data);
           break;

@@ -117,9 +117,11 @@ ash.common.mojom.ShortcutInputObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -133,12 +135,13 @@ ash.common.mojom.ShortcutInputObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnShortcutInputEventPressed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnShortcutInputEventPressed (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -149,7 +152,7 @@ ash.common.mojom.ShortcutInputObserverReceiver = class {
         // Try Method 1: OnShortcutInputEventReleased
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventReleased_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventReleased_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnShortcutInputEventReleased (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -166,14 +169,14 @@ ash.common.mojom.ShortcutInputObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onShortcutInputEventPressed');
           const result = this.impl.onShortcutInputEventPressed(params.prerewritten_key_event, params.key_event);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventReleased_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventReleased_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onShortcutInputEventReleased');
           const result = this.impl.onShortcutInputEventReleased(params.prerewritten_key_event, params.key_event);
           break;
@@ -288,9 +291,11 @@ ash.common.mojom.ShortcutInputProviderReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -304,12 +309,13 @@ ash.common.mojom.ShortcutInputProviderReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: StartObservingShortcutInput
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.common.mojom.ShortcutInputProvider_StartObservingShortcutInput_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.common.mojom.ShortcutInputProvider_StartObservingShortcutInput_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartObservingShortcutInput (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -320,7 +326,7 @@ ash.common.mojom.ShortcutInputProviderReceiver = class {
         // Try Method 1: StopObservingShortcutInput
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.common.mojom.ShortcutInputProvider_StopObservingShortcutInput_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.common.mojom.ShortcutInputProvider_StopObservingShortcutInput_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopObservingShortcutInput (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -337,14 +343,14 @@ ash.common.mojom.ShortcutInputProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.common.mojom.ShortcutInputProvider_StartObservingShortcutInput_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.common.mojom.ShortcutInputProvider_StartObservingShortcutInput_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.startObservingShortcutInput');
           const result = this.impl.startObservingShortcutInput(params.observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.common.mojom.ShortcutInputProvider_StopObservingShortcutInput_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.common.mojom.ShortcutInputProvider_StopObservingShortcutInput_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.stopObservingShortcutInput');
           const result = this.impl.stopObservingShortcutInput();
           break;

@@ -170,9 +170,11 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactoryReceiver = class
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -186,12 +188,13 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactoryReceiver = class
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateCustomizeToolbarHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory_CreateCustomizeToolbarHandler_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory_CreateCustomizeToolbarHandler_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateCustomizeToolbarHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -208,7 +211,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactoryReceiver = class
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory_CreateCustomizeToolbarHandler_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory_CreateCustomizeToolbarHandler_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createCustomizeToolbarHandler');
           const result = this.impl.createCustomizeToolbarHandler(params.client, params.handler);
           break;
@@ -390,9 +393,11 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -406,12 +411,13 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ListActions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ListActions (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -422,7 +428,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerReceiver = class {
         // Try Method 1: ListCategories
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ListCategories (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -433,7 +439,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerReceiver = class {
         // Try Method 2: PinAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(side_panel.customize_chrome.mojom.CustomizeToolbarHandler_PinAction_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(side_panel.customize_chrome.mojom.CustomizeToolbarHandler_PinAction_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PinAction (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -444,7 +450,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerReceiver = class {
         // Try Method 3: GetIsCustomized
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetIsCustomized (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -455,7 +461,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerReceiver = class {
         // Try Method 4: ResetToDefault
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ResetToDefault_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ResetToDefault_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResetToDefault (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -472,7 +478,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.listActions');
           const result = this.impl.listActions();
           if (header.expectsResponse) {
@@ -485,7 +491,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.listCategories');
           const result = this.impl.listCategories();
           if (header.expectsResponse) {
@@ -498,14 +504,14 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.customize_chrome.mojom.CustomizeToolbarHandler_PinAction_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(side_panel.customize_chrome.mojom.CustomizeToolbarHandler_PinAction_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.pinAction');
           const result = this.impl.pinAction(params.action_id, params.pinned);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getIsCustomized');
           const result = this.impl.getIsCustomized();
           if (header.expectsResponse) {
@@ -518,7 +524,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ResetToDefault_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ResetToDefault_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.resetToDefault');
           const result = this.impl.resetToDefault();
           break;
@@ -634,9 +640,11 @@ side_panel.customize_chrome.mojom.CustomizeToolbarClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -650,12 +658,13 @@ side_panel.customize_chrome.mojom.CustomizeToolbarClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetActionPinned
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(side_panel.customize_chrome.mojom.CustomizeToolbarClient_SetActionPinned_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(side_panel.customize_chrome.mojom.CustomizeToolbarClient_SetActionPinned_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetActionPinned (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -666,7 +675,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarClientReceiver = class {
         // Try Method 1: NotifyActionsUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(side_panel.customize_chrome.mojom.CustomizeToolbarClient_NotifyActionsUpdated_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(side_panel.customize_chrome.mojom.CustomizeToolbarClient_NotifyActionsUpdated_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyActionsUpdated (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -683,14 +692,14 @@ side_panel.customize_chrome.mojom.CustomizeToolbarClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.customize_chrome.mojom.CustomizeToolbarClient_SetActionPinned_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(side_panel.customize_chrome.mojom.CustomizeToolbarClient_SetActionPinned_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setActionPinned');
           const result = this.impl.setActionPinned(params.action_id, params.pinned);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.customize_chrome.mojom.CustomizeToolbarClient_NotifyActionsUpdated_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(side_panel.customize_chrome.mojom.CustomizeToolbarClient_NotifyActionsUpdated_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.notifyActionsUpdated');
           const result = this.impl.notifyActionsUpdated();
           break;

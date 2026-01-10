@@ -140,9 +140,11 @@ heap_profiling.mojom.TestConnectorReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -156,12 +158,13 @@ heap_profiling.mojom.TestConnectorReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ConnectSnapshotController
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(heap_profiling.mojom.TestConnector_ConnectSnapshotController_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(heap_profiling.mojom.TestConnector_ConnectSnapshotController_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConnectSnapshotController (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -172,7 +175,7 @@ heap_profiling.mojom.TestConnectorReceiver = class {
         // Try Method 1: ConnectProfileCollector
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(heap_profiling.mojom.TestConnector_ConnectProfileCollector_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(heap_profiling.mojom.TestConnector_ConnectProfileCollector_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConnectProfileCollector (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -183,7 +186,7 @@ heap_profiling.mojom.TestConnectorReceiver = class {
         // Try Method 2: Disconnect
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(heap_profiling.mojom.TestConnector_Disconnect_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(heap_profiling.mojom.TestConnector_Disconnect_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Disconnect (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -200,7 +203,7 @@ heap_profiling.mojom.TestConnectorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(heap_profiling.mojom.TestConnector_ConnectSnapshotController_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(heap_profiling.mojom.TestConnector_ConnectSnapshotController_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.connectSnapshotController');
           const result = this.impl.connectSnapshotController(params.controller);
           if (header.expectsResponse) {
@@ -213,7 +216,7 @@ heap_profiling.mojom.TestConnectorReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(heap_profiling.mojom.TestConnector_ConnectProfileCollector_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(heap_profiling.mojom.TestConnector_ConnectProfileCollector_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.connectProfileCollector');
           const result = this.impl.connectProfileCollector(params.collector);
           if (header.expectsResponse) {
@@ -226,7 +229,7 @@ heap_profiling.mojom.TestConnectorReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(heap_profiling.mojom.TestConnector_Disconnect_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(heap_profiling.mojom.TestConnector_Disconnect_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.disconnect');
           const result = this.impl.disconnect();
           break;

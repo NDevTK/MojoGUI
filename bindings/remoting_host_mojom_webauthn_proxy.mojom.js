@@ -147,9 +147,11 @@ remoting.mojom.WebAuthnRequestCancellerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -163,12 +165,13 @@ remoting.mojom.WebAuthnRequestCancellerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Cancel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(remoting.mojom.WebAuthnRequestCanceller_Cancel_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(remoting.mojom.WebAuthnRequestCanceller_Cancel_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Cancel (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -185,7 +188,7 @@ remoting.mojom.WebAuthnRequestCancellerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remoting.mojom.WebAuthnRequestCanceller_Cancel_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(remoting.mojom.WebAuthnRequestCanceller_Cancel_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.cancel');
           const result = this.impl.cancel();
           if (header.expectsResponse) {
@@ -343,9 +346,11 @@ remoting.mojom.WebAuthnProxyReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -359,12 +364,13 @@ remoting.mojom.WebAuthnProxyReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: IsUserVerifyingPlatformAuthenticatorAvailable
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsUserVerifyingPlatformAuthenticatorAvailable (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -375,7 +381,7 @@ remoting.mojom.WebAuthnProxyReceiver = class {
         // Try Method 1: Create
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(remoting.mojom.WebAuthnProxy_Create_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(remoting.mojom.WebAuthnProxy_Create_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Create (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -386,7 +392,7 @@ remoting.mojom.WebAuthnProxyReceiver = class {
         // Try Method 2: Get
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(remoting.mojom.WebAuthnProxy_Get_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(remoting.mojom.WebAuthnProxy_Get_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Get (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -403,7 +409,7 @@ remoting.mojom.WebAuthnProxyReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.isUserVerifyingPlatformAuthenticatorAvailable');
           const result = this.impl.isUserVerifyingPlatformAuthenticatorAvailable();
           if (header.expectsResponse) {
@@ -416,7 +422,7 @@ remoting.mojom.WebAuthnProxyReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remoting.mojom.WebAuthnProxy_Create_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(remoting.mojom.WebAuthnProxy_Create_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.create');
           const result = this.impl.create(params.request_data, params.request_canceller);
           if (header.expectsResponse) {
@@ -429,7 +435,7 @@ remoting.mojom.WebAuthnProxyReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remoting.mojom.WebAuthnProxy_Get_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(remoting.mojom.WebAuthnProxy_Get_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.get');
           const result = this.impl.get(params.request_data, params.request_canceller);
           if (header.expectsResponse) {

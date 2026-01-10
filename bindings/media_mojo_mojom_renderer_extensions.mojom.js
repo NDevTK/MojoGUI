@@ -124,9 +124,11 @@ media.mojom.FlingingRendererClientExtensionReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -140,12 +142,13 @@ media.mojom.FlingingRendererClientExtensionReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnRemotePlayStateChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRemotePlayStateChange (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -162,7 +165,7 @@ media.mojom.FlingingRendererClientExtensionReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onRemotePlayStateChange');
           const result = this.impl.onRemotePlayStateChange(params.state);
           break;
@@ -307,9 +310,11 @@ media.mojom.MediaFoundationRendererExtensionReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -323,12 +328,13 @@ media.mojom.MediaFoundationRendererExtensionReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetDCOMPSurface
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDCOMPSurface (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -339,7 +345,7 @@ media.mojom.MediaFoundationRendererExtensionReceiver = class {
         // Try Method 1: SetVideoStreamEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetVideoStreamEnabled (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -350,7 +356,7 @@ media.mojom.MediaFoundationRendererExtensionReceiver = class {
         // Try Method 2: SetOutputRect
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetOutputRect (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -367,7 +373,7 @@ media.mojom.MediaFoundationRendererExtensionReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getDCOMPSurface');
           const result = this.impl.getDCOMPSurface();
           if (header.expectsResponse) {
@@ -380,14 +386,14 @@ media.mojom.MediaFoundationRendererExtensionReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setVideoStreamEnabled');
           const result = this.impl.setVideoStreamEnabled(params.enabled);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setOutputRect');
           const result = this.impl.setOutputRect(params.rect);
           if (header.expectsResponse) {
@@ -475,9 +481,11 @@ media.mojom.MediaFoundationRendererObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -491,6 +499,7 @@ media.mojom.MediaFoundationRendererObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         if (dispatchId === undefined) {
@@ -594,9 +603,11 @@ media.mojom.MediaFoundationRendererNotifierReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -610,12 +621,13 @@ media.mojom.MediaFoundationRendererNotifierReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: MediaFoundationRendererCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MediaFoundationRendererCreated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -632,7 +644,7 @@ media.mojom.MediaFoundationRendererNotifierReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.mediaFoundationRendererCreated');
           const result = this.impl.mediaFoundationRendererCreated(params.observer);
           break;

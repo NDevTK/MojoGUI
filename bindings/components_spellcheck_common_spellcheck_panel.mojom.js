@@ -114,9 +114,11 @@ spellcheck.mojom.SpellCheckPanelReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -130,12 +132,13 @@ spellcheck.mojom.SpellCheckPanelReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ToggleSpellPanel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(spellcheck.mojom.SpellCheckPanel_ToggleSpellPanel_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(spellcheck.mojom.SpellCheckPanel_ToggleSpellPanel_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ToggleSpellPanel (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -146,7 +149,7 @@ spellcheck.mojom.SpellCheckPanelReceiver = class {
         // Try Method 1: AdvanceToNextMisspelling
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(spellcheck.mojom.SpellCheckPanel_AdvanceToNextMisspelling_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(spellcheck.mojom.SpellCheckPanel_AdvanceToNextMisspelling_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AdvanceToNextMisspelling (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -163,14 +166,14 @@ spellcheck.mojom.SpellCheckPanelReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(spellcheck.mojom.SpellCheckPanel_ToggleSpellPanel_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(spellcheck.mojom.SpellCheckPanel_ToggleSpellPanel_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.toggleSpellPanel');
           const result = this.impl.toggleSpellPanel(params.visible);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(spellcheck.mojom.SpellCheckPanel_AdvanceToNextMisspelling_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(spellcheck.mojom.SpellCheckPanel_AdvanceToNextMisspelling_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.advanceToNextMisspelling');
           const result = this.impl.advanceToNextMisspelling();
           break;
@@ -286,9 +289,11 @@ spellcheck.mojom.SpellCheckPanelHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -302,12 +307,13 @@ spellcheck.mojom.SpellCheckPanelHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ShowSpellingPanel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(spellcheck.mojom.SpellCheckPanelHost_ShowSpellingPanel_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(spellcheck.mojom.SpellCheckPanelHost_ShowSpellingPanel_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowSpellingPanel (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -318,7 +324,7 @@ spellcheck.mojom.SpellCheckPanelHostReceiver = class {
         // Try Method 1: UpdateSpellingPanelWithMisspelledWord
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(spellcheck.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(spellcheck.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateSpellingPanelWithMisspelledWord (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -335,14 +341,14 @@ spellcheck.mojom.SpellCheckPanelHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(spellcheck.mojom.SpellCheckPanelHost_ShowSpellingPanel_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(spellcheck.mojom.SpellCheckPanelHost_ShowSpellingPanel_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.showSpellingPanel');
           const result = this.impl.showSpellingPanel(params.show);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(spellcheck.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(spellcheck.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.updateSpellingPanelWithMisspelledWord');
           const result = this.impl.updateSpellingPanelWithMisspelledWord(params.word);
           break;

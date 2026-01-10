@@ -117,9 +117,11 @@ chrome.mojom.ZipListenerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -133,12 +135,13 @@ chrome.mojom.ZipListenerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnProgress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.ZipListener_OnProgress_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.ZipListener_OnProgress_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnProgress (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -149,7 +152,7 @@ chrome.mojom.ZipListenerReceiver = class {
         // Try Method 1: OnFinished
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.ZipListener_OnFinished_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.ZipListener_OnFinished_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFinished (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -166,14 +169,14 @@ chrome.mojom.ZipListenerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.ZipListener_OnProgress_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.ZipListener_OnProgress_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onProgress');
           const result = this.impl.onProgress(params.bytes, params.files, params.directories);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.ZipListener_OnFinished_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.ZipListener_OnFinished_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onFinished');
           const result = this.impl.onFinished(params.success);
           break;
@@ -275,9 +278,11 @@ chrome.mojom.ZipFileCreatorReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -291,12 +296,13 @@ chrome.mojom.ZipFileCreatorReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateZipFile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.ZipFileCreator_CreateZipFile_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.ZipFileCreator_CreateZipFile_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateZipFile (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -313,7 +319,7 @@ chrome.mojom.ZipFileCreatorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.ZipFileCreator_CreateZipFile_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.ZipFileCreator_CreateZipFile_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createZipFile');
           const result = this.impl.createZipFile(params.src_dir, params.relative_paths, params.zip_file, params.listener);
           break;

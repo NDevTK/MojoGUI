@@ -115,9 +115,11 @@ blink.mojom.AppBannerControllerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -131,12 +133,13 @@ blink.mojom.AppBannerControllerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: BannerPromptRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AppBannerController_BannerPromptRequest_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AppBannerController_BannerPromptRequest_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BannerPromptRequest (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -153,7 +156,7 @@ blink.mojom.AppBannerControllerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AppBannerController_BannerPromptRequest_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AppBannerController_BannerPromptRequest_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bannerPromptRequest');
           const result = this.impl.bannerPromptRequest(params.service, params.event_receiver, params.platform);
           if (header.expectsResponse) {
@@ -274,9 +277,11 @@ blink.mojom.AppBannerEventReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -290,12 +295,13 @@ blink.mojom.AppBannerEventReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: BannerAccepted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AppBannerEvent_BannerAccepted_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AppBannerEvent_BannerAccepted_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BannerAccepted (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -306,7 +312,7 @@ blink.mojom.AppBannerEventReceiver = class {
         // Try Method 1: BannerDismissed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AppBannerEvent_BannerDismissed_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AppBannerEvent_BannerDismissed_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BannerDismissed (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -323,14 +329,14 @@ blink.mojom.AppBannerEventReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AppBannerEvent_BannerAccepted_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AppBannerEvent_BannerAccepted_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bannerAccepted');
           const result = this.impl.bannerAccepted(params.platform);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AppBannerEvent_BannerDismissed_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AppBannerEvent_BannerDismissed_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bannerDismissed');
           const result = this.impl.bannerDismissed();
           break;
@@ -428,9 +434,11 @@ blink.mojom.AppBannerServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -444,12 +452,13 @@ blink.mojom.AppBannerServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: DisplayAppBanner
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AppBannerService_DisplayAppBanner_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AppBannerService_DisplayAppBanner_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisplayAppBanner (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -466,7 +475,7 @@ blink.mojom.AppBannerServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AppBannerService_DisplayAppBanner_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AppBannerService_DisplayAppBanner_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.displayAppBanner');
           const result = this.impl.displayAppBanner();
           break;

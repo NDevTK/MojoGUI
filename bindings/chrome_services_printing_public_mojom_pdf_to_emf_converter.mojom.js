@@ -142,9 +142,11 @@ printing.mojom.PdfToEmfConverterReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -158,12 +160,13 @@ printing.mojom.PdfToEmfConverterReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ConvertPage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConvertPage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -174,7 +177,7 @@ printing.mojom.PdfToEmfConverterReceiver = class {
         // Try Method 1: SetWebContentsURL
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetWebContentsURL (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -185,7 +188,7 @@ printing.mojom.PdfToEmfConverterReceiver = class {
         // Try Method 2: SetUseSkiaRendererPolicy
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUseSkiaRendererPolicy (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -202,7 +205,7 @@ printing.mojom.PdfToEmfConverterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.convertPage');
           const result = this.impl.convertPage(params.page_index);
           if (header.expectsResponse) {
@@ -215,14 +218,14 @@ printing.mojom.PdfToEmfConverterReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setWebContentsURL');
           const result = this.impl.setWebContentsURL(params.url);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setUseSkiaRendererPolicy');
           const result = this.impl.setUseSkiaRendererPolicy(params.use_skia);
           break;
@@ -329,9 +332,11 @@ printing.mojom.PdfToEmfConverterFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -345,12 +350,13 @@ printing.mojom.PdfToEmfConverterFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateConverter
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateConverter (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -367,7 +373,7 @@ printing.mojom.PdfToEmfConverterFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createConverter');
           const result = this.impl.createConverter(params.pdf_region, params.render_settings);
           if (header.expectsResponse) {

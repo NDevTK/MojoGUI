@@ -125,9 +125,11 @@ storage.mojom.CacheStorageObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -141,12 +143,13 @@ storage.mojom.CacheStorageObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnCacheListChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(storage.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(storage.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCacheListChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -157,7 +160,7 @@ storage.mojom.CacheStorageObserverReceiver = class {
         // Try Method 1: OnCacheContentChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(storage.mojom.CacheStorageObserver_OnCacheContentChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(storage.mojom.CacheStorageObserver_OnCacheContentChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCacheContentChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -174,14 +177,14 @@ storage.mojom.CacheStorageObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(storage.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onCacheListChanged');
           const result = this.impl.onCacheListChanged(params.bucket_locator);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.CacheStorageObserver_OnCacheContentChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(storage.mojom.CacheStorageObserver_OnCacheContentChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onCacheContentChanged');
           const result = this.impl.onCacheContentChanged(params.bucket_locator, params.cache_name);
           break;
@@ -320,9 +323,11 @@ storage.mojom.CacheStorageControlReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -336,12 +341,13 @@ storage.mojom.CacheStorageControlReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AddReceiver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(storage.mojom.CacheStorageControl_AddReceiver_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(storage.mojom.CacheStorageControl_AddReceiver_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddReceiver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -352,7 +358,7 @@ storage.mojom.CacheStorageControlReceiver = class {
         // Try Method 1: AddObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(storage.mojom.CacheStorageControl_AddObserver_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(storage.mojom.CacheStorageControl_AddObserver_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddObserver (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -363,7 +369,7 @@ storage.mojom.CacheStorageControlReceiver = class {
         // Try Method 2: ApplyPolicyUpdates
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(storage.mojom.CacheStorageControl_ApplyPolicyUpdates_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(storage.mojom.CacheStorageControl_ApplyPolicyUpdates_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ApplyPolicyUpdates (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -380,21 +386,21 @@ storage.mojom.CacheStorageControlReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.CacheStorageControl_AddReceiver_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(storage.mojom.CacheStorageControl_AddReceiver_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addReceiver');
           const result = this.impl.addReceiver(params.cross_origin_embedder_policy, params.coep_reporter, params.document_isolation_policy, params.dip_reporter, params.bucket_locator, params.owner, params.receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.CacheStorageControl_AddObserver_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(storage.mojom.CacheStorageControl_AddObserver_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.CacheStorageControl_ApplyPolicyUpdates_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(storage.mojom.CacheStorageControl_ApplyPolicyUpdates_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.applyPolicyUpdates');
           const result = this.impl.applyPolicyUpdates(params.policy_updates);
           break;

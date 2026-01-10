@@ -157,9 +157,11 @@ ash.help_app.mojom.PageHandlerFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -173,12 +175,13 @@ ash.help_app.mojom.PageHandlerFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.help_app.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.help_app.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -195,7 +198,7 @@ ash.help_app.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.help_app.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.help_app.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.handler);
           break;
@@ -490,9 +493,11 @@ ash.help_app.mojom.PageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -506,12 +511,13 @@ ash.help_app.mojom.PageHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OpenFeedbackDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenFeedbackDialog (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -522,7 +528,7 @@ ash.help_app.mojom.PageHandlerReceiver = class {
         // Try Method 1: ShowOnDeviceAppControls
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.help_app.mojom.PageHandler_ShowOnDeviceAppControls_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.help_app.mojom.PageHandler_ShowOnDeviceAppControls_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowOnDeviceAppControls (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -533,7 +539,7 @@ ash.help_app.mojom.PageHandlerReceiver = class {
         // Try Method 2: ShowParentalControls
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.help_app.mojom.PageHandler_ShowParentalControls_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.help_app.mojom.PageHandler_ShowParentalControls_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowParentalControls (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -544,7 +550,7 @@ ash.help_app.mojom.PageHandlerReceiver = class {
         // Try Method 3: TriggerWelcomeTipCallToAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.help_app.mojom.PageHandler_TriggerWelcomeTipCallToAction_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.help_app.mojom.PageHandler_TriggerWelcomeTipCallToAction_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TriggerWelcomeTipCallToAction (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -555,7 +561,7 @@ ash.help_app.mojom.PageHandlerReceiver = class {
         // Try Method 4: IsLauncherSearchEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsLauncherSearchEnabled (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -566,7 +572,7 @@ ash.help_app.mojom.PageHandlerReceiver = class {
         // Try Method 5: LaunchMicrosoft365Setup
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.help_app.mojom.PageHandler_LaunchMicrosoft365Setup_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.help_app.mojom.PageHandler_LaunchMicrosoft365Setup_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LaunchMicrosoft365Setup (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -577,7 +583,7 @@ ash.help_app.mojom.PageHandlerReceiver = class {
         // Try Method 6: MaybeShowReleaseNotesNotification
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.help_app.mojom.PageHandler_MaybeShowReleaseNotesNotification_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.help_app.mojom.PageHandler_MaybeShowReleaseNotesNotification_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MaybeShowReleaseNotesNotification (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -588,7 +594,7 @@ ash.help_app.mojom.PageHandlerReceiver = class {
         // Try Method 7: GetDeviceInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.help_app.mojom.PageHandler_GetDeviceInfo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.help_app.mojom.PageHandler_GetDeviceInfo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDeviceInfo (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -599,7 +605,7 @@ ash.help_app.mojom.PageHandlerReceiver = class {
         // Try Method 8: OpenUrlInBrowserAndTriggerInstallDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.help_app.mojom.PageHandler_OpenUrlInBrowserAndTriggerInstallDialog_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.help_app.mojom.PageHandler_OpenUrlInBrowserAndTriggerInstallDialog_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenUrlInBrowserAndTriggerInstallDialog (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -610,7 +616,7 @@ ash.help_app.mojom.PageHandlerReceiver = class {
         // Try Method 9: OpenSettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.help_app.mojom.PageHandler_OpenSettings_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.help_app.mojom.PageHandler_OpenSettings_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenSettings (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -621,7 +627,7 @@ ash.help_app.mojom.PageHandlerReceiver = class {
         // Try Method 10: SetHasCompletedNewDeviceChecklist
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.help_app.mojom.PageHandler_SetHasCompletedNewDeviceChecklist_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.help_app.mojom.PageHandler_SetHasCompletedNewDeviceChecklist_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetHasCompletedNewDeviceChecklist (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -632,7 +638,7 @@ ash.help_app.mojom.PageHandlerReceiver = class {
         // Try Method 11: SetHasVisitedHowToPage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.help_app.mojom.PageHandler_SetHasVisitedHowToPage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.help_app.mojom.PageHandler_SetHasVisitedHowToPage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetHasVisitedHowToPage (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -649,7 +655,7 @@ ash.help_app.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.openFeedbackDialog');
           const result = this.impl.openFeedbackDialog();
           if (header.expectsResponse) {
@@ -662,28 +668,28 @@ ash.help_app.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.help_app.mojom.PageHandler_ShowOnDeviceAppControls_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.help_app.mojom.PageHandler_ShowOnDeviceAppControls_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.showOnDeviceAppControls');
           const result = this.impl.showOnDeviceAppControls();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.help_app.mojom.PageHandler_ShowParentalControls_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.help_app.mojom.PageHandler_ShowParentalControls_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.showParentalControls');
           const result = this.impl.showParentalControls();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.help_app.mojom.PageHandler_TriggerWelcomeTipCallToAction_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.help_app.mojom.PageHandler_TriggerWelcomeTipCallToAction_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.triggerWelcomeTipCallToAction');
           const result = this.impl.triggerWelcomeTipCallToAction(params.action_type_id);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.isLauncherSearchEnabled');
           const result = this.impl.isLauncherSearchEnabled();
           if (header.expectsResponse) {
@@ -696,21 +702,21 @@ ash.help_app.mojom.PageHandlerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.help_app.mojom.PageHandler_LaunchMicrosoft365Setup_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.help_app.mojom.PageHandler_LaunchMicrosoft365Setup_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.launchMicrosoft365Setup');
           const result = this.impl.launchMicrosoft365Setup();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.help_app.mojom.PageHandler_MaybeShowReleaseNotesNotification_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.help_app.mojom.PageHandler_MaybeShowReleaseNotesNotification_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.maybeShowReleaseNotesNotification');
           const result = this.impl.maybeShowReleaseNotesNotification();
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.help_app.mojom.PageHandler_GetDeviceInfo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.help_app.mojom.PageHandler_GetDeviceInfo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getDeviceInfo');
           const result = this.impl.getDeviceInfo();
           if (header.expectsResponse) {
@@ -723,28 +729,28 @@ ash.help_app.mojom.PageHandlerReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.help_app.mojom.PageHandler_OpenUrlInBrowserAndTriggerInstallDialog_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.help_app.mojom.PageHandler_OpenUrlInBrowserAndTriggerInstallDialog_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.openUrlInBrowserAndTriggerInstallDialog');
           const result = this.impl.openUrlInBrowserAndTriggerInstallDialog(params.url);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.help_app.mojom.PageHandler_OpenSettings_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.help_app.mojom.PageHandler_OpenSettings_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.openSettings');
           const result = this.impl.openSettings(params.component);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.help_app.mojom.PageHandler_SetHasCompletedNewDeviceChecklist_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.help_app.mojom.PageHandler_SetHasCompletedNewDeviceChecklist_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setHasCompletedNewDeviceChecklist');
           const result = this.impl.setHasCompletedNewDeviceChecklist();
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.help_app.mojom.PageHandler_SetHasVisitedHowToPage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.help_app.mojom.PageHandler_SetHasVisitedHowToPage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setHasVisitedHowToPage');
           const result = this.impl.setHasVisitedHowToPage();
           break;

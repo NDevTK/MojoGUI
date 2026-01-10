@@ -161,9 +161,11 @@ proxy_resolver.mojom.HostResolverRequestClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -177,12 +179,13 @@ proxy_resolver.mojom.HostResolverRequestClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ReportResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(proxy_resolver.mojom.HostResolverRequestClient_ReportResult_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(proxy_resolver.mojom.HostResolverRequestClient_ReportResult_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportResult (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -199,7 +202,7 @@ proxy_resolver.mojom.HostResolverRequestClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(proxy_resolver.mojom.HostResolverRequestClient_ReportResult_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(proxy_resolver.mojom.HostResolverRequestClient_ReportResult_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.reportResult');
           const result = this.impl.reportResult(params.error, params.result);
           break;
@@ -300,9 +303,11 @@ proxy_resolver.mojom.ProxyResolverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -316,12 +321,13 @@ proxy_resolver.mojom.ProxyResolverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetProxyForUrl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(proxy_resolver.mojom.ProxyResolver_GetProxyForUrl_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(proxy_resolver.mojom.ProxyResolver_GetProxyForUrl_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetProxyForUrl (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -338,7 +344,7 @@ proxy_resolver.mojom.ProxyResolverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(proxy_resolver.mojom.ProxyResolver_GetProxyForUrl_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(proxy_resolver.mojom.ProxyResolver_GetProxyForUrl_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getProxyForUrl');
           const result = this.impl.getProxyForUrl(params.url, params.network_anonymization_key, params.client);
           break;
@@ -493,9 +499,11 @@ proxy_resolver.mojom.ProxyResolverRequestClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -509,12 +517,13 @@ proxy_resolver.mojom.ProxyResolverRequestClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ReportResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(proxy_resolver.mojom.ProxyResolverRequestClient_ReportResult_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(proxy_resolver.mojom.ProxyResolverRequestClient_ReportResult_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportResult (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -525,7 +534,7 @@ proxy_resolver.mojom.ProxyResolverRequestClientReceiver = class {
         // Try Method 1: Alert
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(proxy_resolver.mojom.ProxyResolverRequestClient_Alert_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(proxy_resolver.mojom.ProxyResolverRequestClient_Alert_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Alert (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -536,7 +545,7 @@ proxy_resolver.mojom.ProxyResolverRequestClientReceiver = class {
         // Try Method 2: OnError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(proxy_resolver.mojom.ProxyResolverRequestClient_OnError_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(proxy_resolver.mojom.ProxyResolverRequestClient_OnError_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnError (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -547,7 +556,7 @@ proxy_resolver.mojom.ProxyResolverRequestClientReceiver = class {
         // Try Method 3: ResolveDns
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(proxy_resolver.mojom.ProxyResolverRequestClient_ResolveDns_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(proxy_resolver.mojom.ProxyResolverRequestClient_ResolveDns_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResolveDns (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -564,28 +573,28 @@ proxy_resolver.mojom.ProxyResolverRequestClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(proxy_resolver.mojom.ProxyResolverRequestClient_ReportResult_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(proxy_resolver.mojom.ProxyResolverRequestClient_ReportResult_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.reportResult');
           const result = this.impl.reportResult(params.error, params.proxy_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(proxy_resolver.mojom.ProxyResolverRequestClient_Alert_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(proxy_resolver.mojom.ProxyResolverRequestClient_Alert_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.alert');
           const result = this.impl.alert(params.error);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(proxy_resolver.mojom.ProxyResolverRequestClient_OnError_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(proxy_resolver.mojom.ProxyResolverRequestClient_OnError_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.line_number, params.error);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(proxy_resolver.mojom.ProxyResolverRequestClient_ResolveDns_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(proxy_resolver.mojom.ProxyResolverRequestClient_ResolveDns_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.resolveDns');
           const result = this.impl.resolveDns(params.host, params.operation, params.network_anonymization_key, params.client);
           break;
@@ -686,9 +695,11 @@ proxy_resolver.mojom.ProxyResolverFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -702,12 +713,13 @@ proxy_resolver.mojom.ProxyResolverFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateResolver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(proxy_resolver.mojom.ProxyResolverFactory_CreateResolver_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(proxy_resolver.mojom.ProxyResolverFactory_CreateResolver_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateResolver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -724,7 +736,7 @@ proxy_resolver.mojom.ProxyResolverFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(proxy_resolver.mojom.ProxyResolverFactory_CreateResolver_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(proxy_resolver.mojom.ProxyResolverFactory_CreateResolver_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createResolver');
           const result = this.impl.createResolver(params.pac_script, params.receiver, params.client);
           break;
@@ -878,9 +890,11 @@ proxy_resolver.mojom.ProxyResolverFactoryRequestClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -894,12 +908,13 @@ proxy_resolver.mojom.ProxyResolverFactoryRequestClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ReportResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ReportResult_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ReportResult_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportResult (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -910,7 +925,7 @@ proxy_resolver.mojom.ProxyResolverFactoryRequestClientReceiver = class {
         // Try Method 1: Alert
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(proxy_resolver.mojom.ProxyResolverFactoryRequestClient_Alert_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(proxy_resolver.mojom.ProxyResolverFactoryRequestClient_Alert_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Alert (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -921,7 +936,7 @@ proxy_resolver.mojom.ProxyResolverFactoryRequestClientReceiver = class {
         // Try Method 2: OnError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(proxy_resolver.mojom.ProxyResolverFactoryRequestClient_OnError_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(proxy_resolver.mojom.ProxyResolverFactoryRequestClient_OnError_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnError (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -932,7 +947,7 @@ proxy_resolver.mojom.ProxyResolverFactoryRequestClientReceiver = class {
         // Try Method 3: ResolveDns
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ResolveDns_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ResolveDns_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResolveDns (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -949,28 +964,28 @@ proxy_resolver.mojom.ProxyResolverFactoryRequestClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ReportResult_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ReportResult_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.reportResult');
           const result = this.impl.reportResult(params.error);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(proxy_resolver.mojom.ProxyResolverFactoryRequestClient_Alert_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(proxy_resolver.mojom.ProxyResolverFactoryRequestClient_Alert_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.alert');
           const result = this.impl.alert(params.error);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(proxy_resolver.mojom.ProxyResolverFactoryRequestClient_OnError_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(proxy_resolver.mojom.ProxyResolverFactoryRequestClient_OnError_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.line_number, params.error);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ResolveDns_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ResolveDns_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.resolveDns');
           const result = this.impl.resolveDns(params.host, params.operation, params.network_anonymization_key, params.client);
           break;
@@ -1076,9 +1091,11 @@ proxy_resolver.mojom.SystemProxyResolverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1092,12 +1109,13 @@ proxy_resolver.mojom.SystemProxyResolverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetProxyForUrl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetProxyForUrl (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1114,7 +1132,7 @@ proxy_resolver.mojom.SystemProxyResolverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getProxyForUrl');
           const result = this.impl.getProxyForUrl(params.url);
           if (header.expectsResponse) {

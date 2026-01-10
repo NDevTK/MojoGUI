@@ -157,9 +157,11 @@ legion_internals.mojom.LegionInternalsPageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -173,12 +175,13 @@ legion_internals.mojom.LegionInternalsPageHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Connect
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(legion_internals.mojom.LegionInternalsPageHandler_Connect_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(legion_internals.mojom.LegionInternalsPageHandler_Connect_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Connect (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -189,7 +192,7 @@ legion_internals.mojom.LegionInternalsPageHandlerReceiver = class {
         // Try Method 1: Close
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(legion_internals.mojom.LegionInternalsPageHandler_Close_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(legion_internals.mojom.LegionInternalsPageHandler_Close_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Close (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -200,7 +203,7 @@ legion_internals.mojom.LegionInternalsPageHandlerReceiver = class {
         // Try Method 2: SendRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendRequest (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -217,7 +220,7 @@ legion_internals.mojom.LegionInternalsPageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(legion_internals.mojom.LegionInternalsPageHandler_Connect_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(legion_internals.mojom.LegionInternalsPageHandler_Connect_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.connect');
           const result = this.impl.connect(params.url, params.api_key);
           if (header.expectsResponse) {
@@ -230,7 +233,7 @@ legion_internals.mojom.LegionInternalsPageHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(legion_internals.mojom.LegionInternalsPageHandler_Close_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(legion_internals.mojom.LegionInternalsPageHandler_Close_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.close');
           const result = this.impl.close();
           if (header.expectsResponse) {
@@ -243,7 +246,7 @@ legion_internals.mojom.LegionInternalsPageHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.sendRequest');
           const result = this.impl.sendRequest(params.feature_name, params.request);
           if (header.expectsResponse) {

@@ -209,9 +209,11 @@ ui.ozone.mojom.WaylandBufferManagerHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -225,12 +227,13 @@ ui.ozone.mojom.WaylandBufferManagerHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetWaylandBufferManagerGpu
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetWaylandBufferManagerGpu (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -241,7 +244,7 @@ ui.ozone.mojom.WaylandBufferManagerHostReceiver = class {
         // Try Method 1: CreateDmabufBasedBuffer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ui.ozone.mojom.WaylandBufferManagerHost_CreateDmabufBasedBuffer_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ui.ozone.mojom.WaylandBufferManagerHost_CreateDmabufBasedBuffer_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateDmabufBasedBuffer (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -252,7 +255,7 @@ ui.ozone.mojom.WaylandBufferManagerHostReceiver = class {
         // Try Method 2: CreateShmBasedBuffer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ui.ozone.mojom.WaylandBufferManagerHost_CreateShmBasedBuffer_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ui.ozone.mojom.WaylandBufferManagerHost_CreateShmBasedBuffer_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateShmBasedBuffer (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -263,7 +266,7 @@ ui.ozone.mojom.WaylandBufferManagerHostReceiver = class {
         // Try Method 3: CreateSinglePixelBuffer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ui.ozone.mojom.WaylandBufferManagerHost_CreateSinglePixelBuffer_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ui.ozone.mojom.WaylandBufferManagerHost_CreateSinglePixelBuffer_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateSinglePixelBuffer (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -274,7 +277,7 @@ ui.ozone.mojom.WaylandBufferManagerHostReceiver = class {
         // Try Method 4: DestroyBuffer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ui.ozone.mojom.WaylandBufferManagerHost_DestroyBuffer_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ui.ozone.mojom.WaylandBufferManagerHost_DestroyBuffer_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DestroyBuffer (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -285,7 +288,7 @@ ui.ozone.mojom.WaylandBufferManagerHostReceiver = class {
         // Try Method 5: CommitOverlays
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ui.ozone.mojom.WaylandBufferManagerHost_CommitOverlays_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ui.ozone.mojom.WaylandBufferManagerHost_CommitOverlays_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CommitOverlays (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -302,42 +305,42 @@ ui.ozone.mojom.WaylandBufferManagerHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setWaylandBufferManagerGpu');
           const result = this.impl.setWaylandBufferManagerGpu(params.buffer_manager_gpu_associated);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ui.ozone.mojom.WaylandBufferManagerHost_CreateDmabufBasedBuffer_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ui.ozone.mojom.WaylandBufferManagerHost_CreateDmabufBasedBuffer_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createDmabufBasedBuffer');
           const result = this.impl.createDmabufBasedBuffer(params.dmabuf_fd, params.size, params.strides, params.offsets, params.modifiers, params.format, params.planes_count, params.color_space, params.hdr_metadata, params.buffer_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ui.ozone.mojom.WaylandBufferManagerHost_CreateShmBasedBuffer_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ui.ozone.mojom.WaylandBufferManagerHost_CreateShmBasedBuffer_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createShmBasedBuffer');
           const result = this.impl.createShmBasedBuffer(params.shm_fd, params.length, params.size, params.buffer_id);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ui.ozone.mojom.WaylandBufferManagerHost_CreateSinglePixelBuffer_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ui.ozone.mojom.WaylandBufferManagerHost_CreateSinglePixelBuffer_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createSinglePixelBuffer');
           const result = this.impl.createSinglePixelBuffer(params.color, params.buffer_id);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ui.ozone.mojom.WaylandBufferManagerHost_DestroyBuffer_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ui.ozone.mojom.WaylandBufferManagerHost_DestroyBuffer_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.destroyBuffer');
           const result = this.impl.destroyBuffer(params.buffer_id);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ui.ozone.mojom.WaylandBufferManagerHost_CommitOverlays_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ui.ozone.mojom.WaylandBufferManagerHost_CommitOverlays_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.commitOverlays');
           const result = this.impl.commitOverlays(params.widget, params.frame_id, params.data, params.overlays);
           break;
@@ -481,9 +484,11 @@ ui.ozone.mojom.WaylandBufferManagerGpuReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -497,12 +502,13 @@ ui.ozone.mojom.WaylandBufferManagerGpuReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Initialize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Initialize (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -513,7 +519,7 @@ ui.ozone.mojom.WaylandBufferManagerGpuReceiver = class {
         // Try Method 1: OnSubmission
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ui.ozone.mojom.WaylandBufferManagerGpu_OnSubmission_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ui.ozone.mojom.WaylandBufferManagerGpu_OnSubmission_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSubmission (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -524,7 +530,7 @@ ui.ozone.mojom.WaylandBufferManagerGpuReceiver = class {
         // Try Method 2: OnPresentation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ui.ozone.mojom.WaylandBufferManagerGpu_OnPresentation_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ui.ozone.mojom.WaylandBufferManagerGpu_OnPresentation_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPresentation (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -541,21 +547,21 @@ ui.ozone.mojom.WaylandBufferManagerGpuReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.initialize');
           const result = this.impl.initialize(params.remote_host, params.shared_image_formats_with_modifiers, params.supports_dma_buf, params.supports_viewporter, params.supports_acquire_fence, params.supports_overlays, params.supports_single_pixel_buffer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ui.ozone.mojom.WaylandBufferManagerGpu_OnSubmission_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ui.ozone.mojom.WaylandBufferManagerGpu_OnSubmission_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onSubmission');
           const result = this.impl.onSubmission(params.widget, params.frame_id, params.swap_result, params.release_fence_handle, params.presentation_infos);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ui.ozone.mojom.WaylandBufferManagerGpu_OnPresentation_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ui.ozone.mojom.WaylandBufferManagerGpu_OnPresentation_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onPresentation');
           const result = this.impl.onPresentation(params.widget, params.presentation_infos);
           break;

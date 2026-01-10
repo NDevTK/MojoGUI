@@ -113,9 +113,11 @@ ash.mojom.sample_swa.PageHandlerFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -129,12 +131,13 @@ ash.mojom.sample_swa.PageHandlerFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -151,7 +154,7 @@ ash.mojom.sample_swa.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.handler, params.page);
           break;
@@ -288,9 +291,11 @@ ash.mojom.sample_swa.PageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -304,12 +309,13 @@ ash.mojom.sample_swa.PageHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetPreferences
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPreferences (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -320,7 +326,7 @@ ash.mojom.sample_swa.PageHandlerReceiver = class {
         // Try Method 1: Send
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.mojom.sample_swa.PageHandler_Send_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.mojom.sample_swa.PageHandler_Send_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Send (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -331,7 +337,7 @@ ash.mojom.sample_swa.PageHandlerReceiver = class {
         // Try Method 2: DoSomething
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.mojom.sample_swa.PageHandler_DoSomething_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.mojom.sample_swa.PageHandler_DoSomething_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DoSomething (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -348,7 +354,7 @@ ash.mojom.sample_swa.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getPreferences');
           const result = this.impl.getPreferences();
           if (header.expectsResponse) {
@@ -361,14 +367,14 @@ ash.mojom.sample_swa.PageHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.mojom.sample_swa.PageHandler_Send_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.mojom.sample_swa.PageHandler_Send_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.send');
           const result = this.impl.send(params.message);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.mojom.sample_swa.PageHandler_DoSomething_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.mojom.sample_swa.PageHandler_DoSomething_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.doSomething');
           const result = this.impl.doSomething();
           break;
@@ -485,9 +491,11 @@ ash.mojom.sample_swa.PageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -501,12 +509,13 @@ ash.mojom.sample_swa.PageReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnEventOccurred
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnEventOccurred (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -517,7 +526,7 @@ ash.mojom.sample_swa.PageReceiver = class {
         // Try Method 1: CreateParentPage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateParentPage (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -534,14 +543,14 @@ ash.mojom.sample_swa.PageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onEventOccurred');
           const result = this.impl.onEventOccurred(params.name);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createParentPage');
           const result = this.impl.createParentPage(params.child_untrusted_page, params.parent_trusted_page);
           break;

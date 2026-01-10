@@ -150,9 +150,11 @@ data_decoder.mojom.ImageDecoderReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -166,12 +168,13 @@ data_decoder.mojom.ImageDecoderReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: DecodeImage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(data_decoder.mojom.ImageDecoder_DecodeImage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(data_decoder.mojom.ImageDecoder_DecodeImage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DecodeImage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -182,7 +185,7 @@ data_decoder.mojom.ImageDecoderReceiver = class {
         // Try Method 1: DecodeAnimation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(data_decoder.mojom.ImageDecoder_DecodeAnimation_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(data_decoder.mojom.ImageDecoder_DecodeAnimation_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DecodeAnimation (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -199,7 +202,7 @@ data_decoder.mojom.ImageDecoderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(data_decoder.mojom.ImageDecoder_DecodeImage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(data_decoder.mojom.ImageDecoder_DecodeImage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.decodeImage');
           const result = this.impl.decodeImage(params.encoded_data, params.codec, params.shrink_to_fit, params.max_size_in_bytes, params.desired_image_frame_size);
           if (header.expectsResponse) {
@@ -212,7 +215,7 @@ data_decoder.mojom.ImageDecoderReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(data_decoder.mojom.ImageDecoder_DecodeAnimation_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(data_decoder.mojom.ImageDecoder_DecodeAnimation_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.decodeAnimation');
           const result = this.impl.decodeAnimation(params.encoded_data, params.shrink_to_fit, params.max_size_in_bytes);
           if (header.expectsResponse) {

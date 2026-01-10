@@ -213,9 +213,11 @@ webxr.mojom.WebXrInternalsHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -229,12 +231,13 @@ webxr.mojom.WebXrInternalsHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetDeviceInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDeviceInfo (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -245,7 +248,7 @@ webxr.mojom.WebXrInternalsHandlerReceiver = class {
         // Try Method 1: GetActiveRuntimes
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetActiveRuntimes (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -256,7 +259,7 @@ webxr.mojom.WebXrInternalsHandlerReceiver = class {
         // Try Method 2: SubscribeToEvents
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(webxr.mojom.WebXrInternalsHandler_SubscribeToEvents_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(webxr.mojom.WebXrInternalsHandler_SubscribeToEvents_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SubscribeToEvents (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -273,7 +276,7 @@ webxr.mojom.WebXrInternalsHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getDeviceInfo');
           const result = this.impl.getDeviceInfo();
           if (header.expectsResponse) {
@@ -286,7 +289,7 @@ webxr.mojom.WebXrInternalsHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getActiveRuntimes');
           const result = this.impl.getActiveRuntimes();
           if (header.expectsResponse) {
@@ -299,7 +302,7 @@ webxr.mojom.WebXrInternalsHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webxr.mojom.WebXrInternalsHandler_SubscribeToEvents_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(webxr.mojom.WebXrInternalsHandler_SubscribeToEvents_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.subscribeToEvents');
           const result = this.impl.subscribeToEvents(params.listener);
           break;
@@ -517,9 +520,11 @@ webxr.mojom.XRInternalsSessionListenerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -533,12 +538,13 @@ webxr.mojom.XRInternalsSessionListenerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: LogXrSessionRequested
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(webxr.mojom.XRInternalsSessionListener_LogXrSessionRequested_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(webxr.mojom.XRInternalsSessionListener_LogXrSessionRequested_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogXrSessionRequested (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -549,7 +555,7 @@ webxr.mojom.XRInternalsSessionListenerReceiver = class {
         // Try Method 1: LogXrSessionRejected
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(webxr.mojom.XRInternalsSessionListener_LogXrSessionRejected_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(webxr.mojom.XRInternalsSessionListener_LogXrSessionRejected_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogXrSessionRejected (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -560,7 +566,7 @@ webxr.mojom.XRInternalsSessionListenerReceiver = class {
         // Try Method 2: LogXrSessionStarted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(webxr.mojom.XRInternalsSessionListener_LogXrSessionStarted_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(webxr.mojom.XRInternalsSessionListener_LogXrSessionStarted_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogXrSessionStarted (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -571,7 +577,7 @@ webxr.mojom.XRInternalsSessionListenerReceiver = class {
         // Try Method 3: LogXrSessionStopped
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(webxr.mojom.XRInternalsSessionListener_LogXrSessionStopped_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(webxr.mojom.XRInternalsSessionListener_LogXrSessionStopped_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogXrSessionStopped (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -582,7 +588,7 @@ webxr.mojom.XRInternalsSessionListenerReceiver = class {
         // Try Method 4: LogXrRuntimeAdded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(webxr.mojom.XRInternalsSessionListener_LogXrRuntimeAdded_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(webxr.mojom.XRInternalsSessionListener_LogXrRuntimeAdded_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogXrRuntimeAdded (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -593,7 +599,7 @@ webxr.mojom.XRInternalsSessionListenerReceiver = class {
         // Try Method 5: LogXrRuntimeRemoved
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(webxr.mojom.XRInternalsSessionListener_LogXrRuntimeRemoved_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(webxr.mojom.XRInternalsSessionListener_LogXrRuntimeRemoved_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogXrRuntimeRemoved (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -604,7 +610,7 @@ webxr.mojom.XRInternalsSessionListenerReceiver = class {
         // Try Method 6: LogFrameData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(webxr.mojom.XRInternalsSessionListener_LogFrameData_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(webxr.mojom.XRInternalsSessionListener_LogFrameData_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogFrameData (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -615,7 +621,7 @@ webxr.mojom.XRInternalsSessionListenerReceiver = class {
         // Try Method 7: LogConsoleMessages
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(webxr.mojom.XRInternalsSessionListener_LogConsoleMessages_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(webxr.mojom.XRInternalsSessionListener_LogConsoleMessages_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogConsoleMessages (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -632,56 +638,56 @@ webxr.mojom.XRInternalsSessionListenerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webxr.mojom.XRInternalsSessionListener_LogXrSessionRequested_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(webxr.mojom.XRInternalsSessionListener_LogXrSessionRequested_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.logXrSessionRequested');
           const result = this.impl.logXrSessionRequested(params.session_requested_record);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webxr.mojom.XRInternalsSessionListener_LogXrSessionRejected_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(webxr.mojom.XRInternalsSessionListener_LogXrSessionRejected_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.logXrSessionRejected');
           const result = this.impl.logXrSessionRejected(params.session_rejected_record);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webxr.mojom.XRInternalsSessionListener_LogXrSessionStarted_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(webxr.mojom.XRInternalsSessionListener_LogXrSessionStarted_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.logXrSessionStarted');
           const result = this.impl.logXrSessionStarted(params.session_started_record);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webxr.mojom.XRInternalsSessionListener_LogXrSessionStopped_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(webxr.mojom.XRInternalsSessionListener_LogXrSessionStopped_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.logXrSessionStopped');
           const result = this.impl.logXrSessionStopped(params.session_stopped_record);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webxr.mojom.XRInternalsSessionListener_LogXrRuntimeAdded_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(webxr.mojom.XRInternalsSessionListener_LogXrRuntimeAdded_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.logXrRuntimeAdded');
           const result = this.impl.logXrRuntimeAdded(params.runtime_added_record);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webxr.mojom.XRInternalsSessionListener_LogXrRuntimeRemoved_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(webxr.mojom.XRInternalsSessionListener_LogXrRuntimeRemoved_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.logXrRuntimeRemoved');
           const result = this.impl.logXrRuntimeRemoved(params.device_id);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webxr.mojom.XRInternalsSessionListener_LogFrameData_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(webxr.mojom.XRInternalsSessionListener_LogFrameData_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.logFrameData');
           const result = this.impl.logFrameData(params.xrframe_statistics);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webxr.mojom.XRInternalsSessionListener_LogConsoleMessages_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(webxr.mojom.XRInternalsSessionListener_LogConsoleMessages_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.logConsoleMessages');
           const result = this.impl.logConsoleMessages(params.xrlogging_statistics);
           break;

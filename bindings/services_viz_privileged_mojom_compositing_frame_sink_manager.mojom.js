@@ -622,9 +622,11 @@ viz.mojom.FrameSinkManagerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -638,12 +640,13 @@ viz.mojom.FrameSinkManagerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: RegisterFrameSinkId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkManager_RegisterFrameSinkId_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkManager_RegisterFrameSinkId_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterFrameSinkId (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -654,7 +657,7 @@ viz.mojom.FrameSinkManagerReceiver = class {
         // Try Method 1: InvalidateFrameSinkId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkManager_InvalidateFrameSinkId_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkManager_InvalidateFrameSinkId_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InvalidateFrameSinkId (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -665,7 +668,7 @@ viz.mojom.FrameSinkManagerReceiver = class {
         // Try Method 2: SetFrameSinkDebugLabel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkManager_SetFrameSinkDebugLabel_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkManager_SetFrameSinkDebugLabel_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetFrameSinkDebugLabel (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -676,7 +679,7 @@ viz.mojom.FrameSinkManagerReceiver = class {
         // Try Method 3: CreateRootCompositorFrameSink
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkManager_CreateRootCompositorFrameSink_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkManager_CreateRootCompositorFrameSink_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateRootCompositorFrameSink (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -687,7 +690,7 @@ viz.mojom.FrameSinkManagerReceiver = class {
         // Try Method 4: CreateCompositorDisplayLink
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkManager_CreateCompositorDisplayLink_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkManager_CreateCompositorDisplayLink_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateCompositorDisplayLink (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -698,7 +701,7 @@ viz.mojom.FrameSinkManagerReceiver = class {
         // Try Method 5: CreateFrameSinkBundle
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkManager_CreateFrameSinkBundle_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkManager_CreateFrameSinkBundle_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateFrameSinkBundle (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -709,7 +712,7 @@ viz.mojom.FrameSinkManagerReceiver = class {
         // Try Method 6: CreateCompositorFrameSink
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkManager_CreateCompositorFrameSink_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkManager_CreateCompositorFrameSink_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateCompositorFrameSink (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -720,7 +723,7 @@ viz.mojom.FrameSinkManagerReceiver = class {
         // Try Method 7: DestroyCompositorFrameSink
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkManager_DestroyCompositorFrameSink_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkManager_DestroyCompositorFrameSink_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DestroyCompositorFrameSink (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -731,7 +734,7 @@ viz.mojom.FrameSinkManagerReceiver = class {
         // Try Method 8: RegisterFrameSinkHierarchy
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkManager_RegisterFrameSinkHierarchy_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkManager_RegisterFrameSinkHierarchy_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterFrameSinkHierarchy (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -742,7 +745,7 @@ viz.mojom.FrameSinkManagerReceiver = class {
         // Try Method 9: UnregisterFrameSinkHierarchy
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkManager_UnregisterFrameSinkHierarchy_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkManager_UnregisterFrameSinkHierarchy_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UnregisterFrameSinkHierarchy (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -753,7 +756,7 @@ viz.mojom.FrameSinkManagerReceiver = class {
         // Try Method 10: AddVideoDetectorObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkManager_AddVideoDetectorObserver_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkManager_AddVideoDetectorObserver_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddVideoDetectorObserver (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -764,7 +767,7 @@ viz.mojom.FrameSinkManagerReceiver = class {
         // Try Method 11: CreateVideoCapturer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkManager_CreateVideoCapturer_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkManager_CreateVideoCapturer_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateVideoCapturer (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -775,7 +778,7 @@ viz.mojom.FrameSinkManagerReceiver = class {
         // Try Method 12: EvictSurfaces
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkManager_EvictSurfaces_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkManager_EvictSurfaces_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EvictSurfaces (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -786,7 +789,7 @@ viz.mojom.FrameSinkManagerReceiver = class {
         // Try Method 13: Throttle
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkManager_Throttle_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkManager_Throttle_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Throttle (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -797,7 +800,7 @@ viz.mojom.FrameSinkManagerReceiver = class {
         // Try Method 14: StartThrottlingAllFrameSinks
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkManager_StartThrottlingAllFrameSinks_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkManager_StartThrottlingAllFrameSinks_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartThrottlingAllFrameSinks (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -808,7 +811,7 @@ viz.mojom.FrameSinkManagerReceiver = class {
         // Try Method 15: StopThrottlingAllFrameSinks
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkManager_StopThrottlingAllFrameSinks_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkManager_StopThrottlingAllFrameSinks_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopThrottlingAllFrameSinks (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -819,7 +822,7 @@ viz.mojom.FrameSinkManagerReceiver = class {
         // Try Method 16: RequestCopyOfOutput
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkManager_RequestCopyOfOutput_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkManager_RequestCopyOfOutput_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestCopyOfOutput (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -830,7 +833,7 @@ viz.mojom.FrameSinkManagerReceiver = class {
         // Try Method 17: CacheBackBuffer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkManager_CacheBackBuffer_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkManager_CacheBackBuffer_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CacheBackBuffer (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -841,7 +844,7 @@ viz.mojom.FrameSinkManagerReceiver = class {
         // Try Method 18: EvictBackBuffer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkManager_EvictBackBuffer_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkManager_EvictBackBuffer_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EvictBackBuffer (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -852,7 +855,7 @@ viz.mojom.FrameSinkManagerReceiver = class {
         // Try Method 19: UpdateDebugRendererSettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkManager_UpdateDebugRendererSettings_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkManager_UpdateDebugRendererSettings_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateDebugRendererSettings (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -863,7 +866,7 @@ viz.mojom.FrameSinkManagerReceiver = class {
         // Try Method 20: ClearUnclaimedViewTransitionResources
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkManager_ClearUnclaimedViewTransitionResources_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkManager_ClearUnclaimedViewTransitionResources_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearUnclaimedViewTransitionResources (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -874,7 +877,7 @@ viz.mojom.FrameSinkManagerReceiver = class {
         // Try Method 21: CreateMetricsRecorderForTest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkManager_CreateMetricsRecorderForTest_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkManager_CreateMetricsRecorderForTest_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateMetricsRecorderForTest (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -885,7 +888,7 @@ viz.mojom.FrameSinkManagerReceiver = class {
         // Try Method 22: EnableFrameSinkManagerTestApi
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkManager_EnableFrameSinkManagerTestApi_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkManager_EnableFrameSinkManagerTestApi_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableFrameSinkManagerTestApi (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
@@ -896,7 +899,7 @@ viz.mojom.FrameSinkManagerReceiver = class {
         // Try Method 23: SetupRendererInputRouterDelegateRegistry
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkManager_SetupRendererInputRouterDelegateRegistry_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkManager_SetupRendererInputRouterDelegateRegistry_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetupRendererInputRouterDelegateRegistry (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
@@ -907,7 +910,7 @@ viz.mojom.FrameSinkManagerReceiver = class {
         // Try Method 24: NotifyRendererBlockStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkManager_NotifyRendererBlockStateChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkManager_NotifyRendererBlockStateChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyRendererBlockStateChanged (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
@@ -918,7 +921,7 @@ viz.mojom.FrameSinkManagerReceiver = class {
         // Try Method 25: RequestInputBack
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkManager_RequestInputBack_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkManager_RequestInputBack_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestInputBack (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
@@ -935,14 +938,14 @@ viz.mojom.FrameSinkManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkManager_RegisterFrameSinkId_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_RegisterFrameSinkId_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.registerFrameSinkId');
           const result = this.impl.registerFrameSinkId(params.frame_sink_id, params.report_activation);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkManager_InvalidateFrameSinkId_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_InvalidateFrameSinkId_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.invalidateFrameSinkId');
           const result = this.impl.invalidateFrameSinkId(params.frame_sink_id);
           if (header.expectsResponse) {
@@ -955,42 +958,42 @@ viz.mojom.FrameSinkManagerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkManager_SetFrameSinkDebugLabel_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_SetFrameSinkDebugLabel_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setFrameSinkDebugLabel');
           const result = this.impl.setFrameSinkDebugLabel(params.frame_sink_id, params.debug_label);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkManager_CreateRootCompositorFrameSink_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_CreateRootCompositorFrameSink_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createRootCompositorFrameSink');
           const result = this.impl.createRootCompositorFrameSink(params.params);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkManager_CreateCompositorDisplayLink_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_CreateCompositorDisplayLink_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createCompositorDisplayLink');
           const result = this.impl.createCompositorDisplayLink(params.params);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkManager_CreateFrameSinkBundle_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_CreateFrameSinkBundle_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createFrameSinkBundle');
           const result = this.impl.createFrameSinkBundle(params.bundle_id, params.receiver, params.client);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkManager_CreateCompositorFrameSink_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_CreateCompositorFrameSink_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createCompositorFrameSink');
           const result = this.impl.createCompositorFrameSink(params.frame_sink_id, params.bundle_id, params.compositor_frame_sink, params.compositor_frame_sink_client, params.config);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkManager_DestroyCompositorFrameSink_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_DestroyCompositorFrameSink_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.destroyCompositorFrameSink');
           const result = this.impl.destroyCompositorFrameSink(params.frame_sink_id);
           if (header.expectsResponse) {
@@ -1003,77 +1006,77 @@ viz.mojom.FrameSinkManagerReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkManager_RegisterFrameSinkHierarchy_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_RegisterFrameSinkHierarchy_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.registerFrameSinkHierarchy');
           const result = this.impl.registerFrameSinkHierarchy(params.parent_frame_sink_id, params.child_frame_sink_id);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkManager_UnregisterFrameSinkHierarchy_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_UnregisterFrameSinkHierarchy_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.unregisterFrameSinkHierarchy');
           const result = this.impl.unregisterFrameSinkHierarchy(params.parent_frame_sink_id, params.child_frame_sink_id);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkManager_AddVideoDetectorObserver_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_AddVideoDetectorObserver_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addVideoDetectorObserver');
           const result = this.impl.addVideoDetectorObserver(params.observer);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkManager_CreateVideoCapturer_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_CreateVideoCapturer_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createVideoCapturer');
           const result = this.impl.createVideoCapturer(params.receiver, params.capture_version_source);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkManager_EvictSurfaces_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_EvictSurfaces_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.evictSurfaces');
           const result = this.impl.evictSurfaces(params.surface_ids);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkManager_Throttle_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_Throttle_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.throttle');
           const result = this.impl.throttle(params.frame_sink_ids, params.interval);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkManager_StartThrottlingAllFrameSinks_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_StartThrottlingAllFrameSinks_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.startThrottlingAllFrameSinks');
           const result = this.impl.startThrottlingAllFrameSinks(params.interval);
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkManager_StopThrottlingAllFrameSinks_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_StopThrottlingAllFrameSinks_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.stopThrottlingAllFrameSinks');
           const result = this.impl.stopThrottlingAllFrameSinks();
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkManager_RequestCopyOfOutput_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_RequestCopyOfOutput_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestCopyOfOutput');
           const result = this.impl.requestCopyOfOutput(params.surface_id, params.request, params.capture_exact_surface_id);
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkManager_CacheBackBuffer_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_CacheBackBuffer_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.cacheBackBuffer');
           const result = this.impl.cacheBackBuffer(params.cache_id, params.root_frame_sink_id);
           break;
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkManager_EvictBackBuffer_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_EvictBackBuffer_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.evictBackBuffer');
           const result = this.impl.evictBackBuffer(params.cache_id);
           if (header.expectsResponse) {
@@ -1086,49 +1089,49 @@ viz.mojom.FrameSinkManagerReceiver = class {
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkManager_UpdateDebugRendererSettings_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_UpdateDebugRendererSettings_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.updateDebugRendererSettings');
           const result = this.impl.updateDebugRendererSettings(params.debug_settings);
           break;
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkManager_ClearUnclaimedViewTransitionResources_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_ClearUnclaimedViewTransitionResources_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.clearUnclaimedViewTransitionResources');
           const result = this.impl.clearUnclaimedViewTransitionResources(params.transition_token);
           break;
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkManager_CreateMetricsRecorderForTest_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_CreateMetricsRecorderForTest_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createMetricsRecorderForTest');
           const result = this.impl.createMetricsRecorderForTest(params.receiver);
           break;
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkManager_EnableFrameSinkManagerTestApi_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_EnableFrameSinkManagerTestApi_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.enableFrameSinkManagerTestApi');
           const result = this.impl.enableFrameSinkManagerTestApi(params.receiver);
           break;
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkManager_SetupRendererInputRouterDelegateRegistry_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_SetupRendererInputRouterDelegateRegistry_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setupRendererInputRouterDelegateRegistry');
           const result = this.impl.setupRendererInputRouterDelegateRegistry(params.receiver);
           break;
         }
         case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkManager_NotifyRendererBlockStateChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_NotifyRendererBlockStateChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.notifyRendererBlockStateChanged');
           const result = this.impl.notifyRendererBlockStateChanged(params.blocked, params.render_input_routers);
           break;
         }
         case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkManager_RequestInputBack_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_RequestInputBack_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestInputBack');
           const result = this.impl.requestInputBack();
           break;
@@ -1339,9 +1342,11 @@ viz.mojom.FrameSinkManagerClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1355,12 +1360,13 @@ viz.mojom.FrameSinkManagerClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnFirstSurfaceActivation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkManagerClient_OnFirstSurfaceActivation_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkManagerClient_OnFirstSurfaceActivation_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFirstSurfaceActivation (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1371,7 +1377,7 @@ viz.mojom.FrameSinkManagerClientReceiver = class {
         // Try Method 1: OnAggregatedHitTestRegionListUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkManagerClient_OnAggregatedHitTestRegionListUpdated_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkManagerClient_OnAggregatedHitTestRegionListUpdated_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAggregatedHitTestRegionListUpdated (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1382,7 +1388,7 @@ viz.mojom.FrameSinkManagerClientReceiver = class {
         // Try Method 2: OnFrameTokenChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkManagerClient_OnFrameTokenChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkManagerClient_OnFrameTokenChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFrameTokenChanged (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1393,7 +1399,7 @@ viz.mojom.FrameSinkManagerClientReceiver = class {
         // Try Method 3: VerifyThreadIdsDoNotBelongToHost
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkManagerClient_VerifyThreadIdsDoNotBelongToHost_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkManagerClient_VerifyThreadIdsDoNotBelongToHost_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> VerifyThreadIdsDoNotBelongToHost (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1404,7 +1410,7 @@ viz.mojom.FrameSinkManagerClientReceiver = class {
         // Try Method 4: OnScreenshotCaptured
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkManagerClient_OnScreenshotCaptured_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkManagerClient_OnScreenshotCaptured_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnScreenshotCaptured (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1415,7 +1421,7 @@ viz.mojom.FrameSinkManagerClientReceiver = class {
         // Try Method 5: OnVizTouchStateAvailable
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkManagerClient_OnVizTouchStateAvailable_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkManagerClient_OnVizTouchStateAvailable_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnVizTouchStateAvailable (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1426,7 +1432,7 @@ viz.mojom.FrameSinkManagerClientReceiver = class {
         // Try Method 6: OnViewTransitionResourcesCaptured
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkManagerClient_OnViewTransitionResourcesCaptured_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkManagerClient_OnViewTransitionResourcesCaptured_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnViewTransitionResourcesCaptured (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1443,28 +1449,28 @@ viz.mojom.FrameSinkManagerClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkManagerClient_OnFirstSurfaceActivation_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManagerClient_OnFirstSurfaceActivation_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onFirstSurfaceActivation');
           const result = this.impl.onFirstSurfaceActivation(params.surface_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkManagerClient_OnAggregatedHitTestRegionListUpdated_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManagerClient_OnAggregatedHitTestRegionListUpdated_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onAggregatedHitTestRegionListUpdated');
           const result = this.impl.onAggregatedHitTestRegionListUpdated(params.frame_sink_id, params.hit_test_data);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkManagerClient_OnFrameTokenChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManagerClient_OnFrameTokenChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onFrameTokenChanged');
           const result = this.impl.onFrameTokenChanged(params.frame_sink_id, params.frame_token, params.activation_time);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkManagerClient_VerifyThreadIdsDoNotBelongToHost_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManagerClient_VerifyThreadIdsDoNotBelongToHost_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.verifyThreadIdsDoNotBelongToHost');
           const result = this.impl.verifyThreadIdsDoNotBelongToHost(params.thread_ids);
           if (header.expectsResponse) {
@@ -1477,21 +1483,21 @@ viz.mojom.FrameSinkManagerClientReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkManagerClient_OnScreenshotCaptured_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManagerClient_OnScreenshotCaptured_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onScreenshotCaptured');
           const result = this.impl.onScreenshotCaptured(params.destination_token, params.copy_output_result);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkManagerClient_OnVizTouchStateAvailable_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManagerClient_OnVizTouchStateAvailable_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onVizTouchStateAvailable');
           const result = this.impl.onVizTouchStateAvailable(params.region);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkManagerClient_OnViewTransitionResourcesCaptured_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManagerClient_OnViewTransitionResourcesCaptured_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onViewTransitionResourcesCaptured');
           const result = this.impl.onViewTransitionResourcesCaptured(params.transition_token);
           break;
@@ -1592,9 +1598,11 @@ viz.mojom.RendererInputRouterDelegateRegistryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1608,12 +1616,13 @@ viz.mojom.RendererInputRouterDelegateRegistryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetupRenderInputRouterDelegateConnection
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.RendererInputRouterDelegateRegistry_SetupRenderInputRouterDelegateConnection_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.RendererInputRouterDelegateRegistry_SetupRenderInputRouterDelegateConnection_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetupRenderInputRouterDelegateConnection (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1630,7 +1639,7 @@ viz.mojom.RendererInputRouterDelegateRegistryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.RendererInputRouterDelegateRegistry_SetupRenderInputRouterDelegateConnection_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.RendererInputRouterDelegateRegistry_SetupRenderInputRouterDelegateConnection_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setupRenderInputRouterDelegateConnection');
           const result = this.impl.setupRenderInputRouterDelegateConnection(params.id, params.rir_delegate_client_remote, params.rir_delegate_receiver);
           break;

@@ -117,9 +117,11 @@ media.mojom.AndroidOverlayProviderReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -133,12 +135,13 @@ media.mojom.AndroidOverlayProviderReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateOverlay
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateOverlay (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -155,7 +158,7 @@ media.mojom.AndroidOverlayProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createOverlay');
           const result = this.impl.createOverlay(params.overlay, params.client, params.config);
           break;
@@ -254,9 +257,11 @@ media.mojom.AndroidOverlayReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -270,12 +275,13 @@ media.mojom.AndroidOverlayReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ScheduleLayout
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.AndroidOverlay_ScheduleLayout_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.AndroidOverlay_ScheduleLayout_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ScheduleLayout (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -292,7 +298,7 @@ media.mojom.AndroidOverlayReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.AndroidOverlay_ScheduleLayout_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.AndroidOverlay_ScheduleLayout_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.scheduleLayout');
           const result = this.impl.scheduleLayout(params.rect);
           break;
@@ -445,9 +451,11 @@ media.mojom.AndroidOverlayClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -461,12 +469,13 @@ media.mojom.AndroidOverlayClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnSurfaceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.AndroidOverlayClient_OnSurfaceReady_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.AndroidOverlayClient_OnSurfaceReady_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSurfaceReady (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -477,7 +486,7 @@ media.mojom.AndroidOverlayClientReceiver = class {
         // Try Method 1: OnDestroyed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.AndroidOverlayClient_OnDestroyed_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.AndroidOverlayClient_OnDestroyed_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDestroyed (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -488,7 +497,7 @@ media.mojom.AndroidOverlayClientReceiver = class {
         // Try Method 2: OnSynchronouslyDestroyed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSynchronouslyDestroyed (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -499,7 +508,7 @@ media.mojom.AndroidOverlayClientReceiver = class {
         // Try Method 3: OnPowerEfficientState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.AndroidOverlayClient_OnPowerEfficientState_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.AndroidOverlayClient_OnPowerEfficientState_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPowerEfficientState (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -516,21 +525,21 @@ media.mojom.AndroidOverlayClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.AndroidOverlayClient_OnSurfaceReady_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.AndroidOverlayClient_OnSurfaceReady_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onSurfaceReady');
           const result = this.impl.onSurfaceReady(params.surface_key);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.AndroidOverlayClient_OnDestroyed_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.AndroidOverlayClient_OnDestroyed_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onDestroyed');
           const result = this.impl.onDestroyed();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onSynchronouslyDestroyed');
           const result = this.impl.onSynchronouslyDestroyed();
           if (header.expectsResponse) {
@@ -543,7 +552,7 @@ media.mojom.AndroidOverlayClientReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.AndroidOverlayClient_OnPowerEfficientState_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.AndroidOverlayClient_OnPowerEfficientState_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onPowerEfficientState');
           const result = this.impl.onPowerEfficientState(params.is_power_efficient);
           break;

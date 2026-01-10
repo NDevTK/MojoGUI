@@ -112,9 +112,11 @@ commerce.price_insights.mojom.PriceInsightsHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -128,12 +130,13 @@ commerce.price_insights.mojom.PriceInsightsHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ShowSidePanelUI
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(commerce.price_insights.mojom.PriceInsightsHandler_ShowSidePanelUI_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(commerce.price_insights.mojom.PriceInsightsHandler_ShowSidePanelUI_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowSidePanelUI (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -144,7 +147,7 @@ commerce.price_insights.mojom.PriceInsightsHandlerReceiver = class {
         // Try Method 1: ShowFeedback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(commerce.price_insights.mojom.PriceInsightsHandler_ShowFeedback_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(commerce.price_insights.mojom.PriceInsightsHandler_ShowFeedback_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowFeedback (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -161,14 +164,14 @@ commerce.price_insights.mojom.PriceInsightsHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(commerce.price_insights.mojom.PriceInsightsHandler_ShowSidePanelUI_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(commerce.price_insights.mojom.PriceInsightsHandler_ShowSidePanelUI_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.showSidePanelUI');
           const result = this.impl.showSidePanelUI();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(commerce.price_insights.mojom.PriceInsightsHandler_ShowFeedback_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(commerce.price_insights.mojom.PriceInsightsHandler_ShowFeedback_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.showFeedback');
           const result = this.impl.showFeedback();
           break;
@@ -267,9 +270,11 @@ commerce.price_insights.mojom.PriceInsightsHandlerFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -283,12 +288,13 @@ commerce.price_insights.mojom.PriceInsightsHandlerFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreatePriceInsightsHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(commerce.price_insights.mojom.PriceInsightsHandlerFactory_CreatePriceInsightsHandler_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(commerce.price_insights.mojom.PriceInsightsHandlerFactory_CreatePriceInsightsHandler_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePriceInsightsHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -305,7 +311,7 @@ commerce.price_insights.mojom.PriceInsightsHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(commerce.price_insights.mojom.PriceInsightsHandlerFactory_CreatePriceInsightsHandler_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(commerce.price_insights.mojom.PriceInsightsHandlerFactory_CreatePriceInsightsHandler_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createPriceInsightsHandler');
           const result = this.impl.createPriceInsightsHandler(params.handler);
           break;

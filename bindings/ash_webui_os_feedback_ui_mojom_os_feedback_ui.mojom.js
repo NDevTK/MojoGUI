@@ -252,9 +252,11 @@ ash.os_feedback_ui.mojom.HelpContentProviderReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -268,12 +270,13 @@ ash.os_feedback_ui.mojom.HelpContentProviderReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetHelpContents
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetHelpContents (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -290,7 +293,7 @@ ash.os_feedback_ui.mojom.HelpContentProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getHelpContents');
           const result = this.impl.getHelpContents(params.request);
           if (header.expectsResponse) {
@@ -611,9 +614,11 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -627,12 +632,13 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetFeedbackContext
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFeedbackContext (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -643,7 +649,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver = class {
         // Try Method 1: GetScreenshotPng
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetScreenshotPng (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -654,7 +660,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver = class {
         // Try Method 2: SendReport
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendReport (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -665,7 +671,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver = class {
         // Try Method 3: OpenDiagnosticsApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenDiagnosticsApp_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenDiagnosticsApp_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenDiagnosticsApp (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -676,7 +682,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver = class {
         // Try Method 4: OpenExploreApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenExploreApp_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenExploreApp_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenExploreApp (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -687,7 +693,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver = class {
         // Try Method 5: OpenMetricsDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenMetricsDialog_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenMetricsDialog_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenMetricsDialog (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -698,7 +704,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver = class {
         // Try Method 6: OpenSystemInfoDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenSystemInfoDialog_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenSystemInfoDialog_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenSystemInfoDialog (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -709,7 +715,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver = class {
         // Try Method 7: OpenAutofillDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenAutofillDialog_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenAutofillDialog_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenAutofillDialog (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -720,7 +726,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver = class {
         // Try Method 8: RecordPostSubmitAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPostSubmitAction_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPostSubmitAction_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordPostSubmitAction (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -731,7 +737,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver = class {
         // Try Method 9: RecordPreSubmitAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPreSubmitAction_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPreSubmitAction_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordPreSubmitAction (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -742,7 +748,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver = class {
         // Try Method 10: RecordExitPath
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordExitPath_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordExitPath_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordExitPath (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -753,7 +759,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver = class {
         // Try Method 11: RecordHelpContentOutcome
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentOutcome_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentOutcome_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordHelpContentOutcome (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -764,7 +770,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver = class {
         // Try Method 12: RecordHelpContentSearchResultCount
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentSearchResultCount_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentSearchResultCount_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordHelpContentSearchResultCount (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -781,7 +787,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getFeedbackContext');
           const result = this.impl.getFeedbackContext();
           if (header.expectsResponse) {
@@ -794,7 +800,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getScreenshotPng');
           const result = this.impl.getScreenshotPng();
           if (header.expectsResponse) {
@@ -807,7 +813,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.sendReport');
           const result = this.impl.sendReport(params.report);
           if (header.expectsResponse) {
@@ -820,70 +826,70 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenDiagnosticsApp_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenDiagnosticsApp_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.openDiagnosticsApp');
           const result = this.impl.openDiagnosticsApp();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenExploreApp_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenExploreApp_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.openExploreApp');
           const result = this.impl.openExploreApp();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenMetricsDialog_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenMetricsDialog_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.openMetricsDialog');
           const result = this.impl.openMetricsDialog();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenSystemInfoDialog_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenSystemInfoDialog_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.openSystemInfoDialog');
           const result = this.impl.openSystemInfoDialog();
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenAutofillDialog_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenAutofillDialog_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.openAutofillDialog');
           const result = this.impl.openAutofillDialog(params.autofill_metadata);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPostSubmitAction_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPostSubmitAction_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.recordPostSubmitAction');
           const result = this.impl.recordPostSubmitAction(params.action);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPreSubmitAction_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPreSubmitAction_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.recordPreSubmitAction');
           const result = this.impl.recordPreSubmitAction(params.action);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordExitPath_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordExitPath_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.recordExitPath');
           const result = this.impl.recordExitPath(params.exit_path);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentOutcome_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentOutcome_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.recordHelpContentOutcome');
           const result = this.impl.recordHelpContentOutcome(params.outcome);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentSearchResultCount_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentSearchResultCount_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.recordHelpContentSearchResultCount');
           const result = this.impl.recordHelpContentSearchResultCount(params.count);
           break;

@@ -475,9 +475,11 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -491,12 +493,13 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetServerCertificate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.cdm.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.cdm.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetServerCertificate (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -507,7 +510,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
         // Try Method 1: GetStatusForPolicy
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.cdm.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.cdm.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetStatusForPolicy (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -518,7 +521,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
         // Try Method 2: CreateSessionAndGenerateRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateSessionAndGenerateRequest (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -529,7 +532,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
         // Try Method 3: LoadSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadSession (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -540,7 +543,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
         // Try Method 4: UpdateSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.cdm.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.cdm.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateSession (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -551,7 +554,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
         // Try Method 5: CloseSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.cdm.mojom.ContentDecryptionModule_CloseSession_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.cdm.mojom.ContentDecryptionModule_CloseSession_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseSession (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -562,7 +565,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
         // Try Method 6: RemoveSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.cdm.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.cdm.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveSession (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -573,7 +576,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
         // Try Method 7: DecryptDeprecated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DecryptDeprecated (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -584,7 +587,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
         // Try Method 8: GetHwKeyData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetHwKeyData (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -595,7 +598,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
         // Try Method 9: Decrypt
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Decrypt (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -612,7 +615,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.cdm.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.cdm.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setServerCertificate');
           const result = this.impl.setServerCertificate(params.certificate_data);
           if (header.expectsResponse) {
@@ -625,7 +628,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.cdm.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.cdm.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getStatusForPolicy');
           const result = this.impl.getStatusForPolicy(params.min_hdcp_version);
           if (header.expectsResponse) {
@@ -638,7 +641,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createSessionAndGenerateRequest');
           const result = this.impl.createSessionAndGenerateRequest(params.session_type, params.init_data_type, params.init_data);
           if (header.expectsResponse) {
@@ -651,7 +654,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.loadSession');
           const result = this.impl.loadSession(params.session_type, params.session_id);
           if (header.expectsResponse) {
@@ -664,7 +667,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.cdm.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.cdm.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.updateSession');
           const result = this.impl.updateSession(params.session_id, params.response);
           if (header.expectsResponse) {
@@ -677,7 +680,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.cdm.mojom.ContentDecryptionModule_CloseSession_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.cdm.mojom.ContentDecryptionModule_CloseSession_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.closeSession');
           const result = this.impl.closeSession(params.session_id);
           if (header.expectsResponse) {
@@ -690,7 +693,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.cdm.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.cdm.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.removeSession');
           const result = this.impl.removeSession(params.session_id);
           if (header.expectsResponse) {
@@ -703,7 +706,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.decryptDeprecated');
           const result = this.impl.decryptDeprecated(params.encrypted_data, params.decrypt_config);
           if (header.expectsResponse) {
@@ -716,7 +719,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getHwKeyData');
           const result = this.impl.getHwKeyData(params.decrypt_config, params.hw_identifier);
           if (header.expectsResponse) {
@@ -729,7 +732,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.decrypt');
           const result = this.impl.decrypt(params.encrypted_data, params.decrypt_config_in, params.is_video, params.secure_handle);
           if (header.expectsResponse) {
@@ -890,9 +893,11 @@ chromeos.cdm.mojom.ContentDecryptionModuleClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -906,12 +911,13 @@ chromeos.cdm.mojom.ContentDecryptionModuleClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnSessionMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSessionMessage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -922,7 +928,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleClientReceiver = class {
         // Try Method 1: OnSessionClosed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSessionClosed (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -933,7 +939,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleClientReceiver = class {
         // Try Method 2: OnSessionKeysChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSessionKeysChange (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -944,7 +950,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleClientReceiver = class {
         // Try Method 3: OnSessionExpirationUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSessionExpirationUpdate (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -961,28 +967,28 @@ chromeos.cdm.mojom.ContentDecryptionModuleClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onSessionMessage');
           const result = this.impl.onSessionMessage(params.session_id, params.message_type, params.message);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onSessionClosed');
           const result = this.impl.onSessionClosed(params.session_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onSessionKeysChange');
           const result = this.impl.onSessionKeysChange(params.session_id, params.has_additional_usable_key, params.keys_info);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onSessionExpirationUpdate');
           const result = this.impl.onSessionExpirationUpdate(params.session_id, params.new_expiry_time_sec);
           break;

@@ -182,9 +182,11 @@ optimization_guide.mojom.ModelSolutionReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -198,12 +200,13 @@ optimization_guide.mojom.ModelSolutionReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateSession (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -214,7 +217,7 @@ optimization_guide.mojom.ModelSolutionReceiver = class {
         // Try Method 1: CreateTextSafetySession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateTextSafetySession (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -225,7 +228,7 @@ optimization_guide.mojom.ModelSolutionReceiver = class {
         // Try Method 2: ReportHealthyCompletion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(optimization_guide.mojom.ModelSolution_ReportHealthyCompletion_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(optimization_guide.mojom.ModelSolution_ReportHealthyCompletion_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportHealthyCompletion (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -242,21 +245,21 @@ optimization_guide.mojom.ModelSolutionReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createSession');
           const result = this.impl.createSession(params.session, params.params);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createTextSafetySession');
           const result = this.impl.createTextSafetySession(params.session);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(optimization_guide.mojom.ModelSolution_ReportHealthyCompletion_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(optimization_guide.mojom.ModelSolution_ReportHealthyCompletion_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.reportHealthyCompletion');
           const result = this.impl.reportHealthyCompletion();
           break;
@@ -373,9 +376,11 @@ optimization_guide.mojom.ModelSubscriberReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -389,12 +394,13 @@ optimization_guide.mojom.ModelSubscriberReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Unavailable
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(optimization_guide.mojom.ModelSubscriber_Unavailable_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(optimization_guide.mojom.ModelSubscriber_Unavailable_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Unavailable (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -405,7 +411,7 @@ optimization_guide.mojom.ModelSubscriberReceiver = class {
         // Try Method 1: Available
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(optimization_guide.mojom.ModelSubscriber_Available_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(optimization_guide.mojom.ModelSubscriber_Available_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Available (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -422,14 +428,14 @@ optimization_guide.mojom.ModelSubscriberReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(optimization_guide.mojom.ModelSubscriber_Unavailable_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(optimization_guide.mojom.ModelSubscriber_Unavailable_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.unavailable');
           const result = this.impl.unavailable(params.reason);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(optimization_guide.mojom.ModelSubscriber_Available_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(optimization_guide.mojom.ModelSubscriber_Available_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.available');
           const result = this.impl.available(params.config, params.solution);
           break;
@@ -529,9 +535,11 @@ optimization_guide.mojom.ModelBrokerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -545,12 +553,13 @@ optimization_guide.mojom.ModelBrokerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Subscribe
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(optimization_guide.mojom.ModelBroker_Subscribe_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(optimization_guide.mojom.ModelBroker_Subscribe_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Subscribe (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -567,7 +576,7 @@ optimization_guide.mojom.ModelBrokerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(optimization_guide.mojom.ModelBroker_Subscribe_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(optimization_guide.mojom.ModelBroker_Subscribe_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.subscribe');
           const result = this.impl.subscribe(params.options, params.subcriber);
           break;

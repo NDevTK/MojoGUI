@@ -195,9 +195,11 @@ blink.mojom.SharedStorageWorkletHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -211,12 +213,13 @@ blink.mojom.SharedStorageWorkletHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SelectURL
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.SharedStorageWorkletHost_SelectURL_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.SharedStorageWorkletHost_SelectURL_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectURL (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -227,7 +230,7 @@ blink.mojom.SharedStorageWorkletHostReceiver = class {
         // Try Method 1: Run
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.SharedStorageWorkletHost_Run_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.SharedStorageWorkletHost_Run_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Run (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -244,7 +247,7 @@ blink.mojom.SharedStorageWorkletHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.SharedStorageWorkletHost_SelectURL_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.SharedStorageWorkletHost_SelectURL_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.selectURL');
           const result = this.impl.selectURL(params.name, params.urls_with_metadata, params.serialized_data, params.keep_alive_after_operation, params.private_aggregation_config, params.resolve_to_config, params.saved_query_name, params.start_time);
           if (header.expectsResponse) {
@@ -257,7 +260,7 @@ blink.mojom.SharedStorageWorkletHostReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.SharedStorageWorkletHost_Run_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.SharedStorageWorkletHost_Run_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.run');
           const result = this.impl.run(params.name, params.serialized_data, params.keep_alive_after_operation, params.private_aggregation_config, params.start_time);
           if (header.expectsResponse) {
@@ -447,9 +450,11 @@ blink.mojom.SharedStorageDocumentServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -463,12 +468,13 @@ blink.mojom.SharedStorageDocumentServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateWorklet
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.SharedStorageDocumentService_CreateWorklet_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.SharedStorageDocumentService_CreateWorklet_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateWorklet (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -479,7 +485,7 @@ blink.mojom.SharedStorageDocumentServiceReceiver = class {
         // Try Method 1: SharedStorageGet
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.SharedStorageDocumentService_SharedStorageGet_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.SharedStorageDocumentService_SharedStorageGet_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SharedStorageGet (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -490,7 +496,7 @@ blink.mojom.SharedStorageDocumentServiceReceiver = class {
         // Try Method 2: SharedStorageUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SharedStorageUpdate (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -501,7 +507,7 @@ blink.mojom.SharedStorageDocumentServiceReceiver = class {
         // Try Method 3: SharedStorageBatchUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SharedStorageBatchUpdate (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -518,7 +524,7 @@ blink.mojom.SharedStorageDocumentServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.SharedStorageDocumentService_CreateWorklet_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.SharedStorageDocumentService_CreateWorklet_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createWorklet');
           const result = this.impl.createWorklet(params.script_source_url, params.data_origin, params.data_origin_type, params.credentials_mode, params.creation_method, params.origin_trial_features, params.worklet_host);
           if (header.expectsResponse) {
@@ -531,7 +537,7 @@ blink.mojom.SharedStorageDocumentServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.SharedStorageDocumentService_SharedStorageGet_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.SharedStorageDocumentService_SharedStorageGet_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.sharedStorageGet');
           const result = this.impl.sharedStorageGet(params.key);
           if (header.expectsResponse) {
@@ -544,7 +550,7 @@ blink.mojom.SharedStorageDocumentServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.sharedStorageUpdate');
           const result = this.impl.sharedStorageUpdate(params.method_with_options);
           if (header.expectsResponse) {
@@ -557,7 +563,7 @@ blink.mojom.SharedStorageDocumentServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.sharedStorageBatchUpdate');
           const result = this.impl.sharedStorageBatchUpdate(params.methods_with_options, params.with_lock);
           if (header.expectsResponse) {

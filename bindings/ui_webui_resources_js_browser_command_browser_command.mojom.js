@@ -135,9 +135,11 @@ browser_command.mojom.CommandHandlerFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -151,12 +153,13 @@ browser_command.mojom.CommandHandlerFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateBrowserCommandHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateBrowserCommandHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -173,7 +176,7 @@ browser_command.mojom.CommandHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createBrowserCommandHandler');
           const result = this.impl.createBrowserCommandHandler(params.handler);
           break;
@@ -302,9 +305,11 @@ browser_command.mojom.CommandHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -318,12 +323,13 @@ browser_command.mojom.CommandHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CanExecuteCommand
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CanExecuteCommand (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -334,7 +340,7 @@ browser_command.mojom.CommandHandlerReceiver = class {
         // Try Method 1: ExecuteCommand
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExecuteCommand (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -351,7 +357,7 @@ browser_command.mojom.CommandHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.canExecuteCommand');
           const result = this.impl.canExecuteCommand(params.command_id);
           if (header.expectsResponse) {
@@ -364,7 +370,7 @@ browser_command.mojom.CommandHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.executeCommand');
           const result = this.impl.executeCommand(params.command_id, params.click_info);
           if (header.expectsResponse) {

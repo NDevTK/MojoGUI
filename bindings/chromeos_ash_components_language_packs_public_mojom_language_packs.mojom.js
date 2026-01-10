@@ -156,9 +156,11 @@ ash.language.mojom.LanguagePacksObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -172,12 +174,13 @@ ash.language.mojom.LanguagePacksObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnPackStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.language.mojom.LanguagePacksObserver_OnPackStateChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.language.mojom.LanguagePacksObserver_OnPackStateChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPackStateChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -194,7 +197,7 @@ ash.language.mojom.LanguagePacksObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.language.mojom.LanguagePacksObserver_OnPackStateChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.language.mojom.LanguagePacksObserver_OnPackStateChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onPackStateChanged');
           const result = this.impl.onPackStateChanged(params.info);
           break;
@@ -387,9 +390,11 @@ ash.language.mojom.LanguagePacksReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -403,12 +408,13 @@ ash.language.mojom.LanguagePacksReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetPackInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.language.mojom.LanguagePacks_GetPackInfo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.language.mojom.LanguagePacks_GetPackInfo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPackInfo (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -419,7 +425,7 @@ ash.language.mojom.LanguagePacksReceiver = class {
         // Try Method 1: InstallPack
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.language.mojom.LanguagePacks_InstallPack_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.language.mojom.LanguagePacks_InstallPack_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InstallPack (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -430,7 +436,7 @@ ash.language.mojom.LanguagePacksReceiver = class {
         // Try Method 2: InstallBasePack
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.language.mojom.LanguagePacks_InstallBasePack_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.language.mojom.LanguagePacks_InstallBasePack_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InstallBasePack (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -441,7 +447,7 @@ ash.language.mojom.LanguagePacksReceiver = class {
         // Try Method 3: UninstallPack
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.language.mojom.LanguagePacks_UninstallPack_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.language.mojom.LanguagePacks_UninstallPack_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UninstallPack (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -452,7 +458,7 @@ ash.language.mojom.LanguagePacksReceiver = class {
         // Try Method 4: AddObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.language.mojom.LanguagePacks_AddObserver_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.language.mojom.LanguagePacks_AddObserver_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddObserver (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -469,7 +475,7 @@ ash.language.mojom.LanguagePacksReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.language.mojom.LanguagePacks_GetPackInfo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.language.mojom.LanguagePacks_GetPackInfo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getPackInfo');
           const result = this.impl.getPackInfo(params.feature_id, params.language);
           if (header.expectsResponse) {
@@ -482,7 +488,7 @@ ash.language.mojom.LanguagePacksReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.language.mojom.LanguagePacks_InstallPack_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.language.mojom.LanguagePacks_InstallPack_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.installPack');
           const result = this.impl.installPack(params.feature_id, params.language);
           if (header.expectsResponse) {
@@ -495,7 +501,7 @@ ash.language.mojom.LanguagePacksReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.language.mojom.LanguagePacks_InstallBasePack_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.language.mojom.LanguagePacks_InstallBasePack_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.installBasePack');
           const result = this.impl.installBasePack(params.feature_id);
           if (header.expectsResponse) {
@@ -508,7 +514,7 @@ ash.language.mojom.LanguagePacksReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.language.mojom.LanguagePacks_UninstallPack_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.language.mojom.LanguagePacks_UninstallPack_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.uninstallPack');
           const result = this.impl.uninstallPack(params.feature_id, params.language);
           if (header.expectsResponse) {
@@ -521,7 +527,7 @@ ash.language.mojom.LanguagePacksReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.language.mojom.LanguagePacks_AddObserver_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.language.mojom.LanguagePacks_AddObserver_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           break;

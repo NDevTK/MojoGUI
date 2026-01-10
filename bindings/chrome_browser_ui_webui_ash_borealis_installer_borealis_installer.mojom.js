@@ -108,9 +108,11 @@ ash.borealis_installer.mojom.PageHandlerFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -124,12 +126,13 @@ ash.borealis_installer.mojom.PageHandlerFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -146,7 +149,7 @@ ash.borealis_installer.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
@@ -324,9 +327,11 @@ ash.borealis_installer.mojom.PageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -340,12 +345,13 @@ ash.borealis_installer.mojom.PageHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Install
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.borealis_installer.mojom.PageHandler_Install_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.borealis_installer.mojom.PageHandler_Install_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Install (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -356,7 +362,7 @@ ash.borealis_installer.mojom.PageHandlerReceiver = class {
         // Try Method 1: ShutDown
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.borealis_installer.mojom.PageHandler_ShutDown_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.borealis_installer.mojom.PageHandler_ShutDown_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShutDown (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -367,7 +373,7 @@ ash.borealis_installer.mojom.PageHandlerReceiver = class {
         // Try Method 2: Launch
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.borealis_installer.mojom.PageHandler_Launch_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.borealis_installer.mojom.PageHandler_Launch_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Launch (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -378,7 +384,7 @@ ash.borealis_installer.mojom.PageHandlerReceiver = class {
         // Try Method 3: CancelInstall
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.borealis_installer.mojom.PageHandler_CancelInstall_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.borealis_installer.mojom.PageHandler_CancelInstall_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelInstall (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -389,7 +395,7 @@ ash.borealis_installer.mojom.PageHandlerReceiver = class {
         // Try Method 4: OnPageClosed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.borealis_installer.mojom.PageHandler_OnPageClosed_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.borealis_installer.mojom.PageHandler_OnPageClosed_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPageClosed (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -400,7 +406,7 @@ ash.borealis_installer.mojom.PageHandlerReceiver = class {
         // Try Method 5: OpenStoragePage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.borealis_installer.mojom.PageHandler_OpenStoragePage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.borealis_installer.mojom.PageHandler_OpenStoragePage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenStoragePage (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -417,42 +423,42 @@ ash.borealis_installer.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.borealis_installer.mojom.PageHandler_Install_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.borealis_installer.mojom.PageHandler_Install_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.install');
           const result = this.impl.install();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.borealis_installer.mojom.PageHandler_ShutDown_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.borealis_installer.mojom.PageHandler_ShutDown_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.shutDown');
           const result = this.impl.shutDown();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.borealis_installer.mojom.PageHandler_Launch_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.borealis_installer.mojom.PageHandler_Launch_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.launch');
           const result = this.impl.launch();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.borealis_installer.mojom.PageHandler_CancelInstall_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.borealis_installer.mojom.PageHandler_CancelInstall_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.cancelInstall');
           const result = this.impl.cancelInstall();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.borealis_installer.mojom.PageHandler_OnPageClosed_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.borealis_installer.mojom.PageHandler_OnPageClosed_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onPageClosed');
           const result = this.impl.onPageClosed();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.borealis_installer.mojom.PageHandler_OpenStoragePage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.borealis_installer.mojom.PageHandler_OpenStoragePage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.openStoragePage');
           const result = this.impl.openStoragePage();
           break;
@@ -585,9 +591,11 @@ ash.borealis_installer.mojom.PageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -601,12 +609,13 @@ ash.borealis_installer.mojom.PageReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnProgressUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.borealis_installer.mojom.Page_OnProgressUpdate_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.borealis_installer.mojom.Page_OnProgressUpdate_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnProgressUpdate (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -617,7 +626,7 @@ ash.borealis_installer.mojom.PageReceiver = class {
         // Try Method 1: OnInstallFinished
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.borealis_installer.mojom.Page_OnInstallFinished_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.borealis_installer.mojom.Page_OnInstallFinished_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnInstallFinished (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -628,7 +637,7 @@ ash.borealis_installer.mojom.PageReceiver = class {
         // Try Method 2: RequestClose
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.borealis_installer.mojom.Page_RequestClose_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.borealis_installer.mojom.Page_RequestClose_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestClose (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -645,21 +654,21 @@ ash.borealis_installer.mojom.PageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.borealis_installer.mojom.Page_OnProgressUpdate_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.borealis_installer.mojom.Page_OnProgressUpdate_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onProgressUpdate');
           const result = this.impl.onProgressUpdate(params.progress_fraction, params.label);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.borealis_installer.mojom.Page_OnInstallFinished_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.borealis_installer.mojom.Page_OnInstallFinished_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onInstallFinished');
           const result = this.impl.onInstallFinished(params.error);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.borealis_installer.mojom.Page_RequestClose_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.borealis_installer.mojom.Page_RequestClose_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestClose');
           const result = this.impl.requestClose();
           break;

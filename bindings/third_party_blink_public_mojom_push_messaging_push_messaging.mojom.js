@@ -190,9 +190,11 @@ blink.mojom.PushMessagingReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -206,12 +208,13 @@ blink.mojom.PushMessagingReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Subscribe
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.PushMessaging_Subscribe_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.PushMessaging_Subscribe_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Subscribe (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -222,7 +225,7 @@ blink.mojom.PushMessagingReceiver = class {
         // Try Method 1: Unsubscribe
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.PushMessaging_Unsubscribe_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.PushMessaging_Unsubscribe_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Unsubscribe (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -233,7 +236,7 @@ blink.mojom.PushMessagingReceiver = class {
         // Try Method 2: GetSubscription
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.PushMessaging_GetSubscription_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.PushMessaging_GetSubscription_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSubscription (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -250,7 +253,7 @@ blink.mojom.PushMessagingReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PushMessaging_Subscribe_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.PushMessaging_Subscribe_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.subscribe');
           const result = this.impl.subscribe(params.service_worker_registration_id, params.options, params.user_gesture);
           if (header.expectsResponse) {
@@ -263,7 +266,7 @@ blink.mojom.PushMessagingReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PushMessaging_Unsubscribe_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.PushMessaging_Unsubscribe_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.unsubscribe');
           const result = this.impl.unsubscribe(params.service_worker_registration_id);
           if (header.expectsResponse) {
@@ -276,7 +279,7 @@ blink.mojom.PushMessagingReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PushMessaging_GetSubscription_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.PushMessaging_GetSubscription_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getSubscription');
           const result = this.impl.getSubscription(params.service_worker_registration_id);
           if (header.expectsResponse) {

@@ -101,9 +101,11 @@ chromeos.media_perception.mojom.MediaPerceptionServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -117,12 +119,13 @@ chromeos.media_perception.mojom.MediaPerceptionServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetController
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetController (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -139,7 +142,7 @@ chromeos.media_perception.mojom.MediaPerceptionServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getController');
           const result = this.impl.getController(params.receiver, params.client);
           break;
@@ -238,9 +241,11 @@ chromeos.media_perception.mojom.MediaPerceptionControllerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -254,12 +259,13 @@ chromeos.media_perception.mojom.MediaPerceptionControllerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ActivateMediaPerception
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ActivateMediaPerception (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -276,7 +282,7 @@ chromeos.media_perception.mojom.MediaPerceptionControllerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.activateMediaPerception');
           const result = this.impl.activateMediaPerception(params.receiver);
           break;
@@ -375,9 +381,11 @@ chromeos.media_perception.mojom.MediaPerceptionControllerClientReceiver = class 
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -391,12 +399,13 @@ chromeos.media_perception.mojom.MediaPerceptionControllerClientReceiver = class 
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ConnectToVideoCaptureService
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConnectToVideoCaptureService (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -413,7 +422,7 @@ chromeos.media_perception.mojom.MediaPerceptionControllerClientReceiver = class 
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.connectToVideoCaptureService');
           const result = this.impl.connectToVideoCaptureService(params.receiver);
           break;

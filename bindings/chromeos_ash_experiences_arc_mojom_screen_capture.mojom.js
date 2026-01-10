@@ -159,9 +159,11 @@ arc.mojom.ScreenCaptureHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -175,12 +177,13 @@ arc.mojom.ScreenCaptureHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: RequestPermission
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.ScreenCaptureHost_RequestPermission_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.ScreenCaptureHost_RequestPermission_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestPermission (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -191,7 +194,7 @@ arc.mojom.ScreenCaptureHostReceiver = class {
         // Try Method 1: TestModeAcceptPermission
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.ScreenCaptureHost_TestModeAcceptPermission_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.ScreenCaptureHost_TestModeAcceptPermission_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TestModeAcceptPermission (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -202,7 +205,7 @@ arc.mojom.ScreenCaptureHostReceiver = class {
         // Try Method 2: OpenSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.ScreenCaptureHost_OpenSession_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.ScreenCaptureHost_OpenSession_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenSession (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -219,7 +222,7 @@ arc.mojom.ScreenCaptureHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.ScreenCaptureHost_RequestPermission_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.ScreenCaptureHost_RequestPermission_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestPermission');
           const result = this.impl.requestPermission(params.display_name, params.package_name);
           if (header.expectsResponse) {
@@ -232,14 +235,14 @@ arc.mojom.ScreenCaptureHostReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.ScreenCaptureHost_TestModeAcceptPermission_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.ScreenCaptureHost_TestModeAcceptPermission_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.testModeAcceptPermission');
           const result = this.impl.testModeAcceptPermission(params.package_name);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.ScreenCaptureHost_OpenSession_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.ScreenCaptureHost_OpenSession_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.openSession');
           const result = this.impl.openSession(params.notifier, params.package_name, params.size);
           if (header.expectsResponse) {
@@ -375,9 +378,11 @@ arc.mojom.ScreenCaptureSessionReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -391,12 +396,13 @@ arc.mojom.ScreenCaptureSessionReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetOutputBufferDeprecated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetOutputBufferDeprecated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -407,7 +413,7 @@ arc.mojom.ScreenCaptureSessionReceiver = class {
         // Try Method 1: SetOutputBuffer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.ScreenCaptureSession_SetOutputBuffer_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.ScreenCaptureSession_SetOutputBuffer_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetOutputBuffer (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -424,7 +430,7 @@ arc.mojom.ScreenCaptureSessionReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setOutputBufferDeprecated');
           const result = this.impl.setOutputBufferDeprecated(params.graphics_buffer, params.stride);
           if (header.expectsResponse) {
@@ -437,7 +443,7 @@ arc.mojom.ScreenCaptureSessionReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.ScreenCaptureSession_SetOutputBuffer_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.ScreenCaptureSession_SetOutputBuffer_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setOutputBuffer');
           const result = this.impl.setOutputBuffer(params.graphics_buffer, params.buffer_format, params.buffer_format_modifier, params.stride);
           if (header.expectsResponse) {
@@ -547,9 +553,11 @@ arc.mojom.ScreenCaptureInstanceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -563,12 +571,13 @@ arc.mojom.ScreenCaptureInstanceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.ScreenCaptureInstance_Init_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.ScreenCaptureInstance_Init_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -585,7 +594,7 @@ arc.mojom.ScreenCaptureInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.ScreenCaptureInstance_Init_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.ScreenCaptureInstance_Init_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -689,9 +698,11 @@ arc.mojom.ScreenCaptureSessionNotifierReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -705,12 +716,13 @@ arc.mojom.ScreenCaptureSessionNotifierReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ForceUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.ScreenCaptureSessionNotifier_ForceUpdate_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.ScreenCaptureSessionNotifier_ForceUpdate_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForceUpdate (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -727,7 +739,7 @@ arc.mojom.ScreenCaptureSessionNotifierReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.ScreenCaptureSessionNotifier_ForceUpdate_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.ScreenCaptureSessionNotifier_ForceUpdate_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.forceUpdate');
           const result = this.impl.forceUpdate();
           break;

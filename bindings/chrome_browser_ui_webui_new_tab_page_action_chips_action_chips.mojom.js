@@ -130,9 +130,11 @@ action_chips.mojom.ActionChipsHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -146,12 +148,13 @@ action_chips.mojom.ActionChipsHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: StartActionChipsRetrieval
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartActionChipsRetrieval (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -168,7 +171,7 @@ action_chips.mojom.ActionChipsHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.startActionChipsRetrieval');
           const result = this.impl.startActionChipsRetrieval();
           break;
@@ -267,9 +270,11 @@ action_chips.mojom.PageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -283,12 +288,13 @@ action_chips.mojom.PageReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnActionChipsChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(action_chips.mojom.Page_OnActionChipsChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(action_chips.mojom.Page_OnActionChipsChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnActionChipsChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -305,7 +311,7 @@ action_chips.mojom.PageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(action_chips.mojom.Page_OnActionChipsChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(action_chips.mojom.Page_OnActionChipsChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onActionChipsChanged');
           const result = this.impl.onActionChipsChanged(params.action_chips);
           break;
@@ -405,9 +411,11 @@ action_chips.mojom.ActionChipsHandlerFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -421,12 +429,13 @@ action_chips.mojom.ActionChipsHandlerFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateActionChipsHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateActionChipsHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -443,7 +452,7 @@ action_chips.mojom.ActionChipsHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createActionChipsHandler');
           const result = this.impl.createActionChipsHandler(params.handler, params.page);
           break;

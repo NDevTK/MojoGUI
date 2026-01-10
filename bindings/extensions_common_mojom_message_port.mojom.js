@@ -217,9 +217,11 @@ extensions.mojom.MessagePortReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -233,12 +235,13 @@ extensions.mojom.MessagePortReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: DispatchDisconnect
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(extensions.mojom.MessagePort_DispatchDisconnect_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(extensions.mojom.MessagePort_DispatchDisconnect_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchDisconnect (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -249,7 +252,7 @@ extensions.mojom.MessagePortReceiver = class {
         // Try Method 1: DeliverMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(extensions.mojom.MessagePort_DeliverMessage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(extensions.mojom.MessagePort_DeliverMessage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeliverMessage (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -266,14 +269,14 @@ extensions.mojom.MessagePortReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(extensions.mojom.MessagePort_DispatchDisconnect_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(extensions.mojom.MessagePort_DispatchDisconnect_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.dispatchDisconnect');
           const result = this.impl.dispatchDisconnect(params.error);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(extensions.mojom.MessagePort_DeliverMessage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(extensions.mojom.MessagePort_DeliverMessage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.deliverMessage');
           const result = this.impl.deliverMessage(params.message);
           break;
@@ -406,9 +409,11 @@ extensions.mojom.MessagePortHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -422,12 +427,13 @@ extensions.mojom.MessagePortHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ClosePort
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(extensions.mojom.MessagePortHost_ClosePort_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(extensions.mojom.MessagePortHost_ClosePort_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClosePort (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -438,7 +444,7 @@ extensions.mojom.MessagePortHostReceiver = class {
         // Try Method 1: PostMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(extensions.mojom.MessagePortHost_PostMessage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(extensions.mojom.MessagePortHost_PostMessage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PostMessage (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -449,7 +455,7 @@ extensions.mojom.MessagePortHostReceiver = class {
         // Try Method 2: ResponsePending
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(extensions.mojom.MessagePortHost_ResponsePending_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(extensions.mojom.MessagePortHost_ResponsePending_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResponsePending (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -466,21 +472,21 @@ extensions.mojom.MessagePortHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(extensions.mojom.MessagePortHost_ClosePort_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(extensions.mojom.MessagePortHost_ClosePort_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.closePort');
           const result = this.impl.closePort(params.close_channel, params.error_message);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(extensions.mojom.MessagePortHost_PostMessage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(extensions.mojom.MessagePortHost_PostMessage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.postMessage');
           const result = this.impl.postMessage(params.message);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(extensions.mojom.MessagePortHost_ResponsePending_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(extensions.mojom.MessagePortHost_ResponsePending_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.responsePending');
           const result = this.impl.responsePending();
           break;

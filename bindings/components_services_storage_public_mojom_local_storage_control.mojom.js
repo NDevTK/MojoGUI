@@ -234,9 +234,11 @@ storage.mojom.LocalStorageControlReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -250,12 +252,13 @@ storage.mojom.LocalStorageControlReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: BindStorageArea
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(storage.mojom.LocalStorageControl_BindStorageArea_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(storage.mojom.LocalStorageControl_BindStorageArea_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindStorageArea (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -266,7 +269,7 @@ storage.mojom.LocalStorageControlReceiver = class {
         // Try Method 1: GetUsage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(storage.mojom.LocalStorageControl_GetUsage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(storage.mojom.LocalStorageControl_GetUsage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUsage (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -277,7 +280,7 @@ storage.mojom.LocalStorageControlReceiver = class {
         // Try Method 2: DeleteStorage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(storage.mojom.LocalStorageControl_DeleteStorage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(storage.mojom.LocalStorageControl_DeleteStorage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteStorage (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -288,7 +291,7 @@ storage.mojom.LocalStorageControlReceiver = class {
         // Try Method 3: CleanUpStorage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(storage.mojom.LocalStorageControl_CleanUpStorage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(storage.mojom.LocalStorageControl_CleanUpStorage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CleanUpStorage (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -299,7 +302,7 @@ storage.mojom.LocalStorageControlReceiver = class {
         // Try Method 4: Flush
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(storage.mojom.LocalStorageControl_Flush_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(storage.mojom.LocalStorageControl_Flush_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Flush (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -310,7 +313,7 @@ storage.mojom.LocalStorageControlReceiver = class {
         // Try Method 5: PurgeMemory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(storage.mojom.LocalStorageControl_PurgeMemory_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(storage.mojom.LocalStorageControl_PurgeMemory_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PurgeMemory (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -321,7 +324,7 @@ storage.mojom.LocalStorageControlReceiver = class {
         // Try Method 6: ApplyPolicyUpdates
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(storage.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(storage.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ApplyPolicyUpdates (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -332,7 +335,7 @@ storage.mojom.LocalStorageControlReceiver = class {
         // Try Method 7: ForceKeepSessionState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(storage.mojom.LocalStorageControl_ForceKeepSessionState_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(storage.mojom.LocalStorageControl_ForceKeepSessionState_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForceKeepSessionState (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -349,14 +352,14 @@ storage.mojom.LocalStorageControlReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.LocalStorageControl_BindStorageArea_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(storage.mojom.LocalStorageControl_BindStorageArea_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindStorageArea');
           const result = this.impl.bindStorageArea(params.storage_key, params.receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.LocalStorageControl_GetUsage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(storage.mojom.LocalStorageControl_GetUsage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getUsage');
           const result = this.impl.getUsage();
           if (header.expectsResponse) {
@@ -369,7 +372,7 @@ storage.mojom.LocalStorageControlReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.LocalStorageControl_DeleteStorage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(storage.mojom.LocalStorageControl_DeleteStorage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.deleteStorage');
           const result = this.impl.deleteStorage(params.storage_key);
           if (header.expectsResponse) {
@@ -382,7 +385,7 @@ storage.mojom.LocalStorageControlReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.LocalStorageControl_CleanUpStorage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(storage.mojom.LocalStorageControl_CleanUpStorage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.cleanUpStorage');
           const result = this.impl.cleanUpStorage();
           if (header.expectsResponse) {
@@ -395,28 +398,28 @@ storage.mojom.LocalStorageControlReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.LocalStorageControl_Flush_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(storage.mojom.LocalStorageControl_Flush_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.flush');
           const result = this.impl.flush();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.LocalStorageControl_PurgeMemory_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(storage.mojom.LocalStorageControl_PurgeMemory_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.purgeMemory');
           const result = this.impl.purgeMemory();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(storage.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.applyPolicyUpdates');
           const result = this.impl.applyPolicyUpdates(params.policy_updates);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.LocalStorageControl_ForceKeepSessionState_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(storage.mojom.LocalStorageControl_ForceKeepSessionState_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.forceKeepSessionState');
           const result = this.impl.forceKeepSessionState();
           break;

@@ -238,9 +238,11 @@ blink.mojom.BackgroundFetchRegistrationObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -254,12 +256,13 @@ blink.mojom.BackgroundFetchRegistrationObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnProgress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.BackgroundFetchRegistrationObserver_OnProgress_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.BackgroundFetchRegistrationObserver_OnProgress_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnProgress (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -270,7 +273,7 @@ blink.mojom.BackgroundFetchRegistrationObserverReceiver = class {
         // Try Method 1: OnRecordsUnavailable
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.BackgroundFetchRegistrationObserver_OnRecordsUnavailable_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.BackgroundFetchRegistrationObserver_OnRecordsUnavailable_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRecordsUnavailable (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -281,7 +284,7 @@ blink.mojom.BackgroundFetchRegistrationObserverReceiver = class {
         // Try Method 2: OnRequestCompleted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRequestCompleted (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -298,21 +301,21 @@ blink.mojom.BackgroundFetchRegistrationObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.BackgroundFetchRegistrationObserver_OnProgress_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.BackgroundFetchRegistrationObserver_OnProgress_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onProgress');
           const result = this.impl.onProgress(params.upload_total, params.uploaded, params.download_total, params.downloaded, params.result, params.failure_reason);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.BackgroundFetchRegistrationObserver_OnRecordsUnavailable_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.BackgroundFetchRegistrationObserver_OnRecordsUnavailable_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onRecordsUnavailable');
           const result = this.impl.onRecordsUnavailable();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onRequestCompleted');
           const result = this.impl.onRequestCompleted(params.request, params.response);
           break;
@@ -494,9 +497,11 @@ blink.mojom.BackgroundFetchServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -510,12 +515,13 @@ blink.mojom.BackgroundFetchServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Fetch
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.BackgroundFetchService_Fetch_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.BackgroundFetchService_Fetch_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Fetch (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -526,7 +532,7 @@ blink.mojom.BackgroundFetchServiceReceiver = class {
         // Try Method 1: GetRegistration
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.BackgroundFetchService_GetRegistration_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.BackgroundFetchService_GetRegistration_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRegistration (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -537,7 +543,7 @@ blink.mojom.BackgroundFetchServiceReceiver = class {
         // Try Method 2: GetDeveloperIds
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.BackgroundFetchService_GetDeveloperIds_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.BackgroundFetchService_GetDeveloperIds_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDeveloperIds (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -548,7 +554,7 @@ blink.mojom.BackgroundFetchServiceReceiver = class {
         // Try Method 3: GetIconDisplaySize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.BackgroundFetchService_GetIconDisplaySize_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.BackgroundFetchService_GetIconDisplaySize_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetIconDisplaySize (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -565,7 +571,7 @@ blink.mojom.BackgroundFetchServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.BackgroundFetchService_Fetch_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.BackgroundFetchService_Fetch_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.fetch');
           const result = this.impl.fetch(params.service_worker_registration_id, params.developer_id, params.requests, params.options, params.icon, params.ukm_data);
           if (header.expectsResponse) {
@@ -578,7 +584,7 @@ blink.mojom.BackgroundFetchServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.BackgroundFetchService_GetRegistration_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.BackgroundFetchService_GetRegistration_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getRegistration');
           const result = this.impl.getRegistration(params.service_worker_registration_id, params.developer_id);
           if (header.expectsResponse) {
@@ -591,7 +597,7 @@ blink.mojom.BackgroundFetchServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.BackgroundFetchService_GetDeveloperIds_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.BackgroundFetchService_GetDeveloperIds_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getDeveloperIds');
           const result = this.impl.getDeveloperIds(params.service_worker_registration_id);
           if (header.expectsResponse) {
@@ -604,7 +610,7 @@ blink.mojom.BackgroundFetchServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.BackgroundFetchService_GetIconDisplaySize_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.BackgroundFetchService_GetIconDisplaySize_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getIconDisplaySize');
           const result = this.impl.getIconDisplaySize();
           if (header.expectsResponse) {
@@ -780,9 +786,11 @@ blink.mojom.BackgroundFetchRegistrationServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -796,12 +804,13 @@ blink.mojom.BackgroundFetchRegistrationServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: UpdateUI
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateUI (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -812,7 +821,7 @@ blink.mojom.BackgroundFetchRegistrationServiceReceiver = class {
         // Try Method 1: Abort
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.BackgroundFetchRegistrationService_Abort_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.BackgroundFetchRegistrationService_Abort_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Abort (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -823,7 +832,7 @@ blink.mojom.BackgroundFetchRegistrationServiceReceiver = class {
         // Try Method 2: MatchRequests
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MatchRequests (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -834,7 +843,7 @@ blink.mojom.BackgroundFetchRegistrationServiceReceiver = class {
         // Try Method 3: AddRegistrationObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddRegistrationObserver (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -851,7 +860,7 @@ blink.mojom.BackgroundFetchRegistrationServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.updateUI');
           const result = this.impl.updateUI(params.title, params.icon);
           if (header.expectsResponse) {
@@ -864,7 +873,7 @@ blink.mojom.BackgroundFetchRegistrationServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.BackgroundFetchRegistrationService_Abort_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.BackgroundFetchRegistrationService_Abort_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.abort');
           const result = this.impl.abort();
           if (header.expectsResponse) {
@@ -877,7 +886,7 @@ blink.mojom.BackgroundFetchRegistrationServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.matchRequests');
           const result = this.impl.matchRequests(params.request_to_match, params.cache_query_options, params.match_all);
           if (header.expectsResponse) {
@@ -890,7 +899,7 @@ blink.mojom.BackgroundFetchRegistrationServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addRegistrationObserver');
           const result = this.impl.addRegistrationObserver(params.observer);
           break;

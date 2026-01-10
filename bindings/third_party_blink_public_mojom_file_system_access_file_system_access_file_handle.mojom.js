@@ -417,9 +417,11 @@ blink.mojom.FileSystemAccessFileHandleReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -433,12 +435,13 @@ blink.mojom.FileSystemAccessFileHandleReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetPermissionStatus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FileSystemAccessFileHandle_GetPermissionStatus_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FileSystemAccessFileHandle_GetPermissionStatus_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPermissionStatus (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -449,7 +452,7 @@ blink.mojom.FileSystemAccessFileHandleReceiver = class {
         // Try Method 1: RequestPermission
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FileSystemAccessFileHandle_RequestPermission_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FileSystemAccessFileHandle_RequestPermission_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestPermission (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -460,7 +463,7 @@ blink.mojom.FileSystemAccessFileHandleReceiver = class {
         // Try Method 2: AsBlob
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FileSystemAccessFileHandle_AsBlob_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FileSystemAccessFileHandle_AsBlob_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AsBlob (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -471,7 +474,7 @@ blink.mojom.FileSystemAccessFileHandleReceiver = class {
         // Try Method 3: CreateFileWriter
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FileSystemAccessFileHandle_CreateFileWriter_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FileSystemAccessFileHandle_CreateFileWriter_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateFileWriter (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -482,7 +485,7 @@ blink.mojom.FileSystemAccessFileHandleReceiver = class {
         // Try Method 4: Rename
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FileSystemAccessFileHandle_Rename_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FileSystemAccessFileHandle_Rename_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Rename (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -493,7 +496,7 @@ blink.mojom.FileSystemAccessFileHandleReceiver = class {
         // Try Method 5: Move
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FileSystemAccessFileHandle_Move_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FileSystemAccessFileHandle_Move_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Move (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -504,7 +507,7 @@ blink.mojom.FileSystemAccessFileHandleReceiver = class {
         // Try Method 6: Remove
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FileSystemAccessFileHandle_Remove_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FileSystemAccessFileHandle_Remove_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Remove (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -515,7 +518,7 @@ blink.mojom.FileSystemAccessFileHandleReceiver = class {
         // Try Method 7: OpenAccessHandle
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FileSystemAccessFileHandle_OpenAccessHandle_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FileSystemAccessFileHandle_OpenAccessHandle_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenAccessHandle (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -526,7 +529,7 @@ blink.mojom.FileSystemAccessFileHandleReceiver = class {
         // Try Method 8: IsSameEntry
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FileSystemAccessFileHandle_IsSameEntry_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FileSystemAccessFileHandle_IsSameEntry_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsSameEntry (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -537,7 +540,7 @@ blink.mojom.FileSystemAccessFileHandleReceiver = class {
         // Try Method 9: Transfer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FileSystemAccessFileHandle_Transfer_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FileSystemAccessFileHandle_Transfer_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Transfer (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -548,7 +551,7 @@ blink.mojom.FileSystemAccessFileHandleReceiver = class {
         // Try Method 10: GetUniqueId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FileSystemAccessFileHandle_GetUniqueId_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FileSystemAccessFileHandle_GetUniqueId_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUniqueId (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -559,7 +562,7 @@ blink.mojom.FileSystemAccessFileHandleReceiver = class {
         // Try Method 11: GetCloudIdentifiers
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FileSystemAccessFileHandle_GetCloudIdentifiers_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FileSystemAccessFileHandle_GetCloudIdentifiers_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCloudIdentifiers (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -576,7 +579,7 @@ blink.mojom.FileSystemAccessFileHandleReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FileSystemAccessFileHandle_GetPermissionStatus_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FileSystemAccessFileHandle_GetPermissionStatus_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getPermissionStatus');
           const result = this.impl.getPermissionStatus(params.mode);
           if (header.expectsResponse) {
@@ -589,7 +592,7 @@ blink.mojom.FileSystemAccessFileHandleReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FileSystemAccessFileHandle_RequestPermission_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FileSystemAccessFileHandle_RequestPermission_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestPermission');
           const result = this.impl.requestPermission(params.mode);
           if (header.expectsResponse) {
@@ -602,7 +605,7 @@ blink.mojom.FileSystemAccessFileHandleReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FileSystemAccessFileHandle_AsBlob_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FileSystemAccessFileHandle_AsBlob_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.asBlob');
           const result = this.impl.asBlob();
           if (header.expectsResponse) {
@@ -615,7 +618,7 @@ blink.mojom.FileSystemAccessFileHandleReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FileSystemAccessFileHandle_CreateFileWriter_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FileSystemAccessFileHandle_CreateFileWriter_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createFileWriter');
           const result = this.impl.createFileWriter(params.keep_existing_data, params.auto_close, params.mode);
           if (header.expectsResponse) {
@@ -628,7 +631,7 @@ blink.mojom.FileSystemAccessFileHandleReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FileSystemAccessFileHandle_Rename_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FileSystemAccessFileHandle_Rename_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.rename');
           const result = this.impl.rename(params.new_entry_name);
           if (header.expectsResponse) {
@@ -641,7 +644,7 @@ blink.mojom.FileSystemAccessFileHandleReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FileSystemAccessFileHandle_Move_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FileSystemAccessFileHandle_Move_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.move');
           const result = this.impl.move(params.destination_directory, params.new_entry_name);
           if (header.expectsResponse) {
@@ -654,7 +657,7 @@ blink.mojom.FileSystemAccessFileHandleReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FileSystemAccessFileHandle_Remove_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FileSystemAccessFileHandle_Remove_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.remove');
           const result = this.impl.remove();
           if (header.expectsResponse) {
@@ -667,7 +670,7 @@ blink.mojom.FileSystemAccessFileHandleReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FileSystemAccessFileHandle_OpenAccessHandle_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FileSystemAccessFileHandle_OpenAccessHandle_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.openAccessHandle');
           const result = this.impl.openAccessHandle(params.mode);
           if (header.expectsResponse) {
@@ -680,7 +683,7 @@ blink.mojom.FileSystemAccessFileHandleReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FileSystemAccessFileHandle_IsSameEntry_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FileSystemAccessFileHandle_IsSameEntry_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.isSameEntry');
           const result = this.impl.isSameEntry(params.other);
           if (header.expectsResponse) {
@@ -693,14 +696,14 @@ blink.mojom.FileSystemAccessFileHandleReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FileSystemAccessFileHandle_Transfer_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FileSystemAccessFileHandle_Transfer_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.transfer');
           const result = this.impl.transfer(params.token);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FileSystemAccessFileHandle_GetUniqueId_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FileSystemAccessFileHandle_GetUniqueId_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getUniqueId');
           const result = this.impl.getUniqueId();
           if (header.expectsResponse) {
@@ -713,7 +716,7 @@ blink.mojom.FileSystemAccessFileHandleReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FileSystemAccessFileHandle_GetCloudIdentifiers_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FileSystemAccessFileHandle_GetCloudIdentifiers_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getCloudIdentifiers');
           const result = this.impl.getCloudIdentifiers();
           if (header.expectsResponse) {

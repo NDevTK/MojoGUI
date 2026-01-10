@@ -187,9 +187,11 @@ network.mojom.ClientCertificateResponderReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -203,12 +205,13 @@ network.mojom.ClientCertificateResponderReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ContinueWithCertificate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.ClientCertificateResponder_ContinueWithCertificate_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.ClientCertificateResponder_ContinueWithCertificate_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ContinueWithCertificate (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -219,7 +222,7 @@ network.mojom.ClientCertificateResponderReceiver = class {
         // Try Method 1: ContinueWithoutCertificate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.ClientCertificateResponder_ContinueWithoutCertificate_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.ClientCertificateResponder_ContinueWithoutCertificate_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ContinueWithoutCertificate (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -230,7 +233,7 @@ network.mojom.ClientCertificateResponderReceiver = class {
         // Try Method 2: CancelRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.ClientCertificateResponder_CancelRequest_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.ClientCertificateResponder_CancelRequest_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelRequest (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -247,21 +250,21 @@ network.mojom.ClientCertificateResponderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.ClientCertificateResponder_ContinueWithCertificate_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.ClientCertificateResponder_ContinueWithCertificate_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.continueWithCertificate');
           const result = this.impl.continueWithCertificate(params.x509_certificate, params.provider_name, params.algorithm_preferences, params.ssl_private_key);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.ClientCertificateResponder_ContinueWithoutCertificate_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.ClientCertificateResponder_ContinueWithoutCertificate_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.continueWithoutCertificate');
           const result = this.impl.continueWithoutCertificate();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.ClientCertificateResponder_CancelRequest_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.ClientCertificateResponder_CancelRequest_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.cancelRequest');
           const result = this.impl.cancelRequest();
           break;
@@ -368,9 +371,11 @@ network.mojom.SSLPrivateKeyReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -384,12 +389,13 @@ network.mojom.SSLPrivateKeyReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Sign
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.SSLPrivateKey_Sign_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.SSLPrivateKey_Sign_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Sign (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -406,7 +412,7 @@ network.mojom.SSLPrivateKeyReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.SSLPrivateKey_Sign_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.SSLPrivateKey_Sign_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.sign');
           const result = this.impl.sign(params.algorithm, params.input);
           if (header.expectsResponse) {
@@ -511,9 +517,11 @@ network.mojom.AuthChallengeResponderReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -527,12 +535,13 @@ network.mojom.AuthChallengeResponderReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnAuthCredentials
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.AuthChallengeResponder_OnAuthCredentials_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.AuthChallengeResponder_OnAuthCredentials_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAuthCredentials (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -549,7 +558,7 @@ network.mojom.AuthChallengeResponderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.AuthChallengeResponder_OnAuthCredentials_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.AuthChallengeResponder_OnAuthCredentials_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onAuthCredentials');
           const result = this.impl.onAuthCredentials(params.credentials);
           break;
@@ -887,9 +896,11 @@ network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -903,12 +914,13 @@ network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnSSLCertificateError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSSLCertificateError (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -919,7 +931,7 @@ network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
         // Try Method 1: OnCertificateRequested
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.URLLoaderNetworkServiceObserver_OnCertificateRequested_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.URLLoaderNetworkServiceObserver_OnCertificateRequested_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCertificateRequested (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -930,7 +942,7 @@ network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
         // Try Method 2: OnAuthRequired
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.URLLoaderNetworkServiceObserver_OnAuthRequired_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.URLLoaderNetworkServiceObserver_OnAuthRequired_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAuthRequired (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -941,7 +953,7 @@ network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
         // Try Method 3: OnLocalNetworkAccessPermissionRequired
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLocalNetworkAccessPermissionRequired (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -952,7 +964,7 @@ network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
         // Try Method 4: OnClearSiteData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnClearSiteData (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -963,7 +975,7 @@ network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
         // Try Method 5: OnLoadingStateUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLoadingStateUpdate (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -974,7 +986,7 @@ network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
         // Try Method 6: OnDataUseUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.URLLoaderNetworkServiceObserver_OnDataUseUpdate_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.URLLoaderNetworkServiceObserver_OnDataUseUpdate_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDataUseUpdate (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -985,7 +997,7 @@ network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
         // Try Method 7: OnSharedStorageHeaderReceived
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSharedStorageHeaderReceived (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -996,7 +1008,7 @@ network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
         // Try Method 8: OnAdAuctionEventRecordHeaderReceived
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.URLLoaderNetworkServiceObserver_OnAdAuctionEventRecordHeaderReceived_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.URLLoaderNetworkServiceObserver_OnAdAuctionEventRecordHeaderReceived_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAdAuctionEventRecordHeaderReceived (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1007,7 +1019,7 @@ network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
         // Try Method 9: Clone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.URLLoaderNetworkServiceObserver_Clone_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.URLLoaderNetworkServiceObserver_Clone_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clone (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1018,7 +1030,7 @@ network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
         // Try Method 10: OnWebSocketConnectedToPrivateNetwork
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.URLLoaderNetworkServiceObserver_OnWebSocketConnectedToPrivateNetwork_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.URLLoaderNetworkServiceObserver_OnWebSocketConnectedToPrivateNetwork_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWebSocketConnectedToPrivateNetwork (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1029,7 +1041,7 @@ network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
         // Try Method 11: OnUrlLoaderConnectedToPrivateNetwork
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.URLLoaderNetworkServiceObserver_OnUrlLoaderConnectedToPrivateNetwork_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.URLLoaderNetworkServiceObserver_OnUrlLoaderConnectedToPrivateNetwork_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnUrlLoaderConnectedToPrivateNetwork (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1046,7 +1058,7 @@ network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onSSLCertificateError');
           const result = this.impl.onSSLCertificateError(params.url, params.net_error, params.ssl_info, params.fatal);
           if (header.expectsResponse) {
@@ -1059,21 +1071,21 @@ network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.URLLoaderNetworkServiceObserver_OnCertificateRequested_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.URLLoaderNetworkServiceObserver_OnCertificateRequested_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onCertificateRequested');
           const result = this.impl.onCertificateRequested(params.window_id, params.cert_info, params.cert_responder);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.URLLoaderNetworkServiceObserver_OnAuthRequired_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.URLLoaderNetworkServiceObserver_OnAuthRequired_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onAuthRequired');
           const result = this.impl.onAuthRequired(params.window_id, params.request_id, params.url, params.first_auth_attempt, params.auth_info, params.head_headers, params.auth_challenge_responder);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onLocalNetworkAccessPermissionRequired');
           const result = this.impl.onLocalNetworkAccessPermissionRequired(params.transport_type, params.ip_address_space);
           if (header.expectsResponse) {
@@ -1086,7 +1098,7 @@ network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onClearSiteData');
           const result = this.impl.onClearSiteData(params.url, params.header_value, params.load_flags, params.cookie_partition_key, params.partitioned_state_allowed_only);
           if (header.expectsResponse) {
@@ -1099,7 +1111,7 @@ network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onLoadingStateUpdate');
           const result = this.impl.onLoadingStateUpdate(params.info);
           if (header.expectsResponse) {
@@ -1112,14 +1124,14 @@ network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.URLLoaderNetworkServiceObserver_OnDataUseUpdate_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.URLLoaderNetworkServiceObserver_OnDataUseUpdate_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onDataUseUpdate');
           const result = this.impl.onDataUseUpdate(params.network_traffic_annotation_id_hash, params.recv_bytes, params.sent_bytes);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onSharedStorageHeaderReceived');
           const result = this.impl.onSharedStorageHeaderReceived(params.request_origin, params.methods_with_options, params.with_lock);
           if (header.expectsResponse) {
@@ -1132,28 +1144,28 @@ network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.URLLoaderNetworkServiceObserver_OnAdAuctionEventRecordHeaderReceived_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.URLLoaderNetworkServiceObserver_OnAdAuctionEventRecordHeaderReceived_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onAdAuctionEventRecordHeaderReceived');
           const result = this.impl.onAdAuctionEventRecordHeaderReceived(params.ad_auction_event_record, params.top_frame_origin);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.URLLoaderNetworkServiceObserver_Clone_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.URLLoaderNetworkServiceObserver_Clone_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.listener);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.URLLoaderNetworkServiceObserver_OnWebSocketConnectedToPrivateNetwork_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.URLLoaderNetworkServiceObserver_OnWebSocketConnectedToPrivateNetwork_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onWebSocketConnectedToPrivateNetwork');
           const result = this.impl.onWebSocketConnectedToPrivateNetwork(params.request_url, params.ip_address_space);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.URLLoaderNetworkServiceObserver_OnUrlLoaderConnectedToPrivateNetwork_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.URLLoaderNetworkServiceObserver_OnUrlLoaderConnectedToPrivateNetwork_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onUrlLoaderConnectedToPrivateNetwork');
           const result = this.impl.onUrlLoaderConnectedToPrivateNetwork(params.request_url, params.response_address_space, params.client_address_space, params.target_address_space);
           break;

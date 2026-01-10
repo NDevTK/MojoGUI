@@ -415,9 +415,11 @@ memory_instrumentation.mojom.ClientProcessReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -431,12 +433,13 @@ memory_instrumentation.mojom.ClientProcessReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: RequestChromeMemoryDump
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestChromeMemoryDump (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -447,7 +450,7 @@ memory_instrumentation.mojom.ClientProcessReceiver = class {
         // Try Method 1: RequestOSMemoryDump
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestOSMemoryDump (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -464,7 +467,7 @@ memory_instrumentation.mojom.ClientProcessReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestChromeMemoryDump');
           const result = this.impl.requestChromeMemoryDump(params.args);
           if (header.expectsResponse) {
@@ -477,7 +480,7 @@ memory_instrumentation.mojom.ClientProcessReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestOSMemoryDump');
           const result = this.impl.requestOSMemoryDump(params.option, params.flags, params.pids);
           if (header.expectsResponse) {
@@ -589,9 +592,11 @@ memory_instrumentation.mojom.HeapProfilerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -605,12 +610,13 @@ memory_instrumentation.mojom.HeapProfilerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: DumpProcessesForTracing
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DumpProcessesForTracing (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -627,7 +633,7 @@ memory_instrumentation.mojom.HeapProfilerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.dumpProcessesForTracing');
           const result = this.impl.dumpProcessesForTracing(params.strip_path_from_mapped_files, params.write_proto);
           if (header.expectsResponse) {
@@ -738,9 +744,11 @@ memory_instrumentation.mojom.HeapProfilerHelperReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -754,12 +762,13 @@ memory_instrumentation.mojom.HeapProfilerHelperReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetVmRegionsForHeapProfiler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetVmRegionsForHeapProfiler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -776,7 +785,7 @@ memory_instrumentation.mojom.HeapProfilerHelperReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getVmRegionsForHeapProfiler');
           const result = this.impl.getVmRegionsForHeapProfiler(params.pids);
           if (header.expectsResponse) {
@@ -966,9 +975,11 @@ memory_instrumentation.mojom.CoordinatorReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -982,12 +993,13 @@ memory_instrumentation.mojom.CoordinatorReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: RequestGlobalMemoryDump
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestGlobalMemoryDump (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -998,7 +1010,7 @@ memory_instrumentation.mojom.CoordinatorReceiver = class {
         // Try Method 1: RequestGlobalMemoryDumpForPid
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestGlobalMemoryDumpForPid (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1009,7 +1021,7 @@ memory_instrumentation.mojom.CoordinatorReceiver = class {
         // Try Method 2: RequestPrivateMemoryFootprint
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestPrivateMemoryFootprint (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1020,7 +1032,7 @@ memory_instrumentation.mojom.CoordinatorReceiver = class {
         // Try Method 3: RequestGlobalMemoryDumpAndAppendToTrace
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestGlobalMemoryDumpAndAppendToTrace (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1037,7 +1049,7 @@ memory_instrumentation.mojom.CoordinatorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestGlobalMemoryDump');
           const result = this.impl.requestGlobalMemoryDump(params.dump_type, params.level_of_detail, params.determinism, params.allocator_dump_names);
           if (header.expectsResponse) {
@@ -1050,7 +1062,7 @@ memory_instrumentation.mojom.CoordinatorReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestGlobalMemoryDumpForPid');
           const result = this.impl.requestGlobalMemoryDumpForPid(params.pid, params.allocator_dump_names);
           if (header.expectsResponse) {
@@ -1063,7 +1075,7 @@ memory_instrumentation.mojom.CoordinatorReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestPrivateMemoryFootprint');
           const result = this.impl.requestPrivateMemoryFootprint(params.pid);
           if (header.expectsResponse) {
@@ -1076,7 +1088,7 @@ memory_instrumentation.mojom.CoordinatorReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestGlobalMemoryDumpAndAppendToTrace');
           const result = this.impl.requestGlobalMemoryDumpAndAppendToTrace(params.dump_type, params.level_of_detail, params.determinism);
           if (header.expectsResponse) {
@@ -1182,9 +1194,11 @@ memory_instrumentation.mojom.CoordinatorConnectorReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1198,12 +1212,13 @@ memory_instrumentation.mojom.CoordinatorConnectorReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: RegisterCoordinatorClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterCoordinatorClient (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1220,7 +1235,7 @@ memory_instrumentation.mojom.CoordinatorConnectorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.registerCoordinatorClient');
           const result = this.impl.registerCoordinatorClient(params.receiver, params.client_process);
           break;

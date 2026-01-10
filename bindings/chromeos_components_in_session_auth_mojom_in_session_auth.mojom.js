@@ -190,9 +190,11 @@ chromeos.auth.mojom.InSessionAuthReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -206,12 +208,13 @@ chromeos.auth.mojom.InSessionAuthReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: RequestToken
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.auth.mojom.InSessionAuth_RequestToken_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.auth.mojom.InSessionAuth_RequestToken_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestToken (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -222,7 +225,7 @@ chromeos.auth.mojom.InSessionAuthReceiver = class {
         // Try Method 1: CheckToken
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.auth.mojom.InSessionAuth_CheckToken_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.auth.mojom.InSessionAuth_CheckToken_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CheckToken (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -233,7 +236,7 @@ chromeos.auth.mojom.InSessionAuthReceiver = class {
         // Try Method 2: InvalidateToken
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.auth.mojom.InSessionAuth_InvalidateToken_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.auth.mojom.InSessionAuth_InvalidateToken_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InvalidateToken (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -244,7 +247,7 @@ chromeos.auth.mojom.InSessionAuthReceiver = class {
         // Try Method 3: RequestLegacyWebAuthn
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestLegacyWebAuthn (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -261,7 +264,7 @@ chromeos.auth.mojom.InSessionAuthReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.auth.mojom.InSessionAuth_RequestToken_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.auth.mojom.InSessionAuth_RequestToken_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestToken');
           const result = this.impl.requestToken(params.reason, params.prompt);
           if (header.expectsResponse) {
@@ -274,7 +277,7 @@ chromeos.auth.mojom.InSessionAuthReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.auth.mojom.InSessionAuth_CheckToken_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.auth.mojom.InSessionAuth_CheckToken_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.checkToken');
           const result = this.impl.checkToken(params.reason, params.token);
           if (header.expectsResponse) {
@@ -287,14 +290,14 @@ chromeos.auth.mojom.InSessionAuthReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.auth.mojom.InSessionAuth_InvalidateToken_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.auth.mojom.InSessionAuth_InvalidateToken_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.invalidateToken');
           const result = this.impl.invalidateToken(params.token);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestLegacyWebAuthn');
           const result = this.impl.requestLegacyWebAuthn(params.rp_id, params.window_id);
           if (header.expectsResponse) {

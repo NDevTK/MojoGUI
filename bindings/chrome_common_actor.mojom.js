@@ -416,9 +416,11 @@ actor.mojom.JournalClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -432,12 +434,13 @@ actor.mojom.JournalClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AddEntriesToJournal
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(actor.mojom.JournalClient_AddEntriesToJournal_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(actor.mojom.JournalClient_AddEntriesToJournal_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddEntriesToJournal (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -454,7 +457,7 @@ actor.mojom.JournalClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(actor.mojom.JournalClient_AddEntriesToJournal_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(actor.mojom.JournalClient_AddEntriesToJournal_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addEntriesToJournal');
           const result = this.impl.addEntriesToJournal(params.entries);
           break;
@@ -558,9 +561,11 @@ actor.mojom.PageStabilityMonitorReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -574,12 +579,13 @@ actor.mojom.PageStabilityMonitorReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: NotifyWhenStable
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(actor.mojom.PageStabilityMonitor_NotifyWhenStable_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(actor.mojom.PageStabilityMonitor_NotifyWhenStable_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyWhenStable (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -596,7 +602,7 @@ actor.mojom.PageStabilityMonitorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(actor.mojom.PageStabilityMonitor_NotifyWhenStable_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(actor.mojom.PageStabilityMonitor_NotifyWhenStable_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.notifyWhenStable');
           const result = this.impl.notifyWhenStable(params.observation_delay);
           if (header.expectsResponse) {

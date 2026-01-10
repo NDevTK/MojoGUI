@@ -138,9 +138,11 @@ storage.mojom.FileSystemAccessContextReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -154,12 +156,13 @@ storage.mojom.FileSystemAccessContextReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SerializeHandle
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(storage.mojom.FileSystemAccessContext_SerializeHandle_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(storage.mojom.FileSystemAccessContext_SerializeHandle_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SerializeHandle (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -170,7 +173,7 @@ storage.mojom.FileSystemAccessContextReceiver = class {
         // Try Method 1: DeserializeHandle
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(storage.mojom.FileSystemAccessContext_DeserializeHandle_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(storage.mojom.FileSystemAccessContext_DeserializeHandle_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeserializeHandle (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -181,7 +184,7 @@ storage.mojom.FileSystemAccessContextReceiver = class {
         // Try Method 2: Clone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(storage.mojom.FileSystemAccessContext_Clone_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(storage.mojom.FileSystemAccessContext_Clone_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clone (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -198,7 +201,7 @@ storage.mojom.FileSystemAccessContextReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.FileSystemAccessContext_SerializeHandle_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(storage.mojom.FileSystemAccessContext_SerializeHandle_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.serializeHandle');
           const result = this.impl.serializeHandle(params.token);
           if (header.expectsResponse) {
@@ -211,14 +214,14 @@ storage.mojom.FileSystemAccessContextReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.FileSystemAccessContext_DeserializeHandle_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(storage.mojom.FileSystemAccessContext_DeserializeHandle_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.deserializeHandle');
           const result = this.impl.deserializeHandle(params.storage_key, params.bits, params.token);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.FileSystemAccessContext_Clone_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(storage.mojom.FileSystemAccessContext_Clone_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.receiever);
           break;

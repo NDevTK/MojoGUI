@@ -129,9 +129,11 @@ arc.mojom.ErrorNotificationHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -145,12 +147,13 @@ arc.mojom.ErrorNotificationHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SendErrorDetails
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.ErrorNotificationHost_SendErrorDetails_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.ErrorNotificationHost_SendErrorDetails_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendErrorDetails (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -167,7 +170,7 @@ arc.mojom.ErrorNotificationHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.ErrorNotificationHost_SendErrorDetails_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.ErrorNotificationHost_SendErrorDetails_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.sendErrorDetails');
           const result = this.impl.sendErrorDetails(params.details, params.action_handler);
           if (header.expectsResponse) {
@@ -277,9 +280,11 @@ arc.mojom.ErrorNotificationInstanceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -293,12 +298,13 @@ arc.mojom.ErrorNotificationInstanceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.ErrorNotificationInstance_Init_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.ErrorNotificationInstance_Init_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -315,7 +321,7 @@ arc.mojom.ErrorNotificationInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.ErrorNotificationInstance_Init_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.ErrorNotificationInstance_Init_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -419,9 +425,11 @@ arc.mojom.ErrorNotificationItemReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -435,12 +443,13 @@ arc.mojom.ErrorNotificationItemReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CloseErrorNotification
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.ErrorNotificationItem_CloseErrorNotification_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.ErrorNotificationItem_CloseErrorNotification_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseErrorNotification (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -457,7 +466,7 @@ arc.mojom.ErrorNotificationItemReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.ErrorNotificationItem_CloseErrorNotification_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.ErrorNotificationItem_CloseErrorNotification_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.closeErrorNotification');
           const result = this.impl.closeErrorNotification();
           break;
@@ -572,9 +581,11 @@ arc.mojom.ErrorNotificationActionHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -588,12 +599,13 @@ arc.mojom.ErrorNotificationActionHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnNotificationButtonClicked
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.ErrorNotificationActionHandler_OnNotificationButtonClicked_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.ErrorNotificationActionHandler_OnNotificationButtonClicked_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNotificationButtonClicked (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -604,7 +616,7 @@ arc.mojom.ErrorNotificationActionHandlerReceiver = class {
         // Try Method 1: OnNotificationClosed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.ErrorNotificationActionHandler_OnNotificationClosed_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.ErrorNotificationActionHandler_OnNotificationClosed_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNotificationClosed (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -621,14 +633,14 @@ arc.mojom.ErrorNotificationActionHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.ErrorNotificationActionHandler_OnNotificationButtonClicked_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.ErrorNotificationActionHandler_OnNotificationButtonClicked_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onNotificationButtonClicked');
           const result = this.impl.onNotificationButtonClicked(params.buttonIndex);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.ErrorNotificationActionHandler_OnNotificationClosed_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.ErrorNotificationActionHandler_OnNotificationClosed_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onNotificationClosed');
           const result = this.impl.onNotificationClosed();
           break;

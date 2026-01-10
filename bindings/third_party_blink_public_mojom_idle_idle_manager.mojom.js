@@ -116,9 +116,11 @@ blink.mojom.IdleMonitorReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -132,12 +134,13 @@ blink.mojom.IdleMonitorReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Update
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.IdleMonitor_Update_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.IdleMonitor_Update_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Update (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -154,7 +157,7 @@ blink.mojom.IdleMonitorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.IdleMonitor_Update_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.IdleMonitor_Update_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.update');
           const result = this.impl.update(params.state, params.is_overridden_by_devtools);
           break;
@@ -260,9 +263,11 @@ blink.mojom.IdleManagerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -276,12 +281,13 @@ blink.mojom.IdleManagerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AddMonitor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.IdleManager_AddMonitor_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.IdleManager_AddMonitor_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddMonitor (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -298,7 +304,7 @@ blink.mojom.IdleManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.IdleManager_AddMonitor_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.IdleManager_AddMonitor_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addMonitor');
           const result = this.impl.addMonitor(params.monitor);
           if (header.expectsResponse) {

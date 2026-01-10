@@ -288,9 +288,11 @@ mantis.mojom.MantisProcessorReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -304,12 +306,13 @@ mantis.mojom.MantisProcessorReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Inpainting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(mantis.mojom.MantisProcessor_Inpainting_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(mantis.mojom.MantisProcessor_Inpainting_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Inpainting (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -320,7 +323,7 @@ mantis.mojom.MantisProcessorReceiver = class {
         // Try Method 1: GenerativeFill
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(mantis.mojom.MantisProcessor_GenerativeFill_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(mantis.mojom.MantisProcessor_GenerativeFill_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenerativeFill (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -331,7 +334,7 @@ mantis.mojom.MantisProcessorReceiver = class {
         // Try Method 2: Segmentation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(mantis.mojom.MantisProcessor_Segmentation_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(mantis.mojom.MantisProcessor_Segmentation_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Segmentation (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -342,7 +345,7 @@ mantis.mojom.MantisProcessorReceiver = class {
         // Try Method 3: ClassifyImageSafety
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(mantis.mojom.MantisProcessor_ClassifyImageSafety_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(mantis.mojom.MantisProcessor_ClassifyImageSafety_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClassifyImageSafety (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -353,7 +356,7 @@ mantis.mojom.MantisProcessorReceiver = class {
         // Try Method 4: Outpainting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(mantis.mojom.MantisProcessor_Outpainting_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(mantis.mojom.MantisProcessor_Outpainting_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Outpainting (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -364,7 +367,7 @@ mantis.mojom.MantisProcessorReceiver = class {
         // Try Method 5: InferSegmentationMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(mantis.mojom.MantisProcessor_InferSegmentationMode_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(mantis.mojom.MantisProcessor_InferSegmentationMode_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InferSegmentationMode (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -381,7 +384,7 @@ mantis.mojom.MantisProcessorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(mantis.mojom.MantisProcessor_Inpainting_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(mantis.mojom.MantisProcessor_Inpainting_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.inpainting');
           const result = this.impl.inpainting(params.image, params.mask, params.seed);
           if (header.expectsResponse) {
@@ -394,7 +397,7 @@ mantis.mojom.MantisProcessorReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(mantis.mojom.MantisProcessor_GenerativeFill_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(mantis.mojom.MantisProcessor_GenerativeFill_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.generativeFill');
           const result = this.impl.generativeFill(params.image, params.mask, params.seed, params.prompt);
           if (header.expectsResponse) {
@@ -407,7 +410,7 @@ mantis.mojom.MantisProcessorReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(mantis.mojom.MantisProcessor_Segmentation_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(mantis.mojom.MantisProcessor_Segmentation_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.segmentation');
           const result = this.impl.segmentation(params.image, params.prior);
           if (header.expectsResponse) {
@@ -420,7 +423,7 @@ mantis.mojom.MantisProcessorReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(mantis.mojom.MantisProcessor_ClassifyImageSafety_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(mantis.mojom.MantisProcessor_ClassifyImageSafety_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.classifyImageSafety');
           const result = this.impl.classifyImageSafety(params.image);
           if (header.expectsResponse) {
@@ -433,7 +436,7 @@ mantis.mojom.MantisProcessorReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(mantis.mojom.MantisProcessor_Outpainting_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(mantis.mojom.MantisProcessor_Outpainting_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.outpainting');
           const result = this.impl.outpainting(params.image, params.mask, params.seed);
           if (header.expectsResponse) {
@@ -446,7 +449,7 @@ mantis.mojom.MantisProcessorReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(mantis.mojom.MantisProcessor_InferSegmentationMode_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(mantis.mojom.MantisProcessor_InferSegmentationMode_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.inferSegmentationMode');
           const result = this.impl.inferSegmentationMode(params.gesture);
           if (header.expectsResponse) {

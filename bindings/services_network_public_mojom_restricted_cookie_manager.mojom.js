@@ -300,9 +300,11 @@ network.mojom.RestrictedCookieManagerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -316,12 +318,13 @@ network.mojom.RestrictedCookieManagerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetAllForUrl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.RestrictedCookieManager_GetAllForUrl_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.RestrictedCookieManager_GetAllForUrl_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAllForUrl (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -332,7 +335,7 @@ network.mojom.RestrictedCookieManagerReceiver = class {
         // Try Method 1: SetCanonicalCookie
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.RestrictedCookieManager_SetCanonicalCookie_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.RestrictedCookieManager_SetCanonicalCookie_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCanonicalCookie (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -343,7 +346,7 @@ network.mojom.RestrictedCookieManagerReceiver = class {
         // Try Method 2: AddChangeListener
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.RestrictedCookieManager_AddChangeListener_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.RestrictedCookieManager_AddChangeListener_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddChangeListener (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -354,7 +357,7 @@ network.mojom.RestrictedCookieManagerReceiver = class {
         // Try Method 3: SetCookieFromString
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.RestrictedCookieManager_SetCookieFromString_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.RestrictedCookieManager_SetCookieFromString_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCookieFromString (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -365,7 +368,7 @@ network.mojom.RestrictedCookieManagerReceiver = class {
         // Try Method 4: GetCookiesString
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.RestrictedCookieManager_GetCookiesString_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.RestrictedCookieManager_GetCookiesString_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCookiesString (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -376,7 +379,7 @@ network.mojom.RestrictedCookieManagerReceiver = class {
         // Try Method 5: CookiesEnabledFor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.RestrictedCookieManager_CookiesEnabledFor_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.RestrictedCookieManager_CookiesEnabledFor_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CookiesEnabledFor (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -393,7 +396,7 @@ network.mojom.RestrictedCookieManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.RestrictedCookieManager_GetAllForUrl_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.RestrictedCookieManager_GetAllForUrl_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getAllForUrl');
           const result = this.impl.getAllForUrl(params.url, params.site_for_cookies, params.top_frame_origin, params.storage_access_api_status, params.options, params.is_ad_tagged, params.apply_devtools_overrides, params.force_disable_third_party_cookies);
           if (header.expectsResponse) {
@@ -406,7 +409,7 @@ network.mojom.RestrictedCookieManagerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.RestrictedCookieManager_SetCanonicalCookie_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.RestrictedCookieManager_SetCanonicalCookie_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setCanonicalCookie');
           const result = this.impl.setCanonicalCookie(params.cookie, params.url, params.site_for_cookies, params.top_frame_origin, params.storage_access_api_status, params.status, params.is_ad_tagged, params.apply_devtools_overrides);
           if (header.expectsResponse) {
@@ -419,7 +422,7 @@ network.mojom.RestrictedCookieManagerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.RestrictedCookieManager_AddChangeListener_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.RestrictedCookieManager_AddChangeListener_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addChangeListener');
           const result = this.impl.addChangeListener(params.url, params.site_for_cookies, params.top_frame_origin, params.storage_access_api_status, params.listener);
           if (header.expectsResponse) {
@@ -432,7 +435,7 @@ network.mojom.RestrictedCookieManagerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.RestrictedCookieManager_SetCookieFromString_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.RestrictedCookieManager_SetCookieFromString_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setCookieFromString');
           const result = this.impl.setCookieFromString(params.url, params.site_for_cookies, params.top_frame_origin, params.storage_access_api_status, params.get_version_shared_memory, params.is_ad_tagged, params.apply_devtools_overrides, params.cookie);
           if (header.expectsResponse) {
@@ -445,7 +448,7 @@ network.mojom.RestrictedCookieManagerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.RestrictedCookieManager_GetCookiesString_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.RestrictedCookieManager_GetCookiesString_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getCookiesString');
           const result = this.impl.getCookiesString(params.url, params.site_for_cookies, params.top_frame_origin, params.storage_access_api_status, params.get_version_shared_memory, params.is_ad_tagged, params.apply_devtools_overrides, params.force_disable_third_party_cookies);
           if (header.expectsResponse) {
@@ -458,7 +461,7 @@ network.mojom.RestrictedCookieManagerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.RestrictedCookieManager_CookiesEnabledFor_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.RestrictedCookieManager_CookiesEnabledFor_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.cookiesEnabledFor');
           const result = this.impl.cookiesEnabledFor(params.url, params.site_for_cookies, params.top_frame_origin, params.storage_access_api_status, params.apply_devtools_overrides);
           if (header.expectsResponse) {

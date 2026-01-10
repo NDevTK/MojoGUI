@@ -155,9 +155,11 @@ media.mojom.MediaEngagementScoreDetailsProviderReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -171,12 +173,13 @@ media.mojom.MediaEngagementScoreDetailsProviderReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetMediaEngagementScoreDetails
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMediaEngagementScoreDetails (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -187,7 +190,7 @@ media.mojom.MediaEngagementScoreDetailsProviderReceiver = class {
         // Try Method 1: GetMediaEngagementConfig
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMediaEngagementConfig (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -204,7 +207,7 @@ media.mojom.MediaEngagementScoreDetailsProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getMediaEngagementScoreDetails');
           const result = this.impl.getMediaEngagementScoreDetails();
           if (header.expectsResponse) {
@@ -217,7 +220,7 @@ media.mojom.MediaEngagementScoreDetailsProviderReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getMediaEngagementConfig');
           const result = this.impl.getMediaEngagementConfig();
           if (header.expectsResponse) {

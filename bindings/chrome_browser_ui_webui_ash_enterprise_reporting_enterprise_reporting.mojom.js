@@ -131,9 +131,11 @@ enterprise_reporting.mojom.PageHandlerFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -147,12 +149,13 @@ enterprise_reporting.mojom.PageHandlerFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(enterprise_reporting.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(enterprise_reporting.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -169,7 +172,7 @@ enterprise_reporting.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(enterprise_reporting.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(enterprise_reporting.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
@@ -312,9 +315,11 @@ enterprise_reporting.mojom.PageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -328,12 +333,13 @@ enterprise_reporting.mojom.PageHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: RecordDebugState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(enterprise_reporting.mojom.PageHandler_RecordDebugState_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(enterprise_reporting.mojom.PageHandler_RecordDebugState_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordDebugState (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -344,7 +350,7 @@ enterprise_reporting.mojom.PageHandlerReceiver = class {
         // Try Method 1: GetDebugState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(enterprise_reporting.mojom.PageHandler_GetDebugState_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(enterprise_reporting.mojom.PageHandler_GetDebugState_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDebugState (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -355,7 +361,7 @@ enterprise_reporting.mojom.PageHandlerReceiver = class {
         // Try Method 2: GetErpHistoryData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetErpHistoryData (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -372,14 +378,14 @@ enterprise_reporting.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(enterprise_reporting.mojom.PageHandler_RecordDebugState_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(enterprise_reporting.mojom.PageHandler_RecordDebugState_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.recordDebugState');
           const result = this.impl.recordDebugState(params.state);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(enterprise_reporting.mojom.PageHandler_GetDebugState_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(enterprise_reporting.mojom.PageHandler_GetDebugState_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getDebugState');
           const result = this.impl.getDebugState();
           if (header.expectsResponse) {
@@ -392,7 +398,7 @@ enterprise_reporting.mojom.PageHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getErpHistoryData');
           const result = this.impl.getErpHistoryData();
           if (header.expectsResponse) {
@@ -497,9 +503,11 @@ enterprise_reporting.mojom.PageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -513,12 +521,13 @@ enterprise_reporting.mojom.PageReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetErpHistoryData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(enterprise_reporting.mojom.Page_SetErpHistoryData_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(enterprise_reporting.mojom.Page_SetErpHistoryData_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetErpHistoryData (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -535,7 +544,7 @@ enterprise_reporting.mojom.PageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(enterprise_reporting.mojom.Page_SetErpHistoryData_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(enterprise_reporting.mojom.Page_SetErpHistoryData_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setErpHistoryData');
           const result = this.impl.setErpHistoryData(params.history_data);
           break;

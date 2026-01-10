@@ -108,9 +108,11 @@ blink.mojom.LockHandleReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -124,6 +126,7 @@ blink.mojom.LockHandleReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         if (dispatchId === undefined) {
@@ -243,9 +246,11 @@ blink.mojom.LockRequestReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -259,12 +264,13 @@ blink.mojom.LockRequestReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Granted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.LockRequest_Granted_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.LockRequest_Granted_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Granted (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -275,7 +281,7 @@ blink.mojom.LockRequestReceiver = class {
         // Try Method 1: Failed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.LockRequest_Failed_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.LockRequest_Failed_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Failed (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -292,14 +298,14 @@ blink.mojom.LockRequestReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.LockRequest_Granted_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.LockRequest_Granted_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.granted');
           const result = this.impl.granted(params.lock_handle);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.LockRequest_Failed_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.LockRequest_Failed_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.failed');
           const result = this.impl.failed();
           break;
@@ -424,9 +430,11 @@ blink.mojom.LockManagerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -440,12 +448,13 @@ blink.mojom.LockManagerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: RequestLock
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.LockManager_RequestLock_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.LockManager_RequestLock_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestLock (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -456,7 +465,7 @@ blink.mojom.LockManagerReceiver = class {
         // Try Method 1: QueryState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.LockManager_QueryState_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.LockManager_QueryState_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> QueryState (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -473,14 +482,14 @@ blink.mojom.LockManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.LockManager_RequestLock_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.LockManager_RequestLock_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestLock');
           const result = this.impl.requestLock(params.name, params.mode, params.wait, params.request);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.LockManager_QueryState_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.LockManager_QueryState_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.queryState');
           const result = this.impl.queryState();
           if (header.expectsResponse) {

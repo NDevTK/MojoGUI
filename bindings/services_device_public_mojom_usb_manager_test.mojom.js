@@ -162,9 +162,11 @@ device.mojom.UsbDeviceManagerTestReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -178,12 +180,13 @@ device.mojom.UsbDeviceManagerTestReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AddDeviceForTesting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddDeviceForTesting (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -194,7 +197,7 @@ device.mojom.UsbDeviceManagerTestReceiver = class {
         // Try Method 1: RemoveDeviceForTesting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveDeviceForTesting (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -205,7 +208,7 @@ device.mojom.UsbDeviceManagerTestReceiver = class {
         // Try Method 2: GetTestDevices
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.UsbDeviceManagerTest_GetTestDevices_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.UsbDeviceManagerTest_GetTestDevices_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTestDevices (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -222,7 +225,7 @@ device.mojom.UsbDeviceManagerTestReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addDeviceForTesting');
           const result = this.impl.addDeviceForTesting(params.name, params.serial_number, params.landing_page);
           if (header.expectsResponse) {
@@ -235,7 +238,7 @@ device.mojom.UsbDeviceManagerTestReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.removeDeviceForTesting');
           const result = this.impl.removeDeviceForTesting(params.guid);
           if (header.expectsResponse) {
@@ -248,7 +251,7 @@ device.mojom.UsbDeviceManagerTestReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.UsbDeviceManagerTest_GetTestDevices_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.UsbDeviceManagerTest_GetTestDevices_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getTestDevices');
           const result = this.impl.getTestDevices();
           if (header.expectsResponse) {

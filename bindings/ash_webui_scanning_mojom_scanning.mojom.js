@@ -280,9 +280,11 @@ ash.scanning.mojom.ScanJobObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -296,12 +298,13 @@ ash.scanning.mojom.ScanJobObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnPageProgress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPageProgress (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -312,7 +315,7 @@ ash.scanning.mojom.ScanJobObserverReceiver = class {
         // Try Method 1: OnPageComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.scanning.mojom.ScanJobObserver_OnPageComplete_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.scanning.mojom.ScanJobObserver_OnPageComplete_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPageComplete (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -323,7 +326,7 @@ ash.scanning.mojom.ScanJobObserverReceiver = class {
         // Try Method 2: OnScanComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnScanComplete (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -334,7 +337,7 @@ ash.scanning.mojom.ScanJobObserverReceiver = class {
         // Try Method 3: OnCancelComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.scanning.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.scanning.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCancelComplete (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -345,7 +348,7 @@ ash.scanning.mojom.ScanJobObserverReceiver = class {
         // Try Method 4: OnMultiPageScanFail
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMultiPageScanFail (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -362,35 +365,35 @@ ash.scanning.mojom.ScanJobObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onPageProgress');
           const result = this.impl.onPageProgress(params.page_number, params.progress_percent);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.scanning.mojom.ScanJobObserver_OnPageComplete_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.scanning.mojom.ScanJobObserver_OnPageComplete_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onPageComplete');
           const result = this.impl.onPageComplete(params.page_data, params.new_page_index);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onScanComplete');
           const result = this.impl.onScanComplete(params.result, params.scanned_file_paths);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.scanning.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.scanning.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onCancelComplete');
           const result = this.impl.onCancelComplete(params.success);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onMultiPageScanFail');
           const result = this.impl.onMultiPageScanFail(params.result);
           break;
@@ -583,9 +586,11 @@ ash.scanning.mojom.ScanServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -599,12 +604,13 @@ ash.scanning.mojom.ScanServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetScanners
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.scanning.mojom.ScanService_GetScanners_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.scanning.mojom.ScanService_GetScanners_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetScanners (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -615,7 +621,7 @@ ash.scanning.mojom.ScanServiceReceiver = class {
         // Try Method 1: GetScannerCapabilities
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetScannerCapabilities (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -626,7 +632,7 @@ ash.scanning.mojom.ScanServiceReceiver = class {
         // Try Method 2: StartScan
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.scanning.mojom.ScanService_StartScan_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.scanning.mojom.ScanService_StartScan_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartScan (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -637,7 +643,7 @@ ash.scanning.mojom.ScanServiceReceiver = class {
         // Try Method 3: StartMultiPageScan
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartMultiPageScan (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -648,7 +654,7 @@ ash.scanning.mojom.ScanServiceReceiver = class {
         // Try Method 4: CancelScan
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.scanning.mojom.ScanService_CancelScan_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.scanning.mojom.ScanService_CancelScan_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelScan (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -665,7 +671,7 @@ ash.scanning.mojom.ScanServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.scanning.mojom.ScanService_GetScanners_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.scanning.mojom.ScanService_GetScanners_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getScanners');
           const result = this.impl.getScanners();
           if (header.expectsResponse) {
@@ -678,7 +684,7 @@ ash.scanning.mojom.ScanServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getScannerCapabilities');
           const result = this.impl.getScannerCapabilities(params.scanner_id);
           if (header.expectsResponse) {
@@ -691,7 +697,7 @@ ash.scanning.mojom.ScanServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.scanning.mojom.ScanService_StartScan_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.scanning.mojom.ScanService_StartScan_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.startScan');
           const result = this.impl.startScan(params.scanner_id, params.settings, params.observer);
           if (header.expectsResponse) {
@@ -704,7 +710,7 @@ ash.scanning.mojom.ScanServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.startMultiPageScan');
           const result = this.impl.startMultiPageScan(params.scanner_id, params.settings, params.observer);
           if (header.expectsResponse) {
@@ -717,7 +723,7 @@ ash.scanning.mojom.ScanServiceReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.scanning.mojom.ScanService_CancelScan_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.scanning.mojom.ScanService_CancelScan_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.cancelScan');
           const result = this.impl.cancelScan();
           break;
@@ -881,9 +887,11 @@ ash.scanning.mojom.MultiPageScanControllerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -897,12 +905,13 @@ ash.scanning.mojom.MultiPageScanControllerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ScanNextPage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ScanNextPage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -913,7 +922,7 @@ ash.scanning.mojom.MultiPageScanControllerReceiver = class {
         // Try Method 1: RemovePage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.scanning.mojom.MultiPageScanController_RemovePage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.scanning.mojom.MultiPageScanController_RemovePage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemovePage (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -924,7 +933,7 @@ ash.scanning.mojom.MultiPageScanControllerReceiver = class {
         // Try Method 2: RescanPage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RescanPage (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -935,7 +944,7 @@ ash.scanning.mojom.MultiPageScanControllerReceiver = class {
         // Try Method 3: CompleteMultiPageScan
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CompleteMultiPageScan (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -952,7 +961,7 @@ ash.scanning.mojom.MultiPageScanControllerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.scanNextPage');
           const result = this.impl.scanNextPage(params.scanner_id, params.settings);
           if (header.expectsResponse) {
@@ -965,14 +974,14 @@ ash.scanning.mojom.MultiPageScanControllerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.scanning.mojom.MultiPageScanController_RemovePage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.scanning.mojom.MultiPageScanController_RemovePage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.removePage');
           const result = this.impl.removePage(params.page_index);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.rescanPage');
           const result = this.impl.rescanPage(params.scanner_id, params.settings, params.page_index);
           if (header.expectsResponse) {
@@ -985,7 +994,7 @@ ash.scanning.mojom.MultiPageScanControllerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.completeMultiPageScan');
           const result = this.impl.completeMultiPageScan();
           break;

@@ -177,9 +177,11 @@ content.mojom.RendererHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -193,12 +195,13 @@ content.mojom.RendererHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetBrowserHistogram
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetBrowserHistogram (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -209,7 +212,7 @@ content.mojom.RendererHostReceiver = class {
         // Try Method 1: SuddenTerminationAllowedChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SuddenTerminationAllowedChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -220,7 +223,7 @@ content.mojom.RendererHostReceiver = class {
         // Try Method 2: RecordUserMetricsAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordUserMetricsAction (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -231,7 +234,7 @@ content.mojom.RendererHostReceiver = class {
         // Try Method 3: SetPrivateMemoryFootprint
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.RendererHost_SetPrivateMemoryFootprint_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.RendererHost_SetPrivateMemoryFootprint_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPrivateMemoryFootprint (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -242,7 +245,7 @@ content.mojom.RendererHostReceiver = class {
         // Try Method 4: HasGpuProcess
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.RendererHost_HasGpuProcess_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.RendererHost_HasGpuProcess_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HasGpuProcess (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -259,7 +262,7 @@ content.mojom.RendererHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getBrowserHistogram');
           const result = this.impl.getBrowserHistogram(params.name);
           if (header.expectsResponse) {
@@ -272,28 +275,28 @@ content.mojom.RendererHostReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.suddenTerminationAllowedChanged');
           const result = this.impl.suddenTerminationAllowedChanged(params.allowed);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.recordUserMetricsAction');
           const result = this.impl.recordUserMetricsAction(params.action);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.RendererHost_SetPrivateMemoryFootprint_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.RendererHost_SetPrivateMemoryFootprint_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setPrivateMemoryFootprint');
           const result = this.impl.setPrivateMemoryFootprint(params.private_memory_footprint_bytes);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.RendererHost_HasGpuProcess_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.RendererHost_HasGpuProcess_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.hasGpuProcess');
           const result = this.impl.hasGpuProcess();
           if (header.expectsResponse) {

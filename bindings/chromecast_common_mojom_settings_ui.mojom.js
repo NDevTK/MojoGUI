@@ -134,9 +134,11 @@ chromecast.mojom.SettingsClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -150,12 +152,13 @@ chromecast.mojom.SettingsClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: HandleSideSwipe
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromecast.mojom.SettingsClient_HandleSideSwipe_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromecast.mojom.SettingsClient_HandleSideSwipe_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleSideSwipe (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -166,7 +169,7 @@ chromecast.mojom.SettingsClientReceiver = class {
         // Try Method 1: SendPlatformInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromecast.mojom.SettingsClient_SendPlatformInfo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromecast.mojom.SettingsClient_SendPlatformInfo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendPlatformInfo (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -183,14 +186,14 @@ chromecast.mojom.SettingsClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.mojom.SettingsClient_HandleSideSwipe_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromecast.mojom.SettingsClient_HandleSideSwipe_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.handleSideSwipe');
           const result = this.impl.handleSideSwipe(params.event, params.origin, params.touch_location);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.mojom.SettingsClient_SendPlatformInfo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromecast.mojom.SettingsClient_SendPlatformInfo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.sendPlatformInfo');
           const result = this.impl.sendPlatformInfo(params.platform_info_json);
           break;
@@ -306,9 +309,11 @@ chromecast.mojom.SettingsPlatformReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -322,12 +327,13 @@ chromecast.mojom.SettingsPlatformReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Connect
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromecast.mojom.SettingsPlatform_Connect_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromecast.mojom.SettingsPlatform_Connect_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Connect (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -338,7 +344,7 @@ chromecast.mojom.SettingsPlatformReceiver = class {
         // Try Method 1: RequestVisible
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromecast.mojom.SettingsPlatform_RequestVisible_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromecast.mojom.SettingsPlatform_RequestVisible_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestVisible (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -355,14 +361,14 @@ chromecast.mojom.SettingsPlatformReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.mojom.SettingsPlatform_Connect_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromecast.mojom.SettingsPlatform_Connect_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.connect');
           const result = this.impl.connect(params.client);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.mojom.SettingsPlatform_RequestVisible_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromecast.mojom.SettingsPlatform_RequestVisible_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestVisible');
           const result = this.impl.requestVisible(params.visible);
           break;

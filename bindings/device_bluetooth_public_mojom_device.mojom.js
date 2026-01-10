@@ -392,9 +392,11 @@ bluetooth.mojom.DeviceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -408,12 +410,13 @@ bluetooth.mojom.DeviceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Disconnect
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(bluetooth.mojom.Device_Disconnect_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(bluetooth.mojom.Device_Disconnect_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Disconnect (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -424,7 +427,7 @@ bluetooth.mojom.DeviceReceiver = class {
         // Try Method 1: GetInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(bluetooth.mojom.Device_GetInfo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(bluetooth.mojom.Device_GetInfo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetInfo (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -435,7 +438,7 @@ bluetooth.mojom.DeviceReceiver = class {
         // Try Method 2: GetServices
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(bluetooth.mojom.Device_GetServices_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(bluetooth.mojom.Device_GetServices_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetServices (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -446,7 +449,7 @@ bluetooth.mojom.DeviceReceiver = class {
         // Try Method 3: GetCharacteristics
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(bluetooth.mojom.Device_GetCharacteristics_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(bluetooth.mojom.Device_GetCharacteristics_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCharacteristics (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -457,7 +460,7 @@ bluetooth.mojom.DeviceReceiver = class {
         // Try Method 4: ReadValueForCharacteristic
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(bluetooth.mojom.Device_ReadValueForCharacteristic_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(bluetooth.mojom.Device_ReadValueForCharacteristic_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadValueForCharacteristic (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -468,7 +471,7 @@ bluetooth.mojom.DeviceReceiver = class {
         // Try Method 5: WriteValueForCharacteristic
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(bluetooth.mojom.Device_WriteValueForCharacteristic_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(bluetooth.mojom.Device_WriteValueForCharacteristic_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteValueForCharacteristic (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -479,7 +482,7 @@ bluetooth.mojom.DeviceReceiver = class {
         // Try Method 6: GetDescriptors
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(bluetooth.mojom.Device_GetDescriptors_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(bluetooth.mojom.Device_GetDescriptors_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDescriptors (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -490,7 +493,7 @@ bluetooth.mojom.DeviceReceiver = class {
         // Try Method 7: ReadValueForDescriptor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(bluetooth.mojom.Device_ReadValueForDescriptor_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(bluetooth.mojom.Device_ReadValueForDescriptor_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadValueForDescriptor (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -501,7 +504,7 @@ bluetooth.mojom.DeviceReceiver = class {
         // Try Method 8: WriteValueForDescriptor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(bluetooth.mojom.Device_WriteValueForDescriptor_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(bluetooth.mojom.Device_WriteValueForDescriptor_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteValueForDescriptor (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -518,14 +521,14 @@ bluetooth.mojom.DeviceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(bluetooth.mojom.Device_Disconnect_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(bluetooth.mojom.Device_Disconnect_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.disconnect');
           const result = this.impl.disconnect();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(bluetooth.mojom.Device_GetInfo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(bluetooth.mojom.Device_GetInfo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getInfo');
           const result = this.impl.getInfo();
           if (header.expectsResponse) {
@@ -538,7 +541,7 @@ bluetooth.mojom.DeviceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(bluetooth.mojom.Device_GetServices_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(bluetooth.mojom.Device_GetServices_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getServices');
           const result = this.impl.getServices();
           if (header.expectsResponse) {
@@ -551,7 +554,7 @@ bluetooth.mojom.DeviceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(bluetooth.mojom.Device_GetCharacteristics_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(bluetooth.mojom.Device_GetCharacteristics_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getCharacteristics');
           const result = this.impl.getCharacteristics(params.service_id);
           if (header.expectsResponse) {
@@ -564,7 +567,7 @@ bluetooth.mojom.DeviceReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(bluetooth.mojom.Device_ReadValueForCharacteristic_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(bluetooth.mojom.Device_ReadValueForCharacteristic_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.readValueForCharacteristic');
           const result = this.impl.readValueForCharacteristic(params.service_id, params.characteristic_id);
           if (header.expectsResponse) {
@@ -577,7 +580,7 @@ bluetooth.mojom.DeviceReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(bluetooth.mojom.Device_WriteValueForCharacteristic_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(bluetooth.mojom.Device_WriteValueForCharacteristic_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.writeValueForCharacteristic');
           const result = this.impl.writeValueForCharacteristic(params.service_id, params.characteristic_id, params.value);
           if (header.expectsResponse) {
@@ -590,7 +593,7 @@ bluetooth.mojom.DeviceReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(bluetooth.mojom.Device_GetDescriptors_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(bluetooth.mojom.Device_GetDescriptors_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getDescriptors');
           const result = this.impl.getDescriptors(params.service_id, params.characteristic_id);
           if (header.expectsResponse) {
@@ -603,7 +606,7 @@ bluetooth.mojom.DeviceReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(bluetooth.mojom.Device_ReadValueForDescriptor_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(bluetooth.mojom.Device_ReadValueForDescriptor_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.readValueForDescriptor');
           const result = this.impl.readValueForDescriptor(params.service_id, params.characteristic_id, params.descriptor_id);
           if (header.expectsResponse) {
@@ -616,7 +619,7 @@ bluetooth.mojom.DeviceReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(bluetooth.mojom.Device_WriteValueForDescriptor_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(bluetooth.mojom.Device_WriteValueForDescriptor_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.writeValueForDescriptor');
           const result = this.impl.writeValueForDescriptor(params.service_id, params.characteristic_id, params.descriptor_id, params.value);
           if (header.expectsResponse) {

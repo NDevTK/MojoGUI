@@ -141,9 +141,11 @@ ash.focus_mode.mojom.MediaClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -157,12 +159,13 @@ ash.focus_mode.mojom.MediaClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: StartPlay
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.focus_mode.mojom.MediaClient_StartPlay_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.focus_mode.mojom.MediaClient_StartPlay_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartPlay (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -179,7 +182,7 @@ ash.focus_mode.mojom.MediaClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.focus_mode.mojom.MediaClient_StartPlay_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.focus_mode.mojom.MediaClient_StartPlay_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.startPlay');
           const result = this.impl.startPlay(params.track);
           break;
@@ -333,9 +336,11 @@ ash.focus_mode.mojom.TrackProviderReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -349,12 +354,13 @@ ash.focus_mode.mojom.TrackProviderReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetTrack
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.focus_mode.mojom.TrackProvider_GetTrack_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.focus_mode.mojom.TrackProvider_GetTrack_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTrack (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -365,7 +371,7 @@ ash.focus_mode.mojom.TrackProviderReceiver = class {
         // Try Method 1: SetMediaClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.focus_mode.mojom.TrackProvider_SetMediaClient_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.focus_mode.mojom.TrackProvider_SetMediaClient_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetMediaClient (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -376,7 +382,7 @@ ash.focus_mode.mojom.TrackProviderReceiver = class {
         // Try Method 2: ReportPlayback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.focus_mode.mojom.TrackProvider_ReportPlayback_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.focus_mode.mojom.TrackProvider_ReportPlayback_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportPlayback (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -387,7 +393,7 @@ ash.focus_mode.mojom.TrackProviderReceiver = class {
         // Try Method 3: ReportPlayerError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.focus_mode.mojom.TrackProvider_ReportPlayerError_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.focus_mode.mojom.TrackProvider_ReportPlayerError_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportPlayerError (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -404,7 +410,7 @@ ash.focus_mode.mojom.TrackProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.focus_mode.mojom.TrackProvider_GetTrack_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.focus_mode.mojom.TrackProvider_GetTrack_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getTrack');
           const result = this.impl.getTrack();
           if (header.expectsResponse) {
@@ -417,21 +423,21 @@ ash.focus_mode.mojom.TrackProviderReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.focus_mode.mojom.TrackProvider_SetMediaClient_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.focus_mode.mojom.TrackProvider_SetMediaClient_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setMediaClient');
           const result = this.impl.setMediaClient(params.client);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.focus_mode.mojom.TrackProvider_ReportPlayback_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.focus_mode.mojom.TrackProvider_ReportPlayback_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.reportPlayback');
           const result = this.impl.reportPlayback(params.data);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.focus_mode.mojom.TrackProvider_ReportPlayerError_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.focus_mode.mojom.TrackProvider_ReportPlayerError_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.reportPlayerError');
           const result = this.impl.reportPlayerError();
           break;

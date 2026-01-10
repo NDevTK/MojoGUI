@@ -176,9 +176,11 @@ data_decoder.mojom.GzipperReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -192,12 +194,13 @@ data_decoder.mojom.GzipperReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Deflate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(data_decoder.mojom.Gzipper_Deflate_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(data_decoder.mojom.Gzipper_Deflate_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Deflate (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -208,7 +211,7 @@ data_decoder.mojom.GzipperReceiver = class {
         // Try Method 1: Inflate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(data_decoder.mojom.Gzipper_Inflate_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(data_decoder.mojom.Gzipper_Inflate_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Inflate (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -219,7 +222,7 @@ data_decoder.mojom.GzipperReceiver = class {
         // Try Method 2: Compress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(data_decoder.mojom.Gzipper_Compress_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(data_decoder.mojom.Gzipper_Compress_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Compress (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -230,7 +233,7 @@ data_decoder.mojom.GzipperReceiver = class {
         // Try Method 3: Uncompress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(data_decoder.mojom.Gzipper_Uncompress_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(data_decoder.mojom.Gzipper_Uncompress_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Uncompress (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -247,7 +250,7 @@ data_decoder.mojom.GzipperReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(data_decoder.mojom.Gzipper_Deflate_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(data_decoder.mojom.Gzipper_Deflate_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.deflate');
           const result = this.impl.deflate(params.data);
           if (header.expectsResponse) {
@@ -260,7 +263,7 @@ data_decoder.mojom.GzipperReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(data_decoder.mojom.Gzipper_Inflate_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(data_decoder.mojom.Gzipper_Inflate_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.inflate');
           const result = this.impl.inflate(params.data, params.max_uncompressed_size);
           if (header.expectsResponse) {
@@ -273,7 +276,7 @@ data_decoder.mojom.GzipperReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(data_decoder.mojom.Gzipper_Compress_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(data_decoder.mojom.Gzipper_Compress_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.compress');
           const result = this.impl.compress(params.data);
           if (header.expectsResponse) {
@@ -286,7 +289,7 @@ data_decoder.mojom.GzipperReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(data_decoder.mojom.Gzipper_Uncompress_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(data_decoder.mojom.Gzipper_Uncompress_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.uncompress');
           const result = this.impl.uncompress(params.compressed_data);
           if (header.expectsResponse) {

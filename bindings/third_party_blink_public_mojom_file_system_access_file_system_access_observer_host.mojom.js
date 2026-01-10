@@ -119,9 +119,11 @@ blink.mojom.FileSystemAccessObserverHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -135,12 +137,13 @@ blink.mojom.FileSystemAccessObserverHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Observe
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FileSystemAccessObserverHost_Observe_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FileSystemAccessObserverHost_Observe_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Observe (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -151,7 +154,7 @@ blink.mojom.FileSystemAccessObserverHostReceiver = class {
         // Try Method 1: Unobserve
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FileSystemAccessObserverHost_Unobserve_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FileSystemAccessObserverHost_Unobserve_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Unobserve (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -168,7 +171,7 @@ blink.mojom.FileSystemAccessObserverHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FileSystemAccessObserverHost_Observe_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FileSystemAccessObserverHost_Observe_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.observe');
           const result = this.impl.observe(params.token, params.is_recursive);
           if (header.expectsResponse) {
@@ -181,7 +184,7 @@ blink.mojom.FileSystemAccessObserverHostReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FileSystemAccessObserverHost_Unobserve_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FileSystemAccessObserverHost_Unobserve_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.unobserve');
           const result = this.impl.unobserve(params.token);
           break;

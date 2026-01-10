@@ -197,9 +197,11 @@ blink.mojom.CodeCacheHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -213,12 +215,13 @@ blink.mojom.CodeCacheHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetPendingBackend
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.CodeCacheHost_GetPendingBackend_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.CodeCacheHost_GetPendingBackend_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPendingBackend (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -229,7 +232,7 @@ blink.mojom.CodeCacheHostReceiver = class {
         // Try Method 1: DidGenerateCacheableMetadata
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.CodeCacheHost_DidGenerateCacheableMetadata_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.CodeCacheHost_DidGenerateCacheableMetadata_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidGenerateCacheableMetadata (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -240,7 +243,7 @@ blink.mojom.CodeCacheHostReceiver = class {
         // Try Method 2: FetchCachedCode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.CodeCacheHost_FetchCachedCode_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.CodeCacheHost_FetchCachedCode_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FetchCachedCode (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -251,7 +254,7 @@ blink.mojom.CodeCacheHostReceiver = class {
         // Try Method 3: ClearCodeCacheEntry
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.CodeCacheHost_ClearCodeCacheEntry_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.CodeCacheHost_ClearCodeCacheEntry_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearCodeCacheEntry (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -262,7 +265,7 @@ blink.mojom.CodeCacheHostReceiver = class {
         // Try Method 4: DidGenerateCacheableMetadataInCacheStorage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.CodeCacheHost_DidGenerateCacheableMetadataInCacheStorage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.CodeCacheHost_DidGenerateCacheableMetadataInCacheStorage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidGenerateCacheableMetadataInCacheStorage (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -279,7 +282,7 @@ blink.mojom.CodeCacheHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.CodeCacheHost_GetPendingBackend_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.CodeCacheHost_GetPendingBackend_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getPendingBackend');
           const result = this.impl.getPendingBackend(params.cache_type);
           if (header.expectsResponse) {
@@ -292,14 +295,14 @@ blink.mojom.CodeCacheHostReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.CodeCacheHost_DidGenerateCacheableMetadata_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.CodeCacheHost_DidGenerateCacheableMetadata_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.didGenerateCacheableMetadata');
           const result = this.impl.didGenerateCacheableMetadata(params.cache_type, params.url, params.expected_response_time, params.data);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.CodeCacheHost_FetchCachedCode_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.CodeCacheHost_FetchCachedCode_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.fetchCachedCode');
           const result = this.impl.fetchCachedCode(params.cache_type, params.url);
           if (header.expectsResponse) {
@@ -312,14 +315,14 @@ blink.mojom.CodeCacheHostReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.CodeCacheHost_ClearCodeCacheEntry_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.CodeCacheHost_ClearCodeCacheEntry_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.clearCodeCacheEntry');
           const result = this.impl.clearCodeCacheEntry(params.cache_type, params.url);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.CodeCacheHost_DidGenerateCacheableMetadataInCacheStorage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.CodeCacheHost_DidGenerateCacheableMetadataInCacheStorage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.didGenerateCacheableMetadataInCacheStorage');
           const result = this.impl.didGenerateCacheableMetadataInCacheStorage(params.url, params.expected_response_time, params.data, params.cache_storage_cache_name);
           break;

@@ -172,9 +172,11 @@ storage.mojom.StorageServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -188,12 +190,13 @@ storage.mojom.StorageServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: EnableAggressiveDomStorageFlushing
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableAggressiveDomStorageFlushing (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -204,7 +207,7 @@ storage.mojom.StorageServiceReceiver = class {
         // Try Method 1: SetDataDirectory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(storage.mojom.StorageService_SetDataDirectory_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(storage.mojom.StorageService_SetDataDirectory_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDataDirectory (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -215,7 +218,7 @@ storage.mojom.StorageServiceReceiver = class {
         // Try Method 2: BindSessionStorageControl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(storage.mojom.StorageService_BindSessionStorageControl_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(storage.mojom.StorageService_BindSessionStorageControl_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindSessionStorageControl (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -226,7 +229,7 @@ storage.mojom.StorageServiceReceiver = class {
         // Try Method 3: BindLocalStorageControl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(storage.mojom.StorageService_BindLocalStorageControl_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(storage.mojom.StorageService_BindLocalStorageControl_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindLocalStorageControl (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -237,7 +240,7 @@ storage.mojom.StorageServiceReceiver = class {
         // Try Method 4: BindTestApi
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(storage.mojom.StorageService_BindTestApi_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(storage.mojom.StorageService_BindTestApi_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindTestApi (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -254,35 +257,35 @@ storage.mojom.StorageServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.enableAggressiveDomStorageFlushing');
           const result = this.impl.enableAggressiveDomStorageFlushing();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.StorageService_SetDataDirectory_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(storage.mojom.StorageService_SetDataDirectory_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setDataDirectory');
           const result = this.impl.setDataDirectory(params.path, params.directory);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.StorageService_BindSessionStorageControl_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(storage.mojom.StorageService_BindSessionStorageControl_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindSessionStorageControl');
           const result = this.impl.bindSessionStorageControl(params.path, params.receiver);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.StorageService_BindLocalStorageControl_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(storage.mojom.StorageService_BindLocalStorageControl_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindLocalStorageControl');
           const result = this.impl.bindLocalStorageControl(params.path, params.receiver);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.StorageService_BindTestApi_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(storage.mojom.StorageService_BindTestApi_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindTestApi');
           const result = this.impl.bindTestApi(params.test_api_receiver);
           break;

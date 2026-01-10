@@ -131,9 +131,11 @@ recording.mojom.DriveFsQuotaDelegateReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -147,12 +149,13 @@ recording.mojom.DriveFsQuotaDelegateReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetDriveFsFreeSpaceBytes
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDriveFsFreeSpaceBytes (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -169,7 +172,7 @@ recording.mojom.DriveFsQuotaDelegateReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getDriveFsFreeSpaceBytes');
           const result = this.impl.getDriveFsFreeSpaceBytes();
           if (header.expectsResponse) {
@@ -275,9 +278,11 @@ recording.mojom.RecordingServiceClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -291,12 +296,13 @@ recording.mojom.RecordingServiceClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnRecordingEnded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(recording.mojom.RecordingServiceClient_OnRecordingEnded_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(recording.mojom.RecordingServiceClient_OnRecordingEnded_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRecordingEnded (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -313,7 +319,7 @@ recording.mojom.RecordingServiceClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(recording.mojom.RecordingServiceClient_OnRecordingEnded_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(recording.mojom.RecordingServiceClient_OnRecordingEnded_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onRecordingEnded');
           const result = this.impl.onRecordingEnded(params.status, params.thumbnail);
           break;
@@ -543,9 +549,11 @@ recording.mojom.RecordingServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -559,12 +567,13 @@ recording.mojom.RecordingServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: RecordFullscreen
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(recording.mojom.RecordingService_RecordFullscreen_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(recording.mojom.RecordingService_RecordFullscreen_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordFullscreen (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -575,7 +584,7 @@ recording.mojom.RecordingServiceReceiver = class {
         // Try Method 1: RecordWindow
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(recording.mojom.RecordingService_RecordWindow_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(recording.mojom.RecordingService_RecordWindow_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordWindow (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -586,7 +595,7 @@ recording.mojom.RecordingServiceReceiver = class {
         // Try Method 2: RecordRegion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(recording.mojom.RecordingService_RecordRegion_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(recording.mojom.RecordingService_RecordRegion_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordRegion (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -597,7 +606,7 @@ recording.mojom.RecordingServiceReceiver = class {
         // Try Method 3: StopRecording
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(recording.mojom.RecordingService_StopRecording_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(recording.mojom.RecordingService_StopRecording_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopRecording (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -608,7 +617,7 @@ recording.mojom.RecordingServiceReceiver = class {
         // Try Method 4: OnRecordedWindowChangingRoot
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(recording.mojom.RecordingService_OnRecordedWindowChangingRoot_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(recording.mojom.RecordingService_OnRecordedWindowChangingRoot_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRecordedWindowChangingRoot (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -619,7 +628,7 @@ recording.mojom.RecordingServiceReceiver = class {
         // Try Method 5: OnRecordedWindowSizeChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(recording.mojom.RecordingService_OnRecordedWindowSizeChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(recording.mojom.RecordingService_OnRecordedWindowSizeChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRecordedWindowSizeChanged (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -630,7 +639,7 @@ recording.mojom.RecordingServiceReceiver = class {
         // Try Method 6: OnFrameSinkSizeChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(recording.mojom.RecordingService_OnFrameSinkSizeChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(recording.mojom.RecordingService_OnFrameSinkSizeChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFrameSinkSizeChanged (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -647,49 +656,49 @@ recording.mojom.RecordingServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(recording.mojom.RecordingService_RecordFullscreen_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(recording.mojom.RecordingService_RecordFullscreen_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.recordFullscreen');
           const result = this.impl.recordFullscreen(params.client, params.video_capturer, params.microphone_stream_factory, params.system_audio_stream_factory, params.drive_fs_quota_delegate, params.output_file_path, params.frame_sink_id, params.frame_sink_size_dip, params.device_scale_factor);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(recording.mojom.RecordingService_RecordWindow_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(recording.mojom.RecordingService_RecordWindow_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.recordWindow');
           const result = this.impl.recordWindow(params.client, params.video_capturer, params.microphone_stream_factory, params.system_audio_stream_factory, params.drive_fs_quota_delegate, params.output_file_path, params.frame_sink_id, params.frame_sink_size_dip, params.device_scale_factor, params.subtree_capture_id, params.window_size_dip);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(recording.mojom.RecordingService_RecordRegion_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(recording.mojom.RecordingService_RecordRegion_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.recordRegion');
           const result = this.impl.recordRegion(params.client, params.video_capturer, params.microphone_stream_factory, params.system_audio_stream_factory, params.drive_fs_quota_delegate, params.output_file_path, params.frame_sink_id, params.frame_sink_size_dip, params.device_scale_factor, params.crop_region_dip);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(recording.mojom.RecordingService_StopRecording_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(recording.mojom.RecordingService_StopRecording_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.stopRecording');
           const result = this.impl.stopRecording();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(recording.mojom.RecordingService_OnRecordedWindowChangingRoot_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(recording.mojom.RecordingService_OnRecordedWindowChangingRoot_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onRecordedWindowChangingRoot');
           const result = this.impl.onRecordedWindowChangingRoot(params.new_frame_sink_id, params.new_frame_sink_size_dip, params.new_device_scale_factor);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(recording.mojom.RecordingService_OnRecordedWindowSizeChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(recording.mojom.RecordingService_OnRecordedWindowSizeChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onRecordedWindowSizeChanged');
           const result = this.impl.onRecordedWindowSizeChanged(params.new_window_size_dip);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(recording.mojom.RecordingService_OnFrameSinkSizeChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(recording.mojom.RecordingService_OnFrameSinkSizeChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onFrameSinkSizeChanged');
           const result = this.impl.onFrameSinkSizeChanged(params.new_frame_sink_size_dip, params.new_device_scale_factor);
           break;

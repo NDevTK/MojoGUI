@@ -116,9 +116,11 @@ userspace_swap.mojom.UserspaceSwapInitializationReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -132,12 +134,13 @@ userspace_swap.mojom.UserspaceSwapInitializationReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: TransferUserfaultFD
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TransferUserfaultFD (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -154,7 +157,7 @@ userspace_swap.mojom.UserspaceSwapInitializationReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.transferUserfaultFD');
           const result = this.impl.transferUserfaultFD(params.uffd_error, params.uffd_handle, params.mmap_error, params.swap_area);
           if (header.expectsResponse) {
@@ -300,9 +303,11 @@ userspace_swap.mojom.UserspaceSwapReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -316,12 +321,13 @@ userspace_swap.mojom.UserspaceSwapReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: MovePTEsLeavingMapping
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MovePTEsLeavingMapping (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -332,7 +338,7 @@ userspace_swap.mojom.UserspaceSwapReceiver = class {
         // Try Method 1: MapArea
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(userspace_swap.mojom.UserspaceSwap_MapArea_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(userspace_swap.mojom.UserspaceSwap_MapArea_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MapArea (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -343,7 +349,7 @@ userspace_swap.mojom.UserspaceSwapReceiver = class {
         // Try Method 2: GetPartitionAllocSuperPagesUsed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPartitionAllocSuperPagesUsed (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -360,21 +366,21 @@ userspace_swap.mojom.UserspaceSwapReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.movePTEsLeavingMapping');
           const result = this.impl.movePTEsLeavingMapping(params.src, params.dest);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(userspace_swap.mojom.UserspaceSwap_MapArea_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(userspace_swap.mojom.UserspaceSwap_MapArea_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.mapArea');
           const result = this.impl.mapArea(params.area);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getPartitionAllocSuperPagesUsed');
           const result = this.impl.getPartitionAllocSuperPagesUsed(params.max_superpages);
           if (header.expectsResponse) {

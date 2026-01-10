@@ -100,9 +100,11 @@ metrics.mojom.SingleSampleMetricsProviderReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -116,12 +118,13 @@ metrics.mojom.SingleSampleMetricsProviderReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AcquireSingleSampleMetric
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(metrics.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(metrics.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AcquireSingleSampleMetric (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -138,7 +141,7 @@ metrics.mojom.SingleSampleMetricsProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(metrics.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(metrics.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.acquireSingleSampleMetric');
           const result = this.impl.acquireSingleSampleMetric(params.histogram_name, params.min, params.max, params.bucket_count, params.flags, params.receiver);
           break;
@@ -237,9 +240,11 @@ metrics.mojom.SingleSampleMetricReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -253,12 +258,13 @@ metrics.mojom.SingleSampleMetricReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetSample
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(metrics.mojom.SingleSampleMetric_SetSample_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(metrics.mojom.SingleSampleMetric_SetSample_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSample (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -275,7 +281,7 @@ metrics.mojom.SingleSampleMetricReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(metrics.mojom.SingleSampleMetric_SetSample_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(metrics.mojom.SingleSampleMetric_SetSample_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setSample');
           const result = this.impl.setSample(params.sample);
           break;

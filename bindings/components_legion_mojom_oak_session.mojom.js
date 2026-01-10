@@ -183,9 +183,11 @@ legion.mojom.OakSessionReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -199,12 +201,13 @@ legion.mojom.OakSessionReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: InitiateHandshake
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(legion.mojom.OakSession_InitiateHandshake_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(legion.mojom.OakSession_InitiateHandshake_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InitiateHandshake (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -215,7 +218,7 @@ legion.mojom.OakSessionReceiver = class {
         // Try Method 1: CompleteHandshake
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(legion.mojom.OakSession_CompleteHandshake_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(legion.mojom.OakSession_CompleteHandshake_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CompleteHandshake (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -226,7 +229,7 @@ legion.mojom.OakSessionReceiver = class {
         // Try Method 2: Encrypt
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(legion.mojom.OakSession_Encrypt_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(legion.mojom.OakSession_Encrypt_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Encrypt (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -237,7 +240,7 @@ legion.mojom.OakSessionReceiver = class {
         // Try Method 3: Decrypt
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(legion.mojom.OakSession_Decrypt_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(legion.mojom.OakSession_Decrypt_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Decrypt (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -254,7 +257,7 @@ legion.mojom.OakSessionReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(legion.mojom.OakSession_InitiateHandshake_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(legion.mojom.OakSession_InitiateHandshake_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.initiateHandshake');
           const result = this.impl.initiateHandshake();
           if (header.expectsResponse) {
@@ -267,7 +270,7 @@ legion.mojom.OakSessionReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(legion.mojom.OakSession_CompleteHandshake_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(legion.mojom.OakSession_CompleteHandshake_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.completeHandshake');
           const result = this.impl.completeHandshake(params.response);
           if (header.expectsResponse) {
@@ -280,7 +283,7 @@ legion.mojom.OakSessionReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(legion.mojom.OakSession_Encrypt_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(legion.mojom.OakSession_Encrypt_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.encrypt');
           const result = this.impl.encrypt(params.input);
           if (header.expectsResponse) {
@@ -293,7 +296,7 @@ legion.mojom.OakSessionReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(legion.mojom.OakSession_Decrypt_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(legion.mojom.OakSession_Decrypt_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.decrypt');
           const result = this.impl.decrypt(params.input);
           if (header.expectsResponse) {

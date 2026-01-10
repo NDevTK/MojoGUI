@@ -131,9 +131,11 @@ network.mojom.CrossOriginEmbedderPolicyReporterReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -147,12 +149,13 @@ network.mojom.CrossOriginEmbedderPolicyReporterReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: QueueCorpViolationReport
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.CrossOriginEmbedderPolicyReporter_QueueCorpViolationReport_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.CrossOriginEmbedderPolicyReporter_QueueCorpViolationReport_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> QueueCorpViolationReport (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -163,7 +166,7 @@ network.mojom.CrossOriginEmbedderPolicyReporterReceiver = class {
         // Try Method 1: Clone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.CrossOriginEmbedderPolicyReporter_Clone_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.CrossOriginEmbedderPolicyReporter_Clone_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clone (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -180,14 +183,14 @@ network.mojom.CrossOriginEmbedderPolicyReporterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.CrossOriginEmbedderPolicyReporter_QueueCorpViolationReport_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.CrossOriginEmbedderPolicyReporter_QueueCorpViolationReport_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.queueCorpViolationReport');
           const result = this.impl.queueCorpViolationReport(params.blocked_url, params.destination, params.report_only);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.CrossOriginEmbedderPolicyReporter_Clone_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.CrossOriginEmbedderPolicyReporter_Clone_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.receiver);
           break;

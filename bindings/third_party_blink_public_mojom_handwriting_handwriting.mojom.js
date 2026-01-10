@@ -217,9 +217,11 @@ handwriting.mojom.HandwritingRecognizerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -233,12 +235,13 @@ handwriting.mojom.HandwritingRecognizerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetPrediction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(handwriting.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(handwriting.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPrediction (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -255,7 +258,7 @@ handwriting.mojom.HandwritingRecognizerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(handwriting.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(handwriting.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getPrediction');
           const result = this.impl.getPrediction(params.strokes, params.hints);
           if (header.expectsResponse) {
@@ -390,9 +393,11 @@ handwriting.mojom.HandwritingRecognitionServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -406,12 +411,13 @@ handwriting.mojom.HandwritingRecognitionServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateHandwritingRecognizer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateHandwritingRecognizer (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -422,7 +428,7 @@ handwriting.mojom.HandwritingRecognitionServiceReceiver = class {
         // Try Method 1: QueryHandwritingRecognizer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> QueryHandwritingRecognizer (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -439,7 +445,7 @@ handwriting.mojom.HandwritingRecognitionServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createHandwritingRecognizer');
           const result = this.impl.createHandwritingRecognizer(params.constraint);
           if (header.expectsResponse) {
@@ -452,7 +458,7 @@ handwriting.mojom.HandwritingRecognitionServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.queryHandwritingRecognizer');
           const result = this.impl.queryHandwritingRecognizer(params.constraint);
           if (header.expectsResponse) {

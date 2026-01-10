@@ -99,9 +99,11 @@ webui_examples.mojom.PageHandlerFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -115,12 +117,13 @@ webui_examples.mojom.PageHandlerFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(webui_examples.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(webui_examples.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -137,7 +140,7 @@ webui_examples.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webui_examples.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(webui_examples.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.handler);
           break;
@@ -271,9 +274,11 @@ webui_examples.mojom.PageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -287,12 +292,13 @@ webui_examples.mojom.PageHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Navigate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(webui_examples.mojom.PageHandler_Navigate_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(webui_examples.mojom.PageHandler_Navigate_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Navigate (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -303,7 +309,7 @@ webui_examples.mojom.PageHandlerReceiver = class {
         // Try Method 1: GoBack
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(webui_examples.mojom.PageHandler_GoBack_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(webui_examples.mojom.PageHandler_GoBack_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GoBack (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -314,7 +320,7 @@ webui_examples.mojom.PageHandlerReceiver = class {
         // Try Method 2: GoForward
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(webui_examples.mojom.PageHandler_GoForward_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(webui_examples.mojom.PageHandler_GoForward_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GoForward (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -331,21 +337,21 @@ webui_examples.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webui_examples.mojom.PageHandler_Navigate_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(webui_examples.mojom.PageHandler_Navigate_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.navigate');
           const result = this.impl.navigate(params.guest_contents_id, params.src);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webui_examples.mojom.PageHandler_GoBack_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(webui_examples.mojom.PageHandler_GoBack_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.goBack');
           const result = this.impl.goBack(params.guest_contents_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webui_examples.mojom.PageHandler_GoForward_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(webui_examples.mojom.PageHandler_GoForward_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.goForward');
           const result = this.impl.goForward(params.guest_contents_id);
           break;

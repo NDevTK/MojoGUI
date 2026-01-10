@@ -187,9 +187,11 @@ ash.heartd.mojom.HeartdControlReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -203,12 +205,13 @@ ash.heartd.mojom.HeartdControlReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: EnableNormalRebootAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.heartd.mojom.HeartdControl_EnableNormalRebootAction_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.heartd.mojom.HeartdControl_EnableNormalRebootAction_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableNormalRebootAction (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -219,7 +222,7 @@ ash.heartd.mojom.HeartdControlReceiver = class {
         // Try Method 1: EnableForceRebootAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.heartd.mojom.HeartdControl_EnableForceRebootAction_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.heartd.mojom.HeartdControl_EnableForceRebootAction_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableForceRebootAction (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -230,7 +233,7 @@ ash.heartd.mojom.HeartdControlReceiver = class {
         // Try Method 2: RunAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.heartd.mojom.HeartdControl_RunAction_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.heartd.mojom.HeartdControl_RunAction_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunAction (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -247,21 +250,21 @@ ash.heartd.mojom.HeartdControlReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.heartd.mojom.HeartdControl_EnableNormalRebootAction_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.heartd.mojom.HeartdControl_EnableNormalRebootAction_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.enableNormalRebootAction');
           const result = this.impl.enableNormalRebootAction();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.heartd.mojom.HeartdControl_EnableForceRebootAction_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.heartd.mojom.HeartdControl_EnableForceRebootAction_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.enableForceRebootAction');
           const result = this.impl.enableForceRebootAction();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.heartd.mojom.HeartdControl_RunAction_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.heartd.mojom.HeartdControl_RunAction_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.runAction');
           const result = this.impl.runAction(params.action);
           if (header.expectsResponse) {
@@ -374,9 +377,11 @@ ash.heartd.mojom.HeartbeatServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -390,12 +395,13 @@ ash.heartd.mojom.HeartbeatServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Register
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.heartd.mojom.HeartbeatService_Register_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.heartd.mojom.HeartbeatService_Register_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Register (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -412,7 +418,7 @@ ash.heartd.mojom.HeartbeatServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.heartd.mojom.HeartbeatService_Register_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.heartd.mojom.HeartbeatService_Register_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.register');
           const result = this.impl.register(params.name, params.argument, params.receiver);
           if (header.expectsResponse) {
@@ -543,9 +549,11 @@ ash.heartd.mojom.PacemakerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -559,12 +567,13 @@ ash.heartd.mojom.PacemakerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SendHeartbeat
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.heartd.mojom.Pacemaker_SendHeartbeat_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.heartd.mojom.Pacemaker_SendHeartbeat_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendHeartbeat (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -575,7 +584,7 @@ ash.heartd.mojom.PacemakerReceiver = class {
         // Try Method 1: StopMonitor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.heartd.mojom.Pacemaker_StopMonitor_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.heartd.mojom.Pacemaker_StopMonitor_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopMonitor (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -592,7 +601,7 @@ ash.heartd.mojom.PacemakerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.heartd.mojom.Pacemaker_SendHeartbeat_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.heartd.mojom.Pacemaker_SendHeartbeat_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.sendHeartbeat');
           const result = this.impl.sendHeartbeat();
           if (header.expectsResponse) {
@@ -605,7 +614,7 @@ ash.heartd.mojom.PacemakerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.heartd.mojom.Pacemaker_StopMonitor_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.heartd.mojom.Pacemaker_StopMonitor_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.stopMonitor');
           const result = this.impl.stopMonitor();
           if (header.expectsResponse) {

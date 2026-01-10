@@ -135,9 +135,11 @@ sharing.mojom.IncomingMessagesListenerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -151,12 +153,13 @@ sharing.mojom.IncomingMessagesListenerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(sharing.mojom.IncomingMessagesListener_OnMessage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(sharing.mojom.IncomingMessagesListener_OnMessage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMessage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -167,7 +170,7 @@ sharing.mojom.IncomingMessagesListenerReceiver = class {
         // Try Method 1: OnComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(sharing.mojom.IncomingMessagesListener_OnComplete_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(sharing.mojom.IncomingMessagesListener_OnComplete_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnComplete (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -184,14 +187,14 @@ sharing.mojom.IncomingMessagesListenerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(sharing.mojom.IncomingMessagesListener_OnMessage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(sharing.mojom.IncomingMessagesListener_OnMessage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onMessage');
           const result = this.impl.onMessage(params.message);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(sharing.mojom.IncomingMessagesListener_OnComplete_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(sharing.mojom.IncomingMessagesListener_OnComplete_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onComplete');
           const result = this.impl.onComplete(params.success);
           break;
@@ -289,9 +292,11 @@ sharing.mojom.ReceiveMessagesSessionReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -305,12 +310,13 @@ sharing.mojom.ReceiveMessagesSessionReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: StopReceivingMessages
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopReceivingMessages (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -327,7 +333,7 @@ sharing.mojom.ReceiveMessagesSessionReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.stopReceivingMessages');
           const result = this.impl.stopReceivingMessages();
           break;
@@ -461,9 +467,11 @@ sharing.mojom.WebRtcSignalingMessengerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -477,12 +485,13 @@ sharing.mojom.WebRtcSignalingMessengerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SendMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendMessage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -493,7 +502,7 @@ sharing.mojom.WebRtcSignalingMessengerReceiver = class {
         // Try Method 1: StartReceivingMessages
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartReceivingMessages (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -510,7 +519,7 @@ sharing.mojom.WebRtcSignalingMessengerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.sendMessage');
           const result = this.impl.sendMessage(params.self_id, params.peer_id, params.location_hint, params.message);
           if (header.expectsResponse) {
@@ -523,7 +532,7 @@ sharing.mojom.WebRtcSignalingMessengerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.startReceivingMessages');
           const result = this.impl.startReceivingMessages(params.self_id, params.location_hint, params.listener);
           if (header.expectsResponse) {

@@ -139,9 +139,11 @@ password_manager.mojom.PageHandlerFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -155,12 +157,13 @@ password_manager.mojom.PageHandlerFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(password_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(password_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -177,7 +180,7 @@ password_manager.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(password_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(password_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
@@ -519,9 +522,11 @@ password_manager.mojom.PageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -535,12 +540,13 @@ password_manager.mojom.PageHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ExtendAuthValidity
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(password_manager.mojom.PageHandler_ExtendAuthValidity_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(password_manager.mojom.PageHandler_ExtendAuthValidity_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExtendAuthValidity (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -551,7 +557,7 @@ password_manager.mojom.PageHandlerReceiver = class {
         // Try Method 1: DeleteAllPasswordManagerData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteAllPasswordManagerData (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -562,7 +568,7 @@ password_manager.mojom.PageHandlerReceiver = class {
         // Try Method 2: CopyPlaintextBackupPassword
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CopyPlaintextBackupPassword (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -573,7 +579,7 @@ password_manager.mojom.PageHandlerReceiver = class {
         // Try Method 3: RemoveBackupPassword
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(password_manager.mojom.PageHandler_RemoveBackupPassword_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(password_manager.mojom.PageHandler_RemoveBackupPassword_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveBackupPassword (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -584,7 +590,7 @@ password_manager.mojom.PageHandlerReceiver = class {
         // Try Method 4: GetActorLoginPermissions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(password_manager.mojom.PageHandler_GetActorLoginPermissions_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(password_manager.mojom.PageHandler_GetActorLoginPermissions_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetActorLoginPermissions (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -595,7 +601,7 @@ password_manager.mojom.PageHandlerReceiver = class {
         // Try Method 5: RevokeActorLoginPermission
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(password_manager.mojom.PageHandler_RevokeActorLoginPermission_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(password_manager.mojom.PageHandler_RevokeActorLoginPermission_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RevokeActorLoginPermission (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -606,7 +612,7 @@ password_manager.mojom.PageHandlerReceiver = class {
         // Try Method 6: ChangePasswordManagerPin
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(password_manager.mojom.PageHandler_ChangePasswordManagerPin_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(password_manager.mojom.PageHandler_ChangePasswordManagerPin_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ChangePasswordManagerPin (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -617,7 +623,7 @@ password_manager.mojom.PageHandlerReceiver = class {
         // Try Method 7: ShowAddShortcutDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(password_manager.mojom.PageHandler_ShowAddShortcutDialog_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(password_manager.mojom.PageHandler_ShowAddShortcutDialog_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowAddShortcutDialog (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -628,7 +634,7 @@ password_manager.mojom.PageHandlerReceiver = class {
         // Try Method 8: IsAccountStorageEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(password_manager.mojom.PageHandler_IsAccountStorageEnabled_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(password_manager.mojom.PageHandler_IsAccountStorageEnabled_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsAccountStorageEnabled (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -639,7 +645,7 @@ password_manager.mojom.PageHandlerReceiver = class {
         // Try Method 9: SetAccountStorageEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(password_manager.mojom.PageHandler_SetAccountStorageEnabled_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(password_manager.mojom.PageHandler_SetAccountStorageEnabled_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAccountStorageEnabled (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -650,7 +656,7 @@ password_manager.mojom.PageHandlerReceiver = class {
         // Try Method 10: ShouldShowAccountStorageSettingToggle
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShouldShowAccountStorageSettingToggle (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -661,7 +667,7 @@ password_manager.mojom.PageHandlerReceiver = class {
         // Try Method 11: IsPasswordManagerPinAvailable
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsPasswordManagerPinAvailable (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -672,7 +678,7 @@ password_manager.mojom.PageHandlerReceiver = class {
         // Try Method 12: SwitchBiometricAuthBeforeFillingState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SwitchBiometricAuthBeforeFillingState (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -689,14 +695,14 @@ password_manager.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(password_manager.mojom.PageHandler_ExtendAuthValidity_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(password_manager.mojom.PageHandler_ExtendAuthValidity_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.extendAuthValidity');
           const result = this.impl.extendAuthValidity();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.deleteAllPasswordManagerData');
           const result = this.impl.deleteAllPasswordManagerData();
           if (header.expectsResponse) {
@@ -709,7 +715,7 @@ password_manager.mojom.PageHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.copyPlaintextBackupPassword');
           const result = this.impl.copyPlaintextBackupPassword(params.id);
           if (header.expectsResponse) {
@@ -722,14 +728,14 @@ password_manager.mojom.PageHandlerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(password_manager.mojom.PageHandler_RemoveBackupPassword_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(password_manager.mojom.PageHandler_RemoveBackupPassword_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.removeBackupPassword');
           const result = this.impl.removeBackupPassword(params.id);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(password_manager.mojom.PageHandler_GetActorLoginPermissions_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(password_manager.mojom.PageHandler_GetActorLoginPermissions_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getActorLoginPermissions');
           const result = this.impl.getActorLoginPermissions();
           if (header.expectsResponse) {
@@ -742,14 +748,14 @@ password_manager.mojom.PageHandlerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(password_manager.mojom.PageHandler_RevokeActorLoginPermission_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(password_manager.mojom.PageHandler_RevokeActorLoginPermission_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.revokeActorLoginPermission');
           const result = this.impl.revokeActorLoginPermission(params.site);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(password_manager.mojom.PageHandler_ChangePasswordManagerPin_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(password_manager.mojom.PageHandler_ChangePasswordManagerPin_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.changePasswordManagerPin');
           const result = this.impl.changePasswordManagerPin();
           if (header.expectsResponse) {
@@ -762,14 +768,14 @@ password_manager.mojom.PageHandlerReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(password_manager.mojom.PageHandler_ShowAddShortcutDialog_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(password_manager.mojom.PageHandler_ShowAddShortcutDialog_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.showAddShortcutDialog');
           const result = this.impl.showAddShortcutDialog();
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(password_manager.mojom.PageHandler_IsAccountStorageEnabled_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(password_manager.mojom.PageHandler_IsAccountStorageEnabled_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.isAccountStorageEnabled');
           const result = this.impl.isAccountStorageEnabled();
           if (header.expectsResponse) {
@@ -782,14 +788,14 @@ password_manager.mojom.PageHandlerReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(password_manager.mojom.PageHandler_SetAccountStorageEnabled_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(password_manager.mojom.PageHandler_SetAccountStorageEnabled_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setAccountStorageEnabled');
           const result = this.impl.setAccountStorageEnabled(params.enabled);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.shouldShowAccountStorageSettingToggle');
           const result = this.impl.shouldShowAccountStorageSettingToggle();
           if (header.expectsResponse) {
@@ -802,7 +808,7 @@ password_manager.mojom.PageHandlerReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.isPasswordManagerPinAvailable');
           const result = this.impl.isPasswordManagerPinAvailable();
           if (header.expectsResponse) {
@@ -815,7 +821,7 @@ password_manager.mojom.PageHandlerReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.switchBiometricAuthBeforeFillingState');
           const result = this.impl.switchBiometricAuthBeforeFillingState();
           if (header.expectsResponse) {
@@ -903,9 +909,11 @@ password_manager.mojom.PageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -919,6 +927,7 @@ password_manager.mojom.PageReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         if (dispatchId === undefined) {

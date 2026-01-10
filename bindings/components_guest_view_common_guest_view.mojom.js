@@ -80,9 +80,11 @@ guest_view.mojom.ViewHandleReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -96,6 +98,7 @@ guest_view.mojom.ViewHandleReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         if (dispatchId === undefined) {
@@ -225,9 +228,11 @@ guest_view.mojom.GuestViewHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -241,12 +246,13 @@ guest_view.mojom.GuestViewHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AttachToEmbedderFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AttachToEmbedderFrame (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -257,7 +263,7 @@ guest_view.mojom.GuestViewHostReceiver = class {
         // Try Method 1: ViewCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(guest_view.mojom.GuestViewHost_ViewCreated_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(guest_view.mojom.GuestViewHost_ViewCreated_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ViewCreated (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -274,7 +280,7 @@ guest_view.mojom.GuestViewHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.attachToEmbedderFrame');
           const result = this.impl.attachToEmbedderFrame(params.element_instance_id, params.guest_instance_id, params.params);
           if (header.expectsResponse) {
@@ -287,7 +293,7 @@ guest_view.mojom.GuestViewHostReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(guest_view.mojom.GuestViewHost_ViewCreated_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(guest_view.mojom.GuestViewHost_ViewCreated_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.viewCreated');
           const result = this.impl.viewCreated(params.view_instance_id, params.view_type, params.keep_alive_handle_receiver);
           break;

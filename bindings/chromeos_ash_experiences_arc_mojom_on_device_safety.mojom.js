@@ -116,9 +116,11 @@ arc.mojom.OnDeviceSafetyHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -132,12 +134,13 @@ arc.mojom.OnDeviceSafetyHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: IsCrosSafetyServiceEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsCrosSafetyServiceEnabled (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -154,7 +157,7 @@ arc.mojom.OnDeviceSafetyHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.isCrosSafetyServiceEnabled');
           const result = this.impl.isCrosSafetyServiceEnabled();
           if (header.expectsResponse) {
@@ -287,9 +290,11 @@ arc.mojom.OnDeviceSafetyInstanceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -303,12 +308,13 @@ arc.mojom.OnDeviceSafetyInstanceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetArcSafetySession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetArcSafetySession (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -319,7 +325,7 @@ arc.mojom.OnDeviceSafetyInstanceReceiver = class {
         // Try Method 1: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.OnDeviceSafetyInstance_Init_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.OnDeviceSafetyInstance_Init_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -336,7 +342,7 @@ arc.mojom.OnDeviceSafetyInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getArcSafetySession');
           const result = this.impl.getArcSafetySession(params.session);
           if (header.expectsResponse) {
@@ -349,7 +355,7 @@ arc.mojom.OnDeviceSafetyInstanceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OnDeviceSafetyInstance_Init_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.OnDeviceSafetyInstance_Init_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {

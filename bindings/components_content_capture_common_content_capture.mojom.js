@@ -150,9 +150,11 @@ content_capture.mojom.ContentCaptureReceiverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -166,12 +168,13 @@ content_capture.mojom.ContentCaptureReceiverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: DidCompleteBatchCaptureContent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidCompleteBatchCaptureContent (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -182,7 +185,7 @@ content_capture.mojom.ContentCaptureReceiverReceiver = class {
         // Try Method 1: DidCaptureContent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidCaptureContent (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -193,7 +196,7 @@ content_capture.mojom.ContentCaptureReceiverReceiver = class {
         // Try Method 2: DidUpdateContent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidUpdateContent (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -204,7 +207,7 @@ content_capture.mojom.ContentCaptureReceiverReceiver = class {
         // Try Method 3: DidRemoveContent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidRemoveContent (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -221,28 +224,28 @@ content_capture.mojom.ContentCaptureReceiverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.didCompleteBatchCaptureContent');
           const result = this.impl.didCompleteBatchCaptureContent();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.didCaptureContent');
           const result = this.impl.didCaptureContent(params.data, params.first_data);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.didUpdateContent');
           const result = this.impl.didUpdateContent(params.data);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.didRemoveContent');
           const result = this.impl.didRemoveContent(params.ids);
           break;
@@ -356,9 +359,11 @@ content_capture.mojom.ContentCaptureSenderReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -372,12 +377,13 @@ content_capture.mojom.ContentCaptureSenderReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: StartCapture
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartCapture (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -388,7 +394,7 @@ content_capture.mojom.ContentCaptureSenderReceiver = class {
         // Try Method 1: StopCapture
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopCapture (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -405,14 +411,14 @@ content_capture.mojom.ContentCaptureSenderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.startCapture');
           const result = this.impl.startCapture();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.stopCapture');
           const result = this.impl.stopCapture();
           break;

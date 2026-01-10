@@ -179,9 +179,11 @@ mahi.mojom.ContentExtractionServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -195,12 +197,13 @@ mahi.mojom.ContentExtractionServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ExtractContent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExtractContent (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -211,7 +214,7 @@ mahi.mojom.ContentExtractionServiceReceiver = class {
         // Try Method 1: GetContentSize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetContentSize (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -228,7 +231,7 @@ mahi.mojom.ContentExtractionServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.extractContent');
           const result = this.impl.extractContent(params.extraction_request);
           if (header.expectsResponse) {
@@ -241,7 +244,7 @@ mahi.mojom.ContentExtractionServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getContentSize');
           const result = this.impl.getContentSize(params.extraction_request);
           if (header.expectsResponse) {
@@ -363,9 +366,11 @@ mahi.mojom.ContentExtractionServiceFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -379,12 +384,13 @@ mahi.mojom.ContentExtractionServiceFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: BindContentExtractionService
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindContentExtractionService (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -395,7 +401,7 @@ mahi.mojom.ContentExtractionServiceFactoryReceiver = class {
         // Try Method 1: OnScreen2xReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnScreen2xReady (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -412,14 +418,14 @@ mahi.mojom.ContentExtractionServiceFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindContentExtractionService');
           const result = this.impl.bindContentExtractionService(params.content_extraction_service);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onScreen2xReady');
           const result = this.impl.onScreen2xReady(params.extractor);
           break;

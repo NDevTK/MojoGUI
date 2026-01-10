@@ -99,9 +99,11 @@ content.mojom.AgentSchedulingGroupHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -115,12 +117,13 @@ content.mojom.AgentSchedulingGroupHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: DidUnloadRenderFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidUnloadRenderFrame (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -137,7 +140,7 @@ content.mojom.AgentSchedulingGroupHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.didUnloadRenderFrame');
           const result = this.impl.didUnloadRenderFrame(params.frame_token);
           break;
@@ -289,9 +292,11 @@ content.mojom.AgentSchedulingGroupReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -305,12 +310,13 @@ content.mojom.AgentSchedulingGroupReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: BindAssociatedInterfaces
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindAssociatedInterfaces (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -321,7 +327,7 @@ content.mojom.AgentSchedulingGroupReceiver = class {
         // Try Method 1: CreateView
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateView (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -332,7 +338,7 @@ content.mojom.AgentSchedulingGroupReceiver = class {
         // Try Method 2: CreateFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateFrame (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -343,7 +349,7 @@ content.mojom.AgentSchedulingGroupReceiver = class {
         // Try Method 3: CreateSharedStorageWorkletService
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateSharedStorageWorkletService (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -360,28 +366,28 @@ content.mojom.AgentSchedulingGroupReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindAssociatedInterfaces');
           const result = this.impl.bindAssociatedInterfaces(params.remote_host, params.route_provider_receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createView');
           const result = this.impl.createView(params.params);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createFrame');
           const result = this.impl.createFrame(params.params);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createSharedStorageWorkletService');
           const result = this.impl.createSharedStorageWorkletService(params.receiver, params.global_scope_creation_params);
           break;

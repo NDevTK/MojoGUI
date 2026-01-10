@@ -103,9 +103,11 @@ media.mojom.MuteStateObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -119,12 +121,13 @@ media.mojom.MuteStateObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnMuteStateChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.MuteStateObserver_OnMuteStateChange_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.MuteStateObserver_OnMuteStateChange_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMuteStateChange (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -141,7 +144,7 @@ media.mojom.MuteStateObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.MuteStateObserver_OnMuteStateChange_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.MuteStateObserver_OnMuteStateChange_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onMuteStateChange');
           const result = this.impl.onMuteStateChange(params.muted);
           break;
@@ -330,9 +333,11 @@ media.mojom.FrameInterfaceFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -346,12 +351,13 @@ media.mojom.FrameInterfaceFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateProvisionFetcher
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateProvisionFetcher (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -362,7 +368,7 @@ media.mojom.FrameInterfaceFactoryReceiver = class {
         // Try Method 1: CreateCdmStorage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.FrameInterfaceFactory_CreateCdmStorage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.FrameInterfaceFactory_CreateCdmStorage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateCdmStorage (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -373,7 +379,7 @@ media.mojom.FrameInterfaceFactoryReceiver = class {
         // Try Method 2: RegisterMuteStateObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterMuteStateObserver (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -384,7 +390,7 @@ media.mojom.FrameInterfaceFactoryReceiver = class {
         // Try Method 3: CreateDCOMPSurfaceRegistry
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateDCOMPSurfaceRegistry (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -395,7 +401,7 @@ media.mojom.FrameInterfaceFactoryReceiver = class {
         // Try Method 4: GetCdmOrigin
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.FrameInterfaceFactory_GetCdmOrigin_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.FrameInterfaceFactory_GetCdmOrigin_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCdmOrigin (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -406,7 +412,7 @@ media.mojom.FrameInterfaceFactoryReceiver = class {
         // Try Method 5: BindEmbedderReceiver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindEmbedderReceiver (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -423,35 +429,35 @@ media.mojom.FrameInterfaceFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createProvisionFetcher');
           const result = this.impl.createProvisionFetcher(params.provision_fetcher);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.FrameInterfaceFactory_CreateCdmStorage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.FrameInterfaceFactory_CreateCdmStorage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createCdmStorage');
           const result = this.impl.createCdmStorage(params.cdm_storage);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.registerMuteStateObserver');
           const result = this.impl.registerMuteStateObserver(params.site_mute_observer);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createDCOMPSurfaceRegistry');
           const result = this.impl.createDCOMPSurfaceRegistry(params.registry);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.FrameInterfaceFactory_GetCdmOrigin_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.FrameInterfaceFactory_GetCdmOrigin_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getCdmOrigin');
           const result = this.impl.getCdmOrigin();
           if (header.expectsResponse) {
@@ -464,7 +470,7 @@ media.mojom.FrameInterfaceFactoryReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindEmbedderReceiver');
           const result = this.impl.bindEmbedderReceiver(params.receiver);
           break;

@@ -129,9 +129,11 @@ remoting.mojom.AgentProcessReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -145,12 +147,13 @@ remoting.mojom.AgentProcessReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ResumeProcess
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(remoting.mojom.AgentProcess_ResumeProcess_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(remoting.mojom.AgentProcess_ResumeProcess_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResumeProcess (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -161,7 +164,7 @@ remoting.mojom.AgentProcessReceiver = class {
         // Try Method 1: SuspendProcess
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(remoting.mojom.AgentProcess_SuspendProcess_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(remoting.mojom.AgentProcess_SuspendProcess_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SuspendProcess (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -172,7 +175,7 @@ remoting.mojom.AgentProcessReceiver = class {
         // Try Method 2: BindRemotingHostControl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(remoting.mojom.AgentProcess_BindRemotingHostControl_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(remoting.mojom.AgentProcess_BindRemotingHostControl_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindRemotingHostControl (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -189,21 +192,21 @@ remoting.mojom.AgentProcessReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remoting.mojom.AgentProcess_ResumeProcess_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(remoting.mojom.AgentProcess_ResumeProcess_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.resumeProcess');
           const result = this.impl.resumeProcess();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remoting.mojom.AgentProcess_SuspendProcess_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(remoting.mojom.AgentProcess_SuspendProcess_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.suspendProcess');
           const result = this.impl.suspendProcess();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remoting.mojom.AgentProcess_BindRemotingHostControl_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(remoting.mojom.AgentProcess_BindRemotingHostControl_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindRemotingHostControl');
           const result = this.impl.bindRemotingHostControl(params.receiver);
           break;
@@ -302,9 +305,11 @@ remoting.mojom.AgentProcessBrokerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -318,12 +323,13 @@ remoting.mojom.AgentProcessBrokerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnAgentProcessLaunched
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAgentProcessLaunched (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -340,7 +346,7 @@ remoting.mojom.AgentProcessBrokerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onAgentProcessLaunched');
           const result = this.impl.onAgentProcessLaunched(params.agent_process);
           break;

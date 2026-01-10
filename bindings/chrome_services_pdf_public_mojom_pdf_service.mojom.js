@@ -107,9 +107,11 @@ pdf.mojom.OcrReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -123,12 +125,13 @@ pdf.mojom.OcrReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: PerformOcr
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(pdf.mojom.Ocr_PerformOcr_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(pdf.mojom.Ocr_PerformOcr_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PerformOcr (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -145,7 +148,7 @@ pdf.mojom.OcrReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(pdf.mojom.Ocr_PerformOcr_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(pdf.mojom.Ocr_PerformOcr_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.performOcr');
           const result = this.impl.performOcr(params.image);
           if (header.expectsResponse) {
@@ -286,9 +289,11 @@ pdf.mojom.PdfServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -302,12 +307,13 @@ pdf.mojom.PdfServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: BindPdfProgressiveSearchifier
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(pdf.mojom.PdfService_BindPdfProgressiveSearchifier_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(pdf.mojom.PdfService_BindPdfProgressiveSearchifier_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindPdfProgressiveSearchifier (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -318,7 +324,7 @@ pdf.mojom.PdfServiceReceiver = class {
         // Try Method 1: BindPdfSearchifier
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(pdf.mojom.PdfService_BindPdfSearchifier_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(pdf.mojom.PdfService_BindPdfSearchifier_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindPdfSearchifier (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -329,7 +335,7 @@ pdf.mojom.PdfServiceReceiver = class {
         // Try Method 2: BindPdfThumbnailer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(pdf.mojom.PdfService_BindPdfThumbnailer_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(pdf.mojom.PdfService_BindPdfThumbnailer_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindPdfThumbnailer (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -346,21 +352,21 @@ pdf.mojom.PdfServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(pdf.mojom.PdfService_BindPdfProgressiveSearchifier_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(pdf.mojom.PdfService_BindPdfProgressiveSearchifier_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindPdfProgressiveSearchifier');
           const result = this.impl.bindPdfProgressiveSearchifier(params.receiver, params.ocr);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(pdf.mojom.PdfService_BindPdfSearchifier_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(pdf.mojom.PdfService_BindPdfSearchifier_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindPdfSearchifier');
           const result = this.impl.bindPdfSearchifier(params.receiver, params.ocr);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(pdf.mojom.PdfService_BindPdfThumbnailer_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(pdf.mojom.PdfService_BindPdfThumbnailer_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindPdfThumbnailer');
           const result = this.impl.bindPdfThumbnailer(params.receiver);
           break;

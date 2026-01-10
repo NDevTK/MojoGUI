@@ -166,9 +166,11 @@ storage.mojom.BlobDataItemReaderReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -182,12 +184,13 @@ storage.mojom.BlobDataItemReaderReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Read
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(storage.mojom.BlobDataItemReader_Read_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(storage.mojom.BlobDataItemReader_Read_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Read (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -198,7 +201,7 @@ storage.mojom.BlobDataItemReaderReceiver = class {
         // Try Method 1: ReadSideData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(storage.mojom.BlobDataItemReader_ReadSideData_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(storage.mojom.BlobDataItemReader_ReadSideData_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadSideData (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -215,7 +218,7 @@ storage.mojom.BlobDataItemReaderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.BlobDataItemReader_Read_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(storage.mojom.BlobDataItemReader_Read_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.read');
           const result = this.impl.read(params.offset, params.length, params.pipe);
           if (header.expectsResponse) {
@@ -228,7 +231,7 @@ storage.mojom.BlobDataItemReaderReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.BlobDataItemReader_ReadSideData_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(storage.mojom.BlobDataItemReader_ReadSideData_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.readSideData');
           const result = this.impl.readSideData();
           if (header.expectsResponse) {
@@ -397,9 +400,11 @@ storage.mojom.BlobStorageContextReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -413,12 +418,13 @@ storage.mojom.BlobStorageContextReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: RegisterFromDataItem
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(storage.mojom.BlobStorageContext_RegisterFromDataItem_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(storage.mojom.BlobStorageContext_RegisterFromDataItem_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterFromDataItem (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -429,7 +435,7 @@ storage.mojom.BlobStorageContextReceiver = class {
         // Try Method 1: RegisterFromMemory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(storage.mojom.BlobStorageContext_RegisterFromMemory_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(storage.mojom.BlobStorageContext_RegisterFromMemory_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterFromMemory (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -440,7 +446,7 @@ storage.mojom.BlobStorageContextReceiver = class {
         // Try Method 2: WriteBlobToFile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(storage.mojom.BlobStorageContext_WriteBlobToFile_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(storage.mojom.BlobStorageContext_WriteBlobToFile_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteBlobToFile (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -451,7 +457,7 @@ storage.mojom.BlobStorageContextReceiver = class {
         // Try Method 3: Clone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(storage.mojom.BlobStorageContext_Clone_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(storage.mojom.BlobStorageContext_Clone_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clone (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -468,21 +474,21 @@ storage.mojom.BlobStorageContextReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.BlobStorageContext_RegisterFromDataItem_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(storage.mojom.BlobStorageContext_RegisterFromDataItem_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.registerFromDataItem');
           const result = this.impl.registerFromDataItem(params.blob, params.uuid, params.item);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.BlobStorageContext_RegisterFromMemory_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(storage.mojom.BlobStorageContext_RegisterFromMemory_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.registerFromMemory');
           const result = this.impl.registerFromMemory(params.blob, params.uuid, params.data);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.BlobStorageContext_WriteBlobToFile_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(storage.mojom.BlobStorageContext_WriteBlobToFile_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.writeBlobToFile');
           const result = this.impl.writeBlobToFile(params.blob, params.path, params.flush_on_write, params.last_modified);
           if (header.expectsResponse) {
@@ -495,7 +501,7 @@ storage.mojom.BlobStorageContextReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.BlobStorageContext_Clone_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(storage.mojom.BlobStorageContext_Clone_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.receiver);
           break;

@@ -781,9 +781,11 @@ arc.mojom.keymint.KeyMintHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -797,12 +799,13 @@ arc.mojom.keymint.KeyMintHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetServer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.keymint.KeyMintHost_GetServer_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.keymint.KeyMintHost_GetServer_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetServer (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -819,7 +822,7 @@ arc.mojom.keymint.KeyMintHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.keymint.KeyMintHost_GetServer_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.keymint.KeyMintHost_GetServer_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getServer');
           const result = this.impl.getServer();
           if (header.expectsResponse) {
@@ -929,9 +932,11 @@ arc.mojom.keymint.KeyMintInstanceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -945,12 +950,13 @@ arc.mojom.keymint.KeyMintInstanceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.keymint.KeyMintInstance_Init_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.keymint.KeyMintInstance_Init_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -967,7 +973,7 @@ arc.mojom.keymint.KeyMintInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.keymint.KeyMintInstance_Init_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.keymint.KeyMintInstance_Init_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -1661,9 +1667,11 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1677,12 +1685,13 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetSystemVersion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_SetSystemVersion_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_SetSystemVersion_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSystemVersion (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1693,7 +1702,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 1: AddRngEntropy
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_AddRngEntropy_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_AddRngEntropy_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddRngEntropy (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1704,7 +1713,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 2: GenerateKey
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_GenerateKey_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_GenerateKey_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenerateKey (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1715,7 +1724,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 3: ImportKey
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_ImportKey_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_ImportKey_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ImportKey (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1726,7 +1735,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 4: ImportWrappedKey
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_ImportWrappedKey_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_ImportWrappedKey_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ImportWrappedKey (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1737,7 +1746,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 5: UpgradeKey
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_UpgradeKey_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_UpgradeKey_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpgradeKey (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1748,7 +1757,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 6: DeleteKey
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_DeleteKey_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_DeleteKey_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteKey (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1759,7 +1768,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 7: DeleteAllKeys
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_DeleteAllKeys_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_DeleteAllKeys_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteAllKeys (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1770,7 +1779,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 8: DestroyAttestationIds
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_DestroyAttestationIds_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_DestroyAttestationIds_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DestroyAttestationIds (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1781,7 +1790,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 9: Begin
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_Begin_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_Begin_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Begin (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1792,7 +1801,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 10: DeviceLocked
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_DeviceLocked_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_DeviceLocked_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeviceLocked (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1803,7 +1812,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 11: EarlyBootEnded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_EarlyBootEnded_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_EarlyBootEnded_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EarlyBootEnded (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1814,7 +1823,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 12: ConvertStorageKeyToEphemeral
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_ConvertStorageKeyToEphemeral_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_ConvertStorageKeyToEphemeral_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConvertStorageKeyToEphemeral (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1825,7 +1834,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 13: GetKeyCharacteristics
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_GetKeyCharacteristics_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_GetKeyCharacteristics_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetKeyCharacteristics (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1836,7 +1845,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 14: GetRootOfTrustChallenge
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_GetRootOfTrustChallenge_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_GetRootOfTrustChallenge_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRootOfTrustChallenge (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1847,7 +1856,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 15: GetRootOfTrust
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_GetRootOfTrust_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_GetRootOfTrust_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRootOfTrust (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1858,7 +1867,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 16: SendRootOfTrust
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_SendRootOfTrust_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_SendRootOfTrust_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendRootOfTrust (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -1869,7 +1878,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 17: UpdateAad
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_UpdateAad_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_UpdateAad_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateAad (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -1880,7 +1889,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 18: Update
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_Update_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_Update_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Update (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -1891,7 +1900,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 19: Finish
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_Finish_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_Finish_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Finish (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -1902,7 +1911,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 20: Abort
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_Abort_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_Abort_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Abort (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -1913,7 +1922,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 21: GetSharedSecretParameters
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_GetSharedSecretParameters_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_GetSharedSecretParameters_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSharedSecretParameters (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -1924,7 +1933,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 22: ComputeSharedSecret
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_ComputeSharedSecret_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_ComputeSharedSecret_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ComputeSharedSecret (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
@@ -1935,7 +1944,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 23: GenerateTimeStamp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_GenerateTimeStamp_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_GenerateTimeStamp_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenerateTimeStamp (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
@@ -1946,7 +1955,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 24: GenerateEcdsaP256KeyPair
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_GenerateEcdsaP256KeyPair_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_GenerateEcdsaP256KeyPair_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenerateEcdsaP256KeyPair (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
@@ -1957,7 +1966,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 25: GenerateCertificateRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_GenerateCertificateRequest_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_GenerateCertificateRequest_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenerateCertificateRequest (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
@@ -1968,7 +1977,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 26: SetVendorPatchLevel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_SetVendorPatchLevel_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_SetVendorPatchLevel_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetVendorPatchLevel (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
@@ -1985,14 +1994,14 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_SetSystemVersion_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_SetSystemVersion_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setSystemVersion');
           const result = this.impl.setSystemVersion(params.android_version, params.android_patchlevel);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_AddRngEntropy_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_AddRngEntropy_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addRngEntropy');
           const result = this.impl.addRngEntropy(params.data);
           if (header.expectsResponse) {
@@ -2005,7 +2014,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_GenerateKey_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_GenerateKey_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.generateKey');
           const result = this.impl.generateKey(params.request);
           if (header.expectsResponse) {
@@ -2018,7 +2027,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_ImportKey_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_ImportKey_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.importKey');
           const result = this.impl.importKey(params.request);
           if (header.expectsResponse) {
@@ -2031,7 +2040,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_ImportWrappedKey_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_ImportWrappedKey_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.importWrappedKey');
           const result = this.impl.importWrappedKey(params.request);
           if (header.expectsResponse) {
@@ -2044,7 +2053,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_UpgradeKey_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_UpgradeKey_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.upgradeKey');
           const result = this.impl.upgradeKey(params.request);
           if (header.expectsResponse) {
@@ -2057,7 +2066,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_DeleteKey_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_DeleteKey_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.deleteKey');
           const result = this.impl.deleteKey(params.key_blob);
           if (header.expectsResponse) {
@@ -2070,7 +2079,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_DeleteAllKeys_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_DeleteAllKeys_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.deleteAllKeys');
           const result = this.impl.deleteAllKeys();
           if (header.expectsResponse) {
@@ -2083,7 +2092,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_DestroyAttestationIds_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_DestroyAttestationIds_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.destroyAttestationIds');
           const result = this.impl.destroyAttestationIds();
           if (header.expectsResponse) {
@@ -2096,7 +2105,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_Begin_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_Begin_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.begin');
           const result = this.impl.begin(params.request);
           if (header.expectsResponse) {
@@ -2109,7 +2118,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_DeviceLocked_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_DeviceLocked_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.deviceLocked');
           const result = this.impl.deviceLocked(params.password_only, params.timestamp_token);
           if (header.expectsResponse) {
@@ -2122,7 +2131,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_EarlyBootEnded_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_EarlyBootEnded_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.earlyBootEnded');
           const result = this.impl.earlyBootEnded();
           if (header.expectsResponse) {
@@ -2135,7 +2144,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_ConvertStorageKeyToEphemeral_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_ConvertStorageKeyToEphemeral_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.convertStorageKeyToEphemeral');
           const result = this.impl.convertStorageKeyToEphemeral(params.storage_key_blob);
           if (header.expectsResponse) {
@@ -2148,7 +2157,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_GetKeyCharacteristics_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_GetKeyCharacteristics_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getKeyCharacteristics');
           const result = this.impl.getKeyCharacteristics(params.request);
           if (header.expectsResponse) {
@@ -2161,7 +2170,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_GetRootOfTrustChallenge_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_GetRootOfTrustChallenge_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getRootOfTrustChallenge');
           const result = this.impl.getRootOfTrustChallenge();
           if (header.expectsResponse) {
@@ -2174,7 +2183,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_GetRootOfTrust_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_GetRootOfTrust_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getRootOfTrust');
           const result = this.impl.getRootOfTrust(params.challenge);
           if (header.expectsResponse) {
@@ -2187,7 +2196,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_SendRootOfTrust_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_SendRootOfTrust_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.sendRootOfTrust');
           const result = this.impl.sendRootOfTrust(params.root_of_trust);
           if (header.expectsResponse) {
@@ -2200,7 +2209,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_UpdateAad_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_UpdateAad_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.updateAad');
           const result = this.impl.updateAad(params.request);
           if (header.expectsResponse) {
@@ -2213,7 +2222,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_Update_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_Update_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.update');
           const result = this.impl.update(params.request);
           if (header.expectsResponse) {
@@ -2226,7 +2235,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_Finish_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_Finish_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.finish');
           const result = this.impl.finish(params.request);
           if (header.expectsResponse) {
@@ -2239,7 +2248,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_Abort_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_Abort_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.abort');
           const result = this.impl.abort(params.op_handle);
           if (header.expectsResponse) {
@@ -2252,7 +2261,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_GetSharedSecretParameters_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_GetSharedSecretParameters_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getSharedSecretParameters');
           const result = this.impl.getSharedSecretParameters();
           if (header.expectsResponse) {
@@ -2265,7 +2274,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_ComputeSharedSecret_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_ComputeSharedSecret_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.computeSharedSecret');
           const result = this.impl.computeSharedSecret(params.secret_params);
           if (header.expectsResponse) {
@@ -2278,7 +2287,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_GenerateTimeStamp_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_GenerateTimeStamp_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.generateTimeStamp');
           const result = this.impl.generateTimeStamp(params.challenge);
           if (header.expectsResponse) {
@@ -2291,7 +2300,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_GenerateEcdsaP256KeyPair_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_GenerateEcdsaP256KeyPair_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.generateEcdsaP256KeyPair');
           const result = this.impl.generateEcdsaP256KeyPair(params.test_mode);
           if (header.expectsResponse) {
@@ -2304,7 +2313,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_GenerateCertificateRequest_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_GenerateCertificateRequest_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.generateCertificateRequest');
           const result = this.impl.generateCertificateRequest(params.request);
           if (header.expectsResponse) {
@@ -2317,7 +2326,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.keymint.KeyMintServer_SetVendorPatchLevel_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.keymint.KeyMintServer_SetVendorPatchLevel_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setVendorPatchLevel');
           const result = this.impl.setVendorPatchLevel(params.android_vendor_patchlevel);
           break;

@@ -164,9 +164,11 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -180,12 +182,13 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnDeclineCellularClicked
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnDeclineCellularClicked_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnDeclineCellularClicked_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDeclineCellularClicked (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -196,7 +199,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandlerReceiver = class {
         // Try Method 1: OnAcceptCellularClicked
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnAcceptCellularClicked_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnAcceptCellularClicked_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAcceptCellularClicked (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -207,7 +210,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandlerReceiver = class {
         // Try Method 2: OnSkipClicked
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnSkipClicked_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnSkipClicked_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSkipClicked (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -218,7 +221,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandlerReceiver = class {
         // Try Method 3: OnBackClicked
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnBackClicked_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnBackClicked_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBackClicked (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -235,28 +238,28 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnDeclineCellularClicked_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnDeclineCellularClicked_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onDeclineCellularClicked');
           const result = this.impl.onDeclineCellularClicked();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnAcceptCellularClicked_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnAcceptCellularClicked_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onAcceptCellularClicked');
           const result = this.impl.onAcceptCellularClicked();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnSkipClicked_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnSkipClicked_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onSkipClicked');
           const result = this.impl.onSkipClicked();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnBackClicked_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnBackClicked_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onBackClicked');
           const result = this.impl.onBackClicked();
           break;
@@ -424,9 +427,11 @@ ash.screens_oobe.mojom.ConsumerUpdatePageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -440,12 +445,13 @@ ash.screens_oobe.mojom.ConsumerUpdatePageReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ShowSkipButton
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.screens_oobe.mojom.ConsumerUpdatePage_ShowSkipButton_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.screens_oobe.mojom.ConsumerUpdatePage_ShowSkipButton_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowSkipButton (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -456,7 +462,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePageReceiver = class {
         // Try Method 1: SetLowBatteryWarningVisible
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.screens_oobe.mojom.ConsumerUpdatePage_SetLowBatteryWarningVisible_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.screens_oobe.mojom.ConsumerUpdatePage_SetLowBatteryWarningVisible_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetLowBatteryWarningVisible (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -467,7 +473,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePageReceiver = class {
         // Try Method 2: SetScreenStep
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.screens_oobe.mojom.ConsumerUpdatePage_SetScreenStep_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.screens_oobe.mojom.ConsumerUpdatePage_SetScreenStep_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetScreenStep (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -478,7 +484,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePageReceiver = class {
         // Try Method 3: SetUpdateStatusMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.screens_oobe.mojom.ConsumerUpdatePage_SetUpdateStatusMessage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.screens_oobe.mojom.ConsumerUpdatePage_SetUpdateStatusMessage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUpdateStatusMessage (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -489,7 +495,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePageReceiver = class {
         // Try Method 4: SetAutoTransition
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.screens_oobe.mojom.ConsumerUpdatePage_SetAutoTransition_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.screens_oobe.mojom.ConsumerUpdatePage_SetAutoTransition_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAutoTransition (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -506,35 +512,35 @@ ash.screens_oobe.mojom.ConsumerUpdatePageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.screens_oobe.mojom.ConsumerUpdatePage_ShowSkipButton_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.screens_oobe.mojom.ConsumerUpdatePage_ShowSkipButton_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.showSkipButton');
           const result = this.impl.showSkipButton();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.screens_oobe.mojom.ConsumerUpdatePage_SetLowBatteryWarningVisible_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.screens_oobe.mojom.ConsumerUpdatePage_SetLowBatteryWarningVisible_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setLowBatteryWarningVisible');
           const result = this.impl.setLowBatteryWarningVisible(params.visible);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.screens_oobe.mojom.ConsumerUpdatePage_SetScreenStep_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.screens_oobe.mojom.ConsumerUpdatePage_SetScreenStep_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setScreenStep');
           const result = this.impl.setScreenStep(params.step);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.screens_oobe.mojom.ConsumerUpdatePage_SetUpdateStatusMessage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.screens_oobe.mojom.ConsumerUpdatePage_SetUpdateStatusMessage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setUpdateStatusMessage');
           const result = this.impl.setUpdateStatusMessage(params.percent, params.percent_message, params.time_left_message);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.screens_oobe.mojom.ConsumerUpdatePage_SetAutoTransition_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.screens_oobe.mojom.ConsumerUpdatePage_SetAutoTransition_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setAutoTransition');
           const result = this.impl.setAutoTransition(params.enabled);
           break;
@@ -648,9 +654,11 @@ ash.screens_oobe.mojom.PackagedLicensePageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -664,12 +672,13 @@ ash.screens_oobe.mojom.PackagedLicensePageHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnDontEnrollClicked
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.screens_oobe.mojom.PackagedLicensePageHandler_OnDontEnrollClicked_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.screens_oobe.mojom.PackagedLicensePageHandler_OnDontEnrollClicked_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDontEnrollClicked (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -680,7 +689,7 @@ ash.screens_oobe.mojom.PackagedLicensePageHandlerReceiver = class {
         // Try Method 1: OnEnrollClicked
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.screens_oobe.mojom.PackagedLicensePageHandler_OnEnrollClicked_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.screens_oobe.mojom.PackagedLicensePageHandler_OnEnrollClicked_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnEnrollClicked (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -697,14 +706,14 @@ ash.screens_oobe.mojom.PackagedLicensePageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.screens_oobe.mojom.PackagedLicensePageHandler_OnDontEnrollClicked_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.screens_oobe.mojom.PackagedLicensePageHandler_OnDontEnrollClicked_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onDontEnrollClicked');
           const result = this.impl.onDontEnrollClicked();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.screens_oobe.mojom.PackagedLicensePageHandler_OnEnrollClicked_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.screens_oobe.mojom.PackagedLicensePageHandler_OnEnrollClicked_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onEnrollClicked');
           const result = this.impl.onEnrollClicked();
           break;

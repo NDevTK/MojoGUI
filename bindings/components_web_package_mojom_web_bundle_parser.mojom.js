@@ -313,9 +313,11 @@ web_package.mojom.WebBundleParserFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -329,12 +331,13 @@ web_package.mojom.WebBundleParserFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetParserForDataSource
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(web_package.mojom.WebBundleParserFactory_GetParserForDataSource_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(web_package.mojom.WebBundleParserFactory_GetParserForDataSource_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetParserForDataSource (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -345,7 +348,7 @@ web_package.mojom.WebBundleParserFactoryReceiver = class {
         // Try Method 1: BindFileDataSource
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(web_package.mojom.WebBundleParserFactory_BindFileDataSource_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(web_package.mojom.WebBundleParserFactory_BindFileDataSource_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindFileDataSource (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -362,14 +365,14 @@ web_package.mojom.WebBundleParserFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(web_package.mojom.WebBundleParserFactory_GetParserForDataSource_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(web_package.mojom.WebBundleParserFactory_GetParserForDataSource_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getParserForDataSource');
           const result = this.impl.getParserForDataSource(params.receiver, params.base_url, params.data_source);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(web_package.mojom.WebBundleParserFactory_BindFileDataSource_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(web_package.mojom.WebBundleParserFactory_BindFileDataSource_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindFileDataSource');
           const result = this.impl.bindFileDataSource(params.data_source, params.file);
           break;
@@ -545,9 +548,11 @@ web_package.mojom.WebBundleParserReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -561,12 +566,13 @@ web_package.mojom.WebBundleParserReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ParseIntegrityBlock
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(web_package.mojom.WebBundleParser_ParseIntegrityBlock_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(web_package.mojom.WebBundleParser_ParseIntegrityBlock_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ParseIntegrityBlock (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -577,7 +583,7 @@ web_package.mojom.WebBundleParserReceiver = class {
         // Try Method 1: ParseMetadata
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(web_package.mojom.WebBundleParser_ParseMetadata_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(web_package.mojom.WebBundleParser_ParseMetadata_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ParseMetadata (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -588,7 +594,7 @@ web_package.mojom.WebBundleParserReceiver = class {
         // Try Method 2: ParseResponse
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(web_package.mojom.WebBundleParser_ParseResponse_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(web_package.mojom.WebBundleParser_ParseResponse_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ParseResponse (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -599,7 +605,7 @@ web_package.mojom.WebBundleParserReceiver = class {
         // Try Method 3: Close
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(web_package.mojom.WebBundleParser_Close_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(web_package.mojom.WebBundleParser_Close_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Close (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -616,7 +622,7 @@ web_package.mojom.WebBundleParserReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(web_package.mojom.WebBundleParser_ParseIntegrityBlock_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(web_package.mojom.WebBundleParser_ParseIntegrityBlock_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.parseIntegrityBlock');
           const result = this.impl.parseIntegrityBlock();
           if (header.expectsResponse) {
@@ -629,7 +635,7 @@ web_package.mojom.WebBundleParserReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(web_package.mojom.WebBundleParser_ParseMetadata_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(web_package.mojom.WebBundleParser_ParseMetadata_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.parseMetadata');
           const result = this.impl.parseMetadata(params.offset);
           if (header.expectsResponse) {
@@ -642,7 +648,7 @@ web_package.mojom.WebBundleParserReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(web_package.mojom.WebBundleParser_ParseResponse_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(web_package.mojom.WebBundleParser_ParseResponse_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.parseResponse');
           const result = this.impl.parseResponse(params.response_offset, params.response_length);
           if (header.expectsResponse) {
@@ -655,7 +661,7 @@ web_package.mojom.WebBundleParserReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(web_package.mojom.WebBundleParser_Close_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(web_package.mojom.WebBundleParser_Close_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.close');
           const result = this.impl.close();
           if (header.expectsResponse) {
@@ -832,9 +838,11 @@ web_package.mojom.BundleDataSourceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -848,12 +856,13 @@ web_package.mojom.BundleDataSourceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Read
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(web_package.mojom.BundleDataSource_Read_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(web_package.mojom.BundleDataSource_Read_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Read (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -864,7 +873,7 @@ web_package.mojom.BundleDataSourceReceiver = class {
         // Try Method 1: Length
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(web_package.mojom.BundleDataSource_Length_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(web_package.mojom.BundleDataSource_Length_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Length (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -875,7 +884,7 @@ web_package.mojom.BundleDataSourceReceiver = class {
         // Try Method 2: IsRandomAccessContext
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(web_package.mojom.BundleDataSource_IsRandomAccessContext_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(web_package.mojom.BundleDataSource_IsRandomAccessContext_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsRandomAccessContext (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -886,7 +895,7 @@ web_package.mojom.BundleDataSourceReceiver = class {
         // Try Method 3: Close
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(web_package.mojom.BundleDataSource_Close_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(web_package.mojom.BundleDataSource_Close_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Close (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -903,7 +912,7 @@ web_package.mojom.BundleDataSourceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(web_package.mojom.BundleDataSource_Read_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(web_package.mojom.BundleDataSource_Read_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.read');
           const result = this.impl.read(params.offset, params.length);
           if (header.expectsResponse) {
@@ -916,7 +925,7 @@ web_package.mojom.BundleDataSourceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(web_package.mojom.BundleDataSource_Length_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(web_package.mojom.BundleDataSource_Length_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.length');
           const result = this.impl.length();
           if (header.expectsResponse) {
@@ -929,7 +938,7 @@ web_package.mojom.BundleDataSourceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(web_package.mojom.BundleDataSource_IsRandomAccessContext_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(web_package.mojom.BundleDataSource_IsRandomAccessContext_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.isRandomAccessContext');
           const result = this.impl.isRandomAccessContext();
           if (header.expectsResponse) {
@@ -942,7 +951,7 @@ web_package.mojom.BundleDataSourceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(web_package.mojom.BundleDataSource_Close_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(web_package.mojom.BundleDataSource_Close_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.close');
           const result = this.impl.close();
           if (header.expectsResponse) {

@@ -95,9 +95,11 @@ lens.mojom.LensGhostLoaderPageHandlerFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -111,12 +113,13 @@ lens.mojom.LensGhostLoaderPageHandlerFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateGhostLoaderPage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateGhostLoaderPage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -133,7 +136,7 @@ lens.mojom.LensGhostLoaderPageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createGhostLoaderPage');
           const result = this.impl.createGhostLoaderPage(params.page);
           break;
@@ -231,9 +234,11 @@ lens.mojom.LensGhostLoaderPageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -247,12 +252,13 @@ lens.mojom.LensGhostLoaderPageReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ShowErrorState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(lens.mojom.LensGhostLoaderPage_ShowErrorState_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(lens.mojom.LensGhostLoaderPage_ShowErrorState_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowErrorState (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -269,7 +275,7 @@ lens.mojom.LensGhostLoaderPageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensGhostLoaderPage_ShowErrorState_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(lens.mojom.LensGhostLoaderPage_ShowErrorState_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.showErrorState');
           const result = this.impl.showErrorState();
           break;

@@ -104,9 +104,11 @@ ash.trash_service.mojom.TrashServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -120,12 +122,13 @@ ash.trash_service.mojom.TrashServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ParseTrashInfoFile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ParseTrashInfoFile (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -142,7 +145,7 @@ ash.trash_service.mojom.TrashServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.parseTrashInfoFile');
           const result = this.impl.parseTrashInfoFile(params.trash_info_file);
           if (header.expectsResponse) {

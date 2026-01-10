@@ -174,9 +174,11 @@ on_device_internals.mojom.PageHandlerFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -190,12 +192,13 @@ on_device_internals.mojom.PageHandlerFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(on_device_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(on_device_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -212,7 +215,7 @@ on_device_internals.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(on_device_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(on_device_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
@@ -484,9 +487,11 @@ on_device_internals.mojom.PageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -500,12 +505,13 @@ on_device_internals.mojom.PageHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: LoadModel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(on_device_internals.mojom.PageHandler_LoadModel_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(on_device_internals.mojom.PageHandler_LoadModel_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadModel (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -516,7 +522,7 @@ on_device_internals.mojom.PageHandlerReceiver = class {
         // Try Method 1: LoadPlatformModel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(on_device_internals.mojom.PageHandler_LoadPlatformModel_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(on_device_internals.mojom.PageHandler_LoadPlatformModel_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadPlatformModel (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -527,7 +533,7 @@ on_device_internals.mojom.PageHandlerReceiver = class {
         // Try Method 2: GetDeviceAndPerformanceInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDeviceAndPerformanceInfo (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -538,7 +544,7 @@ on_device_internals.mojom.PageHandlerReceiver = class {
         // Try Method 3: GetDefaultModelPath
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(on_device_internals.mojom.PageHandler_GetDefaultModelPath_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(on_device_internals.mojom.PageHandler_GetDefaultModelPath_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDefaultModelPath (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -549,7 +555,7 @@ on_device_internals.mojom.PageHandlerReceiver = class {
         // Try Method 4: UninstallDefaultModel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(on_device_internals.mojom.PageHandler_UninstallDefaultModel_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(on_device_internals.mojom.PageHandler_UninstallDefaultModel_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UninstallDefaultModel (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -560,7 +566,7 @@ on_device_internals.mojom.PageHandlerReceiver = class {
         // Try Method 5: GetPageData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(on_device_internals.mojom.PageHandler_GetPageData_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(on_device_internals.mojom.PageHandler_GetPageData_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPageData (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -571,7 +577,7 @@ on_device_internals.mojom.PageHandlerReceiver = class {
         // Try Method 6: SetFeatureRecentlyUsedState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(on_device_internals.mojom.PageHandler_SetFeatureRecentlyUsedState_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(on_device_internals.mojom.PageHandler_SetFeatureRecentlyUsedState_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetFeatureRecentlyUsedState (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -582,7 +588,7 @@ on_device_internals.mojom.PageHandlerReceiver = class {
         // Try Method 7: DecodeBitmap
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(on_device_internals.mojom.PageHandler_DecodeBitmap_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(on_device_internals.mojom.PageHandler_DecodeBitmap_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DecodeBitmap (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -593,7 +599,7 @@ on_device_internals.mojom.PageHandlerReceiver = class {
         // Try Method 8: ResetModelCrashCount
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(on_device_internals.mojom.PageHandler_ResetModelCrashCount_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(on_device_internals.mojom.PageHandler_ResetModelCrashCount_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResetModelCrashCount (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -610,7 +616,7 @@ on_device_internals.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(on_device_internals.mojom.PageHandler_LoadModel_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(on_device_internals.mojom.PageHandler_LoadModel_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.loadModel');
           const result = this.impl.loadModel(params.model_path, params.performance_hint, params.model);
           if (header.expectsResponse) {
@@ -623,7 +629,7 @@ on_device_internals.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(on_device_internals.mojom.PageHandler_LoadPlatformModel_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(on_device_internals.mojom.PageHandler_LoadPlatformModel_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.loadPlatformModel');
           const result = this.impl.loadPlatformModel(params.model_path, params.model);
           if (header.expectsResponse) {
@@ -636,7 +642,7 @@ on_device_internals.mojom.PageHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getDeviceAndPerformanceInfo');
           const result = this.impl.getDeviceAndPerformanceInfo();
           if (header.expectsResponse) {
@@ -649,7 +655,7 @@ on_device_internals.mojom.PageHandlerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(on_device_internals.mojom.PageHandler_GetDefaultModelPath_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(on_device_internals.mojom.PageHandler_GetDefaultModelPath_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getDefaultModelPath');
           const result = this.impl.getDefaultModelPath();
           if (header.expectsResponse) {
@@ -662,14 +668,14 @@ on_device_internals.mojom.PageHandlerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(on_device_internals.mojom.PageHandler_UninstallDefaultModel_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(on_device_internals.mojom.PageHandler_UninstallDefaultModel_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.uninstallDefaultModel');
           const result = this.impl.uninstallDefaultModel();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(on_device_internals.mojom.PageHandler_GetPageData_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(on_device_internals.mojom.PageHandler_GetPageData_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getPageData');
           const result = this.impl.getPageData();
           if (header.expectsResponse) {
@@ -682,14 +688,14 @@ on_device_internals.mojom.PageHandlerReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(on_device_internals.mojom.PageHandler_SetFeatureRecentlyUsedState_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(on_device_internals.mojom.PageHandler_SetFeatureRecentlyUsedState_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setFeatureRecentlyUsedState');
           const result = this.impl.setFeatureRecentlyUsedState(params.feature_key, params.is_recently_used);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(on_device_internals.mojom.PageHandler_DecodeBitmap_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(on_device_internals.mojom.PageHandler_DecodeBitmap_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.decodeBitmap');
           const result = this.impl.decodeBitmap(params.image_buffer);
           if (header.expectsResponse) {
@@ -702,7 +708,7 @@ on_device_internals.mojom.PageHandlerReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(on_device_internals.mojom.PageHandler_ResetModelCrashCount_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(on_device_internals.mojom.PageHandler_ResetModelCrashCount_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.resetModelCrashCount');
           const result = this.impl.resetModelCrashCount();
           break;
@@ -822,9 +828,11 @@ on_device_internals.mojom.PageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -838,12 +846,13 @@ on_device_internals.mojom.PageReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnLogMessageAdded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(on_device_internals.mojom.Page_OnLogMessageAdded_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(on_device_internals.mojom.Page_OnLogMessageAdded_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLogMessageAdded (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -854,7 +863,7 @@ on_device_internals.mojom.PageReceiver = class {
         // Try Method 1: OnDownloadProgressUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(on_device_internals.mojom.Page_OnDownloadProgressUpdate_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(on_device_internals.mojom.Page_OnDownloadProgressUpdate_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDownloadProgressUpdate (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -871,14 +880,14 @@ on_device_internals.mojom.PageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(on_device_internals.mojom.Page_OnLogMessageAdded_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(on_device_internals.mojom.Page_OnLogMessageAdded_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onLogMessageAdded');
           const result = this.impl.onLogMessageAdded(params.event_time, params.source_file, params.source_line, params.message);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(on_device_internals.mojom.Page_OnDownloadProgressUpdate_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(on_device_internals.mojom.Page_OnDownloadProgressUpdate_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onDownloadProgressUpdate');
           const result = this.impl.onDownloadProgressUpdate(params.downloaded_bytes, params.total_bytes);
           break;

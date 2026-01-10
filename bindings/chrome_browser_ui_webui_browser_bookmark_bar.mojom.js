@@ -126,9 +126,11 @@ bookmark_bar.mojom.PageHandlerFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -142,12 +144,13 @@ bookmark_bar.mojom.PageHandlerFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -164,7 +167,7 @@ bookmark_bar.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
@@ -285,9 +288,11 @@ bookmark_bar.mojom.PageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -301,12 +306,13 @@ bookmark_bar.mojom.PageHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetBookmarkBar
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetBookmarkBar (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -317,7 +323,7 @@ bookmark_bar.mojom.PageHandlerReceiver = class {
         // Try Method 1: OpenInNewTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenInNewTab (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -334,7 +340,7 @@ bookmark_bar.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getBookmarkBar');
           const result = this.impl.getBookmarkBar();
           if (header.expectsResponse) {
@@ -347,7 +353,7 @@ bookmark_bar.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.openInNewTab');
           const result = this.impl.openInNewTab(params.node_id);
           break;
@@ -494,9 +500,11 @@ bookmark_bar.mojom.PageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -510,12 +518,13 @@ bookmark_bar.mojom.PageReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: BookmarkLoaded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(bookmark_bar.mojom.Page_BookmarkLoaded_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(bookmark_bar.mojom.Page_BookmarkLoaded_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BookmarkLoaded (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -526,7 +535,7 @@ bookmark_bar.mojom.PageReceiver = class {
         // Try Method 1: FavIconChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FavIconChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -537,7 +546,7 @@ bookmark_bar.mojom.PageReceiver = class {
         // Try Method 2: Show
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(bookmark_bar.mojom.Page_Show_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(bookmark_bar.mojom.Page_Show_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Show (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -548,7 +557,7 @@ bookmark_bar.mojom.PageReceiver = class {
         // Try Method 3: Hide
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(bookmark_bar.mojom.Page_Hide_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(bookmark_bar.mojom.Page_Hide_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Hide (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -565,28 +574,28 @@ bookmark_bar.mojom.PageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(bookmark_bar.mojom.Page_BookmarkLoaded_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(bookmark_bar.mojom.Page_BookmarkLoaded_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bookmarkLoaded');
           const result = this.impl.bookmarkLoaded();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.favIconChanged');
           const result = this.impl.favIconChanged(params.bookmark_data);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(bookmark_bar.mojom.Page_Show_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(bookmark_bar.mojom.Page_Show_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.show');
           const result = this.impl.show();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(bookmark_bar.mojom.Page_Hide_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(bookmark_bar.mojom.Page_Hide_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.hide');
           const result = this.impl.hide();
           break;

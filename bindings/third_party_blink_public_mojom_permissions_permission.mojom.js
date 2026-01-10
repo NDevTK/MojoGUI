@@ -264,9 +264,11 @@ blink.mojom.PermissionObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -280,12 +282,13 @@ blink.mojom.PermissionObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnPermissionStatusChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.PermissionObserver_OnPermissionStatusChange_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.PermissionObserver_OnPermissionStatusChange_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPermissionStatusChange (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -302,7 +305,7 @@ blink.mojom.PermissionObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PermissionObserver_OnPermissionStatusChange_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.PermissionObserver_OnPermissionStatusChange_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onPermissionStatusChange');
           const result = this.impl.onPermissionStatusChange(params.status);
           break;
@@ -402,9 +405,11 @@ blink.mojom.EmbeddedPermissionControlClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -418,12 +423,13 @@ blink.mojom.EmbeddedPermissionControlClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnEmbeddedPermissionControlRegistered
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistered_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistered_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnEmbeddedPermissionControlRegistered (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -440,7 +446,7 @@ blink.mojom.EmbeddedPermissionControlClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistered_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistered_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onEmbeddedPermissionControlRegistered');
           const result = this.impl.onEmbeddedPermissionControlRegistered(params.allow, params.statuses);
           break;
@@ -716,9 +722,11 @@ blink.mojom.PermissionServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -732,12 +740,13 @@ blink.mojom.PermissionServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: HasPermission
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.PermissionService_HasPermission_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.PermissionService_HasPermission_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HasPermission (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -748,7 +757,7 @@ blink.mojom.PermissionServiceReceiver = class {
         // Try Method 1: RegisterPageEmbeddedPermissionControl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterPageEmbeddedPermissionControl (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -759,7 +768,7 @@ blink.mojom.PermissionServiceReceiver = class {
         // Try Method 2: RequestPageEmbeddedPermission
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.PermissionService_RequestPageEmbeddedPermission_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.PermissionService_RequestPageEmbeddedPermission_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestPageEmbeddedPermission (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -770,7 +779,7 @@ blink.mojom.PermissionServiceReceiver = class {
         // Try Method 3: RequestPermission
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.PermissionService_RequestPermission_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.PermissionService_RequestPermission_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestPermission (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -781,7 +790,7 @@ blink.mojom.PermissionServiceReceiver = class {
         // Try Method 4: RequestPermissions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.PermissionService_RequestPermissions_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.PermissionService_RequestPermissions_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestPermissions (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -792,7 +801,7 @@ blink.mojom.PermissionServiceReceiver = class {
         // Try Method 5: RevokePermission
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.PermissionService_RevokePermission_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.PermissionService_RevokePermission_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RevokePermission (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -803,7 +812,7 @@ blink.mojom.PermissionServiceReceiver = class {
         // Try Method 6: AddPermissionObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.PermissionService_AddPermissionObserver_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.PermissionService_AddPermissionObserver_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddPermissionObserver (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -814,7 +823,7 @@ blink.mojom.PermissionServiceReceiver = class {
         // Try Method 7: AddPageEmbeddedPermissionObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddPageEmbeddedPermissionObserver (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -825,7 +834,7 @@ blink.mojom.PermissionServiceReceiver = class {
         // Try Method 8: NotifyEventListener
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.PermissionService_NotifyEventListener_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.PermissionService_NotifyEventListener_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyEventListener (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -842,7 +851,7 @@ blink.mojom.PermissionServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PermissionService_HasPermission_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.PermissionService_HasPermission_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.hasPermission');
           const result = this.impl.hasPermission(params.permission);
           if (header.expectsResponse) {
@@ -855,14 +864,14 @@ blink.mojom.PermissionServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.registerPageEmbeddedPermissionControl');
           const result = this.impl.registerPageEmbeddedPermissionControl(params.permissions, params.descriptor, params.client);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PermissionService_RequestPageEmbeddedPermission_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.PermissionService_RequestPageEmbeddedPermission_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestPageEmbeddedPermission');
           const result = this.impl.requestPageEmbeddedPermission(params.permissions, params.descriptor);
           if (header.expectsResponse) {
@@ -875,7 +884,7 @@ blink.mojom.PermissionServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PermissionService_RequestPermission_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.PermissionService_RequestPermission_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestPermission');
           const result = this.impl.requestPermission(params.permission, params.user_gesture);
           if (header.expectsResponse) {
@@ -888,7 +897,7 @@ blink.mojom.PermissionServiceReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PermissionService_RequestPermissions_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.PermissionService_RequestPermissions_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestPermissions');
           const result = this.impl.requestPermissions(params.permission, params.user_gesture);
           if (header.expectsResponse) {
@@ -901,7 +910,7 @@ blink.mojom.PermissionServiceReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PermissionService_RevokePermission_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.PermissionService_RevokePermission_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.revokePermission');
           const result = this.impl.revokePermission(params.permission);
           if (header.expectsResponse) {
@@ -914,21 +923,21 @@ blink.mojom.PermissionServiceReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PermissionService_AddPermissionObserver_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.PermissionService_AddPermissionObserver_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addPermissionObserver');
           const result = this.impl.addPermissionObserver(params.permission, params.last_known_status, params.observer);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addPageEmbeddedPermissionObserver');
           const result = this.impl.addPageEmbeddedPermissionObserver(params.permission, params.last_known_status, params.observer);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PermissionService_NotifyEventListener_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.PermissionService_NotifyEventListener_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.notifyEventListener');
           const result = this.impl.notifyEventListener(params.permission, params.event_type, params.is_added);
           break;

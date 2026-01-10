@@ -383,9 +383,11 @@ content.mojom.FrameHTMLSerializerHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -399,12 +401,13 @@ content.mojom.FrameHTMLSerializerHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: DidReceiveData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.FrameHTMLSerializerHandler_DidReceiveData_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.FrameHTMLSerializerHandler_DidReceiveData_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidReceiveData (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -415,7 +418,7 @@ content.mojom.FrameHTMLSerializerHandlerReceiver = class {
         // Try Method 1: Done
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.FrameHTMLSerializerHandler_Done_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.FrameHTMLSerializerHandler_Done_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Done (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -432,14 +435,14 @@ content.mojom.FrameHTMLSerializerHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.FrameHTMLSerializerHandler_DidReceiveData_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.FrameHTMLSerializerHandler_DidReceiveData_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.didReceiveData');
           const result = this.impl.didReceiveData(params.data_buffer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.FrameHTMLSerializerHandler_Done_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.FrameHTMLSerializerHandler_Done_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.done');
           const result = this.impl.done();
           break;
@@ -698,9 +701,11 @@ content.mojom.FrameReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -714,12 +719,13 @@ content.mojom.FrameReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CommitSameDocumentNavigation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.Frame_CommitSameDocumentNavigation_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.Frame_CommitSameDocumentNavigation_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CommitSameDocumentNavigation (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -730,7 +736,7 @@ content.mojom.FrameReceiver = class {
         // Try Method 1: UpdateSubresourceLoaderFactories
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.Frame_UpdateSubresourceLoaderFactories_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.Frame_UpdateSubresourceLoaderFactories_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateSubresourceLoaderFactories (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -741,7 +747,7 @@ content.mojom.FrameReceiver = class {
         // Try Method 2: SetWantErrorMessageStackTrace
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.Frame_SetWantErrorMessageStackTrace_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.Frame_SetWantErrorMessageStackTrace_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetWantErrorMessageStackTrace (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -752,7 +758,7 @@ content.mojom.FrameReceiver = class {
         // Try Method 3: Unload
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.Frame_Unload_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.Frame_Unload_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Unload (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -763,7 +769,7 @@ content.mojom.FrameReceiver = class {
         // Try Method 4: Delete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.Frame_Delete_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.Frame_Delete_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Delete (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -774,7 +780,7 @@ content.mojom.FrameReceiver = class {
         // Try Method 5: UndoCommitNavigation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.Frame_UndoCommitNavigation_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.Frame_UndoCommitNavigation_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UndoCommitNavigation (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -785,7 +791,7 @@ content.mojom.FrameReceiver = class {
         // Try Method 6: GetInterfaceProvider
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.Frame_GetInterfaceProvider_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.Frame_GetInterfaceProvider_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetInterfaceProvider (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -796,7 +802,7 @@ content.mojom.FrameReceiver = class {
         // Try Method 7: SnapshotAccessibilityTree
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.Frame_SnapshotAccessibilityTree_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.Frame_SnapshotAccessibilityTree_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SnapshotAccessibilityTree (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -807,7 +813,7 @@ content.mojom.FrameReceiver = class {
         // Try Method 8: GetSerializedHtmlWithLocalLinks
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.Frame_GetSerializedHtmlWithLocalLinks_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.Frame_GetSerializedHtmlWithLocalLinks_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSerializedHtmlWithLocalLinks (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -824,7 +830,7 @@ content.mojom.FrameReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.Frame_CommitSameDocumentNavigation_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.Frame_CommitSameDocumentNavigation_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.commitSameDocumentNavigation');
           const result = this.impl.commitSameDocumentNavigation(params.common_params, params.request_params);
           if (header.expectsResponse) {
@@ -837,49 +843,49 @@ content.mojom.FrameReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.Frame_UpdateSubresourceLoaderFactories_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.Frame_UpdateSubresourceLoaderFactories_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.updateSubresourceLoaderFactories');
           const result = this.impl.updateSubresourceLoaderFactories(params.subresource_loader_factories);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.Frame_SetWantErrorMessageStackTrace_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.Frame_SetWantErrorMessageStackTrace_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setWantErrorMessageStackTrace');
           const result = this.impl.setWantErrorMessageStackTrace();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.Frame_Unload_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.Frame_Unload_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.unload');
           const result = this.impl.unload(params.is_loading, params.new_remote_frame_replication_state, params.new_remote_frame_token, params.new_remote_frame_interfaces, params.new_remote_main_frame_interfaces, params.devtools_frame_token);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.Frame_Delete_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.Frame_Delete_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.delete');
           const result = this.impl.delete(params.intention);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.Frame_UndoCommitNavigation_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.Frame_UndoCommitNavigation_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.undoCommitNavigation');
           const result = this.impl.undoCommitNavigation(params.is_loading, params.new_remote_frame_replication_state, params.new_remote_frame_token, params.new_remote_frame_interfaces, params.new_remote_main_frame_interfaces);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.Frame_GetInterfaceProvider_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.Frame_GetInterfaceProvider_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getInterfaceProvider');
           const result = this.impl.getInterfaceProvider(params.interfaces);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.Frame_SnapshotAccessibilityTree_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.Frame_SnapshotAccessibilityTree_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.snapshotAccessibilityTree');
           const result = this.impl.snapshotAccessibilityTree(params.params);
           if (header.expectsResponse) {
@@ -892,7 +898,7 @@ content.mojom.FrameReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.Frame_GetSerializedHtmlWithLocalLinks_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.Frame_GetSerializedHtmlWithLocalLinks_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getSerializedHtmlWithLocalLinks');
           const result = this.impl.getSerializedHtmlWithLocalLinks(params.url_map, params.frame_token_map, params.save_with_empty_url, params.handler_remote);
           break;
@@ -1043,9 +1049,11 @@ content.mojom.FrameBindingsControlReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1059,12 +1067,13 @@ content.mojom.FrameBindingsControlReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AllowBindings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.FrameBindingsControl_AllowBindings_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.FrameBindingsControl_AllowBindings_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AllowBindings (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1075,7 +1084,7 @@ content.mojom.FrameBindingsControlReceiver = class {
         // Try Method 1: EnableMojoJsBindings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.FrameBindingsControl_EnableMojoJsBindings_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.FrameBindingsControl_EnableMojoJsBindings_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableMojoJsBindings (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1086,7 +1095,7 @@ content.mojom.FrameBindingsControlReceiver = class {
         // Try Method 2: EnableMojoJsBindingsWithBroker
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.FrameBindingsControl_EnableMojoJsBindingsWithBroker_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.FrameBindingsControl_EnableMojoJsBindingsWithBroker_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableMojoJsBindingsWithBroker (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1097,7 +1106,7 @@ content.mojom.FrameBindingsControlReceiver = class {
         // Try Method 3: BindWebUI
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.FrameBindingsControl_BindWebUI_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.FrameBindingsControl_BindWebUI_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindWebUI (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1114,28 +1123,28 @@ content.mojom.FrameBindingsControlReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.FrameBindingsControl_AllowBindings_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.FrameBindingsControl_AllowBindings_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.allowBindings');
           const result = this.impl.allowBindings(params.enabled_bindings_flags);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.FrameBindingsControl_EnableMojoJsBindings_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.FrameBindingsControl_EnableMojoJsBindings_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.enableMojoJsBindings');
           const result = this.impl.enableMojoJsBindings(params.features);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.FrameBindingsControl_EnableMojoJsBindingsWithBroker_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.FrameBindingsControl_EnableMojoJsBindingsWithBroker_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.enableMojoJsBindingsWithBroker');
           const result = this.impl.enableMojoJsBindingsWithBroker(params.broker);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.FrameBindingsControl_BindWebUI_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.FrameBindingsControl_BindWebUI_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindWebUI');
           const result = this.impl.bindWebUI(params.receiver, params.remote);
           break;
@@ -1233,9 +1242,11 @@ content.mojom.NavigationRendererCancellationListenerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1249,12 +1260,13 @@ content.mojom.NavigationRendererCancellationListenerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: RendererCancellationWindowEnded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.NavigationRendererCancellationListener_RendererCancellationWindowEnded_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.NavigationRendererCancellationListener_RendererCancellationWindowEnded_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RendererCancellationWindowEnded (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1271,7 +1283,7 @@ content.mojom.NavigationRendererCancellationListenerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.NavigationRendererCancellationListener_RendererCancellationWindowEnded_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.NavigationRendererCancellationListener_RendererCancellationWindowEnded_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.rendererCancellationWindowEnded');
           const result = this.impl.rendererCancellationWindowEnded();
           break;
@@ -1633,9 +1645,11 @@ content.mojom.FrameHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1649,12 +1663,13 @@ content.mojom.FrameHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateNewWindow
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.FrameHost_CreateNewWindow_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.FrameHost_CreateNewWindow_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateNewWindow (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1665,7 +1680,7 @@ content.mojom.FrameHostReceiver = class {
         // Try Method 1: CreateChildFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.FrameHost_CreateChildFrame_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.FrameHost_CreateChildFrame_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateChildFrame (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1676,7 +1691,7 @@ content.mojom.FrameHostReceiver = class {
         // Try Method 2: DidCommitProvisionalLoad
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.FrameHost_DidCommitProvisionalLoad_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.FrameHost_DidCommitProvisionalLoad_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidCommitProvisionalLoad (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1687,7 +1702,7 @@ content.mojom.FrameHostReceiver = class {
         // Try Method 3: DidCommitSameDocumentNavigation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.FrameHost_DidCommitSameDocumentNavigation_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.FrameHost_DidCommitSameDocumentNavigation_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidCommitSameDocumentNavigation (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1698,7 +1713,7 @@ content.mojom.FrameHostReceiver = class {
         // Try Method 4: DidOpenDocumentInputStream
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.FrameHost_DidOpenDocumentInputStream_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.FrameHost_DidOpenDocumentInputStream_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidOpenDocumentInputStream (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1709,7 +1724,7 @@ content.mojom.FrameHostReceiver = class {
         // Try Method 5: BeginNavigation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.FrameHost_BeginNavigation_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.FrameHost_BeginNavigation_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BeginNavigation (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1720,7 +1735,7 @@ content.mojom.FrameHostReceiver = class {
         // Try Method 6: SubresourceResponseStarted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.FrameHost_SubresourceResponseStarted_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.FrameHost_SubresourceResponseStarted_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SubresourceResponseStarted (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1731,7 +1746,7 @@ content.mojom.FrameHostReceiver = class {
         // Try Method 7: ResourceLoadComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.FrameHost_ResourceLoadComplete_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.FrameHost_ResourceLoadComplete_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResourceLoadComplete (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1742,7 +1757,7 @@ content.mojom.FrameHostReceiver = class {
         // Try Method 8: DidChangeName
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.FrameHost_DidChangeName_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.FrameHost_DidChangeName_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidChangeName (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1753,7 +1768,7 @@ content.mojom.FrameHostReceiver = class {
         // Try Method 9: CancelInitialHistoryLoad
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.FrameHost_CancelInitialHistoryLoad_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.FrameHost_CancelInitialHistoryLoad_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelInitialHistoryLoad (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1764,7 +1779,7 @@ content.mojom.FrameHostReceiver = class {
         // Try Method 10: UpdateEncoding
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.FrameHost_UpdateEncoding_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.FrameHost_UpdateEncoding_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateEncoding (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1775,7 +1790,7 @@ content.mojom.FrameHostReceiver = class {
         // Try Method 11: UpdateUserGestureCarryoverInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.FrameHost_UpdateUserGestureCarryoverInfo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.FrameHost_UpdateUserGestureCarryoverInfo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateUserGestureCarryoverInfo (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1786,7 +1801,7 @@ content.mojom.FrameHostReceiver = class {
         // Try Method 12: UpdateState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.FrameHost_UpdateState_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.FrameHost_UpdateState_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateState (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1797,7 +1812,7 @@ content.mojom.FrameHostReceiver = class {
         // Try Method 13: OpenURL
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.FrameHost_OpenURL_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.FrameHost_OpenURL_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenURL (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1808,7 +1823,7 @@ content.mojom.FrameHostReceiver = class {
         // Try Method 14: DidStopLoading
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.FrameHost_DidStopLoading_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.FrameHost_DidStopLoading_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidStopLoading (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1825,7 +1840,7 @@ content.mojom.FrameHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.FrameHost_CreateNewWindow_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.FrameHost_CreateNewWindow_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createNewWindow');
           const result = this.impl.createNewWindow(params.params);
           if (header.expectsResponse) {
@@ -1838,98 +1853,98 @@ content.mojom.FrameHostReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.FrameHost_CreateChildFrame_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.FrameHost_CreateChildFrame_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createChildFrame');
           const result = this.impl.createChildFrame(params.child_frame_token, params.frame, params.browser_interface_broker, params.policy_container_bind_params, params.associated_interface_provider, params.scope, params.frame_name, params.frame_unique_name, params.is_created_by_script, params.frame_policy, params.frame_owner_properties, params.child_frame_owner_element_type, params.document_ukm_source_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.FrameHost_DidCommitProvisionalLoad_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.FrameHost_DidCommitProvisionalLoad_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.didCommitProvisionalLoad');
           const result = this.impl.didCommitProvisionalLoad(params.params, params.interface_params);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.FrameHost_DidCommitSameDocumentNavigation_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.FrameHost_DidCommitSameDocumentNavigation_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.didCommitSameDocumentNavigation');
           const result = this.impl.didCommitSameDocumentNavigation(params.params, params.same_document_params);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.FrameHost_DidOpenDocumentInputStream_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.FrameHost_DidOpenDocumentInputStream_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.didOpenDocumentInputStream');
           const result = this.impl.didOpenDocumentInputStream(params.url);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.FrameHost_BeginNavigation_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.FrameHost_BeginNavigation_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.beginNavigation');
           const result = this.impl.beginNavigation(params.common_params, params.begin_params, params.blob_url_token, params.navigation_client, params.initiator_navigation_state_keep_alive_handle, params.renderer_cancellation_listener);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.FrameHost_SubresourceResponseStarted_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.FrameHost_SubresourceResponseStarted_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.subresourceResponseStarted');
           const result = this.impl.subresourceResponseStarted(params.final_response_url, params.cert_status);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.FrameHost_ResourceLoadComplete_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.FrameHost_ResourceLoadComplete_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.resourceLoadComplete');
           const result = this.impl.resourceLoadComplete(params.url_load_info);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.FrameHost_DidChangeName_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.FrameHost_DidChangeName_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.didChangeName');
           const result = this.impl.didChangeName(params.name, params.unique_name);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.FrameHost_CancelInitialHistoryLoad_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.FrameHost_CancelInitialHistoryLoad_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.cancelInitialHistoryLoad');
           const result = this.impl.cancelInitialHistoryLoad();
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.FrameHost_UpdateEncoding_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.FrameHost_UpdateEncoding_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.updateEncoding');
           const result = this.impl.updateEncoding(params.encoding_name);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.FrameHost_UpdateUserGestureCarryoverInfo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.FrameHost_UpdateUserGestureCarryoverInfo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.updateUserGestureCarryoverInfo');
           const result = this.impl.updateUserGestureCarryoverInfo();
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.FrameHost_UpdateState_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.FrameHost_UpdateState_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.updateState');
           const result = this.impl.updateState(params.state);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.FrameHost_OpenURL_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.FrameHost_OpenURL_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.openURL');
           const result = this.impl.openURL(params.params);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.FrameHost_DidStopLoading_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.FrameHost_DidStopLoading_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.didStopLoading');
           const result = this.impl.didStopLoading();
           break;

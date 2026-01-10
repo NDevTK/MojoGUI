@@ -236,9 +236,11 @@ ash.diagnostics.mojom.NetworkListObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -252,12 +254,13 @@ ash.diagnostics.mojom.NetworkListObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnNetworkListChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.diagnostics.mojom.NetworkListObserver_OnNetworkListChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.diagnostics.mojom.NetworkListObserver_OnNetworkListChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNetworkListChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -274,7 +277,7 @@ ash.diagnostics.mojom.NetworkListObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.diagnostics.mojom.NetworkListObserver_OnNetworkListChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.diagnostics.mojom.NetworkListObserver_OnNetworkListChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onNetworkListChanged');
           const result = this.impl.onNetworkListChanged(params.network_guids, params.active_guid);
           break;
@@ -373,9 +376,11 @@ ash.diagnostics.mojom.NetworkStateObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -389,12 +394,13 @@ ash.diagnostics.mojom.NetworkStateObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnNetworkStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNetworkStateChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -411,7 +417,7 @@ ash.diagnostics.mojom.NetworkStateObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onNetworkStateChanged');
           const result = this.impl.onNetworkStateChanged(params.network);
           break;
@@ -528,9 +534,11 @@ ash.diagnostics.mojom.NetworkHealthProviderReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -544,12 +552,13 @@ ash.diagnostics.mojom.NetworkHealthProviderReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ObserveNetworkList
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveNetworkList (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -560,7 +569,7 @@ ash.diagnostics.mojom.NetworkHealthProviderReceiver = class {
         // Try Method 1: ObserveNetwork
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveNetwork (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -577,14 +586,14 @@ ash.diagnostics.mojom.NetworkHealthProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.observeNetworkList');
           const result = this.impl.observeNetworkList(params.observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.observeNetwork');
           const result = this.impl.observeNetwork(params.observer, params.guid);
           break;

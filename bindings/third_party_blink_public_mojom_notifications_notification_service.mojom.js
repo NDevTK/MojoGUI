@@ -156,9 +156,11 @@ blink.mojom.NonPersistentNotificationListenerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -172,12 +174,13 @@ blink.mojom.NonPersistentNotificationListenerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnShow
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.NonPersistentNotificationListener_OnShow_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.NonPersistentNotificationListener_OnShow_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnShow (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -188,7 +191,7 @@ blink.mojom.NonPersistentNotificationListenerReceiver = class {
         // Try Method 1: OnClick
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.NonPersistentNotificationListener_OnClick_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.NonPersistentNotificationListener_OnClick_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnClick (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -199,7 +202,7 @@ blink.mojom.NonPersistentNotificationListenerReceiver = class {
         // Try Method 2: OnClose
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.NonPersistentNotificationListener_OnClose_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.NonPersistentNotificationListener_OnClose_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnClose (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -216,14 +219,14 @@ blink.mojom.NonPersistentNotificationListenerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.NonPersistentNotificationListener_OnShow_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.NonPersistentNotificationListener_OnShow_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onShow');
           const result = this.impl.onShow();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.NonPersistentNotificationListener_OnClick_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.NonPersistentNotificationListener_OnClick_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onClick');
           const result = this.impl.onClick();
           if (header.expectsResponse) {
@@ -236,7 +239,7 @@ blink.mojom.NonPersistentNotificationListenerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.NonPersistentNotificationListener_OnClose_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.NonPersistentNotificationListener_OnClose_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onClose');
           const result = this.impl.onClose();
           if (header.expectsResponse) {
@@ -451,9 +454,11 @@ blink.mojom.NotificationServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -467,12 +472,13 @@ blink.mojom.NotificationServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetPermissionStatus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.NotificationService_GetPermissionStatus_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.NotificationService_GetPermissionStatus_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPermissionStatus (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -483,7 +489,7 @@ blink.mojom.NotificationServiceReceiver = class {
         // Try Method 1: DisplayNonPersistentNotification
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.NotificationService_DisplayNonPersistentNotification_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.NotificationService_DisplayNonPersistentNotification_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisplayNonPersistentNotification (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -494,7 +500,7 @@ blink.mojom.NotificationServiceReceiver = class {
         // Try Method 2: CloseNonPersistentNotification
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.NotificationService_CloseNonPersistentNotification_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.NotificationService_CloseNonPersistentNotification_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseNonPersistentNotification (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -505,7 +511,7 @@ blink.mojom.NotificationServiceReceiver = class {
         // Try Method 3: DisplayPersistentNotification
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.NotificationService_DisplayPersistentNotification_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.NotificationService_DisplayPersistentNotification_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisplayPersistentNotification (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -516,7 +522,7 @@ blink.mojom.NotificationServiceReceiver = class {
         // Try Method 4: ClosePersistentNotification
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.NotificationService_ClosePersistentNotification_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.NotificationService_ClosePersistentNotification_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClosePersistentNotification (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -527,7 +533,7 @@ blink.mojom.NotificationServiceReceiver = class {
         // Try Method 5: GetNotifications
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.NotificationService_GetNotifications_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.NotificationService_GetNotifications_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNotifications (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -544,7 +550,7 @@ blink.mojom.NotificationServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.NotificationService_GetPermissionStatus_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.NotificationService_GetPermissionStatus_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getPermissionStatus');
           const result = this.impl.getPermissionStatus();
           if (header.expectsResponse) {
@@ -557,21 +563,21 @@ blink.mojom.NotificationServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.NotificationService_DisplayNonPersistentNotification_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.NotificationService_DisplayNonPersistentNotification_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.displayNonPersistentNotification');
           const result = this.impl.displayNonPersistentNotification(params.token, params.notification_data, params.notification_resources, params.event_listener);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.NotificationService_CloseNonPersistentNotification_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.NotificationService_CloseNonPersistentNotification_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.closeNonPersistentNotification');
           const result = this.impl.closeNonPersistentNotification(params.token);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.NotificationService_DisplayPersistentNotification_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.NotificationService_DisplayPersistentNotification_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.displayPersistentNotification');
           const result = this.impl.displayPersistentNotification(params.service_worker_registration_id, params.notification_data, params.notification_resources);
           if (header.expectsResponse) {
@@ -584,14 +590,14 @@ blink.mojom.NotificationServiceReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.NotificationService_ClosePersistentNotification_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.NotificationService_ClosePersistentNotification_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.closePersistentNotification');
           const result = this.impl.closePersistentNotification(params.notification_id);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.NotificationService_GetNotifications_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.NotificationService_GetNotifications_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getNotifications');
           const result = this.impl.getNotifications(params.service_worker_registration_id, params.filter_tag, params.include_triggered);
           if (header.expectsResponse) {

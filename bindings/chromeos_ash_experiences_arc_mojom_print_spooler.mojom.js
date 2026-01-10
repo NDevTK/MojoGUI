@@ -87,9 +87,11 @@ arc.mojom.PrintSessionHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -103,6 +105,7 @@ arc.mojom.PrintSessionHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         if (dispatchId === undefined) {
@@ -229,9 +232,11 @@ arc.mojom.PrintSessionInstanceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -245,12 +250,13 @@ arc.mojom.PrintSessionInstanceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnPrintPreviewClosed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.PrintSessionInstance_OnPrintPreviewClosed_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.PrintSessionInstance_OnPrintPreviewClosed_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPrintPreviewClosed (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -261,7 +267,7 @@ arc.mojom.PrintSessionInstanceReceiver = class {
         // Try Method 1: CreatePreviewDocument
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.PrintSessionInstance_CreatePreviewDocument_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.PrintSessionInstance_CreatePreviewDocument_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePreviewDocument (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -278,14 +284,14 @@ arc.mojom.PrintSessionInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.PrintSessionInstance_OnPrintPreviewClosed_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.PrintSessionInstance_OnPrintPreviewClosed_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onPrintPreviewClosed');
           const result = this.impl.onPrintPreviewClosed();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.PrintSessionInstance_CreatePreviewDocument_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.PrintSessionInstance_CreatePreviewDocument_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createPreviewDocument');
           const result = this.impl.createPreviewDocument(params.request);
           if (header.expectsResponse) {
@@ -398,9 +404,11 @@ arc.mojom.PrintSpoolerHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -414,12 +422,13 @@ arc.mojom.PrintSpoolerHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: StartPrintInCustomTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartPrintInCustomTab (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -436,7 +445,7 @@ arc.mojom.PrintSpoolerHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.startPrintInCustomTab');
           const result = this.impl.startPrintInCustomTab(params.scoped_handle, params.task_id, params.instance);
           if (header.expectsResponse) {
@@ -546,9 +555,11 @@ arc.mojom.PrintSpoolerInstanceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -562,12 +573,13 @@ arc.mojom.PrintSpoolerInstanceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.PrintSpoolerInstance_Init_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.PrintSpoolerInstance_Init_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -584,7 +596,7 @@ arc.mojom.PrintSpoolerInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.PrintSpoolerInstance_Init_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.PrintSpoolerInstance_Init_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {

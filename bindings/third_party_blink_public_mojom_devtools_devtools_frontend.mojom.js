@@ -115,9 +115,11 @@ blink.mojom.DevToolsFrontendReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -131,12 +133,13 @@ blink.mojom.DevToolsFrontendReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetupDevToolsFrontend
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.DevToolsFrontend_SetupDevToolsFrontend_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.DevToolsFrontend_SetupDevToolsFrontend_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetupDevToolsFrontend (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -147,7 +150,7 @@ blink.mojom.DevToolsFrontendReceiver = class {
         // Try Method 1: SetupDevToolsExtensionAPI
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.DevToolsFrontend_SetupDevToolsExtensionAPI_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.DevToolsFrontend_SetupDevToolsExtensionAPI_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetupDevToolsExtensionAPI (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -164,14 +167,14 @@ blink.mojom.DevToolsFrontendReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.DevToolsFrontend_SetupDevToolsFrontend_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.DevToolsFrontend_SetupDevToolsFrontend_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setupDevToolsFrontend');
           const result = this.impl.setupDevToolsFrontend(params.api_script, params.host);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.DevToolsFrontend_SetupDevToolsExtensionAPI_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.DevToolsFrontend_SetupDevToolsExtensionAPI_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setupDevToolsExtensionAPI');
           const result = this.impl.setupDevToolsExtensionAPI(params.extension_api);
           break;
@@ -270,9 +273,11 @@ blink.mojom.DevToolsFrontendHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -286,12 +291,13 @@ blink.mojom.DevToolsFrontendHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: DispatchEmbedderMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.DevToolsFrontendHost_DispatchEmbedderMessage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.DevToolsFrontendHost_DispatchEmbedderMessage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchEmbedderMessage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -308,7 +314,7 @@ blink.mojom.DevToolsFrontendHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.DevToolsFrontendHost_DispatchEmbedderMessage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.DevToolsFrontendHost_DispatchEmbedderMessage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.dispatchEmbedderMessage');
           const result = this.impl.dispatchEmbedderMessage(params.message);
           break;

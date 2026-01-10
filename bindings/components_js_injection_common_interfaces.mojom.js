@@ -178,9 +178,11 @@ js_injection.mojom.JsToBrowserMessagingReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -194,12 +196,13 @@ js_injection.mojom.JsToBrowserMessagingReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: PostMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(js_injection.mojom.JsToBrowserMessaging_PostMessage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(js_injection.mojom.JsToBrowserMessaging_PostMessage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PostMessage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -210,7 +213,7 @@ js_injection.mojom.JsToBrowserMessagingReceiver = class {
         // Try Method 1: SetBrowserToJsMessaging
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(js_injection.mojom.JsToBrowserMessaging_SetBrowserToJsMessaging_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(js_injection.mojom.JsToBrowserMessaging_SetBrowserToJsMessaging_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBrowserToJsMessaging (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -227,14 +230,14 @@ js_injection.mojom.JsToBrowserMessagingReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(js_injection.mojom.JsToBrowserMessaging_PostMessage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(js_injection.mojom.JsToBrowserMessaging_PostMessage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.postMessage');
           const result = this.impl.postMessage(params.message, params.ports);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(js_injection.mojom.JsToBrowserMessaging_SetBrowserToJsMessaging_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(js_injection.mojom.JsToBrowserMessaging_SetBrowserToJsMessaging_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setBrowserToJsMessaging');
           const result = this.impl.setBrowserToJsMessaging(params.browser_to_js_messaging);
           break;
@@ -332,9 +335,11 @@ js_injection.mojom.JsObjectsClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -348,12 +353,13 @@ js_injection.mojom.JsObjectsClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnWindowObjectCleared
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(js_injection.mojom.JsObjectsClient_OnWindowObjectCleared_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(js_injection.mojom.JsObjectsClient_OnWindowObjectCleared_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWindowObjectCleared (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -370,7 +376,7 @@ js_injection.mojom.JsObjectsClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(js_injection.mojom.JsObjectsClient_OnWindowObjectCleared_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(js_injection.mojom.JsObjectsClient_OnWindowObjectCleared_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onWindowObjectCleared');
           const result = this.impl.onWindowObjectCleared();
           break;
@@ -469,9 +475,11 @@ js_injection.mojom.BrowserToJsMessagingFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -485,12 +493,13 @@ js_injection.mojom.BrowserToJsMessagingFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SendBrowserToJsMessaging
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(js_injection.mojom.BrowserToJsMessagingFactory_SendBrowserToJsMessaging_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(js_injection.mojom.BrowserToJsMessagingFactory_SendBrowserToJsMessaging_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendBrowserToJsMessaging (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -507,7 +516,7 @@ js_injection.mojom.BrowserToJsMessagingFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(js_injection.mojom.BrowserToJsMessagingFactory_SendBrowserToJsMessaging_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(js_injection.mojom.BrowserToJsMessagingFactory_SendBrowserToJsMessaging_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.sendBrowserToJsMessaging');
           const result = this.impl.sendBrowserToJsMessaging(params.browser_to_js_messaging);
           break;
@@ -606,9 +615,11 @@ js_injection.mojom.BrowserToJsMessagingReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -622,12 +633,13 @@ js_injection.mojom.BrowserToJsMessagingReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnPostMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(js_injection.mojom.BrowserToJsMessaging_OnPostMessage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(js_injection.mojom.BrowserToJsMessaging_OnPostMessage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPostMessage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -644,7 +656,7 @@ js_injection.mojom.BrowserToJsMessagingReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(js_injection.mojom.BrowserToJsMessaging_OnPostMessage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(js_injection.mojom.BrowserToJsMessaging_OnPostMessage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onPostMessage');
           const result = this.impl.onPostMessage(params.message);
           break;
@@ -778,9 +790,11 @@ js_injection.mojom.JsCommunicationReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -794,12 +808,13 @@ js_injection.mojom.JsCommunicationReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetJsObjects
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(js_injection.mojom.JsCommunication_SetJsObjects_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(js_injection.mojom.JsCommunication_SetJsObjects_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetJsObjects (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -810,7 +825,7 @@ js_injection.mojom.JsCommunicationReceiver = class {
         // Try Method 1: AddPersistentJavaScript
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(js_injection.mojom.JsCommunication_AddPersistentJavaScript_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(js_injection.mojom.JsCommunication_AddPersistentJavaScript_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddPersistentJavaScript (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -821,7 +836,7 @@ js_injection.mojom.JsCommunicationReceiver = class {
         // Try Method 2: RemovePersistentJavaScript
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(js_injection.mojom.JsCommunication_RemovePersistentJavaScript_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(js_injection.mojom.JsCommunication_RemovePersistentJavaScript_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemovePersistentJavaScript (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -838,21 +853,21 @@ js_injection.mojom.JsCommunicationReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(js_injection.mojom.JsCommunication_SetJsObjects_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(js_injection.mojom.JsCommunication_SetJsObjects_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setJsObjects');
           const result = this.impl.setJsObjects(params.js_objects, params.client);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(js_injection.mojom.JsCommunication_AddPersistentJavaScript_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(js_injection.mojom.JsCommunication_AddPersistentJavaScript_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addPersistentJavaScript');
           const result = this.impl.addPersistentJavaScript(params.script);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(js_injection.mojom.JsCommunication_RemovePersistentJavaScript_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(js_injection.mojom.JsCommunication_RemovePersistentJavaScript_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.removePersistentJavaScript');
           const result = this.impl.removePersistentJavaScript(params.script_id);
           break;

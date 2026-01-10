@@ -132,9 +132,11 @@ blink.mojom.LockScreenServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -148,12 +150,13 @@ blink.mojom.LockScreenServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetKeys
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.LockScreenService_GetKeys_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.LockScreenService_GetKeys_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetKeys (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -164,7 +167,7 @@ blink.mojom.LockScreenServiceReceiver = class {
         // Try Method 1: SetData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.LockScreenService_SetData_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.LockScreenService_SetData_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetData (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -181,7 +184,7 @@ blink.mojom.LockScreenServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.LockScreenService_GetKeys_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.LockScreenService_GetKeys_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getKeys');
           const result = this.impl.getKeys();
           if (header.expectsResponse) {
@@ -194,7 +197,7 @@ blink.mojom.LockScreenServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.LockScreenService_SetData_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.LockScreenService_SetData_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setData');
           const result = this.impl.setData(params.key, params.data);
           if (header.expectsResponse) {

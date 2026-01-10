@@ -151,9 +151,11 @@ printing.mojom.PrintingServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -167,12 +169,13 @@ printing.mojom.PrintingServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: BindPdfNupConverter
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(printing.mojom.PrintingService_BindPdfNupConverter_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(printing.mojom.PrintingService_BindPdfNupConverter_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindPdfNupConverter (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -183,7 +186,7 @@ printing.mojom.PrintingServiceReceiver = class {
         // Try Method 1: BindPdfToPwgRasterConverter
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(printing.mojom.PrintingService_BindPdfToPwgRasterConverter_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(printing.mojom.PrintingService_BindPdfToPwgRasterConverter_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindPdfToPwgRasterConverter (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -194,7 +197,7 @@ printing.mojom.PrintingServiceReceiver = class {
         // Try Method 2: BindPdfFlattener
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(printing.mojom.PrintingService_BindPdfFlattener_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(printing.mojom.PrintingService_BindPdfFlattener_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindPdfFlattener (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -205,7 +208,7 @@ printing.mojom.PrintingServiceReceiver = class {
         // Try Method 3: BindPdfToEmfConverterFactory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(printing.mojom.PrintingService_BindPdfToEmfConverterFactory_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(printing.mojom.PrintingService_BindPdfToEmfConverterFactory_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindPdfToEmfConverterFactory (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -222,28 +225,28 @@ printing.mojom.PrintingServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PrintingService_BindPdfNupConverter_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(printing.mojom.PrintingService_BindPdfNupConverter_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindPdfNupConverter');
           const result = this.impl.bindPdfNupConverter(params.receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PrintingService_BindPdfToPwgRasterConverter_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(printing.mojom.PrintingService_BindPdfToPwgRasterConverter_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindPdfToPwgRasterConverter');
           const result = this.impl.bindPdfToPwgRasterConverter(params.receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PrintingService_BindPdfFlattener_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(printing.mojom.PrintingService_BindPdfFlattener_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindPdfFlattener');
           const result = this.impl.bindPdfFlattener(params.receiver);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PrintingService_BindPdfToEmfConverterFactory_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(printing.mojom.PrintingService_BindPdfToEmfConverterFactory_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindPdfToEmfConverterFactory');
           const result = this.impl.bindPdfToEmfConverterFactory(params.receiver);
           break;

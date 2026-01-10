@@ -258,9 +258,11 @@ chrome.mojom.MediaParserReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -274,12 +276,13 @@ chrome.mojom.MediaParserReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ParseMediaMetadata
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ParseMediaMetadata (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -290,7 +293,7 @@ chrome.mojom.MediaParserReceiver = class {
         // Try Method 1: ExtractVideoFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.MediaParser_ExtractVideoFrame_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.MediaParser_ExtractVideoFrame_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExtractVideoFrame (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -301,7 +304,7 @@ chrome.mojom.MediaParserReceiver = class {
         // Try Method 2: CheckMediaFile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CheckMediaFile (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -312,7 +315,7 @@ chrome.mojom.MediaParserReceiver = class {
         // Try Method 3: GetCpuInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.MediaParser_GetCpuInfo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.MediaParser_GetCpuInfo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCpuInfo (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -329,7 +332,7 @@ chrome.mojom.MediaParserReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.parseMediaMetadata');
           const result = this.impl.parseMediaMetadata(params.mime_type, params.total_size, params.get_attached_images, params.media_data_source);
           if (header.expectsResponse) {
@@ -342,7 +345,7 @@ chrome.mojom.MediaParserReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.MediaParser_ExtractVideoFrame_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.MediaParser_ExtractVideoFrame_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.extractVideoFrame');
           const result = this.impl.extractVideoFrame(params.mime_type, params.total_size, params.media_data_source);
           if (header.expectsResponse) {
@@ -355,7 +358,7 @@ chrome.mojom.MediaParserReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.checkMediaFile');
           const result = this.impl.checkMediaFile(params.decode_time, params.file);
           if (header.expectsResponse) {
@@ -368,7 +371,7 @@ chrome.mojom.MediaParserReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.MediaParser_GetCpuInfo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.MediaParser_GetCpuInfo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getCpuInfo');
           const result = this.impl.getCpuInfo();
           if (header.expectsResponse) {
@@ -480,9 +483,11 @@ chrome.mojom.MediaParserFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -496,12 +501,13 @@ chrome.mojom.MediaParserFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateMediaParser
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.MediaParserFactory_CreateMediaParser_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.MediaParserFactory_CreateMediaParser_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateMediaParser (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -518,7 +524,7 @@ chrome.mojom.MediaParserFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.MediaParserFactory_CreateMediaParser_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.MediaParserFactory_CreateMediaParser_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createMediaParser');
           const result = this.impl.createMediaParser(params.libyuv_cpu_flags, params.libavutil_cpu_flags);
           if (header.expectsResponse) {
@@ -630,9 +636,11 @@ chrome.mojom.MediaDataSourceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -646,12 +654,13 @@ chrome.mojom.MediaDataSourceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Read
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.MediaDataSource_Read_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.MediaDataSource_Read_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Read (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -668,7 +677,7 @@ chrome.mojom.MediaDataSourceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.MediaDataSource_Read_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.MediaDataSource_Read_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.read');
           const result = this.impl.read(params.position, params.length);
           if (header.expectsResponse) {

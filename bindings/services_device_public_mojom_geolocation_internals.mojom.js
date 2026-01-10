@@ -226,9 +226,11 @@ device.mojom.GeolocationInternalsObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -242,12 +244,13 @@ device.mojom.GeolocationInternalsObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnDiagnosticsChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDiagnosticsChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -258,7 +261,7 @@ device.mojom.GeolocationInternalsObserverReceiver = class {
         // Try Method 1: OnNetworkLocationRequested
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNetworkLocationRequested (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -269,7 +272,7 @@ device.mojom.GeolocationInternalsObserverReceiver = class {
         // Try Method 2: OnNetworkLocationReceived
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNetworkLocationReceived (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -286,21 +289,21 @@ device.mojom.GeolocationInternalsObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onDiagnosticsChanged');
           const result = this.impl.onDiagnosticsChanged(params.diagnostics);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onNetworkLocationRequested');
           const result = this.impl.onNetworkLocationRequested(params.access_point_data);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onNetworkLocationReceived');
           const result = this.impl.onNetworkLocationReceived(params.response);
           break;
@@ -405,9 +408,11 @@ device.mojom.GeolocationInternalsReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -421,12 +426,13 @@ device.mojom.GeolocationInternalsReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AddInternalsObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddInternalsObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -443,7 +449,7 @@ device.mojom.GeolocationInternalsReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addInternalsObserver');
           const result = this.impl.addInternalsObserver(params.observer);
           if (header.expectsResponse) {

@@ -261,9 +261,11 @@ device.mojom.UsbDeviceManagerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -277,12 +279,13 @@ device.mojom.UsbDeviceManagerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: EnumerateDevicesAndSetClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnumerateDevicesAndSetClient (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -293,7 +296,7 @@ device.mojom.UsbDeviceManagerReceiver = class {
         // Try Method 1: GetDevices
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.UsbDeviceManager_GetDevices_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.UsbDeviceManager_GetDevices_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDevices (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -304,7 +307,7 @@ device.mojom.UsbDeviceManagerReceiver = class {
         // Try Method 2: GetDevice
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.UsbDeviceManager_GetDevice_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.UsbDeviceManager_GetDevice_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDevice (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -315,7 +318,7 @@ device.mojom.UsbDeviceManagerReceiver = class {
         // Try Method 3: GetSecurityKeyDevice
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.UsbDeviceManager_GetSecurityKeyDevice_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.UsbDeviceManager_GetSecurityKeyDevice_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSecurityKeyDevice (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -326,7 +329,7 @@ device.mojom.UsbDeviceManagerReceiver = class {
         // Try Method 4: RefreshDeviceInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.UsbDeviceManager_RefreshDeviceInfo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.UsbDeviceManager_RefreshDeviceInfo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RefreshDeviceInfo (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -337,7 +340,7 @@ device.mojom.UsbDeviceManagerReceiver = class {
         // Try Method 5: CheckAccess
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.UsbDeviceManager_CheckAccess_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.UsbDeviceManager_CheckAccess_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CheckAccess (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -348,7 +351,7 @@ device.mojom.UsbDeviceManagerReceiver = class {
         // Try Method 6: OpenFileDescriptor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.UsbDeviceManager_OpenFileDescriptor_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.UsbDeviceManager_OpenFileDescriptor_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenFileDescriptor (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -359,7 +362,7 @@ device.mojom.UsbDeviceManagerReceiver = class {
         // Try Method 7: SetClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.UsbDeviceManager_SetClient_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.UsbDeviceManager_SetClient_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetClient (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -376,7 +379,7 @@ device.mojom.UsbDeviceManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.enumerateDevicesAndSetClient');
           const result = this.impl.enumerateDevicesAndSetClient(params.client);
           if (header.expectsResponse) {
@@ -389,7 +392,7 @@ device.mojom.UsbDeviceManagerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.UsbDeviceManager_GetDevices_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.UsbDeviceManager_GetDevices_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getDevices');
           const result = this.impl.getDevices(params.options);
           if (header.expectsResponse) {
@@ -402,21 +405,21 @@ device.mojom.UsbDeviceManagerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.UsbDeviceManager_GetDevice_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.UsbDeviceManager_GetDevice_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getDevice');
           const result = this.impl.getDevice(params.guid, params.blocked_interface_classes, params.device_receiver, params.device_client);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.UsbDeviceManager_GetSecurityKeyDevice_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.UsbDeviceManager_GetSecurityKeyDevice_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getSecurityKeyDevice');
           const result = this.impl.getSecurityKeyDevice(params.guid, params.device_receiver, params.device_client);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.UsbDeviceManager_RefreshDeviceInfo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.UsbDeviceManager_RefreshDeviceInfo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.refreshDeviceInfo');
           const result = this.impl.refreshDeviceInfo(params.guid);
           if (header.expectsResponse) {
@@ -429,7 +432,7 @@ device.mojom.UsbDeviceManagerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.UsbDeviceManager_CheckAccess_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.UsbDeviceManager_CheckAccess_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.checkAccess');
           const result = this.impl.checkAccess(params.guid);
           if (header.expectsResponse) {
@@ -442,7 +445,7 @@ device.mojom.UsbDeviceManagerReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.UsbDeviceManager_OpenFileDescriptor_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.UsbDeviceManager_OpenFileDescriptor_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.openFileDescriptor');
           const result = this.impl.openFileDescriptor(params.guid, params.allowed_interfaces_mask, params.lifeline_fd);
           if (header.expectsResponse) {
@@ -455,7 +458,7 @@ device.mojom.UsbDeviceManagerReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.UsbDeviceManager_SetClient_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.UsbDeviceManager_SetClient_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setClient');
           const result = this.impl.setClient(params.client);
           break;

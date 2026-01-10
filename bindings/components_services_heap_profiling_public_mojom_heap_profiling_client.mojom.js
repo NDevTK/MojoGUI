@@ -166,9 +166,11 @@ heap_profiling.mojom.ProfilingClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -182,12 +184,13 @@ heap_profiling.mojom.ProfilingClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: StartProfiling
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(heap_profiling.mojom.ProfilingClient_StartProfiling_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(heap_profiling.mojom.ProfilingClient_StartProfiling_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartProfiling (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -198,7 +201,7 @@ heap_profiling.mojom.ProfilingClientReceiver = class {
         // Try Method 1: RetrieveHeapProfile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RetrieveHeapProfile (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -215,7 +218,7 @@ heap_profiling.mojom.ProfilingClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(heap_profiling.mojom.ProfilingClient_StartProfiling_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(heap_profiling.mojom.ProfilingClient_StartProfiling_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.startProfiling');
           const result = this.impl.startProfiling(params.params);
           if (header.expectsResponse) {
@@ -228,7 +231,7 @@ heap_profiling.mojom.ProfilingClientReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.retrieveHeapProfile');
           const result = this.impl.retrieveHeapProfile();
           if (header.expectsResponse) {

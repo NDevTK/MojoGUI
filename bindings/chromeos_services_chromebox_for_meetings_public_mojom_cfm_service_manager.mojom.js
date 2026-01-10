@@ -96,9 +96,11 @@ chromeos.cfm.mojom.DisconnectReasonReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -112,6 +114,7 @@ chromeos.cfm.mojom.DisconnectReasonReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         if (dispatchId === undefined) {
@@ -246,9 +249,11 @@ chromeos.cfm.mojom.CfmServiceContextReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -262,12 +267,13 @@ chromeos.cfm.mojom.CfmServiceContextReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ProvideAdaptor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ProvideAdaptor (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -278,7 +284,7 @@ chromeos.cfm.mojom.CfmServiceContextReceiver = class {
         // Try Method 1: RequestBindService
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestBindService (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -295,7 +301,7 @@ chromeos.cfm.mojom.CfmServiceContextReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.provideAdaptor');
           const result = this.impl.provideAdaptor(params.interface_name, params.adaptor_remote);
           if (header.expectsResponse) {
@@ -308,7 +314,7 @@ chromeos.cfm.mojom.CfmServiceContextReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestBindService');
           const result = this.impl.requestBindService(params.interface_name, params.receiver_pipe);
           if (header.expectsResponse) {
@@ -413,9 +419,11 @@ chromeos.cfm.mojom.CfmServiceAdaptorReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -429,12 +437,13 @@ chromeos.cfm.mojom.CfmServiceAdaptorReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnBindService
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.cfm.mojom.CfmServiceAdaptor_OnBindService_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.cfm.mojom.CfmServiceAdaptor_OnBindService_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBindService (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -451,7 +460,7 @@ chromeos.cfm.mojom.CfmServiceAdaptorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.cfm.mojom.CfmServiceAdaptor_OnBindService_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.cfm.mojom.CfmServiceAdaptor_OnBindService_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onBindService');
           const result = this.impl.onBindService(params.receiver_pipe);
           break;

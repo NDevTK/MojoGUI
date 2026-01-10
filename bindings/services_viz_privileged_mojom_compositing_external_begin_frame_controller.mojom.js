@@ -161,9 +161,11 @@ viz.mojom.ExternalBeginFrameControllerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -177,12 +179,13 @@ viz.mojom.ExternalBeginFrameControllerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: IssueExternalBeginFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IssueExternalBeginFrame (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -193,7 +196,7 @@ viz.mojom.ExternalBeginFrameControllerReceiver = class {
         // Try Method 1: IssueExternalBeginFrameNoAck
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrameNoAck_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrameNoAck_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IssueExternalBeginFrameNoAck (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -204,7 +207,7 @@ viz.mojom.ExternalBeginFrameControllerReceiver = class {
         // Try Method 2: IssueExternalVSync
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.ExternalBeginFrameController_IssueExternalVSync_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.ExternalBeginFrameController_IssueExternalVSync_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IssueExternalVSync (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -215,7 +218,7 @@ viz.mojom.ExternalBeginFrameControllerReceiver = class {
         // Try Method 3: SetSupportedDisplayLinkId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.ExternalBeginFrameController_SetSupportedDisplayLinkId_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.ExternalBeginFrameController_SetSupportedDisplayLinkId_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSupportedDisplayLinkId (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -232,7 +235,7 @@ viz.mojom.ExternalBeginFrameControllerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.issueExternalBeginFrame');
           const result = this.impl.issueExternalBeginFrame(params.args, params.force);
           if (header.expectsResponse) {
@@ -245,21 +248,21 @@ viz.mojom.ExternalBeginFrameControllerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrameNoAck_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrameNoAck_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.issueExternalBeginFrameNoAck');
           const result = this.impl.issueExternalBeginFrameNoAck(params.args);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.ExternalBeginFrameController_IssueExternalVSync_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.ExternalBeginFrameController_IssueExternalVSync_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.issueExternalVSync');
           const result = this.impl.issueExternalVSync(params.params);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.ExternalBeginFrameController_SetSupportedDisplayLinkId_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.ExternalBeginFrameController_SetSupportedDisplayLinkId_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setSupportedDisplayLinkId');
           const result = this.impl.setSupportedDisplayLinkId(params.display_id, params.is_supported);
           break;
@@ -393,9 +396,11 @@ viz.mojom.ExternalBeginFrameControllerClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -409,12 +414,13 @@ viz.mojom.ExternalBeginFrameControllerClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetNeedsBeginFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetNeedsBeginFrame (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -425,7 +431,7 @@ viz.mojom.ExternalBeginFrameControllerClientReceiver = class {
         // Try Method 1: NeedsBeginFrameWithId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NeedsBeginFrameWithId (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -436,7 +442,7 @@ viz.mojom.ExternalBeginFrameControllerClientReceiver = class {
         // Try Method 2: SetPreferredInterval
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPreferredInterval (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -453,21 +459,21 @@ viz.mojom.ExternalBeginFrameControllerClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setNeedsBeginFrame');
           const result = this.impl.setNeedsBeginFrame(params.needs_begin_frames);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.needsBeginFrameWithId');
           const result = this.impl.needsBeginFrameWithId(params.display_id, params.needs_begin_frames);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setPreferredInterval');
           const result = this.impl.setPreferredInterval(params.interval);
           break;

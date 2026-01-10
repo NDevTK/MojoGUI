@@ -413,9 +413,11 @@ network.mojom.DevToolsObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -429,12 +431,13 @@ network.mojom.DevToolsObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnRawRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.DevToolsObserver_OnRawRequest_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.DevToolsObserver_OnRawRequest_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRawRequest (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -445,7 +448,7 @@ network.mojom.DevToolsObserverReceiver = class {
         // Try Method 1: OnRawResponse
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.DevToolsObserver_OnRawResponse_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.DevToolsObserver_OnRawResponse_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRawResponse (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -456,7 +459,7 @@ network.mojom.DevToolsObserverReceiver = class {
         // Try Method 2: OnEarlyHintsResponse
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.DevToolsObserver_OnEarlyHintsResponse_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.DevToolsObserver_OnEarlyHintsResponse_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnEarlyHintsResponse (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -467,7 +470,7 @@ network.mojom.DevToolsObserverReceiver = class {
         // Try Method 3: OnPrivateNetworkRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.DevToolsObserver_OnPrivateNetworkRequest_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.DevToolsObserver_OnPrivateNetworkRequest_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPrivateNetworkRequest (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -478,7 +481,7 @@ network.mojom.DevToolsObserverReceiver = class {
         // Try Method 4: OnCorsPreflightRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.DevToolsObserver_OnCorsPreflightRequest_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.DevToolsObserver_OnCorsPreflightRequest_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCorsPreflightRequest (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -489,7 +492,7 @@ network.mojom.DevToolsObserverReceiver = class {
         // Try Method 5: OnCorsPreflightResponse
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.DevToolsObserver_OnCorsPreflightResponse_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.DevToolsObserver_OnCorsPreflightResponse_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCorsPreflightResponse (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -500,7 +503,7 @@ network.mojom.DevToolsObserverReceiver = class {
         // Try Method 6: OnCorsPreflightRequestCompleted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.DevToolsObserver_OnCorsPreflightRequestCompleted_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.DevToolsObserver_OnCorsPreflightRequestCompleted_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCorsPreflightRequestCompleted (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -511,7 +514,7 @@ network.mojom.DevToolsObserverReceiver = class {
         // Try Method 7: OnTrustTokenOperationDone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.DevToolsObserver_OnTrustTokenOperationDone_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.DevToolsObserver_OnTrustTokenOperationDone_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTrustTokenOperationDone (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -522,7 +525,7 @@ network.mojom.DevToolsObserverReceiver = class {
         // Try Method 8: OnCorsError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.DevToolsObserver_OnCorsError_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.DevToolsObserver_OnCorsError_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCorsError (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -533,7 +536,7 @@ network.mojom.DevToolsObserverReceiver = class {
         // Try Method 9: OnOrbError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.DevToolsObserver_OnOrbError_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.DevToolsObserver_OnOrbError_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnOrbError (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -544,7 +547,7 @@ network.mojom.DevToolsObserverReceiver = class {
         // Try Method 10: OnSharedDictionaryError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.DevToolsObserver_OnSharedDictionaryError_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.DevToolsObserver_OnSharedDictionaryError_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSharedDictionaryError (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -555,7 +558,7 @@ network.mojom.DevToolsObserverReceiver = class {
         // Try Method 11: OnSRIMessageSignatureIssue
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.DevToolsObserver_OnSRIMessageSignatureIssue_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.DevToolsObserver_OnSRIMessageSignatureIssue_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSRIMessageSignatureIssue (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -566,7 +569,7 @@ network.mojom.DevToolsObserverReceiver = class {
         // Try Method 12: OnUnencodedDigestError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.DevToolsObserver_OnUnencodedDigestError_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.DevToolsObserver_OnUnencodedDigestError_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnUnencodedDigestError (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -577,7 +580,7 @@ network.mojom.DevToolsObserverReceiver = class {
         // Try Method 13: Clone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.DevToolsObserver_Clone_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.DevToolsObserver_Clone_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clone (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -594,98 +597,98 @@ network.mojom.DevToolsObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.DevToolsObserver_OnRawRequest_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.DevToolsObserver_OnRawRequest_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onRawRequest');
           const result = this.impl.onRawRequest(params.devtool_request_id, params.cookies_with_access_result, params.headers, params.timestamp, params.client_security_state, params.other_partition_info, params.applied_network_conditions_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.DevToolsObserver_OnRawResponse_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.DevToolsObserver_OnRawResponse_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onRawResponse');
           const result = this.impl.onRawResponse(params.devtool_request_id, params.cookies_with_access_result, params.headers, params.raw_response_headers, params.resource_address_space, params.http_status_code, params.cookie_partition_key);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.DevToolsObserver_OnEarlyHintsResponse_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.DevToolsObserver_OnEarlyHintsResponse_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onEarlyHintsResponse');
           const result = this.impl.onEarlyHintsResponse(params.devtool_request_id, params.headers);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.DevToolsObserver_OnPrivateNetworkRequest_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.DevToolsObserver_OnPrivateNetworkRequest_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onPrivateNetworkRequest');
           const result = this.impl.onPrivateNetworkRequest(params.devtool_request_id, params.url, params.is_warning, params.resource_address_space, params.client_security_state);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.DevToolsObserver_OnCorsPreflightRequest_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.DevToolsObserver_OnCorsPreflightRequest_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onCorsPreflightRequest');
           const result = this.impl.onCorsPreflightRequest(params.devtool_request_id, params.request_headers, params.request_info, params.initiator_url, params.initiator_devtool_request_id);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.DevToolsObserver_OnCorsPreflightResponse_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.DevToolsObserver_OnCorsPreflightResponse_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onCorsPreflightResponse');
           const result = this.impl.onCorsPreflightResponse(params.devtool_request_id, params.url, params.head);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.DevToolsObserver_OnCorsPreflightRequestCompleted_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.DevToolsObserver_OnCorsPreflightRequestCompleted_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onCorsPreflightRequestCompleted');
           const result = this.impl.onCorsPreflightRequestCompleted(params.devtool_request_id, params.status);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.DevToolsObserver_OnTrustTokenOperationDone_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.DevToolsObserver_OnTrustTokenOperationDone_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onTrustTokenOperationDone');
           const result = this.impl.onTrustTokenOperationDone(params.devtool_request_id, params.result);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.DevToolsObserver_OnCorsError_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.DevToolsObserver_OnCorsError_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onCorsError');
           const result = this.impl.onCorsError(params.devtool_request_id, params.initiator_origin, params.client_security_state, params.url, params.status, params.is_warning);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.DevToolsObserver_OnOrbError_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.DevToolsObserver_OnOrbError_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onOrbError');
           const result = this.impl.onOrbError(params.devtools_request_id, params.url);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.DevToolsObserver_OnSharedDictionaryError_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.DevToolsObserver_OnSharedDictionaryError_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onSharedDictionaryError');
           const result = this.impl.onSharedDictionaryError(params.devtool_request_id, params.url, params.error);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.DevToolsObserver_OnSRIMessageSignatureIssue_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.DevToolsObserver_OnSRIMessageSignatureIssue_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onSRIMessageSignatureIssue');
           const result = this.impl.onSRIMessageSignatureIssue(params.devtool_request_id, params.url, params.issues);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.DevToolsObserver_OnUnencodedDigestError_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.DevToolsObserver_OnUnencodedDigestError_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onUnencodedDigestError');
           const result = this.impl.onUnencodedDigestError(params.devtool_request_id, params.url, params.issue);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.DevToolsObserver_Clone_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.DevToolsObserver_Clone_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.listener);
           break;

@@ -247,9 +247,11 @@ chromeos.sensors.mojom.SensorServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -263,12 +265,13 @@ chromeos.sensors.mojom.SensorServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetDeviceIds
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.sensors.mojom.SensorService_GetDeviceIds_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.sensors.mojom.SensorService_GetDeviceIds_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDeviceIds (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -279,7 +282,7 @@ chromeos.sensors.mojom.SensorServiceReceiver = class {
         // Try Method 1: GetAllDeviceIds
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAllDeviceIds (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -290,7 +293,7 @@ chromeos.sensors.mojom.SensorServiceReceiver = class {
         // Try Method 2: GetDevice
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.sensors.mojom.SensorService_GetDevice_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.sensors.mojom.SensorService_GetDevice_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDevice (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -307,7 +310,7 @@ chromeos.sensors.mojom.SensorServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.sensors.mojom.SensorService_GetDeviceIds_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.sensors.mojom.SensorService_GetDeviceIds_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getDeviceIds');
           const result = this.impl.getDeviceIds(params.type);
           if (header.expectsResponse) {
@@ -320,7 +323,7 @@ chromeos.sensors.mojom.SensorServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getAllDeviceIds');
           const result = this.impl.getAllDeviceIds();
           if (header.expectsResponse) {
@@ -333,7 +336,7 @@ chromeos.sensors.mojom.SensorServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.sensors.mojom.SensorService_GetDevice_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.sensors.mojom.SensorService_GetDevice_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getDevice');
           const result = this.impl.getDevice(params.iio_device_id, params.device_request);
           break;
@@ -580,9 +583,11 @@ chromeos.sensors.mojom.SensorDeviceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -596,12 +601,13 @@ chromeos.sensors.mojom.SensorDeviceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetTimeout
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.sensors.mojom.SensorDevice_SetTimeout_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.sensors.mojom.SensorDevice_SetTimeout_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTimeout (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -612,7 +618,7 @@ chromeos.sensors.mojom.SensorDeviceReceiver = class {
         // Try Method 1: GetAttributes
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.sensors.mojom.SensorDevice_GetAttributes_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.sensors.mojom.SensorDevice_GetAttributes_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAttributes (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -623,7 +629,7 @@ chromeos.sensors.mojom.SensorDeviceReceiver = class {
         // Try Method 2: SetFrequency
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.sensors.mojom.SensorDevice_SetFrequency_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.sensors.mojom.SensorDevice_SetFrequency_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetFrequency (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -634,7 +640,7 @@ chromeos.sensors.mojom.SensorDeviceReceiver = class {
         // Try Method 3: StartReadingSamples
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.sensors.mojom.SensorDevice_StartReadingSamples_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.sensors.mojom.SensorDevice_StartReadingSamples_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartReadingSamples (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -645,7 +651,7 @@ chromeos.sensors.mojom.SensorDeviceReceiver = class {
         // Try Method 4: StopReadingSamples
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.sensors.mojom.SensorDevice_StopReadingSamples_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.sensors.mojom.SensorDevice_StopReadingSamples_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopReadingSamples (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -656,7 +662,7 @@ chromeos.sensors.mojom.SensorDeviceReceiver = class {
         // Try Method 5: GetAllChannelIds
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAllChannelIds (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -667,7 +673,7 @@ chromeos.sensors.mojom.SensorDeviceReceiver = class {
         // Try Method 6: GetChannelsEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetChannelsEnabled (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -678,7 +684,7 @@ chromeos.sensors.mojom.SensorDeviceReceiver = class {
         // Try Method 7: GetChannelsAttributes
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetChannelsAttributes (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -695,14 +701,14 @@ chromeos.sensors.mojom.SensorDeviceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.sensors.mojom.SensorDevice_SetTimeout_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.sensors.mojom.SensorDevice_SetTimeout_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setTimeout');
           const result = this.impl.setTimeout(params.timeout);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.sensors.mojom.SensorDevice_GetAttributes_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.sensors.mojom.SensorDevice_GetAttributes_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getAttributes');
           const result = this.impl.getAttributes(params.attr_names);
           if (header.expectsResponse) {
@@ -715,7 +721,7 @@ chromeos.sensors.mojom.SensorDeviceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.sensors.mojom.SensorDevice_SetFrequency_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.sensors.mojom.SensorDevice_SetFrequency_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setFrequency');
           const result = this.impl.setFrequency(params.frequency);
           if (header.expectsResponse) {
@@ -728,21 +734,21 @@ chromeos.sensors.mojom.SensorDeviceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.sensors.mojom.SensorDevice_StartReadingSamples_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.sensors.mojom.SensorDevice_StartReadingSamples_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.startReadingSamples');
           const result = this.impl.startReadingSamples(params.observer);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.sensors.mojom.SensorDevice_StopReadingSamples_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.sensors.mojom.SensorDevice_StopReadingSamples_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.stopReadingSamples');
           const result = this.impl.stopReadingSamples();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getAllChannelIds');
           const result = this.impl.getAllChannelIds();
           if (header.expectsResponse) {
@@ -755,7 +761,7 @@ chromeos.sensors.mojom.SensorDeviceReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getChannelsEnabled');
           const result = this.impl.getChannelsEnabled(params.iio_chn_indices);
           if (header.expectsResponse) {
@@ -768,7 +774,7 @@ chromeos.sensors.mojom.SensorDeviceReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getChannelsAttributes');
           const result = this.impl.getChannelsAttributes(params.iio_chn_indices, params.attr_name);
           if (header.expectsResponse) {
@@ -890,9 +896,11 @@ chromeos.sensors.mojom.SensorDeviceSamplesObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -906,12 +914,13 @@ chromeos.sensors.mojom.SensorDeviceSamplesObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnSampleUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnSampleUpdated_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnSampleUpdated_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSampleUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -922,7 +931,7 @@ chromeos.sensors.mojom.SensorDeviceSamplesObserverReceiver = class {
         // Try Method 1: OnErrorOccurred
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnErrorOccurred_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnErrorOccurred_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnErrorOccurred (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -939,14 +948,14 @@ chromeos.sensors.mojom.SensorDeviceSamplesObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnSampleUpdated_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnSampleUpdated_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onSampleUpdated');
           const result = this.impl.onSampleUpdated(params.sample);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnErrorOccurred_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnErrorOccurred_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onErrorOccurred');
           const result = this.impl.onErrorOccurred(params.type);
           break;
@@ -1046,9 +1055,11 @@ chromeos.sensors.mojom.SensorServiceNewDevicesObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1062,12 +1073,13 @@ chromeos.sensors.mojom.SensorServiceNewDevicesObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnNewDeviceAdded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.sensors.mojom.SensorServiceNewDevicesObserver_OnNewDeviceAdded_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.sensors.mojom.SensorServiceNewDevicesObserver_OnNewDeviceAdded_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNewDeviceAdded (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1084,7 +1096,7 @@ chromeos.sensors.mojom.SensorServiceNewDevicesObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.sensors.mojom.SensorServiceNewDevicesObserver_OnNewDeviceAdded_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.sensors.mojom.SensorServiceNewDevicesObserver_OnNewDeviceAdded_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onNewDeviceAdded');
           const result = this.impl.onNewDeviceAdded(params.iio_device_id, params.types);
           break;

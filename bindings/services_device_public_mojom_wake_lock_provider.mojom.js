@@ -161,9 +161,11 @@ device.mojom.WakeLockProviderReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -177,12 +179,13 @@ device.mojom.WakeLockProviderReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetWakeLockContextForID
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.WakeLockProvider_GetWakeLockContextForID_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.WakeLockProvider_GetWakeLockContextForID_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetWakeLockContextForID (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -193,7 +196,7 @@ device.mojom.WakeLockProviderReceiver = class {
         // Try Method 1: GetWakeLockWithoutContext
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.WakeLockProvider_GetWakeLockWithoutContext_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.WakeLockProvider_GetWakeLockWithoutContext_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetWakeLockWithoutContext (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -204,7 +207,7 @@ device.mojom.WakeLockProviderReceiver = class {
         // Try Method 2: NotifyOnWakeLockDeactivation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.WakeLockProvider_NotifyOnWakeLockDeactivation_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.WakeLockProvider_NotifyOnWakeLockDeactivation_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyOnWakeLockDeactivation (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -215,7 +218,7 @@ device.mojom.WakeLockProviderReceiver = class {
         // Try Method 3: GetActiveWakeLocksForTests
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetActiveWakeLocksForTests (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -232,28 +235,28 @@ device.mojom.WakeLockProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.WakeLockProvider_GetWakeLockContextForID_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.WakeLockProvider_GetWakeLockContextForID_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getWakeLockContextForID');
           const result = this.impl.getWakeLockContextForID(params.context_id, params.context);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.WakeLockProvider_GetWakeLockWithoutContext_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.WakeLockProvider_GetWakeLockWithoutContext_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getWakeLockWithoutContext');
           const result = this.impl.getWakeLockWithoutContext(params.type, params.reason, params.description, params.wake_lock);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.WakeLockProvider_NotifyOnWakeLockDeactivation_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.WakeLockProvider_NotifyOnWakeLockDeactivation_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.notifyOnWakeLockDeactivation');
           const result = this.impl.notifyOnWakeLockDeactivation(params.type, params.observer);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getActiveWakeLocksForTests');
           const result = this.impl.getActiveWakeLocksForTests(params.type);
           if (header.expectsResponse) {
@@ -358,9 +361,11 @@ device.mojom.WakeLockObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -374,12 +379,13 @@ device.mojom.WakeLockObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnWakeLockDeactivated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.WakeLockObserver_OnWakeLockDeactivated_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.WakeLockObserver_OnWakeLockDeactivated_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWakeLockDeactivated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -396,7 +402,7 @@ device.mojom.WakeLockObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.WakeLockObserver_OnWakeLockDeactivated_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.WakeLockObserver_OnWakeLockDeactivated_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onWakeLockDeactivated');
           const result = this.impl.onWakeLockDeactivated(params.type);
           break;

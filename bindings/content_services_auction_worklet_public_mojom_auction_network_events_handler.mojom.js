@@ -154,9 +154,11 @@ auction_worklet.mojom.AuctionNetworkEventsHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -170,12 +172,13 @@ auction_worklet.mojom.AuctionNetworkEventsHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnNetworkSendRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkSendRequest_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkSendRequest_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNetworkSendRequest (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -186,7 +189,7 @@ auction_worklet.mojom.AuctionNetworkEventsHandlerReceiver = class {
         // Try Method 1: OnNetworkResponseReceived
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkResponseReceived_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkResponseReceived_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNetworkResponseReceived (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -197,7 +200,7 @@ auction_worklet.mojom.AuctionNetworkEventsHandlerReceiver = class {
         // Try Method 2: OnNetworkRequestComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkRequestComplete_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkRequestComplete_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNetworkRequestComplete (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -208,7 +211,7 @@ auction_worklet.mojom.AuctionNetworkEventsHandlerReceiver = class {
         // Try Method 3: Clone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(auction_worklet.mojom.AuctionNetworkEventsHandler_Clone_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(auction_worklet.mojom.AuctionNetworkEventsHandler_Clone_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clone (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -225,28 +228,28 @@ auction_worklet.mojom.AuctionNetworkEventsHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkSendRequest_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkSendRequest_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onNetworkSendRequest');
           const result = this.impl.onNetworkSendRequest(params.request, params.timestamp);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkResponseReceived_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkResponseReceived_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onNetworkResponseReceived');
           const result = this.impl.onNetworkResponseReceived(params.request_id, params.loader_id, params.request_url, params.headers);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkRequestComplete_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkRequestComplete_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onNetworkRequestComplete');
           const result = this.impl.onNetworkRequestComplete(params.request_id, params.status);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(auction_worklet.mojom.AuctionNetworkEventsHandler_Clone_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(auction_worklet.mojom.AuctionNetworkEventsHandler_Clone_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.receiver);
           break;

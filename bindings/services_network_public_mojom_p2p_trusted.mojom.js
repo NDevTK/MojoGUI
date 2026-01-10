@@ -117,9 +117,11 @@ network.mojom.P2PTrustedSocketManagerClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -133,12 +135,13 @@ network.mojom.P2PTrustedSocketManagerClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: InvalidSocketPortRangeRequested
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.P2PTrustedSocketManagerClient_InvalidSocketPortRangeRequested_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.P2PTrustedSocketManagerClient_InvalidSocketPortRangeRequested_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InvalidSocketPortRangeRequested (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -149,7 +152,7 @@ network.mojom.P2PTrustedSocketManagerClientReceiver = class {
         // Try Method 1: DumpPacket
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.P2PTrustedSocketManagerClient_DumpPacket_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.P2PTrustedSocketManagerClient_DumpPacket_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DumpPacket (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -166,14 +169,14 @@ network.mojom.P2PTrustedSocketManagerClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.P2PTrustedSocketManagerClient_InvalidSocketPortRangeRequested_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.P2PTrustedSocketManagerClient_InvalidSocketPortRangeRequested_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.invalidSocketPortRangeRequested');
           const result = this.impl.invalidSocketPortRangeRequested();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.P2PTrustedSocketManagerClient_DumpPacket_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.P2PTrustedSocketManagerClient_DumpPacket_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.dumpPacket');
           const result = this.impl.dumpPacket(params.packet_header, params.packet_length, params.incoming);
           break;
@@ -323,9 +326,11 @@ network.mojom.P2PTrustedSocketManagerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -339,12 +344,13 @@ network.mojom.P2PTrustedSocketManagerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: StartRtpDump
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.P2PTrustedSocketManager_StartRtpDump_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.P2PTrustedSocketManager_StartRtpDump_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartRtpDump (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -355,7 +361,7 @@ network.mojom.P2PTrustedSocketManagerReceiver = class {
         // Try Method 1: StopRtpDump
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.P2PTrustedSocketManager_StopRtpDump_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.P2PTrustedSocketManager_StopRtpDump_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopRtpDump (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -366,7 +372,7 @@ network.mojom.P2PTrustedSocketManagerReceiver = class {
         // Try Method 2: PauseNetworkChangeNotifications
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.P2PTrustedSocketManager_PauseNetworkChangeNotifications_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.P2PTrustedSocketManager_PauseNetworkChangeNotifications_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PauseNetworkChangeNotifications (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -377,7 +383,7 @@ network.mojom.P2PTrustedSocketManagerReceiver = class {
         // Try Method 3: ResumeNetworkChangeNotifications
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.P2PTrustedSocketManager_ResumeNetworkChangeNotifications_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.P2PTrustedSocketManager_ResumeNetworkChangeNotifications_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResumeNetworkChangeNotifications (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -394,28 +400,28 @@ network.mojom.P2PTrustedSocketManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.P2PTrustedSocketManager_StartRtpDump_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.P2PTrustedSocketManager_StartRtpDump_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.startRtpDump');
           const result = this.impl.startRtpDump(params.incoming, params.outgoing);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.P2PTrustedSocketManager_StopRtpDump_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.P2PTrustedSocketManager_StopRtpDump_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.stopRtpDump');
           const result = this.impl.stopRtpDump(params.incoming, params.outgoing);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.P2PTrustedSocketManager_PauseNetworkChangeNotifications_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.P2PTrustedSocketManager_PauseNetworkChangeNotifications_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.pauseNetworkChangeNotifications');
           const result = this.impl.pauseNetworkChangeNotifications();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.P2PTrustedSocketManager_ResumeNetworkChangeNotifications_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.P2PTrustedSocketManager_ResumeNetworkChangeNotifications_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.resumeNetworkChangeNotifications');
           const result = this.impl.resumeNetworkChangeNotifications();
           break;

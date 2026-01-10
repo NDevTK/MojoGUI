@@ -265,9 +265,11 @@ coral.mojom.TitleObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -281,12 +283,13 @@ coral.mojom.TitleObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: TitleUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(coral.mojom.TitleObserver_TitleUpdated_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(coral.mojom.TitleObserver_TitleUpdated_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TitleUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -303,7 +306,7 @@ coral.mojom.TitleObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(coral.mojom.TitleObserver_TitleUpdated_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(coral.mojom.TitleObserver_TitleUpdated_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.titleUpdated');
           const result = this.impl.titleUpdated(params.group_id, params.title);
           break;
@@ -432,9 +435,11 @@ coral.mojom.CoralProcessorReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -448,12 +453,13 @@ coral.mojom.CoralProcessorReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Group
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(coral.mojom.CoralProcessor_Group_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(coral.mojom.CoralProcessor_Group_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Group (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -464,7 +470,7 @@ coral.mojom.CoralProcessorReceiver = class {
         // Try Method 1: CacheEmbeddings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(coral.mojom.CoralProcessor_CacheEmbeddings_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(coral.mojom.CoralProcessor_CacheEmbeddings_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CacheEmbeddings (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -481,7 +487,7 @@ coral.mojom.CoralProcessorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(coral.mojom.CoralProcessor_Group_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(coral.mojom.CoralProcessor_Group_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.group');
           const result = this.impl.group(params.request, params.observer);
           if (header.expectsResponse) {
@@ -494,7 +500,7 @@ coral.mojom.CoralProcessorReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(coral.mojom.CoralProcessor_CacheEmbeddings_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(coral.mojom.CoralProcessor_CacheEmbeddings_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.cacheEmbeddings');
           const result = this.impl.cacheEmbeddings(params.request);
           if (header.expectsResponse) {
@@ -664,9 +670,11 @@ coral.mojom.CoralServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -680,12 +688,13 @@ coral.mojom.CoralServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GroupDeprecated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(coral.mojom.CoralService_GroupDeprecated_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(coral.mojom.CoralService_GroupDeprecated_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GroupDeprecated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -696,7 +705,7 @@ coral.mojom.CoralServiceReceiver = class {
         // Try Method 1: CacheEmbeddingsDeprecated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(coral.mojom.CoralService_CacheEmbeddingsDeprecated_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(coral.mojom.CoralService_CacheEmbeddingsDeprecated_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CacheEmbeddingsDeprecated (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -707,7 +716,7 @@ coral.mojom.CoralServiceReceiver = class {
         // Try Method 2: PrepareResource
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(coral.mojom.CoralService_PrepareResource_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(coral.mojom.CoralService_PrepareResource_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PrepareResource (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -718,7 +727,7 @@ coral.mojom.CoralServiceReceiver = class {
         // Try Method 3: Initialize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(coral.mojom.CoralService_Initialize_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(coral.mojom.CoralService_Initialize_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Initialize (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -735,7 +744,7 @@ coral.mojom.CoralServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(coral.mojom.CoralService_GroupDeprecated_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(coral.mojom.CoralService_GroupDeprecated_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.groupDeprecated');
           const result = this.impl.groupDeprecated(params.request, params.observer);
           if (header.expectsResponse) {
@@ -748,7 +757,7 @@ coral.mojom.CoralServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(coral.mojom.CoralService_CacheEmbeddingsDeprecated_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(coral.mojom.CoralService_CacheEmbeddingsDeprecated_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.cacheEmbeddingsDeprecated');
           const result = this.impl.cacheEmbeddingsDeprecated(params.request);
           if (header.expectsResponse) {
@@ -761,14 +770,14 @@ coral.mojom.CoralServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(coral.mojom.CoralService_PrepareResource_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(coral.mojom.CoralService_PrepareResource_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.prepareResource');
           const result = this.impl.prepareResource();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(coral.mojom.CoralService_Initialize_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(coral.mojom.CoralService_Initialize_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.initialize');
           const result = this.impl.initialize(params.ml_service, params.processor, params.language_code);
           break;

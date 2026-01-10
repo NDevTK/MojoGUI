@@ -945,9 +945,11 @@ crosapi.mojom.TelemetryProbeServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -961,12 +963,13 @@ crosapi.mojom.TelemetryProbeServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ProbeTelemetryInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.TelemetryProbeService_ProbeTelemetryInfo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.TelemetryProbeService_ProbeTelemetryInfo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ProbeTelemetryInfo (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -977,7 +980,7 @@ crosapi.mojom.TelemetryProbeServiceReceiver = class {
         // Try Method 1: GetOemData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.TelemetryProbeService_GetOemData_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.TelemetryProbeService_GetOemData_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOemData (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -994,7 +997,7 @@ crosapi.mojom.TelemetryProbeServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.TelemetryProbeService_ProbeTelemetryInfo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.TelemetryProbeService_ProbeTelemetryInfo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.probeTelemetryInfo');
           const result = this.impl.probeTelemetryInfo(params.categories);
           if (header.expectsResponse) {
@@ -1007,7 +1010,7 @@ crosapi.mojom.TelemetryProbeServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.TelemetryProbeService_GetOemData_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.TelemetryProbeService_GetOemData_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getOemData');
           const result = this.impl.getOemData();
           if (header.expectsResponse) {

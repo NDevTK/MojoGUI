@@ -107,9 +107,11 @@ composebox.mojom.PageHandlerFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -123,12 +125,13 @@ composebox.mojom.PageHandlerFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(composebox.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(composebox.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -145,7 +148,7 @@ composebox.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(composebox.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(composebox.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler, params.searchbox_page, params.searchbox_handler);
           break;
@@ -329,9 +332,11 @@ composebox.mojom.PageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -345,12 +350,13 @@ composebox.mojom.PageHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: FocusChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(composebox.mojom.PageHandler_FocusChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(composebox.mojom.PageHandler_FocusChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FocusChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -361,7 +367,7 @@ composebox.mojom.PageHandlerReceiver = class {
         // Try Method 1: SetDeepSearchMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(composebox.mojom.PageHandler_SetDeepSearchMode_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(composebox.mojom.PageHandler_SetDeepSearchMode_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDeepSearchMode (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -372,7 +378,7 @@ composebox.mojom.PageHandlerReceiver = class {
         // Try Method 2: SetCreateImageMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(composebox.mojom.PageHandler_SetCreateImageMode_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(composebox.mojom.PageHandler_SetCreateImageMode_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCreateImageMode (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -383,7 +389,7 @@ composebox.mojom.PageHandlerReceiver = class {
         // Try Method 3: HandleLensButtonClick
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(composebox.mojom.PageHandler_HandleLensButtonClick_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(composebox.mojom.PageHandler_HandleLensButtonClick_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleLensButtonClick (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -394,7 +400,7 @@ composebox.mojom.PageHandlerReceiver = class {
         // Try Method 4: HandleFileUpload
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(composebox.mojom.PageHandler_HandleFileUpload_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(composebox.mojom.PageHandler_HandleFileUpload_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleFileUpload (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -405,7 +411,7 @@ composebox.mojom.PageHandlerReceiver = class {
         // Try Method 5: NavigateUrl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(composebox.mojom.PageHandler_NavigateUrl_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(composebox.mojom.PageHandler_NavigateUrl_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NavigateUrl (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -422,42 +428,42 @@ composebox.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(composebox.mojom.PageHandler_FocusChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(composebox.mojom.PageHandler_FocusChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.focusChanged');
           const result = this.impl.focusChanged(params.focused);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(composebox.mojom.PageHandler_SetDeepSearchMode_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(composebox.mojom.PageHandler_SetDeepSearchMode_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setDeepSearchMode');
           const result = this.impl.setDeepSearchMode(params.enabled);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(composebox.mojom.PageHandler_SetCreateImageMode_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(composebox.mojom.PageHandler_SetCreateImageMode_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setCreateImageMode');
           const result = this.impl.setCreateImageMode(params.enabled, params.image_present);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(composebox.mojom.PageHandler_HandleLensButtonClick_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(composebox.mojom.PageHandler_HandleLensButtonClick_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.handleLensButtonClick');
           const result = this.impl.handleLensButtonClick();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(composebox.mojom.PageHandler_HandleFileUpload_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(composebox.mojom.PageHandler_HandleFileUpload_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.handleFileUpload');
           const result = this.impl.handleFileUpload(params.is_image);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(composebox.mojom.PageHandler_NavigateUrl_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(composebox.mojom.PageHandler_NavigateUrl_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.navigateUrl');
           const result = this.impl.navigateUrl(params.url);
           break;
@@ -539,9 +545,11 @@ composebox.mojom.PageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -555,6 +563,7 @@ composebox.mojom.PageReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         if (dispatchId === undefined) {

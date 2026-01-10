@@ -374,9 +374,11 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -390,12 +392,13 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetNewCertVerifier
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNewCertVerifier (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -406,7 +409,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
         // Try Method 1: UpdateCRLSet
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateCRLSet (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -417,7 +420,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
         // Try Method 2: UpdateCtLogList
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cert_verifier.mojom.CertVerifierServiceFactory_UpdateCtLogList_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cert_verifier.mojom.CertVerifierServiceFactory_UpdateCtLogList_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateCtLogList (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -428,7 +431,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
         // Try Method 3: DisableCtEnforcement
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cert_verifier.mojom.CertVerifierServiceFactory_DisableCtEnforcement_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cert_verifier.mojom.CertVerifierServiceFactory_DisableCtEnforcement_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisableCtEnforcement (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -439,7 +442,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
         // Try Method 4: UpdateChromeRootStore
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cert_verifier.mojom.CertVerifierServiceFactory_UpdateChromeRootStore_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cert_verifier.mojom.CertVerifierServiceFactory_UpdateChromeRootStore_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateChromeRootStore (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -450,7 +453,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
         // Try Method 5: UpdateMtcMetadata
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cert_verifier.mojom.CertVerifierServiceFactory_UpdateMtcMetadata_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cert_verifier.mojom.CertVerifierServiceFactory_UpdateMtcMetadata_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateMtcMetadata (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -461,7 +464,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
         // Try Method 6: SetUseChromeRootStore
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cert_verifier.mojom.CertVerifierServiceFactory_SetUseChromeRootStore_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cert_verifier.mojom.CertVerifierServiceFactory_SetUseChromeRootStore_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUseChromeRootStore (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -472,7 +475,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
         // Try Method 7: GetChromeRootStoreInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetChromeRootStoreInfo (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -483,7 +486,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
         // Try Method 8: GetPlatformRootStoreInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPlatformRootStoreInfo (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -494,7 +497,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
         // Try Method 9: UpdateNetworkTime
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateNetworkTime (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -511,14 +514,14 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getNewCertVerifier');
           const result = this.impl.getNewCertVerifier(params.receiver, params.updater, params.client, params.creation_params);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.updateCRLSet');
           const result = this.impl.updateCRLSet(params.crl_set);
           if (header.expectsResponse) {
@@ -531,7 +534,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cert_verifier.mojom.CertVerifierServiceFactory_UpdateCtLogList_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cert_verifier.mojom.CertVerifierServiceFactory_UpdateCtLogList_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.updateCtLogList');
           const result = this.impl.updateCtLogList(params.log_list, params.update_time);
           if (header.expectsResponse) {
@@ -544,7 +547,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cert_verifier.mojom.CertVerifierServiceFactory_DisableCtEnforcement_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cert_verifier.mojom.CertVerifierServiceFactory_DisableCtEnforcement_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.disableCtEnforcement');
           const result = this.impl.disableCtEnforcement();
           if (header.expectsResponse) {
@@ -557,7 +560,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cert_verifier.mojom.CertVerifierServiceFactory_UpdateChromeRootStore_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cert_verifier.mojom.CertVerifierServiceFactory_UpdateChromeRootStore_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.updateChromeRootStore');
           const result = this.impl.updateChromeRootStore(params.new_root_store);
           if (header.expectsResponse) {
@@ -570,7 +573,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cert_verifier.mojom.CertVerifierServiceFactory_UpdateMtcMetadata_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cert_verifier.mojom.CertVerifierServiceFactory_UpdateMtcMetadata_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.updateMtcMetadata');
           const result = this.impl.updateMtcMetadata(params.new_mtc_metadata);
           if (header.expectsResponse) {
@@ -583,7 +586,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cert_verifier.mojom.CertVerifierServiceFactory_SetUseChromeRootStore_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cert_verifier.mojom.CertVerifierServiceFactory_SetUseChromeRootStore_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setUseChromeRootStore');
           const result = this.impl.setUseChromeRootStore(params.use_crs);
           if (header.expectsResponse) {
@@ -596,7 +599,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getChromeRootStoreInfo');
           const result = this.impl.getChromeRootStoreInfo();
           if (header.expectsResponse) {
@@ -609,7 +612,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getPlatformRootStoreInfo');
           const result = this.impl.getPlatformRootStoreInfo();
           if (header.expectsResponse) {
@@ -622,7 +625,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.updateNetworkTime');
           const result = this.impl.updateNetworkTime(params.system_time, params.system_ticks, params.current_time);
           break;

@@ -712,9 +712,11 @@ blink.mojom.WebBluetoothServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -728,12 +730,13 @@ blink.mojom.WebBluetoothServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetAvailability
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WebBluetoothService_GetAvailability_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WebBluetoothService_GetAvailability_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAvailability (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -744,7 +747,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
         // Try Method 1: RequestDevice
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WebBluetoothService_RequestDevice_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WebBluetoothService_RequestDevice_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestDevice (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -755,7 +758,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
         // Try Method 2: GetDevices
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WebBluetoothService_GetDevices_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WebBluetoothService_GetDevices_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDevices (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -766,7 +769,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
         // Try Method 3: ForgetDevice
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WebBluetoothService_ForgetDevice_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WebBluetoothService_ForgetDevice_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForgetDevice (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -777,7 +780,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
         // Try Method 4: RemoteServerConnect
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WebBluetoothService_RemoteServerConnect_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WebBluetoothService_RemoteServerConnect_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoteServerConnect (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -788,7 +791,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
         // Try Method 5: RemoteServerDisconnect
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WebBluetoothService_RemoteServerDisconnect_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WebBluetoothService_RemoteServerDisconnect_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoteServerDisconnect (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -799,7 +802,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
         // Try Method 6: RemoteServerGetPrimaryServices
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WebBluetoothService_RemoteServerGetPrimaryServices_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WebBluetoothService_RemoteServerGetPrimaryServices_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoteServerGetPrimaryServices (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -810,7 +813,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
         // Try Method 7: RemoteServiceGetCharacteristics
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WebBluetoothService_RemoteServiceGetCharacteristics_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WebBluetoothService_RemoteServiceGetCharacteristics_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoteServiceGetCharacteristics (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -821,7 +824,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
         // Try Method 8: RemoteCharacteristicReadValue
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WebBluetoothService_RemoteCharacteristicReadValue_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WebBluetoothService_RemoteCharacteristicReadValue_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoteCharacteristicReadValue (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -832,7 +835,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
         // Try Method 9: RemoteCharacteristicWriteValue
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WebBluetoothService_RemoteCharacteristicWriteValue_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WebBluetoothService_RemoteCharacteristicWriteValue_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoteCharacteristicWriteValue (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -843,7 +846,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
         // Try Method 10: RemoteCharacteristicStartNotifications
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WebBluetoothService_RemoteCharacteristicStartNotifications_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WebBluetoothService_RemoteCharacteristicStartNotifications_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoteCharacteristicStartNotifications (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -854,7 +857,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
         // Try Method 11: RemoteCharacteristicStopNotifications
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WebBluetoothService_RemoteCharacteristicStopNotifications_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WebBluetoothService_RemoteCharacteristicStopNotifications_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoteCharacteristicStopNotifications (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -865,7 +868,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
         // Try Method 12: RemoteCharacteristicGetDescriptors
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WebBluetoothService_RemoteCharacteristicGetDescriptors_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WebBluetoothService_RemoteCharacteristicGetDescriptors_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoteCharacteristicGetDescriptors (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -876,7 +879,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
         // Try Method 13: RemoteDescriptorReadValue
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WebBluetoothService_RemoteDescriptorReadValue_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WebBluetoothService_RemoteDescriptorReadValue_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoteDescriptorReadValue (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -887,7 +890,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
         // Try Method 14: RemoteDescriptorWriteValue
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WebBluetoothService_RemoteDescriptorWriteValue_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WebBluetoothService_RemoteDescriptorWriteValue_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoteDescriptorWriteValue (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -898,7 +901,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
         // Try Method 15: RequestScanningStart
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WebBluetoothService_RequestScanningStart_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WebBluetoothService_RequestScanningStart_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestScanningStart (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -909,7 +912,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
         // Try Method 16: WatchAdvertisementsForDevice
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WebBluetoothService_WatchAdvertisementsForDevice_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WebBluetoothService_WatchAdvertisementsForDevice_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WatchAdvertisementsForDevice (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -926,7 +929,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WebBluetoothService_GetAvailability_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WebBluetoothService_GetAvailability_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getAvailability');
           const result = this.impl.getAvailability();
           if (header.expectsResponse) {
@@ -939,7 +942,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WebBluetoothService_RequestDevice_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WebBluetoothService_RequestDevice_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestDevice');
           const result = this.impl.requestDevice(params.options);
           if (header.expectsResponse) {
@@ -952,7 +955,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WebBluetoothService_GetDevices_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WebBluetoothService_GetDevices_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getDevices');
           const result = this.impl.getDevices();
           if (header.expectsResponse) {
@@ -965,7 +968,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WebBluetoothService_ForgetDevice_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WebBluetoothService_ForgetDevice_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.forgetDevice');
           const result = this.impl.forgetDevice(params.device_id);
           if (header.expectsResponse) {
@@ -978,7 +981,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WebBluetoothService_RemoteServerConnect_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WebBluetoothService_RemoteServerConnect_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.remoteServerConnect');
           const result = this.impl.remoteServerConnect(params.device_id, params.client);
           if (header.expectsResponse) {
@@ -991,14 +994,14 @@ blink.mojom.WebBluetoothServiceReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WebBluetoothService_RemoteServerDisconnect_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WebBluetoothService_RemoteServerDisconnect_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.remoteServerDisconnect');
           const result = this.impl.remoteServerDisconnect(params.device_id);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WebBluetoothService_RemoteServerGetPrimaryServices_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WebBluetoothService_RemoteServerGetPrimaryServices_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.remoteServerGetPrimaryServices');
           const result = this.impl.remoteServerGetPrimaryServices(params.device_id, params.quantity, params.services_uuid);
           if (header.expectsResponse) {
@@ -1011,7 +1014,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WebBluetoothService_RemoteServiceGetCharacteristics_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WebBluetoothService_RemoteServiceGetCharacteristics_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.remoteServiceGetCharacteristics');
           const result = this.impl.remoteServiceGetCharacteristics(params.service_instance_id, params.quantity, params.characteristics_uuid);
           if (header.expectsResponse) {
@@ -1024,7 +1027,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WebBluetoothService_RemoteCharacteristicReadValue_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WebBluetoothService_RemoteCharacteristicReadValue_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.remoteCharacteristicReadValue');
           const result = this.impl.remoteCharacteristicReadValue(params.characteristic_instance_id);
           if (header.expectsResponse) {
@@ -1037,7 +1040,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WebBluetoothService_RemoteCharacteristicWriteValue_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WebBluetoothService_RemoteCharacteristicWriteValue_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.remoteCharacteristicWriteValue');
           const result = this.impl.remoteCharacteristicWriteValue(params.characteristic_instance_id, params.value, params.write_type);
           if (header.expectsResponse) {
@@ -1050,7 +1053,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WebBluetoothService_RemoteCharacteristicStartNotifications_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WebBluetoothService_RemoteCharacteristicStartNotifications_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.remoteCharacteristicStartNotifications');
           const result = this.impl.remoteCharacteristicStartNotifications(params.characteristic_instance_id, params.client);
           if (header.expectsResponse) {
@@ -1063,7 +1066,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WebBluetoothService_RemoteCharacteristicStopNotifications_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WebBluetoothService_RemoteCharacteristicStopNotifications_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.remoteCharacteristicStopNotifications');
           const result = this.impl.remoteCharacteristicStopNotifications(params.characteristic_instance_id);
           if (header.expectsResponse) {
@@ -1076,7 +1079,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WebBluetoothService_RemoteCharacteristicGetDescriptors_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WebBluetoothService_RemoteCharacteristicGetDescriptors_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.remoteCharacteristicGetDescriptors');
           const result = this.impl.remoteCharacteristicGetDescriptors(params.characteristics_instance_id, params.quantity, params.descriptor_uuid);
           if (header.expectsResponse) {
@@ -1089,7 +1092,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WebBluetoothService_RemoteDescriptorReadValue_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WebBluetoothService_RemoteDescriptorReadValue_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.remoteDescriptorReadValue');
           const result = this.impl.remoteDescriptorReadValue(params.descriptor_instance_id);
           if (header.expectsResponse) {
@@ -1102,7 +1105,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WebBluetoothService_RemoteDescriptorWriteValue_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WebBluetoothService_RemoteDescriptorWriteValue_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.remoteDescriptorWriteValue');
           const result = this.impl.remoteDescriptorWriteValue(params.descriptor_instance_id, params.value);
           if (header.expectsResponse) {
@@ -1115,7 +1118,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WebBluetoothService_RequestScanningStart_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WebBluetoothService_RequestScanningStart_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestScanningStart');
           const result = this.impl.requestScanningStart(params.client, params.options);
           if (header.expectsResponse) {
@@ -1128,7 +1131,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WebBluetoothService_WatchAdvertisementsForDevice_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WebBluetoothService_WatchAdvertisementsForDevice_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.watchAdvertisementsForDevice');
           const result = this.impl.watchAdvertisementsForDevice(params.device_id, params.client);
           if (header.expectsResponse) {
@@ -1232,9 +1235,11 @@ blink.mojom.WebBluetoothServerClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1248,12 +1253,13 @@ blink.mojom.WebBluetoothServerClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GATTServerDisconnected
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WebBluetoothServerClient_GATTServerDisconnected_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WebBluetoothServerClient_GATTServerDisconnected_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GATTServerDisconnected (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1270,7 +1276,7 @@ blink.mojom.WebBluetoothServerClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WebBluetoothServerClient_GATTServerDisconnected_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WebBluetoothServerClient_GATTServerDisconnected_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.gATTServerDisconnected');
           const result = this.impl.gATTServerDisconnected();
           break;
@@ -1369,9 +1375,11 @@ blink.mojom.WebBluetoothCharacteristicClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1385,12 +1393,13 @@ blink.mojom.WebBluetoothCharacteristicClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: RemoteCharacteristicValueChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WebBluetoothCharacteristicClient_RemoteCharacteristicValueChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WebBluetoothCharacteristicClient_RemoteCharacteristicValueChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoteCharacteristicValueChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1407,7 +1416,7 @@ blink.mojom.WebBluetoothCharacteristicClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WebBluetoothCharacteristicClient_RemoteCharacteristicValueChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WebBluetoothCharacteristicClient_RemoteCharacteristicValueChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.remoteCharacteristicValueChanged');
           const result = this.impl.remoteCharacteristicValueChanged(params.value);
           break;
@@ -1506,9 +1515,11 @@ blink.mojom.WebBluetoothAdvertisementClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1522,12 +1533,13 @@ blink.mojom.WebBluetoothAdvertisementClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AdvertisingEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WebBluetoothAdvertisementClient_AdvertisingEvent_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WebBluetoothAdvertisementClient_AdvertisingEvent_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AdvertisingEvent (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1544,7 +1556,7 @@ blink.mojom.WebBluetoothAdvertisementClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WebBluetoothAdvertisementClient_AdvertisingEvent_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WebBluetoothAdvertisementClient_AdvertisingEvent_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.advertisingEvent');
           const result = this.impl.advertisingEvent(params.result);
           break;

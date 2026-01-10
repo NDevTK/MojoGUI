@@ -193,9 +193,11 @@ ax.mojom.AutomationReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -209,12 +211,13 @@ ax.mojom.AutomationReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: DispatchTreeDestroyedEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ax.mojom.Automation_DispatchTreeDestroyedEvent_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ax.mojom.Automation_DispatchTreeDestroyedEvent_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchTreeDestroyedEvent (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -225,7 +228,7 @@ ax.mojom.AutomationReceiver = class {
         // Try Method 1: DispatchActionResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ax.mojom.Automation_DispatchActionResult_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ax.mojom.Automation_DispatchActionResult_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchActionResult (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -236,7 +239,7 @@ ax.mojom.AutomationReceiver = class {
         // Try Method 2: DispatchAccessibilityEvents
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ax.mojom.Automation_DispatchAccessibilityEvents_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ax.mojom.Automation_DispatchAccessibilityEvents_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchAccessibilityEvents (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -247,7 +250,7 @@ ax.mojom.AutomationReceiver = class {
         // Try Method 3: DispatchAccessibilityLocationChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ax.mojom.Automation_DispatchAccessibilityLocationChange_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ax.mojom.Automation_DispatchAccessibilityLocationChange_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchAccessibilityLocationChange (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -258,7 +261,7 @@ ax.mojom.AutomationReceiver = class {
         // Try Method 4: DispatchAccessibilityScrollChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ax.mojom.Automation_DispatchAccessibilityScrollChange_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ax.mojom.Automation_DispatchAccessibilityScrollChange_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchAccessibilityScrollChange (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -269,7 +272,7 @@ ax.mojom.AutomationReceiver = class {
         // Try Method 5: DispatchGetTextLocationResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ax.mojom.Automation_DispatchGetTextLocationResult_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ax.mojom.Automation_DispatchGetTextLocationResult_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchGetTextLocationResult (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -286,42 +289,42 @@ ax.mojom.AutomationReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ax.mojom.Automation_DispatchTreeDestroyedEvent_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ax.mojom.Automation_DispatchTreeDestroyedEvent_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.dispatchTreeDestroyedEvent');
           const result = this.impl.dispatchTreeDestroyedEvent(params.tree_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ax.mojom.Automation_DispatchActionResult_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ax.mojom.Automation_DispatchActionResult_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.dispatchActionResult');
           const result = this.impl.dispatchActionResult(params.data, params.result);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ax.mojom.Automation_DispatchAccessibilityEvents_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ax.mojom.Automation_DispatchAccessibilityEvents_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.dispatchAccessibilityEvents');
           const result = this.impl.dispatchAccessibilityEvents(params.tree_id, params.updates, params.mouse_location, params.events);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ax.mojom.Automation_DispatchAccessibilityLocationChange_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ax.mojom.Automation_DispatchAccessibilityLocationChange_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.dispatchAccessibilityLocationChange');
           const result = this.impl.dispatchAccessibilityLocationChange(params.tree_id, params.node_id, params.bounds);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ax.mojom.Automation_DispatchAccessibilityScrollChange_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ax.mojom.Automation_DispatchAccessibilityScrollChange_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.dispatchAccessibilityScrollChange');
           const result = this.impl.dispatchAccessibilityScrollChange(params.tree_id, params.node_id, params.scroll_x, params.scroll_y);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ax.mojom.Automation_DispatchGetTextLocationResult_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ax.mojom.Automation_DispatchGetTextLocationResult_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.dispatchGetTextLocationResult');
           const result = this.impl.dispatchGetTextLocationResult(params.data, params.rect);
           break;

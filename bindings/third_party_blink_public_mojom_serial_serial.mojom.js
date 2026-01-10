@@ -225,9 +225,11 @@ blink.mojom.SerialServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -241,12 +243,13 @@ blink.mojom.SerialServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.SerialService_SetClient_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.SerialService_SetClient_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetClient (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -257,7 +260,7 @@ blink.mojom.SerialServiceReceiver = class {
         // Try Method 1: GetPorts
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.SerialService_GetPorts_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.SerialService_GetPorts_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPorts (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -268,7 +271,7 @@ blink.mojom.SerialServiceReceiver = class {
         // Try Method 2: RequestPort
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.SerialService_RequestPort_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.SerialService_RequestPort_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestPort (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -279,7 +282,7 @@ blink.mojom.SerialServiceReceiver = class {
         // Try Method 3: OpenPort
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.SerialService_OpenPort_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.SerialService_OpenPort_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenPort (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -290,7 +293,7 @@ blink.mojom.SerialServiceReceiver = class {
         // Try Method 4: ForgetPort
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.SerialService_ForgetPort_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.SerialService_ForgetPort_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForgetPort (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -307,14 +310,14 @@ blink.mojom.SerialServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.SerialService_SetClient_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.SerialService_SetClient_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setClient');
           const result = this.impl.setClient(params.client);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.SerialService_GetPorts_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.SerialService_GetPorts_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getPorts');
           const result = this.impl.getPorts();
           if (header.expectsResponse) {
@@ -327,7 +330,7 @@ blink.mojom.SerialServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.SerialService_RequestPort_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.SerialService_RequestPort_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestPort');
           const result = this.impl.requestPort(params.filters, params.allowed_bluetooth_service_class_ids);
           if (header.expectsResponse) {
@@ -340,7 +343,7 @@ blink.mojom.SerialServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.SerialService_OpenPort_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.SerialService_OpenPort_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.openPort');
           const result = this.impl.openPort(params.token, params.options, params.client);
           if (header.expectsResponse) {
@@ -353,7 +356,7 @@ blink.mojom.SerialServiceReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.SerialService_ForgetPort_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.SerialService_ForgetPort_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.forgetPort');
           const result = this.impl.forgetPort(params.token);
           if (header.expectsResponse) {
@@ -458,9 +461,11 @@ blink.mojom.SerialServiceClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -474,12 +479,13 @@ blink.mojom.SerialServiceClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnPortConnectedStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPortConnectedStateChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -496,7 +502,7 @@ blink.mojom.SerialServiceClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onPortConnectedStateChanged');
           const result = this.impl.onPortConnectedStateChanged(params.port_info);
           break;

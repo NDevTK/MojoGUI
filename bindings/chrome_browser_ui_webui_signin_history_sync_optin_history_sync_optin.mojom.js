@@ -128,9 +128,11 @@ history_sync_optin.mojom.PageHandlerFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -144,12 +146,13 @@ history_sync_optin.mojom.PageHandlerFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateHistorySyncOptinHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateHistorySyncOptinHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -166,7 +169,7 @@ history_sync_optin.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createHistorySyncOptinHandler');
           const result = this.impl.createHistorySyncOptinHandler(params.page, params.handler);
           break;
@@ -313,9 +316,11 @@ history_sync_optin.mojom.PageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -329,12 +334,13 @@ history_sync_optin.mojom.PageHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Accept
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(history_sync_optin.mojom.PageHandler_Accept_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(history_sync_optin.mojom.PageHandler_Accept_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Accept (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -345,7 +351,7 @@ history_sync_optin.mojom.PageHandlerReceiver = class {
         // Try Method 1: Reject
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(history_sync_optin.mojom.PageHandler_Reject_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(history_sync_optin.mojom.PageHandler_Reject_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Reject (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -356,7 +362,7 @@ history_sync_optin.mojom.PageHandlerReceiver = class {
         // Try Method 2: RequestAccountInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(history_sync_optin.mojom.PageHandler_RequestAccountInfo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(history_sync_optin.mojom.PageHandler_RequestAccountInfo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestAccountInfo (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -367,7 +373,7 @@ history_sync_optin.mojom.PageHandlerReceiver = class {
         // Try Method 3: UpdateDialogHeight
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(history_sync_optin.mojom.PageHandler_UpdateDialogHeight_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(history_sync_optin.mojom.PageHandler_UpdateDialogHeight_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateDialogHeight (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -384,28 +390,28 @@ history_sync_optin.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(history_sync_optin.mojom.PageHandler_Accept_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(history_sync_optin.mojom.PageHandler_Accept_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.accept');
           const result = this.impl.accept();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(history_sync_optin.mojom.PageHandler_Reject_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(history_sync_optin.mojom.PageHandler_Reject_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.reject');
           const result = this.impl.reject();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(history_sync_optin.mojom.PageHandler_RequestAccountInfo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(history_sync_optin.mojom.PageHandler_RequestAccountInfo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestAccountInfo');
           const result = this.impl.requestAccountInfo();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(history_sync_optin.mojom.PageHandler_UpdateDialogHeight_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(history_sync_optin.mojom.PageHandler_UpdateDialogHeight_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.updateDialogHeight');
           const result = this.impl.updateDialogHeight(params.height);
           break;
@@ -521,9 +527,11 @@ history_sync_optin.mojom.PageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -537,12 +545,13 @@ history_sync_optin.mojom.PageReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SendAccountInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(history_sync_optin.mojom.Page_SendAccountInfo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(history_sync_optin.mojom.Page_SendAccountInfo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendAccountInfo (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -553,7 +562,7 @@ history_sync_optin.mojom.PageReceiver = class {
         // Try Method 1: SendScreenMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(history_sync_optin.mojom.Page_SendScreenMode_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(history_sync_optin.mojom.Page_SendScreenMode_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendScreenMode (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -570,14 +579,14 @@ history_sync_optin.mojom.PageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(history_sync_optin.mojom.Page_SendAccountInfo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(history_sync_optin.mojom.Page_SendAccountInfo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.sendAccountInfo');
           const result = this.impl.sendAccountInfo(params.account_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(history_sync_optin.mojom.Page_SendScreenMode_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(history_sync_optin.mojom.Page_SendScreenMode_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.sendScreenMode');
           const result = this.impl.sendScreenMode(params.screen_mode);
           break;

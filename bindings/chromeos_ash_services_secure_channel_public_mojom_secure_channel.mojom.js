@@ -273,9 +273,11 @@ ash.secure_channel.mojom.ChannelReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -289,12 +291,13 @@ ash.secure_channel.mojom.ChannelReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SendMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.secure_channel.mojom.Channel_SendMessage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.secure_channel.mojom.Channel_SendMessage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendMessage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -305,7 +308,7 @@ ash.secure_channel.mojom.ChannelReceiver = class {
         // Try Method 1: RegisterPayloadFile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.secure_channel.mojom.Channel_RegisterPayloadFile_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.secure_channel.mojom.Channel_RegisterPayloadFile_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterPayloadFile (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -316,7 +319,7 @@ ash.secure_channel.mojom.ChannelReceiver = class {
         // Try Method 2: GetConnectionMetadata
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.secure_channel.mojom.Channel_GetConnectionMetadata_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.secure_channel.mojom.Channel_GetConnectionMetadata_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetConnectionMetadata (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -333,7 +336,7 @@ ash.secure_channel.mojom.ChannelReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.secure_channel.mojom.Channel_SendMessage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.secure_channel.mojom.Channel_SendMessage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.sendMessage');
           const result = this.impl.sendMessage(params.message);
           if (header.expectsResponse) {
@@ -346,7 +349,7 @@ ash.secure_channel.mojom.ChannelReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.secure_channel.mojom.Channel_RegisterPayloadFile_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.secure_channel.mojom.Channel_RegisterPayloadFile_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.registerPayloadFile');
           const result = this.impl.registerPayloadFile(params.payload_id, params.payload_files, params.listener);
           if (header.expectsResponse) {
@@ -359,7 +362,7 @@ ash.secure_channel.mojom.ChannelReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.secure_channel.mojom.Channel_GetConnectionMetadata_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.secure_channel.mojom.Channel_GetConnectionMetadata_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getConnectionMetadata');
           const result = this.impl.getConnectionMetadata();
           if (header.expectsResponse) {
@@ -464,9 +467,11 @@ ash.secure_channel.mojom.MessageReceiverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -480,12 +485,13 @@ ash.secure_channel.mojom.MessageReceiverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnMessageReceived
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.secure_channel.mojom.MessageReceiver_OnMessageReceived_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.secure_channel.mojom.MessageReceiver_OnMessageReceived_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMessageReceived (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -502,7 +508,7 @@ ash.secure_channel.mojom.MessageReceiverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.secure_channel.mojom.MessageReceiver_OnMessageReceived_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.secure_channel.mojom.MessageReceiver_OnMessageReceived_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onMessageReceived');
           const result = this.impl.onMessageReceived(params.message);
           break;
@@ -620,9 +626,11 @@ ash.secure_channel.mojom.ConnectionDelegateReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -636,12 +644,13 @@ ash.secure_channel.mojom.ConnectionDelegateReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnConnectionAttemptFailure
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.secure_channel.mojom.ConnectionDelegate_OnConnectionAttemptFailure_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.secure_channel.mojom.ConnectionDelegate_OnConnectionAttemptFailure_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnConnectionAttemptFailure (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -652,7 +661,7 @@ ash.secure_channel.mojom.ConnectionDelegateReceiver = class {
         // Try Method 1: OnConnection
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.secure_channel.mojom.ConnectionDelegate_OnConnection_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.secure_channel.mojom.ConnectionDelegate_OnConnection_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnConnection (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -669,14 +678,14 @@ ash.secure_channel.mojom.ConnectionDelegateReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.secure_channel.mojom.ConnectionDelegate_OnConnectionAttemptFailure_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.secure_channel.mojom.ConnectionDelegate_OnConnectionAttemptFailure_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onConnectionAttemptFailure');
           const result = this.impl.onConnectionAttemptFailure(params.reason);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.secure_channel.mojom.ConnectionDelegate_OnConnection_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.secure_channel.mojom.ConnectionDelegate_OnConnection_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onConnection');
           const result = this.impl.onConnection(params.channel, params.message_receiver_receiver, params.nearby_connection_state_listener_receiver);
           break;
@@ -811,9 +820,11 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -827,12 +838,13 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: LogDiscoveryAttempt
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogDiscoveryAttempt_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogDiscoveryAttempt_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogDiscoveryAttempt (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -843,7 +855,7 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerReceiver = class {
         // Try Method 1: LogNearbyConnectionState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogNearbyConnectionState_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogNearbyConnectionState_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogNearbyConnectionState (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -854,7 +866,7 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerReceiver = class {
         // Try Method 2: LogSecureChannelState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogSecureChannelState_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogSecureChannelState_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogSecureChannelState (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -871,21 +883,21 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogDiscoveryAttempt_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogDiscoveryAttempt_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.logDiscoveryAttempt');
           const result = this.impl.logDiscoveryAttempt(params.result, params.error_code);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogNearbyConnectionState_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogNearbyConnectionState_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.logNearbyConnectionState');
           const result = this.impl.logNearbyConnectionState(params.step, params.status);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogSecureChannelState_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogSecureChannelState_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.logSecureChannelState');
           const result = this.impl.logSecureChannelState(params.state);
           break;
@@ -1052,9 +1064,11 @@ ash.secure_channel.mojom.SecureChannelReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1068,12 +1082,13 @@ ash.secure_channel.mojom.SecureChannelReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ListenForConnectionFromDevice
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.secure_channel.mojom.SecureChannel_ListenForConnectionFromDevice_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.secure_channel.mojom.SecureChannel_ListenForConnectionFromDevice_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ListenForConnectionFromDevice (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1084,7 +1099,7 @@ ash.secure_channel.mojom.SecureChannelReceiver = class {
         // Try Method 1: InitiateConnectionToDevice
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.secure_channel.mojom.SecureChannel_InitiateConnectionToDevice_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.secure_channel.mojom.SecureChannel_InitiateConnectionToDevice_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InitiateConnectionToDevice (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1095,7 +1110,7 @@ ash.secure_channel.mojom.SecureChannelReceiver = class {
         // Try Method 2: SetNearbyConnector
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.secure_channel.mojom.SecureChannel_SetNearbyConnector_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.secure_channel.mojom.SecureChannel_SetNearbyConnector_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetNearbyConnector (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1106,7 +1121,7 @@ ash.secure_channel.mojom.SecureChannelReceiver = class {
         // Try Method 3: GetLastSeenTimestamp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetLastSeenTimestamp (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1123,28 +1138,28 @@ ash.secure_channel.mojom.SecureChannelReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.secure_channel.mojom.SecureChannel_ListenForConnectionFromDevice_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.secure_channel.mojom.SecureChannel_ListenForConnectionFromDevice_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.listenForConnectionFromDevice');
           const result = this.impl.listenForConnectionFromDevice(params.device_to_connect, params.local_device, params.feature, params.connection_medium, params.connection_priority, params.delegate);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.secure_channel.mojom.SecureChannel_InitiateConnectionToDevice_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.secure_channel.mojom.SecureChannel_InitiateConnectionToDevice_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.initiateConnectionToDevice');
           const result = this.impl.initiateConnectionToDevice(params.device_to_connect, params.local_device, params.feature, params.connection_medium, params.connection_priority, params.delegate, params.secure_channel_structured_metrics_logger);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.secure_channel.mojom.SecureChannel_SetNearbyConnector_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.secure_channel.mojom.SecureChannel_SetNearbyConnector_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setNearbyConnector');
           const result = this.impl.setNearbyConnector(params.nearby_connector);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getLastSeenTimestamp');
           const result = this.impl.getLastSeenTimestamp(params.remote_device_id);
           if (header.expectsResponse) {

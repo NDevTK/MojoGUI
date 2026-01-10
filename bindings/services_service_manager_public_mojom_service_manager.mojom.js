@@ -205,9 +205,11 @@ service_manager.mojom.ServiceManagerListenerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -221,12 +223,13 @@ service_manager.mojom.ServiceManagerListenerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnInit
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(service_manager.mojom.ServiceManagerListener_OnInit_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(service_manager.mojom.ServiceManagerListener_OnInit_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnInit (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -237,7 +240,7 @@ service_manager.mojom.ServiceManagerListenerReceiver = class {
         // Try Method 1: OnServiceCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(service_manager.mojom.ServiceManagerListener_OnServiceCreated_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(service_manager.mojom.ServiceManagerListener_OnServiceCreated_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnServiceCreated (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -248,7 +251,7 @@ service_manager.mojom.ServiceManagerListenerReceiver = class {
         // Try Method 2: OnServiceStarted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(service_manager.mojom.ServiceManagerListener_OnServiceStarted_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(service_manager.mojom.ServiceManagerListener_OnServiceStarted_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnServiceStarted (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -259,7 +262,7 @@ service_manager.mojom.ServiceManagerListenerReceiver = class {
         // Try Method 3: OnServicePIDReceived
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(service_manager.mojom.ServiceManagerListener_OnServicePIDReceived_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(service_manager.mojom.ServiceManagerListener_OnServicePIDReceived_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnServicePIDReceived (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -270,7 +273,7 @@ service_manager.mojom.ServiceManagerListenerReceiver = class {
         // Try Method 4: OnServiceFailedToStart
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(service_manager.mojom.ServiceManagerListener_OnServiceFailedToStart_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(service_manager.mojom.ServiceManagerListener_OnServiceFailedToStart_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnServiceFailedToStart (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -281,7 +284,7 @@ service_manager.mojom.ServiceManagerListenerReceiver = class {
         // Try Method 5: OnServiceStopped
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(service_manager.mojom.ServiceManagerListener_OnServiceStopped_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(service_manager.mojom.ServiceManagerListener_OnServiceStopped_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnServiceStopped (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -298,42 +301,42 @@ service_manager.mojom.ServiceManagerListenerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(service_manager.mojom.ServiceManagerListener_OnInit_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(service_manager.mojom.ServiceManagerListener_OnInit_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onInit');
           const result = this.impl.onInit(params.running_services);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(service_manager.mojom.ServiceManagerListener_OnServiceCreated_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(service_manager.mojom.ServiceManagerListener_OnServiceCreated_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onServiceCreated');
           const result = this.impl.onServiceCreated(params.service);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(service_manager.mojom.ServiceManagerListener_OnServiceStarted_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(service_manager.mojom.ServiceManagerListener_OnServiceStarted_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onServiceStarted');
           const result = this.impl.onServiceStarted(params.identity, params.pid_deprecated);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(service_manager.mojom.ServiceManagerListener_OnServicePIDReceived_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(service_manager.mojom.ServiceManagerListener_OnServicePIDReceived_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onServicePIDReceived');
           const result = this.impl.onServicePIDReceived(params.identity, params.pid);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(service_manager.mojom.ServiceManagerListener_OnServiceFailedToStart_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(service_manager.mojom.ServiceManagerListener_OnServiceFailedToStart_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onServiceFailedToStart');
           const result = this.impl.onServiceFailedToStart(params.identity);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(service_manager.mojom.ServiceManagerListener_OnServiceStopped_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(service_manager.mojom.ServiceManagerListener_OnServiceStopped_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onServiceStopped');
           const result = this.impl.onServiceStopped(params.identity);
           break;
@@ -432,9 +435,11 @@ service_manager.mojom.ServiceManagerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -448,12 +453,13 @@ service_manager.mojom.ServiceManagerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AddListener
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(service_manager.mojom.ServiceManager_AddListener_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(service_manager.mojom.ServiceManager_AddListener_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddListener (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -470,7 +476,7 @@ service_manager.mojom.ServiceManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(service_manager.mojom.ServiceManager_AddListener_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(service_manager.mojom.ServiceManager_AddListener_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addListener');
           const result = this.impl.addListener(params.listener);
           break;

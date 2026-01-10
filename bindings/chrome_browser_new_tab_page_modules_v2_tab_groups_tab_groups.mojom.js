@@ -186,9 +186,11 @@ ntp.tab_groups.mojom.PageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -202,12 +204,13 @@ ntp.tab_groups.mojom.PageHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateNewTabGroup
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ntp.tab_groups.mojom.PageHandler_CreateNewTabGroup_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ntp.tab_groups.mojom.PageHandler_CreateNewTabGroup_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateNewTabGroup (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -218,7 +221,7 @@ ntp.tab_groups.mojom.PageHandlerReceiver = class {
         // Try Method 1: GetTabGroups
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ntp.tab_groups.mojom.PageHandler_GetTabGroups_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ntp.tab_groups.mojom.PageHandler_GetTabGroups_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTabGroups (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -229,7 +232,7 @@ ntp.tab_groups.mojom.PageHandlerReceiver = class {
         // Try Method 2: OpenTabGroup
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ntp.tab_groups.mojom.PageHandler_OpenTabGroup_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ntp.tab_groups.mojom.PageHandler_OpenTabGroup_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenTabGroup (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -240,7 +243,7 @@ ntp.tab_groups.mojom.PageHandlerReceiver = class {
         // Try Method 3: DismissModule
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ntp.tab_groups.mojom.PageHandler_DismissModule_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ntp.tab_groups.mojom.PageHandler_DismissModule_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DismissModule (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -251,7 +254,7 @@ ntp.tab_groups.mojom.PageHandlerReceiver = class {
         // Try Method 4: RestoreModule
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ntp.tab_groups.mojom.PageHandler_RestoreModule_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ntp.tab_groups.mojom.PageHandler_RestoreModule_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RestoreModule (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -268,14 +271,14 @@ ntp.tab_groups.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ntp.tab_groups.mojom.PageHandler_CreateNewTabGroup_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ntp.tab_groups.mojom.PageHandler_CreateNewTabGroup_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createNewTabGroup');
           const result = this.impl.createNewTabGroup();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ntp.tab_groups.mojom.PageHandler_GetTabGroups_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ntp.tab_groups.mojom.PageHandler_GetTabGroups_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getTabGroups');
           const result = this.impl.getTabGroups();
           if (header.expectsResponse) {
@@ -288,21 +291,21 @@ ntp.tab_groups.mojom.PageHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ntp.tab_groups.mojom.PageHandler_OpenTabGroup_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ntp.tab_groups.mojom.PageHandler_OpenTabGroup_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.openTabGroup');
           const result = this.impl.openTabGroup(params.id);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ntp.tab_groups.mojom.PageHandler_DismissModule_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ntp.tab_groups.mojom.PageHandler_DismissModule_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.dismissModule');
           const result = this.impl.dismissModule();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ntp.tab_groups.mojom.PageHandler_RestoreModule_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ntp.tab_groups.mojom.PageHandler_RestoreModule_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.restoreModule');
           const result = this.impl.restoreModule();
           break;

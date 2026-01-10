@@ -177,9 +177,11 @@ arc.mojom.WebApkInstanceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -193,12 +195,13 @@ arc.mojom.WebApkInstanceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: InstallWebApk
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.WebApkInstance_InstallWebApk_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.WebApkInstance_InstallWebApk_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InstallWebApk (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -209,7 +212,7 @@ arc.mojom.WebApkInstanceReceiver = class {
         // Try Method 1: GetWebApkInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.WebApkInstance_GetWebApkInfo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.WebApkInstance_GetWebApkInfo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetWebApkInfo (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -226,7 +229,7 @@ arc.mojom.WebApkInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.WebApkInstance_InstallWebApk_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.WebApkInstance_InstallWebApk_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.installWebApk');
           const result = this.impl.installWebApk(params.package_name, params.version, params.app_name, params.token);
           if (header.expectsResponse) {
@@ -239,7 +242,7 @@ arc.mojom.WebApkInstanceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.WebApkInstance_GetWebApkInfo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.WebApkInstance_GetWebApkInfo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getWebApkInfo');
           const result = this.impl.getWebApkInfo(params.package_name);
           if (header.expectsResponse) {

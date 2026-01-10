@@ -102,9 +102,11 @@ subresource_filter.mojom.SubresourceFilterAgentReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -118,12 +120,13 @@ subresource_filter.mojom.SubresourceFilterAgentReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ActivateForNextCommittedLoad
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(subresource_filter.mojom.SubresourceFilterAgent_ActivateForNextCommittedLoad_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(subresource_filter.mojom.SubresourceFilterAgent_ActivateForNextCommittedLoad_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ActivateForNextCommittedLoad (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -140,7 +143,7 @@ subresource_filter.mojom.SubresourceFilterAgentReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(subresource_filter.mojom.SubresourceFilterAgent_ActivateForNextCommittedLoad_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(subresource_filter.mojom.SubresourceFilterAgent_ActivateForNextCommittedLoad_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.activateForNextCommittedLoad');
           const result = this.impl.activateForNextCommittedLoad(params.activation_state, params.ad_evidence);
           break;
@@ -321,9 +324,11 @@ subresource_filter.mojom.SubresourceFilterHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -337,12 +342,13 @@ subresource_filter.mojom.SubresourceFilterHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: DidDisallowFirstSubresource
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(subresource_filter.mojom.SubresourceFilterHost_DidDisallowFirstSubresource_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(subresource_filter.mojom.SubresourceFilterHost_DidDisallowFirstSubresource_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidDisallowFirstSubresource (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -353,7 +359,7 @@ subresource_filter.mojom.SubresourceFilterHostReceiver = class {
         // Try Method 1: FrameIsAd
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(subresource_filter.mojom.SubresourceFilterHost_FrameIsAd_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(subresource_filter.mojom.SubresourceFilterHost_FrameIsAd_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FrameIsAd (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -364,7 +370,7 @@ subresource_filter.mojom.SubresourceFilterHostReceiver = class {
         // Try Method 2: FrameWasCreatedByAdScript
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(subresource_filter.mojom.SubresourceFilterHost_FrameWasCreatedByAdScript_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(subresource_filter.mojom.SubresourceFilterHost_FrameWasCreatedByAdScript_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FrameWasCreatedByAdScript (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -375,7 +381,7 @@ subresource_filter.mojom.SubresourceFilterHostReceiver = class {
         // Try Method 3: AdScriptDidCreateFencedFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(subresource_filter.mojom.SubresourceFilterHost_AdScriptDidCreateFencedFrame_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(subresource_filter.mojom.SubresourceFilterHost_AdScriptDidCreateFencedFrame_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AdScriptDidCreateFencedFrame (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -386,7 +392,7 @@ subresource_filter.mojom.SubresourceFilterHostReceiver = class {
         // Try Method 4: SetDocumentLoadStatistics
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(subresource_filter.mojom.SubresourceFilterHost_SetDocumentLoadStatistics_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(subresource_filter.mojom.SubresourceFilterHost_SetDocumentLoadStatistics_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDocumentLoadStatistics (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -397,7 +403,7 @@ subresource_filter.mojom.SubresourceFilterHostReceiver = class {
         // Try Method 5: OnAdsViolationTriggered
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(subresource_filter.mojom.SubresourceFilterHost_OnAdsViolationTriggered_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(subresource_filter.mojom.SubresourceFilterHost_OnAdsViolationTriggered_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAdsViolationTriggered (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -414,42 +420,42 @@ subresource_filter.mojom.SubresourceFilterHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(subresource_filter.mojom.SubresourceFilterHost_DidDisallowFirstSubresource_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(subresource_filter.mojom.SubresourceFilterHost_DidDisallowFirstSubresource_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.didDisallowFirstSubresource');
           const result = this.impl.didDisallowFirstSubresource();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(subresource_filter.mojom.SubresourceFilterHost_FrameIsAd_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(subresource_filter.mojom.SubresourceFilterHost_FrameIsAd_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.frameIsAd');
           const result = this.impl.frameIsAd();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(subresource_filter.mojom.SubresourceFilterHost_FrameWasCreatedByAdScript_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(subresource_filter.mojom.SubresourceFilterHost_FrameWasCreatedByAdScript_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.frameWasCreatedByAdScript');
           const result = this.impl.frameWasCreatedByAdScript();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(subresource_filter.mojom.SubresourceFilterHost_AdScriptDidCreateFencedFrame_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(subresource_filter.mojom.SubresourceFilterHost_AdScriptDidCreateFencedFrame_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.adScriptDidCreateFencedFrame');
           const result = this.impl.adScriptDidCreateFencedFrame(params.fenced_frame_root_placeholder_token);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(subresource_filter.mojom.SubresourceFilterHost_SetDocumentLoadStatistics_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(subresource_filter.mojom.SubresourceFilterHost_SetDocumentLoadStatistics_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setDocumentLoadStatistics');
           const result = this.impl.setDocumentLoadStatistics(params.statistics);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(subresource_filter.mojom.SubresourceFilterHost_OnAdsViolationTriggered_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(subresource_filter.mojom.SubresourceFilterHost_OnAdsViolationTriggered_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onAdsViolationTriggered');
           const result = this.impl.onAdsViolationTriggered(params.violation);
           break;

@@ -171,9 +171,11 @@ viz.mojom.FrameSinkVideoConsumerFrameCallbacksReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -187,12 +189,13 @@ viz.mojom.FrameSinkVideoConsumerFrameCallbacksReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Done
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkVideoConsumerFrameCallbacks_Done_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkVideoConsumerFrameCallbacks_Done_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Done (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -203,7 +206,7 @@ viz.mojom.FrameSinkVideoConsumerFrameCallbacksReceiver = class {
         // Try Method 1: ProvideFeedback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkVideoConsumerFrameCallbacks_ProvideFeedback_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkVideoConsumerFrameCallbacks_ProvideFeedback_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ProvideFeedback (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -220,14 +223,14 @@ viz.mojom.FrameSinkVideoConsumerFrameCallbacksReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkVideoConsumerFrameCallbacks_Done_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkVideoConsumerFrameCallbacks_Done_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.done');
           const result = this.impl.done();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkVideoConsumerFrameCallbacks_ProvideFeedback_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkVideoConsumerFrameCallbacks_ProvideFeedback_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.provideFeedback');
           const result = this.impl.provideFeedback(params.feedback);
           break;
@@ -395,9 +398,11 @@ viz.mojom.FrameSinkVideoConsumerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -411,12 +416,13 @@ viz.mojom.FrameSinkVideoConsumerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnFrameCaptured
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkVideoConsumer_OnFrameCaptured_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkVideoConsumer_OnFrameCaptured_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFrameCaptured (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -427,7 +433,7 @@ viz.mojom.FrameSinkVideoConsumerReceiver = class {
         // Try Method 1: OnNewCaptureVersion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkVideoConsumer_OnNewCaptureVersion_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkVideoConsumer_OnNewCaptureVersion_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNewCaptureVersion (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -438,7 +444,7 @@ viz.mojom.FrameSinkVideoConsumerReceiver = class {
         // Try Method 2: OnFrameWithEmptyRegionCapture
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkVideoConsumer_OnFrameWithEmptyRegionCapture_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkVideoConsumer_OnFrameWithEmptyRegionCapture_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFrameWithEmptyRegionCapture (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -449,7 +455,7 @@ viz.mojom.FrameSinkVideoConsumerReceiver = class {
         // Try Method 3: OnStopped
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkVideoConsumer_OnStopped_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkVideoConsumer_OnStopped_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStopped (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -460,7 +466,7 @@ viz.mojom.FrameSinkVideoConsumerReceiver = class {
         // Try Method 4: OnLog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkVideoConsumer_OnLog_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkVideoConsumer_OnLog_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLog (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -477,35 +483,35 @@ viz.mojom.FrameSinkVideoConsumerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkVideoConsumer_OnFrameCaptured_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkVideoConsumer_OnFrameCaptured_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onFrameCaptured');
           const result = this.impl.onFrameCaptured(params.data, params.info, params.content_rect, params.callbacks);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkVideoConsumer_OnNewCaptureVersion_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkVideoConsumer_OnNewCaptureVersion_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onNewCaptureVersion');
           const result = this.impl.onNewCaptureVersion(params.capture_version);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkVideoConsumer_OnFrameWithEmptyRegionCapture_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkVideoConsumer_OnFrameWithEmptyRegionCapture_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onFrameWithEmptyRegionCapture');
           const result = this.impl.onFrameWithEmptyRegionCapture();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkVideoConsumer_OnStopped_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkVideoConsumer_OnStopped_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onStopped');
           const result = this.impl.onStopped();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkVideoConsumer_OnLog_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkVideoConsumer_OnLog_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onLog');
           const result = this.impl.onLog(params.message);
           break;
@@ -778,9 +784,11 @@ viz.mojom.FrameSinkVideoCapturerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -794,12 +802,13 @@ viz.mojom.FrameSinkVideoCapturerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetFormat
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkVideoCapturer_SetFormat_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkVideoCapturer_SetFormat_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetFormat (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -810,7 +819,7 @@ viz.mojom.FrameSinkVideoCapturerReceiver = class {
         // Try Method 1: SetMinCapturePeriod
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkVideoCapturer_SetMinCapturePeriod_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkVideoCapturer_SetMinCapturePeriod_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetMinCapturePeriod (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -821,7 +830,7 @@ viz.mojom.FrameSinkVideoCapturerReceiver = class {
         // Try Method 2: SetMinSizeChangePeriod
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkVideoCapturer_SetMinSizeChangePeriod_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkVideoCapturer_SetMinSizeChangePeriod_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetMinSizeChangePeriod (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -832,7 +841,7 @@ viz.mojom.FrameSinkVideoCapturerReceiver = class {
         // Try Method 3: SetResolutionConstraints
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkVideoCapturer_SetResolutionConstraints_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkVideoCapturer_SetResolutionConstraints_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetResolutionConstraints (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -843,7 +852,7 @@ viz.mojom.FrameSinkVideoCapturerReceiver = class {
         // Try Method 4: SetAutoThrottlingEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkVideoCapturer_SetAutoThrottlingEnabled_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkVideoCapturer_SetAutoThrottlingEnabled_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAutoThrottlingEnabled (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -854,7 +863,7 @@ viz.mojom.FrameSinkVideoCapturerReceiver = class {
         // Try Method 5: SetAnimationFpsLockIn
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkVideoCapturer_SetAnimationFpsLockIn_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkVideoCapturer_SetAnimationFpsLockIn_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAnimationFpsLockIn (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -865,7 +874,7 @@ viz.mojom.FrameSinkVideoCapturerReceiver = class {
         // Try Method 6: ChangeTarget
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkVideoCapturer_ChangeTarget_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkVideoCapturer_ChangeTarget_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ChangeTarget (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -876,7 +885,7 @@ viz.mojom.FrameSinkVideoCapturerReceiver = class {
         // Try Method 7: Start
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkVideoCapturer_Start_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkVideoCapturer_Start_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Start (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -887,7 +896,7 @@ viz.mojom.FrameSinkVideoCapturerReceiver = class {
         // Try Method 8: Stop
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkVideoCapturer_Stop_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkVideoCapturer_Stop_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Stop (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -898,7 +907,7 @@ viz.mojom.FrameSinkVideoCapturerReceiver = class {
         // Try Method 9: RequestRefreshFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkVideoCapturer_RequestRefreshFrame_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkVideoCapturer_RequestRefreshFrame_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestRefreshFrame (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -909,7 +918,7 @@ viz.mojom.FrameSinkVideoCapturerReceiver = class {
         // Try Method 10: CreateOverlay
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkVideoCapturer_CreateOverlay_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkVideoCapturer_CreateOverlay_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateOverlay (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -926,77 +935,77 @@ viz.mojom.FrameSinkVideoCapturerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkVideoCapturer_SetFormat_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkVideoCapturer_SetFormat_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setFormat');
           const result = this.impl.setFormat(params.format);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkVideoCapturer_SetMinCapturePeriod_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkVideoCapturer_SetMinCapturePeriod_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setMinCapturePeriod');
           const result = this.impl.setMinCapturePeriod(params.min_period);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkVideoCapturer_SetMinSizeChangePeriod_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkVideoCapturer_SetMinSizeChangePeriod_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setMinSizeChangePeriod');
           const result = this.impl.setMinSizeChangePeriod(params.min_period);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkVideoCapturer_SetResolutionConstraints_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkVideoCapturer_SetResolutionConstraints_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setResolutionConstraints');
           const result = this.impl.setResolutionConstraints(params.min_size, params.max_size, params.use_fixed_aspect_ratio);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkVideoCapturer_SetAutoThrottlingEnabled_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkVideoCapturer_SetAutoThrottlingEnabled_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setAutoThrottlingEnabled');
           const result = this.impl.setAutoThrottlingEnabled(params.enabled);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkVideoCapturer_SetAnimationFpsLockIn_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkVideoCapturer_SetAnimationFpsLockIn_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setAnimationFpsLockIn');
           const result = this.impl.setAnimationFpsLockIn(params.enabled, params.majority_damaged_pixel_min_ratio);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkVideoCapturer_ChangeTarget_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkVideoCapturer_ChangeTarget_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.changeTarget');
           const result = this.impl.changeTarget(params.target, params.sub_capture_version);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkVideoCapturer_Start_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkVideoCapturer_Start_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.start');
           const result = this.impl.start(params.consumer, params.buffer_format_preference);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkVideoCapturer_Stop_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkVideoCapturer_Stop_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.stop');
           const result = this.impl.stop();
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkVideoCapturer_RequestRefreshFrame_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkVideoCapturer_RequestRefreshFrame_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestRefreshFrame');
           const result = this.impl.requestRefreshFrame();
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkVideoCapturer_CreateOverlay_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkVideoCapturer_CreateOverlay_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createOverlay');
           const result = this.impl.createOverlay(params.stacking_index, params.receiver);
           break;
@@ -1130,9 +1139,11 @@ viz.mojom.FrameSinkVideoCaptureOverlayReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1146,12 +1157,13 @@ viz.mojom.FrameSinkVideoCaptureOverlayReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetImageAndBounds
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkVideoCaptureOverlay_SetImageAndBounds_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkVideoCaptureOverlay_SetImageAndBounds_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetImageAndBounds (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1162,7 +1174,7 @@ viz.mojom.FrameSinkVideoCaptureOverlayReceiver = class {
         // Try Method 1: SetBounds
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkVideoCaptureOverlay_SetBounds_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkVideoCaptureOverlay_SetBounds_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBounds (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1173,7 +1185,7 @@ viz.mojom.FrameSinkVideoCaptureOverlayReceiver = class {
         // Try Method 2: OnCapturedMouseEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.FrameSinkVideoCaptureOverlay_OnCapturedMouseEvent_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.FrameSinkVideoCaptureOverlay_OnCapturedMouseEvent_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCapturedMouseEvent (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1190,21 +1202,21 @@ viz.mojom.FrameSinkVideoCaptureOverlayReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkVideoCaptureOverlay_SetImageAndBounds_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkVideoCaptureOverlay_SetImageAndBounds_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setImageAndBounds');
           const result = this.impl.setImageAndBounds(params.image, params.bounds);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkVideoCaptureOverlay_SetBounds_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkVideoCaptureOverlay_SetBounds_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setBounds');
           const result = this.impl.setBounds(params.bounds);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.FrameSinkVideoCaptureOverlay_OnCapturedMouseEvent_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkVideoCaptureOverlay_OnCapturedMouseEvent_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onCapturedMouseEvent');
           const result = this.impl.onCapturedMouseEvent(params.coordinates);
           break;

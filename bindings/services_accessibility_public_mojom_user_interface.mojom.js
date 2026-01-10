@@ -224,9 +224,11 @@ ax.mojom.UserInterfaceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -240,12 +242,13 @@ ax.mojom.UserInterfaceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: DarkenScreen
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ax.mojom.UserInterface_DarkenScreen_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ax.mojom.UserInterface_DarkenScreen_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DarkenScreen (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -256,7 +259,7 @@ ax.mojom.UserInterfaceReceiver = class {
         // Try Method 1: OpenSettingsSubpage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ax.mojom.UserInterface_OpenSettingsSubpage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ax.mojom.UserInterface_OpenSettingsSubpage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenSettingsSubpage (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -267,7 +270,7 @@ ax.mojom.UserInterfaceReceiver = class {
         // Try Method 2: ShowConfirmationDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ax.mojom.UserInterface_ShowConfirmationDialog_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ax.mojom.UserInterface_ShowConfirmationDialog_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowConfirmationDialog (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -278,7 +281,7 @@ ax.mojom.UserInterfaceReceiver = class {
         // Try Method 3: SetFocusRings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ax.mojom.UserInterface_SetFocusRings_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ax.mojom.UserInterface_SetFocusRings_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetFocusRings (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -289,7 +292,7 @@ ax.mojom.UserInterfaceReceiver = class {
         // Try Method 4: SetHighlights
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ax.mojom.UserInterface_SetHighlights_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ax.mojom.UserInterface_SetHighlights_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetHighlights (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -300,7 +303,7 @@ ax.mojom.UserInterfaceReceiver = class {
         // Try Method 5: SetVirtualKeyboardVisible
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ax.mojom.UserInterface_SetVirtualKeyboardVisible_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ax.mojom.UserInterface_SetVirtualKeyboardVisible_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetVirtualKeyboardVisible (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -317,21 +320,21 @@ ax.mojom.UserInterfaceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ax.mojom.UserInterface_DarkenScreen_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ax.mojom.UserInterface_DarkenScreen_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.darkenScreen');
           const result = this.impl.darkenScreen(params.darken);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ax.mojom.UserInterface_OpenSettingsSubpage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ax.mojom.UserInterface_OpenSettingsSubpage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.openSettingsSubpage');
           const result = this.impl.openSettingsSubpage(params.subpage);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ax.mojom.UserInterface_ShowConfirmationDialog_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ax.mojom.UserInterface_ShowConfirmationDialog_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.showConfirmationDialog');
           const result = this.impl.showConfirmationDialog(params.title, params.description, params.cancelName);
           if (header.expectsResponse) {
@@ -344,21 +347,21 @@ ax.mojom.UserInterfaceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ax.mojom.UserInterface_SetFocusRings_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ax.mojom.UserInterface_SetFocusRings_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setFocusRings');
           const result = this.impl.setFocusRings(params.focus_rings, params.at_type);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ax.mojom.UserInterface_SetHighlights_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ax.mojom.UserInterface_SetHighlights_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setHighlights');
           const result = this.impl.setHighlights(params.rects, params.color);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ax.mojom.UserInterface_SetVirtualKeyboardVisible_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ax.mojom.UserInterface_SetVirtualKeyboardVisible_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setVirtualKeyboardVisible');
           const result = this.impl.setVirtualKeyboardVisible(params.is_visible);
           break;

@@ -189,9 +189,11 @@ ash.firmware_update.mojom.UpdateObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -205,12 +207,13 @@ ash.firmware_update.mojom.UpdateObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnUpdateListChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.firmware_update.mojom.UpdateObserver_OnUpdateListChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.firmware_update.mojom.UpdateObserver_OnUpdateListChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnUpdateListChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -227,7 +230,7 @@ ash.firmware_update.mojom.UpdateObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.firmware_update.mojom.UpdateObserver_OnUpdateListChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.firmware_update.mojom.UpdateObserver_OnUpdateListChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onUpdateListChanged');
           const result = this.impl.onUpdateListChanged(params.firmware_updates);
           break;
@@ -326,9 +329,11 @@ ash.firmware_update.mojom.DeviceRequestObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -342,12 +347,13 @@ ash.firmware_update.mojom.DeviceRequestObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnDeviceRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.firmware_update.mojom.DeviceRequestObserver_OnDeviceRequest_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.firmware_update.mojom.DeviceRequestObserver_OnDeviceRequest_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDeviceRequest (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -364,7 +370,7 @@ ash.firmware_update.mojom.DeviceRequestObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.firmware_update.mojom.DeviceRequestObserver_OnDeviceRequest_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.firmware_update.mojom.DeviceRequestObserver_OnDeviceRequest_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onDeviceRequest');
           const result = this.impl.onDeviceRequest(params.request);
           break;
@@ -463,9 +469,11 @@ ash.firmware_update.mojom.UpdateProgressObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -479,12 +487,13 @@ ash.firmware_update.mojom.UpdateProgressObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnStatusChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.firmware_update.mojom.UpdateProgressObserver_OnStatusChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.firmware_update.mojom.UpdateProgressObserver_OnStatusChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStatusChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -501,7 +510,7 @@ ash.firmware_update.mojom.UpdateProgressObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.firmware_update.mojom.UpdateProgressObserver_OnStatusChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.firmware_update.mojom.UpdateProgressObserver_OnStatusChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onStatusChanged');
           const result = this.impl.onStatusChanged(params.update);
           break;
@@ -645,9 +654,11 @@ ash.firmware_update.mojom.UpdateProviderReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -661,12 +672,13 @@ ash.firmware_update.mojom.UpdateProviderReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ObservePeripheralUpdates
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.firmware_update.mojom.UpdateProvider_ObservePeripheralUpdates_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.firmware_update.mojom.UpdateProvider_ObservePeripheralUpdates_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObservePeripheralUpdates (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -677,7 +689,7 @@ ash.firmware_update.mojom.UpdateProviderReceiver = class {
         // Try Method 1: PrepareForUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PrepareForUpdate (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -688,7 +700,7 @@ ash.firmware_update.mojom.UpdateProviderReceiver = class {
         // Try Method 2: FetchInProgressUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FetchInProgressUpdate (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -705,14 +717,14 @@ ash.firmware_update.mojom.UpdateProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.firmware_update.mojom.UpdateProvider_ObservePeripheralUpdates_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.firmware_update.mojom.UpdateProvider_ObservePeripheralUpdates_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.observePeripheralUpdates');
           const result = this.impl.observePeripheralUpdates(params.observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.prepareForUpdate');
           const result = this.impl.prepareForUpdate(params.device_id);
           if (header.expectsResponse) {
@@ -725,7 +737,7 @@ ash.firmware_update.mojom.UpdateProviderReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.fetchInProgressUpdate');
           const result = this.impl.fetchInProgressUpdate();
           if (header.expectsResponse) {
@@ -865,9 +877,11 @@ ash.firmware_update.mojom.InstallControllerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -881,12 +895,13 @@ ash.firmware_update.mojom.InstallControllerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: BeginUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.firmware_update.mojom.InstallController_BeginUpdate_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.firmware_update.mojom.InstallController_BeginUpdate_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BeginUpdate (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -897,7 +912,7 @@ ash.firmware_update.mojom.InstallControllerReceiver = class {
         // Try Method 1: AddDeviceRequestObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.firmware_update.mojom.InstallController_AddDeviceRequestObserver_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.firmware_update.mojom.InstallController_AddDeviceRequestObserver_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddDeviceRequestObserver (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -908,7 +923,7 @@ ash.firmware_update.mojom.InstallControllerReceiver = class {
         // Try Method 2: AddUpdateProgressObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.firmware_update.mojom.InstallController_AddUpdateProgressObserver_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.firmware_update.mojom.InstallController_AddUpdateProgressObserver_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddUpdateProgressObserver (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -925,21 +940,21 @@ ash.firmware_update.mojom.InstallControllerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.firmware_update.mojom.InstallController_BeginUpdate_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.firmware_update.mojom.InstallController_BeginUpdate_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.beginUpdate');
           const result = this.impl.beginUpdate(params.device_id, params.filepath);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.firmware_update.mojom.InstallController_AddDeviceRequestObserver_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.firmware_update.mojom.InstallController_AddDeviceRequestObserver_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addDeviceRequestObserver');
           const result = this.impl.addDeviceRequestObserver(params.observer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.firmware_update.mojom.InstallController_AddUpdateProgressObserver_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.firmware_update.mojom.InstallController_AddUpdateProgressObserver_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addUpdateProgressObserver');
           const result = this.impl.addUpdateProgressObserver(params.observer);
           break;
@@ -1037,9 +1052,11 @@ ash.firmware_update.mojom.SystemUtilsReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1053,12 +1070,13 @@ ash.firmware_update.mojom.SystemUtilsReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Restart
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.firmware_update.mojom.SystemUtils_Restart_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.firmware_update.mojom.SystemUtils_Restart_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Restart (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1075,7 +1093,7 @@ ash.firmware_update.mojom.SystemUtilsReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.firmware_update.mojom.SystemUtils_Restart_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.firmware_update.mojom.SystemUtils_Restart_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.restart');
           const result = this.impl.restart();
           break;

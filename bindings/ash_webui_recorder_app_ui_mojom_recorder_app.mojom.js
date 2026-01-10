@@ -183,9 +183,11 @@ ash.recorder_app.mojom.ModelStateMonitorReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -199,12 +201,13 @@ ash.recorder_app.mojom.ModelStateMonitorReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Update
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.recorder_app.mojom.ModelStateMonitor_Update_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.recorder_app.mojom.ModelStateMonitor_Update_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Update (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -221,7 +224,7 @@ ash.recorder_app.mojom.ModelStateMonitorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.recorder_app.mojom.ModelStateMonitor_Update_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.recorder_app.mojom.ModelStateMonitor_Update_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.update');
           const result = this.impl.update(params.state);
           break;
@@ -320,9 +323,11 @@ ash.recorder_app.mojom.QuietModeMonitorReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -336,12 +341,13 @@ ash.recorder_app.mojom.QuietModeMonitorReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Update
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.recorder_app.mojom.QuietModeMonitor_Update_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.recorder_app.mojom.QuietModeMonitor_Update_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Update (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -358,7 +364,7 @@ ash.recorder_app.mojom.QuietModeMonitorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.recorder_app.mojom.QuietModeMonitor_Update_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.recorder_app.mojom.QuietModeMonitor_Update_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.update');
           const result = this.impl.update(params.in_quiet_mode);
           break;
@@ -819,9 +825,11 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -835,12 +843,13 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetModelInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.recorder_app.mojom.PageHandler_GetModelInfo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_GetModelInfo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetModelInfo (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -851,7 +860,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         // Try Method 1: LoadModel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.recorder_app.mojom.PageHandler_LoadModel_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_LoadModel_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadModel (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -862,7 +871,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         // Try Method 2: FormatModelInput
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.recorder_app.mojom.PageHandler_FormatModelInput_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_FormatModelInput_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FormatModelInput (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -873,7 +882,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         // Try Method 3: ValidateSafetyResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ValidateSafetyResult (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -884,7 +893,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         // Try Method 4: AddModelMonitor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.recorder_app.mojom.PageHandler_AddModelMonitor_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_AddModelMonitor_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddModelMonitor (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -895,7 +904,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         // Try Method 5: GetAvailableLangPacks
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAvailableLangPacks (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -906,7 +915,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         // Try Method 6: GetDefaultLanguage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDefaultLanguage (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -917,7 +926,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         // Try Method 7: AddSodaMonitor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddSodaMonitor (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -928,7 +937,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         // Try Method 8: InstallSoda
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.recorder_app.mojom.PageHandler_InstallSoda_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_InstallSoda_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InstallSoda (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -939,7 +948,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         // Try Method 9: LoadSpeechRecognizer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadSpeechRecognizer (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -950,7 +959,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         // Try Method 10: OpenAiFeedbackDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.recorder_app.mojom.PageHandler_OpenAiFeedbackDialog_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_OpenAiFeedbackDialog_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenAiFeedbackDialog (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -961,7 +970,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         // Try Method 11: GetMicrophoneInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMicrophoneInfo (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -972,7 +981,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         // Try Method 12: AddQuietModeMonitor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddQuietModeMonitor (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -983,7 +992,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         // Try Method 13: SetQuietMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.recorder_app.mojom.PageHandler_SetQuietMode_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_SetQuietMode_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetQuietMode (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -994,7 +1003,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         // Try Method 14: CanUseSpeakerLabel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CanUseSpeakerLabel (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1005,7 +1014,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         // Try Method 15: RecordSpeakerLabelConsent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.recorder_app.mojom.PageHandler_RecordSpeakerLabelConsent_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_RecordSpeakerLabelConsent_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordSpeakerLabelConsent (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1016,7 +1025,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         // Try Method 16: CanCaptureSystemAudioWithLoopback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CanCaptureSystemAudioWithLoopback (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -1033,7 +1042,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.recorder_app.mojom.PageHandler_GetModelInfo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_GetModelInfo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getModelInfo');
           const result = this.impl.getModelInfo(params.feature);
           if (header.expectsResponse) {
@@ -1046,7 +1055,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.recorder_app.mojom.PageHandler_LoadModel_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_LoadModel_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.loadModel');
           const result = this.impl.loadModel(params.model_id, params.model);
           if (header.expectsResponse) {
@@ -1059,7 +1068,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.recorder_app.mojom.PageHandler_FormatModelInput_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_FormatModelInput_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.formatModelInput');
           const result = this.impl.formatModelInput(params.uuid, params.feature, params.fields);
           if (header.expectsResponse) {
@@ -1072,7 +1081,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.validateSafetyResult');
           const result = this.impl.validateSafetyResult(params.safety_feature, params.text, params.safety_info);
           if (header.expectsResponse) {
@@ -1085,7 +1094,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.recorder_app.mojom.PageHandler_AddModelMonitor_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_AddModelMonitor_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addModelMonitor');
           const result = this.impl.addModelMonitor(params.model_id, params.monitor);
           if (header.expectsResponse) {
@@ -1098,7 +1107,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getAvailableLangPacks');
           const result = this.impl.getAvailableLangPacks();
           if (header.expectsResponse) {
@@ -1111,7 +1120,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getDefaultLanguage');
           const result = this.impl.getDefaultLanguage();
           if (header.expectsResponse) {
@@ -1124,7 +1133,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addSodaMonitor');
           const result = this.impl.addSodaMonitor(params.language, params.monitor);
           if (header.expectsResponse) {
@@ -1137,7 +1146,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.recorder_app.mojom.PageHandler_InstallSoda_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_InstallSoda_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.installSoda');
           const result = this.impl.installSoda(params.language);
           if (header.expectsResponse) {
@@ -1150,7 +1159,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.loadSpeechRecognizer');
           const result = this.impl.loadSpeechRecognizer(params.language, params.soda_client, params.soda_recognizer);
           if (header.expectsResponse) {
@@ -1163,14 +1172,14 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.recorder_app.mojom.PageHandler_OpenAiFeedbackDialog_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_OpenAiFeedbackDialog_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.openAiFeedbackDialog');
           const result = this.impl.openAiFeedbackDialog(params.description_template);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getMicrophoneInfo');
           const result = this.impl.getMicrophoneInfo(params.source_id);
           if (header.expectsResponse) {
@@ -1183,7 +1192,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addQuietModeMonitor');
           const result = this.impl.addQuietModeMonitor(params.monitor);
           if (header.expectsResponse) {
@@ -1196,14 +1205,14 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.recorder_app.mojom.PageHandler_SetQuietMode_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_SetQuietMode_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setQuietMode');
           const result = this.impl.setQuietMode(params.quiet_mode);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.canUseSpeakerLabel');
           const result = this.impl.canUseSpeakerLabel();
           if (header.expectsResponse) {
@@ -1216,14 +1225,14 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.recorder_app.mojom.PageHandler_RecordSpeakerLabelConsent_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_RecordSpeakerLabelConsent_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.recordSpeakerLabelConsent');
           const result = this.impl.recordSpeakerLabelConsent(params.consent_given, params.consent_description_names, params.consent_confirmation_name);
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.canCaptureSystemAudioWithLoopback');
           const result = this.impl.canCaptureSystemAudioWithLoopback();
           if (header.expectsResponse) {

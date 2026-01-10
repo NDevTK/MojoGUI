@@ -133,9 +133,11 @@ ntp.authentication.mojom.MicrosoftAuthPageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -149,12 +151,13 @@ ntp.authentication.mojom.MicrosoftAuthPageHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: DismissModule
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ntp.authentication.mojom.MicrosoftAuthPageHandler_DismissModule_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ntp.authentication.mojom.MicrosoftAuthPageHandler_DismissModule_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DismissModule (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -165,7 +168,7 @@ ntp.authentication.mojom.MicrosoftAuthPageHandlerReceiver = class {
         // Try Method 1: RestoreModule
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ntp.authentication.mojom.MicrosoftAuthPageHandler_RestoreModule_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ntp.authentication.mojom.MicrosoftAuthPageHandler_RestoreModule_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RestoreModule (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -176,7 +179,7 @@ ntp.authentication.mojom.MicrosoftAuthPageHandlerReceiver = class {
         // Try Method 2: ShouldShowModule
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShouldShowModule (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -193,21 +196,21 @@ ntp.authentication.mojom.MicrosoftAuthPageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ntp.authentication.mojom.MicrosoftAuthPageHandler_DismissModule_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ntp.authentication.mojom.MicrosoftAuthPageHandler_DismissModule_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.dismissModule');
           const result = this.impl.dismissModule();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ntp.authentication.mojom.MicrosoftAuthPageHandler_RestoreModule_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ntp.authentication.mojom.MicrosoftAuthPageHandler_RestoreModule_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.restoreModule');
           const result = this.impl.restoreModule();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.shouldShowModule');
           const result = this.impl.shouldShowModule();
           if (header.expectsResponse) {

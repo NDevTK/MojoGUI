@@ -132,9 +132,11 @@ cros.mojom.CrosDisplayObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -148,12 +150,13 @@ cros.mojom.CrosDisplayObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnDisplayRotationChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDisplayRotationChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -170,7 +173,7 @@ cros.mojom.CrosDisplayObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onDisplayRotationChanged');
           const result = this.impl.onDisplayRotationChanged(params.rotation);
           break;
@@ -269,9 +272,11 @@ cros.mojom.CrosLidObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -285,12 +290,13 @@ cros.mojom.CrosLidObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnLidStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cros.mojom.CrosLidObserver_OnLidStateChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cros.mojom.CrosLidObserver_OnLidStateChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLidStateChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -307,7 +313,7 @@ cros.mojom.CrosLidObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cros.mojom.CrosLidObserver_OnLidStateChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cros.mojom.CrosLidObserver_OnLidStateChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onLidStateChanged');
           const result = this.impl.onLidStateChanged(params.new_state);
           break;
@@ -426,9 +432,11 @@ cros.mojom.CrosPowerObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -442,12 +450,13 @@ cros.mojom.CrosPowerObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnSystemSuspend
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cros.mojom.CrosPowerObserver_OnSystemSuspend_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cros.mojom.CrosPowerObserver_OnSystemSuspend_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSystemSuspend (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -458,7 +467,7 @@ cros.mojom.CrosPowerObserverReceiver = class {
         // Try Method 1: OnSystemResume
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cros.mojom.CrosPowerObserver_OnSystemResume_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cros.mojom.CrosPowerObserver_OnSystemResume_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSystemResume (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -475,7 +484,7 @@ cros.mojom.CrosPowerObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cros.mojom.CrosPowerObserver_OnSystemSuspend_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cros.mojom.CrosPowerObserver_OnSystemSuspend_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onSystemSuspend');
           const result = this.impl.onSystemSuspend();
           if (header.expectsResponse) {
@@ -488,7 +497,7 @@ cros.mojom.CrosPowerObserverReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cros.mojom.CrosPowerObserver_OnSystemResume_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cros.mojom.CrosPowerObserver_OnSystemResume_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onSystemResume');
           const result = this.impl.onSystemResume();
           break;
@@ -639,9 +648,11 @@ cros.mojom.CrosSystemEventMonitorReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -655,12 +666,13 @@ cros.mojom.CrosSystemEventMonitorReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AddDisplayObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddDisplayObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -671,7 +683,7 @@ cros.mojom.CrosSystemEventMonitorReceiver = class {
         // Try Method 1: AddLidObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cros.mojom.CrosSystemEventMonitor_AddLidObserver_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cros.mojom.CrosSystemEventMonitor_AddLidObserver_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddLidObserver (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -682,7 +694,7 @@ cros.mojom.CrosSystemEventMonitorReceiver = class {
         // Try Method 2: AddPowerObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cros.mojom.CrosSystemEventMonitor_AddPowerObserver_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cros.mojom.CrosSystemEventMonitor_AddPowerObserver_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddPowerObserver (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -693,7 +705,7 @@ cros.mojom.CrosSystemEventMonitorReceiver = class {
         // Try Method 3: NotifyDeviceChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyDeviceChanged (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -710,28 +722,28 @@ cros.mojom.CrosSystemEventMonitorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addDisplayObserver');
           const result = this.impl.addDisplayObserver(params.observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cros.mojom.CrosSystemEventMonitor_AddLidObserver_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cros.mojom.CrosSystemEventMonitor_AddLidObserver_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addLidObserver');
           const result = this.impl.addLidObserver(params.observer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cros.mojom.CrosSystemEventMonitor_AddPowerObserver_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cros.mojom.CrosSystemEventMonitor_AddPowerObserver_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addPowerObserver');
           const result = this.impl.addPowerObserver(params.client_name, params.observer);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.notifyDeviceChanged');
           const result = this.impl.notifyDeviceChanged(params.type);
           break;

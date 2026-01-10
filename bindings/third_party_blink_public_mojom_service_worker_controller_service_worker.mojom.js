@@ -154,9 +154,11 @@ blink.mojom.ControllerServiceWorkerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -170,12 +172,13 @@ blink.mojom.ControllerServiceWorkerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: DispatchFetchEventForSubresource
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchFetchEventForSubresource (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -186,7 +189,7 @@ blink.mojom.ControllerServiceWorkerReceiver = class {
         // Try Method 1: Clone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.ControllerServiceWorker_Clone_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.ControllerServiceWorker_Clone_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clone (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -203,7 +206,7 @@ blink.mojom.ControllerServiceWorkerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.dispatchFetchEventForSubresource');
           const result = this.impl.dispatchFetchEventForSubresource(params.params, params.response_callback);
           if (header.expectsResponse) {
@@ -216,7 +219,7 @@ blink.mojom.ControllerServiceWorkerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ControllerServiceWorker_Clone_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.ControllerServiceWorker_Clone_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.receiver, params.cross_origin_embedder_policy, params.coep_reporter, params.document_isolation_policy, params.dip_reporter);
           break;
@@ -315,9 +318,11 @@ blink.mojom.ControllerServiceWorkerConnectorReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -331,12 +336,13 @@ blink.mojom.ControllerServiceWorkerConnectorReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: UpdateController
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.ControllerServiceWorkerConnector_UpdateController_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.ControllerServiceWorkerConnector_UpdateController_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateController (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -353,7 +359,7 @@ blink.mojom.ControllerServiceWorkerConnectorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ControllerServiceWorkerConnector_UpdateController_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.ControllerServiceWorkerConnector_UpdateController_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.updateController');
           const result = this.impl.updateController(params.controller);
           break;

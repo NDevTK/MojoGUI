@@ -127,9 +127,11 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryReceiver = cla
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -143,12 +145,13 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryReceiver = cla
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ConnectToParentDocument
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_ConnectToParentDocument_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_ConnectToParentDocument_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConnectToParentDocument (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -159,7 +162,7 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryReceiver = cla
         // Try Method 1: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreatePageHandler_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -176,14 +179,14 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryReceiver = cla
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_ConnectToParentDocument_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_ConnectToParentDocument_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.connectToParentDocument');
           const result = this.impl.connectToParentDocument(params.child_document);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreatePageHandler_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.handler, params.document);
           break;
@@ -332,9 +335,11 @@ new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -348,12 +353,13 @@ new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ClearAuthData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_ClearAuthData_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_ClearAuthData_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearAuthData (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -364,7 +370,7 @@ new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerReceiver = class {
         // Try Method 1: MaybeAcquireTokenSilent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_MaybeAcquireTokenSilent_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_MaybeAcquireTokenSilent_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MaybeAcquireTokenSilent (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -375,7 +381,7 @@ new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerReceiver = class {
         // Try Method 2: SetAccessToken
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAccessToken (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -386,7 +392,7 @@ new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerReceiver = class {
         // Try Method 3: SetAuthStateError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAuthStateError_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAuthStateError_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAuthStateError (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -403,28 +409,28 @@ new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_ClearAuthData_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_ClearAuthData_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.clearAuthData');
           const result = this.impl.clearAuthData();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_MaybeAcquireTokenSilent_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_MaybeAcquireTokenSilent_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.maybeAcquireTokenSilent');
           const result = this.impl.maybeAcquireTokenSilent();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setAccessToken');
           const result = this.impl.setAccessToken(params.access_token);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAuthStateError_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAuthStateError_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setAuthStateError');
           const result = this.impl.setAuthStateError(params.error_code, params.error_message);
           break;

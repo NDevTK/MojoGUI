@@ -103,9 +103,11 @@ chromecast.media.mojom.VideoGeometryChangeClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -119,12 +121,13 @@ chromecast.media.mojom.VideoGeometryChangeClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnVideoGeometryChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromecast.media.mojom.VideoGeometryChangeClient_OnVideoGeometryChange_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromecast.media.mojom.VideoGeometryChangeClient_OnVideoGeometryChange_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnVideoGeometryChange (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -141,7 +144,7 @@ chromecast.media.mojom.VideoGeometryChangeClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.media.mojom.VideoGeometryChangeClient_OnVideoGeometryChange_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromecast.media.mojom.VideoGeometryChangeClient_OnVideoGeometryChange_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onVideoGeometryChange');
           const result = this.impl.onVideoGeometryChange(params.rect_f, params.transform);
           break;
@@ -246,9 +249,11 @@ chromecast.media.mojom.VideoGeometryChangeSubscriberReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -262,12 +267,13 @@ chromecast.media.mojom.VideoGeometryChangeSubscriberReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SubscribeToVideoGeometryChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SubscribeToVideoGeometryChange (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -284,7 +290,7 @@ chromecast.media.mojom.VideoGeometryChangeSubscriberReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.subscribeToVideoGeometryChange');
           const result = this.impl.subscribeToVideoGeometryChange(params.overlay_plane_id, params.client_pending_remote);
           if (header.expectsResponse) {
@@ -391,9 +397,11 @@ chromecast.media.mojom.VideoGeometrySetterReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -407,12 +415,13 @@ chromecast.media.mojom.VideoGeometrySetterReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetVideoGeometry
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetVideoGeometry (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -429,7 +438,7 @@ chromecast.media.mojom.VideoGeometrySetterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setVideoGeometry');
           const result = this.impl.setVideoGeometry(params.rect_f, params.transform, params.overlay_plane_id);
           break;

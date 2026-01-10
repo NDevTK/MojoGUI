@@ -523,9 +523,11 @@ media.mojom.MediaMetricsProviderReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -539,12 +541,13 @@ media.mojom.MediaMetricsProviderReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Initialize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.MediaMetricsProvider_Initialize_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.MediaMetricsProvider_Initialize_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Initialize (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -555,7 +558,7 @@ media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 1: OnStarted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.MediaMetricsProvider_OnStarted_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.MediaMetricsProvider_OnStarted_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStarted (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -566,7 +569,7 @@ media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 2: OnError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.MediaMetricsProvider_OnError_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.MediaMetricsProvider_OnError_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnError (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -577,7 +580,7 @@ media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 3: OnFallback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.MediaMetricsProvider_OnFallback_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.MediaMetricsProvider_OnFallback_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFallback (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -588,7 +591,7 @@ media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 4: SetHasPlayed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.MediaMetricsProvider_SetHasPlayed_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.MediaMetricsProvider_SetHasPlayed_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetHasPlayed (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -599,7 +602,7 @@ media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 5: SetHaveEnough
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.MediaMetricsProvider_SetHaveEnough_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.MediaMetricsProvider_SetHaveEnough_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetHaveEnough (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -610,7 +613,7 @@ media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 6: SetIsEME
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.MediaMetricsProvider_SetIsEME_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.MediaMetricsProvider_SetIsEME_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIsEME (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -621,7 +624,7 @@ media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 7: SetTimeToMetadata
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.MediaMetricsProvider_SetTimeToMetadata_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.MediaMetricsProvider_SetTimeToMetadata_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTimeToMetadata (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -632,7 +635,7 @@ media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 8: SetTimeToFirstFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.MediaMetricsProvider_SetTimeToFirstFrame_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.MediaMetricsProvider_SetTimeToFirstFrame_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTimeToFirstFrame (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -643,7 +646,7 @@ media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 9: SetTimeToPlayReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.MediaMetricsProvider_SetTimeToPlayReady_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.MediaMetricsProvider_SetTimeToPlayReady_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTimeToPlayReady (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -654,7 +657,7 @@ media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 10: SetRendererType
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.MediaMetricsProvider_SetRendererType_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.MediaMetricsProvider_SetRendererType_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetRendererType (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -665,7 +668,7 @@ media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 11: SetDemuxerType
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.MediaMetricsProvider_SetDemuxerType_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.MediaMetricsProvider_SetDemuxerType_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDemuxerType (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -676,7 +679,7 @@ media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 12: SetKeySystem
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.MediaMetricsProvider_SetKeySystem_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.MediaMetricsProvider_SetKeySystem_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetKeySystem (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -687,7 +690,7 @@ media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 13: SetHasWaitingForKey
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.MediaMetricsProvider_SetHasWaitingForKey_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.MediaMetricsProvider_SetHasWaitingForKey_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetHasWaitingForKey (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -698,7 +701,7 @@ media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 14: SetIsHardwareSecure
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.MediaMetricsProvider_SetIsHardwareSecure_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.MediaMetricsProvider_SetIsHardwareSecure_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIsHardwareSecure (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -709,7 +712,7 @@ media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 15: SetHasTrackChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.MediaMetricsProvider_SetHasTrackChange_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.MediaMetricsProvider_SetHasTrackChange_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetHasTrackChange (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -720,7 +723,7 @@ media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 16: SetContainerName
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.MediaMetricsProvider_SetContainerName_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.MediaMetricsProvider_SetContainerName_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetContainerName (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -731,7 +734,7 @@ media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 17: AcquireWatchTimeRecorder
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.MediaMetricsProvider_AcquireWatchTimeRecorder_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.MediaMetricsProvider_AcquireWatchTimeRecorder_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AcquireWatchTimeRecorder (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -742,7 +745,7 @@ media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 18: AcquireVideoDecodeStatsRecorder
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.MediaMetricsProvider_AcquireVideoDecodeStatsRecorder_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.MediaMetricsProvider_AcquireVideoDecodeStatsRecorder_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AcquireVideoDecodeStatsRecorder (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -753,7 +756,7 @@ media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 19: AcquirePlaybackEventsRecorder
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.MediaMetricsProvider_AcquirePlaybackEventsRecorder_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.MediaMetricsProvider_AcquirePlaybackEventsRecorder_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AcquirePlaybackEventsRecorder (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -764,7 +767,7 @@ media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 20: SetHasAudio
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.MediaMetricsProvider_SetHasAudio_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.MediaMetricsProvider_SetHasAudio_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetHasAudio (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -775,7 +778,7 @@ media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 21: SetHasVideo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.MediaMetricsProvider_SetHasVideo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.MediaMetricsProvider_SetHasVideo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetHasVideo (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -786,7 +789,7 @@ media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 22: SetVideoPipelineInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.MediaMetricsProvider_SetVideoPipelineInfo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.MediaMetricsProvider_SetVideoPipelineInfo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetVideoPipelineInfo (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
@@ -797,7 +800,7 @@ media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 23: SetAudioPipelineInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.MediaMetricsProvider_SetAudioPipelineInfo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.MediaMetricsProvider_SetAudioPipelineInfo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAudioPipelineInfo (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
@@ -814,168 +817,168 @@ media.mojom.MediaMetricsProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.MediaMetricsProvider_Initialize_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.MediaMetricsProvider_Initialize_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.initialize');
           const result = this.impl.initialize(params.is_mse, params.url_scheme, params.stream_type);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.MediaMetricsProvider_OnStarted_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.MediaMetricsProvider_OnStarted_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onStarted');
           const result = this.impl.onStarted(params.status);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.MediaMetricsProvider_OnError_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.MediaMetricsProvider_OnError_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.status);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.MediaMetricsProvider_OnFallback_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.MediaMetricsProvider_OnFallback_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onFallback');
           const result = this.impl.onFallback(params.status);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.MediaMetricsProvider_SetHasPlayed_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.MediaMetricsProvider_SetHasPlayed_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setHasPlayed');
           const result = this.impl.setHasPlayed();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.MediaMetricsProvider_SetHaveEnough_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.MediaMetricsProvider_SetHaveEnough_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setHaveEnough');
           const result = this.impl.setHaveEnough();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.MediaMetricsProvider_SetIsEME_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.MediaMetricsProvider_SetIsEME_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setIsEME');
           const result = this.impl.setIsEME();
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.MediaMetricsProvider_SetTimeToMetadata_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.MediaMetricsProvider_SetTimeToMetadata_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setTimeToMetadata');
           const result = this.impl.setTimeToMetadata(params.elapsed);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.MediaMetricsProvider_SetTimeToFirstFrame_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.MediaMetricsProvider_SetTimeToFirstFrame_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setTimeToFirstFrame');
           const result = this.impl.setTimeToFirstFrame(params.elapsed);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.MediaMetricsProvider_SetTimeToPlayReady_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.MediaMetricsProvider_SetTimeToPlayReady_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setTimeToPlayReady');
           const result = this.impl.setTimeToPlayReady(params.elapsed);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.MediaMetricsProvider_SetRendererType_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.MediaMetricsProvider_SetRendererType_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setRendererType');
           const result = this.impl.setRendererType(params.renderer_type);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.MediaMetricsProvider_SetDemuxerType_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.MediaMetricsProvider_SetDemuxerType_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setDemuxerType');
           const result = this.impl.setDemuxerType(params.demuxer_type);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.MediaMetricsProvider_SetKeySystem_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.MediaMetricsProvider_SetKeySystem_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setKeySystem');
           const result = this.impl.setKeySystem(params.key_system);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.MediaMetricsProvider_SetHasWaitingForKey_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.MediaMetricsProvider_SetHasWaitingForKey_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setHasWaitingForKey');
           const result = this.impl.setHasWaitingForKey();
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.MediaMetricsProvider_SetIsHardwareSecure_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.MediaMetricsProvider_SetIsHardwareSecure_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setIsHardwareSecure');
           const result = this.impl.setIsHardwareSecure();
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.MediaMetricsProvider_SetHasTrackChange_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.MediaMetricsProvider_SetHasTrackChange_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setHasTrackChange');
           const result = this.impl.setHasTrackChange();
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.MediaMetricsProvider_SetContainerName_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.MediaMetricsProvider_SetContainerName_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setContainerName');
           const result = this.impl.setContainerName(params.container_name);
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.MediaMetricsProvider_AcquireWatchTimeRecorder_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.MediaMetricsProvider_AcquireWatchTimeRecorder_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.acquireWatchTimeRecorder');
           const result = this.impl.acquireWatchTimeRecorder(params.properties, params.recorder);
           break;
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.MediaMetricsProvider_AcquireVideoDecodeStatsRecorder_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.MediaMetricsProvider_AcquireVideoDecodeStatsRecorder_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.acquireVideoDecodeStatsRecorder');
           const result = this.impl.acquireVideoDecodeStatsRecorder(params.recorder);
           break;
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.MediaMetricsProvider_AcquirePlaybackEventsRecorder_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.MediaMetricsProvider_AcquirePlaybackEventsRecorder_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.acquirePlaybackEventsRecorder');
           const result = this.impl.acquirePlaybackEventsRecorder(params.receiver);
           break;
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.MediaMetricsProvider_SetHasAudio_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.MediaMetricsProvider_SetHasAudio_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setHasAudio');
           const result = this.impl.setHasAudio(params.codec);
           break;
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.MediaMetricsProvider_SetHasVideo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.MediaMetricsProvider_SetHasVideo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setHasVideo');
           const result = this.impl.setHasVideo(params.codec);
           break;
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.MediaMetricsProvider_SetVideoPipelineInfo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.MediaMetricsProvider_SetVideoPipelineInfo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setVideoPipelineInfo');
           const result = this.impl.setVideoPipelineInfo(params.info);
           break;
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.MediaMetricsProvider_SetAudioPipelineInfo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.MediaMetricsProvider_SetAudioPipelineInfo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setAudioPipelineInfo');
           const result = this.impl.setAudioPipelineInfo(params.info);
           break;

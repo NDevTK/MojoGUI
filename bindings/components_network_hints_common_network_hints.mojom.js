@@ -112,9 +112,11 @@ network_hints.mojom.NetworkHintsHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -128,12 +130,13 @@ network_hints.mojom.NetworkHintsHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: PrefetchDNS
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network_hints.mojom.NetworkHintsHandler_PrefetchDNS_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network_hints.mojom.NetworkHintsHandler_PrefetchDNS_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PrefetchDNS (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -144,7 +147,7 @@ network_hints.mojom.NetworkHintsHandlerReceiver = class {
         // Try Method 1: Preconnect
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network_hints.mojom.NetworkHintsHandler_Preconnect_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network_hints.mojom.NetworkHintsHandler_Preconnect_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Preconnect (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -161,14 +164,14 @@ network_hints.mojom.NetworkHintsHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network_hints.mojom.NetworkHintsHandler_PrefetchDNS_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network_hints.mojom.NetworkHintsHandler_PrefetchDNS_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.prefetchDNS');
           const result = this.impl.prefetchDNS(params.url_list);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network_hints.mojom.NetworkHintsHandler_Preconnect_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network_hints.mojom.NetworkHintsHandler_Preconnect_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.preconnect');
           const result = this.impl.preconnect(params.url, params.allow_credentials);
           break;

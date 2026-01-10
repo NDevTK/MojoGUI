@@ -258,9 +258,11 @@ extensions.mojom.ServiceWorkerHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -274,12 +276,13 @@ extensions.mojom.ServiceWorkerHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: DidInitializeServiceWorkerContext
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(extensions.mojom.ServiceWorkerHost_DidInitializeServiceWorkerContext_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(extensions.mojom.ServiceWorkerHost_DidInitializeServiceWorkerContext_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidInitializeServiceWorkerContext (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -290,7 +293,7 @@ extensions.mojom.ServiceWorkerHostReceiver = class {
         // Try Method 1: DidStartServiceWorkerContext
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(extensions.mojom.ServiceWorkerHost_DidStartServiceWorkerContext_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(extensions.mojom.ServiceWorkerHost_DidStartServiceWorkerContext_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidStartServiceWorkerContext (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -301,7 +304,7 @@ extensions.mojom.ServiceWorkerHostReceiver = class {
         // Try Method 2: DidStopServiceWorkerContext
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(extensions.mojom.ServiceWorkerHost_DidStopServiceWorkerContext_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(extensions.mojom.ServiceWorkerHost_DidStopServiceWorkerContext_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidStopServiceWorkerContext (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -312,7 +315,7 @@ extensions.mojom.ServiceWorkerHostReceiver = class {
         // Try Method 3: RequestWorker
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(extensions.mojom.ServiceWorkerHost_RequestWorker_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(extensions.mojom.ServiceWorkerHost_RequestWorker_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestWorker (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -323,7 +326,7 @@ extensions.mojom.ServiceWorkerHostReceiver = class {
         // Try Method 4: WorkerResponseAck
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(extensions.mojom.ServiceWorkerHost_WorkerResponseAck_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(extensions.mojom.ServiceWorkerHost_WorkerResponseAck_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WorkerResponseAck (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -334,7 +337,7 @@ extensions.mojom.ServiceWorkerHostReceiver = class {
         // Try Method 5: OpenChannelToExtension
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(extensions.mojom.ServiceWorkerHost_OpenChannelToExtension_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(extensions.mojom.ServiceWorkerHost_OpenChannelToExtension_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenChannelToExtension (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -345,7 +348,7 @@ extensions.mojom.ServiceWorkerHostReceiver = class {
         // Try Method 6: OpenChannelToNativeApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(extensions.mojom.ServiceWorkerHost_OpenChannelToNativeApp_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(extensions.mojom.ServiceWorkerHost_OpenChannelToNativeApp_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenChannelToNativeApp (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -356,7 +359,7 @@ extensions.mojom.ServiceWorkerHostReceiver = class {
         // Try Method 7: OpenChannelToTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(extensions.mojom.ServiceWorkerHost_OpenChannelToTab_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(extensions.mojom.ServiceWorkerHost_OpenChannelToTab_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenChannelToTab (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -373,28 +376,28 @@ extensions.mojom.ServiceWorkerHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(extensions.mojom.ServiceWorkerHost_DidInitializeServiceWorkerContext_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(extensions.mojom.ServiceWorkerHost_DidInitializeServiceWorkerContext_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.didInitializeServiceWorkerContext');
           const result = this.impl.didInitializeServiceWorkerContext(params.extension_id, params.service_worker_version_id, params.worker_thread_id, params.service_worker_token, params.event_dispatcher);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(extensions.mojom.ServiceWorkerHost_DidStartServiceWorkerContext_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(extensions.mojom.ServiceWorkerHost_DidStartServiceWorkerContext_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.didStartServiceWorkerContext');
           const result = this.impl.didStartServiceWorkerContext(params.extension_id, params.activation_token, params.service_worker_scope, params.service_worker_version_id, params.worker_thread_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(extensions.mojom.ServiceWorkerHost_DidStopServiceWorkerContext_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(extensions.mojom.ServiceWorkerHost_DidStopServiceWorkerContext_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.didStopServiceWorkerContext');
           const result = this.impl.didStopServiceWorkerContext(params.extension_id, params.activation_token, params.service_worker_scope, params.service_worker_version_id, params.worker_thread_id);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(extensions.mojom.ServiceWorkerHost_RequestWorker_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(extensions.mojom.ServiceWorkerHost_RequestWorker_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestWorker');
           const result = this.impl.requestWorker(params.params);
           if (header.expectsResponse) {
@@ -407,28 +410,28 @@ extensions.mojom.ServiceWorkerHostReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(extensions.mojom.ServiceWorkerHost_WorkerResponseAck_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(extensions.mojom.ServiceWorkerHost_WorkerResponseAck_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.workerResponseAck');
           const result = this.impl.workerResponseAck(params.request_uuid);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(extensions.mojom.ServiceWorkerHost_OpenChannelToExtension_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(extensions.mojom.ServiceWorkerHost_OpenChannelToExtension_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.openChannelToExtension');
           const result = this.impl.openChannelToExtension(params.info, params.channel_type, params.channel_name, params.port_id, params.port, params.port_host);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(extensions.mojom.ServiceWorkerHost_OpenChannelToNativeApp_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(extensions.mojom.ServiceWorkerHost_OpenChannelToNativeApp_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.openChannelToNativeApp');
           const result = this.impl.openChannelToNativeApp(params.native_app_name, params.port_id, params.port, params.port_host);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(extensions.mojom.ServiceWorkerHost_OpenChannelToTab_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(extensions.mojom.ServiceWorkerHost_OpenChannelToTab_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.openChannelToTab');
           const result = this.impl.openChannelToTab(params.tab_id, params.frame_id, params.document_id, params.channel_type, params.channel_name, params.port_id, params.port, params.port_host);
           break;

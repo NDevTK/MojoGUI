@@ -140,9 +140,11 @@ ash.ime.mojom.InputEngineManagerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -156,12 +158,13 @@ ash.ime.mojom.InputEngineManagerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ConnectToImeEngine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConnectToImeEngine (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -172,7 +175,7 @@ ash.ime.mojom.InputEngineManagerReceiver = class {
         // Try Method 1: InitializeConnectionFactory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InitializeConnectionFactory (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -189,7 +192,7 @@ ash.ime.mojom.InputEngineManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.connectToImeEngine');
           const result = this.impl.connectToImeEngine(params.ime_spec, params.to_engine_request, params.from_engine, params.extra);
           if (header.expectsResponse) {
@@ -202,7 +205,7 @@ ash.ime.mojom.InputEngineManagerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.initializeConnectionFactory');
           const result = this.impl.initializeConnectionFactory(params.connection_factory);
           if (header.expectsResponse) {
@@ -314,9 +317,11 @@ ash.ime.mojom.PlatformAccessProviderReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -330,12 +335,13 @@ ash.ime.mojom.PlatformAccessProviderReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: DownloadImeFileTo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DownloadImeFileTo (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -352,7 +358,7 @@ ash.ime.mojom.PlatformAccessProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.downloadImeFileTo');
           const result = this.impl.downloadImeFileTo(params.url, params.file_path);
           if (header.expectsResponse) {
@@ -491,9 +497,11 @@ ash.ime.mojom.ImeServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -507,12 +515,13 @@ ash.ime.mojom.ImeServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetPlatformAccessProvider
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPlatformAccessProvider (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -523,7 +532,7 @@ ash.ime.mojom.ImeServiceReceiver = class {
         // Try Method 1: BindInputEngineManager
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindInputEngineManager (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -534,7 +543,7 @@ ash.ime.mojom.ImeServiceReceiver = class {
         // Try Method 2: BindInputMethodUserDataService
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.ime.mojom.ImeService_BindInputMethodUserDataService_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.ime.mojom.ImeService_BindInputMethodUserDataService_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindInputMethodUserDataService (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -551,21 +560,21 @@ ash.ime.mojom.ImeServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setPlatformAccessProvider');
           const result = this.impl.setPlatformAccessProvider(params.provider);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindInputEngineManager');
           const result = this.impl.bindInputEngineManager(params.receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.ime.mojom.ImeService_BindInputMethodUserDataService_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.ime.mojom.ImeService_BindInputMethodUserDataService_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindInputMethodUserDataService');
           const result = this.impl.bindInputMethodUserDataService(params.receiver);
           break;

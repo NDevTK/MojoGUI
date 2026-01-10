@@ -138,9 +138,11 @@ service_manager.mojom.ProcessMetadataReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -154,12 +156,13 @@ service_manager.mojom.ProcessMetadataReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetPID
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(service_manager.mojom.ProcessMetadata_SetPID_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(service_manager.mojom.ProcessMetadata_SetPID_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPID (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -176,7 +179,7 @@ service_manager.mojom.ProcessMetadataReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(service_manager.mojom.ProcessMetadata_SetPID_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(service_manager.mojom.ProcessMetadata_SetPID_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setPID');
           const result = this.impl.setPID(params.pid);
           break;
@@ -374,9 +377,11 @@ service_manager.mojom.ConnectorReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -390,12 +395,13 @@ service_manager.mojom.ConnectorReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: BindInterface
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(service_manager.mojom.Connector_BindInterface_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(service_manager.mojom.Connector_BindInterface_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindInterface (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -406,7 +412,7 @@ service_manager.mojom.ConnectorReceiver = class {
         // Try Method 1: QueryService
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(service_manager.mojom.Connector_QueryService_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(service_manager.mojom.Connector_QueryService_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> QueryService (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -417,7 +423,7 @@ service_manager.mojom.ConnectorReceiver = class {
         // Try Method 2: WarmService
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(service_manager.mojom.Connector_WarmService_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(service_manager.mojom.Connector_WarmService_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WarmService (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -428,7 +434,7 @@ service_manager.mojom.ConnectorReceiver = class {
         // Try Method 3: RegisterServiceInstance
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(service_manager.mojom.Connector_RegisterServiceInstance_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(service_manager.mojom.Connector_RegisterServiceInstance_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterServiceInstance (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -439,7 +445,7 @@ service_manager.mojom.ConnectorReceiver = class {
         // Try Method 4: Clone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(service_manager.mojom.Connector_Clone_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(service_manager.mojom.Connector_Clone_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clone (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -456,7 +462,7 @@ service_manager.mojom.ConnectorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(service_manager.mojom.Connector_BindInterface_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(service_manager.mojom.Connector_BindInterface_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindInterface');
           const result = this.impl.bindInterface(params.filter, params.interface_name, params.interface_pipe, params.priority);
           if (header.expectsResponse) {
@@ -469,7 +475,7 @@ service_manager.mojom.ConnectorReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(service_manager.mojom.Connector_QueryService_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(service_manager.mojom.Connector_QueryService_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.queryService');
           const result = this.impl.queryService(params.service_name);
           if (header.expectsResponse) {
@@ -482,7 +488,7 @@ service_manager.mojom.ConnectorReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(service_manager.mojom.Connector_WarmService_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(service_manager.mojom.Connector_WarmService_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.warmService');
           const result = this.impl.warmService(params.filter);
           if (header.expectsResponse) {
@@ -495,7 +501,7 @@ service_manager.mojom.ConnectorReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(service_manager.mojom.Connector_RegisterServiceInstance_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(service_manager.mojom.Connector_RegisterServiceInstance_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.registerServiceInstance');
           const result = this.impl.registerServiceInstance(params.identity, params.service, params.metadata_receiver);
           if (header.expectsResponse) {
@@ -508,7 +514,7 @@ service_manager.mojom.ConnectorReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(service_manager.mojom.Connector_Clone_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(service_manager.mojom.Connector_Clone_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.receiver);
           break;

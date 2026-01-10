@@ -140,9 +140,11 @@ blink.mojom.RenderAccessibilityHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -156,12 +158,13 @@ blink.mojom.RenderAccessibilityHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: HandleAXEvents
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleAXEvents (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -172,7 +175,7 @@ blink.mojom.RenderAccessibilityHostReceiver = class {
         // Try Method 1: HandleAXLocationChanges
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleAXLocationChanges (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -189,7 +192,7 @@ blink.mojom.RenderAccessibilityHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.handleAXEvents');
           const result = this.impl.handleAXEvents(params.events_and_updates, params.location_and_scroll_updates, params.reset_token);
           if (header.expectsResponse) {
@@ -202,7 +205,7 @@ blink.mojom.RenderAccessibilityHostReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.handleAXLocationChanges');
           const result = this.impl.handleAXLocationChanges(params.changes, params.reset_token);
           break;
@@ -377,9 +380,11 @@ blink.mojom.RenderAccessibilityReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -393,12 +398,13 @@ blink.mojom.RenderAccessibilityReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.RenderAccessibility_SetMode_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.RenderAccessibility_SetMode_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetMode (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -409,7 +415,7 @@ blink.mojom.RenderAccessibilityReceiver = class {
         // Try Method 1: FatalError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.RenderAccessibility_FatalError_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.RenderAccessibility_FatalError_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FatalError (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -420,7 +426,7 @@ blink.mojom.RenderAccessibilityReceiver = class {
         // Try Method 2: HitTest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.RenderAccessibility_HitTest_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.RenderAccessibility_HitTest_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HitTest (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -431,7 +437,7 @@ blink.mojom.RenderAccessibilityReceiver = class {
         // Try Method 3: PerformAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.RenderAccessibility_PerformAction_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.RenderAccessibility_PerformAction_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PerformAction (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -442,7 +448,7 @@ blink.mojom.RenderAccessibilityReceiver = class {
         // Try Method 4: Reset
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.RenderAccessibility_Reset_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.RenderAccessibility_Reset_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Reset (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -459,21 +465,21 @@ blink.mojom.RenderAccessibilityReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.RenderAccessibility_SetMode_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.RenderAccessibility_SetMode_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setMode');
           const result = this.impl.setMode(params.ax_mode, params.reset_token);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.RenderAccessibility_FatalError_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.RenderAccessibility_FatalError_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.fatalError');
           const result = this.impl.fatalError();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.RenderAccessibility_HitTest_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.RenderAccessibility_HitTest_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.hitTest');
           const result = this.impl.hitTest(params.point, params.event_to_fire, params.request_id);
           if (header.expectsResponse) {
@@ -486,14 +492,14 @@ blink.mojom.RenderAccessibilityReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.RenderAccessibility_PerformAction_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.RenderAccessibility_PerformAction_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.performAction');
           const result = this.impl.performAction(params.action_data);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.RenderAccessibility_Reset_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.RenderAccessibility_Reset_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.reset');
           const result = this.impl.reset(params.reset_token);
           break;

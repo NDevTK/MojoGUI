@@ -114,9 +114,11 @@ blink.mojom.ColorChooserFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -130,12 +132,13 @@ blink.mojom.ColorChooserFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OpenColorChooser
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.ColorChooserFactory_OpenColorChooser_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.ColorChooserFactory_OpenColorChooser_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenColorChooser (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -152,7 +155,7 @@ blink.mojom.ColorChooserFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ColorChooserFactory_OpenColorChooser_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.ColorChooserFactory_OpenColorChooser_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.openColorChooser');
           const result = this.impl.openColorChooser(params.chooser, params.client, params.color, params.suggestions);
           break;
@@ -251,9 +254,11 @@ blink.mojom.ColorChooserReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -267,12 +272,13 @@ blink.mojom.ColorChooserReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetSelectedColor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.ColorChooser_SetSelectedColor_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.ColorChooser_SetSelectedColor_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSelectedColor (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -289,7 +295,7 @@ blink.mojom.ColorChooserReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ColorChooser_SetSelectedColor_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.ColorChooser_SetSelectedColor_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setSelectedColor');
           const result = this.impl.setSelectedColor(params.color);
           break;
@@ -388,9 +394,11 @@ blink.mojom.ColorChooserClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -404,12 +412,13 @@ blink.mojom.ColorChooserClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: DidChooseColor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.ColorChooserClient_DidChooseColor_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.ColorChooserClient_DidChooseColor_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidChooseColor (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -426,7 +435,7 @@ blink.mojom.ColorChooserClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ColorChooserClient_DidChooseColor_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.ColorChooserClient_DidChooseColor_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.didChooseColor');
           const result = this.impl.didChooseColor(params.color);
           break;
@@ -531,9 +540,11 @@ blink.mojom.EyeDropperChooserReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -547,12 +558,13 @@ blink.mojom.EyeDropperChooserReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Choose
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.EyeDropperChooser_Choose_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.EyeDropperChooser_Choose_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Choose (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -569,7 +581,7 @@ blink.mojom.EyeDropperChooserReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.EyeDropperChooser_Choose_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.EyeDropperChooser_Choose_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.choose');
           const result = this.impl.choose();
           if (header.expectsResponse) {

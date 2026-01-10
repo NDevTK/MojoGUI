@@ -152,9 +152,11 @@ chrome.mojom.BoundSessionRequestThrottledHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -168,12 +170,13 @@ chrome.mojom.BoundSessionRequestThrottledHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: HandleRequestBlockedOnCookie
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleRequestBlockedOnCookie (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -190,7 +193,7 @@ chrome.mojom.BoundSessionRequestThrottledHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.handleRequestBlockedOnCookie');
           const result = this.impl.handleRequestBlockedOnCookie(params.untrusted_request_url);
           if (header.expectsResponse) {
@@ -294,9 +297,11 @@ chrome.mojom.ChromeOSListenerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -310,12 +315,13 @@ chrome.mojom.ChromeOSListenerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: MergeSessionComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.ChromeOSListener_MergeSessionComplete_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.ChromeOSListener_MergeSessionComplete_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MergeSessionComplete (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -332,7 +338,7 @@ chrome.mojom.ChromeOSListenerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.ChromeOSListener_MergeSessionComplete_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.ChromeOSListener_MergeSessionComplete_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.mergeSessionComplete');
           const result = this.impl.mergeSessionComplete();
           break;
@@ -468,9 +474,11 @@ chrome.mojom.RendererConfigurationReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -484,12 +492,13 @@ chrome.mojom.RendererConfigurationReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetInitialConfiguration
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.RendererConfiguration_SetInitialConfiguration_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.RendererConfiguration_SetInitialConfiguration_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetInitialConfiguration (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -500,7 +509,7 @@ chrome.mojom.RendererConfigurationReceiver = class {
         // Try Method 1: SetConfiguration
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.RendererConfiguration_SetConfiguration_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.RendererConfiguration_SetConfiguration_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetConfiguration (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -511,7 +520,7 @@ chrome.mojom.RendererConfigurationReceiver = class {
         // Try Method 2: SetConfigurationOnProcessLockUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetConfigurationOnProcessLockUpdate (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -528,21 +537,21 @@ chrome.mojom.RendererConfigurationReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.RendererConfiguration_SetInitialConfiguration_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.RendererConfiguration_SetInitialConfiguration_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setInitialConfiguration');
           const result = this.impl.setInitialConfiguration(params.is_incognito_process, params.chromeos_listener, params.content_settings_manager, params.bound_session_request_throttled_handler);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.RendererConfiguration_SetConfiguration_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.RendererConfiguration_SetConfiguration_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setConfiguration');
           const result = this.impl.setConfiguration(params.params);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setConfigurationOnProcessLockUpdate');
           const result = this.impl.setConfigurationOnProcessLockUpdate(params.params);
           break;

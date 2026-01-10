@@ -146,9 +146,11 @@ network.mojom.ConnectionChangeObserverClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -162,12 +164,13 @@ network.mojom.ConnectionChangeObserverClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnSessionClosed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.ConnectionChangeObserverClient_OnSessionClosed_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.ConnectionChangeObserverClient_OnSessionClosed_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSessionClosed (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -178,7 +181,7 @@ network.mojom.ConnectionChangeObserverClientReceiver = class {
         // Try Method 1: OnNetworkEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.ConnectionChangeObserverClient_OnNetworkEvent_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.ConnectionChangeObserverClient_OnNetworkEvent_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNetworkEvent (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -189,7 +192,7 @@ network.mojom.ConnectionChangeObserverClientReceiver = class {
         // Try Method 2: OnConnectionFailed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(network.mojom.ConnectionChangeObserverClient_OnConnectionFailed_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(network.mojom.ConnectionChangeObserverClient_OnConnectionFailed_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnConnectionFailed (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -206,21 +209,21 @@ network.mojom.ConnectionChangeObserverClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.ConnectionChangeObserverClient_OnSessionClosed_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.ConnectionChangeObserverClient_OnSessionClosed_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onSessionClosed');
           const result = this.impl.onSessionClosed();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.ConnectionChangeObserverClient_OnNetworkEvent_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.ConnectionChangeObserverClient_OnNetworkEvent_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onNetworkEvent');
           const result = this.impl.onNetworkEvent(params.event);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.ConnectionChangeObserverClient_OnConnectionFailed_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(network.mojom.ConnectionChangeObserverClient_OnConnectionFailed_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onConnectionFailed');
           const result = this.impl.onConnectionFailed();
           break;

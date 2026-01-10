@@ -97,9 +97,11 @@ remoting.mojom.ChromotingHostServicesReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -113,12 +115,13 @@ remoting.mojom.ChromotingHostServicesReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: BindSessionServices
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindSessionServices (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -135,7 +138,7 @@ remoting.mojom.ChromotingHostServicesReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindSessionServices');
           const result = this.impl.bindSessionServices(params.receiver);
           break;
@@ -268,9 +271,11 @@ remoting.mojom.ChromotingSessionServicesReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -284,12 +289,13 @@ remoting.mojom.ChromotingSessionServicesReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: BindWebAuthnProxy
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindWebAuthnProxy (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -300,7 +306,7 @@ remoting.mojom.ChromotingSessionServicesReceiver = class {
         // Try Method 1: BindRemoteUrlOpener
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindRemoteUrlOpener (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -311,7 +317,7 @@ remoting.mojom.ChromotingSessionServicesReceiver = class {
         // Try Method 2: BindSecurityKeyForwarder
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindSecurityKeyForwarder (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -328,21 +334,21 @@ remoting.mojom.ChromotingSessionServicesReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindWebAuthnProxy');
           const result = this.impl.bindWebAuthnProxy(params.receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindRemoteUrlOpener');
           const result = this.impl.bindRemoteUrlOpener(params.receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindSecurityKeyForwarder');
           const result = this.impl.bindSecurityKeyForwarder(params.receiver);
           break;

@@ -153,9 +153,11 @@ reading_list.mojom.PageHandlerFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -169,12 +171,13 @@ reading_list.mojom.PageHandlerFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(reading_list.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(reading_list.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -191,7 +194,7 @@ reading_list.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(reading_list.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(reading_list.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
@@ -470,9 +473,11 @@ reading_list.mojom.PageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -486,12 +491,13 @@ reading_list.mojom.PageHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetReadLaterEntries
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(reading_list.mojom.PageHandler_GetReadLaterEntries_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(reading_list.mojom.PageHandler_GetReadLaterEntries_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetReadLaterEntries (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -502,7 +508,7 @@ reading_list.mojom.PageHandlerReceiver = class {
         // Try Method 1: OpenURL
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(reading_list.mojom.PageHandler_OpenURL_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(reading_list.mojom.PageHandler_OpenURL_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenURL (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -513,7 +519,7 @@ reading_list.mojom.PageHandlerReceiver = class {
         // Try Method 2: UpdateReadStatus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(reading_list.mojom.PageHandler_UpdateReadStatus_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(reading_list.mojom.PageHandler_UpdateReadStatus_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateReadStatus (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -524,7 +530,7 @@ reading_list.mojom.PageHandlerReceiver = class {
         // Try Method 3: MarkCurrentTabAsRead
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(reading_list.mojom.PageHandler_MarkCurrentTabAsRead_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(reading_list.mojom.PageHandler_MarkCurrentTabAsRead_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MarkCurrentTabAsRead (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -535,7 +541,7 @@ reading_list.mojom.PageHandlerReceiver = class {
         // Try Method 4: AddCurrentTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(reading_list.mojom.PageHandler_AddCurrentTab_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(reading_list.mojom.PageHandler_AddCurrentTab_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddCurrentTab (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -546,7 +552,7 @@ reading_list.mojom.PageHandlerReceiver = class {
         // Try Method 5: RemoveEntry
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(reading_list.mojom.PageHandler_RemoveEntry_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(reading_list.mojom.PageHandler_RemoveEntry_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveEntry (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -557,7 +563,7 @@ reading_list.mojom.PageHandlerReceiver = class {
         // Try Method 6: ShowContextMenuForURL
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(reading_list.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(reading_list.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowContextMenuForURL (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -568,7 +574,7 @@ reading_list.mojom.PageHandlerReceiver = class {
         // Try Method 7: UpdateCurrentPageActionButtonState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(reading_list.mojom.PageHandler_UpdateCurrentPageActionButtonState_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(reading_list.mojom.PageHandler_UpdateCurrentPageActionButtonState_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateCurrentPageActionButtonState (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -579,7 +585,7 @@ reading_list.mojom.PageHandlerReceiver = class {
         // Try Method 8: ShowUI
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(reading_list.mojom.PageHandler_ShowUI_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(reading_list.mojom.PageHandler_ShowUI_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowUI (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -590,7 +596,7 @@ reading_list.mojom.PageHandlerReceiver = class {
         // Try Method 9: CloseUI
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(reading_list.mojom.PageHandler_CloseUI_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(reading_list.mojom.PageHandler_CloseUI_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseUI (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -601,7 +607,7 @@ reading_list.mojom.PageHandlerReceiver = class {
         // Try Method 10: GetWindowData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(reading_list.mojom.PageHandler_GetWindowData_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(reading_list.mojom.PageHandler_GetWindowData_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetWindowData (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -618,7 +624,7 @@ reading_list.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(reading_list.mojom.PageHandler_GetReadLaterEntries_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(reading_list.mojom.PageHandler_GetReadLaterEntries_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getReadLaterEntries');
           const result = this.impl.getReadLaterEntries();
           if (header.expectsResponse) {
@@ -631,70 +637,70 @@ reading_list.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(reading_list.mojom.PageHandler_OpenURL_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(reading_list.mojom.PageHandler_OpenURL_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.openURL');
           const result = this.impl.openURL(params.url, params.mark_as_read, params.click_modifiers);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(reading_list.mojom.PageHandler_UpdateReadStatus_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(reading_list.mojom.PageHandler_UpdateReadStatus_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.updateReadStatus');
           const result = this.impl.updateReadStatus(params.url, params.read);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(reading_list.mojom.PageHandler_MarkCurrentTabAsRead_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(reading_list.mojom.PageHandler_MarkCurrentTabAsRead_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.markCurrentTabAsRead');
           const result = this.impl.markCurrentTabAsRead();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(reading_list.mojom.PageHandler_AddCurrentTab_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(reading_list.mojom.PageHandler_AddCurrentTab_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addCurrentTab');
           const result = this.impl.addCurrentTab();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(reading_list.mojom.PageHandler_RemoveEntry_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(reading_list.mojom.PageHandler_RemoveEntry_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.removeEntry');
           const result = this.impl.removeEntry(params.url);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(reading_list.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(reading_list.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.showContextMenuForURL');
           const result = this.impl.showContextMenuForURL(params.url, params.x, params.y);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(reading_list.mojom.PageHandler_UpdateCurrentPageActionButtonState_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(reading_list.mojom.PageHandler_UpdateCurrentPageActionButtonState_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.updateCurrentPageActionButtonState');
           const result = this.impl.updateCurrentPageActionButtonState();
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(reading_list.mojom.PageHandler_ShowUI_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(reading_list.mojom.PageHandler_ShowUI_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.showUI');
           const result = this.impl.showUI();
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(reading_list.mojom.PageHandler_CloseUI_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(reading_list.mojom.PageHandler_CloseUI_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.closeUI');
           const result = this.impl.closeUI();
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(reading_list.mojom.PageHandler_GetWindowData_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(reading_list.mojom.PageHandler_GetWindowData_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getWindowData');
           const result = this.impl.getWindowData();
           if (header.expectsResponse) {
@@ -816,9 +822,11 @@ reading_list.mojom.PageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -832,12 +840,13 @@ reading_list.mojom.PageReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ItemsChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(reading_list.mojom.Page_ItemsChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(reading_list.mojom.Page_ItemsChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ItemsChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -848,7 +857,7 @@ reading_list.mojom.PageReceiver = class {
         // Try Method 1: CurrentPageActionButtonStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(reading_list.mojom.Page_CurrentPageActionButtonStateChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(reading_list.mojom.Page_CurrentPageActionButtonStateChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CurrentPageActionButtonStateChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -865,14 +874,14 @@ reading_list.mojom.PageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(reading_list.mojom.Page_ItemsChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(reading_list.mojom.Page_ItemsChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.itemsChanged');
           const result = this.impl.itemsChanged(params.entries);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(reading_list.mojom.Page_CurrentPageActionButtonStateChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(reading_list.mojom.Page_CurrentPageActionButtonStateChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.currentPageActionButtonStateChanged');
           const result = this.impl.currentPageActionButtonStateChanged(params.state);
           break;

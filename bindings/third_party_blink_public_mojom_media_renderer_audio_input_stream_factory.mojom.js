@@ -121,9 +121,11 @@ blink.mojom.RendererAudioInputStreamFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -137,12 +139,13 @@ blink.mojom.RendererAudioInputStreamFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateStream
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateStream (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -153,7 +156,7 @@ blink.mojom.RendererAudioInputStreamFactoryReceiver = class {
         // Try Method 1: AssociateInputAndOutputForAec
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AssociateInputAndOutputForAec (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -170,14 +173,14 @@ blink.mojom.RendererAudioInputStreamFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createStream');
           const result = this.impl.createStream(params.client, params.session_id, params.params, params.automatic_gain_control, params.shared_memory_count, params.processing_config);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.associateInputAndOutputForAec');
           const result = this.impl.associateInputAndOutputForAec(params.input_stream_id, params.output_device_id);
           break;
@@ -280,9 +283,11 @@ blink.mojom.RendererAudioInputStreamFactoryClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -296,12 +301,13 @@ blink.mojom.RendererAudioInputStreamFactoryClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: StreamCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StreamCreated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -318,7 +324,7 @@ blink.mojom.RendererAudioInputStreamFactoryClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.streamCreated');
           const result = this.impl.streamCreated(params.stream, params.client_request, params.data_pipe, params.initially_muted, params.stream_id);
           break;

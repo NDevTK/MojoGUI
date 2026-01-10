@@ -146,9 +146,11 @@ arc.mojom.VideoProtectedBufferAllocatorReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -162,12 +164,13 @@ arc.mojom.VideoProtectedBufferAllocatorReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AllocateProtectedSharedMemory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedSharedMemory_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedSharedMemory_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AllocateProtectedSharedMemory (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -178,7 +181,7 @@ arc.mojom.VideoProtectedBufferAllocatorReceiver = class {
         // Try Method 1: AllocateProtectedNativePixmap
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedNativePixmap_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedNativePixmap_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AllocateProtectedNativePixmap (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -189,7 +192,7 @@ arc.mojom.VideoProtectedBufferAllocatorReceiver = class {
         // Try Method 2: ReleaseProtectedBuffer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.VideoProtectedBufferAllocator_ReleaseProtectedBuffer_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.VideoProtectedBufferAllocator_ReleaseProtectedBuffer_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReleaseProtectedBuffer (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -206,7 +209,7 @@ arc.mojom.VideoProtectedBufferAllocatorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedSharedMemory_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedSharedMemory_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.allocateProtectedSharedMemory');
           const result = this.impl.allocateProtectedSharedMemory(params.handle_fd, params.size);
           if (header.expectsResponse) {
@@ -219,7 +222,7 @@ arc.mojom.VideoProtectedBufferAllocatorReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedNativePixmap_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedNativePixmap_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.allocateProtectedNativePixmap');
           const result = this.impl.allocateProtectedNativePixmap(params.handle_fd, params.pixel_format, params.picture_size);
           if (header.expectsResponse) {
@@ -232,7 +235,7 @@ arc.mojom.VideoProtectedBufferAllocatorReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.VideoProtectedBufferAllocator_ReleaseProtectedBuffer_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.VideoProtectedBufferAllocator_ReleaseProtectedBuffer_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.releaseProtectedBuffer');
           const result = this.impl.releaseProtectedBuffer(params.handle_fd);
           break;

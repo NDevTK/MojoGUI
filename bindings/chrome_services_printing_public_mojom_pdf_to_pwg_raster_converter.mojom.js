@@ -146,9 +146,11 @@ printing.mojom.PdfToPwgRasterConverterReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -162,12 +164,13 @@ printing.mojom.PdfToPwgRasterConverterReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Convert
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(printing.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(printing.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Convert (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -178,7 +181,7 @@ printing.mojom.PdfToPwgRasterConverterReceiver = class {
         // Try Method 1: SetUseSkiaRendererPolicy
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(printing.mojom.PdfToPwgRasterConverter_SetUseSkiaRendererPolicy_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(printing.mojom.PdfToPwgRasterConverter_SetUseSkiaRendererPolicy_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUseSkiaRendererPolicy (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -195,7 +198,7 @@ printing.mojom.PdfToPwgRasterConverterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(printing.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.convert');
           const result = this.impl.convert(params.pdf_region, params.pdf_settings, params.pwg_raster_settings);
           if (header.expectsResponse) {
@@ -208,7 +211,7 @@ printing.mojom.PdfToPwgRasterConverterReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PdfToPwgRasterConverter_SetUseSkiaRendererPolicy_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(printing.mojom.PdfToPwgRasterConverter_SetUseSkiaRendererPolicy_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setUseSkiaRendererPolicy');
           const result = this.impl.setUseSkiaRendererPolicy(params.use_skia);
           break;

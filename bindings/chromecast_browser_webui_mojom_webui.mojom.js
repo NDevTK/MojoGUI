@@ -105,9 +105,11 @@ chromecast.mojom.MessageCallbackReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -121,12 +123,13 @@ chromecast.mojom.MessageCallbackReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromecast.mojom.MessageCallback_OnMessage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromecast.mojom.MessageCallback_OnMessage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMessage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -143,7 +146,7 @@ chromecast.mojom.MessageCallbackReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.mojom.MessageCallback_OnMessage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromecast.mojom.MessageCallback_OnMessage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onMessage');
           const result = this.impl.onMessage(params.list);
           break;
@@ -261,9 +264,11 @@ chromecast.mojom.WebUiReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -277,12 +282,13 @@ chromecast.mojom.WebUiReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: RegisterMessageCallback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterMessageCallback (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -293,7 +299,7 @@ chromecast.mojom.WebUiReceiver = class {
         // Try Method 1: CallJavascriptFunction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CallJavascriptFunction (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -310,14 +316,14 @@ chromecast.mojom.WebUiReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.registerMessageCallback');
           const result = this.impl.registerMessageCallback(params.message, params.cb);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.callJavascriptFunction');
           const result = this.impl.callJavascriptFunction(params.function, params.args);
           break;
@@ -422,9 +428,11 @@ chromecast.mojom.ResourcesReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -438,12 +446,13 @@ chromecast.mojom.ResourcesReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: RequestResourceBytes
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestResourceBytes (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -460,7 +469,7 @@ chromecast.mojom.ResourcesReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestResourceBytes');
           const result = this.impl.requestResourceBytes(params.path);
           if (header.expectsResponse) {
@@ -585,9 +594,11 @@ chromecast.mojom.WebUiClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -601,12 +612,13 @@ chromecast.mojom.WebUiClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateController
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromecast.mojom.WebUiClient_CreateController_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromecast.mojom.WebUiClient_CreateController_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateController (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -617,7 +629,7 @@ chromecast.mojom.WebUiClientReceiver = class {
         // Try Method 1: CreateResources
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromecast.mojom.WebUiClient_CreateResources_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromecast.mojom.WebUiClient_CreateResources_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateResources (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -634,14 +646,14 @@ chromecast.mojom.WebUiClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.mojom.WebUiClient_CreateController_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromecast.mojom.WebUiClient_CreateController_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createController');
           const result = this.impl.createController(params.host, params.web_ui, params.resources);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.mojom.WebUiClient_CreateResources_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromecast.mojom.WebUiClient_CreateResources_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createResources');
           const result = this.impl.createResources(params.host, params.resources);
           break;

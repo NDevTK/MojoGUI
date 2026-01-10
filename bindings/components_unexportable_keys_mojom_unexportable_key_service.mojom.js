@@ -246,9 +246,11 @@ unexportable_keys.mojom.UnexportableKeyServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -262,12 +264,13 @@ unexportable_keys.mojom.UnexportableKeyServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GenerateSigningKey
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(unexportable_keys.mojom.UnexportableKeyService_GenerateSigningKey_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(unexportable_keys.mojom.UnexportableKeyService_GenerateSigningKey_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenerateSigningKey (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -278,7 +281,7 @@ unexportable_keys.mojom.UnexportableKeyServiceReceiver = class {
         // Try Method 1: FromWrappedSigningKey
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(unexportable_keys.mojom.UnexportableKeyService_FromWrappedSigningKey_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(unexportable_keys.mojom.UnexportableKeyService_FromWrappedSigningKey_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FromWrappedSigningKey (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -289,7 +292,7 @@ unexportable_keys.mojom.UnexportableKeyServiceReceiver = class {
         // Try Method 2: Sign
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(unexportable_keys.mojom.UnexportableKeyService_Sign_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(unexportable_keys.mojom.UnexportableKeyService_Sign_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Sign (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -300,7 +303,7 @@ unexportable_keys.mojom.UnexportableKeyServiceReceiver = class {
         // Try Method 3: GetAllSigningKeysForGarbageCollection
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(unexportable_keys.mojom.UnexportableKeyService_GetAllSigningKeysForGarbageCollection_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(unexportable_keys.mojom.UnexportableKeyService_GetAllSigningKeysForGarbageCollection_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAllSigningKeysForGarbageCollection (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -311,7 +314,7 @@ unexportable_keys.mojom.UnexportableKeyServiceReceiver = class {
         // Try Method 4: DeleteKey
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteKey (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -322,7 +325,7 @@ unexportable_keys.mojom.UnexportableKeyServiceReceiver = class {
         // Try Method 5: DeleteAllKeys
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteAllKeys (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -339,35 +342,35 @@ unexportable_keys.mojom.UnexportableKeyServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(unexportable_keys.mojom.UnexportableKeyService_GenerateSigningKey_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(unexportable_keys.mojom.UnexportableKeyService_GenerateSigningKey_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.generateSigningKey');
           const result = this.impl.generateSigningKey(params.acceptable_algorithms, params.priority);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(unexportable_keys.mojom.UnexportableKeyService_FromWrappedSigningKey_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(unexportable_keys.mojom.UnexportableKeyService_FromWrappedSigningKey_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.fromWrappedSigningKey');
           const result = this.impl.fromWrappedSigningKey(params.wrapped_key, params.priority);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(unexportable_keys.mojom.UnexportableKeyService_Sign_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(unexportable_keys.mojom.UnexportableKeyService_Sign_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.sign');
           const result = this.impl.sign(params.key_id, params.data, params.priority);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(unexportable_keys.mojom.UnexportableKeyService_GetAllSigningKeysForGarbageCollection_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(unexportable_keys.mojom.UnexportableKeyService_GetAllSigningKeysForGarbageCollection_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getAllSigningKeysForGarbageCollection');
           const result = this.impl.getAllSigningKeysForGarbageCollection(params.priority);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.deleteKey');
           const result = this.impl.deleteKey(params.key_id, params.priority);
           if (header.expectsResponse) {
@@ -380,7 +383,7 @@ unexportable_keys.mojom.UnexportableKeyServiceReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.deleteAllKeys');
           const result = this.impl.deleteAllKeys(params.priority);
           break;

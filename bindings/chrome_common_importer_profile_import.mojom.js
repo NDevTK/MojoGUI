@@ -370,9 +370,11 @@ chrome.mojom.ProfileImportObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -386,12 +388,13 @@ chrome.mojom.ProfileImportObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnImportStart
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.ProfileImportObserver_OnImportStart_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.ProfileImportObserver_OnImportStart_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnImportStart (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -402,7 +405,7 @@ chrome.mojom.ProfileImportObserverReceiver = class {
         // Try Method 1: OnImportFinished
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.ProfileImportObserver_OnImportFinished_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.ProfileImportObserver_OnImportFinished_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnImportFinished (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -413,7 +416,7 @@ chrome.mojom.ProfileImportObserverReceiver = class {
         // Try Method 2: OnImportItemStart
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.ProfileImportObserver_OnImportItemStart_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.ProfileImportObserver_OnImportItemStart_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnImportItemStart (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -424,7 +427,7 @@ chrome.mojom.ProfileImportObserverReceiver = class {
         // Try Method 3: OnImportItemFinished
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.ProfileImportObserver_OnImportItemFinished_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.ProfileImportObserver_OnImportItemFinished_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnImportItemFinished (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -435,7 +438,7 @@ chrome.mojom.ProfileImportObserverReceiver = class {
         // Try Method 4: OnHistoryImportStart
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.ProfileImportObserver_OnHistoryImportStart_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.ProfileImportObserver_OnHistoryImportStart_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHistoryImportStart (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -446,7 +449,7 @@ chrome.mojom.ProfileImportObserverReceiver = class {
         // Try Method 5: OnHistoryImportGroup
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.ProfileImportObserver_OnHistoryImportGroup_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.ProfileImportObserver_OnHistoryImportGroup_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHistoryImportGroup (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -457,7 +460,7 @@ chrome.mojom.ProfileImportObserverReceiver = class {
         // Try Method 6: OnHomePageImportReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.ProfileImportObserver_OnHomePageImportReady_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.ProfileImportObserver_OnHomePageImportReady_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHomePageImportReady (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -468,7 +471,7 @@ chrome.mojom.ProfileImportObserverReceiver = class {
         // Try Method 7: OnBookmarksImportStart
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.ProfileImportObserver_OnBookmarksImportStart_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.ProfileImportObserver_OnBookmarksImportStart_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBookmarksImportStart (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -479,7 +482,7 @@ chrome.mojom.ProfileImportObserverReceiver = class {
         // Try Method 8: OnBookmarksImportGroup
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.ProfileImportObserver_OnBookmarksImportGroup_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.ProfileImportObserver_OnBookmarksImportGroup_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBookmarksImportGroup (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -490,7 +493,7 @@ chrome.mojom.ProfileImportObserverReceiver = class {
         // Try Method 9: OnFaviconsImportStart
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.ProfileImportObserver_OnFaviconsImportStart_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.ProfileImportObserver_OnFaviconsImportStart_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFaviconsImportStart (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -501,7 +504,7 @@ chrome.mojom.ProfileImportObserverReceiver = class {
         // Try Method 10: OnFaviconsImportGroup
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.ProfileImportObserver_OnFaviconsImportGroup_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.ProfileImportObserver_OnFaviconsImportGroup_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFaviconsImportGroup (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -512,7 +515,7 @@ chrome.mojom.ProfileImportObserverReceiver = class {
         // Try Method 11: OnPasswordFormImportReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.ProfileImportObserver_OnPasswordFormImportReady_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.ProfileImportObserver_OnPasswordFormImportReady_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPasswordFormImportReady (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -523,7 +526,7 @@ chrome.mojom.ProfileImportObserverReceiver = class {
         // Try Method 12: OnKeywordsImportReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.ProfileImportObserver_OnKeywordsImportReady_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.ProfileImportObserver_OnKeywordsImportReady_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnKeywordsImportReady (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -534,7 +537,7 @@ chrome.mojom.ProfileImportObserverReceiver = class {
         // Try Method 13: OnAutofillFormDataImportStart
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportStart_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportStart_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAutofillFormDataImportStart (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -545,7 +548,7 @@ chrome.mojom.ProfileImportObserverReceiver = class {
         // Try Method 14: OnAutofillFormDataImportGroup
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportGroup_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportGroup_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAutofillFormDataImportGroup (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -562,105 +565,105 @@ chrome.mojom.ProfileImportObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.ProfileImportObserver_OnImportStart_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.ProfileImportObserver_OnImportStart_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onImportStart');
           const result = this.impl.onImportStart();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.ProfileImportObserver_OnImportFinished_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.ProfileImportObserver_OnImportFinished_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onImportFinished');
           const result = this.impl.onImportFinished(params.succeeded, params.error_msg);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.ProfileImportObserver_OnImportItemStart_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.ProfileImportObserver_OnImportItemStart_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onImportItemStart');
           const result = this.impl.onImportItemStart(params.item);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.ProfileImportObserver_OnImportItemFinished_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.ProfileImportObserver_OnImportItemFinished_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onImportItemFinished');
           const result = this.impl.onImportItemFinished(params.item);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.ProfileImportObserver_OnHistoryImportStart_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.ProfileImportObserver_OnHistoryImportStart_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onHistoryImportStart');
           const result = this.impl.onHistoryImportStart(params.total_history_rows_count);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.ProfileImportObserver_OnHistoryImportGroup_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.ProfileImportObserver_OnHistoryImportGroup_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onHistoryImportGroup');
           const result = this.impl.onHistoryImportGroup(params.history_rows_group, params.visit_source);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.ProfileImportObserver_OnHomePageImportReady_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.ProfileImportObserver_OnHomePageImportReady_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onHomePageImportReady');
           const result = this.impl.onHomePageImportReady(params.home_page);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.ProfileImportObserver_OnBookmarksImportStart_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.ProfileImportObserver_OnBookmarksImportStart_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onBookmarksImportStart');
           const result = this.impl.onBookmarksImportStart(params.first_folder_name, params.total_bookmarks_count);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.ProfileImportObserver_OnBookmarksImportGroup_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.ProfileImportObserver_OnBookmarksImportGroup_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onBookmarksImportGroup');
           const result = this.impl.onBookmarksImportGroup(params.bookmarks_group);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.ProfileImportObserver_OnFaviconsImportStart_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.ProfileImportObserver_OnFaviconsImportStart_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onFaviconsImportStart');
           const result = this.impl.onFaviconsImportStart(params.total_favicons_count);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.ProfileImportObserver_OnFaviconsImportGroup_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.ProfileImportObserver_OnFaviconsImportGroup_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onFaviconsImportGroup');
           const result = this.impl.onFaviconsImportGroup(params.favicons_group);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.ProfileImportObserver_OnPasswordFormImportReady_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.ProfileImportObserver_OnPasswordFormImportReady_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onPasswordFormImportReady');
           const result = this.impl.onPasswordFormImportReady(params.form);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.ProfileImportObserver_OnKeywordsImportReady_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.ProfileImportObserver_OnKeywordsImportReady_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onKeywordsImportReady');
           const result = this.impl.onKeywordsImportReady(params.search_engines, params.unique_on_host_and_path);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportStart_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportStart_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onAutofillFormDataImportStart');
           const result = this.impl.onAutofillFormDataImportStart(params.total_autofill_form_data_entry_count);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportGroup_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportGroup_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onAutofillFormDataImportGroup');
           const result = this.impl.onAutofillFormDataImportGroup(params.autofill_form_data_entry_group);
           break;
@@ -795,9 +798,11 @@ chrome.mojom.ProfileImportReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -811,12 +816,13 @@ chrome.mojom.ProfileImportReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: StartImport
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.ProfileImport_StartImport_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.ProfileImport_StartImport_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartImport (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -827,7 +833,7 @@ chrome.mojom.ProfileImportReceiver = class {
         // Try Method 1: CancelImport
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.ProfileImport_CancelImport_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.ProfileImport_CancelImport_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelImport (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -838,7 +844,7 @@ chrome.mojom.ProfileImportReceiver = class {
         // Try Method 2: ReportImportItemFinished
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.ProfileImport_ReportImportItemFinished_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.ProfileImport_ReportImportItemFinished_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportImportItemFinished (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -855,21 +861,21 @@ chrome.mojom.ProfileImportReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.ProfileImport_StartImport_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.ProfileImport_StartImport_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.startImport');
           const result = this.impl.startImport(params.source_profile, params.items, params.localized_strings, params.observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.ProfileImport_CancelImport_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.ProfileImport_CancelImport_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.cancelImport');
           const result = this.impl.cancelImport();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.ProfileImport_ReportImportItemFinished_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.ProfileImport_ReportImportItemFinished_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.reportImportItemFinished');
           const result = this.impl.reportImportItemFinished(params.item);
           break;

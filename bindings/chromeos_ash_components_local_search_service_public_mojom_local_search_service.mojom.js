@@ -121,9 +121,11 @@ ash.local_search_service.mojom.SearchMetricsReporterReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -137,12 +139,13 @@ ash.local_search_service.mojom.SearchMetricsReporterReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnSearchPerformed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSearchPerformed (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -159,7 +162,7 @@ ash.local_search_service.mojom.SearchMetricsReporterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onSearchPerformed');
           const result = this.impl.onSearchPerformed(params.index_id);
           if (header.expectsResponse) {
@@ -273,9 +276,11 @@ ash.local_search_service.mojom.LocalSearchServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -289,12 +294,13 @@ ash.local_search_service.mojom.LocalSearchServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: BindIndex
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindIndex (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -311,7 +317,7 @@ ash.local_search_service.mojom.LocalSearchServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindIndex');
           const result = this.impl.bindIndex(params.index_id, params.backend, params.index_receiver, params.reporter_remote);
           if (header.expectsResponse) {

@@ -274,9 +274,11 @@ history_embeddings.mojom.PageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -290,12 +292,13 @@ history_embeddings.mojom.PageHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetPage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(history_embeddings.mojom.PageHandler_SetPage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(history_embeddings.mojom.PageHandler_SetPage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -306,7 +309,7 @@ history_embeddings.mojom.PageHandlerReceiver = class {
         // Try Method 1: Search
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(history_embeddings.mojom.PageHandler_Search_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(history_embeddings.mojom.PageHandler_Search_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Search (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -317,7 +320,7 @@ history_embeddings.mojom.PageHandlerReceiver = class {
         // Try Method 2: SendQualityLog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(history_embeddings.mojom.PageHandler_SendQualityLog_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(history_embeddings.mojom.PageHandler_SendQualityLog_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendQualityLog (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -328,7 +331,7 @@ history_embeddings.mojom.PageHandlerReceiver = class {
         // Try Method 3: RecordSearchResultsMetrics
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(history_embeddings.mojom.PageHandler_RecordSearchResultsMetrics_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(history_embeddings.mojom.PageHandler_RecordSearchResultsMetrics_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordSearchResultsMetrics (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -339,7 +342,7 @@ history_embeddings.mojom.PageHandlerReceiver = class {
         // Try Method 4: SetUserFeedback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(history_embeddings.mojom.PageHandler_SetUserFeedback_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(history_embeddings.mojom.PageHandler_SetUserFeedback_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUserFeedback (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -350,7 +353,7 @@ history_embeddings.mojom.PageHandlerReceiver = class {
         // Try Method 5: MaybeShowFeaturePromo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(history_embeddings.mojom.PageHandler_MaybeShowFeaturePromo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(history_embeddings.mojom.PageHandler_MaybeShowFeaturePromo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MaybeShowFeaturePromo (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -361,7 +364,7 @@ history_embeddings.mojom.PageHandlerReceiver = class {
         // Try Method 6: OpenSettingsPage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(history_embeddings.mojom.PageHandler_OpenSettingsPage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(history_embeddings.mojom.PageHandler_OpenSettingsPage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenSettingsPage (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -378,49 +381,49 @@ history_embeddings.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(history_embeddings.mojom.PageHandler_SetPage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(history_embeddings.mojom.PageHandler_SetPage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setPage');
           const result = this.impl.setPage(params.page);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(history_embeddings.mojom.PageHandler_Search_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(history_embeddings.mojom.PageHandler_Search_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.search');
           const result = this.impl.search(params.query);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(history_embeddings.mojom.PageHandler_SendQualityLog_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(history_embeddings.mojom.PageHandler_SendQualityLog_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.sendQualityLog');
           const result = this.impl.sendQualityLog(params.selected_indices, params.num_entered_chars);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(history_embeddings.mojom.PageHandler_RecordSearchResultsMetrics_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(history_embeddings.mojom.PageHandler_RecordSearchResultsMetrics_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.recordSearchResultsMetrics');
           const result = this.impl.recordSearchResultsMetrics(params.nonEmptyResults, params.userClickedResult, params.answerShown, params.answerCitationClicked, params.otherHistoryResultClicked, params.queryWordCount);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(history_embeddings.mojom.PageHandler_SetUserFeedback_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(history_embeddings.mojom.PageHandler_SetUserFeedback_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setUserFeedback');
           const result = this.impl.setUserFeedback(params.feedback);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(history_embeddings.mojom.PageHandler_MaybeShowFeaturePromo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(history_embeddings.mojom.PageHandler_MaybeShowFeaturePromo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.maybeShowFeaturePromo');
           const result = this.impl.maybeShowFeaturePromo();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(history_embeddings.mojom.PageHandler_OpenSettingsPage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(history_embeddings.mojom.PageHandler_OpenSettingsPage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.openSettingsPage');
           const result = this.impl.openSettingsPage();
           break;
@@ -519,9 +522,11 @@ history_embeddings.mojom.PageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -535,12 +540,13 @@ history_embeddings.mojom.PageReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SearchResultChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(history_embeddings.mojom.Page_SearchResultChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(history_embeddings.mojom.Page_SearchResultChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SearchResultChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -557,7 +563,7 @@ history_embeddings.mojom.PageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(history_embeddings.mojom.Page_SearchResultChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(history_embeddings.mojom.Page_SearchResultChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.searchResultChanged');
           const result = this.impl.searchResultChanged(params.result);
           break;

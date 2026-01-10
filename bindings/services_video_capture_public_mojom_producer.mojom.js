@@ -118,9 +118,11 @@ video_capture.mojom.ProducerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -134,12 +136,13 @@ video_capture.mojom.ProducerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnNewBuffer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(video_capture.mojom.Producer_OnNewBuffer_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(video_capture.mojom.Producer_OnNewBuffer_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNewBuffer (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -150,7 +153,7 @@ video_capture.mojom.ProducerReceiver = class {
         // Try Method 1: OnBufferRetired
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(video_capture.mojom.Producer_OnBufferRetired_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(video_capture.mojom.Producer_OnBufferRetired_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBufferRetired (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -167,7 +170,7 @@ video_capture.mojom.ProducerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(video_capture.mojom.Producer_OnNewBuffer_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(video_capture.mojom.Producer_OnNewBuffer_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onNewBuffer');
           const result = this.impl.onNewBuffer(params.buffer_id, params.buffer_handle);
           if (header.expectsResponse) {
@@ -180,7 +183,7 @@ video_capture.mojom.ProducerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(video_capture.mojom.Producer_OnBufferRetired_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(video_capture.mojom.Producer_OnBufferRetired_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onBufferRetired');
           const result = this.impl.onBufferRetired(params.buffer_id);
           break;

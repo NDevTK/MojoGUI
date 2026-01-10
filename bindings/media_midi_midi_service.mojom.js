@@ -240,9 +240,11 @@ midi.mojom.MidiSessionClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -256,12 +258,13 @@ midi.mojom.MidiSessionClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AddInputPort
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(midi.mojom.MidiSessionClient_AddInputPort_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(midi.mojom.MidiSessionClient_AddInputPort_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddInputPort (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -272,7 +275,7 @@ midi.mojom.MidiSessionClientReceiver = class {
         // Try Method 1: AddOutputPort
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(midi.mojom.MidiSessionClient_AddOutputPort_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(midi.mojom.MidiSessionClient_AddOutputPort_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddOutputPort (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -283,7 +286,7 @@ midi.mojom.MidiSessionClientReceiver = class {
         // Try Method 2: SetInputPortState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(midi.mojom.MidiSessionClient_SetInputPortState_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(midi.mojom.MidiSessionClient_SetInputPortState_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetInputPortState (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -294,7 +297,7 @@ midi.mojom.MidiSessionClientReceiver = class {
         // Try Method 3: SetOutputPortState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(midi.mojom.MidiSessionClient_SetOutputPortState_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(midi.mojom.MidiSessionClient_SetOutputPortState_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetOutputPortState (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -305,7 +308,7 @@ midi.mojom.MidiSessionClientReceiver = class {
         // Try Method 4: SessionStarted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(midi.mojom.MidiSessionClient_SessionStarted_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(midi.mojom.MidiSessionClient_SessionStarted_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SessionStarted (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -316,7 +319,7 @@ midi.mojom.MidiSessionClientReceiver = class {
         // Try Method 5: AcknowledgeSentData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(midi.mojom.MidiSessionClient_AcknowledgeSentData_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(midi.mojom.MidiSessionClient_AcknowledgeSentData_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AcknowledgeSentData (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -327,7 +330,7 @@ midi.mojom.MidiSessionClientReceiver = class {
         // Try Method 6: DataReceived
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(midi.mojom.MidiSessionClient_DataReceived_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(midi.mojom.MidiSessionClient_DataReceived_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DataReceived (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -344,49 +347,49 @@ midi.mojom.MidiSessionClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(midi.mojom.MidiSessionClient_AddInputPort_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(midi.mojom.MidiSessionClient_AddInputPort_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addInputPort');
           const result = this.impl.addInputPort(params.info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(midi.mojom.MidiSessionClient_AddOutputPort_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(midi.mojom.MidiSessionClient_AddOutputPort_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addOutputPort');
           const result = this.impl.addOutputPort(params.info);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(midi.mojom.MidiSessionClient_SetInputPortState_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(midi.mojom.MidiSessionClient_SetInputPortState_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setInputPortState');
           const result = this.impl.setInputPortState(params.port, params.state);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(midi.mojom.MidiSessionClient_SetOutputPortState_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(midi.mojom.MidiSessionClient_SetOutputPortState_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setOutputPortState');
           const result = this.impl.setOutputPortState(params.port, params.state);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(midi.mojom.MidiSessionClient_SessionStarted_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(midi.mojom.MidiSessionClient_SessionStarted_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.sessionStarted');
           const result = this.impl.sessionStarted(params.result);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(midi.mojom.MidiSessionClient_AcknowledgeSentData_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(midi.mojom.MidiSessionClient_AcknowledgeSentData_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.acknowledgeSentData');
           const result = this.impl.acknowledgeSentData(params.bytes);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(midi.mojom.MidiSessionClient_DataReceived_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(midi.mojom.MidiSessionClient_DataReceived_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.dataReceived');
           const result = this.impl.dataReceived(params.port, params.data, params.timestamp);
           break;
@@ -486,9 +489,11 @@ midi.mojom.MidiSessionProviderReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -502,12 +507,13 @@ midi.mojom.MidiSessionProviderReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: StartSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(midi.mojom.MidiSessionProvider_StartSession_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(midi.mojom.MidiSessionProvider_StartSession_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartSession (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -524,7 +530,7 @@ midi.mojom.MidiSessionProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(midi.mojom.MidiSessionProvider_StartSession_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(midi.mojom.MidiSessionProvider_StartSession_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.startSession');
           const result = this.impl.startSession(params.receiver, params.client);
           break;
@@ -625,9 +631,11 @@ midi.mojom.MidiSessionReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -641,12 +649,13 @@ midi.mojom.MidiSessionReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SendData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(midi.mojom.MidiSession_SendData_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(midi.mojom.MidiSession_SendData_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendData (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -663,7 +672,7 @@ midi.mojom.MidiSessionReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(midi.mojom.MidiSession_SendData_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(midi.mojom.MidiSession_SendData_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.sendData');
           const result = this.impl.sendData(params.port, params.data, params.timestamp);
           break;

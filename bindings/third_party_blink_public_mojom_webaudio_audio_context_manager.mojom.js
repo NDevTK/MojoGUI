@@ -146,9 +146,11 @@ blink.mojom.AudioContextManagerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -162,12 +164,13 @@ blink.mojom.AudioContextManagerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AudioContextAudiblePlaybackStarted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStarted_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStarted_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AudioContextAudiblePlaybackStarted (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -178,7 +181,7 @@ blink.mojom.AudioContextManagerReceiver = class {
         // Try Method 1: AudioContextAudiblePlaybackStopped
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStopped_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStopped_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AudioContextAudiblePlaybackStopped (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -189,7 +192,7 @@ blink.mojom.AudioContextManagerReceiver = class {
         // Try Method 2: AudioContextCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AudioContextManager_AudioContextCreated_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AudioContextManager_AudioContextCreated_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AudioContextCreated (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -200,7 +203,7 @@ blink.mojom.AudioContextManagerReceiver = class {
         // Try Method 3: AudioContextClosed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AudioContextManager_AudioContextClosed_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AudioContextManager_AudioContextClosed_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AudioContextClosed (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -217,28 +220,28 @@ blink.mojom.AudioContextManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStarted_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStarted_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.audioContextAudiblePlaybackStarted');
           const result = this.impl.audioContextAudiblePlaybackStarted(params.id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStopped_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStopped_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.audioContextAudiblePlaybackStopped');
           const result = this.impl.audioContextAudiblePlaybackStopped(params.id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AudioContextManager_AudioContextCreated_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AudioContextManager_AudioContextCreated_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.audioContextCreated');
           const result = this.impl.audioContextCreated(params.id);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AudioContextManager_AudioContextClosed_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AudioContextManager_AudioContextClosed_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.audioContextClosed');
           const result = this.impl.audioContextClosed(params.id);
           break;

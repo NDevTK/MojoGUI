@@ -226,9 +226,11 @@ blink.mojom.ContentIndexServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -242,12 +244,13 @@ blink.mojom.ContentIndexServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetIconSizes
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.ContentIndexService_GetIconSizes_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.ContentIndexService_GetIconSizes_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetIconSizes (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -258,7 +261,7 @@ blink.mojom.ContentIndexServiceReceiver = class {
         // Try Method 1: Add
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.ContentIndexService_Add_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.ContentIndexService_Add_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Add (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -269,7 +272,7 @@ blink.mojom.ContentIndexServiceReceiver = class {
         // Try Method 2: Delete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.ContentIndexService_Delete_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.ContentIndexService_Delete_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Delete (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -280,7 +283,7 @@ blink.mojom.ContentIndexServiceReceiver = class {
         // Try Method 3: GetDescriptions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.ContentIndexService_GetDescriptions_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.ContentIndexService_GetDescriptions_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDescriptions (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -297,7 +300,7 @@ blink.mojom.ContentIndexServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ContentIndexService_GetIconSizes_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.ContentIndexService_GetIconSizes_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getIconSizes');
           const result = this.impl.getIconSizes(params.category);
           if (header.expectsResponse) {
@@ -310,7 +313,7 @@ blink.mojom.ContentIndexServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ContentIndexService_Add_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.ContentIndexService_Add_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.add');
           const result = this.impl.add(params.service_worker_registration_id, params.description, params.icon, params.launchUrl);
           if (header.expectsResponse) {
@@ -323,7 +326,7 @@ blink.mojom.ContentIndexServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ContentIndexService_Delete_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.ContentIndexService_Delete_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.delete');
           const result = this.impl.delete(params.service_worker_registration_id, params.id);
           if (header.expectsResponse) {
@@ -336,7 +339,7 @@ blink.mojom.ContentIndexServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ContentIndexService_GetDescriptions_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.ContentIndexService_GetDescriptions_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getDescriptions');
           const result = this.impl.getDescriptions(params.service_worker_registration_id);
           if (header.expectsResponse) {

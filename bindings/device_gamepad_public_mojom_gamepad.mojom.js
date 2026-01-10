@@ -283,9 +283,11 @@ device.mojom.GamepadObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -299,12 +301,13 @@ device.mojom.GamepadObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GamepadConnected
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.GamepadObserver_GamepadConnected_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.GamepadObserver_GamepadConnected_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GamepadConnected (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -315,7 +318,7 @@ device.mojom.GamepadObserverReceiver = class {
         // Try Method 1: GamepadDisconnected
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.GamepadObserver_GamepadDisconnected_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.GamepadObserver_GamepadDisconnected_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GamepadDisconnected (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -326,7 +329,7 @@ device.mojom.GamepadObserverReceiver = class {
         // Try Method 2: GamepadRawInputChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.GamepadObserver_GamepadRawInputChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.GamepadObserver_GamepadRawInputChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GamepadRawInputChanged (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -343,21 +346,21 @@ device.mojom.GamepadObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.GamepadObserver_GamepadConnected_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.GamepadObserver_GamepadConnected_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.gamepadConnected');
           const result = this.impl.gamepadConnected(params.index, params.gamepad);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.GamepadObserver_GamepadDisconnected_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.GamepadObserver_GamepadDisconnected_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.gamepadDisconnected');
           const result = this.impl.gamepadDisconnected(params.index, params.gamepad);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.GamepadObserver_GamepadRawInputChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.GamepadObserver_GamepadRawInputChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.gamepadRawInputChanged');
           const result = this.impl.gamepadRawInputChanged(params.index, params.gamepad);
           break;
@@ -499,9 +502,11 @@ device.mojom.GamepadMonitorReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -515,12 +520,13 @@ device.mojom.GamepadMonitorReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GamepadStartPolling
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.GamepadMonitor_GamepadStartPolling_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.GamepadMonitor_GamepadStartPolling_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GamepadStartPolling (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -531,7 +537,7 @@ device.mojom.GamepadMonitorReceiver = class {
         // Try Method 1: GamepadStopPolling
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.GamepadMonitor_GamepadStopPolling_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.GamepadMonitor_GamepadStopPolling_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GamepadStopPolling (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -542,7 +548,7 @@ device.mojom.GamepadMonitorReceiver = class {
         // Try Method 2: SetObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.GamepadMonitor_SetObserver_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.GamepadMonitor_SetObserver_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetObserver (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -559,7 +565,7 @@ device.mojom.GamepadMonitorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.GamepadMonitor_GamepadStartPolling_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.GamepadMonitor_GamepadStartPolling_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.gamepadStartPolling');
           const result = this.impl.gamepadStartPolling();
           if (header.expectsResponse) {
@@ -572,7 +578,7 @@ device.mojom.GamepadMonitorReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.GamepadMonitor_GamepadStopPolling_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.GamepadMonitor_GamepadStopPolling_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.gamepadStopPolling');
           const result = this.impl.gamepadStopPolling();
           if (header.expectsResponse) {
@@ -585,7 +591,7 @@ device.mojom.GamepadMonitorReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.GamepadMonitor_SetObserver_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.GamepadMonitor_SetObserver_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setObserver');
           const result = this.impl.setObserver(params.gamepad_observer);
           break;
@@ -715,9 +721,11 @@ device.mojom.GamepadHapticsManagerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -731,12 +739,13 @@ device.mojom.GamepadHapticsManagerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: PlayVibrationEffectOnce
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PlayVibrationEffectOnce (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -747,7 +756,7 @@ device.mojom.GamepadHapticsManagerReceiver = class {
         // Try Method 1: ResetVibrationActuator
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.GamepadHapticsManager_ResetVibrationActuator_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.GamepadHapticsManager_ResetVibrationActuator_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResetVibrationActuator (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -764,7 +773,7 @@ device.mojom.GamepadHapticsManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.playVibrationEffectOnce');
           const result = this.impl.playVibrationEffectOnce(params.pad_index, params.type, params.params);
           if (header.expectsResponse) {
@@ -777,7 +786,7 @@ device.mojom.GamepadHapticsManagerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.GamepadHapticsManager_ResetVibrationActuator_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.GamepadHapticsManager_ResetVibrationActuator_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.resetVibrationActuator');
           const result = this.impl.resetVibrationActuator(params.pad_index);
           if (header.expectsResponse) {

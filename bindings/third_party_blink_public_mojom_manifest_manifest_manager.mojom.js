@@ -180,9 +180,11 @@ blink.mojom.ManifestManagerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -196,12 +198,13 @@ blink.mojom.ManifestManagerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: RequestManifest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.ManifestManager_RequestManifest_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.ManifestManager_RequestManifest_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestManifest (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -212,7 +215,7 @@ blink.mojom.ManifestManagerReceiver = class {
         // Try Method 1: RequestManifestAndErrors
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.ManifestManager_RequestManifestAndErrors_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.ManifestManager_RequestManifestAndErrors_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestManifestAndErrors (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -223,7 +226,7 @@ blink.mojom.ManifestManagerReceiver = class {
         // Try Method 2: RequestManifestDebugInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.ManifestManager_RequestManifestDebugInfo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.ManifestManager_RequestManifestDebugInfo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestManifestDebugInfo (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -234,7 +237,7 @@ blink.mojom.ManifestManagerReceiver = class {
         // Try Method 3: ParseManifestFromString
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.ManifestManager_ParseManifestFromString_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.ManifestManager_ParseManifestFromString_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ParseManifestFromString (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -251,7 +254,7 @@ blink.mojom.ManifestManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ManifestManager_RequestManifest_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.ManifestManager_RequestManifest_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestManifest');
           const result = this.impl.requestManifest();
           if (header.expectsResponse) {
@@ -264,14 +267,14 @@ blink.mojom.ManifestManagerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ManifestManager_RequestManifestAndErrors_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.ManifestManager_RequestManifestAndErrors_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestManifestAndErrors');
           const result = this.impl.requestManifestAndErrors();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ManifestManager_RequestManifestDebugInfo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.ManifestManager_RequestManifestDebugInfo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestManifestDebugInfo');
           const result = this.impl.requestManifestDebugInfo();
           if (header.expectsResponse) {
@@ -284,7 +287,7 @@ blink.mojom.ManifestManagerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ManifestManager_ParseManifestFromString_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.ManifestManager_ParseManifestFromString_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.parseManifestFromString');
           const result = this.impl.parseManifestFromString(params.document_url, params.manifest_url, params.manifest_content);
           if (header.expectsResponse) {

@@ -154,9 +154,11 @@ arc.mojom.TtsHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -170,12 +172,13 @@ arc.mojom.TtsHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnVoicesChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.TtsHost_OnVoicesChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.TtsHost_OnVoicesChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnVoicesChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -186,7 +189,7 @@ arc.mojom.TtsHostReceiver = class {
         // Try Method 1: OnTtsEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.TtsHost_OnTtsEvent_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.TtsHost_OnTtsEvent_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTtsEvent (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -203,14 +206,14 @@ arc.mojom.TtsHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.TtsHost_OnVoicesChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.TtsHost_OnVoicesChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onVoicesChanged');
           const result = this.impl.onVoicesChanged(params.voices);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.TtsHost_OnTtsEvent_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.TtsHost_OnTtsEvent_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onTtsEvent');
           const result = this.impl.onTtsEvent(params.utteranceId, params.event_type, params.char_index, params.length, params.error_msg);
           break;
@@ -363,9 +366,11 @@ arc.mojom.TtsInstanceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -379,12 +384,13 @@ arc.mojom.TtsInstanceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.TtsInstance_Init_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.TtsInstance_Init_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -395,7 +401,7 @@ arc.mojom.TtsInstanceReceiver = class {
         // Try Method 1: Speak
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.TtsInstance_Speak_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.TtsInstance_Speak_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Speak (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -406,7 +412,7 @@ arc.mojom.TtsInstanceReceiver = class {
         // Try Method 2: Stop
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.TtsInstance_Stop_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.TtsInstance_Stop_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Stop (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -417,7 +423,7 @@ arc.mojom.TtsInstanceReceiver = class {
         // Try Method 3: RefreshVoices
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.TtsInstance_RefreshVoices_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.TtsInstance_RefreshVoices_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RefreshVoices (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -434,7 +440,7 @@ arc.mojom.TtsInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.TtsInstance_Init_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.TtsInstance_Init_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -447,21 +453,21 @@ arc.mojom.TtsInstanceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.TtsInstance_Speak_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.TtsInstance_Speak_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.speak');
           const result = this.impl.speak(params.utterance);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.TtsInstance_Stop_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.TtsInstance_Stop_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.stop');
           const result = this.impl.stop();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.TtsInstance_RefreshVoices_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.TtsInstance_RefreshVoices_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.refreshVoices');
           const result = this.impl.refreshVoices();
           break;

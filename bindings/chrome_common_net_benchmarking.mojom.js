@@ -166,9 +166,11 @@ chrome.mojom.NetBenchmarkingReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -182,12 +184,13 @@ chrome.mojom.NetBenchmarkingReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CloseCurrentConnections
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.NetBenchmarking_CloseCurrentConnections_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.NetBenchmarking_CloseCurrentConnections_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseCurrentConnections (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -198,7 +201,7 @@ chrome.mojom.NetBenchmarkingReceiver = class {
         // Try Method 1: ClearCache
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.NetBenchmarking_ClearCache_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.NetBenchmarking_ClearCache_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearCache (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -209,7 +212,7 @@ chrome.mojom.NetBenchmarkingReceiver = class {
         // Try Method 2: ClearHostResolverCache
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.NetBenchmarking_ClearHostResolverCache_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.NetBenchmarking_ClearHostResolverCache_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearHostResolverCache (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -220,7 +223,7 @@ chrome.mojom.NetBenchmarkingReceiver = class {
         // Try Method 3: ClearPredictorCache
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.NetBenchmarking_ClearPredictorCache_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.NetBenchmarking_ClearPredictorCache_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearPredictorCache (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -237,7 +240,7 @@ chrome.mojom.NetBenchmarkingReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.NetBenchmarking_CloseCurrentConnections_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.NetBenchmarking_CloseCurrentConnections_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.closeCurrentConnections');
           const result = this.impl.closeCurrentConnections();
           if (header.expectsResponse) {
@@ -250,7 +253,7 @@ chrome.mojom.NetBenchmarkingReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.NetBenchmarking_ClearCache_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.NetBenchmarking_ClearCache_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.clearCache');
           const result = this.impl.clearCache();
           if (header.expectsResponse) {
@@ -263,7 +266,7 @@ chrome.mojom.NetBenchmarkingReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.NetBenchmarking_ClearHostResolverCache_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.NetBenchmarking_ClearHostResolverCache_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.clearHostResolverCache');
           const result = this.impl.clearHostResolverCache();
           if (header.expectsResponse) {
@@ -276,7 +279,7 @@ chrome.mojom.NetBenchmarkingReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.NetBenchmarking_ClearPredictorCache_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.NetBenchmarking_ClearPredictorCache_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.clearPredictorCache');
           const result = this.impl.clearPredictorCache();
           if (header.expectsResponse) {

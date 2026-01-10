@@ -197,9 +197,11 @@ optimization_guide_internals.mojom.PageHandlerFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -213,12 +215,13 @@ optimization_guide_internals.mojom.PageHandlerFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(optimization_guide_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(optimization_guide_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -229,7 +232,7 @@ optimization_guide_internals.mojom.PageHandlerFactoryReceiver = class {
         // Try Method 1: RequestDownloadedModelsInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestDownloadedModelsInfo (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -240,7 +243,7 @@ optimization_guide_internals.mojom.PageHandlerFactoryReceiver = class {
         // Try Method 2: RequestLoggedModelQualityClientIds
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestLoggedModelQualityClientIds (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -251,7 +254,7 @@ optimization_guide_internals.mojom.PageHandlerFactoryReceiver = class {
         // Try Method 3: RequestMqlsLogs
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestMqlsLogs (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -268,14 +271,14 @@ optimization_guide_internals.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(optimization_guide_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(optimization_guide_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestDownloadedModelsInfo');
           const result = this.impl.requestDownloadedModelsInfo();
           if (header.expectsResponse) {
@@ -288,7 +291,7 @@ optimization_guide_internals.mojom.PageHandlerFactoryReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestLoggedModelQualityClientIds');
           const result = this.impl.requestLoggedModelQualityClientIds();
           if (header.expectsResponse) {
@@ -301,7 +304,7 @@ optimization_guide_internals.mojom.PageHandlerFactoryReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestMqlsLogs');
           const result = this.impl.requestMqlsLogs();
           if (header.expectsResponse) {
@@ -410,9 +413,11 @@ optimization_guide_internals.mojom.PageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -426,12 +431,13 @@ optimization_guide_internals.mojom.PageReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnLogMessageAdded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(optimization_guide_internals.mojom.Page_OnLogMessageAdded_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(optimization_guide_internals.mojom.Page_OnLogMessageAdded_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLogMessageAdded (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -448,7 +454,7 @@ optimization_guide_internals.mojom.PageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(optimization_guide_internals.mojom.Page_OnLogMessageAdded_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(optimization_guide_internals.mojom.Page_OnLogMessageAdded_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onLogMessageAdded');
           const result = this.impl.onLogMessageAdded(params.event_time, params.log_source, params.source_file, params.source_line, params.message);
           break;

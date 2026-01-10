@@ -128,9 +128,11 @@ emoji_search.mojom.EmojiSearchReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -144,12 +146,13 @@ emoji_search.mojom.EmojiSearchReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SearchEmoji
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(emoji_search.mojom.EmojiSearch_SearchEmoji_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(emoji_search.mojom.EmojiSearch_SearchEmoji_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SearchEmoji (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -160,7 +163,7 @@ emoji_search.mojom.EmojiSearchReceiver = class {
         // Try Method 1: LoadEmojiLanguages
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(emoji_search.mojom.EmojiSearch_LoadEmojiLanguages_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(emoji_search.mojom.EmojiSearch_LoadEmojiLanguages_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadEmojiLanguages (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -177,7 +180,7 @@ emoji_search.mojom.EmojiSearchReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(emoji_search.mojom.EmojiSearch_SearchEmoji_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(emoji_search.mojom.EmojiSearch_SearchEmoji_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.searchEmoji');
           const result = this.impl.searchEmoji(params.query, params.language_codes);
           if (header.expectsResponse) {
@@ -190,7 +193,7 @@ emoji_search.mojom.EmojiSearchReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(emoji_search.mojom.EmojiSearch_LoadEmojiLanguages_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(emoji_search.mojom.EmojiSearch_LoadEmojiLanguages_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.loadEmojiLanguages');
           const result = this.impl.loadEmojiLanguages(params.language_codes);
           break;

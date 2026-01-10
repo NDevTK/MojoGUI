@@ -265,9 +265,11 @@ viz.mojom.VizMainReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -281,12 +283,13 @@ viz.mojom.VizMainReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateFrameSinkManager
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.VizMain_CreateFrameSinkManager_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.VizMain_CreateFrameSinkManager_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateFrameSinkManager (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -297,7 +300,7 @@ viz.mojom.VizMainReceiver = class {
         // Try Method 1: CreateGpuService
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.VizMain_CreateGpuService_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.VizMain_CreateGpuService_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateGpuService (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -308,7 +311,7 @@ viz.mojom.VizMainReceiver = class {
         // Try Method 2: SetRenderParams
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.VizMain_SetRenderParams_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.VizMain_SetRenderParams_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetRenderParams (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -319,7 +322,7 @@ viz.mojom.VizMainReceiver = class {
         // Try Method 3: CreateInfoCollectionGpuService
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.VizMain_CreateInfoCollectionGpuService_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.VizMain_CreateInfoCollectionGpuService_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateInfoCollectionGpuService (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -330,7 +333,7 @@ viz.mojom.VizMainReceiver = class {
         // Try Method 4: SetHostProcessId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.VizMain_SetHostProcessId_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.VizMain_SetHostProcessId_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetHostProcessId (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -341,7 +344,7 @@ viz.mojom.VizMainReceiver = class {
         // Try Method 5: NotifyWorkloadIncrease
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.VizMain_NotifyWorkloadIncrease_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.VizMain_NotifyWorkloadIncrease_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyWorkloadIncrease (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -352,7 +355,7 @@ viz.mojom.VizMainReceiver = class {
         // Try Method 6: StartDebugStream
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.VizMain_StartDebugStream_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.VizMain_StartDebugStream_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartDebugStream (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -363,7 +366,7 @@ viz.mojom.VizMainReceiver = class {
         // Try Method 7: FilterDebugStream
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.VizMain_FilterDebugStream_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.VizMain_FilterDebugStream_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FilterDebugStream (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -374,7 +377,7 @@ viz.mojom.VizMainReceiver = class {
         // Try Method 8: StopDebugStream
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(viz.mojom.VizMain_StopDebugStream_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(viz.mojom.VizMain_StopDebugStream_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopDebugStream (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -391,63 +394,63 @@ viz.mojom.VizMainReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.VizMain_CreateFrameSinkManager_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.VizMain_CreateFrameSinkManager_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createFrameSinkManager');
           const result = this.impl.createFrameSinkManager(params.params);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.VizMain_CreateGpuService_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.VizMain_CreateGpuService_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createGpuService');
           const result = this.impl.createGpuService(params.gpu_service, params.gpu_host, params.gpu_logging, params.discardable_memory_manager, params.use_shader_cache_shm_count, params.params);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.VizMain_SetRenderParams_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.VizMain_SetRenderParams_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setRenderParams');
           const result = this.impl.setRenderParams(params.subpixel_rendering, params.text_contrast, params.text_gamma);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.VizMain_CreateInfoCollectionGpuService_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.VizMain_CreateInfoCollectionGpuService_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createInfoCollectionGpuService');
           const result = this.impl.createInfoCollectionGpuService(params.info_collection_gpu_service);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.VizMain_SetHostProcessId_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.VizMain_SetHostProcessId_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setHostProcessId');
           const result = this.impl.setHostProcessId(params.pid);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.VizMain_NotifyWorkloadIncrease_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.VizMain_NotifyWorkloadIncrease_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.notifyWorkloadIncrease');
           const result = this.impl.notifyWorkloadIncrease();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.VizMain_StartDebugStream_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.VizMain_StartDebugStream_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.startDebugStream');
           const result = this.impl.startDebugStream(params.viz_debug);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.VizMain_FilterDebugStream_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.VizMain_FilterDebugStream_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.filterDebugStream');
           const result = this.impl.filterDebugStream(params.filterData);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.VizMain_StopDebugStream_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(viz.mojom.VizMain_StopDebugStream_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.stopDebugStream');
           const result = this.impl.stopDebugStream();
           break;

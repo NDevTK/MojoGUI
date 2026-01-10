@@ -734,9 +734,11 @@ blink.mojom.AuthenticatorReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -750,12 +752,13 @@ blink.mojom.AuthenticatorReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: MakeCredential
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.Authenticator_MakeCredential_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.Authenticator_MakeCredential_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MakeCredential (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -766,7 +769,7 @@ blink.mojom.AuthenticatorReceiver = class {
         // Try Method 1: GetCredential
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.Authenticator_GetCredential_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.Authenticator_GetCredential_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCredential (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -777,7 +780,7 @@ blink.mojom.AuthenticatorReceiver = class {
         // Try Method 2: IsUserVerifyingPlatformAuthenticatorAvailable
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsUserVerifyingPlatformAuthenticatorAvailable (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -788,7 +791,7 @@ blink.mojom.AuthenticatorReceiver = class {
         // Try Method 3: IsConditionalMediationAvailable
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.Authenticator_IsConditionalMediationAvailable_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.Authenticator_IsConditionalMediationAvailable_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsConditionalMediationAvailable (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -799,7 +802,7 @@ blink.mojom.AuthenticatorReceiver = class {
         // Try Method 4: Report
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.Authenticator_Report_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.Authenticator_Report_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Report (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -810,7 +813,7 @@ blink.mojom.AuthenticatorReceiver = class {
         // Try Method 5: GetClientCapabilities
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.Authenticator_GetClientCapabilities_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.Authenticator_GetClientCapabilities_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetClientCapabilities (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -821,7 +824,7 @@ blink.mojom.AuthenticatorReceiver = class {
         // Try Method 6: Cancel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.Authenticator_Cancel_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.Authenticator_Cancel_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Cancel (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -838,7 +841,7 @@ blink.mojom.AuthenticatorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.Authenticator_MakeCredential_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.Authenticator_MakeCredential_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.makeCredential');
           const result = this.impl.makeCredential(params.options);
           if (header.expectsResponse) {
@@ -851,7 +854,7 @@ blink.mojom.AuthenticatorReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.Authenticator_GetCredential_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.Authenticator_GetCredential_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getCredential');
           const result = this.impl.getCredential(params.options);
           if (header.expectsResponse) {
@@ -864,7 +867,7 @@ blink.mojom.AuthenticatorReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.isUserVerifyingPlatformAuthenticatorAvailable');
           const result = this.impl.isUserVerifyingPlatformAuthenticatorAvailable();
           if (header.expectsResponse) {
@@ -877,7 +880,7 @@ blink.mojom.AuthenticatorReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.Authenticator_IsConditionalMediationAvailable_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.Authenticator_IsConditionalMediationAvailable_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.isConditionalMediationAvailable');
           const result = this.impl.isConditionalMediationAvailable();
           if (header.expectsResponse) {
@@ -890,7 +893,7 @@ blink.mojom.AuthenticatorReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.Authenticator_Report_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.Authenticator_Report_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.report');
           const result = this.impl.report(params.options);
           if (header.expectsResponse) {
@@ -903,7 +906,7 @@ blink.mojom.AuthenticatorReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.Authenticator_GetClientCapabilities_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.Authenticator_GetClientCapabilities_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getClientCapabilities');
           const result = this.impl.getClientCapabilities();
           if (header.expectsResponse) {
@@ -916,7 +919,7 @@ blink.mojom.AuthenticatorReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.Authenticator_Cancel_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.Authenticator_Cancel_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.cancel');
           const result = this.impl.cancel();
           break;

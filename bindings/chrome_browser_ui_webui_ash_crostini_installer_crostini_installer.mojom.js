@@ -109,9 +109,11 @@ ash.crostini_installer.mojom.PageHandlerFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -125,12 +127,13 @@ ash.crostini_installer.mojom.PageHandlerFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.crostini_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.crostini_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -147,7 +150,7 @@ ash.crostini_installer.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.crostini_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.crostini_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
@@ -319,9 +322,11 @@ ash.crostini_installer.mojom.PageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -335,12 +340,13 @@ ash.crostini_installer.mojom.PageHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Install
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.crostini_installer.mojom.PageHandler_Install_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.crostini_installer.mojom.PageHandler_Install_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Install (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -351,7 +357,7 @@ ash.crostini_installer.mojom.PageHandlerReceiver = class {
         // Try Method 1: Cancel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.crostini_installer.mojom.PageHandler_Cancel_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.crostini_installer.mojom.PageHandler_Cancel_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Cancel (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -362,7 +368,7 @@ ash.crostini_installer.mojom.PageHandlerReceiver = class {
         // Try Method 2: CancelBeforeStart
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.crostini_installer.mojom.PageHandler_CancelBeforeStart_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.crostini_installer.mojom.PageHandler_CancelBeforeStart_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelBeforeStart (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -373,7 +379,7 @@ ash.crostini_installer.mojom.PageHandlerReceiver = class {
         // Try Method 3: OnPageClosed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.crostini_installer.mojom.PageHandler_OnPageClosed_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.crostini_installer.mojom.PageHandler_OnPageClosed_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPageClosed (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -384,7 +390,7 @@ ash.crostini_installer.mojom.PageHandlerReceiver = class {
         // Try Method 4: RequestAmountOfFreeDiskSpace
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestAmountOfFreeDiskSpace (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -401,35 +407,35 @@ ash.crostini_installer.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.crostini_installer.mojom.PageHandler_Install_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.crostini_installer.mojom.PageHandler_Install_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.install');
           const result = this.impl.install(params.disk_size, params.username);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.crostini_installer.mojom.PageHandler_Cancel_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.crostini_installer.mojom.PageHandler_Cancel_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.cancel');
           const result = this.impl.cancel();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.crostini_installer.mojom.PageHandler_CancelBeforeStart_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.crostini_installer.mojom.PageHandler_CancelBeforeStart_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.cancelBeforeStart');
           const result = this.impl.cancelBeforeStart();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.crostini_installer.mojom.PageHandler_OnPageClosed_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.crostini_installer.mojom.PageHandler_OnPageClosed_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onPageClosed');
           const result = this.impl.onPageClosed();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestAmountOfFreeDiskSpace');
           const result = this.impl.requestAmountOfFreeDiskSpace();
           if (header.expectsResponse) {
@@ -584,9 +590,11 @@ ash.crostini_installer.mojom.PageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -600,12 +608,13 @@ ash.crostini_installer.mojom.PageReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnProgressUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.crostini_installer.mojom.Page_OnProgressUpdate_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.crostini_installer.mojom.Page_OnProgressUpdate_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnProgressUpdate (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -616,7 +625,7 @@ ash.crostini_installer.mojom.PageReceiver = class {
         // Try Method 1: OnInstallFinished
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.crostini_installer.mojom.Page_OnInstallFinished_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.crostini_installer.mojom.Page_OnInstallFinished_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnInstallFinished (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -627,7 +636,7 @@ ash.crostini_installer.mojom.PageReceiver = class {
         // Try Method 2: OnCanceled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.crostini_installer.mojom.Page_OnCanceled_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.crostini_installer.mojom.Page_OnCanceled_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCanceled (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -638,7 +647,7 @@ ash.crostini_installer.mojom.PageReceiver = class {
         // Try Method 3: RequestClose
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.crostini_installer.mojom.Page_RequestClose_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.crostini_installer.mojom.Page_RequestClose_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestClose (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -655,28 +664,28 @@ ash.crostini_installer.mojom.PageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.crostini_installer.mojom.Page_OnProgressUpdate_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.crostini_installer.mojom.Page_OnProgressUpdate_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onProgressUpdate');
           const result = this.impl.onProgressUpdate(params.install_state, params.progress_fraction);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.crostini_installer.mojom.Page_OnInstallFinished_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.crostini_installer.mojom.Page_OnInstallFinished_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onInstallFinished');
           const result = this.impl.onInstallFinished(params.error);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.crostini_installer.mojom.Page_OnCanceled_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.crostini_installer.mojom.Page_OnCanceled_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onCanceled');
           const result = this.impl.onCanceled();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.crostini_installer.mojom.Page_RequestClose_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.crostini_installer.mojom.Page_RequestClose_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestClose');
           const result = this.impl.requestClose();
           break;

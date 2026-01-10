@@ -178,9 +178,11 @@ arc.mojom.TimerHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -194,12 +196,13 @@ arc.mojom.TimerHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateTimers
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.TimerHost_CreateTimers_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.TimerHost_CreateTimers_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateTimers (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -210,7 +213,7 @@ arc.mojom.TimerHostReceiver = class {
         // Try Method 1: StartTimer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.TimerHost_StartTimer_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.TimerHost_StartTimer_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartTimer (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -221,7 +224,7 @@ arc.mojom.TimerHostReceiver = class {
         // Try Method 2: SetTime
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.TimerHost_SetTime_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.TimerHost_SetTime_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTime (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -238,7 +241,7 @@ arc.mojom.TimerHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.TimerHost_CreateTimers_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.TimerHost_CreateTimers_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createTimers');
           const result = this.impl.createTimers(params.timer_requests);
           if (header.expectsResponse) {
@@ -251,7 +254,7 @@ arc.mojom.TimerHostReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.TimerHost_StartTimer_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.TimerHost_StartTimer_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.startTimer');
           const result = this.impl.startTimer(params.clock_id, params.absolute_expiration_time);
           if (header.expectsResponse) {
@@ -264,7 +267,7 @@ arc.mojom.TimerHostReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.TimerHost_SetTime_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.TimerHost_SetTime_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setTime');
           const result = this.impl.setTime(params.time);
           if (header.expectsResponse) {
@@ -374,9 +377,11 @@ arc.mojom.TimerInstanceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -390,12 +395,13 @@ arc.mojom.TimerInstanceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.TimerInstance_Init_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.TimerInstance_Init_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -412,7 +418,7 @@ arc.mojom.TimerInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.TimerInstance_Init_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.TimerInstance_Init_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {

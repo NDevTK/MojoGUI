@@ -158,9 +158,11 @@ blink.mojom.PrivateAggregationHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -174,12 +176,13 @@ blink.mojom.PrivateAggregationHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ContributeToHistogram
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.PrivateAggregationHost_ContributeToHistogram_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.PrivateAggregationHost_ContributeToHistogram_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ContributeToHistogram (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -190,7 +193,7 @@ blink.mojom.PrivateAggregationHostReceiver = class {
         // Try Method 1: ContributeToHistogramOnEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.PrivateAggregationHost_ContributeToHistogramOnEvent_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.PrivateAggregationHost_ContributeToHistogramOnEvent_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ContributeToHistogramOnEvent (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -201,7 +204,7 @@ blink.mojom.PrivateAggregationHostReceiver = class {
         // Try Method 2: EnableDebugMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.PrivateAggregationHost_EnableDebugMode_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.PrivateAggregationHost_EnableDebugMode_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableDebugMode (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -218,21 +221,21 @@ blink.mojom.PrivateAggregationHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PrivateAggregationHost_ContributeToHistogram_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.PrivateAggregationHost_ContributeToHistogram_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.contributeToHistogram');
           const result = this.impl.contributeToHistogram(params.contributions);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PrivateAggregationHost_ContributeToHistogramOnEvent_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.PrivateAggregationHost_ContributeToHistogramOnEvent_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.contributeToHistogramOnEvent');
           const result = this.impl.contributeToHistogramOnEvent(params.error_event, params.contributions);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PrivateAggregationHost_EnableDebugMode_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.PrivateAggregationHost_EnableDebugMode_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.enableDebugMode');
           const result = this.impl.enableDebugMode(params.debug_key);
           break;

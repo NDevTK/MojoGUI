@@ -162,9 +162,11 @@ app_home.mojom.PageHandlerFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -178,12 +180,13 @@ app_home.mojom.PageHandlerFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(app_home.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(app_home.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -200,7 +203,7 @@ app_home.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(app_home.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(app_home.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
@@ -469,9 +472,11 @@ app_home.mojom.PageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -485,12 +490,13 @@ app_home.mojom.PageHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetApps
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(app_home.mojom.PageHandler_GetApps_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(app_home.mojom.PageHandler_GetApps_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetApps (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -501,7 +507,7 @@ app_home.mojom.PageHandlerReceiver = class {
         // Try Method 1: GetDeprecationLinkString
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(app_home.mojom.PageHandler_GetDeprecationLinkString_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(app_home.mojom.PageHandler_GetDeprecationLinkString_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDeprecationLinkString (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -512,7 +518,7 @@ app_home.mojom.PageHandlerReceiver = class {
         // Try Method 2: UninstallApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(app_home.mojom.PageHandler_UninstallApp_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(app_home.mojom.PageHandler_UninstallApp_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UninstallApp (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -523,7 +529,7 @@ app_home.mojom.PageHandlerReceiver = class {
         // Try Method 3: ShowAppSettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(app_home.mojom.PageHandler_ShowAppSettings_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(app_home.mojom.PageHandler_ShowAppSettings_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowAppSettings (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -534,7 +540,7 @@ app_home.mojom.PageHandlerReceiver = class {
         // Try Method 4: CreateAppShortcut
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(app_home.mojom.PageHandler_CreateAppShortcut_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(app_home.mojom.PageHandler_CreateAppShortcut_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateAppShortcut (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -545,7 +551,7 @@ app_home.mojom.PageHandlerReceiver = class {
         // Try Method 5: LaunchApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(app_home.mojom.PageHandler_LaunchApp_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(app_home.mojom.PageHandler_LaunchApp_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LaunchApp (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -556,7 +562,7 @@ app_home.mojom.PageHandlerReceiver = class {
         // Try Method 6: SetRunOnOsLoginMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(app_home.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(app_home.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetRunOnOsLoginMode (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -567,7 +573,7 @@ app_home.mojom.PageHandlerReceiver = class {
         // Try Method 7: LaunchDeprecatedAppDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(app_home.mojom.PageHandler_LaunchDeprecatedAppDialog_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(app_home.mojom.PageHandler_LaunchDeprecatedAppDialog_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LaunchDeprecatedAppDialog (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -578,7 +584,7 @@ app_home.mojom.PageHandlerReceiver = class {
         // Try Method 8: InstallAppLocally
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(app_home.mojom.PageHandler_InstallAppLocally_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(app_home.mojom.PageHandler_InstallAppLocally_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InstallAppLocally (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -589,7 +595,7 @@ app_home.mojom.PageHandlerReceiver = class {
         // Try Method 9: SetUserDisplayMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(app_home.mojom.PageHandler_SetUserDisplayMode_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(app_home.mojom.PageHandler_SetUserDisplayMode_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUserDisplayMode (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -606,7 +612,7 @@ app_home.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(app_home.mojom.PageHandler_GetApps_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(app_home.mojom.PageHandler_GetApps_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getApps');
           const result = this.impl.getApps();
           if (header.expectsResponse) {
@@ -619,7 +625,7 @@ app_home.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(app_home.mojom.PageHandler_GetDeprecationLinkString_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(app_home.mojom.PageHandler_GetDeprecationLinkString_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getDeprecationLinkString');
           const result = this.impl.getDeprecationLinkString();
           if (header.expectsResponse) {
@@ -632,21 +638,21 @@ app_home.mojom.PageHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(app_home.mojom.PageHandler_UninstallApp_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(app_home.mojom.PageHandler_UninstallApp_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.uninstallApp');
           const result = this.impl.uninstallApp(params.app_id);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(app_home.mojom.PageHandler_ShowAppSettings_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(app_home.mojom.PageHandler_ShowAppSettings_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.showAppSettings');
           const result = this.impl.showAppSettings(params.app_id);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(app_home.mojom.PageHandler_CreateAppShortcut_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(app_home.mojom.PageHandler_CreateAppShortcut_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createAppShortcut');
           const result = this.impl.createAppShortcut(params.app_id);
           if (header.expectsResponse) {
@@ -659,35 +665,35 @@ app_home.mojom.PageHandlerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(app_home.mojom.PageHandler_LaunchApp_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(app_home.mojom.PageHandler_LaunchApp_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.launchApp');
           const result = this.impl.launchApp(params.app_id, params.click_event);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(app_home.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(app_home.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setRunOnOsLoginMode');
           const result = this.impl.setRunOnOsLoginMode(params.app_id, params.run_on_os_login_mode);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(app_home.mojom.PageHandler_LaunchDeprecatedAppDialog_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(app_home.mojom.PageHandler_LaunchDeprecatedAppDialog_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.launchDeprecatedAppDialog');
           const result = this.impl.launchDeprecatedAppDialog();
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(app_home.mojom.PageHandler_InstallAppLocally_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(app_home.mojom.PageHandler_InstallAppLocally_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.installAppLocally');
           const result = this.impl.installAppLocally(params.app_id);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(app_home.mojom.PageHandler_SetUserDisplayMode_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(app_home.mojom.PageHandler_SetUserDisplayMode_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setUserDisplayMode');
           const result = this.impl.setUserDisplayMode(params.app_id, params.display_mode);
           break;
@@ -820,9 +826,11 @@ app_home.mojom.PageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -836,12 +844,13 @@ app_home.mojom.PageReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AddApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(app_home.mojom.Page_AddApp_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(app_home.mojom.Page_AddApp_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddApp (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -852,7 +861,7 @@ app_home.mojom.PageReceiver = class {
         // Try Method 1: RemoveApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(app_home.mojom.Page_RemoveApp_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(app_home.mojom.Page_RemoveApp_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveApp (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -863,7 +872,7 @@ app_home.mojom.PageReceiver = class {
         // Try Method 2: UpdateApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(app_home.mojom.Page_UpdateApp_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(app_home.mojom.Page_UpdateApp_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateApp (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -880,21 +889,21 @@ app_home.mojom.PageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(app_home.mojom.Page_AddApp_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(app_home.mojom.Page_AddApp_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addApp');
           const result = this.impl.addApp(params.app_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(app_home.mojom.Page_RemoveApp_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(app_home.mojom.Page_RemoveApp_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.removeApp');
           const result = this.impl.removeApp(params.app_info);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(app_home.mojom.Page_UpdateApp_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(app_home.mojom.Page_UpdateApp_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.updateApp');
           const result = this.impl.updateApp(params.app_info);
           break;

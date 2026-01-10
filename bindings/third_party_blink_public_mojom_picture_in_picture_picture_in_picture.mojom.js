@@ -123,9 +123,11 @@ blink.mojom.PictureInPictureSessionObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -139,12 +141,13 @@ blink.mojom.PictureInPictureSessionObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnWindowSizeChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.PictureInPictureSessionObserver_OnWindowSizeChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.PictureInPictureSessionObserver_OnWindowSizeChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWindowSizeChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -155,7 +158,7 @@ blink.mojom.PictureInPictureSessionObserverReceiver = class {
         // Try Method 1: OnStopped
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.PictureInPictureSessionObserver_OnStopped_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.PictureInPictureSessionObserver_OnStopped_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStopped (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -172,14 +175,14 @@ blink.mojom.PictureInPictureSessionObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PictureInPictureSessionObserver_OnWindowSizeChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.PictureInPictureSessionObserver_OnWindowSizeChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onWindowSizeChanged');
           const result = this.impl.onWindowSizeChanged(params.size);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PictureInPictureSessionObserver_OnStopped_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.PictureInPictureSessionObserver_OnStopped_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onStopped');
           const result = this.impl.onStopped();
           break;
@@ -320,9 +323,11 @@ blink.mojom.PictureInPictureSessionReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -336,12 +341,13 @@ blink.mojom.PictureInPictureSessionReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Update
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.PictureInPictureSession_Update_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.PictureInPictureSession_Update_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Update (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -352,7 +358,7 @@ blink.mojom.PictureInPictureSessionReceiver = class {
         // Try Method 1: Stop
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.PictureInPictureSession_Stop_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.PictureInPictureSession_Stop_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Stop (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -363,7 +369,7 @@ blink.mojom.PictureInPictureSessionReceiver = class {
         // Try Method 2: UpdateMediaPosition
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.PictureInPictureSession_UpdateMediaPosition_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.PictureInPictureSession_UpdateMediaPosition_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateMediaPosition (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -380,14 +386,14 @@ blink.mojom.PictureInPictureSessionReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PictureInPictureSession_Update_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.PictureInPictureSession_Update_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.update');
           const result = this.impl.update(params.player_id, params.player_remote, params.surface_id, params.natural_size, params.show_play_pause_button);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PictureInPictureSession_Stop_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.PictureInPictureSession_Stop_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.stop');
           const result = this.impl.stop();
           if (header.expectsResponse) {
@@ -400,7 +406,7 @@ blink.mojom.PictureInPictureSessionReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PictureInPictureSession_UpdateMediaPosition_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.PictureInPictureSession_UpdateMediaPosition_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.updateMediaPosition');
           const result = this.impl.updateMediaPosition(params.media_position);
           break;
@@ -512,9 +518,11 @@ blink.mojom.PictureInPictureServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -528,12 +536,13 @@ blink.mojom.PictureInPictureServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: StartSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.PictureInPictureService_StartSession_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.PictureInPictureService_StartSession_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartSession (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -550,7 +559,7 @@ blink.mojom.PictureInPictureServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PictureInPictureService_StartSession_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.PictureInPictureService_StartSession_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.startSession');
           const result = this.impl.startSession(params.player_id, params.player_remote, params.surface_id, params.natural_size, params.show_play_pause_button, params.observer, params.source_bounds);
           if (header.expectsResponse) {

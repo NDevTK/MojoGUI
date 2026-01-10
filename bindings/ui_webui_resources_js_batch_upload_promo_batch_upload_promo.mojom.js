@@ -101,9 +101,11 @@ batch_upload_promo.mojom.PageHandlerFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -117,12 +119,13 @@ batch_upload_promo.mojom.PageHandlerFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateBatchUploadPromoHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(batch_upload_promo.mojom.PageHandlerFactory_CreateBatchUploadPromoHandler_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(batch_upload_promo.mojom.PageHandlerFactory_CreateBatchUploadPromoHandler_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateBatchUploadPromoHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -139,7 +142,7 @@ batch_upload_promo.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(batch_upload_promo.mojom.PageHandlerFactory_CreateBatchUploadPromoHandler_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(batch_upload_promo.mojom.PageHandlerFactory_CreateBatchUploadPromoHandler_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createBatchUploadPromoHandler');
           const result = this.impl.createBatchUploadPromoHandler(params.page, params.handler);
           break;
@@ -259,9 +262,11 @@ batch_upload_promo.mojom.PageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -275,12 +280,13 @@ batch_upload_promo.mojom.PageHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetBatchUploadPromoLocalDataCount
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetBatchUploadPromoLocalDataCount (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -291,7 +297,7 @@ batch_upload_promo.mojom.PageHandlerReceiver = class {
         // Try Method 1: OnBatchUploadPromoClicked
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(batch_upload_promo.mojom.PageHandler_OnBatchUploadPromoClicked_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(batch_upload_promo.mojom.PageHandler_OnBatchUploadPromoClicked_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBatchUploadPromoClicked (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -308,7 +314,7 @@ batch_upload_promo.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getBatchUploadPromoLocalDataCount');
           const result = this.impl.getBatchUploadPromoLocalDataCount();
           if (header.expectsResponse) {
@@ -321,7 +327,7 @@ batch_upload_promo.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(batch_upload_promo.mojom.PageHandler_OnBatchUploadPromoClicked_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(batch_upload_promo.mojom.PageHandler_OnBatchUploadPromoClicked_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onBatchUploadPromoClicked');
           const result = this.impl.onBatchUploadPromoClicked();
           break;
@@ -420,9 +426,11 @@ batch_upload_promo.mojom.PageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -436,12 +444,13 @@ batch_upload_promo.mojom.PageReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnLocalDataCountChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(batch_upload_promo.mojom.Page_OnLocalDataCountChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(batch_upload_promo.mojom.Page_OnLocalDataCountChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLocalDataCountChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -458,7 +467,7 @@ batch_upload_promo.mojom.PageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(batch_upload_promo.mojom.Page_OnLocalDataCountChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(batch_upload_promo.mojom.Page_OnLocalDataCountChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onLocalDataCountChanged');
           const result = this.impl.onLocalDataCountChanged(params.local_data_count);
           break;

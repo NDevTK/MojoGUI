@@ -158,9 +158,11 @@ arc.mojom.AppfuseHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -174,12 +176,13 @@ arc.mojom.AppfuseHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Mount
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.AppfuseHost_Mount_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.AppfuseHost_Mount_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Mount (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -190,7 +193,7 @@ arc.mojom.AppfuseHostReceiver = class {
         // Try Method 1: Unmount
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.AppfuseHost_Unmount_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.AppfuseHost_Unmount_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Unmount (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -201,7 +204,7 @@ arc.mojom.AppfuseHostReceiver = class {
         // Try Method 2: OpenFile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.AppfuseHost_OpenFile_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.AppfuseHost_OpenFile_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenFile (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -218,7 +221,7 @@ arc.mojom.AppfuseHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.AppfuseHost_Mount_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.AppfuseHost_Mount_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.mount');
           const result = this.impl.mount(params.uid, params.mount_id);
           if (header.expectsResponse) {
@@ -231,7 +234,7 @@ arc.mojom.AppfuseHostReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.AppfuseHost_Unmount_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.AppfuseHost_Unmount_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.unmount');
           const result = this.impl.unmount(params.uid, params.mount_id);
           if (header.expectsResponse) {
@@ -244,7 +247,7 @@ arc.mojom.AppfuseHostReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.AppfuseHost_OpenFile_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.AppfuseHost_OpenFile_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.openFile');
           const result = this.impl.openFile(params.uid, params.mount_id, params.file_id, params.flags);
           if (header.expectsResponse) {
@@ -354,9 +357,11 @@ arc.mojom.AppfuseInstanceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -370,12 +375,13 @@ arc.mojom.AppfuseInstanceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.AppfuseInstance_Init_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.AppfuseInstance_Init_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -392,7 +398,7 @@ arc.mojom.AppfuseInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.AppfuseInstance_Init_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.AppfuseInstance_Init_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {

@@ -218,9 +218,11 @@ ash.settings.mojom.UserActionRecorderReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -234,12 +236,13 @@ ash.settings.mojom.UserActionRecorderReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: RecordPageFocus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.settings.mojom.UserActionRecorder_RecordPageFocus_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.settings.mojom.UserActionRecorder_RecordPageFocus_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordPageFocus (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -250,7 +253,7 @@ ash.settings.mojom.UserActionRecorderReceiver = class {
         // Try Method 1: RecordPageBlur
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.settings.mojom.UserActionRecorder_RecordPageBlur_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.settings.mojom.UserActionRecorder_RecordPageBlur_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordPageBlur (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -261,7 +264,7 @@ ash.settings.mojom.UserActionRecorderReceiver = class {
         // Try Method 2: RecordClick
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.settings.mojom.UserActionRecorder_RecordClick_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.settings.mojom.UserActionRecorder_RecordClick_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordClick (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -272,7 +275,7 @@ ash.settings.mojom.UserActionRecorderReceiver = class {
         // Try Method 3: RecordNavigation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.settings.mojom.UserActionRecorder_RecordNavigation_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.settings.mojom.UserActionRecorder_RecordNavigation_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordNavigation (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -283,7 +286,7 @@ ash.settings.mojom.UserActionRecorderReceiver = class {
         // Try Method 4: RecordSearch
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.settings.mojom.UserActionRecorder_RecordSearch_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.settings.mojom.UserActionRecorder_RecordSearch_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordSearch (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -294,7 +297,7 @@ ash.settings.mojom.UserActionRecorderReceiver = class {
         // Try Method 5: RecordSettingChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.settings.mojom.UserActionRecorder_RecordSettingChange_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.settings.mojom.UserActionRecorder_RecordSettingChange_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordSettingChange (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -305,7 +308,7 @@ ash.settings.mojom.UserActionRecorderReceiver = class {
         // Try Method 6: RecordSettingChangeWithDetails
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordSettingChangeWithDetails (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -322,49 +325,49 @@ ash.settings.mojom.UserActionRecorderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.settings.mojom.UserActionRecorder_RecordPageFocus_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.settings.mojom.UserActionRecorder_RecordPageFocus_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.recordPageFocus');
           const result = this.impl.recordPageFocus();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.settings.mojom.UserActionRecorder_RecordPageBlur_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.settings.mojom.UserActionRecorder_RecordPageBlur_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.recordPageBlur');
           const result = this.impl.recordPageBlur();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.settings.mojom.UserActionRecorder_RecordClick_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.settings.mojom.UserActionRecorder_RecordClick_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.recordClick');
           const result = this.impl.recordClick();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.settings.mojom.UserActionRecorder_RecordNavigation_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.settings.mojom.UserActionRecorder_RecordNavigation_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.recordNavigation');
           const result = this.impl.recordNavigation();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.settings.mojom.UserActionRecorder_RecordSearch_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.settings.mojom.UserActionRecorder_RecordSearch_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.recordSearch');
           const result = this.impl.recordSearch();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.settings.mojom.UserActionRecorder_RecordSettingChange_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.settings.mojom.UserActionRecorder_RecordSettingChange_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.recordSettingChange');
           const result = this.impl.recordSettingChange();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.recordSettingChangeWithDetails');
           const result = this.impl.recordSettingChangeWithDetails(params.setting, params.value);
           break;

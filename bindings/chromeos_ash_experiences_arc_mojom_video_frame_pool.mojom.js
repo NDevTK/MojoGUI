@@ -134,9 +134,11 @@ arc.mojom.VideoFramePoolReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -150,12 +152,13 @@ arc.mojom.VideoFramePoolReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Initialize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.VideoFramePool_Initialize_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.VideoFramePool_Initialize_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Initialize (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -166,7 +169,7 @@ arc.mojom.VideoFramePoolReceiver = class {
         // Try Method 1: AddVideoFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.VideoFramePool_AddVideoFrame_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.VideoFramePool_AddVideoFrame_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddVideoFrame (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -183,14 +186,14 @@ arc.mojom.VideoFramePoolReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.VideoFramePool_Initialize_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.VideoFramePool_Initialize_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.initialize');
           const result = this.impl.initialize(params.client);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.VideoFramePool_AddVideoFrame_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.VideoFramePool_AddVideoFrame_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addVideoFrame');
           const result = this.impl.addVideoFrame(params.video_frame);
           if (header.expectsResponse) {
@@ -303,9 +306,11 @@ arc.mojom.VideoFramePoolClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -319,12 +324,13 @@ arc.mojom.VideoFramePoolClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: RequestVideoFrames
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.VideoFramePoolClient_RequestVideoFrames_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.VideoFramePoolClient_RequestVideoFrames_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestVideoFrames (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -341,7 +347,7 @@ arc.mojom.VideoFramePoolClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.VideoFramePoolClient_RequestVideoFrames_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.VideoFramePoolClient_RequestVideoFrames_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestVideoFrames');
           const result = this.impl.requestVideoFrames(params.format, params.coded_size, params.visible_rect, params.num_frames);
           if (header.expectsResponse) {

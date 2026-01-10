@@ -370,9 +370,11 @@ chrome.mojom.UtilWinReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -386,12 +388,13 @@ chrome.mojom.UtilWinReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: IsPinnedToTaskbar
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.UtilWin_IsPinnedToTaskbar_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.UtilWin_IsPinnedToTaskbar_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsPinnedToTaskbar (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -402,7 +405,7 @@ chrome.mojom.UtilWinReceiver = class {
         // Try Method 1: UnpinShortcuts
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.UtilWin_UnpinShortcuts_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.UtilWin_UnpinShortcuts_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UnpinShortcuts (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -413,7 +416,7 @@ chrome.mojom.UtilWinReceiver = class {
         // Try Method 2: CreateOrUpdateShortcuts
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateOrUpdateShortcuts (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -424,7 +427,7 @@ chrome.mojom.UtilWinReceiver = class {
         // Try Method 3: CallExecuteSelectFile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.UtilWin_CallExecuteSelectFile_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.UtilWin_CallExecuteSelectFile_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CallExecuteSelectFile (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -435,7 +438,7 @@ chrome.mojom.UtilWinReceiver = class {
         // Try Method 4: InspectModule
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.UtilWin_InspectModule_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.UtilWin_InspectModule_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InspectModule (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -446,7 +449,7 @@ chrome.mojom.UtilWinReceiver = class {
         // Try Method 5: GetAntiVirusProducts
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.UtilWin_GetAntiVirusProducts_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.UtilWin_GetAntiVirusProducts_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAntiVirusProducts (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -457,7 +460,7 @@ chrome.mojom.UtilWinReceiver = class {
         // Try Method 6: GetTpmIdentifier
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.UtilWin_GetTpmIdentifier_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.UtilWin_GetTpmIdentifier_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTpmIdentifier (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -474,7 +477,7 @@ chrome.mojom.UtilWinReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.UtilWin_IsPinnedToTaskbar_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.UtilWin_IsPinnedToTaskbar_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.isPinnedToTaskbar');
           const result = this.impl.isPinnedToTaskbar();
           if (header.expectsResponse) {
@@ -487,7 +490,7 @@ chrome.mojom.UtilWinReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.UtilWin_UnpinShortcuts_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.UtilWin_UnpinShortcuts_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.unpinShortcuts');
           const result = this.impl.unpinShortcuts(params.shortcut_paths);
           if (header.expectsResponse) {
@@ -500,7 +503,7 @@ chrome.mojom.UtilWinReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createOrUpdateShortcuts');
           const result = this.impl.createOrUpdateShortcuts(params.shortcut_paths, params.properties, params.operation);
           if (header.expectsResponse) {
@@ -513,7 +516,7 @@ chrome.mojom.UtilWinReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.UtilWin_CallExecuteSelectFile_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.UtilWin_CallExecuteSelectFile_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.callExecuteSelectFile');
           const result = this.impl.callExecuteSelectFile(params.type, params.owner, params.title, params.default_path, params.filter, params.file_type_index, params.default_extension);
           if (header.expectsResponse) {
@@ -526,7 +529,7 @@ chrome.mojom.UtilWinReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.UtilWin_InspectModule_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.UtilWin_InspectModule_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.inspectModule');
           const result = this.impl.inspectModule(params.module_path);
           if (header.expectsResponse) {
@@ -539,7 +542,7 @@ chrome.mojom.UtilWinReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.UtilWin_GetAntiVirusProducts_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.UtilWin_GetAntiVirusProducts_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getAntiVirusProducts');
           const result = this.impl.getAntiVirusProducts(params.report_full_names);
           if (header.expectsResponse) {
@@ -552,7 +555,7 @@ chrome.mojom.UtilWinReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.UtilWin_GetTpmIdentifier_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.UtilWin_GetTpmIdentifier_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getTpmIdentifier');
           const result = this.impl.getTpmIdentifier();
           if (header.expectsResponse) {
@@ -661,9 +664,11 @@ chrome.mojom.ProcessorMetricsReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -677,12 +682,13 @@ chrome.mojom.ProcessorMetricsReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: RecordProcessorMetrics
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordProcessorMetrics (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -699,7 +705,7 @@ chrome.mojom.ProcessorMetricsReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.recordProcessorMetrics');
           const result = this.impl.recordProcessorMetrics();
           if (header.expectsResponse) {

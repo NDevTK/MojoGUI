@@ -124,9 +124,11 @@ blink.mojom.SurfaceEmbedderReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -140,12 +142,13 @@ blink.mojom.SurfaceEmbedderReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetLocalSurfaceId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.SurfaceEmbedder_SetLocalSurfaceId_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.SurfaceEmbedder_SetLocalSurfaceId_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetLocalSurfaceId (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -156,7 +159,7 @@ blink.mojom.SurfaceEmbedderReceiver = class {
         // Try Method 1: OnOpacityChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.SurfaceEmbedder_OnOpacityChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.SurfaceEmbedder_OnOpacityChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnOpacityChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -173,14 +176,14 @@ blink.mojom.SurfaceEmbedderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.SurfaceEmbedder_SetLocalSurfaceId_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.SurfaceEmbedder_SetLocalSurfaceId_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setLocalSurfaceId');
           const result = this.impl.setLocalSurfaceId(params.local_surface_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.SurfaceEmbedder_OnOpacityChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.SurfaceEmbedder_OnOpacityChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onOpacityChanged');
           const result = this.impl.onOpacityChanged(params.is_opaque);
           break;
@@ -279,9 +282,11 @@ blink.mojom.EmbeddedFrameSinkClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -295,12 +300,13 @@ blink.mojom.EmbeddedFrameSinkClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: BindSurfaceEmbedder
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.EmbeddedFrameSinkClient_BindSurfaceEmbedder_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.EmbeddedFrameSinkClient_BindSurfaceEmbedder_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindSurfaceEmbedder (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -317,7 +323,7 @@ blink.mojom.EmbeddedFrameSinkClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.EmbeddedFrameSinkClient_BindSurfaceEmbedder_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.EmbeddedFrameSinkClient_BindSurfaceEmbedder_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindSurfaceEmbedder');
           const result = this.impl.bindSurfaceEmbedder(params.embedder);
           break;
@@ -549,9 +555,11 @@ blink.mojom.EmbeddedFrameSinkProviderReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -565,12 +573,13 @@ blink.mojom.EmbeddedFrameSinkProviderReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: RegisterEmbeddedFrameSink
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSink_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSink_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterEmbeddedFrameSink (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -581,7 +590,7 @@ blink.mojom.EmbeddedFrameSinkProviderReceiver = class {
         // Try Method 1: RegisterEmbeddedFrameSinkBundle
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSinkBundle_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSinkBundle_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterEmbeddedFrameSinkBundle (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -592,7 +601,7 @@ blink.mojom.EmbeddedFrameSinkProviderReceiver = class {
         // Try Method 2: CreateCompositorFrameSink
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.EmbeddedFrameSinkProvider_CreateCompositorFrameSink_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.EmbeddedFrameSinkProvider_CreateCompositorFrameSink_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateCompositorFrameSink (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -603,7 +612,7 @@ blink.mojom.EmbeddedFrameSinkProviderReceiver = class {
         // Try Method 3: CreateBundledCompositorFrameSink
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.EmbeddedFrameSinkProvider_CreateBundledCompositorFrameSink_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.EmbeddedFrameSinkProvider_CreateBundledCompositorFrameSink_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateBundledCompositorFrameSink (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -614,7 +623,7 @@ blink.mojom.EmbeddedFrameSinkProviderReceiver = class {
         // Try Method 4: CreateSimpleCompositorFrameSink
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.EmbeddedFrameSinkProvider_CreateSimpleCompositorFrameSink_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.EmbeddedFrameSinkProvider_CreateSimpleCompositorFrameSink_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateSimpleCompositorFrameSink (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -625,7 +634,7 @@ blink.mojom.EmbeddedFrameSinkProviderReceiver = class {
         // Try Method 5: ConnectToEmbedder
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.EmbeddedFrameSinkProvider_ConnectToEmbedder_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.EmbeddedFrameSinkProvider_ConnectToEmbedder_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConnectToEmbedder (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -636,7 +645,7 @@ blink.mojom.EmbeddedFrameSinkProviderReceiver = class {
         // Try Method 6: RegisterFrameSinkHierarchy
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.EmbeddedFrameSinkProvider_RegisterFrameSinkHierarchy_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.EmbeddedFrameSinkProvider_RegisterFrameSinkHierarchy_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterFrameSinkHierarchy (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -647,7 +656,7 @@ blink.mojom.EmbeddedFrameSinkProviderReceiver = class {
         // Try Method 7: UnregisterFrameSinkHierarchy
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.EmbeddedFrameSinkProvider_UnregisterFrameSinkHierarchy_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.EmbeddedFrameSinkProvider_UnregisterFrameSinkHierarchy_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UnregisterFrameSinkHierarchy (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -664,56 +673,56 @@ blink.mojom.EmbeddedFrameSinkProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSink_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSink_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.registerEmbeddedFrameSink');
           const result = this.impl.registerEmbeddedFrameSink(params.parent_frame_sink_id, params.frame_sink_id, params.client);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSinkBundle_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSinkBundle_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.registerEmbeddedFrameSinkBundle');
           const result = this.impl.registerEmbeddedFrameSinkBundle(params.bundle_id, params.receiver, params.client);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.EmbeddedFrameSinkProvider_CreateCompositorFrameSink_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.EmbeddedFrameSinkProvider_CreateCompositorFrameSink_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createCompositorFrameSink');
           const result = this.impl.createCompositorFrameSink(params.frame_sink_id, params.client, params.sink);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.EmbeddedFrameSinkProvider_CreateBundledCompositorFrameSink_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.EmbeddedFrameSinkProvider_CreateBundledCompositorFrameSink_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createBundledCompositorFrameSink');
           const result = this.impl.createBundledCompositorFrameSink(params.frame_sink_id, params.bundle_id, params.client, params.sink);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.EmbeddedFrameSinkProvider_CreateSimpleCompositorFrameSink_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.EmbeddedFrameSinkProvider_CreateSimpleCompositorFrameSink_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createSimpleCompositorFrameSink');
           const result = this.impl.createSimpleCompositorFrameSink(params.parent_frame_sink_id, params.frame_sink_id, params.surface_client, params.client, params.sink);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.EmbeddedFrameSinkProvider_ConnectToEmbedder_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.EmbeddedFrameSinkProvider_ConnectToEmbedder_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.connectToEmbedder');
           const result = this.impl.connectToEmbedder(params.frame_sink_id, params.embedder);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.EmbeddedFrameSinkProvider_RegisterFrameSinkHierarchy_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.EmbeddedFrameSinkProvider_RegisterFrameSinkHierarchy_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.registerFrameSinkHierarchy');
           const result = this.impl.registerFrameSinkHierarchy(params.frame_sink_id);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.EmbeddedFrameSinkProvider_UnregisterFrameSinkHierarchy_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.EmbeddedFrameSinkProvider_UnregisterFrameSinkHierarchy_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.unregisterFrameSinkHierarchy');
           const result = this.impl.unregisterFrameSinkHierarchy(params.frame_sink_id);
           break;

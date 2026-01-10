@@ -252,9 +252,11 @@ commerce.price_tracking.mojom.PriceTrackingHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -268,12 +270,13 @@ commerce.price_tracking.mojom.PriceTrackingHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: TrackPriceForBookmark
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(commerce.price_tracking.mojom.PriceTrackingHandler_TrackPriceForBookmark_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(commerce.price_tracking.mojom.PriceTrackingHandler_TrackPriceForBookmark_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TrackPriceForBookmark (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -284,7 +287,7 @@ commerce.price_tracking.mojom.PriceTrackingHandlerReceiver = class {
         // Try Method 1: UntrackPriceForBookmark
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(commerce.price_tracking.mojom.PriceTrackingHandler_UntrackPriceForBookmark_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(commerce.price_tracking.mojom.PriceTrackingHandler_UntrackPriceForBookmark_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UntrackPriceForBookmark (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -295,7 +298,7 @@ commerce.price_tracking.mojom.PriceTrackingHandlerReceiver = class {
         // Try Method 2: SetPriceTrackingStatusForCurrentUrl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(commerce.price_tracking.mojom.PriceTrackingHandler_SetPriceTrackingStatusForCurrentUrl_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(commerce.price_tracking.mojom.PriceTrackingHandler_SetPriceTrackingStatusForCurrentUrl_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPriceTrackingStatusForCurrentUrl (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -306,7 +309,7 @@ commerce.price_tracking.mojom.PriceTrackingHandlerReceiver = class {
         // Try Method 3: GetAllShoppingBookmarkProductInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAllShoppingBookmarkProductInfo (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -317,7 +320,7 @@ commerce.price_tracking.mojom.PriceTrackingHandlerReceiver = class {
         // Try Method 4: GetAllPriceTrackedBookmarkProductInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAllPriceTrackedBookmarkProductInfo (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -328,7 +331,7 @@ commerce.price_tracking.mojom.PriceTrackingHandlerReceiver = class {
         // Try Method 5: GetShoppingCollectionBookmarkFolderId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetShoppingCollectionBookmarkFolderId (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -339,7 +342,7 @@ commerce.price_tracking.mojom.PriceTrackingHandlerReceiver = class {
         // Try Method 6: GetParentBookmarkFolderNameForCurrentUrl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetParentBookmarkFolderNameForCurrentUrl (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -350,7 +353,7 @@ commerce.price_tracking.mojom.PriceTrackingHandlerReceiver = class {
         // Try Method 7: ShowBookmarkEditorForCurrentUrl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(commerce.price_tracking.mojom.PriceTrackingHandler_ShowBookmarkEditorForCurrentUrl_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(commerce.price_tracking.mojom.PriceTrackingHandler_ShowBookmarkEditorForCurrentUrl_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowBookmarkEditorForCurrentUrl (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -367,28 +370,28 @@ commerce.price_tracking.mojom.PriceTrackingHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(commerce.price_tracking.mojom.PriceTrackingHandler_TrackPriceForBookmark_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(commerce.price_tracking.mojom.PriceTrackingHandler_TrackPriceForBookmark_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.trackPriceForBookmark');
           const result = this.impl.trackPriceForBookmark(params.bookmark_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(commerce.price_tracking.mojom.PriceTrackingHandler_UntrackPriceForBookmark_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(commerce.price_tracking.mojom.PriceTrackingHandler_UntrackPriceForBookmark_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.untrackPriceForBookmark');
           const result = this.impl.untrackPriceForBookmark(params.bookmark_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(commerce.price_tracking.mojom.PriceTrackingHandler_SetPriceTrackingStatusForCurrentUrl_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(commerce.price_tracking.mojom.PriceTrackingHandler_SetPriceTrackingStatusForCurrentUrl_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setPriceTrackingStatusForCurrentUrl');
           const result = this.impl.setPriceTrackingStatusForCurrentUrl(params.track);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getAllShoppingBookmarkProductInfo');
           const result = this.impl.getAllShoppingBookmarkProductInfo();
           if (header.expectsResponse) {
@@ -401,7 +404,7 @@ commerce.price_tracking.mojom.PriceTrackingHandlerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getAllPriceTrackedBookmarkProductInfo');
           const result = this.impl.getAllPriceTrackedBookmarkProductInfo();
           if (header.expectsResponse) {
@@ -414,7 +417,7 @@ commerce.price_tracking.mojom.PriceTrackingHandlerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getShoppingCollectionBookmarkFolderId');
           const result = this.impl.getShoppingCollectionBookmarkFolderId();
           if (header.expectsResponse) {
@@ -427,7 +430,7 @@ commerce.price_tracking.mojom.PriceTrackingHandlerReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getParentBookmarkFolderNameForCurrentUrl');
           const result = this.impl.getParentBookmarkFolderNameForCurrentUrl();
           if (header.expectsResponse) {
@@ -440,7 +443,7 @@ commerce.price_tracking.mojom.PriceTrackingHandlerReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(commerce.price_tracking.mojom.PriceTrackingHandler_ShowBookmarkEditorForCurrentUrl_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(commerce.price_tracking.mojom.PriceTrackingHandler_ShowBookmarkEditorForCurrentUrl_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.showBookmarkEditorForCurrentUrl');
           const result = this.impl.showBookmarkEditorForCurrentUrl();
           break;
@@ -591,9 +594,11 @@ commerce.price_tracking.mojom.PageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -607,12 +612,13 @@ commerce.price_tracking.mojom.PageReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: PriceTrackedForBookmark
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(commerce.price_tracking.mojom.Page_PriceTrackedForBookmark_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(commerce.price_tracking.mojom.Page_PriceTrackedForBookmark_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PriceTrackedForBookmark (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -623,7 +629,7 @@ commerce.price_tracking.mojom.PageReceiver = class {
         // Try Method 1: PriceUntrackedForBookmark
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(commerce.price_tracking.mojom.Page_PriceUntrackedForBookmark_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(commerce.price_tracking.mojom.Page_PriceUntrackedForBookmark_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PriceUntrackedForBookmark (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -634,7 +640,7 @@ commerce.price_tracking.mojom.PageReceiver = class {
         // Try Method 2: OperationFailedForBookmark
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(commerce.price_tracking.mojom.Page_OperationFailedForBookmark_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(commerce.price_tracking.mojom.Page_OperationFailedForBookmark_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OperationFailedForBookmark (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -645,7 +651,7 @@ commerce.price_tracking.mojom.PageReceiver = class {
         // Try Method 3: OnProductBookmarkMoved
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(commerce.price_tracking.mojom.Page_OnProductBookmarkMoved_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(commerce.price_tracking.mojom.Page_OnProductBookmarkMoved_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnProductBookmarkMoved (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -662,28 +668,28 @@ commerce.price_tracking.mojom.PageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(commerce.price_tracking.mojom.Page_PriceTrackedForBookmark_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(commerce.price_tracking.mojom.Page_PriceTrackedForBookmark_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.priceTrackedForBookmark');
           const result = this.impl.priceTrackedForBookmark(params.bookmark_product);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(commerce.price_tracking.mojom.Page_PriceUntrackedForBookmark_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(commerce.price_tracking.mojom.Page_PriceUntrackedForBookmark_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.priceUntrackedForBookmark');
           const result = this.impl.priceUntrackedForBookmark(params.bookmark_product);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(commerce.price_tracking.mojom.Page_OperationFailedForBookmark_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(commerce.price_tracking.mojom.Page_OperationFailedForBookmark_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.operationFailedForBookmark');
           const result = this.impl.operationFailedForBookmark(params.bookmark_product, params.attempted_track);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(commerce.price_tracking.mojom.Page_OnProductBookmarkMoved_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(commerce.price_tracking.mojom.Page_OnProductBookmarkMoved_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onProductBookmarkMoved');
           const result = this.impl.onProductBookmarkMoved(params.bookmark_product);
           break;
@@ -783,9 +789,11 @@ commerce.price_tracking.mojom.PriceTrackingHandlerFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -799,12 +807,13 @@ commerce.price_tracking.mojom.PriceTrackingHandlerFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreatePriceTrackingHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(commerce.price_tracking.mojom.PriceTrackingHandlerFactory_CreatePriceTrackingHandler_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(commerce.price_tracking.mojom.PriceTrackingHandlerFactory_CreatePriceTrackingHandler_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePriceTrackingHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -821,7 +830,7 @@ commerce.price_tracking.mojom.PriceTrackingHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(commerce.price_tracking.mojom.PriceTrackingHandlerFactory_CreatePriceTrackingHandler_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(commerce.price_tracking.mojom.PriceTrackingHandlerFactory_CreatePriceTrackingHandler_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createPriceTrackingHandler');
           const result = this.impl.createPriceTrackingHandler(params.page, params.handler);
           break;

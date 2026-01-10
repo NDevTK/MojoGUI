@@ -402,9 +402,11 @@ tracing.mojom.ProducerHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -418,12 +420,13 @@ tracing.mojom.ProducerHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CommitData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(tracing.mojom.ProducerHost_CommitData_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(tracing.mojom.ProducerHost_CommitData_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CommitData (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -434,7 +437,7 @@ tracing.mojom.ProducerHostReceiver = class {
         // Try Method 1: RegisterDataSource
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(tracing.mojom.ProducerHost_RegisterDataSource_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(tracing.mojom.ProducerHost_RegisterDataSource_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterDataSource (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -445,7 +448,7 @@ tracing.mojom.ProducerHostReceiver = class {
         // Try Method 2: UpdateDataSource
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(tracing.mojom.ProducerHost_UpdateDataSource_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(tracing.mojom.ProducerHost_UpdateDataSource_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateDataSource (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -456,7 +459,7 @@ tracing.mojom.ProducerHostReceiver = class {
         // Try Method 3: RegisterTraceWriter
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(tracing.mojom.ProducerHost_RegisterTraceWriter_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(tracing.mojom.ProducerHost_RegisterTraceWriter_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterTraceWriter (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -467,7 +470,7 @@ tracing.mojom.ProducerHostReceiver = class {
         // Try Method 4: UnregisterTraceWriter
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(tracing.mojom.ProducerHost_UnregisterTraceWriter_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(tracing.mojom.ProducerHost_UnregisterTraceWriter_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UnregisterTraceWriter (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -484,7 +487,7 @@ tracing.mojom.ProducerHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(tracing.mojom.ProducerHost_CommitData_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(tracing.mojom.ProducerHost_CommitData_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.commitData');
           const result = this.impl.commitData(params.data_request);
           if (header.expectsResponse) {
@@ -497,28 +500,28 @@ tracing.mojom.ProducerHostReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(tracing.mojom.ProducerHost_RegisterDataSource_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(tracing.mojom.ProducerHost_RegisterDataSource_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.registerDataSource');
           const result = this.impl.registerDataSource(params.registration_info);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(tracing.mojom.ProducerHost_UpdateDataSource_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(tracing.mojom.ProducerHost_UpdateDataSource_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.updateDataSource');
           const result = this.impl.updateDataSource(params.registration_info);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(tracing.mojom.ProducerHost_RegisterTraceWriter_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(tracing.mojom.ProducerHost_RegisterTraceWriter_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.registerTraceWriter');
           const result = this.impl.registerTraceWriter(params.writer_id, params.target_buffer);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(tracing.mojom.ProducerHost_UnregisterTraceWriter_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(tracing.mojom.ProducerHost_UnregisterTraceWriter_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.unregisterTraceWriter');
           const result = this.impl.unregisterTraceWriter(params.writer_id);
           break;
@@ -695,9 +698,11 @@ tracing.mojom.ProducerClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -711,12 +716,13 @@ tracing.mojom.ProducerClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnTracingStart
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(tracing.mojom.ProducerClient_OnTracingStart_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(tracing.mojom.ProducerClient_OnTracingStart_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTracingStart (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -727,7 +733,7 @@ tracing.mojom.ProducerClientReceiver = class {
         // Try Method 1: StartDataSource
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(tracing.mojom.ProducerClient_StartDataSource_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(tracing.mojom.ProducerClient_StartDataSource_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartDataSource (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -738,7 +744,7 @@ tracing.mojom.ProducerClientReceiver = class {
         // Try Method 2: StopDataSource
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(tracing.mojom.ProducerClient_StopDataSource_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(tracing.mojom.ProducerClient_StopDataSource_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopDataSource (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -749,7 +755,7 @@ tracing.mojom.ProducerClientReceiver = class {
         // Try Method 3: Flush
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(tracing.mojom.ProducerClient_Flush_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(tracing.mojom.ProducerClient_Flush_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Flush (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -760,7 +766,7 @@ tracing.mojom.ProducerClientReceiver = class {
         // Try Method 4: ClearIncrementalState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(tracing.mojom.ProducerClient_ClearIncrementalState_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(tracing.mojom.ProducerClient_ClearIncrementalState_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearIncrementalState (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -777,14 +783,14 @@ tracing.mojom.ProducerClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(tracing.mojom.ProducerClient_OnTracingStart_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(tracing.mojom.ProducerClient_OnTracingStart_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onTracingStart');
           const result = this.impl.onTracingStart();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(tracing.mojom.ProducerClient_StartDataSource_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(tracing.mojom.ProducerClient_StartDataSource_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.startDataSource');
           const result = this.impl.startDataSource(params.id, params.data_source_config);
           if (header.expectsResponse) {
@@ -797,7 +803,7 @@ tracing.mojom.ProducerClientReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(tracing.mojom.ProducerClient_StopDataSource_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(tracing.mojom.ProducerClient_StopDataSource_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.stopDataSource');
           const result = this.impl.stopDataSource(params.id);
           if (header.expectsResponse) {
@@ -810,14 +816,14 @@ tracing.mojom.ProducerClientReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(tracing.mojom.ProducerClient_Flush_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(tracing.mojom.ProducerClient_Flush_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.flush');
           const result = this.impl.flush(params.flush_request_id, params.data_source_ids);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(tracing.mojom.ProducerClient_ClearIncrementalState_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(tracing.mojom.ProducerClient_ClearIncrementalState_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.clearIncrementalState');
           const result = this.impl.clearIncrementalState();
           break;
@@ -919,9 +925,11 @@ tracing.mojom.PerfettoServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -935,12 +943,13 @@ tracing.mojom.PerfettoServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ConnectToProducerHost
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(tracing.mojom.PerfettoService_ConnectToProducerHost_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(tracing.mojom.PerfettoService_ConnectToProducerHost_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConnectToProducerHost (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -957,7 +966,7 @@ tracing.mojom.PerfettoServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(tracing.mojom.PerfettoService_ConnectToProducerHost_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(tracing.mojom.PerfettoService_ConnectToProducerHost_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.connectToProducerHost');
           const result = this.impl.connectToProducerHost(params.producer_client, params.producer_host_receiver, params.shared_memory, params.shared_memory_buffer_page_size_bytes);
           break;
@@ -1087,9 +1096,11 @@ tracing.mojom.ConsumerHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1103,12 +1114,13 @@ tracing.mojom.ConsumerHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: EnableTracing
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(tracing.mojom.ConsumerHost_EnableTracing_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(tracing.mojom.ConsumerHost_EnableTracing_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableTracing (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1119,7 +1131,7 @@ tracing.mojom.ConsumerHostReceiver = class {
         // Try Method 1: CloneSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(tracing.mojom.ConsumerHost_CloneSession_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(tracing.mojom.ConsumerHost_CloneSession_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloneSession (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1136,14 +1148,14 @@ tracing.mojom.ConsumerHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(tracing.mojom.ConsumerHost_EnableTracing_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(tracing.mojom.ConsumerHost_EnableTracing_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.enableTracing');
           const result = this.impl.enableTracing(params.tracing_session_host, params.tracing_session_client, params.config, params.output_file);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(tracing.mojom.ConsumerHost_CloneSession_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(tracing.mojom.ConsumerHost_CloneSession_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.cloneSession');
           const result = this.impl.cloneSession(params.tracing_session_host, params.tracing_session_client, params.unguessable_name, params.privacy_filtering_enabled);
           if (header.expectsResponse) {
@@ -1334,9 +1346,11 @@ tracing.mojom.TracingSessionHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1350,12 +1364,13 @@ tracing.mojom.TracingSessionHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ChangeTraceConfig
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(tracing.mojom.TracingSessionHost_ChangeTraceConfig_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(tracing.mojom.TracingSessionHost_ChangeTraceConfig_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ChangeTraceConfig (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1366,7 +1381,7 @@ tracing.mojom.TracingSessionHostReceiver = class {
         // Try Method 1: DisableTracing
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(tracing.mojom.TracingSessionHost_DisableTracing_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(tracing.mojom.TracingSessionHost_DisableTracing_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisableTracing (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1377,7 +1392,7 @@ tracing.mojom.TracingSessionHostReceiver = class {
         // Try Method 2: ReadBuffers
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(tracing.mojom.TracingSessionHost_ReadBuffers_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(tracing.mojom.TracingSessionHost_ReadBuffers_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadBuffers (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1388,7 +1403,7 @@ tracing.mojom.TracingSessionHostReceiver = class {
         // Try Method 3: RequestBufferUsage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(tracing.mojom.TracingSessionHost_RequestBufferUsage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(tracing.mojom.TracingSessionHost_RequestBufferUsage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestBufferUsage (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1399,7 +1414,7 @@ tracing.mojom.TracingSessionHostReceiver = class {
         // Try Method 4: DisableTracingAndEmitJson
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisableTracingAndEmitJson (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1416,21 +1431,21 @@ tracing.mojom.TracingSessionHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(tracing.mojom.TracingSessionHost_ChangeTraceConfig_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(tracing.mojom.TracingSessionHost_ChangeTraceConfig_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.changeTraceConfig');
           const result = this.impl.changeTraceConfig(params.config);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(tracing.mojom.TracingSessionHost_DisableTracing_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(tracing.mojom.TracingSessionHost_DisableTracing_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.disableTracing');
           const result = this.impl.disableTracing();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(tracing.mojom.TracingSessionHost_ReadBuffers_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(tracing.mojom.TracingSessionHost_ReadBuffers_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.readBuffers');
           const result = this.impl.readBuffers(params.stream);
           if (header.expectsResponse) {
@@ -1443,7 +1458,7 @@ tracing.mojom.TracingSessionHostReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(tracing.mojom.TracingSessionHost_RequestBufferUsage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(tracing.mojom.TracingSessionHost_RequestBufferUsage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestBufferUsage');
           const result = this.impl.requestBufferUsage();
           if (header.expectsResponse) {
@@ -1456,7 +1471,7 @@ tracing.mojom.TracingSessionHostReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.disableTracingAndEmitJson');
           const result = this.impl.disableTracingAndEmitJson(params.agent_label_filter, params.stream, params.privacy_filtering_enabled);
           if (header.expectsResponse) {
@@ -1577,9 +1592,11 @@ tracing.mojom.TracingSessionClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1593,12 +1610,13 @@ tracing.mojom.TracingSessionClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnTracingEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(tracing.mojom.TracingSessionClient_OnTracingEnabled_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(tracing.mojom.TracingSessionClient_OnTracingEnabled_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTracingEnabled (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1609,7 +1627,7 @@ tracing.mojom.TracingSessionClientReceiver = class {
         // Try Method 1: OnTracingDisabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(tracing.mojom.TracingSessionClient_OnTracingDisabled_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(tracing.mojom.TracingSessionClient_OnTracingDisabled_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTracingDisabled (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1626,14 +1644,14 @@ tracing.mojom.TracingSessionClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(tracing.mojom.TracingSessionClient_OnTracingEnabled_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(tracing.mojom.TracingSessionClient_OnTracingEnabled_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onTracingEnabled');
           const result = this.impl.onTracingEnabled();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(tracing.mojom.TracingSessionClient_OnTracingDisabled_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(tracing.mojom.TracingSessionClient_OnTracingDisabled_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onTracingDisabled');
           const result = this.impl.onTracingDisabled(params.tracing_succeeded);
           break;

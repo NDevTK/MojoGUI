@@ -109,9 +109,11 @@ android_webview.mojom.RendererReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -125,12 +127,13 @@ android_webview.mojom.RendererReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ClearCache
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(android_webview.mojom.Renderer_ClearCache_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(android_webview.mojom.Renderer_ClearCache_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearCache (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -141,7 +144,7 @@ android_webview.mojom.RendererReceiver = class {
         // Try Method 1: SetJsOnlineProperty
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(android_webview.mojom.Renderer_SetJsOnlineProperty_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(android_webview.mojom.Renderer_SetJsOnlineProperty_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetJsOnlineProperty (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -158,14 +161,14 @@ android_webview.mojom.RendererReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(android_webview.mojom.Renderer_ClearCache_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(android_webview.mojom.Renderer_ClearCache_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.clearCache');
           const result = this.impl.clearCache();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(android_webview.mojom.Renderer_SetJsOnlineProperty_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(android_webview.mojom.Renderer_SetJsOnlineProperty_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setJsOnlineProperty');
           const result = this.impl.setJsOnlineProperty(params.network_up);
           break;

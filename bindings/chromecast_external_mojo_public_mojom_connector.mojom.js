@@ -122,9 +122,11 @@ chromecast.external_mojo.mojom.ExternalServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -138,12 +140,13 @@ chromecast.external_mojo.mojom.ExternalServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnBindInterface
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromecast.external_mojo.mojom.ExternalService_OnBindInterface_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromecast.external_mojo.mojom.ExternalService_OnBindInterface_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBindInterface (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -160,7 +163,7 @@ chromecast.external_mojo.mojom.ExternalServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.external_mojo.mojom.ExternalService_OnBindInterface_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromecast.external_mojo.mojom.ExternalService_OnBindInterface_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onBindInterface');
           const result = this.impl.onBindInterface(params.interface_name, params.interface_pipe);
           break;
@@ -334,9 +337,11 @@ chromecast.external_mojo.mojom.ExternalConnectorReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -350,12 +355,13 @@ chromecast.external_mojo.mojom.ExternalConnectorReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: RegisterServiceInstances
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterServiceInstances (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -366,7 +372,7 @@ chromecast.external_mojo.mojom.ExternalConnectorReceiver = class {
         // Try Method 1: BindInterface
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromecast.external_mojo.mojom.ExternalConnector_BindInterface_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromecast.external_mojo.mojom.ExternalConnector_BindInterface_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindInterface (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -377,7 +383,7 @@ chromecast.external_mojo.mojom.ExternalConnectorReceiver = class {
         // Try Method 2: Clone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromecast.external_mojo.mojom.ExternalConnector_Clone_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromecast.external_mojo.mojom.ExternalConnector_Clone_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clone (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -388,7 +394,7 @@ chromecast.external_mojo.mojom.ExternalConnectorReceiver = class {
         // Try Method 3: BindChromiumConnector
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromecast.external_mojo.mojom.ExternalConnector_BindChromiumConnector_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromecast.external_mojo.mojom.ExternalConnector_BindChromiumConnector_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindChromiumConnector (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -399,7 +405,7 @@ chromecast.external_mojo.mojom.ExternalConnectorReceiver = class {
         // Try Method 4: QueryServiceList
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> QueryServiceList (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -416,35 +422,35 @@ chromecast.external_mojo.mojom.ExternalConnectorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.registerServiceInstances');
           const result = this.impl.registerServiceInstances(params.instances_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.external_mojo.mojom.ExternalConnector_BindInterface_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromecast.external_mojo.mojom.ExternalConnector_BindInterface_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindInterface');
           const result = this.impl.bindInterface(params.service_name, params.interface_name, params.interface_pipe);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.external_mojo.mojom.ExternalConnector_Clone_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromecast.external_mojo.mojom.ExternalConnector_Clone_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.receiver);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.external_mojo.mojom.ExternalConnector_BindChromiumConnector_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromecast.external_mojo.mojom.ExternalConnector_BindChromiumConnector_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindChromiumConnector');
           const result = this.impl.bindChromiumConnector(params.interface_pipe);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.queryServiceList');
           const result = this.impl.queryServiceList();
           if (header.expectsResponse) {

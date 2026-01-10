@@ -1014,9 +1014,11 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1030,12 +1032,13 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetAvailableRoutines
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.DiagnosticsService_GetAvailableRoutines_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_GetAvailableRoutines_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAvailableRoutines (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1046,7 +1049,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 1: GetRoutineUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.DiagnosticsService_GetRoutineUpdate_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_GetRoutineUpdate_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRoutineUpdate (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1057,7 +1060,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 2: RunBatteryCapacityRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunBatteryCapacityRoutine (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1068,7 +1071,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 3: RunBatteryHealthRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunBatteryHealthRoutine (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1079,7 +1082,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 4: RunSmartctlCheckRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunSmartctlCheckRoutine (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1090,7 +1093,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 5: RunAcPowerRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunAcPowerRoutine_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunAcPowerRoutine_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunAcPowerRoutine (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1101,7 +1104,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 6: RunCpuCacheRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunCpuCacheRoutine_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunCpuCacheRoutine_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunCpuCacheRoutine (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1112,7 +1115,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 7: RunCpuStressRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunCpuStressRoutine_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunCpuStressRoutine_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunCpuStressRoutine (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1123,7 +1126,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 8: RunFloatingPointAccuracyRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunFloatingPointAccuracyRoutine (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1134,7 +1137,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 9: DEPRECATED_RunNvmeWearLevelRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DEPRECATED_RunNvmeWearLevelRoutine (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1145,7 +1148,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 10: RunNvmeSelfTestRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunNvmeSelfTestRoutine (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1156,7 +1159,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 11: RunDiskReadRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunDiskReadRoutine_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunDiskReadRoutine_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunDiskReadRoutine (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1167,7 +1170,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 12: RunPrimeSearchRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunPrimeSearchRoutine_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunPrimeSearchRoutine_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunPrimeSearchRoutine (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1178,7 +1181,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 13: RunBatteryDischargeRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunBatteryDischargeRoutine_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunBatteryDischargeRoutine_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunBatteryDischargeRoutine (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1189,7 +1192,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 14: RunBatteryChargeRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunBatteryChargeRoutine_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunBatteryChargeRoutine_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunBatteryChargeRoutine (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1200,7 +1203,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 15: RunMemoryRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunMemoryRoutine (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1211,7 +1214,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 16: RunLanConnectivityRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunLanConnectivityRoutine (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -1222,7 +1225,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 17: RunDnsResolutionRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunDnsResolutionRoutine (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -1233,7 +1236,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 18: RunSignalStrengthRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunSignalStrengthRoutine (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -1244,7 +1247,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 19: RunGatewayCanBePingedRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunGatewayCanBePingedRoutine (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -1255,7 +1258,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 20: RunDnsResolverPresentRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunDnsResolverPresentRoutine (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -1266,7 +1269,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 21: RunSensitiveSensorRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunSensitiveSensorRoutine (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -1277,7 +1280,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 22: RunFingerprintAliveRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunFingerprintAliveRoutine (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
@@ -1288,7 +1291,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 23: RunEmmcLifetimeRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunEmmcLifetimeRoutine (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
@@ -1299,7 +1302,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 24: RunBluetoothPowerRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunBluetoothPowerRoutine (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
@@ -1310,7 +1313,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 25: RunUfsLifetimeRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunUfsLifetimeRoutine (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
@@ -1321,7 +1324,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 26: RunPowerButtonRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunPowerButtonRoutine (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
@@ -1332,7 +1335,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 27: RunAudioDriverRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunAudioDriverRoutine (27)');
              this.mapOrdinal(header.ordinal, 27);
              dispatchId = 27;
@@ -1343,7 +1346,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 28: RunBluetoothDiscoveryRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunBluetoothDiscoveryRoutine (28)');
              this.mapOrdinal(header.ordinal, 28);
              dispatchId = 28;
@@ -1354,7 +1357,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 29: RunBluetoothScanningRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunBluetoothScanningRoutine (29)');
              this.mapOrdinal(header.ordinal, 29);
              dispatchId = 29;
@@ -1365,7 +1368,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 30: RunBluetoothPairingRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunBluetoothPairingRoutine (30)');
              this.mapOrdinal(header.ordinal, 30);
              dispatchId = 30;
@@ -1376,7 +1379,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 31: RunFanRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunFanRoutine_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunFanRoutine_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunFanRoutine (31)');
              this.mapOrdinal(header.ordinal, 31);
              dispatchId = 31;
@@ -1393,7 +1396,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.DiagnosticsService_GetAvailableRoutines_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_GetAvailableRoutines_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getAvailableRoutines');
           const result = this.impl.getAvailableRoutines();
           if (header.expectsResponse) {
@@ -1406,7 +1409,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.DiagnosticsService_GetRoutineUpdate_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_GetRoutineUpdate_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getRoutineUpdate');
           const result = this.impl.getRoutineUpdate(params.id, params.command, params.include_output);
           if (header.expectsResponse) {
@@ -1419,7 +1422,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.runBatteryCapacityRoutine');
           const result = this.impl.runBatteryCapacityRoutine();
           if (header.expectsResponse) {
@@ -1432,7 +1435,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.runBatteryHealthRoutine');
           const result = this.impl.runBatteryHealthRoutine();
           if (header.expectsResponse) {
@@ -1445,7 +1448,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.runSmartctlCheckRoutine');
           const result = this.impl.runSmartctlCheckRoutine(params.percentage_used_threshold);
           if (header.expectsResponse) {
@@ -1458,7 +1461,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunAcPowerRoutine_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunAcPowerRoutine_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.runAcPowerRoutine');
           const result = this.impl.runAcPowerRoutine(params.expected_status, params.expected_power_type);
           if (header.expectsResponse) {
@@ -1471,7 +1474,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunCpuCacheRoutine_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunCpuCacheRoutine_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.runCpuCacheRoutine');
           const result = this.impl.runCpuCacheRoutine(params.length_seconds);
           if (header.expectsResponse) {
@@ -1484,7 +1487,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunCpuStressRoutine_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunCpuStressRoutine_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.runCpuStressRoutine');
           const result = this.impl.runCpuStressRoutine(params.length_seconds);
           if (header.expectsResponse) {
@@ -1497,7 +1500,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.runFloatingPointAccuracyRoutine');
           const result = this.impl.runFloatingPointAccuracyRoutine(params.length_seconds);
           if (header.expectsResponse) {
@@ -1510,7 +1513,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_RunNvmeWearLevelRoutine');
           const result = this.impl.dEPRECATED_RunNvmeWearLevelRoutine(params.wear_level_threshold);
           if (header.expectsResponse) {
@@ -1523,7 +1526,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.runNvmeSelfTestRoutine');
           const result = this.impl.runNvmeSelfTestRoutine(params.nvme_self_test_type);
           if (header.expectsResponse) {
@@ -1536,7 +1539,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunDiskReadRoutine_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunDiskReadRoutine_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.runDiskReadRoutine');
           const result = this.impl.runDiskReadRoutine(params.type, params.length_seconds, params.file_size_mb);
           if (header.expectsResponse) {
@@ -1549,7 +1552,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunPrimeSearchRoutine_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunPrimeSearchRoutine_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.runPrimeSearchRoutine');
           const result = this.impl.runPrimeSearchRoutine(params.length_seconds);
           if (header.expectsResponse) {
@@ -1562,7 +1565,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunBatteryDischargeRoutine_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunBatteryDischargeRoutine_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.runBatteryDischargeRoutine');
           const result = this.impl.runBatteryDischargeRoutine(params.length_seconds, params.maximum_discharge_percent_allowed);
           if (header.expectsResponse) {
@@ -1575,7 +1578,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunBatteryChargeRoutine_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunBatteryChargeRoutine_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.runBatteryChargeRoutine');
           const result = this.impl.runBatteryChargeRoutine(params.length_seconds, params.minimum_charge_percent_required);
           if (header.expectsResponse) {
@@ -1588,7 +1591,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.runMemoryRoutine');
           const result = this.impl.runMemoryRoutine();
           if (header.expectsResponse) {
@@ -1601,7 +1604,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.runLanConnectivityRoutine');
           const result = this.impl.runLanConnectivityRoutine();
           if (header.expectsResponse) {
@@ -1614,7 +1617,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.runDnsResolutionRoutine');
           const result = this.impl.runDnsResolutionRoutine();
           if (header.expectsResponse) {
@@ -1627,7 +1630,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.runSignalStrengthRoutine');
           const result = this.impl.runSignalStrengthRoutine();
           if (header.expectsResponse) {
@@ -1640,7 +1643,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.runGatewayCanBePingedRoutine');
           const result = this.impl.runGatewayCanBePingedRoutine();
           if (header.expectsResponse) {
@@ -1653,7 +1656,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.runDnsResolverPresentRoutine');
           const result = this.impl.runDnsResolverPresentRoutine();
           if (header.expectsResponse) {
@@ -1666,7 +1669,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.runSensitiveSensorRoutine');
           const result = this.impl.runSensitiveSensorRoutine();
           if (header.expectsResponse) {
@@ -1679,7 +1682,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.runFingerprintAliveRoutine');
           const result = this.impl.runFingerprintAliveRoutine();
           if (header.expectsResponse) {
@@ -1692,7 +1695,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.runEmmcLifetimeRoutine');
           const result = this.impl.runEmmcLifetimeRoutine();
           if (header.expectsResponse) {
@@ -1705,7 +1708,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.runBluetoothPowerRoutine');
           const result = this.impl.runBluetoothPowerRoutine();
           if (header.expectsResponse) {
@@ -1718,7 +1721,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.runUfsLifetimeRoutine');
           const result = this.impl.runUfsLifetimeRoutine();
           if (header.expectsResponse) {
@@ -1731,7 +1734,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.runPowerButtonRoutine');
           const result = this.impl.runPowerButtonRoutine(params.timeout_seconds);
           if (header.expectsResponse) {
@@ -1744,7 +1747,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.runAudioDriverRoutine');
           const result = this.impl.runAudioDriverRoutine();
           if (header.expectsResponse) {
@@ -1757,7 +1760,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.runBluetoothDiscoveryRoutine');
           const result = this.impl.runBluetoothDiscoveryRoutine();
           if (header.expectsResponse) {
@@ -1770,7 +1773,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.runBluetoothScanningRoutine');
           const result = this.impl.runBluetoothScanningRoutine(params.length_seconds);
           if (header.expectsResponse) {
@@ -1783,7 +1786,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 30: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.runBluetoothPairingRoutine');
           const result = this.impl.runBluetoothPairingRoutine(params.peripheral_id);
           if (header.expectsResponse) {
@@ -1796,7 +1799,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 31: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.DiagnosticsService_RunFanRoutine_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(crosapi.mojom.DiagnosticsService_RunFanRoutine_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.runFanRoutine');
           const result = this.impl.runFanRoutine();
           if (header.expectsResponse) {

@@ -170,9 +170,11 @@ blink.mojom.WorkerContentSettingsProxyReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -186,12 +188,13 @@ blink.mojom.WorkerContentSettingsProxyReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AllowIndexedDB
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AllowIndexedDB (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -202,7 +205,7 @@ blink.mojom.WorkerContentSettingsProxyReceiver = class {
         // Try Method 1: AllowCacheStorage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AllowCacheStorage (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -213,7 +216,7 @@ blink.mojom.WorkerContentSettingsProxyReceiver = class {
         // Try Method 2: AllowWebLocks
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AllowWebLocks (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -224,7 +227,7 @@ blink.mojom.WorkerContentSettingsProxyReceiver = class {
         // Try Method 3: RequestFileSystemAccessSync
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestFileSystemAccessSync (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -241,7 +244,7 @@ blink.mojom.WorkerContentSettingsProxyReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.allowIndexedDB');
           const result = this.impl.allowIndexedDB();
           if (header.expectsResponse) {
@@ -254,7 +257,7 @@ blink.mojom.WorkerContentSettingsProxyReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.allowCacheStorage');
           const result = this.impl.allowCacheStorage();
           if (header.expectsResponse) {
@@ -267,7 +270,7 @@ blink.mojom.WorkerContentSettingsProxyReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.allowWebLocks');
           const result = this.impl.allowWebLocks();
           if (header.expectsResponse) {
@@ -280,7 +283,7 @@ blink.mojom.WorkerContentSettingsProxyReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestFileSystemAccessSync');
           const result = this.impl.requestFileSystemAccessSync();
           if (header.expectsResponse) {

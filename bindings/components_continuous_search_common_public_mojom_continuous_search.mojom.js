@@ -151,9 +151,11 @@ continuous_search.mojom.SearchResultExtractorReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -167,12 +169,13 @@ continuous_search.mojom.SearchResultExtractorReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ExtractCurrentSearchResults
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExtractCurrentSearchResults (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -189,7 +192,7 @@ continuous_search.mojom.SearchResultExtractorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.extractCurrentSearchResults');
           const result = this.impl.extractCurrentSearchResults(params.result_types);
           if (header.expectsResponse) {

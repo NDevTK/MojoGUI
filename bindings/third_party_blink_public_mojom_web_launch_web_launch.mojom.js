@@ -114,9 +114,11 @@ blink.mojom.WebLaunchServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -130,12 +132,13 @@ blink.mojom.WebLaunchServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetLaunchFiles
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WebLaunchService_SetLaunchFiles_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WebLaunchService_SetLaunchFiles_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetLaunchFiles (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -146,7 +149,7 @@ blink.mojom.WebLaunchServiceReceiver = class {
         // Try Method 1: EnqueueLaunchParams
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WebLaunchService_EnqueueLaunchParams_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WebLaunchService_EnqueueLaunchParams_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnqueueLaunchParams (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -163,14 +166,14 @@ blink.mojom.WebLaunchServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WebLaunchService_SetLaunchFiles_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WebLaunchService_SetLaunchFiles_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setLaunchFiles');
           const result = this.impl.setLaunchFiles(params.files);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WebLaunchService_EnqueueLaunchParams_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WebLaunchService_EnqueueLaunchParams_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.enqueueLaunchParams');
           const result = this.impl.enqueueLaunchParams(params.launch_url, params.time_navigation_started_in_browser, params.navigation_started);
           break;

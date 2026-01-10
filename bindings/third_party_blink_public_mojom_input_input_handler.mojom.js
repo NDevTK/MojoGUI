@@ -579,9 +579,11 @@ blink.mojom.WidgetInputHandlerHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -595,12 +597,13 @@ blink.mojom.WidgetInputHandlerHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetTouchActionFromMain
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WidgetInputHandlerHost_SetTouchActionFromMain_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WidgetInputHandlerHost_SetTouchActionFromMain_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTouchActionFromMain (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -611,7 +614,7 @@ blink.mojom.WidgetInputHandlerHostReceiver = class {
         // Try Method 1: SetPanAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WidgetInputHandlerHost_SetPanAction_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WidgetInputHandlerHost_SetPanAction_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPanAction (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -622,7 +625,7 @@ blink.mojom.WidgetInputHandlerHostReceiver = class {
         // Try Method 2: DidOverscroll
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WidgetInputHandlerHost_DidOverscroll_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WidgetInputHandlerHost_DidOverscroll_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidOverscroll (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -633,7 +636,7 @@ blink.mojom.WidgetInputHandlerHostReceiver = class {
         // Try Method 3: DidStartScrollingViewport
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WidgetInputHandlerHost_DidStartScrollingViewport_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WidgetInputHandlerHost_DidStartScrollingViewport_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidStartScrollingViewport (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -644,7 +647,7 @@ blink.mojom.WidgetInputHandlerHostReceiver = class {
         // Try Method 4: ImeCancelComposition
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WidgetInputHandlerHost_ImeCancelComposition_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WidgetInputHandlerHost_ImeCancelComposition_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ImeCancelComposition (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -655,7 +658,7 @@ blink.mojom.WidgetInputHandlerHostReceiver = class {
         // Try Method 5: ImeCompositionRangeChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WidgetInputHandlerHost_ImeCompositionRangeChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WidgetInputHandlerHost_ImeCompositionRangeChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ImeCompositionRangeChanged (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -666,7 +669,7 @@ blink.mojom.WidgetInputHandlerHostReceiver = class {
         // Try Method 6: SetMouseCapture
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WidgetInputHandlerHost_SetMouseCapture_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WidgetInputHandlerHost_SetMouseCapture_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetMouseCapture (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -677,7 +680,7 @@ blink.mojom.WidgetInputHandlerHostReceiver = class {
         // Try Method 7: SetAutoscrollSelectionActiveInMainFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WidgetInputHandlerHost_SetAutoscrollSelectionActiveInMainFrame_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WidgetInputHandlerHost_SetAutoscrollSelectionActiveInMainFrame_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAutoscrollSelectionActiveInMainFrame (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -688,7 +691,7 @@ blink.mojom.WidgetInputHandlerHostReceiver = class {
         // Try Method 8: RequestMouseLock
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestMouseLock (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -705,63 +708,63 @@ blink.mojom.WidgetInputHandlerHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WidgetInputHandlerHost_SetTouchActionFromMain_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetInputHandlerHost_SetTouchActionFromMain_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setTouchActionFromMain');
           const result = this.impl.setTouchActionFromMain(params.touch_action);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WidgetInputHandlerHost_SetPanAction_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetInputHandlerHost_SetPanAction_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setPanAction');
           const result = this.impl.setPanAction(params.pan_action);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WidgetInputHandlerHost_DidOverscroll_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetInputHandlerHost_DidOverscroll_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.didOverscroll');
           const result = this.impl.didOverscroll(params.params);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WidgetInputHandlerHost_DidStartScrollingViewport_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetInputHandlerHost_DidStartScrollingViewport_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.didStartScrollingViewport');
           const result = this.impl.didStartScrollingViewport();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WidgetInputHandlerHost_ImeCancelComposition_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetInputHandlerHost_ImeCancelComposition_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.imeCancelComposition');
           const result = this.impl.imeCancelComposition();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WidgetInputHandlerHost_ImeCompositionRangeChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetInputHandlerHost_ImeCompositionRangeChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.imeCompositionRangeChanged');
           const result = this.impl.imeCompositionRangeChanged(params.range, params.character_bounds);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WidgetInputHandlerHost_SetMouseCapture_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetInputHandlerHost_SetMouseCapture_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setMouseCapture');
           const result = this.impl.setMouseCapture(params.capture);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WidgetInputHandlerHost_SetAutoscrollSelectionActiveInMainFrame_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetInputHandlerHost_SetAutoscrollSelectionActiveInMainFrame_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setAutoscrollSelectionActiveInMainFrame');
           const result = this.impl.setAutoscrollSelectionActiveInMainFrame(params.autoscroll_selection);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestMouseLock');
           const result = this.impl.requestMouseLock(params.from_user_gesture, params.unadjusted_movement);
           if (header.expectsResponse) {
@@ -1437,9 +1440,11 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1453,12 +1458,13 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AddImeTextSpansToExistingText
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_AddImeTextSpansToExistingText_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_AddImeTextSpansToExistingText_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddImeTextSpansToExistingText (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1469,7 +1475,7 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
         // Try Method 1: ClearImeTextSpansByType
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_ClearImeTextSpansByType_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_ClearImeTextSpansByType_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearImeTextSpansByType (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1480,7 +1486,7 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
         // Try Method 2: SetCompositionFromExistingText
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_SetCompositionFromExistingText_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_SetCompositionFromExistingText_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCompositionFromExistingText (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1491,7 +1497,7 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
         // Try Method 3: ExtendSelectionAndDelete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndDelete_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndDelete_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExtendSelectionAndDelete (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1502,7 +1508,7 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
         // Try Method 4: ExtendSelectionAndReplace
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndReplace_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndReplace_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExtendSelectionAndReplace (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1513,7 +1519,7 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
         // Try Method 5: DeleteSurroundingText
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_DeleteSurroundingText_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_DeleteSurroundingText_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteSurroundingText (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1524,7 +1530,7 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
         // Try Method 6: DeleteSurroundingTextInCodePoints
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_DeleteSurroundingTextInCodePoints_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_DeleteSurroundingTextInCodePoints_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteSurroundingTextInCodePoints (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1535,7 +1541,7 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
         // Try Method 7: SetEditableSelectionOffsets
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_SetEditableSelectionOffsets_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_SetEditableSelectionOffsets_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetEditableSelectionOffsets (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1546,7 +1552,7 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
         // Try Method 8: HandleStylusWritingGestureAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleStylusWritingGestureAction (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1557,7 +1563,7 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
         // Try Method 9: ExecuteEditCommand
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_ExecuteEditCommand_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_ExecuteEditCommand_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExecuteEditCommand (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1568,7 +1574,7 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
         // Try Method 10: Undo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_Undo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_Undo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Undo (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1579,7 +1585,7 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
         // Try Method 11: Redo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_Redo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_Redo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Redo (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1590,7 +1596,7 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
         // Try Method 12: Cut
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_Cut_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_Cut_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Cut (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1601,7 +1607,7 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
         // Try Method 13: Copy
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_Copy_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_Copy_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Copy (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1612,7 +1618,7 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
         // Try Method 14: CopyToFindPboard
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_CopyToFindPboard_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_CopyToFindPboard_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CopyToFindPboard (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1623,7 +1629,7 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
         // Try Method 15: CenterSelection
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_CenterSelection_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_CenterSelection_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CenterSelection (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1634,7 +1640,7 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
         // Try Method 16: Paste
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_Paste_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_Paste_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Paste (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -1645,7 +1651,7 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
         // Try Method 17: PasteAndMatchStyle
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_PasteAndMatchStyle_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_PasteAndMatchStyle_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PasteAndMatchStyle (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -1656,7 +1662,7 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
         // Try Method 18: Delete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_Delete_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_Delete_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Delete (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -1667,7 +1673,7 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
         // Try Method 19: SelectAll
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_SelectAll_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_SelectAll_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectAll (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -1678,7 +1684,7 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
         // Try Method 20: CollapseSelection
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_CollapseSelection_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_CollapseSelection_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CollapseSelection (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -1689,7 +1695,7 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
         // Try Method 21: Replace
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_Replace_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_Replace_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Replace (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -1700,7 +1706,7 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
         // Try Method 22: ReplaceMisspelling
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_ReplaceMisspelling_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_ReplaceMisspelling_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReplaceMisspelling (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
@@ -1711,7 +1717,7 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
         // Try Method 23: SelectRange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_SelectRange_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_SelectRange_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectRange (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
@@ -1722,7 +1728,7 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
         // Try Method 24: AdjustSelectionByCharacterOffset
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_AdjustSelectionByCharacterOffset_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_AdjustSelectionByCharacterOffset_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AdjustSelectionByCharacterOffset (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
@@ -1733,7 +1739,7 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
         // Try Method 25: SelectAroundCaret
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectAroundCaret (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
@@ -1744,7 +1750,7 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
         // Try Method 26: MoveRangeSelectionExtent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_MoveRangeSelectionExtent_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_MoveRangeSelectionExtent_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MoveRangeSelectionExtent (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
@@ -1755,7 +1761,7 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
         // Try Method 27: ScrollFocusedEditableNodeIntoView
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_ScrollFocusedEditableNodeIntoView_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_ScrollFocusedEditableNodeIntoView_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ScrollFocusedEditableNodeIntoView (27)');
              this.mapOrdinal(header.ordinal, 27);
              dispatchId = 27;
@@ -1766,7 +1772,7 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
         // Try Method 28: WaitForPageScaleAnimationForTesting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_WaitForPageScaleAnimationForTesting_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_WaitForPageScaleAnimationForTesting_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WaitForPageScaleAnimationForTesting (28)');
              this.mapOrdinal(header.ordinal, 28);
              dispatchId = 28;
@@ -1777,7 +1783,7 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
         // Try Method 29: MoveCaret
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_MoveCaret_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_MoveCaret_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MoveCaret (29)');
              this.mapOrdinal(header.ordinal, 29);
              dispatchId = 29;
@@ -1788,7 +1794,7 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
         // Try Method 30: StartAutoscrollForSelectionToPoint
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_StartAutoscrollForSelectionToPoint_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_StartAutoscrollForSelectionToPoint_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartAutoscrollForSelectionToPoint (30)');
              this.mapOrdinal(header.ordinal, 30);
              dispatchId = 30;
@@ -1799,7 +1805,7 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
         // Try Method 31: StopAutoscroll
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_StopAutoscroll_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_StopAutoscroll_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopAutoscroll (31)');
              this.mapOrdinal(header.ordinal, 31);
              dispatchId = 31;
@@ -1810,7 +1816,7 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
         // Try Method 32: RectForEditFieldChars
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RectForEditFieldChars (32)');
              this.mapOrdinal(header.ordinal, 32);
              dispatchId = 32;
@@ -1827,63 +1833,63 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_AddImeTextSpansToExistingText_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_AddImeTextSpansToExistingText_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addImeTextSpansToExistingText');
           const result = this.impl.addImeTextSpansToExistingText(params.start, params.end, params.ime_text_spans);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_ClearImeTextSpansByType_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_ClearImeTextSpansByType_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.clearImeTextSpansByType');
           const result = this.impl.clearImeTextSpansByType(params.start, params.end, params.type);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_SetCompositionFromExistingText_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_SetCompositionFromExistingText_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setCompositionFromExistingText');
           const result = this.impl.setCompositionFromExistingText(params.start, params.end, params.ime_text_spans);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndDelete_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndDelete_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.extendSelectionAndDelete');
           const result = this.impl.extendSelectionAndDelete(params.before, params.after);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndReplace_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndReplace_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.extendSelectionAndReplace');
           const result = this.impl.extendSelectionAndReplace(params.before, params.after, params.replacement_text);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_DeleteSurroundingText_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_DeleteSurroundingText_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.deleteSurroundingText');
           const result = this.impl.deleteSurroundingText(params.before, params.after);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_DeleteSurroundingTextInCodePoints_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_DeleteSurroundingTextInCodePoints_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.deleteSurroundingTextInCodePoints');
           const result = this.impl.deleteSurroundingTextInCodePoints(params.before, params.after);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_SetEditableSelectionOffsets_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_SetEditableSelectionOffsets_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setEditableSelectionOffsets');
           const result = this.impl.setEditableSelectionOffsets(params.start, params.end);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.handleStylusWritingGestureAction');
           const result = this.impl.handleStylusWritingGestureAction(params.gesture_data);
           if (header.expectsResponse) {
@@ -1896,119 +1902,119 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_ExecuteEditCommand_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_ExecuteEditCommand_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.executeEditCommand');
           const result = this.impl.executeEditCommand(params.command, params.value);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_Undo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_Undo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.undo');
           const result = this.impl.undo();
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_Redo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_Redo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.redo');
           const result = this.impl.redo();
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_Cut_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_Cut_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.cut');
           const result = this.impl.cut();
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_Copy_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_Copy_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.copy');
           const result = this.impl.copy();
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_CopyToFindPboard_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_CopyToFindPboard_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.copyToFindPboard');
           const result = this.impl.copyToFindPboard();
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_CenterSelection_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_CenterSelection_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.centerSelection');
           const result = this.impl.centerSelection();
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_Paste_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_Paste_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.paste');
           const result = this.impl.paste();
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_PasteAndMatchStyle_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_PasteAndMatchStyle_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.pasteAndMatchStyle');
           const result = this.impl.pasteAndMatchStyle();
           break;
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_Delete_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_Delete_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.delete');
           const result = this.impl.delete();
           break;
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_SelectAll_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_SelectAll_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.selectAll');
           const result = this.impl.selectAll();
           break;
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_CollapseSelection_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_CollapseSelection_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.collapseSelection');
           const result = this.impl.collapseSelection();
           break;
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_Replace_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_Replace_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.replace');
           const result = this.impl.replace(params.word);
           break;
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_ReplaceMisspelling_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_ReplaceMisspelling_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.replaceMisspelling');
           const result = this.impl.replaceMisspelling(params.word);
           break;
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_SelectRange_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_SelectRange_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.selectRange');
           const result = this.impl.selectRange(params.base, params.extent);
           break;
         }
         case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_AdjustSelectionByCharacterOffset_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_AdjustSelectionByCharacterOffset_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.adjustSelectionByCharacterOffset');
           const result = this.impl.adjustSelectionByCharacterOffset(params.start, params.end, params.behavior);
           break;
         }
         case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.selectAroundCaret');
           const result = this.impl.selectAroundCaret(params.granularity, params.should_show_handle, params.should_show_context_menu);
           if (header.expectsResponse) {
@@ -2021,21 +2027,21 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
         }
         case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_MoveRangeSelectionExtent_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_MoveRangeSelectionExtent_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.moveRangeSelectionExtent');
           const result = this.impl.moveRangeSelectionExtent(params.extent);
           break;
         }
         case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_ScrollFocusedEditableNodeIntoView_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_ScrollFocusedEditableNodeIntoView_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.scrollFocusedEditableNodeIntoView');
           const result = this.impl.scrollFocusedEditableNodeIntoView();
           break;
         }
         case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_WaitForPageScaleAnimationForTesting_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_WaitForPageScaleAnimationForTesting_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.waitForPageScaleAnimationForTesting');
           const result = this.impl.waitForPageScaleAnimationForTesting();
           if (header.expectsResponse) {
@@ -2048,28 +2054,28 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
         }
         case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_MoveCaret_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_MoveCaret_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.moveCaret');
           const result = this.impl.moveCaret(params.point);
           break;
         }
         case 30: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_StartAutoscrollForSelectionToPoint_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_StartAutoscrollForSelectionToPoint_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.startAutoscrollForSelectionToPoint');
           const result = this.impl.startAutoscrollForSelectionToPoint(params.point);
           break;
         }
         case 31: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_StopAutoscroll_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_StopAutoscroll_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.stopAutoscroll');
           const result = this.impl.stopAutoscroll();
           break;
         }
         case 32: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.rectForEditFieldChars');
           const result = this.impl.rectForEditFieldChars(params.range);
           if (header.expectsResponse) {
@@ -2470,9 +2476,11 @@ blink.mojom.WidgetInputHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -2486,12 +2494,13 @@ blink.mojom.WidgetInputHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetFocus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WidgetInputHandler_SetFocus_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WidgetInputHandler_SetFocus_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetFocus (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -2502,7 +2511,7 @@ blink.mojom.WidgetInputHandlerReceiver = class {
         // Try Method 1: MouseCaptureLost
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WidgetInputHandler_MouseCaptureLost_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WidgetInputHandler_MouseCaptureLost_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MouseCaptureLost (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -2513,7 +2522,7 @@ blink.mojom.WidgetInputHandlerReceiver = class {
         // Try Method 2: SetEditCommandsForNextKeyEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WidgetInputHandler_SetEditCommandsForNextKeyEvent_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WidgetInputHandler_SetEditCommandsForNextKeyEvent_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetEditCommandsForNextKeyEvent (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -2524,7 +2533,7 @@ blink.mojom.WidgetInputHandlerReceiver = class {
         // Try Method 3: CursorVisibilityChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WidgetInputHandler_CursorVisibilityChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WidgetInputHandler_CursorVisibilityChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CursorVisibilityChanged (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -2535,7 +2544,7 @@ blink.mojom.WidgetInputHandlerReceiver = class {
         // Try Method 4: ImeSetComposition
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WidgetInputHandler_ImeSetComposition_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WidgetInputHandler_ImeSetComposition_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ImeSetComposition (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -2546,7 +2555,7 @@ blink.mojom.WidgetInputHandlerReceiver = class {
         // Try Method 5: ImeCommitText
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WidgetInputHandler_ImeCommitText_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WidgetInputHandler_ImeCommitText_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ImeCommitText (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -2557,7 +2566,7 @@ blink.mojom.WidgetInputHandlerReceiver = class {
         // Try Method 6: ImeFinishComposingText
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WidgetInputHandler_ImeFinishComposingText_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WidgetInputHandler_ImeFinishComposingText_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ImeFinishComposingText (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -2568,7 +2577,7 @@ blink.mojom.WidgetInputHandlerReceiver = class {
         // Try Method 7: RequestTextInputStateUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WidgetInputHandler_RequestTextInputStateUpdate_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WidgetInputHandler_RequestTextInputStateUpdate_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestTextInputStateUpdate (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -2579,7 +2588,7 @@ blink.mojom.WidgetInputHandlerReceiver = class {
         // Try Method 8: RequestCompositionUpdates
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WidgetInputHandler_RequestCompositionUpdates_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WidgetInputHandler_RequestCompositionUpdates_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestCompositionUpdates (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -2590,7 +2599,7 @@ blink.mojom.WidgetInputHandlerReceiver = class {
         // Try Method 9: DispatchEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WidgetInputHandler_DispatchEvent_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WidgetInputHandler_DispatchEvent_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchEvent (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -2601,7 +2610,7 @@ blink.mojom.WidgetInputHandlerReceiver = class {
         // Try Method 10: DispatchNonBlockingEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WidgetInputHandler_DispatchNonBlockingEvent_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WidgetInputHandler_DispatchNonBlockingEvent_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchNonBlockingEvent (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -2612,7 +2621,7 @@ blink.mojom.WidgetInputHandlerReceiver = class {
         // Try Method 11: WaitForInputProcessed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WidgetInputHandler_WaitForInputProcessed_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WidgetInputHandler_WaitForInputProcessed_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WaitForInputProcessed (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -2623,7 +2632,7 @@ blink.mojom.WidgetInputHandlerReceiver = class {
         // Try Method 12: PingMainThread
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WidgetInputHandler_PingMainThread_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WidgetInputHandler_PingMainThread_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PingMainThread (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -2634,7 +2643,7 @@ blink.mojom.WidgetInputHandlerReceiver = class {
         // Try Method 13: AttachSynchronousCompositor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WidgetInputHandler_AttachSynchronousCompositor_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WidgetInputHandler_AttachSynchronousCompositor_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AttachSynchronousCompositor (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -2645,7 +2654,7 @@ blink.mojom.WidgetInputHandlerReceiver = class {
         // Try Method 14: GetFrameWidgetInputHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WidgetInputHandler_GetFrameWidgetInputHandler_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WidgetInputHandler_GetFrameWidgetInputHandler_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFrameWidgetInputHandler (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -2656,7 +2665,7 @@ blink.mojom.WidgetInputHandlerReceiver = class {
         // Try Method 15: UpdateBrowserControlsState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.WidgetInputHandler_UpdateBrowserControlsState_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.WidgetInputHandler_UpdateBrowserControlsState_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateBrowserControlsState (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -2673,35 +2682,35 @@ blink.mojom.WidgetInputHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WidgetInputHandler_SetFocus_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetInputHandler_SetFocus_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setFocus');
           const result = this.impl.setFocus(params.state);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WidgetInputHandler_MouseCaptureLost_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetInputHandler_MouseCaptureLost_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.mouseCaptureLost');
           const result = this.impl.mouseCaptureLost();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WidgetInputHandler_SetEditCommandsForNextKeyEvent_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetInputHandler_SetEditCommandsForNextKeyEvent_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setEditCommandsForNextKeyEvent');
           const result = this.impl.setEditCommandsForNextKeyEvent(params.commands);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WidgetInputHandler_CursorVisibilityChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetInputHandler_CursorVisibilityChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.cursorVisibilityChanged');
           const result = this.impl.cursorVisibilityChanged(params.visible);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WidgetInputHandler_ImeSetComposition_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetInputHandler_ImeSetComposition_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.imeSetComposition');
           const result = this.impl.imeSetComposition(params.text, params.ime_text_spans, params.range, params.start, params.end, params.ime_state);
           if (header.expectsResponse) {
@@ -2714,7 +2723,7 @@ blink.mojom.WidgetInputHandlerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WidgetInputHandler_ImeCommitText_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetInputHandler_ImeCommitText_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.imeCommitText');
           const result = this.impl.imeCommitText(params.text, params.ime_text_spans, params.range, params.relative_cursor_position);
           if (header.expectsResponse) {
@@ -2727,28 +2736,28 @@ blink.mojom.WidgetInputHandlerReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WidgetInputHandler_ImeFinishComposingText_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetInputHandler_ImeFinishComposingText_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.imeFinishComposingText');
           const result = this.impl.imeFinishComposingText(params.keep_selection);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WidgetInputHandler_RequestTextInputStateUpdate_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetInputHandler_RequestTextInputStateUpdate_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestTextInputStateUpdate');
           const result = this.impl.requestTextInputStateUpdate();
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WidgetInputHandler_RequestCompositionUpdates_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetInputHandler_RequestCompositionUpdates_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestCompositionUpdates');
           const result = this.impl.requestCompositionUpdates(params.immediate_request, params.monitor_request);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WidgetInputHandler_DispatchEvent_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetInputHandler_DispatchEvent_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.dispatchEvent');
           const result = this.impl.dispatchEvent(params.event, params.original_event_for_gesture);
           if (header.expectsResponse) {
@@ -2761,14 +2770,14 @@ blink.mojom.WidgetInputHandlerReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WidgetInputHandler_DispatchNonBlockingEvent_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetInputHandler_DispatchNonBlockingEvent_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.dispatchNonBlockingEvent');
           const result = this.impl.dispatchNonBlockingEvent(params.event);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WidgetInputHandler_WaitForInputProcessed_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetInputHandler_WaitForInputProcessed_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.waitForInputProcessed');
           const result = this.impl.waitForInputProcessed();
           if (header.expectsResponse) {
@@ -2781,7 +2790,7 @@ blink.mojom.WidgetInputHandlerReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WidgetInputHandler_PingMainThread_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetInputHandler_PingMainThread_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.pingMainThread');
           const result = this.impl.pingMainThread();
           if (header.expectsResponse) {
@@ -2794,21 +2803,21 @@ blink.mojom.WidgetInputHandlerReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WidgetInputHandler_AttachSynchronousCompositor_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetInputHandler_AttachSynchronousCompositor_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.attachSynchronousCompositor');
           const result = this.impl.attachSynchronousCompositor(params.control_host, params.host, params.compositor_request);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WidgetInputHandler_GetFrameWidgetInputHandler_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetInputHandler_GetFrameWidgetInputHandler_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getFrameWidgetInputHandler');
           const result = this.impl.getFrameWidgetInputHandler(params.interface_request);
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.WidgetInputHandler_UpdateBrowserControlsState_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetInputHandler_UpdateBrowserControlsState_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.updateBrowserControlsState');
           const result = this.impl.updateBrowserControlsState(params.constraints, params.current, params.animate, params.offset_tag_modifications);
           break;

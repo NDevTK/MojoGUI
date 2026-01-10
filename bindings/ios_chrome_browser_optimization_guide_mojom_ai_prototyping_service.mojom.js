@@ -126,9 +126,11 @@ ai.mojom.AIPrototypingServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -142,12 +144,13 @@ ai.mojom.AIPrototypingServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ExecuteServerQuery
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ai.mojom.AIPrototypingService_ExecuteServerQuery_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ai.mojom.AIPrototypingService_ExecuteServerQuery_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExecuteServerQuery (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -158,7 +161,7 @@ ai.mojom.AIPrototypingServiceReceiver = class {
         // Try Method 1: ExecuteOnDeviceQuery
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExecuteOnDeviceQuery (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -175,7 +178,7 @@ ai.mojom.AIPrototypingServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ai.mojom.AIPrototypingService_ExecuteServerQuery_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ai.mojom.AIPrototypingService_ExecuteServerQuery_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.executeServerQuery');
           const result = this.impl.executeServerQuery(params.request);
           if (header.expectsResponse) {
@@ -188,7 +191,7 @@ ai.mojom.AIPrototypingServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.executeOnDeviceQuery');
           const result = this.impl.executeOnDeviceQuery(params.request);
           if (header.expectsResponse) {

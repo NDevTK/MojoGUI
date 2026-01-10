@@ -120,9 +120,11 @@ ash.settings.google_drive.mojom.PageHandlerFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -136,12 +138,13 @@ ash.settings.google_drive.mojom.PageHandlerFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.settings.google_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.settings.google_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -158,7 +161,7 @@ ash.settings.google_drive.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.settings.google_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.settings.google_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
@@ -315,9 +318,11 @@ ash.settings.google_drive.mojom.PageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -331,12 +336,13 @@ ash.settings.google_drive.mojom.PageHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CalculateRequiredSpace
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.settings.google_drive.mojom.PageHandler_CalculateRequiredSpace_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.settings.google_drive.mojom.PageHandler_CalculateRequiredSpace_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CalculateRequiredSpace (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -347,7 +353,7 @@ ash.settings.google_drive.mojom.PageHandlerReceiver = class {
         // Try Method 1: GetContentCacheSize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetContentCacheSize (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -358,7 +364,7 @@ ash.settings.google_drive.mojom.PageHandlerReceiver = class {
         // Try Method 2: ClearPinnedFiles
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearPinnedFiles (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -369,7 +375,7 @@ ash.settings.google_drive.mojom.PageHandlerReceiver = class {
         // Try Method 3: RecordBulkPinningEnabledMetric
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.settings.google_drive.mojom.PageHandler_RecordBulkPinningEnabledMetric_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.settings.google_drive.mojom.PageHandler_RecordBulkPinningEnabledMetric_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordBulkPinningEnabledMetric (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -386,14 +392,14 @@ ash.settings.google_drive.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.settings.google_drive.mojom.PageHandler_CalculateRequiredSpace_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.settings.google_drive.mojom.PageHandler_CalculateRequiredSpace_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.calculateRequiredSpace');
           const result = this.impl.calculateRequiredSpace();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getContentCacheSize');
           const result = this.impl.getContentCacheSize();
           if (header.expectsResponse) {
@@ -406,7 +412,7 @@ ash.settings.google_drive.mojom.PageHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.clearPinnedFiles');
           const result = this.impl.clearPinnedFiles();
           if (header.expectsResponse) {
@@ -419,7 +425,7 @@ ash.settings.google_drive.mojom.PageHandlerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.settings.google_drive.mojom.PageHandler_RecordBulkPinningEnabledMetric_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.settings.google_drive.mojom.PageHandler_RecordBulkPinningEnabledMetric_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.recordBulkPinningEnabledMetric');
           const result = this.impl.recordBulkPinningEnabledMetric();
           break;
@@ -534,9 +540,11 @@ ash.settings.google_drive.mojom.PageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -550,12 +558,13 @@ ash.settings.google_drive.mojom.PageReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnServiceUnavailable
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.settings.google_drive.mojom.Page_OnServiceUnavailable_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.settings.google_drive.mojom.Page_OnServiceUnavailable_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnServiceUnavailable (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -566,7 +575,7 @@ ash.settings.google_drive.mojom.PageReceiver = class {
         // Try Method 1: OnProgress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.settings.google_drive.mojom.Page_OnProgress_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.settings.google_drive.mojom.Page_OnProgress_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnProgress (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -583,14 +592,14 @@ ash.settings.google_drive.mojom.PageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.settings.google_drive.mojom.Page_OnServiceUnavailable_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.settings.google_drive.mojom.Page_OnServiceUnavailable_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onServiceUnavailable');
           const result = this.impl.onServiceUnavailable();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.settings.google_drive.mojom.Page_OnProgress_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.settings.google_drive.mojom.Page_OnProgress_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onProgress');
           const result = this.impl.onProgress(params.status);
           break;

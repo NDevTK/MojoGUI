@@ -1057,9 +1057,11 @@ ash.cros_healthd.mojom.CrosHealthdRoutinesServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1073,12 +1075,13 @@ ash.cros_healthd.mojom.CrosHealthdRoutinesServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdRoutinesService_CreateRoutine_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdRoutinesService_CreateRoutine_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateRoutine (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1089,7 +1092,7 @@ ash.cros_healthd.mojom.CrosHealthdRoutinesServiceReceiver = class {
         // Try Method 1: IsRoutineArgumentSupported
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsRoutineArgumentSupported (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1106,14 +1109,14 @@ ash.cros_healthd.mojom.CrosHealthdRoutinesServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdRoutinesService_CreateRoutine_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdRoutinesService_CreateRoutine_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createRoutine');
           const result = this.impl.createRoutine(params.routine_argument, params.routine_receiver, params.routine_observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.isRoutineArgumentSupported');
           const result = this.impl.isRoutineArgumentSupported(params.routine_argument);
           if (header.expectsResponse) {
@@ -1256,9 +1259,11 @@ ash.cros_healthd.mojom.RoutineControlReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1272,12 +1277,13 @@ ash.cros_healthd.mojom.RoutineControlReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.cros_healthd.mojom.RoutineControl_GetState_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.RoutineControl_GetState_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetState (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1288,7 +1294,7 @@ ash.cros_healthd.mojom.RoutineControlReceiver = class {
         // Try Method 1: Start
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.cros_healthd.mojom.RoutineControl_Start_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.RoutineControl_Start_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Start (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1299,7 +1305,7 @@ ash.cros_healthd.mojom.RoutineControlReceiver = class {
         // Try Method 2: ReplyInquiry
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.cros_healthd.mojom.RoutineControl_ReplyInquiry_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.RoutineControl_ReplyInquiry_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReplyInquiry (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1316,7 +1322,7 @@ ash.cros_healthd.mojom.RoutineControlReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cros_healthd.mojom.RoutineControl_GetState_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.RoutineControl_GetState_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getState');
           const result = this.impl.getState();
           if (header.expectsResponse) {
@@ -1329,14 +1335,14 @@ ash.cros_healthd.mojom.RoutineControlReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cros_healthd.mojom.RoutineControl_Start_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.RoutineControl_Start_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.start');
           const result = this.impl.start();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cros_healthd.mojom.RoutineControl_ReplyInquiry_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.RoutineControl_ReplyInquiry_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.replyInquiry');
           const result = this.impl.replyInquiry(params.reply);
           break;
@@ -1435,9 +1441,11 @@ ash.cros_healthd.mojom.RoutineObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1451,12 +1459,13 @@ ash.cros_healthd.mojom.RoutineObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnRoutineStateChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.cros_healthd.mojom.RoutineObserver_OnRoutineStateChange_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.RoutineObserver_OnRoutineStateChange_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRoutineStateChange (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1473,7 +1482,7 @@ ash.cros_healthd.mojom.RoutineObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cros_healthd.mojom.RoutineObserver_OnRoutineStateChange_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.RoutineObserver_OnRoutineStateChange_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onRoutineStateChange');
           const result = this.impl.onRoutineStateChange(params.state);
           break;

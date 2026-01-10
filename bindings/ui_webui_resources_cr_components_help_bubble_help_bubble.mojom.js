@@ -171,9 +171,11 @@ help_bubble.mojom.HelpBubbleHandlerFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -187,12 +189,13 @@ help_bubble.mojom.HelpBubbleHandlerFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateHelpBubbleHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateHelpBubbleHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -209,7 +212,7 @@ help_bubble.mojom.HelpBubbleHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createHelpBubbleHandler');
           const result = this.impl.createHelpBubbleHandler(params.client, params.handler);
           break;
@@ -309,9 +312,11 @@ help_bubble.mojom.PdfHelpBubbleHandlerFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -325,12 +330,13 @@ help_bubble.mojom.PdfHelpBubbleHandlerFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateHelpBubbleHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateHelpBubbleHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -347,7 +353,7 @@ help_bubble.mojom.PdfHelpBubbleHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createHelpBubbleHandler');
           const result = this.impl.createHelpBubbleHandler(params.client, params.handler);
           break;
@@ -482,9 +488,11 @@ help_bubble.mojom.HelpBubbleHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -498,12 +506,13 @@ help_bubble.mojom.HelpBubbleHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: BindTrackedElementHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindTrackedElementHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -514,7 +523,7 @@ help_bubble.mojom.HelpBubbleHandlerReceiver = class {
         // Try Method 1: HelpBubbleButtonPressed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HelpBubbleButtonPressed (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -525,7 +534,7 @@ help_bubble.mojom.HelpBubbleHandlerReceiver = class {
         // Try Method 2: HelpBubbleClosed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HelpBubbleClosed (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -542,21 +551,21 @@ help_bubble.mojom.HelpBubbleHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindTrackedElementHandler');
           const result = this.impl.bindTrackedElementHandler(params.handler);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.helpBubbleButtonPressed');
           const result = this.impl.helpBubbleButtonPressed(params.native_identifier, params.button_index);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.helpBubbleClosed');
           const result = this.impl.helpBubbleClosed(params.native_identifier, params.reason);
           break;
@@ -707,9 +716,11 @@ help_bubble.mojom.HelpBubbleClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -723,12 +734,13 @@ help_bubble.mojom.HelpBubbleClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ShowHelpBubble
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowHelpBubble (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -739,7 +751,7 @@ help_bubble.mojom.HelpBubbleClientReceiver = class {
         // Try Method 1: ToggleFocusForAccessibility
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(help_bubble.mojom.HelpBubbleClient_ToggleFocusForAccessibility_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(help_bubble.mojom.HelpBubbleClient_ToggleFocusForAccessibility_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ToggleFocusForAccessibility (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -750,7 +762,7 @@ help_bubble.mojom.HelpBubbleClientReceiver = class {
         // Try Method 2: HideHelpBubble
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(help_bubble.mojom.HelpBubbleClient_HideHelpBubble_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(help_bubble.mojom.HelpBubbleClient_HideHelpBubble_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HideHelpBubble (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -761,7 +773,7 @@ help_bubble.mojom.HelpBubbleClientReceiver = class {
         // Try Method 3: ExternalHelpBubbleUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(help_bubble.mojom.HelpBubbleClient_ExternalHelpBubbleUpdated_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(help_bubble.mojom.HelpBubbleClient_ExternalHelpBubbleUpdated_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExternalHelpBubbleUpdated (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -778,28 +790,28 @@ help_bubble.mojom.HelpBubbleClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.showHelpBubble');
           const result = this.impl.showHelpBubble(params.params);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(help_bubble.mojom.HelpBubbleClient_ToggleFocusForAccessibility_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(help_bubble.mojom.HelpBubbleClient_ToggleFocusForAccessibility_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.toggleFocusForAccessibility');
           const result = this.impl.toggleFocusForAccessibility(params.native_identifier);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(help_bubble.mojom.HelpBubbleClient_HideHelpBubble_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(help_bubble.mojom.HelpBubbleClient_HideHelpBubble_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.hideHelpBubble');
           const result = this.impl.hideHelpBubble(params.native_identifier);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(help_bubble.mojom.HelpBubbleClient_ExternalHelpBubbleUpdated_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(help_bubble.mojom.HelpBubbleClient_ExternalHelpBubbleUpdated_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.externalHelpBubbleUpdated');
           const result = this.impl.externalHelpBubbleUpdated(params.native_identifier, params.shown);
           break;

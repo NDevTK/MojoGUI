@@ -201,9 +201,11 @@ ax.mojom.SpeechRecognitionEventObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -217,12 +219,13 @@ ax.mojom.SpeechRecognitionEventObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnStop
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ax.mojom.SpeechRecognitionEventObserver_OnStop_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ax.mojom.SpeechRecognitionEventObserver_OnStop_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStop (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -233,7 +236,7 @@ ax.mojom.SpeechRecognitionEventObserverReceiver = class {
         // Try Method 1: OnResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ax.mojom.SpeechRecognitionEventObserver_OnResult_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ax.mojom.SpeechRecognitionEventObserver_OnResult_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnResult (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -244,7 +247,7 @@ ax.mojom.SpeechRecognitionEventObserverReceiver = class {
         // Try Method 2: OnError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ax.mojom.SpeechRecognitionEventObserver_OnError_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ax.mojom.SpeechRecognitionEventObserver_OnError_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnError (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -261,21 +264,21 @@ ax.mojom.SpeechRecognitionEventObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ax.mojom.SpeechRecognitionEventObserver_OnStop_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ax.mojom.SpeechRecognitionEventObserver_OnStop_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onStop');
           const result = this.impl.onStop();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ax.mojom.SpeechRecognitionEventObserver_OnResult_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ax.mojom.SpeechRecognitionEventObserver_OnResult_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onResult');
           const result = this.impl.onResult(params.event);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ax.mojom.SpeechRecognitionEventObserver_OnError_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ax.mojom.SpeechRecognitionEventObserver_OnError_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.event);
           break;
@@ -403,9 +406,11 @@ ax.mojom.SpeechRecognitionReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -419,12 +424,13 @@ ax.mojom.SpeechRecognitionReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Start
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ax.mojom.SpeechRecognition_Start_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ax.mojom.SpeechRecognition_Start_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Start (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -435,7 +441,7 @@ ax.mojom.SpeechRecognitionReceiver = class {
         // Try Method 1: Stop
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ax.mojom.SpeechRecognition_Stop_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ax.mojom.SpeechRecognition_Stop_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Stop (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -452,7 +458,7 @@ ax.mojom.SpeechRecognitionReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ax.mojom.SpeechRecognition_Start_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ax.mojom.SpeechRecognition_Start_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.start');
           const result = this.impl.start(params.options);
           if (header.expectsResponse) {
@@ -465,7 +471,7 @@ ax.mojom.SpeechRecognitionReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ax.mojom.SpeechRecognition_Stop_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ax.mojom.SpeechRecognition_Stop_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.stop');
           const result = this.impl.stop(params.options);
           if (header.expectsResponse) {

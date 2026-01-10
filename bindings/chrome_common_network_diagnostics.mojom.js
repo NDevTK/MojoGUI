@@ -97,9 +97,11 @@ chrome.mojom.NetworkDiagnosticsReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -113,12 +115,13 @@ chrome.mojom.NetworkDiagnosticsReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: RunNetworkDiagnostics
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunNetworkDiagnostics (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -135,7 +138,7 @@ chrome.mojom.NetworkDiagnosticsReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.runNetworkDiagnostics');
           const result = this.impl.runNetworkDiagnostics(params.failed_url);
           break;
@@ -251,9 +254,11 @@ chrome.mojom.NetworkDiagnosticsClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -267,12 +272,13 @@ chrome.mojom.NetworkDiagnosticsClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetCanShowNetworkDiagnosticsDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.NetworkDiagnosticsClient_SetCanShowNetworkDiagnosticsDialog_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.NetworkDiagnosticsClient_SetCanShowNetworkDiagnosticsDialog_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCanShowNetworkDiagnosticsDialog (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -283,7 +289,7 @@ chrome.mojom.NetworkDiagnosticsClientReceiver = class {
         // Try Method 1: DNSProbeStatus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chrome.mojom.NetworkDiagnosticsClient_DNSProbeStatus_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chrome.mojom.NetworkDiagnosticsClient_DNSProbeStatus_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DNSProbeStatus (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -300,14 +306,14 @@ chrome.mojom.NetworkDiagnosticsClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.NetworkDiagnosticsClient_SetCanShowNetworkDiagnosticsDialog_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.NetworkDiagnosticsClient_SetCanShowNetworkDiagnosticsDialog_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setCanShowNetworkDiagnosticsDialog');
           const result = this.impl.setCanShowNetworkDiagnosticsDialog(params.can_show);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chrome.mojom.NetworkDiagnosticsClient_DNSProbeStatus_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chrome.mojom.NetworkDiagnosticsClient_DNSProbeStatus_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.dNSProbeStatus');
           const result = this.impl.dNSProbeStatus(params.status);
           break;

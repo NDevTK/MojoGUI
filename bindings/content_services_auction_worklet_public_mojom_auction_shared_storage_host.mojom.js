@@ -123,9 +123,11 @@ auction_worklet.mojom.AuctionSharedStorageHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -139,12 +141,13 @@ auction_worklet.mojom.AuctionSharedStorageHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SharedStorageUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageUpdate_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageUpdate_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SharedStorageUpdate (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -155,7 +158,7 @@ auction_worklet.mojom.AuctionSharedStorageHostReceiver = class {
         // Try Method 1: SharedStorageBatchUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageBatchUpdate_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageBatchUpdate_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SharedStorageBatchUpdate (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -172,14 +175,14 @@ auction_worklet.mojom.AuctionSharedStorageHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageUpdate_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageUpdate_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.sharedStorageUpdate');
           const result = this.impl.sharedStorageUpdate(params.method_with_options, params.source_auction_worklet_function);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageBatchUpdate_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageBatchUpdate_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.sharedStorageBatchUpdate');
           const result = this.impl.sharedStorageBatchUpdate(params.methods_with_options, params.with_lock, params.source_auction_worklet_function);
           break;

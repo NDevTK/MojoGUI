@@ -201,9 +201,11 @@ ntp.most_relevant_tab_resumption.mojom.PageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -217,12 +219,13 @@ ntp.most_relevant_tab_resumption.mojom.PageHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetURLVisits
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetURLVisits (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -233,7 +236,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandlerReceiver = class {
         // Try Method 1: DismissModule
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissModule_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissModule_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DismissModule (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -244,7 +247,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandlerReceiver = class {
         // Try Method 2: DismissURLVisit
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DismissURLVisit (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -255,7 +258,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandlerReceiver = class {
         // Try Method 3: RestoreModule
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreModule_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreModule_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RestoreModule (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -266,7 +269,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandlerReceiver = class {
         // Try Method 4: RestoreURLVisit
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RestoreURLVisit (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -277,7 +280,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandlerReceiver = class {
         // Try Method 5: RecordAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordAction (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -294,7 +297,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getURLVisits');
           const result = this.impl.getURLVisits();
           if (header.expectsResponse) {
@@ -307,35 +310,35 @@ ntp.most_relevant_tab_resumption.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissModule_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissModule_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.dismissModule');
           const result = this.impl.dismissModule(params.url_visits);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.dismissURLVisit');
           const result = this.impl.dismissURLVisit(params.url_visit);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreModule_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreModule_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.restoreModule');
           const result = this.impl.restoreModule(params.url_visits);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.restoreURLVisit');
           const result = this.impl.restoreURLVisit(params.url_visit);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.recordAction');
           const result = this.impl.recordAction(params.action, params.url_key, params.visit_request_id);
           break;

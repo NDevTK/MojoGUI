@@ -395,9 +395,11 @@ media.mojom.VideoEncodeAcceleratorProviderReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -411,12 +413,13 @@ media.mojom.VideoEncodeAcceleratorProviderReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateVideoEncodeAccelerator
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.VideoEncodeAcceleratorProvider_CreateVideoEncodeAccelerator_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.VideoEncodeAcceleratorProvider_CreateVideoEncodeAccelerator_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateVideoEncodeAccelerator (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -427,7 +430,7 @@ media.mojom.VideoEncodeAcceleratorProviderReceiver = class {
         // Try Method 1: GetVideoEncodeAcceleratorSupportedProfiles
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.VideoEncodeAcceleratorProvider_GetVideoEncodeAcceleratorSupportedProfiles_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.VideoEncodeAcceleratorProvider_GetVideoEncodeAcceleratorSupportedProfiles_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetVideoEncodeAcceleratorSupportedProfiles (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -444,14 +447,14 @@ media.mojom.VideoEncodeAcceleratorProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.VideoEncodeAcceleratorProvider_CreateVideoEncodeAccelerator_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.VideoEncodeAcceleratorProvider_CreateVideoEncodeAccelerator_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createVideoEncodeAccelerator');
           const result = this.impl.createVideoEncodeAccelerator(params.command_buffer_id, params.receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.VideoEncodeAcceleratorProvider_GetVideoEncodeAcceleratorSupportedProfiles_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.VideoEncodeAcceleratorProvider_GetVideoEncodeAcceleratorSupportedProfiles_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getVideoEncodeAcceleratorSupportedProfiles');
           const result = this.impl.getVideoEncodeAcceleratorSupportedProfiles();
           if (header.expectsResponse) {
@@ -556,9 +559,11 @@ media.mojom.VideoEncodeAcceleratorProviderFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -572,12 +577,13 @@ media.mojom.VideoEncodeAcceleratorProviderFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateVideoEncodeAcceleratorProvider
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.VideoEncodeAcceleratorProviderFactory_CreateVideoEncodeAcceleratorProvider_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.VideoEncodeAcceleratorProviderFactory_CreateVideoEncodeAcceleratorProvider_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateVideoEncodeAcceleratorProvider (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -594,7 +600,7 @@ media.mojom.VideoEncodeAcceleratorProviderFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.VideoEncodeAcceleratorProviderFactory_CreateVideoEncodeAcceleratorProvider_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.VideoEncodeAcceleratorProviderFactory_CreateVideoEncodeAcceleratorProvider_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createVideoEncodeAcceleratorProvider');
           const result = this.impl.createVideoEncodeAcceleratorProvider(params.receiver);
           break;
@@ -824,9 +830,11 @@ media.mojom.VideoEncodeAcceleratorReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -840,12 +848,13 @@ media.mojom.VideoEncodeAcceleratorReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Initialize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.VideoEncodeAccelerator_Initialize_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.VideoEncodeAccelerator_Initialize_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Initialize (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -856,7 +865,7 @@ media.mojom.VideoEncodeAcceleratorReceiver = class {
         // Try Method 1: Encode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.VideoEncodeAccelerator_Encode_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.VideoEncodeAccelerator_Encode_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Encode (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -867,7 +876,7 @@ media.mojom.VideoEncodeAcceleratorReceiver = class {
         // Try Method 2: UseOutputBitstreamBuffer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.VideoEncodeAccelerator_UseOutputBitstreamBuffer_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.VideoEncodeAccelerator_UseOutputBitstreamBuffer_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UseOutputBitstreamBuffer (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -878,7 +887,7 @@ media.mojom.VideoEncodeAcceleratorReceiver = class {
         // Try Method 3: RequestEncodingParametersChangeWithLayers
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.VideoEncodeAccelerator_RequestEncodingParametersChangeWithLayers_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.VideoEncodeAccelerator_RequestEncodingParametersChangeWithLayers_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestEncodingParametersChangeWithLayers (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -889,7 +898,7 @@ media.mojom.VideoEncodeAcceleratorReceiver = class {
         // Try Method 4: RequestEncodingParametersChangeWithBitrate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.VideoEncodeAccelerator_RequestEncodingParametersChangeWithBitrate_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.VideoEncodeAccelerator_RequestEncodingParametersChangeWithBitrate_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestEncodingParametersChangeWithBitrate (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -900,7 +909,7 @@ media.mojom.VideoEncodeAcceleratorReceiver = class {
         // Try Method 5: IsFlushSupported
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.VideoEncodeAccelerator_IsFlushSupported_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.VideoEncodeAccelerator_IsFlushSupported_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsFlushSupported (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -911,7 +920,7 @@ media.mojom.VideoEncodeAcceleratorReceiver = class {
         // Try Method 6: Flush
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.VideoEncodeAccelerator_Flush_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.VideoEncodeAccelerator_Flush_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Flush (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -928,7 +937,7 @@ media.mojom.VideoEncodeAcceleratorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.VideoEncodeAccelerator_Initialize_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.VideoEncodeAccelerator_Initialize_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.initialize');
           const result = this.impl.initialize(params.config, params.client, params.media_log);
           if (header.expectsResponse) {
@@ -941,7 +950,7 @@ media.mojom.VideoEncodeAcceleratorReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.VideoEncodeAccelerator_Encode_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.VideoEncodeAccelerator_Encode_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.encode');
           const result = this.impl.encode(params.frame, params.options);
           if (header.expectsResponse) {
@@ -954,28 +963,28 @@ media.mojom.VideoEncodeAcceleratorReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.VideoEncodeAccelerator_UseOutputBitstreamBuffer_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.VideoEncodeAccelerator_UseOutputBitstreamBuffer_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.useOutputBitstreamBuffer');
           const result = this.impl.useOutputBitstreamBuffer(params.bitstream_buffer_id, params.region);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.VideoEncodeAccelerator_RequestEncodingParametersChangeWithLayers_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.VideoEncodeAccelerator_RequestEncodingParametersChangeWithLayers_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestEncodingParametersChangeWithLayers');
           const result = this.impl.requestEncodingParametersChangeWithLayers(params.bitrate_allocation, params.framerate, params.size);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.VideoEncodeAccelerator_RequestEncodingParametersChangeWithBitrate_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.VideoEncodeAccelerator_RequestEncodingParametersChangeWithBitrate_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestEncodingParametersChangeWithBitrate');
           const result = this.impl.requestEncodingParametersChangeWithBitrate(params.bitrate, params.framerate, params.size);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.VideoEncodeAccelerator_IsFlushSupported_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.VideoEncodeAccelerator_IsFlushSupported_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.isFlushSupported');
           const result = this.impl.isFlushSupported();
           if (header.expectsResponse) {
@@ -988,7 +997,7 @@ media.mojom.VideoEncodeAcceleratorReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.VideoEncodeAccelerator_Flush_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.VideoEncodeAccelerator_Flush_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.flush');
           const result = this.impl.flush();
           if (header.expectsResponse) {
@@ -1147,9 +1156,11 @@ media.mojom.VideoEncodeAcceleratorClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1163,12 +1174,13 @@ media.mojom.VideoEncodeAcceleratorClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: RequireBitstreamBuffers
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.VideoEncodeAcceleratorClient_RequireBitstreamBuffers_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.VideoEncodeAcceleratorClient_RequireBitstreamBuffers_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequireBitstreamBuffers (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1179,7 +1191,7 @@ media.mojom.VideoEncodeAcceleratorClientReceiver = class {
         // Try Method 1: BitstreamBufferReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.VideoEncodeAcceleratorClient_BitstreamBufferReady_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.VideoEncodeAcceleratorClient_BitstreamBufferReady_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BitstreamBufferReady (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1190,7 +1202,7 @@ media.mojom.VideoEncodeAcceleratorClientReceiver = class {
         // Try Method 2: NotifyErrorStatus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.VideoEncodeAcceleratorClient_NotifyErrorStatus_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.VideoEncodeAcceleratorClient_NotifyErrorStatus_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyErrorStatus (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1201,7 +1213,7 @@ media.mojom.VideoEncodeAcceleratorClientReceiver = class {
         // Try Method 3: NotifyEncoderInfoChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media.mojom.VideoEncodeAcceleratorClient_NotifyEncoderInfoChange_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media.mojom.VideoEncodeAcceleratorClient_NotifyEncoderInfoChange_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyEncoderInfoChange (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1218,28 +1230,28 @@ media.mojom.VideoEncodeAcceleratorClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.VideoEncodeAcceleratorClient_RequireBitstreamBuffers_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.VideoEncodeAcceleratorClient_RequireBitstreamBuffers_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requireBitstreamBuffers');
           const result = this.impl.requireBitstreamBuffers(params.input_count, params.input_coded_size, params.output_buffer_size);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.VideoEncodeAcceleratorClient_BitstreamBufferReady_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.VideoEncodeAcceleratorClient_BitstreamBufferReady_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bitstreamBufferReady');
           const result = this.impl.bitstreamBufferReady(params.bitstream_buffer_id, params.metadata);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.VideoEncodeAcceleratorClient_NotifyErrorStatus_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.VideoEncodeAcceleratorClient_NotifyErrorStatus_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.notifyErrorStatus');
           const result = this.impl.notifyErrorStatus(params.status);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.VideoEncodeAcceleratorClient_NotifyEncoderInfoChange_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media.mojom.VideoEncodeAcceleratorClient_NotifyEncoderInfoChange_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.notifyEncoderInfoChange');
           const result = this.impl.notifyEncoderInfoChange(params.info);
           break;

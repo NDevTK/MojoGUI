@@ -159,9 +159,11 @@ content.mojom.FakeBluetoothChooserReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -175,12 +177,13 @@ content.mojom.FakeBluetoothChooserReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SelectPeripheral
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.FakeBluetoothChooser_SelectPeripheral_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.FakeBluetoothChooser_SelectPeripheral_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectPeripheral (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -191,7 +194,7 @@ content.mojom.FakeBluetoothChooserReceiver = class {
         // Try Method 1: Cancel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.FakeBluetoothChooser_Cancel_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.FakeBluetoothChooser_Cancel_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Cancel (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -202,7 +205,7 @@ content.mojom.FakeBluetoothChooserReceiver = class {
         // Try Method 2: Rescan
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.FakeBluetoothChooser_Rescan_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.FakeBluetoothChooser_Rescan_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Rescan (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -219,21 +222,21 @@ content.mojom.FakeBluetoothChooserReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.FakeBluetoothChooser_SelectPeripheral_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.FakeBluetoothChooser_SelectPeripheral_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.selectPeripheral');
           const result = this.impl.selectPeripheral(params.peripheral_address);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.FakeBluetoothChooser_Cancel_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.FakeBluetoothChooser_Cancel_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.cancel');
           const result = this.impl.cancel();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.FakeBluetoothChooser_Rescan_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.FakeBluetoothChooser_Rescan_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.rescan');
           const result = this.impl.rescan();
           break;
@@ -338,9 +341,11 @@ content.mojom.FakeBluetoothChooserFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -354,12 +359,13 @@ content.mojom.FakeBluetoothChooserFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateFakeBluetoothChooser
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateFakeBluetoothChooser (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -376,7 +382,7 @@ content.mojom.FakeBluetoothChooserFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createFakeBluetoothChooser');
           const result = this.impl.createFakeBluetoothChooser(params.fake_chooser, params.client);
           if (header.expectsResponse) {
@@ -481,9 +487,11 @@ content.mojom.FakeBluetoothChooserClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -497,12 +505,13 @@ content.mojom.FakeBluetoothChooserClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.FakeBluetoothChooserClient_OnEvent_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.FakeBluetoothChooserClient_OnEvent_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnEvent (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -519,7 +528,7 @@ content.mojom.FakeBluetoothChooserClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.FakeBluetoothChooserClient_OnEvent_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.FakeBluetoothChooserClient_OnEvent_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onEvent');
           const result = this.impl.onEvent(params.event);
           break;

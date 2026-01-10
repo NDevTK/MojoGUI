@@ -180,9 +180,11 @@ certificate_manager.mojom.CertificateManagerPageHandlerFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -196,12 +198,13 @@ certificate_manager.mojom.CertificateManagerPageHandlerFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateCertificateManagerPageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(certificate_manager.mojom.CertificateManagerPageHandlerFactory_CreateCertificateManagerPageHandler_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(certificate_manager.mojom.CertificateManagerPageHandlerFactory_CreateCertificateManagerPageHandler_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateCertificateManagerPageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -218,7 +221,7 @@ certificate_manager.mojom.CertificateManagerPageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(certificate_manager.mojom.CertificateManagerPageHandlerFactory_CreateCertificateManagerPageHandler_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(certificate_manager.mojom.CertificateManagerPageHandlerFactory_CreateCertificateManagerPageHandler_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createCertificateManagerPageHandler');
           const result = this.impl.createCertificateManagerPageHandler(params.page, params.handler);
           break;
@@ -484,9 +487,11 @@ certificate_manager.mojom.CertificateManagerPageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -500,12 +505,13 @@ certificate_manager.mojom.CertificateManagerPageHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetCertificates
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCertificates (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -516,7 +522,7 @@ certificate_manager.mojom.CertificateManagerPageHandlerReceiver = class {
         // Try Method 1: GetCertManagementMetadata
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCertManagementMetadata (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -527,7 +533,7 @@ certificate_manager.mojom.CertificateManagerPageHandlerReceiver = class {
         // Try Method 2: ViewCertificate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(certificate_manager.mojom.CertificateManagerPageHandler_ViewCertificate_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(certificate_manager.mojom.CertificateManagerPageHandler_ViewCertificate_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ViewCertificate (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -538,7 +544,7 @@ certificate_manager.mojom.CertificateManagerPageHandlerReceiver = class {
         // Try Method 3: ExportCertificates
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(certificate_manager.mojom.CertificateManagerPageHandler_ExportCertificates_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(certificate_manager.mojom.CertificateManagerPageHandler_ExportCertificates_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExportCertificates (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -549,7 +555,7 @@ certificate_manager.mojom.CertificateManagerPageHandlerReceiver = class {
         // Try Method 4: ImportCertificate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ImportCertificate (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -560,7 +566,7 @@ certificate_manager.mojom.CertificateManagerPageHandlerReceiver = class {
         // Try Method 5: ImportAndBindCertificate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ImportAndBindCertificate (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -571,7 +577,7 @@ certificate_manager.mojom.CertificateManagerPageHandlerReceiver = class {
         // Try Method 6: DeleteCertificate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteCertificate (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -582,7 +588,7 @@ certificate_manager.mojom.CertificateManagerPageHandlerReceiver = class {
         // Try Method 7: ShowNativeManageCertificates
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(certificate_manager.mojom.CertificateManagerPageHandler_ShowNativeManageCertificates_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(certificate_manager.mojom.CertificateManagerPageHandler_ShowNativeManageCertificates_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowNativeManageCertificates (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -593,7 +599,7 @@ certificate_manager.mojom.CertificateManagerPageHandlerReceiver = class {
         // Try Method 8: SetIncludeSystemTrustStore
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(certificate_manager.mojom.CertificateManagerPageHandler_SetIncludeSystemTrustStore_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(certificate_manager.mojom.CertificateManagerPageHandler_SetIncludeSystemTrustStore_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIncludeSystemTrustStore (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -610,7 +616,7 @@ certificate_manager.mojom.CertificateManagerPageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getCertificates');
           const result = this.impl.getCertificates(params.source);
           if (header.expectsResponse) {
@@ -623,7 +629,7 @@ certificate_manager.mojom.CertificateManagerPageHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getCertManagementMetadata');
           const result = this.impl.getCertManagementMetadata();
           if (header.expectsResponse) {
@@ -636,21 +642,21 @@ certificate_manager.mojom.CertificateManagerPageHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(certificate_manager.mojom.CertificateManagerPageHandler_ViewCertificate_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(certificate_manager.mojom.CertificateManagerPageHandler_ViewCertificate_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.viewCertificate');
           const result = this.impl.viewCertificate(params.source, params.sha256_hash_hex);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(certificate_manager.mojom.CertificateManagerPageHandler_ExportCertificates_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(certificate_manager.mojom.CertificateManagerPageHandler_ExportCertificates_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.exportCertificates');
           const result = this.impl.exportCertificates(params.source);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.importCertificate');
           const result = this.impl.importCertificate(params.source);
           if (header.expectsResponse) {
@@ -663,7 +669,7 @@ certificate_manager.mojom.CertificateManagerPageHandlerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.importAndBindCertificate');
           const result = this.impl.importAndBindCertificate(params.source);
           if (header.expectsResponse) {
@@ -676,7 +682,7 @@ certificate_manager.mojom.CertificateManagerPageHandlerReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.deleteCertificate');
           const result = this.impl.deleteCertificate(params.source, params.display_name, params.sha256_hash_hex);
           if (header.expectsResponse) {
@@ -689,14 +695,14 @@ certificate_manager.mojom.CertificateManagerPageHandlerReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(certificate_manager.mojom.CertificateManagerPageHandler_ShowNativeManageCertificates_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(certificate_manager.mojom.CertificateManagerPageHandler_ShowNativeManageCertificates_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.showNativeManageCertificates');
           const result = this.impl.showNativeManageCertificates();
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(certificate_manager.mojom.CertificateManagerPageHandler_SetIncludeSystemTrustStore_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(certificate_manager.mojom.CertificateManagerPageHandler_SetIncludeSystemTrustStore_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setIncludeSystemTrustStore');
           const result = this.impl.setIncludeSystemTrustStore(params.include);
           break;
@@ -857,9 +863,11 @@ certificate_manager.mojom.CertificateManagerPageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -873,12 +881,13 @@ certificate_manager.mojom.CertificateManagerPageReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AskForImportPassword
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AskForImportPassword (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -889,7 +898,7 @@ certificate_manager.mojom.CertificateManagerPageReceiver = class {
         // Try Method 1: AskForConfirmation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AskForConfirmation (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -900,7 +909,7 @@ certificate_manager.mojom.CertificateManagerPageReceiver = class {
         // Try Method 2: TriggerReload
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(certificate_manager.mojom.CertificateManagerPage_TriggerReload_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(certificate_manager.mojom.CertificateManagerPage_TriggerReload_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TriggerReload (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -911,7 +920,7 @@ certificate_manager.mojom.CertificateManagerPageReceiver = class {
         // Try Method 3: TriggerMetadataUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(certificate_manager.mojom.CertificateManagerPage_TriggerMetadataUpdate_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(certificate_manager.mojom.CertificateManagerPage_TriggerMetadataUpdate_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TriggerMetadataUpdate (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -928,7 +937,7 @@ certificate_manager.mojom.CertificateManagerPageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.askForImportPassword');
           const result = this.impl.askForImportPassword();
           if (header.expectsResponse) {
@@ -941,7 +950,7 @@ certificate_manager.mojom.CertificateManagerPageReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.askForConfirmation');
           const result = this.impl.askForConfirmation(params.title, params.message);
           if (header.expectsResponse) {
@@ -954,14 +963,14 @@ certificate_manager.mojom.CertificateManagerPageReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(certificate_manager.mojom.CertificateManagerPage_TriggerReload_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(certificate_manager.mojom.CertificateManagerPage_TriggerReload_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.triggerReload');
           const result = this.impl.triggerReload(params.sources);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(certificate_manager.mojom.CertificateManagerPage_TriggerMetadataUpdate_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(certificate_manager.mojom.CertificateManagerPage_TriggerMetadataUpdate_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.triggerMetadataUpdate');
           const result = this.impl.triggerMetadataUpdate();
           break;

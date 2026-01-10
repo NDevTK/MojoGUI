@@ -465,9 +465,11 @@ blink.mojom.FederatedAuthRequestReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -481,12 +483,13 @@ blink.mojom.FederatedAuthRequestReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: RequestToken
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FederatedAuthRequest_RequestToken_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FederatedAuthRequest_RequestToken_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestToken (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -497,7 +500,7 @@ blink.mojom.FederatedAuthRequestReceiver = class {
         // Try Method 1: RequestUserInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FederatedAuthRequest_RequestUserInfo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FederatedAuthRequest_RequestUserInfo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestUserInfo (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -508,7 +511,7 @@ blink.mojom.FederatedAuthRequestReceiver = class {
         // Try Method 2: CancelTokenRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FederatedAuthRequest_CancelTokenRequest_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FederatedAuthRequest_CancelTokenRequest_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelTokenRequest (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -519,7 +522,7 @@ blink.mojom.FederatedAuthRequestReceiver = class {
         // Try Method 3: ResolveTokenRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResolveTokenRequest (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -530,7 +533,7 @@ blink.mojom.FederatedAuthRequestReceiver = class {
         // Try Method 4: SetIdpSigninStatus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIdpSigninStatus (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -541,7 +544,7 @@ blink.mojom.FederatedAuthRequestReceiver = class {
         // Try Method 5: RegisterIdP
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FederatedAuthRequest_RegisterIdP_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FederatedAuthRequest_RegisterIdP_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterIdP (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -552,7 +555,7 @@ blink.mojom.FederatedAuthRequestReceiver = class {
         // Try Method 6: UnregisterIdP
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FederatedAuthRequest_UnregisterIdP_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FederatedAuthRequest_UnregisterIdP_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UnregisterIdP (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -563,7 +566,7 @@ blink.mojom.FederatedAuthRequestReceiver = class {
         // Try Method 7: CloseModalDialogView
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FederatedAuthRequest_CloseModalDialogView_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FederatedAuthRequest_CloseModalDialogView_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseModalDialogView (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -574,7 +577,7 @@ blink.mojom.FederatedAuthRequestReceiver = class {
         // Try Method 8: PreventSilentAccess
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FederatedAuthRequest_PreventSilentAccess_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FederatedAuthRequest_PreventSilentAccess_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PreventSilentAccess (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -585,7 +588,7 @@ blink.mojom.FederatedAuthRequestReceiver = class {
         // Try Method 9: Disconnect
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FederatedAuthRequest_Disconnect_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FederatedAuthRequest_Disconnect_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Disconnect (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -602,7 +605,7 @@ blink.mojom.FederatedAuthRequestReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FederatedAuthRequest_RequestToken_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FederatedAuthRequest_RequestToken_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestToken');
           const result = this.impl.requestToken(params.idp_get_params, params.requirement);
           if (header.expectsResponse) {
@@ -615,7 +618,7 @@ blink.mojom.FederatedAuthRequestReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FederatedAuthRequest_RequestUserInfo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FederatedAuthRequest_RequestUserInfo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestUserInfo');
           const result = this.impl.requestUserInfo(params.provider);
           if (header.expectsResponse) {
@@ -628,14 +631,14 @@ blink.mojom.FederatedAuthRequestReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FederatedAuthRequest_CancelTokenRequest_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FederatedAuthRequest_CancelTokenRequest_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.cancelTokenRequest');
           const result = this.impl.cancelTokenRequest();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.resolveTokenRequest');
           const result = this.impl.resolveTokenRequest(params.account_id, params.token);
           if (header.expectsResponse) {
@@ -648,7 +651,7 @@ blink.mojom.FederatedAuthRequestReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setIdpSigninStatus');
           const result = this.impl.setIdpSigninStatus(params.origin, params.status, params.options);
           if (header.expectsResponse) {
@@ -661,7 +664,7 @@ blink.mojom.FederatedAuthRequestReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FederatedAuthRequest_RegisterIdP_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FederatedAuthRequest_RegisterIdP_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.registerIdP');
           const result = this.impl.registerIdP(params.url);
           if (header.expectsResponse) {
@@ -674,7 +677,7 @@ blink.mojom.FederatedAuthRequestReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FederatedAuthRequest_UnregisterIdP_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FederatedAuthRequest_UnregisterIdP_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.unregisterIdP');
           const result = this.impl.unregisterIdP(params.url);
           if (header.expectsResponse) {
@@ -687,14 +690,14 @@ blink.mojom.FederatedAuthRequestReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FederatedAuthRequest_CloseModalDialogView_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FederatedAuthRequest_CloseModalDialogView_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.closeModalDialogView');
           const result = this.impl.closeModalDialogView();
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FederatedAuthRequest_PreventSilentAccess_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FederatedAuthRequest_PreventSilentAccess_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.preventSilentAccess');
           const result = this.impl.preventSilentAccess();
           if (header.expectsResponse) {
@@ -707,7 +710,7 @@ blink.mojom.FederatedAuthRequestReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FederatedAuthRequest_Disconnect_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FederatedAuthRequest_Disconnect_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.disconnect');
           const result = this.impl.disconnect(params.options);
           if (header.expectsResponse) {

@@ -266,9 +266,11 @@ blink.mojom.RemoteObjectHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -282,12 +284,13 @@ blink.mojom.RemoteObjectHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetObject
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.RemoteObjectHost_GetObject_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.RemoteObjectHost_GetObject_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetObject (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -298,7 +301,7 @@ blink.mojom.RemoteObjectHostReceiver = class {
         // Try Method 1: AcquireObject
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.RemoteObjectHost_AcquireObject_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.RemoteObjectHost_AcquireObject_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AcquireObject (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -309,7 +312,7 @@ blink.mojom.RemoteObjectHostReceiver = class {
         // Try Method 2: ReleaseObject
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.RemoteObjectHost_ReleaseObject_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.RemoteObjectHost_ReleaseObject_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReleaseObject (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -326,21 +329,21 @@ blink.mojom.RemoteObjectHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.RemoteObjectHost_GetObject_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.RemoteObjectHost_GetObject_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getObject');
           const result = this.impl.getObject(params.object_id, params.receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.RemoteObjectHost_AcquireObject_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.RemoteObjectHost_AcquireObject_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.acquireObject');
           const result = this.impl.acquireObject(params.object_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.RemoteObjectHost_ReleaseObject_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.RemoteObjectHost_ReleaseObject_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.releaseObject');
           const result = this.impl.releaseObject(params.object_id);
           break;
@@ -507,9 +510,11 @@ blink.mojom.RemoteObjectReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -523,12 +528,13 @@ blink.mojom.RemoteObjectReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: HasMethod
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.RemoteObject_HasMethod_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.RemoteObject_HasMethod_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HasMethod (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -539,7 +545,7 @@ blink.mojom.RemoteObjectReceiver = class {
         // Try Method 1: GetMethods
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.RemoteObject_GetMethods_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.RemoteObject_GetMethods_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMethods (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -550,7 +556,7 @@ blink.mojom.RemoteObjectReceiver = class {
         // Try Method 2: InvokeMethod
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.RemoteObject_InvokeMethod_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.RemoteObject_InvokeMethod_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InvokeMethod (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -561,7 +567,7 @@ blink.mojom.RemoteObjectReceiver = class {
         // Try Method 3: NotifyReleasedObject
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.RemoteObject_NotifyReleasedObject_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.RemoteObject_NotifyReleasedObject_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyReleasedObject (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -578,7 +584,7 @@ blink.mojom.RemoteObjectReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.RemoteObject_HasMethod_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.RemoteObject_HasMethod_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.hasMethod');
           const result = this.impl.hasMethod(params.name);
           if (header.expectsResponse) {
@@ -591,7 +597,7 @@ blink.mojom.RemoteObjectReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.RemoteObject_GetMethods_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.RemoteObject_GetMethods_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getMethods');
           const result = this.impl.getMethods();
           if (header.expectsResponse) {
@@ -604,7 +610,7 @@ blink.mojom.RemoteObjectReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.RemoteObject_InvokeMethod_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.RemoteObject_InvokeMethod_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.invokeMethod');
           const result = this.impl.invokeMethod(params.name, params.arguments);
           if (header.expectsResponse) {
@@ -617,7 +623,7 @@ blink.mojom.RemoteObjectReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.RemoteObject_NotifyReleasedObject_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.RemoteObject_NotifyReleasedObject_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.notifyReleasedObject');
           const result = this.impl.notifyReleasedObject();
           break;
@@ -717,9 +723,11 @@ blink.mojom.RemoteObjectGatewayFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -733,12 +741,13 @@ blink.mojom.RemoteObjectGatewayFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateRemoteObjectGateway
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.RemoteObjectGatewayFactory_CreateRemoteObjectGateway_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.RemoteObjectGatewayFactory_CreateRemoteObjectGateway_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateRemoteObjectGateway (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -755,7 +764,7 @@ blink.mojom.RemoteObjectGatewayFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.RemoteObjectGatewayFactory_CreateRemoteObjectGateway_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.RemoteObjectGatewayFactory_CreateRemoteObjectGateway_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createRemoteObjectGateway');
           const result = this.impl.createRemoteObjectGateway(params.host, params.gateway);
           break;
@@ -872,9 +881,11 @@ blink.mojom.RemoteObjectGatewayReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -888,12 +899,13 @@ blink.mojom.RemoteObjectGatewayReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AddNamedObject
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.RemoteObjectGateway_AddNamedObject_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.RemoteObjectGateway_AddNamedObject_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddNamedObject (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -904,7 +916,7 @@ blink.mojom.RemoteObjectGatewayReceiver = class {
         // Try Method 1: RemoveNamedObject
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.RemoteObjectGateway_RemoveNamedObject_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.RemoteObjectGateway_RemoveNamedObject_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveNamedObject (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -921,14 +933,14 @@ blink.mojom.RemoteObjectGatewayReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.RemoteObjectGateway_AddNamedObject_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.RemoteObjectGateway_AddNamedObject_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addNamedObject');
           const result = this.impl.addNamedObject(params.name, params.object_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.RemoteObjectGateway_RemoveNamedObject_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.RemoteObjectGateway_RemoveNamedObject_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.removeNamedObject');
           const result = this.impl.removeNamedObject(params.name);
           break;

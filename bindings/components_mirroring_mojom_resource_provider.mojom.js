@@ -106,9 +106,11 @@ mirroring.mojom.AudioStreamCreatorClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -122,12 +124,13 @@ mirroring.mojom.AudioStreamCreatorClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: StreamCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StreamCreated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -144,7 +147,7 @@ mirroring.mojom.AudioStreamCreatorClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.streamCreated');
           const result = this.impl.streamCreated(params.stream, params.client_receiver, params.data_pipe);
           break;
@@ -331,9 +334,11 @@ mirroring.mojom.ResourceProviderReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -347,12 +352,13 @@ mirroring.mojom.ResourceProviderReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: BindGpu
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(mirroring.mojom.ResourceProvider_BindGpu_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(mirroring.mojom.ResourceProvider_BindGpu_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindGpu (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -363,7 +369,7 @@ mirroring.mojom.ResourceProviderReceiver = class {
         // Try Method 1: GetVideoCaptureHost
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(mirroring.mojom.ResourceProvider_GetVideoCaptureHost_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(mirroring.mojom.ResourceProvider_GetVideoCaptureHost_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetVideoCaptureHost (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -374,7 +380,7 @@ mirroring.mojom.ResourceProviderReceiver = class {
         // Try Method 2: GetVideoEncoderMetricsProvider
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetVideoEncoderMetricsProvider (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -385,7 +391,7 @@ mirroring.mojom.ResourceProviderReceiver = class {
         // Try Method 3: GetNetworkContext
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(mirroring.mojom.ResourceProvider_GetNetworkContext_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(mirroring.mojom.ResourceProvider_GetNetworkContext_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNetworkContext (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -396,7 +402,7 @@ mirroring.mojom.ResourceProviderReceiver = class {
         // Try Method 4: CreateAudioStream
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(mirroring.mojom.ResourceProvider_CreateAudioStream_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(mirroring.mojom.ResourceProvider_CreateAudioStream_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateAudioStream (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -407,7 +413,7 @@ mirroring.mojom.ResourceProviderReceiver = class {
         // Try Method 5: ConnectToRemotingSource
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(mirroring.mojom.ResourceProvider_ConnectToRemotingSource_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(mirroring.mojom.ResourceProvider_ConnectToRemotingSource_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConnectToRemotingSource (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -424,42 +430,42 @@ mirroring.mojom.ResourceProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(mirroring.mojom.ResourceProvider_BindGpu_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(mirroring.mojom.ResourceProvider_BindGpu_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindGpu');
           const result = this.impl.bindGpu(params.receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(mirroring.mojom.ResourceProvider_GetVideoCaptureHost_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(mirroring.mojom.ResourceProvider_GetVideoCaptureHost_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getVideoCaptureHost');
           const result = this.impl.getVideoCaptureHost(params.receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getVideoEncoderMetricsProvider');
           const result = this.impl.getVideoEncoderMetricsProvider(params.receiver);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(mirroring.mojom.ResourceProvider_GetNetworkContext_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(mirroring.mojom.ResourceProvider_GetNetworkContext_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getNetworkContext');
           const result = this.impl.getNetworkContext(params.receiver);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(mirroring.mojom.ResourceProvider_CreateAudioStream_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(mirroring.mojom.ResourceProvider_CreateAudioStream_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createAudioStream');
           const result = this.impl.createAudioStream(params.client, params.param, params.shared_memory_count);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(mirroring.mojom.ResourceProvider_ConnectToRemotingSource_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(mirroring.mojom.ResourceProvider_ConnectToRemotingSource_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.connectToRemotingSource');
           const result = this.impl.connectToRemotingSource(params.remoter, params.receiver);
           break;

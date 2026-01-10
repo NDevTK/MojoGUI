@@ -151,9 +151,11 @@ ash.annotator.mojom.UntrustedAnnotatorPageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -167,12 +169,13 @@ ash.annotator.mojom.UntrustedAnnotatorPageReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Clear
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.annotator.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.annotator.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clear (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -183,7 +186,7 @@ ash.annotator.mojom.UntrustedAnnotatorPageReceiver = class {
         // Try Method 1: Undo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.annotator.mojom.UntrustedAnnotatorPage_Undo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.annotator.mojom.UntrustedAnnotatorPage_Undo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Undo (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -194,7 +197,7 @@ ash.annotator.mojom.UntrustedAnnotatorPageReceiver = class {
         // Try Method 2: Redo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.annotator.mojom.UntrustedAnnotatorPage_Redo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.annotator.mojom.UntrustedAnnotatorPage_Redo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Redo (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -205,7 +208,7 @@ ash.annotator.mojom.UntrustedAnnotatorPageReceiver = class {
         // Try Method 3: SetTool
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTool (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -222,28 +225,28 @@ ash.annotator.mojom.UntrustedAnnotatorPageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.annotator.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.annotator.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.clear');
           const result = this.impl.clear();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.annotator.mojom.UntrustedAnnotatorPage_Undo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.annotator.mojom.UntrustedAnnotatorPage_Undo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.undo');
           const result = this.impl.undo();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.annotator.mojom.UntrustedAnnotatorPage_Redo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.annotator.mojom.UntrustedAnnotatorPage_Redo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.redo');
           const result = this.impl.redo();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setTool');
           const result = this.impl.setTool(params.tool);
           break;
@@ -360,9 +363,11 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -376,12 +381,13 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnUndoRedoAvailabilityChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnUndoRedoAvailabilityChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -392,7 +398,7 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerReceiver = class {
         // Try Method 1: OnCanvasInitialized
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCanvasInitialized (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -409,14 +415,14 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onUndoRedoAvailabilityChanged');
           const result = this.impl.onUndoRedoAvailabilityChanged(params.undo_available, params.redo_available);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onCanvasInitialized');
           const result = this.impl.onCanvasInitialized(params.success);
           break;
@@ -516,9 +522,11 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -532,12 +540,13 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Create
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Create (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -554,7 +563,7 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.create');
           const result = this.impl.create(params.handler, params.annotator);
           break;

@@ -515,9 +515,11 @@ media_router.mojom.MediaRouteProviderReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -531,12 +533,13 @@ media_router.mojom.MediaRouteProviderReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateRoute
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media_router.mojom.MediaRouteProvider_CreateRoute_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media_router.mojom.MediaRouteProvider_CreateRoute_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateRoute (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -547,7 +550,7 @@ media_router.mojom.MediaRouteProviderReceiver = class {
         // Try Method 1: JoinRoute
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media_router.mojom.MediaRouteProvider_JoinRoute_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media_router.mojom.MediaRouteProvider_JoinRoute_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> JoinRoute (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -558,7 +561,7 @@ media_router.mojom.MediaRouteProviderReceiver = class {
         // Try Method 2: TerminateRoute
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media_router.mojom.MediaRouteProvider_TerminateRoute_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media_router.mojom.MediaRouteProvider_TerminateRoute_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TerminateRoute (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -569,7 +572,7 @@ media_router.mojom.MediaRouteProviderReceiver = class {
         // Try Method 3: SendRouteMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media_router.mojom.MediaRouteProvider_SendRouteMessage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media_router.mojom.MediaRouteProvider_SendRouteMessage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendRouteMessage (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -580,7 +583,7 @@ media_router.mojom.MediaRouteProviderReceiver = class {
         // Try Method 4: SendRouteBinaryMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media_router.mojom.MediaRouteProvider_SendRouteBinaryMessage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media_router.mojom.MediaRouteProvider_SendRouteBinaryMessage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendRouteBinaryMessage (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -591,7 +594,7 @@ media_router.mojom.MediaRouteProviderReceiver = class {
         // Try Method 5: StartObservingMediaSinks
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media_router.mojom.MediaRouteProvider_StartObservingMediaSinks_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media_router.mojom.MediaRouteProvider_StartObservingMediaSinks_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartObservingMediaSinks (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -602,7 +605,7 @@ media_router.mojom.MediaRouteProviderReceiver = class {
         // Try Method 6: StopObservingMediaSinks
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media_router.mojom.MediaRouteProvider_StopObservingMediaSinks_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media_router.mojom.MediaRouteProvider_StopObservingMediaSinks_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopObservingMediaSinks (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -613,7 +616,7 @@ media_router.mojom.MediaRouteProviderReceiver = class {
         // Try Method 7: StartObservingMediaRoutes
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media_router.mojom.MediaRouteProvider_StartObservingMediaRoutes_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media_router.mojom.MediaRouteProvider_StartObservingMediaRoutes_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartObservingMediaRoutes (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -624,7 +627,7 @@ media_router.mojom.MediaRouteProviderReceiver = class {
         // Try Method 8: DetachRoute
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media_router.mojom.MediaRouteProvider_DetachRoute_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media_router.mojom.MediaRouteProvider_DetachRoute_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DetachRoute (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -635,7 +638,7 @@ media_router.mojom.MediaRouteProviderReceiver = class {
         // Try Method 9: DiscoverSinksNow
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media_router.mojom.MediaRouteProvider_DiscoverSinksNow_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media_router.mojom.MediaRouteProvider_DiscoverSinksNow_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DiscoverSinksNow (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -646,7 +649,7 @@ media_router.mojom.MediaRouteProviderReceiver = class {
         // Try Method 10: BindMediaController
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media_router.mojom.MediaRouteProvider_BindMediaController_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media_router.mojom.MediaRouteProvider_BindMediaController_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindMediaController (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -657,7 +660,7 @@ media_router.mojom.MediaRouteProviderReceiver = class {
         // Try Method 11: GetState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media_router.mojom.MediaRouteProvider_GetState_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media_router.mojom.MediaRouteProvider_GetState_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetState (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -674,7 +677,7 @@ media_router.mojom.MediaRouteProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_router.mojom.MediaRouteProvider_CreateRoute_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media_router.mojom.MediaRouteProvider_CreateRoute_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createRoute');
           const result = this.impl.createRoute(params.media_source, params.sink_id, params.original_presentation_id, params.origin, params.frame_tree_node_id, params.timeout);
           if (header.expectsResponse) {
@@ -687,7 +690,7 @@ media_router.mojom.MediaRouteProviderReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_router.mojom.MediaRouteProvider_JoinRoute_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media_router.mojom.MediaRouteProvider_JoinRoute_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.joinRoute');
           const result = this.impl.joinRoute(params.media_source, params.presentation_id, params.origin, params.frame_tree_node_id, params.timeout);
           if (header.expectsResponse) {
@@ -700,7 +703,7 @@ media_router.mojom.MediaRouteProviderReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_router.mojom.MediaRouteProvider_TerminateRoute_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media_router.mojom.MediaRouteProvider_TerminateRoute_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.terminateRoute');
           const result = this.impl.terminateRoute(params.route_id);
           if (header.expectsResponse) {
@@ -713,56 +716,56 @@ media_router.mojom.MediaRouteProviderReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_router.mojom.MediaRouteProvider_SendRouteMessage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media_router.mojom.MediaRouteProvider_SendRouteMessage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.sendRouteMessage');
           const result = this.impl.sendRouteMessage(params.media_route_id, params.message);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_router.mojom.MediaRouteProvider_SendRouteBinaryMessage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media_router.mojom.MediaRouteProvider_SendRouteBinaryMessage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.sendRouteBinaryMessage');
           const result = this.impl.sendRouteBinaryMessage(params.media_route_id, params.data);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_router.mojom.MediaRouteProvider_StartObservingMediaSinks_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media_router.mojom.MediaRouteProvider_StartObservingMediaSinks_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.startObservingMediaSinks');
           const result = this.impl.startObservingMediaSinks(params.media_source);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_router.mojom.MediaRouteProvider_StopObservingMediaSinks_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media_router.mojom.MediaRouteProvider_StopObservingMediaSinks_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.stopObservingMediaSinks');
           const result = this.impl.stopObservingMediaSinks(params.media_source);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_router.mojom.MediaRouteProvider_StartObservingMediaRoutes_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media_router.mojom.MediaRouteProvider_StartObservingMediaRoutes_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.startObservingMediaRoutes');
           const result = this.impl.startObservingMediaRoutes();
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_router.mojom.MediaRouteProvider_DetachRoute_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media_router.mojom.MediaRouteProvider_DetachRoute_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.detachRoute');
           const result = this.impl.detachRoute(params.route_id);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_router.mojom.MediaRouteProvider_DiscoverSinksNow_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media_router.mojom.MediaRouteProvider_DiscoverSinksNow_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.discoverSinksNow');
           const result = this.impl.discoverSinksNow();
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_router.mojom.MediaRouteProvider_BindMediaController_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media_router.mojom.MediaRouteProvider_BindMediaController_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindMediaController');
           const result = this.impl.bindMediaController(params.route_id, params.media_controller, params.observer);
           if (header.expectsResponse) {
@@ -775,7 +778,7 @@ media_router.mojom.MediaRouteProviderReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_router.mojom.MediaRouteProvider_GetState_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media_router.mojom.MediaRouteProvider_GetState_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getState');
           const result = this.impl.getState();
           if (header.expectsResponse) {
@@ -1086,9 +1089,11 @@ media_router.mojom.MediaRouterReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1102,12 +1107,13 @@ media_router.mojom.MediaRouterReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: RegisterMediaRouteProvider
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media_router.mojom.MediaRouter_RegisterMediaRouteProvider_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media_router.mojom.MediaRouter_RegisterMediaRouteProvider_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterMediaRouteProvider (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1118,7 +1124,7 @@ media_router.mojom.MediaRouterReceiver = class {
         // Try Method 1: OnSinksReceived
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media_router.mojom.MediaRouter_OnSinksReceived_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media_router.mojom.MediaRouter_OnSinksReceived_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSinksReceived (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1129,7 +1135,7 @@ media_router.mojom.MediaRouterReceiver = class {
         // Try Method 2: OnIssue
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media_router.mojom.MediaRouter_OnIssue_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media_router.mojom.MediaRouter_OnIssue_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnIssue (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1140,7 +1146,7 @@ media_router.mojom.MediaRouterReceiver = class {
         // Try Method 3: ClearTopIssueForSink
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media_router.mojom.MediaRouter_ClearTopIssueForSink_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media_router.mojom.MediaRouter_ClearTopIssueForSink_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearTopIssueForSink (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1151,7 +1157,7 @@ media_router.mojom.MediaRouterReceiver = class {
         // Try Method 4: OnRoutesUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media_router.mojom.MediaRouter_OnRoutesUpdated_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media_router.mojom.MediaRouter_OnRoutesUpdated_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRoutesUpdated (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1162,7 +1168,7 @@ media_router.mojom.MediaRouterReceiver = class {
         // Try Method 5: OnPresentationConnectionStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media_router.mojom.MediaRouter_OnPresentationConnectionStateChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media_router.mojom.MediaRouter_OnPresentationConnectionStateChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPresentationConnectionStateChanged (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1173,7 +1179,7 @@ media_router.mojom.MediaRouterReceiver = class {
         // Try Method 6: OnPresentationConnectionClosed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media_router.mojom.MediaRouter_OnPresentationConnectionClosed_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media_router.mojom.MediaRouter_OnPresentationConnectionClosed_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPresentationConnectionClosed (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1184,7 +1190,7 @@ media_router.mojom.MediaRouterReceiver = class {
         // Try Method 7: OnRouteMessagesReceived
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media_router.mojom.MediaRouter_OnRouteMessagesReceived_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media_router.mojom.MediaRouter_OnRouteMessagesReceived_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRouteMessagesReceived (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1195,7 +1201,7 @@ media_router.mojom.MediaRouterReceiver = class {
         // Try Method 8: GetMediaSinkServiceStatus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMediaSinkServiceStatus (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1206,7 +1212,7 @@ media_router.mojom.MediaRouterReceiver = class {
         // Try Method 9: GetLogger
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media_router.mojom.MediaRouter_GetLogger_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media_router.mojom.MediaRouter_GetLogger_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetLogger (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1217,7 +1223,7 @@ media_router.mojom.MediaRouterReceiver = class {
         // Try Method 10: GetDebugger
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media_router.mojom.MediaRouter_GetDebugger_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media_router.mojom.MediaRouter_GetDebugger_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDebugger (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1228,7 +1234,7 @@ media_router.mojom.MediaRouterReceiver = class {
         // Try Method 11: GetLogsAsString
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(media_router.mojom.MediaRouter_GetLogsAsString_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(media_router.mojom.MediaRouter_GetLogsAsString_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetLogsAsString (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1245,63 +1251,63 @@ media_router.mojom.MediaRouterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_router.mojom.MediaRouter_RegisterMediaRouteProvider_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media_router.mojom.MediaRouter_RegisterMediaRouteProvider_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.registerMediaRouteProvider');
           const result = this.impl.registerMediaRouteProvider(params.provider_id, params.media_router_provider);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_router.mojom.MediaRouter_OnSinksReceived_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media_router.mojom.MediaRouter_OnSinksReceived_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onSinksReceived');
           const result = this.impl.onSinksReceived(params.provider_id, params.media_source, params.sinks, params.origins);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_router.mojom.MediaRouter_OnIssue_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media_router.mojom.MediaRouter_OnIssue_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onIssue');
           const result = this.impl.onIssue(params.issue);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_router.mojom.MediaRouter_ClearTopIssueForSink_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media_router.mojom.MediaRouter_ClearTopIssueForSink_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.clearTopIssueForSink');
           const result = this.impl.clearTopIssueForSink(params.sink_id);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_router.mojom.MediaRouter_OnRoutesUpdated_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media_router.mojom.MediaRouter_OnRoutesUpdated_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onRoutesUpdated');
           const result = this.impl.onRoutesUpdated(params.provider_id, params.routes);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_router.mojom.MediaRouter_OnPresentationConnectionStateChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media_router.mojom.MediaRouter_OnPresentationConnectionStateChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onPresentationConnectionStateChanged');
           const result = this.impl.onPresentationConnectionStateChanged(params.route_id, params.state);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_router.mojom.MediaRouter_OnPresentationConnectionClosed_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media_router.mojom.MediaRouter_OnPresentationConnectionClosed_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onPresentationConnectionClosed');
           const result = this.impl.onPresentationConnectionClosed(params.route_id, params.reason, params.message);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_router.mojom.MediaRouter_OnRouteMessagesReceived_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media_router.mojom.MediaRouter_OnRouteMessagesReceived_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onRouteMessagesReceived');
           const result = this.impl.onRouteMessagesReceived(params.route_id, params.messages);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getMediaSinkServiceStatus');
           const result = this.impl.getMediaSinkServiceStatus();
           if (header.expectsResponse) {
@@ -1314,21 +1320,21 @@ media_router.mojom.MediaRouterReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_router.mojom.MediaRouter_GetLogger_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media_router.mojom.MediaRouter_GetLogger_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getLogger');
           const result = this.impl.getLogger(params.receiver);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_router.mojom.MediaRouter_GetDebugger_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media_router.mojom.MediaRouter_GetDebugger_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getDebugger');
           const result = this.impl.getDebugger(params.receiver);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_router.mojom.MediaRouter_GetLogsAsString_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(media_router.mojom.MediaRouter_GetLogsAsString_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getLogsAsString');
           const result = this.impl.getLogsAsString();
           if (header.expectsResponse) {

@@ -255,9 +255,11 @@ blink.mojom.DirectSocketsServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -271,12 +273,13 @@ blink.mojom.DirectSocketsServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OpenTCPSocket
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.DirectSocketsService_OpenTCPSocket_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.DirectSocketsService_OpenTCPSocket_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenTCPSocket (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -287,7 +290,7 @@ blink.mojom.DirectSocketsServiceReceiver = class {
         // Try Method 1: OpenConnectedUDPSocket
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenConnectedUDPSocket (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -298,7 +301,7 @@ blink.mojom.DirectSocketsServiceReceiver = class {
         // Try Method 2: OpenBoundUDPSocket
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenBoundUDPSocket (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -309,7 +312,7 @@ blink.mojom.DirectSocketsServiceReceiver = class {
         // Try Method 3: OpenTCPServerSocket
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.DirectSocketsService_OpenTCPServerSocket_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.DirectSocketsService_OpenTCPServerSocket_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenTCPServerSocket (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -326,7 +329,7 @@ blink.mojom.DirectSocketsServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.DirectSocketsService_OpenTCPSocket_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.DirectSocketsService_OpenTCPSocket_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.openTCPSocket');
           const result = this.impl.openTCPSocket(params.options, params.receiver, params.observer);
           if (header.expectsResponse) {
@@ -339,7 +342,7 @@ blink.mojom.DirectSocketsServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.openConnectedUDPSocket');
           const result = this.impl.openConnectedUDPSocket(params.options, params.receiver, params.listener);
           if (header.expectsResponse) {
@@ -352,7 +355,7 @@ blink.mojom.DirectSocketsServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.openBoundUDPSocket');
           const result = this.impl.openBoundUDPSocket(params.options, params.receiver, params.listener);
           if (header.expectsResponse) {
@@ -365,7 +368,7 @@ blink.mojom.DirectSocketsServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.DirectSocketsService_OpenTCPServerSocket_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.DirectSocketsService_OpenTCPServerSocket_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.openTCPServerSocket');
           const result = this.impl.openTCPServerSocket(params.options, params.receiver);
           if (header.expectsResponse) {

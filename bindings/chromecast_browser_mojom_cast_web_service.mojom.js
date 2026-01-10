@@ -223,9 +223,11 @@ chromecast.mojom.CastWebServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -239,12 +241,13 @@ chromecast.mojom.CastWebServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateWebView
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromecast.mojom.CastWebService_CreateWebView_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromecast.mojom.CastWebService_CreateWebView_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateWebView (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -255,7 +258,7 @@ chromecast.mojom.CastWebServiceReceiver = class {
         // Try Method 1: RegisterWebUiClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromecast.mojom.CastWebService_RegisterWebUiClient_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromecast.mojom.CastWebService_RegisterWebUiClient_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterWebUiClient (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -266,7 +269,7 @@ chromecast.mojom.CastWebServiceReceiver = class {
         // Try Method 2: FlushDomLocalStorage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromecast.mojom.CastWebService_FlushDomLocalStorage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromecast.mojom.CastWebService_FlushDomLocalStorage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FlushDomLocalStorage (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -277,7 +280,7 @@ chromecast.mojom.CastWebServiceReceiver = class {
         // Try Method 3: ClearLocalStorage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromecast.mojom.CastWebService_ClearLocalStorage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromecast.mojom.CastWebService_ClearLocalStorage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearLocalStorage (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -294,28 +297,28 @@ chromecast.mojom.CastWebServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.mojom.CastWebService_CreateWebView_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromecast.mojom.CastWebService_CreateWebView_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createWebView');
           const result = this.impl.createWebView(params.params, params.web_contents, params.window);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.mojom.CastWebService_RegisterWebUiClient_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromecast.mojom.CastWebService_RegisterWebUiClient_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.registerWebUiClient');
           const result = this.impl.registerWebUiClient(params.client, params.hosts);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.mojom.CastWebService_FlushDomLocalStorage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromecast.mojom.CastWebService_FlushDomLocalStorage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.flushDomLocalStorage');
           const result = this.impl.flushDomLocalStorage();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.mojom.CastWebService_ClearLocalStorage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromecast.mojom.CastWebService_ClearLocalStorage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.clearLocalStorage');
           const result = this.impl.clearLocalStorage();
           if (header.expectsResponse) {

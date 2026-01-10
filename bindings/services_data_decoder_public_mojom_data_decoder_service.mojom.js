@@ -203,9 +203,11 @@ data_decoder.mojom.DataDecoderServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -219,12 +221,13 @@ data_decoder.mojom.DataDecoderServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: BindImageDecoder
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(data_decoder.mojom.DataDecoderService_BindImageDecoder_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(data_decoder.mojom.DataDecoderService_BindImageDecoder_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindImageDecoder (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -235,7 +238,7 @@ data_decoder.mojom.DataDecoderServiceReceiver = class {
         // Try Method 1: BindXmlParser
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(data_decoder.mojom.DataDecoderService_BindXmlParser_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(data_decoder.mojom.DataDecoderService_BindXmlParser_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindXmlParser (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -246,7 +249,7 @@ data_decoder.mojom.DataDecoderServiceReceiver = class {
         // Try Method 2: BindWebBundleParserFactory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(data_decoder.mojom.DataDecoderService_BindWebBundleParserFactory_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(data_decoder.mojom.DataDecoderService_BindWebBundleParserFactory_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindWebBundleParserFactory (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -257,7 +260,7 @@ data_decoder.mojom.DataDecoderServiceReceiver = class {
         // Try Method 3: BindGzipper
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(data_decoder.mojom.DataDecoderService_BindGzipper_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(data_decoder.mojom.DataDecoderService_BindGzipper_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindGzipper (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -268,7 +271,7 @@ data_decoder.mojom.DataDecoderServiceReceiver = class {
         // Try Method 4: BindStructuredHeadersParser
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(data_decoder.mojom.DataDecoderService_BindStructuredHeadersParser_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(data_decoder.mojom.DataDecoderService_BindStructuredHeadersParser_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindStructuredHeadersParser (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -279,7 +282,7 @@ data_decoder.mojom.DataDecoderServiceReceiver = class {
         // Try Method 5: BindCborParser
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(data_decoder.mojom.DataDecoderService_BindCborParser_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(data_decoder.mojom.DataDecoderService_BindCborParser_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindCborParser (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -290,7 +293,7 @@ data_decoder.mojom.DataDecoderServiceReceiver = class {
         // Try Method 6: BindPixCodeValidator
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(data_decoder.mojom.DataDecoderService_BindPixCodeValidator_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(data_decoder.mojom.DataDecoderService_BindPixCodeValidator_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindPixCodeValidator (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -307,49 +310,49 @@ data_decoder.mojom.DataDecoderServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(data_decoder.mojom.DataDecoderService_BindImageDecoder_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(data_decoder.mojom.DataDecoderService_BindImageDecoder_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindImageDecoder');
           const result = this.impl.bindImageDecoder(params.receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(data_decoder.mojom.DataDecoderService_BindXmlParser_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(data_decoder.mojom.DataDecoderService_BindXmlParser_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindXmlParser');
           const result = this.impl.bindXmlParser(params.reciever);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(data_decoder.mojom.DataDecoderService_BindWebBundleParserFactory_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(data_decoder.mojom.DataDecoderService_BindWebBundleParserFactory_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindWebBundleParserFactory');
           const result = this.impl.bindWebBundleParserFactory(params.receiver);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(data_decoder.mojom.DataDecoderService_BindGzipper_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(data_decoder.mojom.DataDecoderService_BindGzipper_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindGzipper');
           const result = this.impl.bindGzipper(params.receiver);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(data_decoder.mojom.DataDecoderService_BindStructuredHeadersParser_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(data_decoder.mojom.DataDecoderService_BindStructuredHeadersParser_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindStructuredHeadersParser');
           const result = this.impl.bindStructuredHeadersParser(params.receiver);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(data_decoder.mojom.DataDecoderService_BindCborParser_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(data_decoder.mojom.DataDecoderService_BindCborParser_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindCborParser');
           const result = this.impl.bindCborParser(params.receiver);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(data_decoder.mojom.DataDecoderService_BindPixCodeValidator_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(data_decoder.mojom.DataDecoderService_BindPixCodeValidator_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindPixCodeValidator');
           const result = this.impl.bindPixCodeValidator(params.receiver);
           break;

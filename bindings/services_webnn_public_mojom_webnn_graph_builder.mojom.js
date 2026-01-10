@@ -149,9 +149,11 @@ webnn.mojom.WebNNGraphBuilderReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -165,12 +167,13 @@ webnn.mojom.WebNNGraphBuilderReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreatePendingConstant
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(webnn.mojom.WebNNGraphBuilder_CreatePendingConstant_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(webnn.mojom.WebNNGraphBuilder_CreatePendingConstant_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePendingConstant (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -181,7 +184,7 @@ webnn.mojom.WebNNGraphBuilderReceiver = class {
         // Try Method 1: CreateGraph
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(webnn.mojom.WebNNGraphBuilder_CreateGraph_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(webnn.mojom.WebNNGraphBuilder_CreateGraph_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateGraph (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -192,7 +195,7 @@ webnn.mojom.WebNNGraphBuilderReceiver = class {
         // Try Method 2: IsValidGraphForTesting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsValidGraphForTesting (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -209,21 +212,21 @@ webnn.mojom.WebNNGraphBuilderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webnn.mojom.WebNNGraphBuilder_CreatePendingConstant_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(webnn.mojom.WebNNGraphBuilder_CreatePendingConstant_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createPendingConstant');
           const result = this.impl.createPendingConstant(params.constant_handle, params.data_type, params.data);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webnn.mojom.WebNNGraphBuilder_CreateGraph_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(webnn.mojom.WebNNGraphBuilder_CreateGraph_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createGraph');
           const result = this.impl.createGraph(params.graph_info);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.isValidGraphForTesting');
           const result = this.impl.isValidGraphForTesting(params.context_properties, params.graph_info);
           if (header.expectsResponse) {

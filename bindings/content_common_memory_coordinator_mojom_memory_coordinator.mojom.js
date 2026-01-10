@@ -129,9 +129,11 @@ content.mojom.ChildMemoryConsumerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -145,12 +147,13 @@ content.mojom.ChildMemoryConsumerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: NotifyReleaseMemory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyReleaseMemory (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -161,7 +164,7 @@ content.mojom.ChildMemoryConsumerReceiver = class {
         // Try Method 1: NotifyUpdateMemoryLimit
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyUpdateMemoryLimit (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -178,14 +181,14 @@ content.mojom.ChildMemoryConsumerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.notifyReleaseMemory');
           const result = this.impl.notifyReleaseMemory();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.notifyUpdateMemoryLimit');
           const result = this.impl.notifyUpdateMemoryLimit(params.percentage);
           break;
@@ -286,9 +289,11 @@ content.mojom.BrowserMemoryConsumerRegistryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -302,12 +307,13 @@ content.mojom.BrowserMemoryConsumerRegistryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: RegisterChildMemoryConsumer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterChildMemoryConsumer (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -324,7 +330,7 @@ content.mojom.BrowserMemoryConsumerRegistryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.registerChildMemoryConsumer');
           const result = this.impl.registerChildMemoryConsumer(params.consumer_id, params.traits, params.child_consumer);
           break;

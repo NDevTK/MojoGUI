@@ -189,9 +189,11 @@ webnn.mojom.WebNNTensorReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -205,12 +207,13 @@ webnn.mojom.WebNNTensorReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ReadTensor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(webnn.mojom.WebNNTensor_ReadTensor_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(webnn.mojom.WebNNTensor_ReadTensor_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadTensor (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -221,7 +224,7 @@ webnn.mojom.WebNNTensorReceiver = class {
         // Try Method 1: WriteTensor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(webnn.mojom.WebNNTensor_WriteTensor_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(webnn.mojom.WebNNTensor_WriteTensor_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteTensor (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -232,7 +235,7 @@ webnn.mojom.WebNNTensorReceiver = class {
         // Try Method 2: ExportTensor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(webnn.mojom.WebNNTensor_ExportTensor_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(webnn.mojom.WebNNTensor_ExportTensor_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExportTensor (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -243,7 +246,7 @@ webnn.mojom.WebNNTensorReceiver = class {
         // Try Method 3: ImportTensor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(webnn.mojom.WebNNTensor_ImportTensor_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(webnn.mojom.WebNNTensor_ImportTensor_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ImportTensor (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -260,7 +263,7 @@ webnn.mojom.WebNNTensorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webnn.mojom.WebNNTensor_ReadTensor_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(webnn.mojom.WebNNTensor_ReadTensor_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.readTensor');
           const result = this.impl.readTensor();
           if (header.expectsResponse) {
@@ -273,21 +276,21 @@ webnn.mojom.WebNNTensorReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webnn.mojom.WebNNTensor_WriteTensor_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(webnn.mojom.WebNNTensor_WriteTensor_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.writeTensor');
           const result = this.impl.writeTensor(params.src_buffer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webnn.mojom.WebNNTensor_ExportTensor_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(webnn.mojom.WebNNTensor_ExportTensor_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.exportTensor');
           const result = this.impl.exportTensor();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webnn.mojom.WebNNTensor_ImportTensor_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(webnn.mojom.WebNNTensor_ImportTensor_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.importTensor');
           const result = this.impl.importTensor(params.fence);
           break;

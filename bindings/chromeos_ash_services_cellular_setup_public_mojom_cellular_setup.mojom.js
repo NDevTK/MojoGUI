@@ -132,9 +132,11 @@ ash.cellular_setup.mojom.CarrierPortalHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -148,12 +150,13 @@ ash.cellular_setup.mojom.CarrierPortalHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnCarrierPortalStatusChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCarrierPortalStatusChange (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -170,7 +173,7 @@ ash.cellular_setup.mojom.CarrierPortalHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onCarrierPortalStatusChange');
           const result = this.impl.onCarrierPortalStatusChange(params.status);
           break;
@@ -286,9 +289,11 @@ ash.cellular_setup.mojom.ActivationDelegateReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -302,12 +307,13 @@ ash.cellular_setup.mojom.ActivationDelegateReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnActivationStarted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnActivationStarted (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -318,7 +324,7 @@ ash.cellular_setup.mojom.ActivationDelegateReceiver = class {
         // Try Method 1: OnActivationFinished
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnActivationFinished (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -335,14 +341,14 @@ ash.cellular_setup.mojom.ActivationDelegateReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onActivationStarted');
           const result = this.impl.onActivationStarted(params.metadata);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onActivationFinished');
           const result = this.impl.onActivationFinished(params.result);
           break;
@@ -447,9 +453,11 @@ ash.cellular_setup.mojom.CellularSetupReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -463,12 +471,13 @@ ash.cellular_setup.mojom.CellularSetupReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: StartActivation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.cellular_setup.mojom.CellularSetup_StartActivation_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.cellular_setup.mojom.CellularSetup_StartActivation_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartActivation (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -485,7 +494,7 @@ ash.cellular_setup.mojom.CellularSetupReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cellular_setup.mojom.CellularSetup_StartActivation_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.cellular_setup.mojom.CellularSetup_StartActivation_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.startActivation');
           const result = this.impl.startActivation(params.delegate);
           if (header.expectsResponse) {

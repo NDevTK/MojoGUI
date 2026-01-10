@@ -141,9 +141,11 @@ sharing.mojom.TcpSocketFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -157,12 +159,13 @@ sharing.mojom.TcpSocketFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateTCPServerSocket
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateTCPServerSocket (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -173,7 +176,7 @@ sharing.mojom.TcpSocketFactoryReceiver = class {
         // Try Method 1: CreateTCPConnectedSocket
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateTCPConnectedSocket (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -190,7 +193,7 @@ sharing.mojom.TcpSocketFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createTCPServerSocket');
           const result = this.impl.createTCPServerSocket(params.local_addr, params.port, params.backlog, params.traffic_annotation, params.socket);
           if (header.expectsResponse) {
@@ -203,7 +206,7 @@ sharing.mojom.TcpSocketFactoryReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createTCPConnectedSocket');
           const result = this.impl.createTCPConnectedSocket(params.timeout, params.local_addr, params.remote_addr_list, params.tcp_connected_socket_options, params.traffic_annotation, params.socket, params.observer);
           if (header.expectsResponse) {

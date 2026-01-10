@@ -323,9 +323,11 @@ content.mojom.InputInjectorReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -339,12 +341,13 @@ content.mojom.InputInjectorReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: QueueSyntheticSmoothDrag
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.InputInjector_QueueSyntheticSmoothDrag_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.InputInjector_QueueSyntheticSmoothDrag_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> QueueSyntheticSmoothDrag (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -355,7 +358,7 @@ content.mojom.InputInjectorReceiver = class {
         // Try Method 1: QueueSyntheticSmoothScroll
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.InputInjector_QueueSyntheticSmoothScroll_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.InputInjector_QueueSyntheticSmoothScroll_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> QueueSyntheticSmoothScroll (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -366,7 +369,7 @@ content.mojom.InputInjectorReceiver = class {
         // Try Method 2: QueueSyntheticPinch
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.InputInjector_QueueSyntheticPinch_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.InputInjector_QueueSyntheticPinch_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> QueueSyntheticPinch (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -377,7 +380,7 @@ content.mojom.InputInjectorReceiver = class {
         // Try Method 3: QueueSyntheticTap
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.InputInjector_QueueSyntheticTap_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.InputInjector_QueueSyntheticTap_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> QueueSyntheticTap (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -388,7 +391,7 @@ content.mojom.InputInjectorReceiver = class {
         // Try Method 4: QueueSyntheticPointerAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.InputInjector_QueueSyntheticPointerAction_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.InputInjector_QueueSyntheticPointerAction_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> QueueSyntheticPointerAction (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -405,7 +408,7 @@ content.mojom.InputInjectorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.InputInjector_QueueSyntheticSmoothDrag_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.InputInjector_QueueSyntheticSmoothDrag_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.queueSyntheticSmoothDrag');
           const result = this.impl.queueSyntheticSmoothDrag(params.drag);
           if (header.expectsResponse) {
@@ -418,7 +421,7 @@ content.mojom.InputInjectorReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.InputInjector_QueueSyntheticSmoothScroll_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.InputInjector_QueueSyntheticSmoothScroll_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.queueSyntheticSmoothScroll');
           const result = this.impl.queueSyntheticSmoothScroll(params.scroll);
           if (header.expectsResponse) {
@@ -431,7 +434,7 @@ content.mojom.InputInjectorReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.InputInjector_QueueSyntheticPinch_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.InputInjector_QueueSyntheticPinch_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.queueSyntheticPinch');
           const result = this.impl.queueSyntheticPinch(params.pinch);
           if (header.expectsResponse) {
@@ -444,7 +447,7 @@ content.mojom.InputInjectorReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.InputInjector_QueueSyntheticTap_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.InputInjector_QueueSyntheticTap_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.queueSyntheticTap');
           const result = this.impl.queueSyntheticTap(params.tap);
           if (header.expectsResponse) {
@@ -457,7 +460,7 @@ content.mojom.InputInjectorReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.InputInjector_QueueSyntheticPointerAction_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.InputInjector_QueueSyntheticPointerAction_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.queueSyntheticPointerAction');
           const result = this.impl.queueSyntheticPointerAction(params.pointer_action);
           if (header.expectsResponse) {

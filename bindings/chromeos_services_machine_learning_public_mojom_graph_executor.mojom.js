@@ -117,9 +117,11 @@ chromeos.machine_learning.mojom.GraphExecutorReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -133,12 +135,13 @@ chromeos.machine_learning.mojom.GraphExecutorReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Execute
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.machine_learning.mojom.GraphExecutor_Execute_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.machine_learning.mojom.GraphExecutor_Execute_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Execute (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -155,7 +158,7 @@ chromeos.machine_learning.mojom.GraphExecutorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.machine_learning.mojom.GraphExecutor_Execute_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.GraphExecutor_Execute_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.execute');
           const result = this.impl.execute(params.inputs, params.output_names);
           if (header.expectsResponse) {

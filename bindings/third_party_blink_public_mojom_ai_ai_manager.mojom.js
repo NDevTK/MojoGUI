@@ -169,9 +169,11 @@ blink.mojom.AIManagerCreateWriterClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -185,12 +187,13 @@ blink.mojom.AIManagerCreateWriterClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AIManagerCreateWriterClient_OnResult_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AIManagerCreateWriterClient_OnResult_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnResult (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -201,7 +204,7 @@ blink.mojom.AIManagerCreateWriterClientReceiver = class {
         // Try Method 1: OnError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AIManagerCreateWriterClient_OnError_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AIManagerCreateWriterClient_OnError_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnError (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -218,14 +221,14 @@ blink.mojom.AIManagerCreateWriterClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AIManagerCreateWriterClient_OnResult_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AIManagerCreateWriterClient_OnResult_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onResult');
           const result = this.impl.onResult(params.writer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AIManagerCreateWriterClient_OnError_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AIManagerCreateWriterClient_OnError_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.error, params.quota_error_info);
           break;
@@ -342,9 +345,11 @@ blink.mojom.AIManagerCreateRewriterClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -358,12 +363,13 @@ blink.mojom.AIManagerCreateRewriterClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AIManagerCreateRewriterClient_OnResult_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AIManagerCreateRewriterClient_OnResult_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnResult (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -374,7 +380,7 @@ blink.mojom.AIManagerCreateRewriterClientReceiver = class {
         // Try Method 1: OnError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AIManagerCreateRewriterClient_OnError_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AIManagerCreateRewriterClient_OnError_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnError (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -391,14 +397,14 @@ blink.mojom.AIManagerCreateRewriterClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AIManagerCreateRewriterClient_OnResult_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AIManagerCreateRewriterClient_OnResult_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onResult');
           const result = this.impl.onResult(params.rewriter);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AIManagerCreateRewriterClient_OnError_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AIManagerCreateRewriterClient_OnError_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.error, params.quota_error_info);
           break;
@@ -515,9 +521,11 @@ blink.mojom.AIManagerCreateSummarizerClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -531,12 +539,13 @@ blink.mojom.AIManagerCreateSummarizerClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AIManagerCreateSummarizerClient_OnResult_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AIManagerCreateSummarizerClient_OnResult_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnResult (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -547,7 +556,7 @@ blink.mojom.AIManagerCreateSummarizerClientReceiver = class {
         // Try Method 1: OnError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AIManagerCreateSummarizerClient_OnError_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AIManagerCreateSummarizerClient_OnError_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnError (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -564,14 +573,14 @@ blink.mojom.AIManagerCreateSummarizerClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AIManagerCreateSummarizerClient_OnResult_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AIManagerCreateSummarizerClient_OnResult_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onResult');
           const result = this.impl.onResult(params.summarizer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AIManagerCreateSummarizerClient_OnError_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AIManagerCreateSummarizerClient_OnError_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.error, params.quota_error_info);
           break;
@@ -688,9 +697,11 @@ blink.mojom.AIManagerCreateProofreaderClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -704,12 +715,13 @@ blink.mojom.AIManagerCreateProofreaderClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AIManagerCreateProofreaderClient_OnResult_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AIManagerCreateProofreaderClient_OnResult_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnResult (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -720,7 +732,7 @@ blink.mojom.AIManagerCreateProofreaderClientReceiver = class {
         // Try Method 1: OnError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AIManagerCreateProofreaderClient_OnError_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AIManagerCreateProofreaderClient_OnError_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnError (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -737,14 +749,14 @@ blink.mojom.AIManagerCreateProofreaderClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AIManagerCreateProofreaderClient_OnResult_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AIManagerCreateProofreaderClient_OnResult_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onResult');
           const result = this.impl.onResult(params.proofreader);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AIManagerCreateProofreaderClient_OnError_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AIManagerCreateProofreaderClient_OnError_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.error, params.quota_error_info);
           break;
@@ -1070,9 +1082,11 @@ blink.mojom.AIManagerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1086,12 +1100,13 @@ blink.mojom.AIManagerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CanCreateLanguageModel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AIManager_CanCreateLanguageModel_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AIManager_CanCreateLanguageModel_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CanCreateLanguageModel (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1102,7 +1117,7 @@ blink.mojom.AIManagerReceiver = class {
         // Try Method 1: CreateLanguageModel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AIManager_CreateLanguageModel_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AIManager_CreateLanguageModel_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateLanguageModel (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1113,7 +1128,7 @@ blink.mojom.AIManagerReceiver = class {
         // Try Method 2: CanCreateSummarizer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AIManager_CanCreateSummarizer_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AIManager_CanCreateSummarizer_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CanCreateSummarizer (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1124,7 +1139,7 @@ blink.mojom.AIManagerReceiver = class {
         // Try Method 3: CreateSummarizer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AIManager_CreateSummarizer_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AIManager_CreateSummarizer_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateSummarizer (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1135,7 +1150,7 @@ blink.mojom.AIManagerReceiver = class {
         // Try Method 4: GetLanguageModelParams
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AIManager_GetLanguageModelParams_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AIManager_GetLanguageModelParams_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetLanguageModelParams (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1146,7 +1161,7 @@ blink.mojom.AIManagerReceiver = class {
         // Try Method 5: CanCreateWriter
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AIManager_CanCreateWriter_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AIManager_CanCreateWriter_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CanCreateWriter (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1157,7 +1172,7 @@ blink.mojom.AIManagerReceiver = class {
         // Try Method 6: CreateWriter
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AIManager_CreateWriter_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AIManager_CreateWriter_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateWriter (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1168,7 +1183,7 @@ blink.mojom.AIManagerReceiver = class {
         // Try Method 7: CanCreateRewriter
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AIManager_CanCreateRewriter_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AIManager_CanCreateRewriter_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CanCreateRewriter (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1179,7 +1194,7 @@ blink.mojom.AIManagerReceiver = class {
         // Try Method 8: CreateRewriter
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AIManager_CreateRewriter_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AIManager_CreateRewriter_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateRewriter (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1190,7 +1205,7 @@ blink.mojom.AIManagerReceiver = class {
         // Try Method 9: CanCreateProofreader
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AIManager_CanCreateProofreader_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AIManager_CanCreateProofreader_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CanCreateProofreader (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1201,7 +1216,7 @@ blink.mojom.AIManagerReceiver = class {
         // Try Method 10: CreateProofreader
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AIManager_CreateProofreader_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AIManager_CreateProofreader_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateProofreader (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1212,7 +1227,7 @@ blink.mojom.AIManagerReceiver = class {
         // Try Method 11: AddModelDownloadProgressObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AIManager_AddModelDownloadProgressObserver_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AIManager_AddModelDownloadProgressObserver_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddModelDownloadProgressObserver (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1229,7 +1244,7 @@ blink.mojom.AIManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AIManager_CanCreateLanguageModel_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AIManager_CanCreateLanguageModel_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.canCreateLanguageModel');
           const result = this.impl.canCreateLanguageModel(params.options);
           if (header.expectsResponse) {
@@ -1242,14 +1257,14 @@ blink.mojom.AIManagerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AIManager_CreateLanguageModel_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AIManager_CreateLanguageModel_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createLanguageModel');
           const result = this.impl.createLanguageModel(params.client, params.options);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AIManager_CanCreateSummarizer_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AIManager_CanCreateSummarizer_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.canCreateSummarizer');
           const result = this.impl.canCreateSummarizer(params.options);
           if (header.expectsResponse) {
@@ -1262,14 +1277,14 @@ blink.mojom.AIManagerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AIManager_CreateSummarizer_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AIManager_CreateSummarizer_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createSummarizer');
           const result = this.impl.createSummarizer(params.client, params.options);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AIManager_GetLanguageModelParams_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AIManager_GetLanguageModelParams_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getLanguageModelParams');
           const result = this.impl.getLanguageModelParams();
           if (header.expectsResponse) {
@@ -1282,7 +1297,7 @@ blink.mojom.AIManagerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AIManager_CanCreateWriter_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AIManager_CanCreateWriter_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.canCreateWriter');
           const result = this.impl.canCreateWriter(params.options);
           if (header.expectsResponse) {
@@ -1295,14 +1310,14 @@ blink.mojom.AIManagerReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AIManager_CreateWriter_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AIManager_CreateWriter_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createWriter');
           const result = this.impl.createWriter(params.client, params.options);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AIManager_CanCreateRewriter_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AIManager_CanCreateRewriter_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.canCreateRewriter');
           const result = this.impl.canCreateRewriter(params.options);
           if (header.expectsResponse) {
@@ -1315,14 +1330,14 @@ blink.mojom.AIManagerReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AIManager_CreateRewriter_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AIManager_CreateRewriter_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createRewriter');
           const result = this.impl.createRewriter(params.client, params.options);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AIManager_CanCreateProofreader_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AIManager_CanCreateProofreader_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.canCreateProofreader');
           const result = this.impl.canCreateProofreader(params.options);
           if (header.expectsResponse) {
@@ -1335,14 +1350,14 @@ blink.mojom.AIManagerReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AIManager_CreateProofreader_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AIManager_CreateProofreader_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createProofreader');
           const result = this.impl.createProofreader(params.client, params.options);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AIManager_AddModelDownloadProgressObserver_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AIManager_AddModelDownloadProgressObserver_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addModelDownloadProgressObserver');
           const result = this.impl.addModelDownloadProgressObserver(params.observer_remote);
           break;

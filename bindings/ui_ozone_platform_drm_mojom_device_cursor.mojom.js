@@ -118,9 +118,11 @@ ui.ozone.mojom.DeviceCursorReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -134,12 +136,13 @@ ui.ozone.mojom.DeviceCursorReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetCursor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCursor (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -150,7 +153,7 @@ ui.ozone.mojom.DeviceCursorReceiver = class {
         // Try Method 1: MoveCursor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MoveCursor (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -167,14 +170,14 @@ ui.ozone.mojom.DeviceCursorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setCursor');
           const result = this.impl.setCursor(params.window, params.bitmaps, params.point, params.frame_delay);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.moveCursor');
           const result = this.impl.moveCursor(params.window, params.point);
           break;

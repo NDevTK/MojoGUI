@@ -357,9 +357,11 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -373,12 +375,13 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: FetchJapaneseDictionary
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FetchJapaneseDictionary (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -389,7 +392,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
         // Try Method 1: AddJapaneseDictionaryEntry
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddJapaneseDictionaryEntry (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -400,7 +403,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
         // Try Method 2: EditJapaneseDictionaryEntry
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EditJapaneseDictionaryEntry (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -411,7 +414,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
         // Try Method 3: DeleteJapaneseDictionaryEntry
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteJapaneseDictionaryEntry (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -422,7 +425,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
         // Try Method 4: CreateJapaneseDictionary
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateJapaneseDictionary (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -433,7 +436,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
         // Try Method 5: RenameJapaneseDictionary
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RenameJapaneseDictionary (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -444,7 +447,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
         // Try Method 6: DeleteJapaneseDictionary
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteJapaneseDictionary (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -455,7 +458,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
         // Try Method 7: ExportJapaneseDictionary
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExportJapaneseDictionary (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -466,7 +469,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
         // Try Method 8: ImportJapaneseDictionary
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ImportJapaneseDictionary (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -477,7 +480,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
         // Try Method 9: ClearJapanesePersonalizationData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearJapanesePersonalizationData (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -494,7 +497,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.fetchJapaneseDictionary');
           const result = this.impl.fetchJapaneseDictionary();
           if (header.expectsResponse) {
@@ -507,7 +510,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addJapaneseDictionaryEntry');
           const result = this.impl.addJapaneseDictionaryEntry(params.dict_id, params.entry);
           if (header.expectsResponse) {
@@ -520,7 +523,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.editJapaneseDictionaryEntry');
           const result = this.impl.editJapaneseDictionaryEntry(params.dict_id, params.entry_index, params.entry);
           if (header.expectsResponse) {
@@ -533,7 +536,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.deleteJapaneseDictionaryEntry');
           const result = this.impl.deleteJapaneseDictionaryEntry(params.dict_id, params.entry_index);
           if (header.expectsResponse) {
@@ -546,7 +549,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createJapaneseDictionary');
           const result = this.impl.createJapaneseDictionary(params.dictionary_name);
           if (header.expectsResponse) {
@@ -559,7 +562,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.renameJapaneseDictionary');
           const result = this.impl.renameJapaneseDictionary(params.dict_id, params.dictionary_name);
           if (header.expectsResponse) {
@@ -572,7 +575,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.deleteJapaneseDictionary');
           const result = this.impl.deleteJapaneseDictionary(params.dict_id);
           if (header.expectsResponse) {
@@ -585,7 +588,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.exportJapaneseDictionary');
           const result = this.impl.exportJapaneseDictionary(params.dict_id);
           if (header.expectsResponse) {
@@ -598,7 +601,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.importJapaneseDictionary');
           const result = this.impl.importJapaneseDictionary(params.dict_id, params.tsv_data);
           if (header.expectsResponse) {
@@ -611,7 +614,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.clearJapanesePersonalizationData');
           const result = this.impl.clearJapanesePersonalizationData(params.clear_conversion_history, params.clear_suggestion_history);
           if (header.expectsResponse) {

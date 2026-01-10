@@ -254,9 +254,11 @@ fuzz.mojom.FuzzDummyInterfaceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -270,12 +272,13 @@ fuzz.mojom.FuzzDummyInterfaceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Ping
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(fuzz.mojom.FuzzDummyInterface_Ping_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(fuzz.mojom.FuzzDummyInterface_Ping_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Ping (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -292,7 +295,7 @@ fuzz.mojom.FuzzDummyInterfaceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(fuzz.mojom.FuzzDummyInterface_Ping_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(fuzz.mojom.FuzzDummyInterface_Ping_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.ping');
           const result = this.impl.ping();
           break;
@@ -513,9 +516,11 @@ fuzz.mojom.FuzzInterfaceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -529,12 +534,13 @@ fuzz.mojom.FuzzInterfaceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: FuzzBasic
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(fuzz.mojom.FuzzInterface_FuzzBasic_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(fuzz.mojom.FuzzInterface_FuzzBasic_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FuzzBasic (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -545,7 +551,7 @@ fuzz.mojom.FuzzInterfaceReceiver = class {
         // Try Method 1: FuzzBasicResp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(fuzz.mojom.FuzzInterface_FuzzBasicResp_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(fuzz.mojom.FuzzInterface_FuzzBasicResp_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FuzzBasicResp (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -556,7 +562,7 @@ fuzz.mojom.FuzzInterfaceReceiver = class {
         // Try Method 2: FuzzBasicSyncResp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FuzzBasicSyncResp (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -567,7 +573,7 @@ fuzz.mojom.FuzzInterfaceReceiver = class {
         // Try Method 3: FuzzArgs
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(fuzz.mojom.FuzzInterface_FuzzArgs_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(fuzz.mojom.FuzzInterface_FuzzArgs_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FuzzArgs (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -578,7 +584,7 @@ fuzz.mojom.FuzzInterfaceReceiver = class {
         // Try Method 4: FuzzArgsResp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(fuzz.mojom.FuzzInterface_FuzzArgsResp_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(fuzz.mojom.FuzzInterface_FuzzArgsResp_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FuzzArgsResp (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -589,7 +595,7 @@ fuzz.mojom.FuzzInterfaceReceiver = class {
         // Try Method 5: FuzzArgsSyncResp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FuzzArgsSyncResp (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -600,7 +606,7 @@ fuzz.mojom.FuzzInterfaceReceiver = class {
         // Try Method 6: FuzzAssociated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(fuzz.mojom.FuzzInterface_FuzzAssociated_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(fuzz.mojom.FuzzInterface_FuzzAssociated_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FuzzAssociated (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -617,14 +623,14 @@ fuzz.mojom.FuzzInterfaceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(fuzz.mojom.FuzzInterface_FuzzBasic_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(fuzz.mojom.FuzzInterface_FuzzBasic_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.fuzzBasic');
           const result = this.impl.fuzzBasic();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(fuzz.mojom.FuzzInterface_FuzzBasicResp_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(fuzz.mojom.FuzzInterface_FuzzBasicResp_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.fuzzBasicResp');
           const result = this.impl.fuzzBasicResp();
           if (header.expectsResponse) {
@@ -637,7 +643,7 @@ fuzz.mojom.FuzzInterfaceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.fuzzBasicSyncResp');
           const result = this.impl.fuzzBasicSyncResp();
           if (header.expectsResponse) {
@@ -650,14 +656,14 @@ fuzz.mojom.FuzzInterfaceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(fuzz.mojom.FuzzInterface_FuzzArgs_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(fuzz.mojom.FuzzInterface_FuzzArgs_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.fuzzArgs');
           const result = this.impl.fuzzArgs(params.a, params.b);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(fuzz.mojom.FuzzInterface_FuzzArgsResp_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(fuzz.mojom.FuzzInterface_FuzzArgsResp_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.fuzzArgsResp');
           const result = this.impl.fuzzArgsResp(params.a, params.b);
           if (header.expectsResponse) {
@@ -670,7 +676,7 @@ fuzz.mojom.FuzzInterfaceReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.fuzzArgsSyncResp');
           const result = this.impl.fuzzArgsSyncResp(params.a, params.b);
           if (header.expectsResponse) {
@@ -683,7 +689,7 @@ fuzz.mojom.FuzzInterfaceReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(fuzz.mojom.FuzzInterface_FuzzAssociated_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(fuzz.mojom.FuzzInterface_FuzzAssociated_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.fuzzAssociated');
           const result = this.impl.fuzzAssociated(params.receiver);
           break;

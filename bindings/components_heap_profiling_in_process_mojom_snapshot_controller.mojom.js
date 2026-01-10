@@ -110,9 +110,11 @@ heap_profiling.mojom.SnapshotControllerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -126,12 +128,13 @@ heap_profiling.mojom.SnapshotControllerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: TakeSnapshot
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(heap_profiling.mojom.SnapshotController_TakeSnapshot_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(heap_profiling.mojom.SnapshotController_TakeSnapshot_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TakeSnapshot (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -142,7 +145,7 @@ heap_profiling.mojom.SnapshotControllerReceiver = class {
         // Try Method 1: LogMetricsWithoutSnapshot
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(heap_profiling.mojom.SnapshotController_LogMetricsWithoutSnapshot_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(heap_profiling.mojom.SnapshotController_LogMetricsWithoutSnapshot_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogMetricsWithoutSnapshot (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -159,14 +162,14 @@ heap_profiling.mojom.SnapshotControllerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(heap_profiling.mojom.SnapshotController_TakeSnapshot_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(heap_profiling.mojom.SnapshotController_TakeSnapshot_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.takeSnapshot');
           const result = this.impl.takeSnapshot(params.process_probability_pct, params.process_index);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(heap_profiling.mojom.SnapshotController_LogMetricsWithoutSnapshot_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(heap_profiling.mojom.SnapshotController_LogMetricsWithoutSnapshot_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.logMetricsWithoutSnapshot');
           const result = this.impl.logMetricsWithoutSnapshot();
           break;

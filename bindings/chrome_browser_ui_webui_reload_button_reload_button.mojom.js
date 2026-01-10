@@ -109,9 +109,11 @@ reload_button.mojom.PageHandlerFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -125,12 +127,13 @@ reload_button.mojom.PageHandlerFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(reload_button.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(reload_button.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -147,7 +150,7 @@ reload_button.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(reload_button.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(reload_button.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
@@ -281,9 +284,11 @@ reload_button.mojom.PageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -297,12 +302,13 @@ reload_button.mojom.PageHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Reload
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(reload_button.mojom.PageHandler_Reload_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(reload_button.mojom.PageHandler_Reload_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Reload (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -313,7 +319,7 @@ reload_button.mojom.PageHandlerReceiver = class {
         // Try Method 1: StopReload
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(reload_button.mojom.PageHandler_StopReload_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(reload_button.mojom.PageHandler_StopReload_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopReload (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -324,7 +330,7 @@ reload_button.mojom.PageHandlerReceiver = class {
         // Try Method 2: ShowContextMenu
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(reload_button.mojom.PageHandler_ShowContextMenu_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(reload_button.mojom.PageHandler_ShowContextMenu_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowContextMenu (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -341,21 +347,21 @@ reload_button.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(reload_button.mojom.PageHandler_Reload_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(reload_button.mojom.PageHandler_Reload_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.reload');
           const result = this.impl.reload(params.ignore_cache, params.flags);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(reload_button.mojom.PageHandler_StopReload_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(reload_button.mojom.PageHandler_StopReload_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.stopReload');
           const result = this.impl.stopReload();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(reload_button.mojom.PageHandler_ShowContextMenu_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(reload_button.mojom.PageHandler_ShowContextMenu_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.showContextMenu');
           const result = this.impl.showContextMenu(params.offset_x, params.offset_y);
           break;
@@ -455,9 +461,11 @@ reload_button.mojom.PageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -471,12 +479,13 @@ reload_button.mojom.PageReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetReloadButtonState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(reload_button.mojom.Page_SetReloadButtonState_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(reload_button.mojom.Page_SetReloadButtonState_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetReloadButtonState (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -493,7 +502,7 @@ reload_button.mojom.PageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(reload_button.mojom.Page_SetReloadButtonState_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(reload_button.mojom.Page_SetReloadButtonState_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setReloadButtonState');
           const result = this.impl.setReloadButtonState(params.is_loading, params.is_menu_enabled);
           break;

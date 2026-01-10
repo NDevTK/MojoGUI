@@ -101,9 +101,11 @@ screen_ai.mojom.ScreenAIServiceShutdownHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -117,12 +119,13 @@ screen_ai.mojom.ScreenAIServiceShutdownHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ShuttingDownOnIdle
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShuttingDownOnIdle (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -139,7 +142,7 @@ screen_ai.mojom.ScreenAIServiceShutdownHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.shuttingDownOnIdle');
           const result = this.impl.shuttingDownOnIdle();
           break;
@@ -288,9 +291,11 @@ screen_ai.mojom.ScreenAIServiceFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -304,12 +309,13 @@ screen_ai.mojom.ScreenAIServiceFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: InitializeOCR
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InitializeOCR (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -320,7 +326,7 @@ screen_ai.mojom.ScreenAIServiceFactoryReceiver = class {
         // Try Method 1: InitializeMainContentExtraction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InitializeMainContentExtraction (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -331,7 +337,7 @@ screen_ai.mojom.ScreenAIServiceFactoryReceiver = class {
         // Try Method 2: BindShutdownHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindShutdownHandler (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -348,7 +354,7 @@ screen_ai.mojom.ScreenAIServiceFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.initializeOCR');
           const result = this.impl.initializeOCR(params.library_path, params.model_files, params.ocr_service_receiver);
           if (header.expectsResponse) {
@@ -361,7 +367,7 @@ screen_ai.mojom.ScreenAIServiceFactoryReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.initializeMainContentExtraction');
           const result = this.impl.initializeMainContentExtraction(params.library_path, params.model_files, params.main_content_extractor_service);
           if (header.expectsResponse) {
@@ -374,7 +380,7 @@ screen_ai.mojom.ScreenAIServiceFactoryReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindShutdownHandler');
           const result = this.impl.bindShutdownHandler(params.shutdown_handler);
           break;

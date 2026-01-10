@@ -469,9 +469,11 @@ device.mojom.HidManagerClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -485,12 +487,13 @@ device.mojom.HidManagerClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: DeviceAdded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.HidManagerClient_DeviceAdded_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.HidManagerClient_DeviceAdded_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeviceAdded (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -501,7 +504,7 @@ device.mojom.HidManagerClientReceiver = class {
         // Try Method 1: DeviceRemoved
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.HidManagerClient_DeviceRemoved_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.HidManagerClient_DeviceRemoved_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeviceRemoved (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -512,7 +515,7 @@ device.mojom.HidManagerClientReceiver = class {
         // Try Method 2: DeviceChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.HidManagerClient_DeviceChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.HidManagerClient_DeviceChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeviceChanged (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -529,21 +532,21 @@ device.mojom.HidManagerClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.HidManagerClient_DeviceAdded_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.HidManagerClient_DeviceAdded_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.deviceAdded');
           const result = this.impl.deviceAdded(params.device_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.HidManagerClient_DeviceRemoved_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.HidManagerClient_DeviceRemoved_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.deviceRemoved');
           const result = this.impl.deviceRemoved(params.device_info);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.HidManagerClient_DeviceChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.HidManagerClient_DeviceChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.deviceChanged');
           const result = this.impl.deviceChanged(params.device_info);
           break;
@@ -714,9 +717,11 @@ device.mojom.HidManagerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -730,12 +735,13 @@ device.mojom.HidManagerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetDevicesAndSetClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.HidManager_GetDevicesAndSetClient_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.HidManager_GetDevicesAndSetClient_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDevicesAndSetClient (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -746,7 +752,7 @@ device.mojom.HidManagerReceiver = class {
         // Try Method 1: GetDevices
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.HidManager_GetDevices_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.HidManager_GetDevices_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDevices (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -757,7 +763,7 @@ device.mojom.HidManagerReceiver = class {
         // Try Method 2: Connect
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.HidManager_Connect_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.HidManager_Connect_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Connect (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -768,7 +774,7 @@ device.mojom.HidManagerReceiver = class {
         // Try Method 3: AddReceiver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.HidManager_AddReceiver_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.HidManager_AddReceiver_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddReceiver (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -785,7 +791,7 @@ device.mojom.HidManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.HidManager_GetDevicesAndSetClient_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.HidManager_GetDevicesAndSetClient_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getDevicesAndSetClient');
           const result = this.impl.getDevicesAndSetClient(params.client);
           if (header.expectsResponse) {
@@ -798,7 +804,7 @@ device.mojom.HidManagerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.HidManager_GetDevices_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.HidManager_GetDevices_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getDevices');
           const result = this.impl.getDevices();
           if (header.expectsResponse) {
@@ -811,7 +817,7 @@ device.mojom.HidManagerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.HidManager_Connect_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.HidManager_Connect_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.connect');
           const result = this.impl.connect(params.device_guid, params.connection_client, params.watcher, params.allow_protected_reports, params.allow_fido_reports);
           if (header.expectsResponse) {
@@ -824,7 +830,7 @@ device.mojom.HidManagerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.HidManager_AddReceiver_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.HidManager_AddReceiver_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addReceiver');
           const result = this.impl.addReceiver(params.receiver);
           break;
@@ -1002,9 +1008,11 @@ device.mojom.HidConnectionReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1018,12 +1026,13 @@ device.mojom.HidConnectionReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Read
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.HidConnection_Read_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.HidConnection_Read_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Read (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1034,7 +1043,7 @@ device.mojom.HidConnectionReceiver = class {
         // Try Method 1: Write
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.HidConnection_Write_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.HidConnection_Write_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Write (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1045,7 +1054,7 @@ device.mojom.HidConnectionReceiver = class {
         // Try Method 2: GetFeatureReport
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.HidConnection_GetFeatureReport_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.HidConnection_GetFeatureReport_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFeatureReport (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1056,7 +1065,7 @@ device.mojom.HidConnectionReceiver = class {
         // Try Method 3: SendFeatureReport
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.HidConnection_SendFeatureReport_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.HidConnection_SendFeatureReport_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendFeatureReport (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1073,7 +1082,7 @@ device.mojom.HidConnectionReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.HidConnection_Read_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.HidConnection_Read_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.read');
           const result = this.impl.read();
           if (header.expectsResponse) {
@@ -1086,7 +1095,7 @@ device.mojom.HidConnectionReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.HidConnection_Write_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.HidConnection_Write_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.write');
           const result = this.impl.write(params.report_id, params.buffer);
           if (header.expectsResponse) {
@@ -1099,7 +1108,7 @@ device.mojom.HidConnectionReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.HidConnection_GetFeatureReport_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.HidConnection_GetFeatureReport_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getFeatureReport');
           const result = this.impl.getFeatureReport(params.report_id);
           if (header.expectsResponse) {
@@ -1112,7 +1121,7 @@ device.mojom.HidConnectionReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.HidConnection_SendFeatureReport_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.HidConnection_SendFeatureReport_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.sendFeatureReport');
           const result = this.impl.sendFeatureReport(params.report_id, params.buffer);
           if (header.expectsResponse) {
@@ -1218,9 +1227,11 @@ device.mojom.HidConnectionClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1234,12 +1245,13 @@ device.mojom.HidConnectionClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnInputReport
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(device.mojom.HidConnectionClient_OnInputReport_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(device.mojom.HidConnectionClient_OnInputReport_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnInputReport (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1256,7 +1268,7 @@ device.mojom.HidConnectionClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.HidConnectionClient_OnInputReport_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(device.mojom.HidConnectionClient_OnInputReport_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onInputReport');
           const result = this.impl.onInputReport(params.report_id, params.buffer);
           break;
@@ -1338,9 +1350,11 @@ device.mojom.HidConnectionWatcherReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -1354,6 +1368,7 @@ device.mojom.HidConnectionWatcherReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         if (dispatchId === undefined) {

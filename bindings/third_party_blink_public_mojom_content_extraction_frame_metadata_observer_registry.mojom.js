@@ -100,9 +100,11 @@ blink.mojom.PaidContentMetadataObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -116,12 +118,13 @@ blink.mojom.PaidContentMetadataObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnPaidContentMetadataChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPaidContentMetadataChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -138,7 +141,7 @@ blink.mojom.PaidContentMetadataObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onPaidContentMetadataChanged');
           const result = this.impl.onPaidContentMetadataChanged(params.has_paid_content);
           break;
@@ -237,9 +240,11 @@ blink.mojom.MetaTagsObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -253,12 +258,13 @@ blink.mojom.MetaTagsObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnMetaTagsChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.MetaTagsObserver_OnMetaTagsChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.MetaTagsObserver_OnMetaTagsChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMetaTagsChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -275,7 +281,7 @@ blink.mojom.MetaTagsObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.MetaTagsObserver_OnMetaTagsChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.MetaTagsObserver_OnMetaTagsChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onMetaTagsChanged');
           const result = this.impl.onMetaTagsChanged(params.meta_tags);
           break;
@@ -392,9 +398,11 @@ blink.mojom.FrameMetadataObserverRegistryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -408,12 +416,13 @@ blink.mojom.FrameMetadataObserverRegistryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AddPaidContentMetadataObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddPaidContentMetadataObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -424,7 +433,7 @@ blink.mojom.FrameMetadataObserverRegistryReceiver = class {
         // Try Method 1: AddMetaTagsObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddMetaTagsObserver (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -441,14 +450,14 @@ blink.mojom.FrameMetadataObserverRegistryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addPaidContentMetadataObserver');
           const result = this.impl.addPaidContentMetadataObserver(params.observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addMetaTagsObserver');
           const result = this.impl.addMetaTagsObserver(params.names, params.observer);
           break;

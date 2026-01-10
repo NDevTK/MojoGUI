@@ -144,9 +144,11 @@ blink.mojom.DevicePostureProviderReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -160,12 +162,13 @@ blink.mojom.DevicePostureProviderReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AddListenerAndGetCurrentPosture
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddListenerAndGetCurrentPosture (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -176,7 +179,7 @@ blink.mojom.DevicePostureProviderReceiver = class {
         // Try Method 1: OverrideDevicePostureForEmulation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OverrideDevicePostureForEmulation (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -187,7 +190,7 @@ blink.mojom.DevicePostureProviderReceiver = class {
         // Try Method 2: DisableDevicePostureOverrideForEmulation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.DevicePostureProvider_DisableDevicePostureOverrideForEmulation_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.DevicePostureProvider_DisableDevicePostureOverrideForEmulation_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisableDevicePostureOverrideForEmulation (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -204,7 +207,7 @@ blink.mojom.DevicePostureProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addListenerAndGetCurrentPosture');
           const result = this.impl.addListenerAndGetCurrentPosture(params.client);
           if (header.expectsResponse) {
@@ -217,14 +220,14 @@ blink.mojom.DevicePostureProviderReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.overrideDevicePostureForEmulation');
           const result = this.impl.overrideDevicePostureForEmulation(params.posture);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.DevicePostureProvider_DisableDevicePostureOverrideForEmulation_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.DevicePostureProvider_DisableDevicePostureOverrideForEmulation_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.disableDevicePostureOverrideForEmulation');
           const result = this.impl.disableDevicePostureOverrideForEmulation();
           break;
@@ -323,9 +326,11 @@ blink.mojom.DevicePostureClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -339,12 +344,13 @@ blink.mojom.DevicePostureClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnPostureChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.DevicePostureClient_OnPostureChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.DevicePostureClient_OnPostureChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPostureChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -361,7 +367,7 @@ blink.mojom.DevicePostureClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.DevicePostureClient_OnPostureChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.DevicePostureClient_OnPostureChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onPostureChanged');
           const result = this.impl.onPostureChanged(params.posture);
           break;

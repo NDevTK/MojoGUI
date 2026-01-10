@@ -150,9 +150,11 @@ image_annotation.mojom.ImageProcessorReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -166,12 +168,13 @@ image_annotation.mojom.ImageProcessorReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetJpgImageData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(image_annotation.mojom.ImageProcessor_GetJpgImageData_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(image_annotation.mojom.ImageProcessor_GetJpgImageData_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetJpgImageData (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -188,7 +191,7 @@ image_annotation.mojom.ImageProcessorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(image_annotation.mojom.ImageProcessor_GetJpgImageData_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(image_annotation.mojom.ImageProcessor_GetJpgImageData_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getJpgImageData');
           const result = this.impl.getJpgImageData();
           if (header.expectsResponse) {
@@ -301,9 +304,11 @@ image_annotation.mojom.AnnotatorReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -317,12 +322,13 @@ image_annotation.mojom.AnnotatorReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AnnotateImage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(image_annotation.mojom.Annotator_AnnotateImage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(image_annotation.mojom.Annotator_AnnotateImage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AnnotateImage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -339,7 +345,7 @@ image_annotation.mojom.AnnotatorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(image_annotation.mojom.Annotator_AnnotateImage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(image_annotation.mojom.Annotator_AnnotateImage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.annotateImage');
           const result = this.impl.annotateImage(params.source_id, params.description_language_tag, params.image_processor);
           if (header.expectsResponse) {
@@ -444,9 +450,11 @@ image_annotation.mojom.ImageAnnotationServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -460,12 +468,13 @@ image_annotation.mojom.ImageAnnotationServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: BindAnnotator
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(image_annotation.mojom.ImageAnnotationService_BindAnnotator_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(image_annotation.mojom.ImageAnnotationService_BindAnnotator_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindAnnotator (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -482,7 +491,7 @@ image_annotation.mojom.ImageAnnotationServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(image_annotation.mojom.ImageAnnotationService_BindAnnotator_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(image_annotation.mojom.ImageAnnotationService_BindAnnotator_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindAnnotator');
           const result = this.impl.bindAnnotator(params.receiver);
           break;

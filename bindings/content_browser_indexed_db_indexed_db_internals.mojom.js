@@ -235,9 +235,11 @@ storage.mojom.IdbInternalsHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -251,12 +253,13 @@ storage.mojom.IdbInternalsHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetAllBucketsAcrossAllStorageKeys
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAllBucketsAcrossAllStorageKeys (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -267,7 +270,7 @@ storage.mojom.IdbInternalsHandlerReceiver = class {
         // Try Method 1: DownloadBucketData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(storage.mojom.IdbInternalsHandler_DownloadBucketData_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(storage.mojom.IdbInternalsHandler_DownloadBucketData_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DownloadBucketData (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -278,7 +281,7 @@ storage.mojom.IdbInternalsHandlerReceiver = class {
         // Try Method 2: ForceClose
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(storage.mojom.IdbInternalsHandler_ForceClose_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(storage.mojom.IdbInternalsHandler_ForceClose_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForceClose (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -289,7 +292,7 @@ storage.mojom.IdbInternalsHandlerReceiver = class {
         // Try Method 3: StartMetadataRecording
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(storage.mojom.IdbInternalsHandler_StartMetadataRecording_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(storage.mojom.IdbInternalsHandler_StartMetadataRecording_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartMetadataRecording (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -300,7 +303,7 @@ storage.mojom.IdbInternalsHandlerReceiver = class {
         // Try Method 4: StopMetadataRecording
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(storage.mojom.IdbInternalsHandler_StopMetadataRecording_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(storage.mojom.IdbInternalsHandler_StopMetadataRecording_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopMetadataRecording (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -311,7 +314,7 @@ storage.mojom.IdbInternalsHandlerReceiver = class {
         // Try Method 5: InspectClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(storage.mojom.IdbInternalsHandler_InspectClient_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(storage.mojom.IdbInternalsHandler_InspectClient_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InspectClient (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -328,7 +331,7 @@ storage.mojom.IdbInternalsHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getAllBucketsAcrossAllStorageKeys');
           const result = this.impl.getAllBucketsAcrossAllStorageKeys();
           if (header.expectsResponse) {
@@ -341,7 +344,7 @@ storage.mojom.IdbInternalsHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.IdbInternalsHandler_DownloadBucketData_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(storage.mojom.IdbInternalsHandler_DownloadBucketData_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.downloadBucketData');
           const result = this.impl.downloadBucketData(params.bucketId);
           if (header.expectsResponse) {
@@ -354,7 +357,7 @@ storage.mojom.IdbInternalsHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.IdbInternalsHandler_ForceClose_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(storage.mojom.IdbInternalsHandler_ForceClose_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.forceClose');
           const result = this.impl.forceClose(params.bucketId);
           if (header.expectsResponse) {
@@ -367,7 +370,7 @@ storage.mojom.IdbInternalsHandlerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.IdbInternalsHandler_StartMetadataRecording_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(storage.mojom.IdbInternalsHandler_StartMetadataRecording_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.startMetadataRecording');
           const result = this.impl.startMetadataRecording(params.bucket_id);
           if (header.expectsResponse) {
@@ -380,7 +383,7 @@ storage.mojom.IdbInternalsHandlerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.IdbInternalsHandler_StopMetadataRecording_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(storage.mojom.IdbInternalsHandler_StopMetadataRecording_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.stopMetadataRecording');
           const result = this.impl.stopMetadataRecording(params.bucket_id);
           if (header.expectsResponse) {
@@ -393,7 +396,7 @@ storage.mojom.IdbInternalsHandlerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.IdbInternalsHandler_InspectClient_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(storage.mojom.IdbInternalsHandler_InspectClient_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.inspectClient');
           const result = this.impl.inspectClient(params.client_info);
           if (header.expectsResponse) {

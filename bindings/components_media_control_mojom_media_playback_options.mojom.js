@@ -130,9 +130,11 @@ components.media_control.mojom.MediaPlaybackOptionsReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -146,12 +148,13 @@ components.media_control.mojom.MediaPlaybackOptionsReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetMediaLoadingBlocked
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(components.media_control.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(components.media_control.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetMediaLoadingBlocked (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -162,7 +165,7 @@ components.media_control.mojom.MediaPlaybackOptionsReceiver = class {
         // Try Method 1: SetBackgroundVideoPlaybackEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(components.media_control.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEnabled_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(components.media_control.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEnabled_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBackgroundVideoPlaybackEnabled (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -173,7 +176,7 @@ components.media_control.mojom.MediaPlaybackOptionsReceiver = class {
         // Try Method 2: SetRendererType
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(components.media_control.mojom.MediaPlaybackOptions_SetRendererType_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(components.media_control.mojom.MediaPlaybackOptions_SetRendererType_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetRendererType (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -190,21 +193,21 @@ components.media_control.mojom.MediaPlaybackOptionsReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(components.media_control.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(components.media_control.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setMediaLoadingBlocked');
           const result = this.impl.setMediaLoadingBlocked(params.blocked);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(components.media_control.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEnabled_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(components.media_control.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEnabled_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setBackgroundVideoPlaybackEnabled');
           const result = this.impl.setBackgroundVideoPlaybackEnabled(params.enabled);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(components.media_control.mojom.MediaPlaybackOptions_SetRendererType_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(components.media_control.mojom.MediaPlaybackOptions_SetRendererType_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setRendererType');
           const result = this.impl.setRendererType(params.type);
           break;

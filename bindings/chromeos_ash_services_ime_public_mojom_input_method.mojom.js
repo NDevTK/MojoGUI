@@ -893,9 +893,11 @@ ash.ime.mojom.InputMethodReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -909,12 +911,13 @@ ash.ime.mojom.InputMethodReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnFocusDeprecated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.ime.mojom.InputMethod_OnFocusDeprecated_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnFocusDeprecated_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFocusDeprecated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -925,7 +928,7 @@ ash.ime.mojom.InputMethodReceiver = class {
         // Try Method 1: OnFocus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.ime.mojom.InputMethod_OnFocus_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnFocus_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFocus (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -936,7 +939,7 @@ ash.ime.mojom.InputMethodReceiver = class {
         // Try Method 2: OnBlur
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.ime.mojom.InputMethod_OnBlur_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnBlur_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBlur (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -947,7 +950,7 @@ ash.ime.mojom.InputMethodReceiver = class {
         // Try Method 3: ProcessKeyEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.ime.mojom.InputMethod_ProcessKeyEvent_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.ime.mojom.InputMethod_ProcessKeyEvent_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ProcessKeyEvent (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -958,7 +961,7 @@ ash.ime.mojom.InputMethodReceiver = class {
         // Try Method 4: OnSurroundingTextChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.ime.mojom.InputMethod_OnSurroundingTextChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnSurroundingTextChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSurroundingTextChanged (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -969,7 +972,7 @@ ash.ime.mojom.InputMethodReceiver = class {
         // Try Method 5: OnCompositionCanceledBySystem
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.ime.mojom.InputMethod_OnCompositionCanceledBySystem_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnCompositionCanceledBySystem_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCompositionCanceledBySystem (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -980,7 +983,7 @@ ash.ime.mojom.InputMethodReceiver = class {
         // Try Method 6: OnCandidateSelected
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.ime.mojom.InputMethod_OnCandidateSelected_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnCandidateSelected_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCandidateSelected (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -991,7 +994,7 @@ ash.ime.mojom.InputMethodReceiver = class {
         // Try Method 7: OnQuickSettingsUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.ime.mojom.InputMethod_OnQuickSettingsUpdated_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnQuickSettingsUpdated_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnQuickSettingsUpdated (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1002,7 +1005,7 @@ ash.ime.mojom.InputMethodReceiver = class {
         // Try Method 8: IsReadyForTesting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.ime.mojom.InputMethod_IsReadyForTesting_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.ime.mojom.InputMethod_IsReadyForTesting_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsReadyForTesting (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1013,7 +1016,7 @@ ash.ime.mojom.InputMethodReceiver = class {
         // Try Method 9: OnAssistiveWindowChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.ime.mojom.InputMethod_OnAssistiveWindowChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnAssistiveWindowChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAssistiveWindowChanged (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1030,14 +1033,14 @@ ash.ime.mojom.InputMethodReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.ime.mojom.InputMethod_OnFocusDeprecated_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnFocusDeprecated_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onFocusDeprecated');
           const result = this.impl.onFocusDeprecated(params.input_field_info, params.settings);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.ime.mojom.InputMethod_OnFocus_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnFocus_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onFocus');
           const result = this.impl.onFocus(params.input_field_info, params.deprecated_settings);
           if (header.expectsResponse) {
@@ -1050,14 +1053,14 @@ ash.ime.mojom.InputMethodReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.ime.mojom.InputMethod_OnBlur_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnBlur_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onBlur');
           const result = this.impl.onBlur();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.ime.mojom.InputMethod_ProcessKeyEvent_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethod_ProcessKeyEvent_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.processKeyEvent');
           const result = this.impl.processKeyEvent(params.event);
           if (header.expectsResponse) {
@@ -1070,35 +1073,35 @@ ash.ime.mojom.InputMethodReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.ime.mojom.InputMethod_OnSurroundingTextChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnSurroundingTextChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onSurroundingTextChanged');
           const result = this.impl.onSurroundingTextChanged(params.text, params.offset, params.selection_range);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.ime.mojom.InputMethod_OnCompositionCanceledBySystem_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnCompositionCanceledBySystem_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onCompositionCanceledBySystem');
           const result = this.impl.onCompositionCanceledBySystem();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.ime.mojom.InputMethod_OnCandidateSelected_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnCandidateSelected_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onCandidateSelected');
           const result = this.impl.onCandidateSelected(params.selected_candidate_index);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.ime.mojom.InputMethod_OnQuickSettingsUpdated_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnQuickSettingsUpdated_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onQuickSettingsUpdated');
           const result = this.impl.onQuickSettingsUpdated(params.settings);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.ime.mojom.InputMethod_IsReadyForTesting_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethod_IsReadyForTesting_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.isReadyForTesting');
           const result = this.impl.isReadyForTesting();
           if (header.expectsResponse) {
@@ -1111,7 +1114,7 @@ ash.ime.mojom.InputMethodReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.ime.mojom.InputMethod_OnAssistiveWindowChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnAssistiveWindowChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onAssistiveWindowChanged');
           const result = this.impl.onAssistiveWindowChanged(params.window);
           break;

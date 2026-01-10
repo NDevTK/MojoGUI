@@ -104,9 +104,11 @@ arc.mojom.PipHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -120,12 +122,13 @@ arc.mojom.PipHostReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnPipEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.PipHost_OnPipEvent_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.PipHost_OnPipEvent_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPipEvent (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -142,7 +145,7 @@ arc.mojom.PipHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.PipHost_OnPipEvent_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.PipHost_OnPipEvent_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onPipEvent');
           const result = this.impl.onPipEvent(params.event);
           break;
@@ -279,9 +282,11 @@ arc.mojom.PipInstanceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -295,12 +300,13 @@ arc.mojom.PipInstanceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.PipInstance_Init_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.PipInstance_Init_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -311,7 +317,7 @@ arc.mojom.PipInstanceReceiver = class {
         // Try Method 1: ClosePip
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.PipInstance_ClosePip_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.PipInstance_ClosePip_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClosePip (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -322,7 +328,7 @@ arc.mojom.PipInstanceReceiver = class {
         // Try Method 2: SetPipSuppressionStatus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(arc.mojom.PipInstance_SetPipSuppressionStatus_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(arc.mojom.PipInstance_SetPipSuppressionStatus_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPipSuppressionStatus (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -339,7 +345,7 @@ arc.mojom.PipInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.PipInstance_Init_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.PipInstance_Init_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -352,14 +358,14 @@ arc.mojom.PipInstanceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.PipInstance_ClosePip_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.PipInstance_ClosePip_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.closePip');
           const result = this.impl.closePip();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.PipInstance_SetPipSuppressionStatus_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(arc.mojom.PipInstance_SetPipSuppressionStatus_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setPipSuppressionStatus');
           const result = this.impl.setPipSuppressionStatus(params.suppressed);
           break;

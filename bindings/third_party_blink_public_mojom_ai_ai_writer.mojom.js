@@ -158,9 +158,11 @@ blink.mojom.AIWriterReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -174,12 +176,13 @@ blink.mojom.AIWriterReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Write
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AIWriter_Write_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AIWriter_Write_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Write (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -190,7 +193,7 @@ blink.mojom.AIWriterReceiver = class {
         // Try Method 1: MeasureUsage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.AIWriter_MeasureUsage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.AIWriter_MeasureUsage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MeasureUsage (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -207,14 +210,14 @@ blink.mojom.AIWriterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AIWriter_Write_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AIWriter_Write_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.write');
           const result = this.impl.write(params.input, params.context, params.pending_responder);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AIWriter_MeasureUsage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.AIWriter_MeasureUsage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.measureUsage');
           const result = this.impl.measureUsage(params.input, params.context);
           if (header.expectsResponse) {

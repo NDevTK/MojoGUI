@@ -334,9 +334,11 @@ chromeos.machine_learning.mojom.SodaClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -350,12 +352,13 @@ chromeos.machine_learning.mojom.SodaClientReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnStart
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.machine_learning.mojom.SodaClient_OnStart_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.machine_learning.mojom.SodaClient_OnStart_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStart (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -366,7 +369,7 @@ chromeos.machine_learning.mojom.SodaClientReceiver = class {
         // Try Method 1: OnStop
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.machine_learning.mojom.SodaClient_OnStop_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.machine_learning.mojom.SodaClient_OnStop_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStop (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -377,7 +380,7 @@ chromeos.machine_learning.mojom.SodaClientReceiver = class {
         // Try Method 2: OnSpeechRecognizerEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.machine_learning.mojom.SodaClient_OnSpeechRecognizerEvent_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.machine_learning.mojom.SodaClient_OnSpeechRecognizerEvent_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSpeechRecognizerEvent (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -394,21 +397,21 @@ chromeos.machine_learning.mojom.SodaClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.machine_learning.mojom.SodaClient_OnStart_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.SodaClient_OnStart_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onStart');
           const result = this.impl.onStart();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.machine_learning.mojom.SodaClient_OnStop_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.SodaClient_OnStop_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onStop');
           const result = this.impl.onStop();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.machine_learning.mojom.SodaClient_OnSpeechRecognizerEvent_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.SodaClient_OnSpeechRecognizerEvent_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onSpeechRecognizerEvent');
           const result = this.impl.onSpeechRecognizerEvent(params.event);
           break;
@@ -555,9 +558,11 @@ chromeos.machine_learning.mojom.SodaRecognizerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -571,12 +576,13 @@ chromeos.machine_learning.mojom.SodaRecognizerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AddAudio
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.machine_learning.mojom.SodaRecognizer_AddAudio_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.machine_learning.mojom.SodaRecognizer_AddAudio_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddAudio (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -587,7 +593,7 @@ chromeos.machine_learning.mojom.SodaRecognizerReceiver = class {
         // Try Method 1: Stop
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.machine_learning.mojom.SodaRecognizer_Stop_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.machine_learning.mojom.SodaRecognizer_Stop_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Stop (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -598,7 +604,7 @@ chromeos.machine_learning.mojom.SodaRecognizerReceiver = class {
         // Try Method 2: Start
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.machine_learning.mojom.SodaRecognizer_Start_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.machine_learning.mojom.SodaRecognizer_Start_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Start (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -609,7 +615,7 @@ chromeos.machine_learning.mojom.SodaRecognizerReceiver = class {
         // Try Method 3: MarkDone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.machine_learning.mojom.SodaRecognizer_MarkDone_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.machine_learning.mojom.SodaRecognizer_MarkDone_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MarkDone (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -626,28 +632,28 @@ chromeos.machine_learning.mojom.SodaRecognizerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.machine_learning.mojom.SodaRecognizer_AddAudio_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.SodaRecognizer_AddAudio_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addAudio');
           const result = this.impl.addAudio(params.audio);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.machine_learning.mojom.SodaRecognizer_Stop_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.SodaRecognizer_Stop_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.stop');
           const result = this.impl.stop();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.machine_learning.mojom.SodaRecognizer_Start_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.SodaRecognizer_Start_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.start');
           const result = this.impl.start();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.machine_learning.mojom.SodaRecognizer_MarkDone_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.SodaRecognizer_MarkDone_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.markDone');
           const result = this.impl.markDone();
           break;

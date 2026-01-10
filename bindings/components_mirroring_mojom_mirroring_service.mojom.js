@@ -147,9 +147,11 @@ mirroring.mojom.MirroringServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -163,12 +165,13 @@ mirroring.mojom.MirroringServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Start
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(mirroring.mojom.MirroringService_Start_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(mirroring.mojom.MirroringService_Start_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Start (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -179,7 +182,7 @@ mirroring.mojom.MirroringServiceReceiver = class {
         // Try Method 1: SwitchMirroringSourceTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(mirroring.mojom.MirroringService_SwitchMirroringSourceTab_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(mirroring.mojom.MirroringService_SwitchMirroringSourceTab_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SwitchMirroringSourceTab (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -190,7 +193,7 @@ mirroring.mojom.MirroringServiceReceiver = class {
         // Try Method 2: GetMirroringStats
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(mirroring.mojom.MirroringService_GetMirroringStats_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(mirroring.mojom.MirroringService_GetMirroringStats_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMirroringStats (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -207,21 +210,21 @@ mirroring.mojom.MirroringServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(mirroring.mojom.MirroringService_Start_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(mirroring.mojom.MirroringService_Start_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.start');
           const result = this.impl.start(params.params, params.max_resolution, params.observer, params.resource_provider, params.outbound_channel, params.inbound_channel);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(mirroring.mojom.MirroringService_SwitchMirroringSourceTab_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(mirroring.mojom.MirroringService_SwitchMirroringSourceTab_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.switchMirroringSourceTab');
           const result = this.impl.switchMirroringSourceTab();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(mirroring.mojom.MirroringService_GetMirroringStats_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(mirroring.mojom.MirroringService_GetMirroringStats_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getMirroringStats');
           const result = this.impl.getMirroringStats();
           if (header.expectsResponse) {

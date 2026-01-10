@@ -162,9 +162,11 @@ supervised_user.mojom.SupervisedUserCommandsReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -178,12 +180,13 @@ supervised_user.mojom.SupervisedUserCommandsReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GoBack
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(supervised_user.mojom.SupervisedUserCommands_GoBack_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(supervised_user.mojom.SupervisedUserCommands_GoBack_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GoBack (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -194,7 +197,7 @@ supervised_user.mojom.SupervisedUserCommandsReceiver = class {
         // Try Method 1: RequestUrlAccessRemote
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestUrlAccessRemote (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -205,7 +208,7 @@ supervised_user.mojom.SupervisedUserCommandsReceiver = class {
         // Try Method 2: RequestUrlAccessLocal
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestUrlAccessLocal (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -216,7 +219,7 @@ supervised_user.mojom.SupervisedUserCommandsReceiver = class {
         // Try Method 3: LearnMore
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(supervised_user.mojom.SupervisedUserCommands_LearnMore_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(supervised_user.mojom.SupervisedUserCommands_LearnMore_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LearnMore (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -233,14 +236,14 @@ supervised_user.mojom.SupervisedUserCommandsReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(supervised_user.mojom.SupervisedUserCommands_GoBack_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(supervised_user.mojom.SupervisedUserCommands_GoBack_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.goBack');
           const result = this.impl.goBack();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestUrlAccessRemote');
           const result = this.impl.requestUrlAccessRemote();
           if (header.expectsResponse) {
@@ -253,7 +256,7 @@ supervised_user.mojom.SupervisedUserCommandsReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.requestUrlAccessLocal');
           const result = this.impl.requestUrlAccessLocal();
           if (header.expectsResponse) {
@@ -266,7 +269,7 @@ supervised_user.mojom.SupervisedUserCommandsReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(supervised_user.mojom.SupervisedUserCommands_LearnMore_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(supervised_user.mojom.SupervisedUserCommands_LearnMore_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.learnMore');
           const result = this.impl.learnMore();
           if (header.expectsResponse) {

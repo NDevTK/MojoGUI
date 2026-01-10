@@ -246,9 +246,11 @@ dlp_internals.mojom.ReportingObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -262,12 +264,13 @@ dlp_internals.mojom.ReportingObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnReportEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(dlp_internals.mojom.ReportingObserver_OnReportEvent_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(dlp_internals.mojom.ReportingObserver_OnReportEvent_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReportEvent (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -284,7 +287,7 @@ dlp_internals.mojom.ReportingObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(dlp_internals.mojom.ReportingObserver_OnReportEvent_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(dlp_internals.mojom.ReportingObserver_OnReportEvent_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onReportEvent');
           const result = this.impl.onReportEvent(params.event);
           break;
@@ -472,9 +475,11 @@ dlp_internals.mojom.PageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -488,12 +493,13 @@ dlp_internals.mojom.PageHandlerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetClipboardDataSource
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(dlp_internals.mojom.PageHandler_GetClipboardDataSource_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(dlp_internals.mojom.PageHandler_GetClipboardDataSource_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetClipboardDataSource (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -504,7 +510,7 @@ dlp_internals.mojom.PageHandlerReceiver = class {
         // Try Method 1: GetContentRestrictionsInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetContentRestrictionsInfo (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -515,7 +521,7 @@ dlp_internals.mojom.PageHandlerReceiver = class {
         // Try Method 2: ObserveReporting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(dlp_internals.mojom.PageHandler_ObserveReporting_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(dlp_internals.mojom.PageHandler_ObserveReporting_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveReporting (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -526,7 +532,7 @@ dlp_internals.mojom.PageHandlerReceiver = class {
         // Try Method 3: GetFilesDatabaseEntries
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFilesDatabaseEntries (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -537,7 +543,7 @@ dlp_internals.mojom.PageHandlerReceiver = class {
         // Try Method 4: GetFileInode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(dlp_internals.mojom.PageHandler_GetFileInode_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(dlp_internals.mojom.PageHandler_GetFileInode_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFileInode (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -554,7 +560,7 @@ dlp_internals.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(dlp_internals.mojom.PageHandler_GetClipboardDataSource_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(dlp_internals.mojom.PageHandler_GetClipboardDataSource_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getClipboardDataSource');
           const result = this.impl.getClipboardDataSource();
           if (header.expectsResponse) {
@@ -567,7 +573,7 @@ dlp_internals.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getContentRestrictionsInfo');
           const result = this.impl.getContentRestrictionsInfo();
           if (header.expectsResponse) {
@@ -580,14 +586,14 @@ dlp_internals.mojom.PageHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(dlp_internals.mojom.PageHandler_ObserveReporting_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(dlp_internals.mojom.PageHandler_ObserveReporting_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.observeReporting');
           const result = this.impl.observeReporting(params.observer);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getFilesDatabaseEntries');
           const result = this.impl.getFilesDatabaseEntries();
           if (header.expectsResponse) {
@@ -600,7 +606,7 @@ dlp_internals.mojom.PageHandlerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(dlp_internals.mojom.PageHandler_GetFileInode_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(dlp_internals.mojom.PageHandler_GetFileInode_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getFileInode');
           const result = this.impl.getFileInode(params.file_name);
           if (header.expectsResponse) {

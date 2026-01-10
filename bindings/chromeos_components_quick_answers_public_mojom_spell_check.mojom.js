@@ -105,9 +105,11 @@ quick_answers.mojom.SpellCheckServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -121,12 +123,13 @@ quick_answers.mojom.SpellCheckServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateDictionary
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(quick_answers.mojom.SpellCheckService_CreateDictionary_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(quick_answers.mojom.SpellCheckService_CreateDictionary_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateDictionary (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -143,7 +146,7 @@ quick_answers.mojom.SpellCheckServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(quick_answers.mojom.SpellCheckService_CreateDictionary_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(quick_answers.mojom.SpellCheckService_CreateDictionary_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createDictionary');
           const result = this.impl.createDictionary(params.dictionary_file);
           if (header.expectsResponse) {
@@ -254,9 +257,11 @@ quick_answers.mojom.SpellCheckDictionaryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -270,12 +275,13 @@ quick_answers.mojom.SpellCheckDictionaryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CheckSpelling
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CheckSpelling (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -292,7 +298,7 @@ quick_answers.mojom.SpellCheckDictionaryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.checkSpelling');
           const result = this.impl.checkSpelling(params.word);
           if (header.expectsResponse) {

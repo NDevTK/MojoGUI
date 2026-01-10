@@ -349,9 +349,11 @@ printing.mojom.PrintCompositorReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -365,12 +367,13 @@ printing.mojom.PrintCompositorReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: NotifyUnavailableSubframe
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(printing.mojom.PrintCompositor_NotifyUnavailableSubframe_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(printing.mojom.PrintCompositor_NotifyUnavailableSubframe_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyUnavailableSubframe (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -381,7 +384,7 @@ printing.mojom.PrintCompositorReceiver = class {
         // Try Method 1: AddSubframeContent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(printing.mojom.PrintCompositor_AddSubframeContent_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(printing.mojom.PrintCompositor_AddSubframeContent_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddSubframeContent (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -392,7 +395,7 @@ printing.mojom.PrintCompositorReceiver = class {
         // Try Method 2: SetAccessibilityTree
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(printing.mojom.PrintCompositor_SetAccessibilityTree_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(printing.mojom.PrintCompositor_SetAccessibilityTree_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAccessibilityTree (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -403,7 +406,7 @@ printing.mojom.PrintCompositorReceiver = class {
         // Try Method 3: CompositePage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(printing.mojom.PrintCompositor_CompositePage_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(printing.mojom.PrintCompositor_CompositePage_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CompositePage (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -414,7 +417,7 @@ printing.mojom.PrintCompositorReceiver = class {
         // Try Method 4: CompositeDocument
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(printing.mojom.PrintCompositor_CompositeDocument_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(printing.mojom.PrintCompositor_CompositeDocument_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CompositeDocument (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -425,7 +428,7 @@ printing.mojom.PrintCompositorReceiver = class {
         // Try Method 5: PrepareToCompositeDocument
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(printing.mojom.PrintCompositor_PrepareToCompositeDocument_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(printing.mojom.PrintCompositor_PrepareToCompositeDocument_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PrepareToCompositeDocument (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -436,7 +439,7 @@ printing.mojom.PrintCompositorReceiver = class {
         // Try Method 6: FinishDocumentComposition
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(printing.mojom.PrintCompositor_FinishDocumentComposition_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(printing.mojom.PrintCompositor_FinishDocumentComposition_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FinishDocumentComposition (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -447,7 +450,7 @@ printing.mojom.PrintCompositorReceiver = class {
         // Try Method 7: SetWebContentsURL
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(printing.mojom.PrintCompositor_SetWebContentsURL_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(printing.mojom.PrintCompositor_SetWebContentsURL_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetWebContentsURL (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -458,7 +461,7 @@ printing.mojom.PrintCompositorReceiver = class {
         // Try Method 8: SetUserAgent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(printing.mojom.PrintCompositor_SetUserAgent_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(printing.mojom.PrintCompositor_SetUserAgent_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUserAgent (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -469,7 +472,7 @@ printing.mojom.PrintCompositorReceiver = class {
         // Try Method 9: SetGenerateDocumentOutline
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(printing.mojom.PrintCompositor_SetGenerateDocumentOutline_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(printing.mojom.PrintCompositor_SetGenerateDocumentOutline_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetGenerateDocumentOutline (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -480,7 +483,7 @@ printing.mojom.PrintCompositorReceiver = class {
         // Try Method 10: SetTitle
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(printing.mojom.PrintCompositor_SetTitle_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(printing.mojom.PrintCompositor_SetTitle_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTitle (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -491,7 +494,7 @@ printing.mojom.PrintCompositorReceiver = class {
         // Try Method 11: SetWatermarkBlock
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(printing.mojom.PrintCompositor_SetWatermarkBlock_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(printing.mojom.PrintCompositor_SetWatermarkBlock_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetWatermarkBlock (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -508,28 +511,28 @@ printing.mojom.PrintCompositorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PrintCompositor_NotifyUnavailableSubframe_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(printing.mojom.PrintCompositor_NotifyUnavailableSubframe_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.notifyUnavailableSubframe');
           const result = this.impl.notifyUnavailableSubframe(params.frame_guid);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PrintCompositor_AddSubframeContent_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(printing.mojom.PrintCompositor_AddSubframeContent_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.addSubframeContent');
           const result = this.impl.addSubframeContent(params.frame_guid, params.serialized_content, params.subframe_content_info);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PrintCompositor_SetAccessibilityTree_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(printing.mojom.PrintCompositor_SetAccessibilityTree_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setAccessibilityTree');
           const result = this.impl.setAccessibilityTree(params.accessibility_tree);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PrintCompositor_CompositePage_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(printing.mojom.PrintCompositor_CompositePage_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.compositePage');
           const result = this.impl.compositePage(params.frame_guid, params.sk_region, params.subframe_content_info);
           if (header.expectsResponse) {
@@ -542,7 +545,7 @@ printing.mojom.PrintCompositorReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PrintCompositor_CompositeDocument_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(printing.mojom.PrintCompositor_CompositeDocument_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.compositeDocument');
           const result = this.impl.compositeDocument(params.frame_guid, params.sk_region, params.subframe_content_info, params.document_type);
           if (header.expectsResponse) {
@@ -555,7 +558,7 @@ printing.mojom.PrintCompositorReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PrintCompositor_PrepareToCompositeDocument_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(printing.mojom.PrintCompositor_PrepareToCompositeDocument_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.prepareToCompositeDocument');
           const result = this.impl.prepareToCompositeDocument(params.document_type);
           if (header.expectsResponse) {
@@ -568,7 +571,7 @@ printing.mojom.PrintCompositorReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PrintCompositor_FinishDocumentComposition_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(printing.mojom.PrintCompositor_FinishDocumentComposition_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.finishDocumentComposition');
           const result = this.impl.finishDocumentComposition(params.pages_count);
           if (header.expectsResponse) {
@@ -581,35 +584,35 @@ printing.mojom.PrintCompositorReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PrintCompositor_SetWebContentsURL_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(printing.mojom.PrintCompositor_SetWebContentsURL_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setWebContentsURL');
           const result = this.impl.setWebContentsURL(params.url);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PrintCompositor_SetUserAgent_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(printing.mojom.PrintCompositor_SetUserAgent_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setUserAgent');
           const result = this.impl.setUserAgent(params.user_agent);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PrintCompositor_SetGenerateDocumentOutline_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(printing.mojom.PrintCompositor_SetGenerateDocumentOutline_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setGenerateDocumentOutline');
           const result = this.impl.setGenerateDocumentOutline(params.generate_document_outline);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PrintCompositor_SetTitle_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(printing.mojom.PrintCompositor_SetTitle_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setTitle');
           const result = this.impl.setTitle(params.title);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PrintCompositor_SetWatermarkBlock_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(printing.mojom.PrintCompositor_SetWatermarkBlock_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setWatermarkBlock');
           const result = this.impl.setWatermarkBlock(params.watermark_block);
           break;

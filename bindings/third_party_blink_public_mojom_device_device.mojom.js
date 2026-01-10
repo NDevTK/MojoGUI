@@ -124,9 +124,11 @@ blink.mojom.ManagedConfigurationObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -140,12 +142,13 @@ blink.mojom.ManagedConfigurationObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnConfigurationChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.ManagedConfigurationObserver_OnConfigurationChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.ManagedConfigurationObserver_OnConfigurationChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnConfigurationChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -162,7 +165,7 @@ blink.mojom.ManagedConfigurationObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ManagedConfigurationObserver_OnConfigurationChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.ManagedConfigurationObserver_OnConfigurationChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onConfigurationChanged');
           const result = this.impl.onConfigurationChanged();
           break;
@@ -354,9 +357,11 @@ blink.mojom.DeviceAPIServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -370,12 +375,13 @@ blink.mojom.DeviceAPIServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetDirectoryId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.DeviceAPIService_GetDirectoryId_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.DeviceAPIService_GetDirectoryId_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDirectoryId (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -386,7 +392,7 @@ blink.mojom.DeviceAPIServiceReceiver = class {
         // Try Method 1: GetHostname
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.DeviceAPIService_GetHostname_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.DeviceAPIService_GetHostname_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetHostname (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -397,7 +403,7 @@ blink.mojom.DeviceAPIServiceReceiver = class {
         // Try Method 2: GetSerialNumber
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.DeviceAPIService_GetSerialNumber_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.DeviceAPIService_GetSerialNumber_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSerialNumber (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -408,7 +414,7 @@ blink.mojom.DeviceAPIServiceReceiver = class {
         // Try Method 3: GetAnnotatedAssetId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAnnotatedAssetId (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -419,7 +425,7 @@ blink.mojom.DeviceAPIServiceReceiver = class {
         // Try Method 4: GetAnnotatedLocation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.DeviceAPIService_GetAnnotatedLocation_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.DeviceAPIService_GetAnnotatedLocation_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAnnotatedLocation (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -436,7 +442,7 @@ blink.mojom.DeviceAPIServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.DeviceAPIService_GetDirectoryId_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.DeviceAPIService_GetDirectoryId_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getDirectoryId');
           const result = this.impl.getDirectoryId();
           if (header.expectsResponse) {
@@ -449,7 +455,7 @@ blink.mojom.DeviceAPIServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.DeviceAPIService_GetHostname_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.DeviceAPIService_GetHostname_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getHostname');
           const result = this.impl.getHostname();
           if (header.expectsResponse) {
@@ -462,7 +468,7 @@ blink.mojom.DeviceAPIServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.DeviceAPIService_GetSerialNumber_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.DeviceAPIService_GetSerialNumber_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getSerialNumber');
           const result = this.impl.getSerialNumber();
           if (header.expectsResponse) {
@@ -475,7 +481,7 @@ blink.mojom.DeviceAPIServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getAnnotatedAssetId');
           const result = this.impl.getAnnotatedAssetId();
           if (header.expectsResponse) {
@@ -488,7 +494,7 @@ blink.mojom.DeviceAPIServiceReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.DeviceAPIService_GetAnnotatedLocation_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.DeviceAPIService_GetAnnotatedLocation_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getAnnotatedLocation');
           const result = this.impl.getAnnotatedLocation();
           if (header.expectsResponse) {
@@ -616,9 +622,11 @@ blink.mojom.ManagedConfigurationServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -632,12 +640,13 @@ blink.mojom.ManagedConfigurationServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetManagedConfiguration
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetManagedConfiguration (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -648,7 +657,7 @@ blink.mojom.ManagedConfigurationServiceReceiver = class {
         // Try Method 1: SubscribeToManagedConfiguration
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SubscribeToManagedConfiguration (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -665,7 +674,7 @@ blink.mojom.ManagedConfigurationServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getManagedConfiguration');
           const result = this.impl.getManagedConfiguration(params.keys);
           if (header.expectsResponse) {
@@ -678,7 +687,7 @@ blink.mojom.ManagedConfigurationServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.subscribeToManagedConfiguration');
           const result = this.impl.subscribeToManagedConfiguration(params.observer);
           break;

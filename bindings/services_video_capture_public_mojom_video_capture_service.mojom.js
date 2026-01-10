@@ -109,9 +109,11 @@ video_capture.mojom.AcceleratorFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -125,12 +127,13 @@ video_capture.mojom.AcceleratorFactoryReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateJpegDecodeAccelerator
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(video_capture.mojom.AcceleratorFactory_CreateJpegDecodeAccelerator_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(video_capture.mojom.AcceleratorFactory_CreateJpegDecodeAccelerator_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateJpegDecodeAccelerator (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -147,7 +150,7 @@ video_capture.mojom.AcceleratorFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(video_capture.mojom.AcceleratorFactory_CreateJpegDecodeAccelerator_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(video_capture.mojom.AcceleratorFactory_CreateJpegDecodeAccelerator_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createJpegDecodeAccelerator');
           const result = this.impl.createJpegDecodeAccelerator(params.jda);
           break;
@@ -331,9 +334,11 @@ video_capture.mojom.VideoCaptureServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -347,12 +352,13 @@ video_capture.mojom.VideoCaptureServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: InjectGpuDependencies
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(video_capture.mojom.VideoCaptureService_InjectGpuDependencies_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(video_capture.mojom.VideoCaptureService_InjectGpuDependencies_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InjectGpuDependencies (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -363,7 +369,7 @@ video_capture.mojom.VideoCaptureServiceReceiver = class {
         // Try Method 1: ConnectToCameraAppDeviceBridge
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(video_capture.mojom.VideoCaptureService_ConnectToCameraAppDeviceBridge_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(video_capture.mojom.VideoCaptureService_ConnectToCameraAppDeviceBridge_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConnectToCameraAppDeviceBridge (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -374,7 +380,7 @@ video_capture.mojom.VideoCaptureServiceReceiver = class {
         // Try Method 2: BindVideoCaptureDeviceFactory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(video_capture.mojom.VideoCaptureService_BindVideoCaptureDeviceFactory_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(video_capture.mojom.VideoCaptureService_BindVideoCaptureDeviceFactory_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindVideoCaptureDeviceFactory (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -385,7 +391,7 @@ video_capture.mojom.VideoCaptureServiceReceiver = class {
         // Try Method 3: ConnectToVideoSourceProvider
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(video_capture.mojom.VideoCaptureService_ConnectToVideoSourceProvider_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(video_capture.mojom.VideoCaptureService_ConnectToVideoSourceProvider_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConnectToVideoSourceProvider (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -396,7 +402,7 @@ video_capture.mojom.VideoCaptureServiceReceiver = class {
         // Try Method 4: BindControlsForTesting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(video_capture.mojom.VideoCaptureService_BindControlsForTesting_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(video_capture.mojom.VideoCaptureService_BindControlsForTesting_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindControlsForTesting (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -407,7 +413,7 @@ video_capture.mojom.VideoCaptureServiceReceiver = class {
         // Try Method 5: OnGpuInfoUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(video_capture.mojom.VideoCaptureService_OnGpuInfoUpdate_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(video_capture.mojom.VideoCaptureService_OnGpuInfoUpdate_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnGpuInfoUpdate (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -424,42 +430,42 @@ video_capture.mojom.VideoCaptureServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(video_capture.mojom.VideoCaptureService_InjectGpuDependencies_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(video_capture.mojom.VideoCaptureService_InjectGpuDependencies_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.injectGpuDependencies');
           const result = this.impl.injectGpuDependencies(params.accelerator_factory);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(video_capture.mojom.VideoCaptureService_ConnectToCameraAppDeviceBridge_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(video_capture.mojom.VideoCaptureService_ConnectToCameraAppDeviceBridge_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.connectToCameraAppDeviceBridge');
           const result = this.impl.connectToCameraAppDeviceBridge(params.receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(video_capture.mojom.VideoCaptureService_BindVideoCaptureDeviceFactory_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(video_capture.mojom.VideoCaptureService_BindVideoCaptureDeviceFactory_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindVideoCaptureDeviceFactory');
           const result = this.impl.bindVideoCaptureDeviceFactory(params.receiver);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(video_capture.mojom.VideoCaptureService_ConnectToVideoSourceProvider_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(video_capture.mojom.VideoCaptureService_ConnectToVideoSourceProvider_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.connectToVideoSourceProvider');
           const result = this.impl.connectToVideoSourceProvider(params.receiver);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(video_capture.mojom.VideoCaptureService_BindControlsForTesting_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(video_capture.mojom.VideoCaptureService_BindControlsForTesting_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.bindControlsForTesting');
           const result = this.impl.bindControlsForTesting(params.receiver);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(video_capture.mojom.VideoCaptureService_OnGpuInfoUpdate_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(video_capture.mojom.VideoCaptureService_OnGpuInfoUpdate_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onGpuInfoUpdate');
           const result = this.impl.onGpuInfoUpdate(params.luid);
           break;

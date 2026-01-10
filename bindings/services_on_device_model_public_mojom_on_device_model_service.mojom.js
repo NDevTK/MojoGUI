@@ -256,9 +256,11 @@ on_device_model.mojom.PlatformModelProgressObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -272,12 +274,13 @@ on_device_model.mojom.PlatformModelProgressObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Progress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(on_device_model.mojom.PlatformModelProgressObserver_Progress_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(on_device_model.mojom.PlatformModelProgressObserver_Progress_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Progress (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -294,7 +297,7 @@ on_device_model.mojom.PlatformModelProgressObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(on_device_model.mojom.PlatformModelProgressObserver_Progress_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(on_device_model.mojom.PlatformModelProgressObserver_Progress_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.progress');
           const result = this.impl.progress(params.progress);
           break;
@@ -464,9 +467,11 @@ on_device_model.mojom.OnDeviceModelServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -480,12 +485,13 @@ on_device_model.mojom.OnDeviceModelServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: LoadModel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadModel (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -496,7 +502,7 @@ on_device_model.mojom.OnDeviceModelServiceReceiver = class {
         // Try Method 1: GetCapabilities
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCapabilities (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -507,7 +513,7 @@ on_device_model.mojom.OnDeviceModelServiceReceiver = class {
         // Try Method 2: LoadTextSafetyModel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadTextSafetyModel (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -518,7 +524,7 @@ on_device_model.mojom.OnDeviceModelServiceReceiver = class {
         // Try Method 3: GetDeviceAndPerformanceInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDeviceAndPerformanceInfo (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -535,7 +541,7 @@ on_device_model.mojom.OnDeviceModelServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.loadModel');
           const result = this.impl.loadModel(params.params, params.model);
           if (header.expectsResponse) {
@@ -548,7 +554,7 @@ on_device_model.mojom.OnDeviceModelServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getCapabilities');
           const result = this.impl.getCapabilities(params.weights);
           if (header.expectsResponse) {
@@ -561,14 +567,14 @@ on_device_model.mojom.OnDeviceModelServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.loadTextSafetyModel');
           const result = this.impl.loadTextSafetyModel(params.params, params.model);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getDeviceAndPerformanceInfo');
           const result = this.impl.getDeviceAndPerformanceInfo();
           if (header.expectsResponse) {
@@ -776,9 +782,11 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -792,12 +800,13 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: LoadPlatformModel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadPlatformModel (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -808,7 +817,7 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
         // Try Method 1: GetPlatformModelState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPlatformModelState (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -819,7 +828,7 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
         // Try Method 2: GetEstimatedPerformanceClass
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetEstimatedPerformanceClass (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -830,7 +839,7 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
         // Try Method 3: FormatInput
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FormatInput (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -841,7 +850,7 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
         // Try Method 4: ValidateSafetyResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ValidateSafetyResult (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -858,7 +867,7 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.loadPlatformModel');
           const result = this.impl.loadPlatformModel(params.uuid, params.model, params.progress_observer);
           if (header.expectsResponse) {
@@ -871,7 +880,7 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getPlatformModelState');
           const result = this.impl.getPlatformModelState(params.uuid);
           if (header.expectsResponse) {
@@ -884,7 +893,7 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getEstimatedPerformanceClass');
           const result = this.impl.getEstimatedPerformanceClass();
           if (header.expectsResponse) {
@@ -897,7 +906,7 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.formatInput');
           const result = this.impl.formatInput(params.uuid, params.feature, params.fields);
           if (header.expectsResponse) {
@@ -910,7 +919,7 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.validateSafetyResult');
           const result = this.impl.validateSafetyResult(params.safety_feature, params.text, params.safety_info);
           if (header.expectsResponse) {

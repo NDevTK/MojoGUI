@@ -100,9 +100,11 @@ ash.common.mojom.AcceleratorFetcherObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -116,12 +118,13 @@ ash.common.mojom.AcceleratorFetcherObserverReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnAcceleratorsUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAcceleratorsUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -138,7 +141,7 @@ ash.common.mojom.AcceleratorFetcherObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onAcceleratorsUpdated');
           const result = this.impl.onAcceleratorsUpdated(params.actionId, params.accelerators);
           break;
@@ -260,9 +263,11 @@ ash.common.mojom.AcceleratorFetcherReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -276,12 +281,13 @@ ash.common.mojom.AcceleratorFetcherReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ObserveAcceleratorChanges
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveAcceleratorChanges (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -292,7 +298,7 @@ ash.common.mojom.AcceleratorFetcherReceiver = class {
         // Try Method 1: GetMetaKeyToDisplay
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMetaKeyToDisplay (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -309,14 +315,14 @@ ash.common.mojom.AcceleratorFetcherReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.observeAcceleratorChanges');
           const result = this.impl.observeAcceleratorChanges(params.actionIds, params.observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getMetaKeyToDisplay');
           const result = this.impl.getMetaKeyToDisplay();
           if (header.expectsResponse) {

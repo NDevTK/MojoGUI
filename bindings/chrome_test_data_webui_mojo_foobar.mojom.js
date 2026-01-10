@@ -106,9 +106,11 @@ test.mojom.FooReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -122,12 +124,13 @@ test.mojom.FooReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetFoo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(test.mojom.Foo_GetFoo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(test.mojom.Foo_GetFoo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFoo (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -144,7 +147,7 @@ test.mojom.FooReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(test.mojom.Foo_GetFoo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(test.mojom.Foo_GetFoo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getFoo');
           const result = this.impl.getFoo();
           if (header.expectsResponse) {
@@ -254,9 +257,11 @@ test.mojom.BarReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -270,12 +275,13 @@ test.mojom.BarReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetBar
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(test.mojom.Bar_GetBar_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(test.mojom.Bar_GetBar_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetBar (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -292,7 +298,7 @@ test.mojom.BarReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(test.mojom.Bar_GetBar_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(test.mojom.Bar_GetBar_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getBar');
           const result = this.impl.getBar();
           if (header.expectsResponse) {
@@ -402,9 +408,11 @@ test.mojom.BazReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -418,12 +426,13 @@ test.mojom.BazReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetBaz
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(test.mojom.Baz_GetBaz_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(test.mojom.Baz_GetBaz_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetBaz (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -440,7 +449,7 @@ test.mojom.BazReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(test.mojom.Baz_GetBaz_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(test.mojom.Baz_GetBaz_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getBaz');
           const result = this.impl.getBaz();
           if (header.expectsResponse) {

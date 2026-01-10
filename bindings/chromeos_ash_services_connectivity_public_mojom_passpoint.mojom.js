@@ -133,9 +133,11 @@ chromeos.connectivity.mojom.PasspointEventsListenerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -149,12 +151,13 @@ chromeos.connectivity.mojom.PasspointEventsListenerReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnPasspointSubscriptionAdded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPasspointSubscriptionAdded (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -165,7 +168,7 @@ chromeos.connectivity.mojom.PasspointEventsListenerReceiver = class {
         // Try Method 1: OnPasspointSubscriptionRemoved
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionRemoved_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionRemoved_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPasspointSubscriptionRemoved (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -182,14 +185,14 @@ chromeos.connectivity.mojom.PasspointEventsListenerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onPasspointSubscriptionAdded');
           const result = this.impl.onPasspointSubscriptionAdded(params.subscription);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionRemoved_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionRemoved_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onPasspointSubscriptionRemoved');
           const result = this.impl.onPasspointSubscriptionRemoved(params.subscription);
           break;
@@ -356,9 +359,11 @@ chromeos.connectivity.mojom.PasspointServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -372,12 +377,13 @@ chromeos.connectivity.mojom.PasspointServiceReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetPasspointSubscription
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPasspointSubscription (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -388,7 +394,7 @@ chromeos.connectivity.mojom.PasspointServiceReceiver = class {
         // Try Method 1: ListPasspointSubscriptions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ListPasspointSubscriptions (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -399,7 +405,7 @@ chromeos.connectivity.mojom.PasspointServiceReceiver = class {
         // Try Method 2: DeletePasspointSubscription
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeletePasspointSubscription (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -410,7 +416,7 @@ chromeos.connectivity.mojom.PasspointServiceReceiver = class {
         // Try Method 3: RegisterPasspointListener
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(chromeos.connectivity.mojom.PasspointService_RegisterPasspointListener_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(chromeos.connectivity.mojom.PasspointService_RegisterPasspointListener_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterPasspointListener (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -427,7 +433,7 @@ chromeos.connectivity.mojom.PasspointServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.getPasspointSubscription');
           const result = this.impl.getPasspointSubscription(params.id);
           if (header.expectsResponse) {
@@ -440,7 +446,7 @@ chromeos.connectivity.mojom.PasspointServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.listPasspointSubscriptions');
           const result = this.impl.listPasspointSubscriptions();
           if (header.expectsResponse) {
@@ -453,7 +459,7 @@ chromeos.connectivity.mojom.PasspointServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.deletePasspointSubscription');
           const result = this.impl.deletePasspointSubscription(params.id);
           if (header.expectsResponse) {
@@ -466,7 +472,7 @@ chromeos.connectivity.mojom.PasspointServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.connectivity.mojom.PasspointService_RegisterPasspointListener_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(chromeos.connectivity.mojom.PasspointService_RegisterPasspointListener_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.registerPasspointListener');
           const result = this.impl.registerPasspointListener(params.listener);
           break;

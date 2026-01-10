@@ -470,9 +470,11 @@ content.mojom.RendererReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
+        const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
+           payload = new DataView(payload, headerSize);
         }
         message = {
           header: args[1],
@@ -486,12 +488,13 @@ content.mojom.RendererReceiver = class {
       if (dispatchId === undefined) {
         // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
         console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateAgentSchedulingGroup
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.Renderer_CreateAgentSchedulingGroup_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.Renderer_CreateAgentSchedulingGroup_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateAgentSchedulingGroup (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -502,7 +505,7 @@ content.mojom.RendererReceiver = class {
         // Try Method 1: CreateAssociatedAgentSchedulingGroup
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateAssociatedAgentSchedulingGroup (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -513,7 +516,7 @@ content.mojom.RendererReceiver = class {
         // Try Method 2: TransferSharedLastForegroundTime
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.Renderer_TransferSharedLastForegroundTime_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.Renderer_TransferSharedLastForegroundTime_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TransferSharedLastForegroundTime (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -524,7 +527,7 @@ content.mojom.RendererReceiver = class {
         // Try Method 3: OnNetworkConnectionChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.Renderer_OnNetworkConnectionChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.Renderer_OnNetworkConnectionChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNetworkConnectionChanged (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -535,7 +538,7 @@ content.mojom.RendererReceiver = class {
         // Try Method 4: OnNetworkQualityChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.Renderer_OnNetworkQualityChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.Renderer_OnNetworkQualityChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNetworkQualityChanged (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -546,7 +549,7 @@ content.mojom.RendererReceiver = class {
         // Try Method 5: SetWebKitSharedTimersSuspended
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetWebKitSharedTimersSuspended (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -557,7 +560,7 @@ content.mojom.RendererReceiver = class {
         // Try Method 6: UpdateScrollbarTheme
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateScrollbarTheme (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -568,7 +571,7 @@ content.mojom.RendererReceiver = class {
         // Try Method 7: OnSystemColorsChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.Renderer_OnSystemColorsChanged_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.Renderer_OnSystemColorsChanged_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSystemColorsChanged (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -579,7 +582,7 @@ content.mojom.RendererReceiver = class {
         // Try Method 8: UpdateSystemColorInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateSystemColorInfo (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -590,7 +593,7 @@ content.mojom.RendererReceiver = class {
         // Try Method 9: PurgePluginListCache
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.Renderer_PurgePluginListCache_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.Renderer_PurgePluginListCache_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PurgePluginListCache (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -601,7 +604,7 @@ content.mojom.RendererReceiver = class {
         // Try Method 10: PurgeResourceCache
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.Renderer_PurgeResourceCache_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.Renderer_PurgeResourceCache_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PurgeResourceCache (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -612,7 +615,7 @@ content.mojom.RendererReceiver = class {
         // Try Method 11: SetProcessState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.Renderer_SetProcessState_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.Renderer_SetProcessState_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetProcessState (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -623,7 +626,7 @@ content.mojom.RendererReceiver = class {
         // Try Method 12: SetIsLockedToSite
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.Renderer_SetIsLockedToSite_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.Renderer_SetIsLockedToSite_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIsLockedToSite (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -634,7 +637,7 @@ content.mojom.RendererReceiver = class {
         // Try Method 13: WriteClangProfilingProfile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.Renderer_WriteClangProfilingProfile_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.Renderer_WriteClangProfilingProfile_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteClangProfilingProfile (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -645,7 +648,7 @@ content.mojom.RendererReceiver = class {
         // Try Method 14: SetIsCrossOriginIsolated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.Renderer_SetIsCrossOriginIsolated_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.Renderer_SetIsCrossOriginIsolated_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIsCrossOriginIsolated (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -656,7 +659,7 @@ content.mojom.RendererReceiver = class {
         // Try Method 15: SetIsWebSecurityDisabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.Renderer_SetIsWebSecurityDisabled_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.Renderer_SetIsWebSecurityDisabled_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIsWebSecurityDisabled (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -667,7 +670,7 @@ content.mojom.RendererReceiver = class {
         // Try Method 16: SetIsIsolatedContext
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.Renderer_SetIsIsolatedContext_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.Renderer_SetIsIsolatedContext_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIsIsolatedContext (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -678,7 +681,7 @@ content.mojom.RendererReceiver = class {
         // Try Method 17: SetWebUIResourceUrlToCodeCacheMap
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.Renderer_SetWebUIResourceUrlToCodeCacheMap_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.Renderer_SetWebUIResourceUrlToCodeCacheMap_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetWebUIResourceUrlToCodeCacheMap (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -689,7 +692,7 @@ content.mojom.RendererReceiver = class {
         // Try Method 18: InitializeRenderer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStruct(content.mojom.Renderer_InitializeRenderer_ParamsSpec.$, message.header.headerSize);
+             decoder.decodeStructInline(content.mojom.Renderer_InitializeRenderer_ParamsSpec.$);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InitializeRenderer (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -706,77 +709,77 @@ content.mojom.RendererReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.Renderer_CreateAgentSchedulingGroup_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.Renderer_CreateAgentSchedulingGroup_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createAgentSchedulingGroup');
           const result = this.impl.createAgentSchedulingGroup(params.bootstrap);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.createAssociatedAgentSchedulingGroup');
           const result = this.impl.createAssociatedAgentSchedulingGroup(params.agent_scheduling_group);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.Renderer_TransferSharedLastForegroundTime_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.Renderer_TransferSharedLastForegroundTime_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.transferSharedLastForegroundTime');
           const result = this.impl.transferSharedLastForegroundTime(params.last_foreground_time_region);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.Renderer_OnNetworkConnectionChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.Renderer_OnNetworkConnectionChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onNetworkConnectionChanged');
           const result = this.impl.onNetworkConnectionChanged(params.connection_type, params.max_bandwidth_mbps);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.Renderer_OnNetworkQualityChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.Renderer_OnNetworkQualityChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onNetworkQualityChanged');
           const result = this.impl.onNetworkQualityChanged(params.effective_connection_type, params.http_rtt, params.transport_rtt, params.bandwidth_kbps);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setWebKitSharedTimersSuspended');
           const result = this.impl.setWebKitSharedTimersSuspended(params.suspend);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.updateScrollbarTheme');
           const result = this.impl.updateScrollbarTheme(params.params);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.Renderer_OnSystemColorsChanged_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.Renderer_OnSystemColorsChanged_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.onSystemColorsChanged');
           const result = this.impl.onSystemColorsChanged(params.aqua_color_variant);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.updateSystemColorInfo');
           const result = this.impl.updateSystemColorInfo(params.params);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.Renderer_PurgePluginListCache_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.Renderer_PurgePluginListCache_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.purgePluginListCache');
           const result = this.impl.purgePluginListCache();
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.Renderer_PurgeResourceCache_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.Renderer_PurgeResourceCache_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.purgeResourceCache');
           const result = this.impl.purgeResourceCache();
           if (header.expectsResponse) {
@@ -789,21 +792,21 @@ content.mojom.RendererReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.Renderer_SetProcessState_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.Renderer_SetProcessState_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setProcessState');
           const result = this.impl.setProcessState(params.process_priority, params.visible_state);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.Renderer_SetIsLockedToSite_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.Renderer_SetIsLockedToSite_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setIsLockedToSite');
           const result = this.impl.setIsLockedToSite();
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.Renderer_WriteClangProfilingProfile_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.Renderer_WriteClangProfilingProfile_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.writeClangProfilingProfile');
           const result = this.impl.writeClangProfilingProfile();
           if (header.expectsResponse) {
@@ -816,35 +819,35 @@ content.mojom.RendererReceiver = class {
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.Renderer_SetIsCrossOriginIsolated_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.Renderer_SetIsCrossOriginIsolated_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setIsCrossOriginIsolated');
           const result = this.impl.setIsCrossOriginIsolated(params.value);
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.Renderer_SetIsWebSecurityDisabled_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.Renderer_SetIsWebSecurityDisabled_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setIsWebSecurityDisabled');
           const result = this.impl.setIsWebSecurityDisabled(params.value);
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.Renderer_SetIsIsolatedContext_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.Renderer_SetIsIsolatedContext_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setIsIsolatedContext');
           const result = this.impl.setIsIsolatedContext(params.value);
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.Renderer_SetWebUIResourceUrlToCodeCacheMap_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.Renderer_SetWebUIResourceUrlToCodeCacheMap_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.setWebUIResourceUrlToCodeCacheMap');
           const result = this.impl.setWebUIResourceUrlToCodeCacheMap(params.resource_map);
           break;
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.Renderer_InitializeRenderer_ParamsSpec.$, message.header.headerSize);
+          const params = decoder.decodeStructInline(content.mojom.Renderer_InitializeRenderer_ParamsSpec.$);
           console.log('[GeneratedReceiver] Calling impl.initializeRenderer');
           const result = this.impl.initializeRenderer(params.user_agent, params.metadata, params.cors_exempt_header_list, params.origin_trials_settings, params.cpu_performance_tier, params.trace_id);
           break;
