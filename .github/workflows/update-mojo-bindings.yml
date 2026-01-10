@@ -390,22 +390,43 @@ jobs:
                   if type_name in TYPE_MAPPING:
                        return TYPE_MAPPING[type_name]
                   
-                  # Pending types (using existing map)
-                  if type_name.startswith('pending'):
-                       return mojo_type_map(type_name)
+                  # Recursive handling for pending types
+                  if type_name.startswith('pending_remote<'):
+                      inner = type_name[15:-1].strip()
+                      return f"mojo.internal.InterfaceProxy({resolve_mojo_type(inner)})"
+                  
+                  if type_name.startswith('pending_receiver<'):
+                      inner = type_name[17:-1].strip()
+                      return f"mojo.internal.InterfaceRequest({resolve_mojo_type(inner)})"
+                  
+                  if type_name.startswith('pending_associated_remote<'):
+                      inner = type_name[26:-1].strip()
+                      return f"mojo.internal.AssociatedInterfaceProxy({resolve_mojo_type(inner)})"
+
+                  if type_name.startswith('pending_associated_receiver<'):
+                      inner = type_name[28:-1].strip()
+                      return f"mojo.internal.AssociatedInterfaceRequest({resolve_mojo_type(inner)})"
 
                   # Check local types
                   clean_name = type_name.replace('?', '').strip()
-                  if clean_name in valid_types:
-                      return f"{module}.{clean_name}Spec"
                   
-                  # Check imports (if it contains dot that is not part of module path)
+                  # Determine fully qualified name to check kind
+                  fq_name = f"{module}.{clean_name}"
+                  kind = global_kind_map.get(fq_name) or global_kind_map.get(clean_name)
+                  
+                  suffix = 'Spec'
+                  if kind == 'interface':
+                      suffix = 'Remote'
+                  
+                  if clean_name in valid_types:
+                      return f"{module}.{clean_name}{suffix}"
+                      
                   if '.' in clean_name:
-                      return f"{clean_name}Spec"
+                      return f"{clean_name}{suffix}"
 
-                  # Heuristic: Uppercase = Struct/Enum reference
+                  # Heuristic: Uppercase
                   if clean_name and clean_name[0].isupper() and clean_name not in TYPE_MAPPING:
-                      return f"{module}.{clean_name}Spec"
+                      return f"{module}.{clean_name}{suffix}"
                   
                   # Fallback
                   return 'mojo.internal.Pointer'
@@ -926,6 +947,7 @@ jobs:
                       for s in parsed.get('structs', []): global_kind_map[f"{mod_prefix}{s['name']}"] = 'struct'
                       for u in parsed.get('unions', []): global_kind_map[f"{mod_prefix}{u['name']}"] = 'union'
                       for e in parsed.get('enums', []): global_kind_map[f"{mod_prefix}{e['name']}"] = 'enum'
+                      for i in parsed.get('interfaces', []): global_kind_map[f"{mod_prefix}{i['name']}"] = 'interface'
               
               print(f"Global Type Map detected {len(global_kind_map)} types.")
 
