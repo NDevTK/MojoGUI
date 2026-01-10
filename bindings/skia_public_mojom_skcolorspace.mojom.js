@@ -8,52 +8,34 @@
 var skia = skia || {};
 skia.mojom = skia.mojom || {};
 
+skia.mojom.SkcmsMatrix3x3Spec = { $: {} };
+skia.mojom.SkcmsTransferFunctionSpec = { $: {} };
+skia.mojom.SkColorSpaceSpec = { $: {} };
 
 // Struct: SkcmsMatrix3x3
-skia.mojom.SkcmsMatrix3x3Spec = {
-  $: {
-    structSpec: {
-      name: 'skia.mojom.SkcmsMatrix3x3',
-      packedSize: 16,
-      fields: [
-        { name: 'vals', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    skia.mojom.SkcmsMatrix3x3Spec, 'skia.mojom.SkcmsMatrix3x3', [
+      mojo.internal.StructField('vals', 0, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: SkcmsTransferFunction
-skia.mojom.SkcmsTransferFunctionSpec = {
-  $: {
-    structSpec: {
-      name: 'skia.mojom.SkcmsTransferFunction',
-      packedSize: 40,
-      fields: [
-        { name: 'g', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'a', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'b', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'c', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'd', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'e', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'f', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    skia.mojom.SkcmsTransferFunctionSpec, 'skia.mojom.SkcmsTransferFunction', [
+      mojo.internal.StructField('g', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('a', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('b', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('c', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('d', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('e', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('f', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: SkColorSpace
-skia.mojom.SkColorSpaceSpec = {
-  $: {
-    structSpec: {
-      name: 'skia.mojom.SkColorSpace',
-      packedSize: 24,
-      fields: [
-        { name: 'to_linear', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.SkcmsTransferFunctionSpec, nullable: true, minVersion: 0 },
-        { name: 'to_xyzd50', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkcmsMatrix3x3Spec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    skia.mojom.SkColorSpaceSpec, 'skia.mojom.SkColorSpace', [
+      mojo.internal.StructField('to_linear', 0, 0, skia.mojom.SkcmsTransferFunctionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('to_xyzd50', 8, 0, skia.mojom.SkcmsMatrix3x3Spec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);

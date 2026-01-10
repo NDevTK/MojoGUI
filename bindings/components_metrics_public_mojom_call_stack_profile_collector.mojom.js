@@ -8,45 +8,33 @@
 var metrics = metrics || {};
 metrics.mojom = metrics.mojom || {};
 
+metrics.mojom.ProfileTypeSpec = { $: mojo.internal.Enum() };
+metrics.mojom.SampledProfileSpec = { $: {} };
+metrics.mojom.CallStackProfileCollector = {};
+metrics.mojom.CallStackProfileCollector.$interfaceName = 'metrics.mojom.CallStackProfileCollector';
+metrics.mojom.CallStackProfileCollector_Collect_ParamsSpec = { $: {} };
 
 // Enum: ProfileType
 metrics.mojom.ProfileType = {
   kCPU: 0,
   kHeap: 1,
 };
-metrics.mojom.ProfileTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: SampledProfile
-metrics.mojom.SampledProfileSpec = {
-  $: {
-    structSpec: {
-      name: 'metrics.mojom.SampledProfile',
-      packedSize: 16,
-      fields: [
-        { name: 'contents', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ProtoWrapperSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    metrics.mojom.SampledProfileSpec, 'metrics.mojom.SampledProfile', [
+      mojo.internal.StructField('contents', 0, 0, mojo_base.mojom.ProtoWrapperSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: CallStackProfileCollector
-metrics.mojom.CallStackProfileCollector = {};
-
-metrics.mojom.CallStackProfileCollector_Collect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'metrics.mojom.CallStackProfileCollector_Collect_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'start_timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'profile_type', packedOffset: 16, packedBitOffset: 0, type: metrics.mojom.ProfileTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'profile', packedOffset: 8, packedBitOffset: 0, type: metrics.mojom.SampledProfileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    metrics.mojom.CallStackProfileCollector_Collect_ParamsSpec, 'metrics.mojom.CallStackProfileCollector_Collect_Params', [
+      mojo.internal.StructField('start_timestamp', 0, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('profile_type', 16, 0, metrics.mojom.ProfileTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('profile', 8, 0, metrics.mojom.SampledProfileSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 metrics.mojom.CallStackProfileCollectorPendingReceiver = class {
   constructor(handle) {
@@ -101,23 +89,6 @@ metrics.mojom.CallStackProfileCollector.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Collect
-metrics.mojom.CallStackProfileCollector_Collect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'metrics.mojom.CallStackProfileCollector.Collect_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'start_timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'profile_type', packedOffset: 16, packedBitOffset: 0, type: metrics.mojom.ProfileTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'profile', packedOffset: 8, packedBitOffset: 0, type: metrics.mojom.SampledProfileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 metrics.mojom.CallStackProfileCollectorPtr = metrics.mojom.CallStackProfileCollectorRemote;
 metrics.mojom.CallStackProfileCollectorRequest = metrics.mojom.CallStackProfileCollectorPendingReceiver;
 

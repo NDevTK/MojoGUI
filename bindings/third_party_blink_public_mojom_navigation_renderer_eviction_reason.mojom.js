@@ -8,6 +8,7 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.RendererEvictionReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: RendererEvictionReason
 blink.mojom.RendererEvictionReason = {
@@ -19,4 +20,3 @@ blink.mojom.RendererEvictionReason = {
   kBroadcastChannelOnMessage: 5,
   kSharedWorkerMessage: 6,
 };
-blink.mojom.RendererEvictionReasonSpec = { $: mojo.internal.Enum() };

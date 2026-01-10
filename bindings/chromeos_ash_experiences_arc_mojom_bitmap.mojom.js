@@ -8,19 +8,13 @@
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
+arc.mojom.ArcBitmapSpec = { $: {} };
 
 // Struct: ArcBitmap
-arc.mojom.ArcBitmapSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBitmap',
-      packedSize: 24,
-      fields: [
-        { name: 'width', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'height', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'pixel_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBitmapSpec, 'arc.mojom.ArcBitmap', [
+      mojo.internal.StructField('width', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('height', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('pixel_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);

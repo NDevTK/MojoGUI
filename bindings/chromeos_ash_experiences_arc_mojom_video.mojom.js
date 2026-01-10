@@ -7,34 +7,59 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var chromeos = chromeos || {};
+var components = components || {};
 
+arc.mojom.VideoHost = {};
+arc.mojom.VideoHost.$interfaceName = 'arc.mojom.VideoHost';
+arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ParamsSpec = { $: {} };
+arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ResponseParamsSpec = { $: {} };
+arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ParamsSpec = { $: {} };
+arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ResponseParamsSpec = { $: {} };
+arc.mojom.VideoInstance = {};
+arc.mojom.VideoInstance.$interfaceName = 'arc.mojom.VideoInstance';
+arc.mojom.VideoInstance_Init_ParamsSpec = { $: {} };
+arc.mojom.VideoInstance_Init_ResponseParamsSpec = { $: {} };
+arc.mojom.VideoAcceleratorFactory = {};
+arc.mojom.VideoAcceleratorFactory.$interfaceName = 'arc.mojom.VideoAcceleratorFactory';
+arc.mojom.VideoAcceleratorFactory_CreateEncodeAccelerator_ParamsSpec = { $: {} };
+arc.mojom.VideoAcceleratorFactory_CreateDecodeAccelerator_ParamsSpec = { $: {} };
+arc.mojom.VideoAcceleratorFactory_CreateVideoDecoder_ParamsSpec = { $: {} };
+arc.mojom.VideoAcceleratorFactory_CreateProtectedBufferAllocator_ParamsSpec = { $: {} };
 
 // Interface: VideoHost
-arc.mojom.VideoHost = {};
+mojo.internal.Struct(
+    arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ParamsSpec, 'arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ResponseParamsSpec, 'arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ResponseParams', [
+      mojo.internal.StructField('channel_handle', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.VideoHost_CreateVideoAcceleratorFactory_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ParamsSpec, 'arc.mojom.VideoHost_CreateVideoAcceleratorFactory_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ResponseParamsSpec, 'arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ResponseParams', [
+      mojo.internal.StructField('remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.VideoAcceleratorFactoryRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.VideoHostPendingReceiver = class {
   constructor(handle) {
@@ -98,79 +123,21 @@ arc.mojom.VideoHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnBootstrapVideoAcceleratorFactory
-arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.VideoHost.OnBootstrapVideoAcceleratorFactory_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.VideoHost.OnBootstrapVideoAcceleratorFactory_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'channel_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for CreateVideoAcceleratorFactory
-arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.VideoHost.CreateVideoAcceleratorFactory_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.VideoHost.CreateVideoAcceleratorFactory_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.VideoAcceleratorFactoryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.VideoHostPtr = arc.mojom.VideoHostRemote;
 arc.mojom.VideoHostRequest = arc.mojom.VideoHostPendingReceiver;
 
 
 // Interface: VideoInstance
-arc.mojom.VideoInstance = {};
+mojo.internal.Struct(
+    arc.mojom.VideoInstance_Init_ParamsSpec, 'arc.mojom.VideoInstance_Init_Params', [
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.VideoHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.VideoInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.VideoInstance_Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.VideoHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.VideoInstance_Init_ResponseParamsSpec, 'arc.mojom.VideoInstance_Init_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 arc.mojom.VideoInstancePendingReceiver = class {
   constructor(handle) {
@@ -209,7 +176,7 @@ arc.mojom.VideoInstanceRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       arc.mojom.VideoInstance_Init_ParamsSpec,
-      null,
+      arc.mojom.VideoInstance_Init_ResponseParamsSpec,
       [host_remote]);
   }
 
@@ -225,81 +192,36 @@ arc.mojom.VideoInstance.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Init
-arc.mojom.VideoInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.VideoInstance.Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.VideoHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.VideoInstancePtr = arc.mojom.VideoInstanceRemote;
 arc.mojom.VideoInstanceRequest = arc.mojom.VideoInstancePendingReceiver;
 
 
 // Interface: VideoAcceleratorFactory
-arc.mojom.VideoAcceleratorFactory = {};
+mojo.internal.Struct(
+    arc.mojom.VideoAcceleratorFactory_CreateEncodeAccelerator_ParamsSpec, 'arc.mojom.VideoAcceleratorFactory_CreateEncodeAccelerator_Params', [
+      mojo.internal.StructField('video_encoder', 0, 0, mojo.internal.InterfaceRequest(arc.mojom.VideoEncodeAcceleratorRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.VideoAcceleratorFactory_CreateEncodeAccelerator_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.VideoAcceleratorFactory_CreateEncodeAccelerator_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'video_encoder', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(arc.mojom.VideoEncodeAcceleratorRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.VideoAcceleratorFactory_CreateDecodeAccelerator_ParamsSpec, 'arc.mojom.VideoAcceleratorFactory_CreateDecodeAccelerator_Params', [
+      mojo.internal.StructField('video_decoder', 0, 0, mojo.internal.InterfaceRequest(arc.mojom.VideoDecodeAcceleratorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('protected_buffer_manager', 8, 0, mojo.internal.InterfaceProxy(arc.mojom.ProtectedBufferManagerRemote), null, true, 8, undefined),
+      mojo.internal.StructField('browser_cdm_factory', 16, 0, mojo.internal.InterfaceProxy(chromeos.cdm.mojom.BrowserCdmFactoryRemote), null, true, 10, undefined),
+    ],
+    [[0, 16], [8, 24], [10, 32]]);
 
-arc.mojom.VideoAcceleratorFactory_CreateDecodeAccelerator_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.VideoAcceleratorFactory_CreateDecodeAccelerator_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'video_decoder', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(arc.mojom.VideoDecodeAcceleratorRemote), nullable: false, minVersion: 0 },
-        { name: 'protected_buffer_manager', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ProtectedBufferManagerRemote), nullable: true, minVersion: 8 },
-        { name: 'browser_cdm_factory', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.cdm.mojom.BrowserCdmFactoryRemote), nullable: true, minVersion: 10 },
-      ],
-      versions: [{version: 0, packedSize: 16}, {version: 8, packedSize: 24}, {version: 10, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.VideoAcceleratorFactory_CreateVideoDecoder_ParamsSpec, 'arc.mojom.VideoAcceleratorFactory_CreateVideoDecoder_Params', [
+      mojo.internal.StructField('video_decoder', 0, 0, mojo.internal.InterfaceRequest(arc.mojom.VideoDecoderRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.VideoAcceleratorFactory_CreateVideoDecoder_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.VideoAcceleratorFactory_CreateVideoDecoder_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'video_decoder', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(arc.mojom.VideoDecoderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.VideoAcceleratorFactory_CreateProtectedBufferAllocator_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.VideoAcceleratorFactory_CreateProtectedBufferAllocator_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'video_protected_buffer_allocator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(arc.mojom.VideoProtectedBufferAllocatorRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.VideoAcceleratorFactory_CreateProtectedBufferAllocator_ParamsSpec, 'arc.mojom.VideoAcceleratorFactory_CreateProtectedBufferAllocator_Params', [
+      mojo.internal.StructField('video_protected_buffer_allocator', 0, 0, mojo.internal.InterfaceRequest(arc.mojom.VideoProtectedBufferAllocatorRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.VideoAcceleratorFactoryPendingReceiver = class {
   constructor(handle) {
@@ -381,65 +303,6 @@ arc.mojom.VideoAcceleratorFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateEncodeAccelerator
-arc.mojom.VideoAcceleratorFactory_CreateEncodeAccelerator_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.VideoAcceleratorFactory.CreateEncodeAccelerator_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'video_encoder', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(arc.mojom.VideoEncodeAcceleratorRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CreateDecodeAccelerator
-arc.mojom.VideoAcceleratorFactory_CreateDecodeAccelerator_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.VideoAcceleratorFactory.CreateDecodeAccelerator_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'video_decoder', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(arc.mojom.VideoDecodeAcceleratorRemote), nullable: false, minVersion: 0 },
-        { name: 'protected_buffer_manager', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ProtectedBufferManagerRemote), nullable: true, minVersion: 8 },
-        { name: 'browser_cdm_factory', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.cdm.mojom.BrowserCdmFactoryRemote), nullable: true, minVersion: 10 },
-      ],
-      versions: [{version: 0, packedSize: 16}, {version: 8, packedSize: 24}, {version: 10, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for CreateVideoDecoder
-arc.mojom.VideoAcceleratorFactory_CreateVideoDecoder_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.VideoAcceleratorFactory.CreateVideoDecoder_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'video_decoder', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(arc.mojom.VideoDecoderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CreateProtectedBufferAllocator
-arc.mojom.VideoAcceleratorFactory_CreateProtectedBufferAllocator_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.VideoAcceleratorFactory.CreateProtectedBufferAllocator_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'video_protected_buffer_allocator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(arc.mojom.VideoProtectedBufferAllocatorRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.VideoAcceleratorFactoryPtr = arc.mojom.VideoAcceleratorFactoryRemote;
 arc.mojom.VideoAcceleratorFactoryRequest = arc.mojom.VideoAcceleratorFactoryPendingReceiver;
 

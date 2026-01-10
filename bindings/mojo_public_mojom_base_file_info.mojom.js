@@ -8,22 +8,16 @@
 var mojo_base = mojo_base || {};
 mojo_base.mojom = mojo_base.mojom || {};
 
+mojo_base.mojom.FileInfoSpec = { $: {} };
 
 // Struct: FileInfo
-mojo_base.mojom.FileInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'mojo_base.mojom.FileInfo',
-      packedSize: 48,
-      fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'is_directory', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_symbolic_link', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'last_modified', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'last_accessed', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'creation_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojo_base.mojom.FileInfoSpec, 'mojo_base.mojom.FileInfo', [
+      mojo.internal.StructField('size', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('is_directory', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_symbolic_link', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('last_modified', 8, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('last_accessed', 16, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('creation_time', 24, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);

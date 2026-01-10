@@ -9,67 +9,43 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 var url = url || {};
 
+blink.mojom.ReportBodyElementSpec = { $: {} };
+blink.mojom.ReportBodySpec = { $: {} };
+blink.mojom.ReportSpec = { $: {} };
+blink.mojom.ReportingObserver = {};
+blink.mojom.ReportingObserver.$interfaceName = 'blink.mojom.ReportingObserver';
+blink.mojom.ReportingObserver_Notify_ParamsSpec = { $: {} };
 
 // Struct: ReportBodyElement
-blink.mojom.ReportBodyElementSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ReportBodyElement',
-      packedSize: 24,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ReportBodyElementSpec, 'blink.mojom.ReportBodyElement', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: ReportBody
-blink.mojom.ReportBodySpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ReportBody',
-      packedSize: 16,
-      fields: [
-        { name: 'body', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.ReportBodyElementSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ReportBodySpec, 'blink.mojom.ReportBody', [
+      mojo.internal.StructField('body', 0, 0, mojo.internal.Array(blink.mojom.ReportBodyElementSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: Report
-blink.mojom.ReportSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.Report',
-      packedSize: 32,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'body', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ReportBodySpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ReportSpec, 'blink.mojom.Report', [
+      mojo.internal.StructField('type', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('body', 16, 0, blink.mojom.ReportBodySpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: ReportingObserver
-blink.mojom.ReportingObserver = {};
-
-blink.mojom.ReportingObserver_Notify_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ReportingObserver_Notify_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ReportSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ReportingObserver_Notify_ParamsSpec, 'blink.mojom.ReportingObserver_Notify_Params', [
+      mojo.internal.StructField('report', 0, 0, blink.mojom.ReportSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.ReportingObserverPendingReceiver = class {
   constructor(handle) {
@@ -124,21 +100,6 @@ blink.mojom.ReportingObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Notify
-blink.mojom.ReportingObserver_Notify_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ReportingObserver.Notify_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ReportSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.ReportingObserverPtr = blink.mojom.ReportingObserverRemote;
 blink.mojom.ReportingObserverRequest = blink.mojom.ReportingObserverPendingReceiver;
 

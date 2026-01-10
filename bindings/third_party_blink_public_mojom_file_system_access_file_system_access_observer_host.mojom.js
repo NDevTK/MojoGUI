@@ -11,36 +11,32 @@ var blink = blink || {};
 var blink = blink || {};
 var blink = blink || {};
 
+blink.mojom.FileSystemAccessObserverHost = {};
+blink.mojom.FileSystemAccessObserverHost.$interfaceName = 'blink.mojom.FileSystemAccessObserverHost';
+blink.mojom.FileSystemAccessObserverHost_Observe_ParamsSpec = { $: {} };
+blink.mojom.FileSystemAccessObserverHost_Observe_ResponseParamsSpec = { $: {} };
+blink.mojom.FileSystemAccessObserverHost_Unobserve_ParamsSpec = { $: {} };
 
 // Interface: FileSystemAccessObserverHost
-blink.mojom.FileSystemAccessObserverHost = {};
+mojo.internal.Struct(
+    blink.mojom.FileSystemAccessObserverHost_Observe_ParamsSpec, 'blink.mojom.FileSystemAccessObserverHost_Observe_Params', [
+      mojo.internal.StructField('token', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessTransferTokenRemote), null, false, 0, undefined),
+      mojo.internal.StructField('is_recursive', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.FileSystemAccessObserverHost_Observe_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessObserverHost_Observe_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessTransferTokenRemote), nullable: false, minVersion: 0 },
-        { name: 'is_recursive', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FileSystemAccessObserverHost_Observe_ResponseParamsSpec, 'blink.mojom.FileSystemAccessObserverHost_Observe_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('observer_receiver', 8, 0, mojo.internal.InterfaceRequest(blink.mojom.FileSystemAccessObserverRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.FileSystemAccessObserverHost_Unobserve_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessObserverHost_Unobserve_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessTransferTokenRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FileSystemAccessObserverHost_Unobserve_ParamsSpec, 'blink.mojom.FileSystemAccessObserverHost_Unobserve_Params', [
+      mojo.internal.StructField('token', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessTransferTokenRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.FileSystemAccessObserverHostPendingReceiver = class {
   constructor(handle) {
@@ -104,50 +100,6 @@ blink.mojom.FileSystemAccessObserverHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Observe
-blink.mojom.FileSystemAccessObserverHost_Observe_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessObserverHost.Observe_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessTransferTokenRemote), nullable: false, minVersion: 0 },
-        { name: 'is_recursive', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.FileSystemAccessObserverHost_Observe_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessObserverHost.Observe_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'observer_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.FileSystemAccessObserverRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for Unobserve
-blink.mojom.FileSystemAccessObserverHost_Unobserve_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessObserverHost.Unobserve_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessTransferTokenRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.FileSystemAccessObserverHostPtr = blink.mojom.FileSystemAccessObserverHostRemote;
 blink.mojom.FileSystemAccessObserverHostRequest = blink.mojom.FileSystemAccessObserverHostPendingReceiver;
 

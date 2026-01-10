@@ -7,202 +7,142 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
+var services = services || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+media.mojom.MediaPlayer = {};
+media.mojom.MediaPlayer.$interfaceName = 'media.mojom.MediaPlayer';
+media.mojom.MediaPlayer_RequestPlay_ParamsSpec = { $: {} };
+media.mojom.MediaPlayer_RequestPause_ParamsSpec = { $: {} };
+media.mojom.MediaPlayer_RequestSeekForward_ParamsSpec = { $: {} };
+media.mojom.MediaPlayer_RequestSeekBackward_ParamsSpec = { $: {} };
+media.mojom.MediaPlayer_RequestSeekTo_ParamsSpec = { $: {} };
+media.mojom.MediaPlayer_RequestEnterPictureInPicture_ParamsSpec = { $: {} };
+media.mojom.MediaPlayer_RequestMute_ParamsSpec = { $: {} };
+media.mojom.MediaPlayer_SetVolumeMultiplier_ParamsSpec = { $: {} };
+media.mojom.MediaPlayer_SetPersistentState_ParamsSpec = { $: {} };
+media.mojom.MediaPlayer_SetPowerExperimentState_ParamsSpec = { $: {} };
+media.mojom.MediaPlayer_SetAudioSinkId_ParamsSpec = { $: {} };
+media.mojom.MediaPlayer_SuspendForFrameClosed_ParamsSpec = { $: {} };
+media.mojom.MediaPlayer_RequestMediaRemoting_ParamsSpec = { $: {} };
+media.mojom.MediaPlayer_RequestVisibility_ParamsSpec = { $: {} };
+media.mojom.MediaPlayer_RequestVisibility_ResponseParamsSpec = { $: {} };
+media.mojom.MediaPlayer_RecordAutoPictureInPictureInfo_ParamsSpec = { $: {} };
+media.mojom.MediaPlayerObserverClient = {};
+media.mojom.MediaPlayerObserverClient.$interfaceName = 'media.mojom.MediaPlayerObserverClient';
+media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ParamsSpec = { $: {} };
+media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ResponseParamsSpec = { $: {} };
+media.mojom.MediaPlayerObserver = {};
+media.mojom.MediaPlayerObserver.$interfaceName = 'media.mojom.MediaPlayerObserver';
+media.mojom.MediaPlayerObserver_OnMediaPlaying_ParamsSpec = { $: {} };
+media.mojom.MediaPlayerObserver_OnMediaPaused_ParamsSpec = { $: {} };
+media.mojom.MediaPlayerObserver_OnMutedStatusChanged_ParamsSpec = { $: {} };
+media.mojom.MediaPlayerObserver_OnMediaMetadataChanged_ParamsSpec = { $: {} };
+media.mojom.MediaPlayerObserver_OnMediaPositionStateChanged_ParamsSpec = { $: {} };
+media.mojom.MediaPlayerObserver_OnMediaEffectivelyFullscreenChanged_ParamsSpec = { $: {} };
+media.mojom.MediaPlayerObserver_OnMediaSizeChanged_ParamsSpec = { $: {} };
+media.mojom.MediaPlayerObserver_OnPictureInPictureAvailabilityChanged_ParamsSpec = { $: {} };
+media.mojom.MediaPlayerObserver_OnAudioOutputSinkChanged_ParamsSpec = { $: {} };
+media.mojom.MediaPlayerObserver_OnUseAudioServiceChanged_ParamsSpec = { $: {} };
+media.mojom.MediaPlayerObserver_OnAudioOutputSinkChangingDisabled_ParamsSpec = { $: {} };
+media.mojom.MediaPlayerObserver_OnRemotePlaybackMetadataChange_ParamsSpec = { $: {} };
+media.mojom.MediaPlayerObserver_OnVideoVisibilityChanged_ParamsSpec = { $: {} };
+media.mojom.MediaPlayerHost = {};
+media.mojom.MediaPlayerHost.$interfaceName = 'media.mojom.MediaPlayerHost';
+media.mojom.MediaPlayerHost_OnMediaPlayerAdded_ParamsSpec = { $: {} };
 
 // Interface: MediaPlayer
-media.mojom.MediaPlayer = {};
+mojo.internal.Struct(
+    media.mojom.MediaPlayer_RequestPlay_ParamsSpec, 'media.mojom.MediaPlayer_RequestPlay_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media.mojom.MediaPlayer_RequestPlay_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayer_RequestPlay_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaPlayer_RequestPause_ParamsSpec, 'media.mojom.MediaPlayer_RequestPause_Params', [
+      mojo.internal.StructField('triggered_by_user', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.MediaPlayer_RequestPause_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayer_RequestPause_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'triggered_by_user', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaPlayer_RequestSeekForward_ParamsSpec, 'media.mojom.MediaPlayer_RequestSeekForward_Params', [
+      mojo.internal.StructField('seek_time', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.MediaPlayer_RequestSeekForward_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayer_RequestSeekForward_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'seek_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaPlayer_RequestSeekBackward_ParamsSpec, 'media.mojom.MediaPlayer_RequestSeekBackward_Params', [
+      mojo.internal.StructField('seek_time', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.MediaPlayer_RequestSeekBackward_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayer_RequestSeekBackward_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'seek_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaPlayer_RequestSeekTo_ParamsSpec, 'media.mojom.MediaPlayer_RequestSeekTo_Params', [
+      mojo.internal.StructField('seek_time', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.MediaPlayer_RequestSeekTo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayer_RequestSeekTo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'seek_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaPlayer_RequestEnterPictureInPicture_ParamsSpec, 'media.mojom.MediaPlayer_RequestEnterPictureInPicture_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media.mojom.MediaPlayer_RequestEnterPictureInPicture_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayer_RequestEnterPictureInPicture_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaPlayer_RequestMute_ParamsSpec, 'media.mojom.MediaPlayer_RequestMute_Params', [
+      mojo.internal.StructField('mute', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.MediaPlayer_RequestMute_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayer_RequestMute_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'mute', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaPlayer_SetVolumeMultiplier_ParamsSpec, 'media.mojom.MediaPlayer_SetVolumeMultiplier_Params', [
+      mojo.internal.StructField('multiplier', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.MediaPlayer_SetVolumeMultiplier_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayer_SetVolumeMultiplier_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'multiplier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaPlayer_SetPersistentState_ParamsSpec, 'media.mojom.MediaPlayer_SetPersistentState_Params', [
+      mojo.internal.StructField('persistent', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.MediaPlayer_SetPersistentState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayer_SetPersistentState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'persistent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaPlayer_SetPowerExperimentState_ParamsSpec, 'media.mojom.MediaPlayer_SetPowerExperimentState_Params', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.MediaPlayer_SetPowerExperimentState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayer_SetPowerExperimentState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaPlayer_SetAudioSinkId_ParamsSpec, 'media.mojom.MediaPlayer_SetAudioSinkId_Params', [
+      mojo.internal.StructField('sink_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.MediaPlayer_SetAudioSinkId_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayer_SetAudioSinkId_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaPlayer_SuspendForFrameClosed_ParamsSpec, 'media.mojom.MediaPlayer_SuspendForFrameClosed_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media.mojom.MediaPlayer_SuspendForFrameClosed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayer_SuspendForFrameClosed_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaPlayer_RequestMediaRemoting_ParamsSpec, 'media.mojom.MediaPlayer_RequestMediaRemoting_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media.mojom.MediaPlayer_RequestMediaRemoting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayer_RequestMediaRemoting_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaPlayer_RequestVisibility_ParamsSpec, 'media.mojom.MediaPlayer_RequestVisibility_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media.mojom.MediaPlayer_RequestVisibility_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayer_RequestVisibility_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaPlayer_RequestVisibility_ResponseParamsSpec, 'media.mojom.MediaPlayer_RequestVisibility_ResponseParams', [
+      mojo.internal.StructField('has_sufficiently_visible_video', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.MediaPlayer_RecordAutoPictureInPictureInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayer_RecordAutoPictureInPictureInfo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'auto_picture_in_picture_info', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AutoPipInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaPlayer_RecordAutoPictureInPictureInfo_ParamsSpec, 'media.mojom.MediaPlayer_RecordAutoPictureInPictureInfo_Params', [
+      mojo.internal.StructField('auto_picture_in_picture_info', 0, 0, media.mojom.AutoPipInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media.mojom.MediaPlayerPendingReceiver = class {
   constructor(handle) {
@@ -383,243 +323,21 @@ media.mojom.MediaPlayer.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RequestPlay
-media.mojom.MediaPlayer_RequestPlay_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayer.RequestPlay_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for RequestPause
-media.mojom.MediaPlayer_RequestPause_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayer.RequestPause_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'triggered_by_user', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestSeekForward
-media.mojom.MediaPlayer_RequestSeekForward_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayer.RequestSeekForward_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'seek_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestSeekBackward
-media.mojom.MediaPlayer_RequestSeekBackward_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayer.RequestSeekBackward_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'seek_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestSeekTo
-media.mojom.MediaPlayer_RequestSeekTo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayer.RequestSeekTo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'seek_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestEnterPictureInPicture
-media.mojom.MediaPlayer_RequestEnterPictureInPicture_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayer.RequestEnterPictureInPicture_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for RequestMute
-media.mojom.MediaPlayer_RequestMute_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayer.RequestMute_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'mute', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetVolumeMultiplier
-media.mojom.MediaPlayer_SetVolumeMultiplier_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayer.SetVolumeMultiplier_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'multiplier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetPersistentState
-media.mojom.MediaPlayer_SetPersistentState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayer.SetPersistentState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'persistent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetPowerExperimentState
-media.mojom.MediaPlayer_SetPowerExperimentState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayer.SetPowerExperimentState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetAudioSinkId
-media.mojom.MediaPlayer_SetAudioSinkId_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayer.SetAudioSinkId_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SuspendForFrameClosed
-media.mojom.MediaPlayer_SuspendForFrameClosed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayer.SuspendForFrameClosed_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for RequestMediaRemoting
-media.mojom.MediaPlayer_RequestMediaRemoting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayer.RequestMediaRemoting_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for RequestVisibility
-media.mojom.MediaPlayer_RequestVisibility_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayer.RequestVisibility_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-media.mojom.MediaPlayer_RequestVisibility_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayer.RequestVisibility_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'has_sufficiently_visible_video', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RecordAutoPictureInPictureInfo
-media.mojom.MediaPlayer_RecordAutoPictureInPictureInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayer.RecordAutoPictureInPictureInfo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'auto_picture_in_picture_info', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AutoPipInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.MediaPlayerPtr = media.mojom.MediaPlayerRemote;
 media.mojom.MediaPlayerRequest = media.mojom.MediaPlayerPendingReceiver;
 
 
 // Interface: MediaPlayerObserverClient
-media.mojom.MediaPlayerObserverClient = {};
+mojo.internal.Struct(
+    media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ParamsSpec, 'media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ResponseParamsSpec, 'media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ResponseParams', [
+      mojo.internal.StructField('has_played_before', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media.mojom.MediaPlayerObserverClientPendingReceiver = class {
   constructor(handle) {
@@ -674,208 +392,88 @@ media.mojom.MediaPlayerObserverClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetHasPlayedBefore
-media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayerObserverClient.GetHasPlayedBefore_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayerObserverClient.GetHasPlayedBefore_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'has_played_before', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.MediaPlayerObserverClientPtr = media.mojom.MediaPlayerObserverClientRemote;
 media.mojom.MediaPlayerObserverClientRequest = media.mojom.MediaPlayerObserverClientPendingReceiver;
 
 
 // Interface: MediaPlayerObserver
-media.mojom.MediaPlayerObserver = {};
+mojo.internal.Struct(
+    media.mojom.MediaPlayerObserver_OnMediaPlaying_ParamsSpec, 'media.mojom.MediaPlayerObserver_OnMediaPlaying_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media.mojom.MediaPlayerObserver_OnMediaPlaying_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayerObserver_OnMediaPlaying_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaPlayerObserver_OnMediaPaused_ParamsSpec, 'media.mojom.MediaPlayerObserver_OnMediaPaused_Params', [
+      mojo.internal.StructField('stream_ended', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.MediaPlayerObserver_OnMediaPaused_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayerObserver_OnMediaPaused_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'stream_ended', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaPlayerObserver_OnMutedStatusChanged_ParamsSpec, 'media.mojom.MediaPlayerObserver_OnMutedStatusChanged_Params', [
+      mojo.internal.StructField('muted', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.MediaPlayerObserver_OnMutedStatusChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayerObserver_OnMutedStatusChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'muted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaPlayerObserver_OnMediaMetadataChanged_ParamsSpec, 'media.mojom.MediaPlayerObserver_OnMediaMetadataChanged_Params', [
+      mojo.internal.StructField('has_audio', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_video', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('content_type', 0, 0, media.mojom.MediaContentTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-media.mojom.MediaPlayerObserver_OnMediaMetadataChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayerObserver_OnMediaMetadataChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'has_audio', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_video', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'content_type', packedOffset: 0, packedBitOffset: 0, type: media.mojom.MediaContentTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaPlayerObserver_OnMediaPositionStateChanged_ParamsSpec, 'media.mojom.MediaPlayerObserver_OnMediaPositionStateChanged_Params', [
+      mojo.internal.StructField('media_position', 0, 0, media_session.mojom.MediaPositionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.MediaPlayerObserver_OnMediaPositionStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayerObserver_OnMediaPositionStateChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'media_position', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaPositionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaPlayerObserver_OnMediaEffectivelyFullscreenChanged_ParamsSpec, 'media.mojom.MediaPlayerObserver_OnMediaEffectivelyFullscreenChanged_Params', [
+      mojo.internal.StructField('status', 0, 0, media.mojom.FullscreenVideoStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.MediaPlayerObserver_OnMediaEffectivelyFullscreenChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayerObserver_OnMediaEffectivelyFullscreenChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.FullscreenVideoStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaPlayerObserver_OnMediaSizeChanged_ParamsSpec, 'media.mojom.MediaPlayerObserver_OnMediaSizeChanged_Params', [
+      mojo.internal.StructField('size', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.MediaPlayerObserver_OnMediaSizeChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayerObserver_OnMediaSizeChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaPlayerObserver_OnPictureInPictureAvailabilityChanged_ParamsSpec, 'media.mojom.MediaPlayerObserver_OnPictureInPictureAvailabilityChanged_Params', [
+      mojo.internal.StructField('available', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.MediaPlayerObserver_OnPictureInPictureAvailabilityChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayerObserver_OnPictureInPictureAvailabilityChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaPlayerObserver_OnAudioOutputSinkChanged_ParamsSpec, 'media.mojom.MediaPlayerObserver_OnAudioOutputSinkChanged_Params', [
+      mojo.internal.StructField('hashed_device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.MediaPlayerObserver_OnAudioOutputSinkChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayerObserver_OnAudioOutputSinkChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'hashed_device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaPlayerObserver_OnUseAudioServiceChanged_ParamsSpec, 'media.mojom.MediaPlayerObserver_OnUseAudioServiceChanged_Params', [
+      mojo.internal.StructField('uses_audio_service', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.MediaPlayerObserver_OnUseAudioServiceChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayerObserver_OnUseAudioServiceChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'uses_audio_service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaPlayerObserver_OnAudioOutputSinkChangingDisabled_ParamsSpec, 'media.mojom.MediaPlayerObserver_OnAudioOutputSinkChangingDisabled_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media.mojom.MediaPlayerObserver_OnAudioOutputSinkChangingDisabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayerObserver_OnAudioOutputSinkChangingDisabled_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaPlayerObserver_OnRemotePlaybackMetadataChange_ParamsSpec, 'media.mojom.MediaPlayerObserver_OnRemotePlaybackMetadataChange_Params', [
+      mojo.internal.StructField('remote_playback_metadata', 0, 0, media_session.mojom.RemotePlaybackMetadataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.MediaPlayerObserver_OnRemotePlaybackMetadataChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayerObserver_OnRemotePlaybackMetadataChange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'remote_playback_metadata', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.RemotePlaybackMetadataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-media.mojom.MediaPlayerObserver_OnVideoVisibilityChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayerObserver_OnVideoVisibilityChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'meets_visibility_threshold', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaPlayerObserver_OnVideoVisibilityChanged_ParamsSpec, 'media.mojom.MediaPlayerObserver_OnVideoVisibilityChanged_Params', [
+      mojo.internal.StructField('meets_visibility_threshold', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media.mojom.MediaPlayerObserverPendingReceiver = class {
   constructor(handle) {
@@ -1038,210 +636,18 @@ media.mojom.MediaPlayerObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnMediaPlaying
-media.mojom.MediaPlayerObserver_OnMediaPlaying_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayerObserver.OnMediaPlaying_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnMediaPaused
-media.mojom.MediaPlayerObserver_OnMediaPaused_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayerObserver.OnMediaPaused_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'stream_ended', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnMutedStatusChanged
-media.mojom.MediaPlayerObserver_OnMutedStatusChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayerObserver.OnMutedStatusChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'muted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnMediaMetadataChanged
-media.mojom.MediaPlayerObserver_OnMediaMetadataChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayerObserver.OnMediaMetadataChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'has_audio', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_video', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'content_type', packedOffset: 0, packedBitOffset: 0, type: media.mojom.MediaContentTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnMediaPositionStateChanged
-media.mojom.MediaPlayerObserver_OnMediaPositionStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayerObserver.OnMediaPositionStateChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'media_position', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaPositionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnMediaEffectivelyFullscreenChanged
-media.mojom.MediaPlayerObserver_OnMediaEffectivelyFullscreenChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayerObserver.OnMediaEffectivelyFullscreenChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.FullscreenVideoStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnMediaSizeChanged
-media.mojom.MediaPlayerObserver_OnMediaSizeChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayerObserver.OnMediaSizeChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnPictureInPictureAvailabilityChanged
-media.mojom.MediaPlayerObserver_OnPictureInPictureAvailabilityChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayerObserver.OnPictureInPictureAvailabilityChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnAudioOutputSinkChanged
-media.mojom.MediaPlayerObserver_OnAudioOutputSinkChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayerObserver.OnAudioOutputSinkChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'hashed_device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnUseAudioServiceChanged
-media.mojom.MediaPlayerObserver_OnUseAudioServiceChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayerObserver.OnUseAudioServiceChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'uses_audio_service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnAudioOutputSinkChangingDisabled
-media.mojom.MediaPlayerObserver_OnAudioOutputSinkChangingDisabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayerObserver.OnAudioOutputSinkChangingDisabled_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnRemotePlaybackMetadataChange
-media.mojom.MediaPlayerObserver_OnRemotePlaybackMetadataChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayerObserver.OnRemotePlaybackMetadataChange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'remote_playback_metadata', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.RemotePlaybackMetadataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnVideoVisibilityChanged
-media.mojom.MediaPlayerObserver_OnVideoVisibilityChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayerObserver.OnVideoVisibilityChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'meets_visibility_threshold', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.MediaPlayerObserverPtr = media.mojom.MediaPlayerObserverRemote;
 media.mojom.MediaPlayerObserverRequest = media.mojom.MediaPlayerObserverPendingReceiver;
 
 
 // Interface: MediaPlayerHost
-media.mojom.MediaPlayerHost = {};
-
-media.mojom.MediaPlayerHost_OnMediaPlayerAdded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayerHost_OnMediaPlayerAdded_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'player_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(media.mojom.MediaPlayerRemote), nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(media.mojom.MediaPlayerObserverRemote), nullable: false, minVersion: 0 },
-        { name: 'player_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaPlayerHost_OnMediaPlayerAdded_ParamsSpec, 'media.mojom.MediaPlayerHost_OnMediaPlayerAdded_Params', [
+      mojo.internal.StructField('player_remote', 0, 0, mojo.internal.AssociatedInterfaceProxy(media.mojom.MediaPlayerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 8, 0, mojo.internal.AssociatedInterfaceRequest(media.mojom.MediaPlayerObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('player_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 media.mojom.MediaPlayerHostPendingReceiver = class {
   constructor(handle) {
@@ -1296,23 +702,6 @@ media.mojom.MediaPlayerHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnMediaPlayerAdded
-media.mojom.MediaPlayerHost_OnMediaPlayerAdded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaPlayerHost.OnMediaPlayerAdded_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'player_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(media.mojom.MediaPlayerRemote), nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(media.mojom.MediaPlayerObserverRemote), nullable: false, minVersion: 0 },
-        { name: 'player_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.MediaPlayerHostPtr = media.mojom.MediaPlayerHostRemote;
 media.mojom.MediaPlayerHostRequest = media.mojom.MediaPlayerHostPendingReceiver;
 

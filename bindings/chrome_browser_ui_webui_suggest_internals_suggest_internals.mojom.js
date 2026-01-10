@@ -9,6 +9,18 @@ var suggest_internals = suggest_internals || {};
 suggest_internals.mojom = suggest_internals.mojom || {};
 var url = url || {};
 
+suggest_internals.mojom.RequestStatusSpec = { $: mojo.internal.Enum() };
+suggest_internals.mojom.RequestSpec = { $: {} };
+suggest_internals.mojom.PageHandler = {};
+suggest_internals.mojom.PageHandler.$interfaceName = 'suggest_internals.mojom.PageHandler';
+suggest_internals.mojom.PageHandler_SetPage_ParamsSpec = { $: {} };
+suggest_internals.mojom.PageHandler_HardcodeResponse_ParamsSpec = { $: {} };
+suggest_internals.mojom.PageHandler_HardcodeResponse_ResponseParamsSpec = { $: {} };
+suggest_internals.mojom.Page = {};
+suggest_internals.mojom.Page.$interfaceName = 'suggest_internals.mojom.Page';
+suggest_internals.mojom.Page_OnRequestCreated_ParamsSpec = { $: {} };
+suggest_internals.mojom.Page_OnRequestStarted_ParamsSpec = { $: {} };
+suggest_internals.mojom.Page_OnRequestCompleted_ParamsSpec = { $: {} };
 
 // Enum: RequestStatus
 suggest_internals.mojom.RequestStatus = {
@@ -18,57 +30,39 @@ suggest_internals.mojom.RequestStatus = {
   kSucceeded: 3,
   kFailed: 4,
 };
-suggest_internals.mojom.RequestStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: Request
-suggest_internals.mojom.RequestSpec = {
-  $: {
-    structSpec: {
-      name: 'suggest_internals.mojom.Request',
-      packedSize: 64,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'status', packedOffset: 48, packedBitOffset: 0, type: suggest_internals.mojom.RequestStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'start_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'end_time', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'response', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    suggest_internals.mojom.RequestSpec, 'suggest_internals.mojom.Request', [
+      mojo.internal.StructField('id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('status', 48, 0, suggest_internals.mojom.RequestStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('start_time', 24, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('end_time', 32, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 40, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 64]]);
 
 // Interface: PageHandler
-suggest_internals.mojom.PageHandler = {};
+mojo.internal.Struct(
+    suggest_internals.mojom.PageHandler_SetPage_ParamsSpec, 'suggest_internals.mojom.PageHandler_SetPage_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(suggest_internals.mojom.PageRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-suggest_internals.mojom.PageHandler_SetPage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'suggest_internals.mojom.PageHandler_SetPage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(suggest_internals.mojom.PageRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    suggest_internals.mojom.PageHandler_HardcodeResponse_ParamsSpec, 'suggest_internals.mojom.PageHandler_HardcodeResponse_Params', [
+      mojo.internal.StructField('response', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('delay', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-suggest_internals.mojom.PageHandler_HardcodeResponse_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'suggest_internals.mojom.PageHandler_HardcodeResponse_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'delay', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    suggest_internals.mojom.PageHandler_HardcodeResponse_ResponseParamsSpec, 'suggest_internals.mojom.PageHandler_HardcodeResponse_ResponseParams', [
+      mojo.internal.StructField('request', 0, 0, suggest_internals.mojom.RequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 suggest_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -132,94 +126,28 @@ suggest_internals.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetPage
-suggest_internals.mojom.PageHandler_SetPage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'suggest_internals.mojom.PageHandler.SetPage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(suggest_internals.mojom.PageRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for HardcodeResponse
-suggest_internals.mojom.PageHandler_HardcodeResponse_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'suggest_internals.mojom.PageHandler.HardcodeResponse_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'delay', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-suggest_internals.mojom.PageHandler_HardcodeResponse_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'suggest_internals.mojom.PageHandler.HardcodeResponse_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: suggest_internals.mojom.RequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 suggest_internals.mojom.PageHandlerPtr = suggest_internals.mojom.PageHandlerRemote;
 suggest_internals.mojom.PageHandlerRequest = suggest_internals.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-suggest_internals.mojom.Page = {};
+mojo.internal.Struct(
+    suggest_internals.mojom.Page_OnRequestCreated_ParamsSpec, 'suggest_internals.mojom.Page_OnRequestCreated_Params', [
+      mojo.internal.StructField('request', 0, 0, suggest_internals.mojom.RequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-suggest_internals.mojom.Page_OnRequestCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'suggest_internals.mojom.Page_OnRequestCreated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: suggest_internals.mojom.RequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    suggest_internals.mojom.Page_OnRequestStarted_ParamsSpec, 'suggest_internals.mojom.Page_OnRequestStarted_Params', [
+      mojo.internal.StructField('request', 0, 0, suggest_internals.mojom.RequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-suggest_internals.mojom.Page_OnRequestStarted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'suggest_internals.mojom.Page_OnRequestStarted_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: suggest_internals.mojom.RequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-suggest_internals.mojom.Page_OnRequestCompleted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'suggest_internals.mojom.Page_OnRequestCompleted_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: suggest_internals.mojom.RequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    suggest_internals.mojom.Page_OnRequestCompleted_ParamsSpec, 'suggest_internals.mojom.Page_OnRequestCompleted_Params', [
+      mojo.internal.StructField('request', 0, 0, suggest_internals.mojom.RequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 suggest_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
@@ -292,49 +220,6 @@ suggest_internals.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnRequestCreated
-suggest_internals.mojom.Page_OnRequestCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'suggest_internals.mojom.Page.OnRequestCreated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: suggest_internals.mojom.RequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnRequestStarted
-suggest_internals.mojom.Page_OnRequestStarted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'suggest_internals.mojom.Page.OnRequestStarted_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: suggest_internals.mojom.RequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnRequestCompleted
-suggest_internals.mojom.Page_OnRequestCompleted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'suggest_internals.mojom.Page.OnRequestCompleted_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: suggest_internals.mojom.RequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 suggest_internals.mojom.PagePtr = suggest_internals.mojom.PageRemote;
 suggest_internals.mojom.PageRequest = suggest_internals.mojom.PagePendingReceiver;
 

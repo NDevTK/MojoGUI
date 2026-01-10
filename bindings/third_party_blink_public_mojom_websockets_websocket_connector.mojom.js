@@ -7,30 +7,27 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 var url = url || {};
 
+blink.mojom.WebSocketConnector = {};
+blink.mojom.WebSocketConnector.$interfaceName = 'blink.mojom.WebSocketConnector';
+blink.mojom.WebSocketConnector_Connect_ParamsSpec = { $: {} };
 
 // Interface: WebSocketConnector
-blink.mojom.WebSocketConnector = {};
-
-blink.mojom.WebSocketConnector_Connect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebSocketConnector_Connect_Params',
-      packedSize: 64,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'requested_protocols', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'site_for_cookies', packedOffset: 16, packedBitOffset: 0, type: network.mojom.SiteForCookiesSpec, nullable: false, minVersion: 0 },
-        { name: 'user_agent', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'storage_access_api_status', packedOffset: 48, packedBitOffset: 0, type: network.mojom.StorageAccessApiStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'handshake_client', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.WebSocketHandshakeClientRemote), nullable: false, minVersion: 0 },
-        { name: 'throttling_profile_id', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WebSocketConnector_Connect_ParamsSpec, 'blink.mojom.WebSocketConnector_Connect_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('requested_protocols', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('site_for_cookies', 16, 0, network.mojom.SiteForCookiesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('user_agent', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('storage_access_api_status', 48, 0, network.mojom.StorageAccessApiStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('handshake_client', 32, 0, mojo.internal.InterfaceProxy(network.mojom.WebSocketHandshakeClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('throttling_profile_id', 40, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+    ],
+    [[0, 64]]);
 
 blink.mojom.WebSocketConnectorPendingReceiver = class {
   constructor(handle) {
@@ -85,27 +82,6 @@ blink.mojom.WebSocketConnector.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Connect
-blink.mojom.WebSocketConnector_Connect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebSocketConnector.Connect_Params',
-      packedSize: 64,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'requested_protocols', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'site_for_cookies', packedOffset: 16, packedBitOffset: 0, type: network.mojom.SiteForCookiesSpec, nullable: false, minVersion: 0 },
-        { name: 'user_agent', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'storage_access_api_status', packedOffset: 48, packedBitOffset: 0, type: network.mojom.StorageAccessApiStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'handshake_client', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.WebSocketHandshakeClientRemote), nullable: false, minVersion: 0 },
-        { name: 'throttling_profile_id', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.WebSocketConnectorPtr = blink.mojom.WebSocketConnectorRemote;
 blink.mojom.WebSocketConnectorRequest = blink.mojom.WebSocketConnectorPendingReceiver;
 

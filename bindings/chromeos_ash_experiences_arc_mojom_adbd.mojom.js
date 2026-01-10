@@ -8,33 +8,25 @@
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
+arc.mojom.AdbdMonitorHost = {};
+arc.mojom.AdbdMonitorHost.$interfaceName = 'arc.mojom.AdbdMonitorHost';
+arc.mojom.AdbdMonitorHost_AdbdStarted_ParamsSpec = { $: {} };
+arc.mojom.AdbdMonitorHost_AdbdStopped_ParamsSpec = { $: {} };
+arc.mojom.AdbdMonitorInstance = {};
+arc.mojom.AdbdMonitorInstance.$interfaceName = 'arc.mojom.AdbdMonitorInstance';
+arc.mojom.AdbdMonitorInstance_Init_ParamsSpec = { $: {} };
+arc.mojom.AdbdMonitorInstance_Init_ResponseParamsSpec = { $: {} };
 
 // Interface: AdbdMonitorHost
-arc.mojom.AdbdMonitorHost = {};
+mojo.internal.Struct(
+    arc.mojom.AdbdMonitorHost_AdbdStarted_ParamsSpec, 'arc.mojom.AdbdMonitorHost_AdbdStarted_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.AdbdMonitorHost_AdbdStarted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AdbdMonitorHost_AdbdStarted_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-arc.mojom.AdbdMonitorHost_AdbdStopped_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AdbdMonitorHost_AdbdStopped_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AdbdMonitorHost_AdbdStopped_ParamsSpec, 'arc.mojom.AdbdMonitorHost_AdbdStopped_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 arc.mojom.AdbdMonitorHostPendingReceiver = class {
   constructor(handle) {
@@ -98,52 +90,21 @@ arc.mojom.AdbdMonitorHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AdbdStarted
-arc.mojom.AdbdMonitorHost_AdbdStarted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AdbdMonitorHost.AdbdStarted_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for AdbdStopped
-arc.mojom.AdbdMonitorHost_AdbdStopped_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AdbdMonitorHost.AdbdStopped_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.AdbdMonitorHostPtr = arc.mojom.AdbdMonitorHostRemote;
 arc.mojom.AdbdMonitorHostRequest = arc.mojom.AdbdMonitorHostPendingReceiver;
 
 
 // Interface: AdbdMonitorInstance
-arc.mojom.AdbdMonitorInstance = {};
+mojo.internal.Struct(
+    arc.mojom.AdbdMonitorInstance_Init_ParamsSpec, 'arc.mojom.AdbdMonitorInstance_Init_Params', [
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.AdbdMonitorHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.AdbdMonitorInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AdbdMonitorInstance_Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.AdbdMonitorHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AdbdMonitorInstance_Init_ResponseParamsSpec, 'arc.mojom.AdbdMonitorInstance_Init_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 arc.mojom.AdbdMonitorInstancePendingReceiver = class {
   constructor(handle) {
@@ -182,7 +143,7 @@ arc.mojom.AdbdMonitorInstanceRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       arc.mojom.AdbdMonitorInstance_Init_ParamsSpec,
-      null,
+      arc.mojom.AdbdMonitorInstance_Init_ResponseParamsSpec,
       [host_remote]);
   }
 
@@ -198,21 +159,6 @@ arc.mojom.AdbdMonitorInstance.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Init
-arc.mojom.AdbdMonitorInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AdbdMonitorInstance.Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.AdbdMonitorHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.AdbdMonitorInstancePtr = arc.mojom.AdbdMonitorInstanceRemote;
 arc.mojom.AdbdMonitorInstanceRequest = arc.mojom.AdbdMonitorInstancePendingReceiver;
 

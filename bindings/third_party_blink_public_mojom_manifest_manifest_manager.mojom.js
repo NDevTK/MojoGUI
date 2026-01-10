@@ -10,75 +10,70 @@ blink.mojom = blink.mojom || {};
 var blink = blink || {};
 var url = url || {};
 
+blink.mojom.RequestManifestErrorSpec = { $: {} };
+blink.mojom.ManifestManager = {};
+blink.mojom.ManifestManager.$interfaceName = 'blink.mojom.ManifestManager';
+blink.mojom.ManifestManager_RequestManifest_ParamsSpec = { $: {} };
+blink.mojom.ManifestManager_RequestManifest_ResponseParamsSpec = { $: {} };
+blink.mojom.ManifestManager_RequestManifestAndErrors_ParamsSpec = { $: {} };
+blink.mojom.ManifestManager_RequestManifestDebugInfo_ParamsSpec = { $: {} };
+blink.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParamsSpec = { $: {} };
+blink.mojom.ManifestManager_ParseManifestFromString_ParamsSpec = { $: {} };
+blink.mojom.ManifestManager_ParseManifestFromString_ResponseParamsSpec = { $: {} };
 
 // Struct: RequestManifestError
-blink.mojom.RequestManifestErrorSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.RequestManifestError',
-      packedSize: 24,
-      fields: [
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ManifestRequestResultSpec, nullable: false, minVersion: 0 },
-        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.ManifestErrorSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.RequestManifestErrorSpec, 'blink.mojom.RequestManifestError', [
+      mojo.internal.StructField('error', 8, 0, blink.mojom.ManifestRequestResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('details', 0, 0, mojo.internal.Array(blink.mojom.ManifestErrorSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: ManifestManager
-blink.mojom.ManifestManager = {};
+mojo.internal.Struct(
+    blink.mojom.ManifestManager_RequestManifest_ParamsSpec, 'blink.mojom.ManifestManager_RequestManifest_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.ManifestManager_RequestManifest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ManifestManager_RequestManifest_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ManifestManager_RequestManifest_ResponseParamsSpec, 'blink.mojom.ManifestManager_RequestManifest_ResponseParams', [
+      mojo.internal.StructField('result', 16, 0, blink.mojom.ManifestRequestResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('manifest', 8, 0, blink.mojom.ManifestSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-blink.mojom.ManifestManager_RequestManifestAndErrors_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ManifestManager_RequestManifestAndErrors_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ManifestManager_RequestManifestAndErrors_ParamsSpec, 'blink.mojom.ManifestManager_RequestManifestAndErrors_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.ManifestManager_RequestManifestDebugInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ManifestManager_RequestManifestDebugInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ManifestManager_RequestManifestDebugInfo_ParamsSpec, 'blink.mojom.ManifestManager_RequestManifestDebugInfo_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.ManifestManager_ParseManifestFromString_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ManifestManager_ParseManifestFromString_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'document_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'manifest_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'manifest_content', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParamsSpec, 'blink.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParams', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('parsed_manifest', 8, 0, blink.mojom.ManifestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('debug_info', 16, 0, blink.mojom.ManifestDebugInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    blink.mojom.ManifestManager_ParseManifestFromString_ParamsSpec, 'blink.mojom.ManifestManager_ParseManifestFromString_Params', [
+      mojo.internal.StructField('document_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('manifest_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('manifest_content', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    blink.mojom.ManifestManager_ParseManifestFromString_ResponseParamsSpec, 'blink.mojom.ManifestManager_ParseManifestFromString_ResponseParams', [
+      mojo.internal.StructField('parsed_manifest', 0, 0, blink.mojom.ManifestSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.ManifestManagerPendingReceiver = class {
   constructor(handle) {
@@ -160,105 +155,6 @@ blink.mojom.ManifestManager.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RequestManifest
-blink.mojom.ManifestManager_RequestManifest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ManifestManager.RequestManifest_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.ManifestManager_RequestManifest_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ManifestManager.RequestManifest_ResponseParams',
-      packedSize: 32,
-      fields: [
-        { name: 'result', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ManifestRequestResultSpec, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'manifest', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ManifestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for RequestManifestAndErrors
-blink.mojom.ManifestManager_RequestManifestAndErrors_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ManifestManager.RequestManifestAndErrors_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for RequestManifestDebugInfo
-blink.mojom.ManifestManager_RequestManifestDebugInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ManifestManager.RequestManifestDebugInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ManifestManager.RequestManifestDebugInfo_ResponseParams',
-      packedSize: 32,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'parsed_manifest', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ManifestSpec, nullable: false, minVersion: 0 },
-        { name: 'debug_info', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ManifestDebugInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for ParseManifestFromString
-blink.mojom.ManifestManager_ParseManifestFromString_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ManifestManager.ParseManifestFromString_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'document_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'manifest_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'manifest_content', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-blink.mojom.ManifestManager_ParseManifestFromString_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ManifestManager.ParseManifestFromString_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'parsed_manifest', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ManifestSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.ManifestManagerPtr = blink.mojom.ManifestManagerRemote;
 blink.mojom.ManifestManagerRequest = blink.mojom.ManifestManagerPendingReceiver;
 

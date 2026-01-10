@@ -7,19 +7,15 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
+var services = services || {};
 
+network.mojom.HostResolverEndpointResultSpec = { $: {} };
 
 // Struct: HostResolverEndpointResult
-network.mojom.HostResolverEndpointResultSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.HostResolverEndpointResult',
-      packedSize: 24,
-      fields: [
-        { name: 'ip_endpoints', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.IPEndPointSpec, false), nullable: false, minVersion: 0 },
-        { name: 'metadata', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ConnectionEndpointMetadataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.HostResolverEndpointResultSpec, 'network.mojom.HostResolverEndpointResult', [
+      mojo.internal.StructField('ip_endpoints', 0, 0, mojo.internal.Array(network.mojom.IPEndPointSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('metadata', 8, 0, network.mojom.ConnectionEndpointMetadataSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);

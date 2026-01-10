@@ -8,33 +8,21 @@
 var media = media || {};
 media.mojom = media.mojom || {};
 
+media.mojom.SpeechRecognitionHypothesisSpec = { $: {} };
+media.mojom.WebSpeechRecognitionResultSpec = { $: {} };
 
 // Struct: SpeechRecognitionHypothesis
-media.mojom.SpeechRecognitionHypothesisSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.SpeechRecognitionHypothesis',
-      packedSize: 24,
-      fields: [
-        { name: 'utterance', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'confidence', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.SpeechRecognitionHypothesisSpec, 'media.mojom.SpeechRecognitionHypothesis', [
+      mojo.internal.StructField('utterance', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('confidence', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: WebSpeechRecognitionResult
-media.mojom.WebSpeechRecognitionResultSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.WebSpeechRecognitionResult',
-      packedSize: 24,
-      fields: [
-        { name: 'hypotheses', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.SpeechRecognitionHypothesisSpec, false), nullable: false, minVersion: 0 },
-        { name: 'is_provisional', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.WebSpeechRecognitionResultSpec, 'media.mojom.WebSpeechRecognitionResult', [
+      mojo.internal.StructField('hypotheses', 0, 0, mojo.internal.Array(media.mojom.SpeechRecognitionHypothesisSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('is_provisional', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);

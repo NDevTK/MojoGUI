@@ -8,46 +8,35 @@
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
+arc.mojom.ThemeStyleTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.SystemUiInstance = {};
+arc.mojom.SystemUiInstance.$interfaceName = 'arc.mojom.SystemUiInstance';
+arc.mojom.SystemUiInstance_SetDarkThemeStatus_ParamsSpec = { $: {} };
+arc.mojom.SystemUiInstance_SetOverlayColor_ParamsSpec = { $: {} };
 
 // Enum: ThemeStyleType
 arc.mojom.ThemeStyleType = {
-  VIBRANT: 0,
-  EXPRESSIVE: 1,
-  SPRITZ: 2,
-  RAINBOW: 3,
-  FRUIT_SALAD: 4,
+  TONAL_SPOT: 0,
+  VIBRANT: 1,
+  EXPRESSIVE: 2,
+  SPRITZ: 3,
+  RAINBOW: 4,
+  FRUIT_SALAD: 5,
 };
-arc.mojom.ThemeStyleTypeSpec = { $: mojo.internal.Enum() };
 
 // Interface: SystemUiInstance
-arc.mojom.SystemUiInstance = {};
+mojo.internal.Struct(
+    arc.mojom.SystemUiInstance_SetDarkThemeStatus_ParamsSpec, 'arc.mojom.SystemUiInstance_SetDarkThemeStatus_Params', [
+      mojo.internal.StructField('active', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.SystemUiInstance_SetDarkThemeStatus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.SystemUiInstance_SetDarkThemeStatus_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'active', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.SystemUiInstance_SetOverlayColor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.SystemUiInstance_SetOverlayColor_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'source_color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'theme_style', packedOffset: 4, packedBitOffset: 0, type: arc.mojom.ThemeStyleTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.SystemUiInstance_SetOverlayColor_ParamsSpec, 'arc.mojom.SystemUiInstance_SetOverlayColor_Params', [
+      mojo.internal.StructField('source_color', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('theme_style', 4, 0, arc.mojom.ThemeStyleTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.SystemUiInstancePendingReceiver = class {
   constructor(handle) {
@@ -111,36 +100,6 @@ arc.mojom.SystemUiInstance.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetDarkThemeStatus
-arc.mojom.SystemUiInstance_SetDarkThemeStatus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.SystemUiInstance.SetDarkThemeStatus_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'active', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetOverlayColor
-arc.mojom.SystemUiInstance_SetOverlayColor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.SystemUiInstance.SetOverlayColor_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'source_color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'theme_style', packedOffset: 4, packedBitOffset: 0, type: arc.mojom.ThemeStyleTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.SystemUiInstancePtr = arc.mojom.SystemUiInstanceRemote;
 arc.mojom.SystemUiInstanceRequest = arc.mojom.SystemUiInstancePendingReceiver;
 

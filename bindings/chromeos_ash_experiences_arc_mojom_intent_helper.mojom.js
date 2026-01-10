@@ -7,17 +7,102 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
 var url = url || {};
 
+arc.mojom.PatternTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.ChromePageSpec = { $: mojo.internal.Enum() };
+arc.mojom.ChromeAppSpec = { $: mojo.internal.Enum() };
+arc.mojom.SupportedLinkChangeSourceSpec = { $: mojo.internal.Enum() };
+arc.mojom.AndroidSettingSpec = { $: mojo.internal.Enum() };
+arc.mojom.CaptionTextShadowTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.PatternMatcherSpec = { $: {} };
+arc.mojom.AuthorityEntrySpec = { $: {} };
+arc.mojom.UriComponentsSpec = { $: {} };
+arc.mojom.IntentInfoSpec = { $: {} };
+arc.mojom.IntentFilterSpec = { $: {} };
+arc.mojom.IntentHandlerInfoSpec = { $: {} };
+arc.mojom.ActivityIconSpec = { $: {} };
+arc.mojom.UrlWithMimeTypeSpec = { $: {} };
+arc.mojom.TextSelectionActionSpec = { $: {} };
+arc.mojom.LaunchFileInfoSpec = { $: {} };
+arc.mojom.LaunchIntentSpec = { $: {} };
+arc.mojom.SupportedLinksPackageSpec = { $: {} };
+arc.mojom.CaptionColorSpec = { $: {} };
+arc.mojom.CaptionStyleSpec = { $: {} };
+arc.mojom.AccessibilityFeaturesSpec = { $: {} };
+arc.mojom.CustomTabSession = {};
+arc.mojom.CustomTabSession.$interfaceName = 'arc.mojom.CustomTabSession';
+arc.mojom.CustomTabSession_OnOpenInChromeClicked_ParamsSpec = { $: {} };
+arc.mojom.IntentHelperHost = {};
+arc.mojom.IntentHelperHost.$interfaceName = 'arc.mojom.IntentHelperHost';
+arc.mojom.IntentHelperHost_OnIconInvalidated_ParamsSpec = { $: {} };
+arc.mojom.IntentHelperHost_OnIntentFiltersUpdated_ParamsSpec = { $: {} };
+arc.mojom.IntentHelperHost_OnOpenDownloads_ParamsSpec = { $: {} };
+arc.mojom.IntentHelperHost_OnOpenUrl_ParamsSpec = { $: {} };
+arc.mojom.IntentHelperHost_OnOpenCustomTab_ParamsSpec = { $: {} };
+arc.mojom.IntentHelperHost_OnOpenCustomTab_ResponseParamsSpec = { $: {} };
+arc.mojom.IntentHelperHost_OpenWallpaperPicker_ParamsSpec = { $: {} };
+arc.mojom.IntentHelperHost_OpenVolumeControl_ParamsSpec = { $: {} };
+arc.mojom.IntentHelperHost_OnOpenChromePage_ParamsSpec = { $: {} };
+arc.mojom.IntentHelperHost_OnOpenWebApp_ParamsSpec = { $: {} };
+arc.mojom.IntentHelperHost_FactoryResetArc_ParamsSpec = { $: {} };
+arc.mojom.IntentHelperHost_LaunchCameraApp_ParamsSpec = { $: {} };
+arc.mojom.IntentHelperHost_OnIntentFiltersUpdatedForPackage_ParamsSpec = { $: {} };
+arc.mojom.IntentHelperHost_CloseCameraApp_ParamsSpec = { $: {} };
+arc.mojom.IntentHelperHost_IsChromeAppEnabled_ParamsSpec = { $: {} };
+arc.mojom.IntentHelperHost_IsChromeAppEnabled_ResponseParamsSpec = { $: {} };
+arc.mojom.IntentHelperHost_OnSupportedLinksChanged_ParamsSpec = { $: {} };
+arc.mojom.IntentHelperHost_OnDownloadAddedDeprecated_ParamsSpec = { $: {} };
+arc.mojom.IntentHelperHost_OnOpenAppWithIntent_ParamsSpec = { $: {} };
+arc.mojom.IntentHelperHost_OnOpenGlobalActions_ParamsSpec = { $: {} };
+arc.mojom.IntentHelperHost_OnCloseSystemDialogs_ParamsSpec = { $: {} };
+arc.mojom.IntentHelperHost_OnAndroidSettingChange_ParamsSpec = { $: {} };
+arc.mojom.IntentHelperInstance = {};
+arc.mojom.IntentHelperInstance.$interfaceName = 'arc.mojom.IntentHelperInstance';
+arc.mojom.IntentHelperInstance_AddPreferredPackage_ParamsSpec = { $: {} };
+arc.mojom.IntentHelperInstance_SetVerifiedLinks_ParamsSpec = { $: {} };
+arc.mojom.IntentHelperInstance_HandleIntent_ParamsSpec = { $: {} };
+arc.mojom.IntentHelperInstance_HandleIntentWithWindowInfo_ParamsSpec = { $: {} };
+arc.mojom.IntentHelperInstance_HandleUrl_ParamsSpec = { $: {} };
+arc.mojom.IntentHelperInstance_Init_ParamsSpec = { $: {} };
+arc.mojom.IntentHelperInstance_Init_ResponseParamsSpec = { $: {} };
+arc.mojom.IntentHelperInstance_RequestActivityIcons_ParamsSpec = { $: {} };
+arc.mojom.IntentHelperInstance_RequestActivityIcons_ResponseParamsSpec = { $: {} };
+arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ParamsSpec = { $: {} };
+arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ResponseParamsSpec = { $: {} };
+arc.mojom.IntentHelperInstance_RequestUrlHandlerList_ParamsSpec = { $: {} };
+arc.mojom.IntentHelperInstance_RequestUrlHandlerList_ResponseParamsSpec = { $: {} };
+arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ParamsSpec = { $: {} };
+arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ResponseParamsSpec = { $: {} };
+arc.mojom.IntentHelperInstance_SendBroadcast_ParamsSpec = { $: {} };
+arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ParamsSpec = { $: {} };
+arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ResponseParamsSpec = { $: {} };
+arc.mojom.IntentHelperInstance_HandleCameraResult_ParamsSpec = { $: {} };
+arc.mojom.IntentHelperInstance_HandleCameraResult_ResponseParamsSpec = { $: {} };
+arc.mojom.IntentHelperInstance_RequestDomainVerificationStatusUpdate_ParamsSpec = { $: {} };
+arc.mojom.IntentHelperInstance_SetCaptionStyle_ParamsSpec = { $: {} };
+arc.mojom.IntentHelperInstance_EnableAccessibilityFeatures_ParamsSpec = { $: {} };
 
 // Enum: PatternType
 arc.mojom.PatternType = {
   PATTERN_LITERAL: 0,
   PATTERN_PREFIX: 1,
   PATTERN_SIMPLE_GLOB: 2,
-  Default: 3,
+  MinVersion: 2,
+  MinVersion: 2,
+  MinVersion: 51,
+  kUnknown: -1,
 };
-arc.mojom.PatternTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ChromePage
 arc.mojom.ChromePage = {
@@ -37,48 +122,46 @@ arc.mojom.ChromePage = {
   BLUETOOTHDEVICES: 13,
   CHANGEPICTURE: 14,
   CLEARBROWSERDATA: 15,
-  CUPSPRINTERS: 16,
-  DOWNLOADS: 17,
-  KEYBOARDOVERLAY: 18,
-  LOCKSCREEN: 19,
-  MANAGEACCESSIBILITY: 20,
-  NETWORKSTYPEVPN: 21,
-  ONSTARTUP: 22,
-  PASSWORDS: 23,
-  POINTEROVERLAY: 24,
-  RESET: 25,
-  SEARCH: 26,
-  STORAGE: 27,
-  SYNCSETUP: 28,
-  ABOUTBLANK: 29,
-  ABOUTDOWNLOADS: 30,
-  ABOUTHISTORY: 31,
-  MANAGEACCESSIBILITYTTS: 32,
-  OSLANGUAGESINPUT: 33,
-  OSLANGUAGESLANGUAGES: 34,
-  SMARTPRIVACY: 35,
-  PRIVACYHUB: 36,
-  TEXTTOSPEECH: 37,
-  AUDIO: 38,
-  DISPLAYANDMAGNFICATION: 39,
-  KEYBOARDANDTEXTINPUT: 40,
-  CURSORANDTOUCHPAD: 41,
-  AUDIOANDCAPTIONS: 42,
-  PERDEVICEKEYBOARD: 43,
-  PERDEVICEMOUSE: 44,
-  PERDEVICETOUCHPAD: 45,
-  PERDEVICEPOINTINGSTICK: 46,
-  GRAPHICSTABLET: 47,
-  NETWORKS: 48,
+  CUPSPRINTERS: 17,
+  DOWNLOADS: 18,
+  KEYBOARDOVERLAY: 19,
+  LOCKSCREEN: 20,
+  MANAGEACCESSIBILITY: 21,
+  NETWORKSTYPEVPN: 22,
+  ONSTARTUP: 23,
+  PASSWORDS: 24,
+  POINTEROVERLAY: 25,
+  RESET: 26,
+  SEARCH: 27,
+  STORAGE: 28,
+  SYNCSETUP: 29,
+  ABOUTBLANK: 30,
+  ABOUTDOWNLOADS: 31,
+  ABOUTHISTORY: 32,
+  MANAGEACCESSIBILITYTTS: 49,
+  OSLANGUAGESINPUT: 71,
+  OSLANGUAGESLANGUAGES: 72,
+  SMARTPRIVACY: 77,
+  PRIVACYHUB: 78,
+  TEXTTOSPEECH: 79,
+  AUDIO: 80,
+  DISPLAYANDMAGNFICATION: 81,
+  KEYBOARDANDTEXTINPUT: 82,
+  CURSORANDTOUCHPAD: 83,
+  AUDIOANDCAPTIONS: 84,
+  PERDEVICEKEYBOARD: 85,
+  PERDEVICEMOUSE: 86,
+  PERDEVICETOUCHPAD: 87,
+  PERDEVICEPOINTINGSTICK: 88,
+  GRAPHICSTABLET: 89,
+  NETWORKS: 90,
 };
-arc.mojom.ChromePageSpec = { $: mojo.internal.Enum() };
 
 // Enum: ChromeApp
 arc.mojom.ChromeApp = {
   CAMERA: 0,
-  LAST: 1,
+  LAST: 0,
 };
-arc.mojom.ChromeAppSpec = { $: mojo.internal.Enum() };
 
 // Enum: SupportedLinkChangeSource
 arc.mojom.SupportedLinkChangeSource = {
@@ -86,16 +169,15 @@ arc.mojom.SupportedLinkChangeSource = {
   kArcSystem: 1,
   kUserPreference: 2,
 };
-arc.mojom.SupportedLinkChangeSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidSetting
 arc.mojom.AndroidSetting = {
-  kGeoLocation: 0,
-  kGeoLocationAtBoot: 1,
-  kGeoLocationUserTriggered: 2,
-  kGeoLocationAccuracyUserTriggered: 3,
+  kUnknown: 0,
+  kGeoLocation: 1,
+  kGeoLocationAtBoot: 2,
+  kGeoLocationUserTriggered: 3,
+  kGeoLocationAccuracyUserTriggered: 4,
 };
-arc.mojom.AndroidSettingSpec = { $: mojo.internal.Enum() };
 
 // Enum: CaptionTextShadowType
 arc.mojom.CaptionTextShadowType = {
@@ -104,291 +186,177 @@ arc.mojom.CaptionTextShadowType = {
   kDropShadow: 2,
   kRaised: 3,
   kDepressed: 4,
+  kInvalidEnumValue: -1,
 };
-arc.mojom.CaptionTextShadowTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: PatternMatcher
-arc.mojom.PatternMatcherSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PatternMatcher',
-      packedSize: 24,
-      fields: [
-        { name: 'pattern', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.PatternTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PatternMatcherSpec, 'arc.mojom.PatternMatcher', [
+      mojo.internal.StructField('pattern', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, arc.mojom.PatternTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: AuthorityEntry
-arc.mojom.AuthorityEntrySpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AuthorityEntry',
-      packedSize: 24,
-      fields: [
-        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'port', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AuthorityEntrySpec, 'arc.mojom.AuthorityEntry', [
+      mojo.internal.StructField('host', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('port', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: UriComponents
-arc.mojom.UriComponentsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.UriComponents',
-      packedSize: 32,
-      fields: [
-        { name: 'scheme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'authority', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'path', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.UriComponentsSpec, 'arc.mojom.UriComponents', [
+      mojo.internal.StructField('scheme', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('authority', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('path', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: IntentInfo
-arc.mojom.IntentInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentInfo',
-      packedSize: 72,
-      fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'categories', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
-        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'clip_data_uri', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 13 },
-        { name: 'ui_bypassed', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 20 },
-        { name: 'extras', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: true, minVersion: 22 },
-        { name: 'uri_components', packedOffset: 56, packedBitOffset: 0, type: arc.mojom.UriComponentsSpec, nullable: true, minVersion: 30 },
-      ],
-      versions: [{version: 0, packedSize: 40}, {version: 13, packedSize: 48}, {version: 20, packedSize: 56}, {version: 22, packedSize: 64}, {version: 30, packedSize: 72}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IntentInfoSpec, 'arc.mojom.IntentInfo', [
+      mojo.internal.StructField('action', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('categories', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('data', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('type', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('clip_data_uri', 32, 0, mojo.internal.String, null, true, 13, undefined),
+      mojo.internal.StructField('ui_bypassed', 40, 0, mojo.internal.Bool, false, false, 20, undefined),
+      mojo.internal.StructField('extras', 48, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, true, 22, undefined),
+      mojo.internal.StructField('uri_components', 56, 0, arc.mojom.UriComponentsSpec, null, true, 30, undefined),
+    ],
+    [[0, 40], [13, 48], [20, 56], [22, 64], [30, 72]]);
 
 // Struct: IntentFilter
-arc.mojom.IntentFilterSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentFilter',
-      packedSize: 88,
-      fields: [
-        { name: 'actions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'categories', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'data_schemes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'data_authorities', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.AuthorityEntrySpec, false), nullable: true, minVersion: 10 },
-        { name: 'data_paths', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.PatternMatcherSpec, false), nullable: true, minVersion: 10 },
-        { name: 'deprecated_data_scheme_specific_parts', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.PatternMatcherSpec, false), nullable: true, minVersion: 10 },
-        { name: 'package_name', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 21 },
-        { name: 'mime_types', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 38 },
-        { name: 'activity_name', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 39 },
-        { name: 'activity_label', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 41 },
-      ],
-      versions: [{version: 0, packedSize: 32}, {version: 10, packedSize: 56}, {version: 21, packedSize: 64}, {version: 38, packedSize: 72}, {version: 39, packedSize: 80}, {version: 41, packedSize: 88}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IntentFilterSpec, 'arc.mojom.IntentFilter', [
+      mojo.internal.StructField('actions', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('categories', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('data_schemes', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('data_authorities', 24, 0, mojo.internal.Array(arc.mojom.AuthorityEntrySpec, false), null, true, 10, undefined),
+      mojo.internal.StructField('data_paths', 32, 0, mojo.internal.Array(arc.mojom.PatternMatcherSpec, false), null, true, 10, undefined),
+      mojo.internal.StructField('deprecated_data_scheme_specific_parts', 40, 0, mojo.internal.Array(arc.mojom.PatternMatcherSpec, false), null, true, 10, undefined),
+      mojo.internal.StructField('package_name', 48, 0, mojo.internal.String, null, true, 21, undefined),
+      mojo.internal.StructField('mime_types', 56, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 38, undefined),
+      mojo.internal.StructField('activity_name', 64, 0, mojo.internal.String, null, true, 39, undefined),
+      mojo.internal.StructField('activity_label', 72, 0, mojo.internal.String, null, true, 41, undefined),
+    ],
+    [[0, 32], [10, 56], [21, 64], [38, 72], [39, 80], [41, 88]]);
 
 // Struct: IntentHandlerInfo
-arc.mojom.IntentHandlerInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHandlerInfo',
-      packedSize: 56,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'package_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'activity_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'action_type', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.ActionTypeSpec, nullable: false, minVersion: 4 },
-        { name: 'is_preferred', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 6 },
-        { name: 'action', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 11 },
-        { name: 'fallback_url', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 14 },
-      ],
-      versions: [{version: 0, packedSize: 32}, {version: 4, packedSize: 40}, {version: 6, packedSize: 40}, {version: 11, packedSize: 48}, {version: 14, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IntentHandlerInfoSpec, 'arc.mojom.IntentHandlerInfo', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('package_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('activity_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('action_type', 24, 0, arc.mojom.ActionTypeSpec, null, false, 4, undefined),
+      mojo.internal.StructField('is_preferred', 28, 0, mojo.internal.Bool, false, false, 6, undefined),
+      mojo.internal.StructField('action', 32, 0, mojo.internal.String, null, true, 11, undefined),
+      mojo.internal.StructField('fallback_url', 40, 0, mojo.internal.String, null, true, 14, undefined),
+    ],
+    [[0, 32], [4, 40], [6, 40], [11, 48], [14, 56]]);
 
 // Struct: ActivityIcon
-arc.mojom.ActivityIconSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ActivityIcon',
-      packedSize: 40,
-      fields: [
-        { name: 'activity', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ActivityNameSpec, nullable: false, minVersion: 0 },
-        { name: 'width', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'height', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'icon', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'icon_png_data', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.RawIconPngDataSpec, nullable: true, minVersion: 40 },
-      ],
-      versions: [{version: 0, packedSize: 32}, {version: 40, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ActivityIconSpec, 'arc.mojom.ActivityIcon', [
+      mojo.internal.StructField('activity', 0, 0, arc.mojom.ActivityNameSpec, null, false, 0, undefined),
+      mojo.internal.StructField('width', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('height', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('icon', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('icon_png_data', 24, 0, arc.mojom.RawIconPngDataSpec, null, true, 40, undefined),
+    ],
+    [[0, 32], [40, 40]]);
 
 // Struct: UrlWithMimeType
-arc.mojom.UrlWithMimeTypeSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.UrlWithMimeType',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'mime_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.UrlWithMimeTypeSpec, 'arc.mojom.UrlWithMimeType', [
+      mojo.internal.StructField('url', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('mime_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: TextSelectionAction
-arc.mojom.TextSelectionActionSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.TextSelectionAction',
-      packedSize: 56,
-      fields: [
-        { name: 'icon', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ActivityIconSpec, nullable: false, minVersion: 0 },
-        { name: 'activity', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.ActivityNameSpec, nullable: false, minVersion: 0 },
-        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'action_intent', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.IntentInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'text_classifier_action', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 23 },
-        { name: 'bitmap_icon', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.ArcBitmapSpec, nullable: true, minVersion: 23 },
-      ],
-      versions: [{version: 0, packedSize: 40}, {version: 23, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.TextSelectionActionSpec, 'arc.mojom.TextSelectionAction', [
+      mojo.internal.StructField('icon', 0, 0, arc.mojom.ActivityIconSpec, null, false, 0, undefined),
+      mojo.internal.StructField('activity', 8, 0, arc.mojom.ActivityNameSpec, null, false, 0, undefined),
+      mojo.internal.StructField('title', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('action_intent', 24, 0, arc.mojom.IntentInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('text_classifier_action', 40, 0, mojo.internal.Bool, false, false, 23, undefined),
+      mojo.internal.StructField('bitmap_icon', 32, 0, arc.mojom.ArcBitmapSpec, null, true, 23, undefined),
+    ],
+    [[0, 40], [23, 56]]);
 
 // Struct: LaunchFileInfo
-arc.mojom.LaunchFileInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.LaunchFileInfo',
-      packedSize: 48,
-      fields: [
-        { name: 'content_uri', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'removed_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.SafeBaseNameSpec, nullable: true, minVersion: 48 },
-      ],
-      versions: [{version: 0, packedSize: 40}, {version: 48, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.LaunchFileInfoSpec, 'arc.mojom.LaunchFileInfo', [
+      mojo.internal.StructField('content_uri', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('removed_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('size', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('name', 32, 0, mojo_base.mojom.SafeBaseNameSpec, null, true, 48, undefined),
+    ],
+    [[0, 40], [48, 48]]);
 
 // Struct: LaunchIntent
-arc.mojom.LaunchIntentSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.LaunchIntent',
-      packedSize: 56,
-      fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'extra_subject', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'extra_text', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'files', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.LaunchFileInfoSpec, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.LaunchIntentSpec, 'arc.mojom.LaunchIntent', [
+      mojo.internal.StructField('action', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('data', 8, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('type', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('extra_subject', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('extra_text', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('files', 40, 0, mojo.internal.Array(arc.mojom.LaunchFileInfoSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Struct: SupportedLinksPackage
-arc.mojom.SupportedLinksPackageSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.SupportedLinksPackage',
-      packedSize: 24,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'deprecated_filters', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.IntentFilterSpec, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.SupportedLinksPackageSpec, 'arc.mojom.SupportedLinksPackage', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('deprecated_filters', 8, 0, mojo.internal.Array(arc.mojom.IntentFilterSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: CaptionColor
-arc.mojom.CaptionColorSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.CaptionColor',
-      packedSize: 16,
-      fields: [
-        { name: 'alpha', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'red', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'green', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'blue', packedOffset: 3, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.CaptionColorSpec, 'arc.mojom.CaptionColor', [
+      mojo.internal.StructField('alpha', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('red', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('green', 2, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('blue', 3, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: CaptionStyle
-arc.mojom.CaptionStyleSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.CaptionStyle',
-      packedSize: 40,
-      fields: [
-        { name: 'user_locale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'font_scale', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'text_color', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.CaptionColorSpec, nullable: true, minVersion: 0 },
-        { name: 'background_color', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.CaptionColorSpec, nullable: true, minVersion: 0 },
-        { name: 'text_shadow_type', packedOffset: 28, packedBitOffset: 0, type: arc.mojom.CaptionTextShadowTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.CaptionStyleSpec, 'arc.mojom.CaptionStyle', [
+      mojo.internal.StructField('user_locale', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('font_scale', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('text_color', 8, 0, arc.mojom.CaptionColorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('background_color', 16, 0, arc.mojom.CaptionColorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('text_shadow_type', 28, 0, arc.mojom.CaptionTextShadowTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: AccessibilityFeatures
-arc.mojom.AccessibilityFeaturesSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AccessibilityFeatures',
-      packedSize: 16,
-      fields: [
-        { name: 'docked_magnifier_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'focus_highlight_enabled', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'screen_magnifier_enabled', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'select_to_speak_enabled', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'spoken_feedback_enabled', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'switch_access_enabled', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AccessibilityFeaturesSpec, 'arc.mojom.AccessibilityFeatures', [
+      mojo.internal.StructField('docked_magnifier_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('focus_highlight_enabled', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('screen_magnifier_enabled', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('select_to_speak_enabled', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('spoken_feedback_enabled', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('switch_access_enabled', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: CustomTabSession
-arc.mojom.CustomTabSession = {};
-
-arc.mojom.CustomTabSession_OnOpenInChromeClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.CustomTabSession_OnOpenInChromeClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.CustomTabSession_OnOpenInChromeClicked_ParamsSpec, 'arc.mojom.CustomTabSession_OnOpenInChromeClicked_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 arc.mojom.CustomTabSessionPendingReceiver = class {
   constructor(handle) {
@@ -443,291 +411,147 @@ arc.mojom.CustomTabSession.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnOpenInChromeClicked
-arc.mojom.CustomTabSession_OnOpenInChromeClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.CustomTabSession.OnOpenInChromeClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.CustomTabSessionPtr = arc.mojom.CustomTabSessionRemote;
 arc.mojom.CustomTabSessionRequest = arc.mojom.CustomTabSessionPendingReceiver;
 
 
 // Interface: IntentHelperHost
-arc.mojom.IntentHelperHost = {};
+mojo.internal.Struct(
+    arc.mojom.IntentHelperHost_OnIconInvalidated_ParamsSpec, 'arc.mojom.IntentHelperHost_OnIconInvalidated_Params', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.IntentHelperHost_OnIconInvalidated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost_OnIconInvalidated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IntentHelperHost_OnIntentFiltersUpdated_ParamsSpec, 'arc.mojom.IntentHelperHost_OnIntentFiltersUpdated_Params', [
+      mojo.internal.StructField('intent_filters', 0, 0, mojo.internal.Array(arc.mojom.IntentFilterSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.IntentHelperHost_OnIntentFiltersUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost_OnIntentFiltersUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'intent_filters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.IntentFilterSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IntentHelperHost_OnOpenDownloads_ParamsSpec, 'arc.mojom.IntentHelperHost_OnOpenDownloads_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.IntentHelperHost_OnOpenDownloads_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost_OnOpenDownloads_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IntentHelperHost_OnOpenUrl_ParamsSpec, 'arc.mojom.IntentHelperHost_OnOpenUrl_Params', [
+      mojo.internal.StructField('url', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.IntentHelperHost_OnOpenUrl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost_OnOpenUrl_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IntentHelperHost_OnOpenCustomTab_ParamsSpec, 'arc.mojom.IntentHelperHost_OnOpenCustomTab_Params', [
+      mojo.internal.StructField('url', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('task_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.IntentHelperHost_OnOpenCustomTab_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost_OnOpenCustomTab_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'task_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IntentHelperHost_OnOpenCustomTab_ResponseParamsSpec, 'arc.mojom.IntentHelperHost_OnOpenCustomTab_ResponseParams', [
+      mojo.internal.StructField('session', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.CustomTabSessionRemote), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.IntentHelperHost_OpenWallpaperPicker_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost_OpenWallpaperPicker_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IntentHelperHost_OpenWallpaperPicker_ParamsSpec, 'arc.mojom.IntentHelperHost_OpenWallpaperPicker_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.IntentHelperHost_OpenVolumeControl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost_OpenVolumeControl_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IntentHelperHost_OpenVolumeControl_ParamsSpec, 'arc.mojom.IntentHelperHost_OpenVolumeControl_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.IntentHelperHost_OnOpenChromePage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost_OnOpenChromePage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ChromePageSpec, nullable: false, minVersion: 18 },
-      ],
-      versions: [{version: 18, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IntentHelperHost_OnOpenChromePage_ParamsSpec, 'arc.mojom.IntentHelperHost_OnOpenChromePage_Params', [
+      mojo.internal.StructField('page', 0, 0, arc.mojom.ChromePageSpec, null, false, 18, undefined),
+    ],
+    [[0, 8], [18, 16]]);
 
-arc.mojom.IntentHelperHost_OnOpenWebApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost_OnOpenWebApp_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IntentHelperHost_OnOpenWebApp_ParamsSpec, 'arc.mojom.IntentHelperHost_OnOpenWebApp_Params', [
+      mojo.internal.StructField('url', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.IntentHelperHost_FactoryResetArc_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost_FactoryResetArc_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IntentHelperHost_FactoryResetArc_ParamsSpec, 'arc.mojom.IntentHelperHost_FactoryResetArc_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.IntentHelperHost_LaunchCameraApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost_LaunchCameraApp_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'intent_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'mode', packedOffset: 4, packedBitOffset: 0, type: arc.mojom.CameraIntentModeSpec, nullable: false, minVersion: 0 },
-        { name: 'should_handle_result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'should_down_scale', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_secure', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'task_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 36 },
-      ],
-      versions: [{version: 0, packedSize: 24}, {version: 36, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IntentHelperHost_LaunchCameraApp_ParamsSpec, 'arc.mojom.IntentHelperHost_LaunchCameraApp_Params', [
+      mojo.internal.StructField('intent_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('mode', 4, 0, arc.mojom.CameraIntentModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('should_handle_result', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('should_down_scale', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_secure', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('task_id', 12, 0, mojo.internal.Int32, 0, false, 36, undefined),
+    ],
+    [[0, 24], [36, 24]]);
 
-arc.mojom.IntentHelperHost_OnIntentFiltersUpdatedForPackage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost_OnIntentFiltersUpdatedForPackage_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'intent_filters', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.IntentFilterSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IntentHelperHost_OnIntentFiltersUpdatedForPackage_ParamsSpec, 'arc.mojom.IntentHelperHost_OnIntentFiltersUpdatedForPackage_Params', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('intent_filters', 8, 0, mojo.internal.Array(arc.mojom.IntentFilterSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.IntentHelperHost_CloseCameraApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost_CloseCameraApp_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IntentHelperHost_CloseCameraApp_ParamsSpec, 'arc.mojom.IntentHelperHost_CloseCameraApp_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.IntentHelperHost_IsChromeAppEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost_IsChromeAppEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'app', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ChromeAppSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IntentHelperHost_IsChromeAppEnabled_ParamsSpec, 'arc.mojom.IntentHelperHost_IsChromeAppEnabled_Params', [
+      mojo.internal.StructField('app', 0, 0, arc.mojom.ChromeAppSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.IntentHelperHost_OnSupportedLinksChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost_OnSupportedLinksChanged_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'added_packages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.SupportedLinksPackageSpec, false), nullable: false, minVersion: 0 },
-        { name: 'removed_packages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.SupportedLinksPackageSpec, false), nullable: false, minVersion: 0 },
-        { name: 'source', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.SupportedLinkChangeSourceSpec, nullable: false, minVersion: 48 },
-      ],
-      versions: [{version: 0, packedSize: 24}, {version: 48, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IntentHelperHost_IsChromeAppEnabled_ResponseParamsSpec, 'arc.mojom.IntentHelperHost_IsChromeAppEnabled_ResponseParams', [
+      mojo.internal.StructField('is_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.IntentHelperHost_OnDownloadAddedDeprecated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost_OnDownloadAddedDeprecated_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'relative_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'owner_package_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IntentHelperHost_OnSupportedLinksChanged_ParamsSpec, 'arc.mojom.IntentHelperHost_OnSupportedLinksChanged_Params', [
+      mojo.internal.StructField('added_packages', 0, 0, mojo.internal.Array(arc.mojom.SupportedLinksPackageSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('removed_packages', 8, 0, mojo.internal.Array(arc.mojom.SupportedLinksPackageSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('source', 16, 0, arc.mojom.SupportedLinkChangeSourceSpec, null, false, 48, undefined),
+    ],
+    [[0, 24], [48, 32]]);
 
-arc.mojom.IntentHelperHost_OnOpenAppWithIntent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost_OnOpenAppWithIntent_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'start_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'intent', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.LaunchIntentSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IntentHelperHost_OnDownloadAddedDeprecated_ParamsSpec, 'arc.mojom.IntentHelperHost_OnDownloadAddedDeprecated_Params', [
+      mojo.internal.StructField('relative_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('owner_package_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.IntentHelperHost_OnOpenGlobalActions_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost_OnOpenGlobalActions_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IntentHelperHost_OnOpenAppWithIntent_ParamsSpec, 'arc.mojom.IntentHelperHost_OnOpenAppWithIntent_Params', [
+      mojo.internal.StructField('start_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('intent', 8, 0, arc.mojom.LaunchIntentSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.IntentHelperHost_OnCloseSystemDialogs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost_OnCloseSystemDialogs_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IntentHelperHost_OnOpenGlobalActions_ParamsSpec, 'arc.mojom.IntentHelperHost_OnOpenGlobalActions_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.IntentHelperHost_OnAndroidSettingChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost_OnAndroidSettingChange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'setting', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AndroidSettingSpec, nullable: false, minVersion: 0 },
-        { name: 'is_enabled', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IntentHelperHost_OnCloseSystemDialogs_ParamsSpec, 'arc.mojom.IntentHelperHost_OnCloseSystemDialogs_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    arc.mojom.IntentHelperHost_OnAndroidSettingChange_ParamsSpec, 'arc.mojom.IntentHelperHost_OnAndroidSettingChange_Params', [
+      mojo.internal.StructField('setting', 0, 0, arc.mojom.AndroidSettingSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_enabled', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.IntentHelperHostPendingReceiver = class {
   constructor(handle) {
@@ -953,543 +777,158 @@ arc.mojom.IntentHelperHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnIconInvalidated
-arc.mojom.IntentHelperHost_OnIconInvalidated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost.OnIconInvalidated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnIntentFiltersUpdated
-arc.mojom.IntentHelperHost_OnIntentFiltersUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost.OnIntentFiltersUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'intent_filters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.IntentFilterSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnOpenDownloads
-arc.mojom.IntentHelperHost_OnOpenDownloads_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost.OnOpenDownloads_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnOpenUrl
-arc.mojom.IntentHelperHost_OnOpenUrl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost.OnOpenUrl_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnOpenCustomTab
-arc.mojom.IntentHelperHost_OnOpenCustomTab_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost.OnOpenCustomTab_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'task_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-arc.mojom.IntentHelperHost_OnOpenCustomTab_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost.OnOpenCustomTab_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.CustomTabSessionRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OpenWallpaperPicker
-arc.mojom.IntentHelperHost_OpenWallpaperPicker_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost.OpenWallpaperPicker_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OpenVolumeControl
-arc.mojom.IntentHelperHost_OpenVolumeControl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost.OpenVolumeControl_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnOpenChromePage
-arc.mojom.IntentHelperHost_OnOpenChromePage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost.OnOpenChromePage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ChromePageSpec, nullable: false, minVersion: 18 },
-      ],
-      versions: [{version: 18, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnOpenWebApp
-arc.mojom.IntentHelperHost_OnOpenWebApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost.OnOpenWebApp_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for FactoryResetArc
-arc.mojom.IntentHelperHost_FactoryResetArc_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost.FactoryResetArc_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for LaunchCameraApp
-arc.mojom.IntentHelperHost_LaunchCameraApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost.LaunchCameraApp_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'intent_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'mode', packedOffset: 4, packedBitOffset: 0, type: arc.mojom.CameraIntentModeSpec, nullable: false, minVersion: 0 },
-        { name: 'should_handle_result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'should_down_scale', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_secure', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'task_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 36 },
-      ],
-      versions: [{version: 0, packedSize: 24}, {version: 36, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnIntentFiltersUpdatedForPackage
-arc.mojom.IntentHelperHost_OnIntentFiltersUpdatedForPackage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost.OnIntentFiltersUpdatedForPackage_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'intent_filters', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.IntentFilterSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for CloseCameraApp
-arc.mojom.IntentHelperHost_CloseCameraApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost.CloseCameraApp_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for IsChromeAppEnabled
-arc.mojom.IntentHelperHost_IsChromeAppEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost.IsChromeAppEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'app', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ChromeAppSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.IntentHelperHost_IsChromeAppEnabled_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost.IsChromeAppEnabled_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'is_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnSupportedLinksChanged
-arc.mojom.IntentHelperHost_OnSupportedLinksChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost.OnSupportedLinksChanged_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'added_packages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.SupportedLinksPackageSpec, false), nullable: false, minVersion: 0 },
-        { name: 'removed_packages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.SupportedLinksPackageSpec, false), nullable: false, minVersion: 0 },
-        { name: 'source', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.SupportedLinkChangeSourceSpec, nullable: false, minVersion: 48 },
-      ],
-      versions: [{version: 0, packedSize: 24}, {version: 48, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for OnDownloadAddedDeprecated
-arc.mojom.IntentHelperHost_OnDownloadAddedDeprecated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost.OnDownloadAddedDeprecated_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'relative_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'owner_package_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnOpenAppWithIntent
-arc.mojom.IntentHelperHost_OnOpenAppWithIntent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost.OnOpenAppWithIntent_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'start_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'intent', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.LaunchIntentSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnOpenGlobalActions
-arc.mojom.IntentHelperHost_OnOpenGlobalActions_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost.OnOpenGlobalActions_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnCloseSystemDialogs
-arc.mojom.IntentHelperHost_OnCloseSystemDialogs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost.OnCloseSystemDialogs_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnAndroidSettingChange
-arc.mojom.IntentHelperHost_OnAndroidSettingChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperHost.OnAndroidSettingChange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'setting', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AndroidSettingSpec, nullable: false, minVersion: 0 },
-        { name: 'is_enabled', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.IntentHelperHostPtr = arc.mojom.IntentHelperHostRemote;
 arc.mojom.IntentHelperHostRequest = arc.mojom.IntentHelperHostPendingReceiver;
 
 
 // Interface: IntentHelperInstance
-arc.mojom.IntentHelperInstance = {};
+mojo.internal.Struct(
+    arc.mojom.IntentHelperInstance_AddPreferredPackage_ParamsSpec, 'arc.mojom.IntentHelperInstance_AddPreferredPackage_Params', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.IntentHelperInstance_AddPreferredPackage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperInstance_AddPreferredPackage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IntentHelperInstance_SetVerifiedLinks_ParamsSpec, 'arc.mojom.IntentHelperInstance_SetVerifiedLinks_Params', [
+      mojo.internal.StructField('package_names', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('always_open', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.IntentHelperInstance_SetVerifiedLinks_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperInstance_SetVerifiedLinks_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'package_names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'always_open', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IntentHelperInstance_HandleIntent_ParamsSpec, 'arc.mojom.IntentHelperInstance_HandleIntent_Params', [
+      mojo.internal.StructField('intent', 0, 0, arc.mojom.IntentInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('activity', 8, 0, arc.mojom.ActivityNameSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.IntentHelperInstance_HandleIntent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperInstance_HandleIntent_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'intent', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.IntentInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'activity', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.ActivityNameSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IntentHelperInstance_HandleIntentWithWindowInfo_ParamsSpec, 'arc.mojom.IntentHelperInstance_HandleIntentWithWindowInfo_Params', [
+      mojo.internal.StructField('intent', 0, 0, arc.mojom.IntentInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('activity', 8, 0, arc.mojom.ActivityNameSpec, null, false, 0, undefined),
+      mojo.internal.StructField('window_info', 16, 0, arc.mojom.WindowInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-arc.mojom.IntentHelperInstance_HandleIntentWithWindowInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperInstance_HandleIntentWithWindowInfo_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'intent', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.IntentInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'activity', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.ActivityNameSpec, nullable: false, minVersion: 0 },
-        { name: 'window_info', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.WindowInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IntentHelperInstance_HandleUrl_ParamsSpec, 'arc.mojom.IntentHelperInstance_HandleUrl_Params', [
+      mojo.internal.StructField('url', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('package_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.IntentHelperInstance_HandleUrl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperInstance_HandleUrl_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'package_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IntentHelperInstance_Init_ParamsSpec, 'arc.mojom.IntentHelperInstance_Init_Params', [
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.IntentHelperHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.IntentHelperInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperInstance_Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.IntentHelperHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IntentHelperInstance_Init_ResponseParamsSpec, 'arc.mojom.IntentHelperInstance_Init_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.IntentHelperInstance_RequestActivityIcons_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperInstance_RequestActivityIcons_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'activities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.ActivityNameSpec, false), nullable: false, minVersion: 0 },
-        { name: 'scale_factor', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.ScaleFactorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IntentHelperInstance_RequestActivityIcons_ParamsSpec, 'arc.mojom.IntentHelperInstance_RequestActivityIcons_Params', [
+      mojo.internal.StructField('activities', 0, 0, mojo.internal.Array(arc.mojom.ActivityNameSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('scale_factor', 8, 0, arc.mojom.ScaleFactorSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperInstance_RequestIntentHandlerList_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'intent', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.IntentInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IntentHelperInstance_RequestActivityIcons_ResponseParamsSpec, 'arc.mojom.IntentHelperInstance_RequestActivityIcons_ResponseParams', [
+      mojo.internal.StructField('icons', 0, 0, mojo.internal.Array(arc.mojom.ActivityIconSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.IntentHelperInstance_RequestUrlHandlerList_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperInstance_RequestUrlHandlerList_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ParamsSpec, 'arc.mojom.IntentHelperInstance_RequestIntentHandlerList_Params', [
+      mojo.internal.StructField('intent', 0, 0, arc.mojom.IntentInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'urls', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.UrlWithMimeTypeSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ResponseParamsSpec, 'arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ResponseParams', [
+      mojo.internal.StructField('handlers', 0, 0, mojo.internal.Array(arc.mojom.IntentHandlerInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.IntentHelperInstance_SendBroadcast_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperInstance_SendBroadcast_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'package_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'cls', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'extras', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IntentHelperInstance_RequestUrlHandlerList_ParamsSpec, 'arc.mojom.IntentHelperInstance_RequestUrlHandlerList_Params', [
+      mojo.internal.StructField('url', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperInstance_RequestTextSelectionActions_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'scale_factor', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.ScaleFactorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IntentHelperInstance_RequestUrlHandlerList_ResponseParamsSpec, 'arc.mojom.IntentHelperInstance_RequestUrlHandlerList_ResponseParams', [
+      mojo.internal.StructField('handlers', 0, 0, mojo.internal.Array(arc.mojom.IntentHandlerInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.IntentHelperInstance_HandleCameraResult_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperInstance_HandleCameraResult_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'intent_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'action', packedOffset: 12, packedBitOffset: 0, type: arc.mojom.CameraIntentActionSpec, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ParamsSpec, 'arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_Params', [
+      mojo.internal.StructField('urls', 0, 0, mojo.internal.Array(arc.mojom.UrlWithMimeTypeSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.IntentHelperInstance_RequestDomainVerificationStatusUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperInstance_RequestDomainVerificationStatusUpdate_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ResponseParamsSpec, 'arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ResponseParams', [
+      mojo.internal.StructField('handlers', 0, 0, mojo.internal.Array(arc.mojom.IntentHandlerInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.IntentHelperInstance_SetCaptionStyle_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperInstance_SetCaptionStyle_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'style', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.CaptionStyleSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IntentHelperInstance_SendBroadcast_ParamsSpec, 'arc.mojom.IntentHelperInstance_SendBroadcast_Params', [
+      mojo.internal.StructField('action', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('package_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('cls', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('extras', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-arc.mojom.IntentHelperInstance_EnableAccessibilityFeatures_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperInstance_EnableAccessibilityFeatures_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'features', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AccessibilityFeaturesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ParamsSpec, 'arc.mojom.IntentHelperInstance_RequestTextSelectionActions_Params', [
+      mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('scale_factor', 8, 0, arc.mojom.ScaleFactorSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ResponseParamsSpec, 'arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ResponseParams', [
+      mojo.internal.StructField('actions', 0, 0, mojo.internal.Array(arc.mojom.TextSelectionActionSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.IntentHelperInstance_HandleCameraResult_ParamsSpec, 'arc.mojom.IntentHelperInstance_HandleCameraResult_Params', [
+      mojo.internal.StructField('intent_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('action', 12, 0, arc.mojom.CameraIntentActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    arc.mojom.IntentHelperInstance_HandleCameraResult_ResponseParamsSpec, 'arc.mojom.IntentHelperInstance_HandleCameraResult_ResponseParams', [
+      mojo.internal.StructField('is_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.IntentHelperInstance_RequestDomainVerificationStatusUpdate_ParamsSpec, 'arc.mojom.IntentHelperInstance_RequestDomainVerificationStatusUpdate_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    arc.mojom.IntentHelperInstance_SetCaptionStyle_ParamsSpec, 'arc.mojom.IntentHelperInstance_SetCaptionStyle_Params', [
+      mojo.internal.StructField('style', 0, 0, arc.mojom.CaptionStyleSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.IntentHelperInstance_EnableAccessibilityFeatures_ParamsSpec, 'arc.mojom.IntentHelperInstance_EnableAccessibilityFeatures_Params', [
+      mojo.internal.StructField('features', 0, 0, arc.mojom.AccessibilityFeaturesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.IntentHelperInstancePendingReceiver = class {
   constructor(handle) {
@@ -1573,7 +1012,7 @@ arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
     return this.proxy.sendMessage(
       13,  // ordinal
       arc.mojom.IntentHelperInstance_Init_ParamsSpec,
-      null,
+      arc.mojom.IntentHelperInstance_Init_ResponseParamsSpec,
       [host_remote]);
   }
 
@@ -1679,320 +1118,6 @@ arc.mojom.IntentHelperInstance.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddPreferredPackage
-arc.mojom.IntentHelperInstance_AddPreferredPackage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperInstance.AddPreferredPackage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetVerifiedLinks
-arc.mojom.IntentHelperInstance_SetVerifiedLinks_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperInstance.SetVerifiedLinks_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'package_names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'always_open', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for HandleIntent
-arc.mojom.IntentHelperInstance_HandleIntent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperInstance.HandleIntent_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'intent', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.IntentInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'activity', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.ActivityNameSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for HandleIntentWithWindowInfo
-arc.mojom.IntentHelperInstance_HandleIntentWithWindowInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperInstance.HandleIntentWithWindowInfo_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'intent', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.IntentInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'activity', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.ActivityNameSpec, nullable: false, minVersion: 0 },
-        { name: 'window_info', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.WindowInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for HandleUrl
-arc.mojom.IntentHelperInstance_HandleUrl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperInstance.HandleUrl_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'package_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for Init
-arc.mojom.IntentHelperInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperInstance.Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.IntentHelperHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestActivityIcons
-arc.mojom.IntentHelperInstance_RequestActivityIcons_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperInstance.RequestActivityIcons_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'activities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.ActivityNameSpec, false), nullable: false, minVersion: 0 },
-        { name: 'scale_factor', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.ScaleFactorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-arc.mojom.IntentHelperInstance_RequestActivityIcons_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperInstance.RequestActivityIcons_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'icons', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.ActivityIconSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestIntentHandlerList
-arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperInstance.RequestIntentHandlerList_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'intent', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.IntentInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperInstance.RequestIntentHandlerList_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'handlers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.IntentHandlerInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestUrlHandlerList
-arc.mojom.IntentHelperInstance_RequestUrlHandlerList_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperInstance.RequestUrlHandlerList_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.IntentHelperInstance_RequestUrlHandlerList_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperInstance.RequestUrlHandlerList_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'handlers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.IntentHandlerInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestUrlListHandlerList
-arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperInstance.RequestUrlListHandlerList_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'urls', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.UrlWithMimeTypeSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperInstance.RequestUrlListHandlerList_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'handlers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.IntentHandlerInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SendBroadcast
-arc.mojom.IntentHelperInstance_SendBroadcast_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperInstance.SendBroadcast_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'package_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'cls', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'extras', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for RequestTextSelectionActions
-arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperInstance.RequestTextSelectionActions_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'scale_factor', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.ScaleFactorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperInstance.RequestTextSelectionActions_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'actions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.TextSelectionActionSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for HandleCameraResult
-arc.mojom.IntentHelperInstance_HandleCameraResult_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperInstance.HandleCameraResult_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'intent_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'action', packedOffset: 12, packedBitOffset: 0, type: arc.mojom.CameraIntentActionSpec, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-arc.mojom.IntentHelperInstance_HandleCameraResult_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperInstance.HandleCameraResult_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'is_success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestDomainVerificationStatusUpdate
-arc.mojom.IntentHelperInstance_RequestDomainVerificationStatusUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperInstance.RequestDomainVerificationStatusUpdate_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetCaptionStyle
-arc.mojom.IntentHelperInstance_SetCaptionStyle_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperInstance.SetCaptionStyle_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'style', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.CaptionStyleSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EnableAccessibilityFeatures
-arc.mojom.IntentHelperInstance_EnableAccessibilityFeatures_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IntentHelperInstance.EnableAccessibilityFeatures_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'features', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AccessibilityFeaturesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.IntentHelperInstancePtr = arc.mojom.IntentHelperInstanceRemote;
 arc.mojom.IntentHelperInstanceRequest = arc.mojom.IntentHelperInstancePendingReceiver;
 

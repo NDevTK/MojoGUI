@@ -8,6 +8,7 @@
 var content = content || {};
 content.mojom = content.mojom || {};
 
+content.mojom.RendererTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: RendererType
 content.mojom.RendererType = {
@@ -15,4 +16,3 @@ content.mojom.RendererType = {
   MOJO_RENDERER: 1,
   REMOTING_RENDERER: 2,
 };
-content.mojom.RendererTypeSpec = { $: mojo.internal.Enum() };

@@ -8,50 +8,32 @@
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
+arc.mojom.RectSpec = { $: {} };
+arc.mojom.RangeSpec = { $: {} };
+arc.mojom.SizeSpec = { $: {} };
 
 // Struct: Rect
-arc.mojom.RectSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.Rect',
-      packedSize: 24,
-      fields: [
-        { name: 'left', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'top', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'right', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'bottom', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.RectSpec, 'arc.mojom.Rect', [
+      mojo.internal.StructField('left', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('top', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('right', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('bottom', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: Range
-arc.mojom.RangeSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.Range',
-      packedSize: 16,
-      fields: [
-        { name: 'start', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'end', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.RangeSpec, 'arc.mojom.Range', [
+      mojo.internal.StructField('start', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('end', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: Size
-arc.mojom.SizeSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.Size',
-      packedSize: 16,
-      fields: [
-        { name: 'width', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'height', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.SizeSpec, 'arc.mojom.Size', [
+      mojo.internal.StructField('width', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('height', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);

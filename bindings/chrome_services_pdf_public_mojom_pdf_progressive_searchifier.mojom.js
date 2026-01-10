@@ -9,48 +9,37 @@ var pdf = pdf || {};
 pdf.mojom = pdf.mojom || {};
 var skia = skia || {};
 
+pdf.mojom.PdfProgressiveSearchifier = {};
+pdf.mojom.PdfProgressiveSearchifier.$interfaceName = 'pdf.mojom.PdfProgressiveSearchifier';
+pdf.mojom.PdfProgressiveSearchifier_AddPage_ParamsSpec = { $: {} };
+pdf.mojom.PdfProgressiveSearchifier_DeletePage_ParamsSpec = { $: {} };
+pdf.mojom.PdfProgressiveSearchifier_Save_ParamsSpec = { $: {} };
+pdf.mojom.PdfProgressiveSearchifier_Save_ResponseParamsSpec = { $: {} };
 
 // Interface: PdfProgressiveSearchifier
-pdf.mojom.PdfProgressiveSearchifier = {};
+mojo.internal.Struct(
+    pdf.mojom.PdfProgressiveSearchifier_AddPage_ParamsSpec, 'pdf.mojom.PdfProgressiveSearchifier_AddPage_Params', [
+      mojo.internal.StructField('image', 0, 0, skia.mojom.BitmapN32Spec, null, false, 0, undefined),
+      mojo.internal.StructField('page_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-pdf.mojom.PdfProgressiveSearchifier_AddPage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfProgressiveSearchifier_AddPage_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: false, minVersion: 0 },
-        { name: 'page_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    pdf.mojom.PdfProgressiveSearchifier_DeletePage_ParamsSpec, 'pdf.mojom.PdfProgressiveSearchifier_DeletePage_Params', [
+      mojo.internal.StructField('page_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-pdf.mojom.PdfProgressiveSearchifier_DeletePage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfProgressiveSearchifier_DeletePage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    pdf.mojom.PdfProgressiveSearchifier_Save_ParamsSpec, 'pdf.mojom.PdfProgressiveSearchifier_Save_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-pdf.mojom.PdfProgressiveSearchifier_Save_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfProgressiveSearchifier_Save_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    pdf.mojom.PdfProgressiveSearchifier_Save_ResponseParamsSpec, 'pdf.mojom.PdfProgressiveSearchifier_Save_ResponseParams', [
+      mojo.internal.StructField('searchified_pdf', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 pdf.mojom.PdfProgressiveSearchifierPendingReceiver = class {
   constructor(handle) {
@@ -123,62 +112,6 @@ pdf.mojom.PdfProgressiveSearchifier.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddPage
-pdf.mojom.PdfProgressiveSearchifier_AddPage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfProgressiveSearchifier.AddPage_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: false, minVersion: 0 },
-        { name: 'page_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for DeletePage
-pdf.mojom.PdfProgressiveSearchifier_DeletePage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfProgressiveSearchifier.DeletePage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Save
-pdf.mojom.PdfProgressiveSearchifier_Save_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfProgressiveSearchifier.Save_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-pdf.mojom.PdfProgressiveSearchifier_Save_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfProgressiveSearchifier.Save_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'searchified_pdf', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 pdf.mojom.PdfProgressiveSearchifierPtr = pdf.mojom.PdfProgressiveSearchifierRemote;
 pdf.mojom.PdfProgressiveSearchifierRequest = pdf.mojom.PdfProgressiveSearchifierPendingReceiver;
 

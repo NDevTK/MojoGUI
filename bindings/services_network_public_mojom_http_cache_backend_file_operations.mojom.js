@@ -8,57 +8,76 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+network.mojom.HttpCacheBackendOpenFileFlagsSpec = { $: mojo.internal.Enum() };
+network.mojom.HttpCacheBackendDeleteFileModeSpec = { $: mojo.internal.Enum() };
+network.mojom.FileEnumerationEntrySpec = { $: {} };
+network.mojom.FileEnumerator = {};
+network.mojom.FileEnumerator.$interfaceName = 'network.mojom.FileEnumerator';
+network.mojom.FileEnumerator_GetNext_ParamsSpec = { $: {} };
+network.mojom.FileEnumerator_GetNext_ResponseParamsSpec = { $: {} };
+network.mojom.HttpCacheBackendFileOperations = {};
+network.mojom.HttpCacheBackendFileOperations.$interfaceName = 'network.mojom.HttpCacheBackendFileOperations';
+network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ParamsSpec = { $: {} };
+network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ResponseParamsSpec = { $: {} };
+network.mojom.HttpCacheBackendFileOperations_PathExists_ParamsSpec = { $: {} };
+network.mojom.HttpCacheBackendFileOperations_PathExists_ResponseParamsSpec = { $: {} };
+network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ParamsSpec = { $: {} };
+network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ResponseParamsSpec = { $: {} };
+network.mojom.HttpCacheBackendFileOperations_OpenFile_ParamsSpec = { $: {} };
+network.mojom.HttpCacheBackendFileOperations_OpenFile_ResponseParamsSpec = { $: {} };
+network.mojom.HttpCacheBackendFileOperations_DeleteFile_ParamsSpec = { $: {} };
+network.mojom.HttpCacheBackendFileOperations_DeleteFile_ResponseParamsSpec = { $: {} };
+network.mojom.HttpCacheBackendFileOperations_RenameFile_ParamsSpec = { $: {} };
+network.mojom.HttpCacheBackendFileOperations_RenameFile_ResponseParamsSpec = { $: {} };
+network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ParamsSpec = { $: {} };
+network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ResponseParamsSpec = { $: {} };
+network.mojom.HttpCacheBackendFileOperations_EnumerateFiles_ParamsSpec = { $: {} };
+network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ParamsSpec = { $: {} };
+network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ResponseParamsSpec = { $: {} };
+network.mojom.HttpCacheBackendFileOperationsFactory = {};
+network.mojom.HttpCacheBackendFileOperationsFactory.$interfaceName = 'network.mojom.HttpCacheBackendFileOperationsFactory';
+network.mojom.HttpCacheBackendFileOperationsFactory_Create_ParamsSpec = { $: {} };
 
 // Enum: HttpCacheBackendOpenFileFlags
 network.mojom.HttpCacheBackendOpenFileFlags = {
-  kOpenAndRead: 0,
-  kCreateAndWrite: 1,
-  kOpenReadWriteWinShareDelete: 2,
-  kCreateReadWriteWinShareDelete: 3,
-  kCreateAlwaysWriteWinShareDelete: 4,
-  kOpenReadWinShareDeleteWinSequentialScan: 5,
+  kOpenAndRead: 33,
+  kCreateAndWrite: 66,
+  kOpenReadWriteWinShareDelete: 32865,
+  kCreateReadWriteWinShareDelete: 32866,
+  kCreateAlwaysWriteWinShareDelete: 32840,
+  kOpenReadWinShareDeleteWinSequentialScan: 557089,
 };
-network.mojom.HttpCacheBackendOpenFileFlagsSpec = { $: mojo.internal.Enum() };
 
 // Enum: HttpCacheBackendDeleteFileMode
 network.mojom.HttpCacheBackendDeleteFileMode = {
   kDefault: 0,
   kEnsureImmediateAvailability: 1,
 };
-network.mojom.HttpCacheBackendDeleteFileModeSpec = { $: mojo.internal.Enum() };
 
 // Struct: FileEnumerationEntry
-network.mojom.FileEnumerationEntrySpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.FileEnumerationEntry',
-      packedSize: 40,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'last_accessed', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'last_modified', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.FileEnumerationEntrySpec, 'network.mojom.FileEnumerationEntry', [
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('size', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('last_accessed', 16, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('last_modified', 24, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Interface: FileEnumerator
-network.mojom.FileEnumerator = {};
+mojo.internal.Struct(
+    network.mojom.FileEnumerator_GetNext_ParamsSpec, 'network.mojom.FileEnumerator_GetNext_Params', [
+      mojo.internal.StructField('num_entries', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.FileEnumerator_GetNext_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.FileEnumerator_GetNext_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'num_entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.FileEnumerator_GetNext_ResponseParamsSpec, 'network.mojom.FileEnumerator_GetNext_ResponseParams', [
+      mojo.internal.StructField('entries', 0, 0, mojo.internal.Array(network.mojom.FileEnumerationEntrySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('end', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('error', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 network.mojom.FileEnumeratorPendingReceiver = class {
   constructor(handle) {
@@ -113,163 +132,117 @@ network.mojom.FileEnumerator.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetNext
-network.mojom.FileEnumerator_GetNext_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.FileEnumerator.GetNext_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'num_entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-network.mojom.FileEnumerator_GetNext_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.FileEnumerator.GetNext_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.FileEnumerationEntrySpec, false), nullable: false, minVersion: 0 },
-        { name: 'end', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'error', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.FileEnumeratorPtr = network.mojom.FileEnumeratorRemote;
 network.mojom.FileEnumeratorRequest = network.mojom.FileEnumeratorPendingReceiver;
 
 
 // Interface: HttpCacheBackendFileOperations
-network.mojom.HttpCacheBackendFileOperations = {};
+mojo.internal.Struct(
+    network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ParamsSpec, 'network.mojom.HttpCacheBackendFileOperations_CreateDirectory_Params', [
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.HttpCacheBackendFileOperations_CreateDirectory_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ResponseParamsSpec, 'network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.HttpCacheBackendFileOperations_PathExists_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.HttpCacheBackendFileOperations_PathExists_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.HttpCacheBackendFileOperations_PathExists_ParamsSpec, 'network.mojom.HttpCacheBackendFileOperations_PathExists_Params', [
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.HttpCacheBackendFileOperations_DirectoryExists_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.HttpCacheBackendFileOperations_PathExists_ResponseParamsSpec, 'network.mojom.HttpCacheBackendFileOperations_PathExists_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.HttpCacheBackendFileOperations_OpenFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.HttpCacheBackendFileOperations_OpenFile_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'flags', packedOffset: 8, packedBitOffset: 0, type: network.mojom.HttpCacheBackendOpenFileFlagsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ParamsSpec, 'network.mojom.HttpCacheBackendFileOperations_DirectoryExists_Params', [
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.HttpCacheBackendFileOperations_DeleteFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.HttpCacheBackendFileOperations_DeleteFile_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: network.mojom.HttpCacheBackendDeleteFileModeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ResponseParamsSpec, 'network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.HttpCacheBackendFileOperations_RenameFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.HttpCacheBackendFileOperations_RenameFile_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'from_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'to_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.HttpCacheBackendFileOperations_OpenFile_ParamsSpec, 'network.mojom.HttpCacheBackendFileOperations_OpenFile_Params', [
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('flags', 8, 0, network.mojom.HttpCacheBackendOpenFileFlagsSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.HttpCacheBackendFileOperations_GetFileInfo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.HttpCacheBackendFileOperations_OpenFile_ResponseParamsSpec, 'network.mojom.HttpCacheBackendFileOperations_OpenFile_ResponseParams', [
+      mojo.internal.StructField('file', 0, 0, mojo_base.mojom.FileSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 8, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-network.mojom.HttpCacheBackendFileOperations_EnumerateFiles_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.HttpCacheBackendFileOperations_EnumerateFiles_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.FileEnumeratorRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.HttpCacheBackendFileOperations_DeleteFile_ParamsSpec, 'network.mojom.HttpCacheBackendFileOperations_DeleteFile_Params', [
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mode', 8, 0, network.mojom.HttpCacheBackendDeleteFileModeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.HttpCacheBackendFileOperations_DeleteFile_ResponseParamsSpec, 'network.mojom.HttpCacheBackendFileOperations_DeleteFile_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    network.mojom.HttpCacheBackendFileOperations_RenameFile_ParamsSpec, 'network.mojom.HttpCacheBackendFileOperations_RenameFile_Params', [
+      mojo.internal.StructField('from_path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('to_path', 8, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    network.mojom.HttpCacheBackendFileOperations_RenameFile_ResponseParamsSpec, 'network.mojom.HttpCacheBackendFileOperations_RenameFile_ResponseParams', [
+      mojo.internal.StructField('error', 0, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ParamsSpec, 'network.mojom.HttpCacheBackendFileOperations_GetFileInfo_Params', [
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ResponseParamsSpec, 'network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ResponseParams', [
+      mojo.internal.StructField('info', 0, 0, mojo_base.mojom.FileInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    network.mojom.HttpCacheBackendFileOperations_EnumerateFiles_ParamsSpec, 'network.mojom.HttpCacheBackendFileOperations_EnumerateFiles_Params', [
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 8, 0, mojo.internal.InterfaceRequest(network.mojom.FileEnumeratorRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ParamsSpec, 'network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_Params', [
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ResponseParamsSpec, 'network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 network.mojom.HttpCacheBackendFileOperationsPendingReceiver = class {
   constructor(handle) {
@@ -396,261 +369,16 @@ network.mojom.HttpCacheBackendFileOperations.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateDirectory
-network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.HttpCacheBackendFileOperations.CreateDirectory_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.HttpCacheBackendFileOperations.CreateDirectory_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for PathExists
-network.mojom.HttpCacheBackendFileOperations_PathExists_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.HttpCacheBackendFileOperations.PathExists_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-network.mojom.HttpCacheBackendFileOperations_PathExists_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.HttpCacheBackendFileOperations.PathExists_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DirectoryExists
-network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.HttpCacheBackendFileOperations.DirectoryExists_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.HttpCacheBackendFileOperations.DirectoryExists_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OpenFile
-network.mojom.HttpCacheBackendFileOperations_OpenFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.HttpCacheBackendFileOperations.OpenFile_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'flags', packedOffset: 8, packedBitOffset: 0, type: network.mojom.HttpCacheBackendOpenFileFlagsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-network.mojom.HttpCacheBackendFileOperations_OpenFile_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.HttpCacheBackendFileOperations.OpenFile_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true, minVersion: 0 },
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for DeleteFile
-network.mojom.HttpCacheBackendFileOperations_DeleteFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.HttpCacheBackendFileOperations.DeleteFile_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: network.mojom.HttpCacheBackendDeleteFileModeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-network.mojom.HttpCacheBackendFileOperations_DeleteFile_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.HttpCacheBackendFileOperations.DeleteFile_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RenameFile
-network.mojom.HttpCacheBackendFileOperations_RenameFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.HttpCacheBackendFileOperations.RenameFile_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'from_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'to_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-network.mojom.HttpCacheBackendFileOperations_RenameFile_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.HttpCacheBackendFileOperations.RenameFile_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetFileInfo
-network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.HttpCacheBackendFileOperations.GetFileInfo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.HttpCacheBackendFileOperations.GetFileInfo_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileInfoSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EnumerateFiles
-network.mojom.HttpCacheBackendFileOperations_EnumerateFiles_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.HttpCacheBackendFileOperations.EnumerateFiles_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.FileEnumeratorRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for CleanupDirectory
-network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.HttpCacheBackendFileOperations.CleanupDirectory_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.HttpCacheBackendFileOperations.CleanupDirectory_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.HttpCacheBackendFileOperationsPtr = network.mojom.HttpCacheBackendFileOperationsRemote;
 network.mojom.HttpCacheBackendFileOperationsRequest = network.mojom.HttpCacheBackendFileOperationsPendingReceiver;
 
 
 // Interface: HttpCacheBackendFileOperationsFactory
-network.mojom.HttpCacheBackendFileOperationsFactory = {};
-
-network.mojom.HttpCacheBackendFileOperationsFactory_Create_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.HttpCacheBackendFileOperationsFactory_Create_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.HttpCacheBackendFileOperationsRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.HttpCacheBackendFileOperationsFactory_Create_ParamsSpec, 'network.mojom.HttpCacheBackendFileOperationsFactory_Create_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(network.mojom.HttpCacheBackendFileOperationsRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 network.mojom.HttpCacheBackendFileOperationsFactoryPendingReceiver = class {
   constructor(handle) {
@@ -705,21 +433,6 @@ network.mojom.HttpCacheBackendFileOperationsFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Create
-network.mojom.HttpCacheBackendFileOperationsFactory_Create_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.HttpCacheBackendFileOperationsFactory.Create_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.HttpCacheBackendFileOperationsRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.HttpCacheBackendFileOperationsFactoryPtr = network.mojom.HttpCacheBackendFileOperationsFactoryRemote;
 network.mojom.HttpCacheBackendFileOperationsFactoryRequest = network.mojom.HttpCacheBackendFileOperationsFactoryPendingReceiver;
 

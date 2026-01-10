@@ -8,37 +8,43 @@
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
+arc.mojom.ObbMounterHost = {};
+arc.mojom.ObbMounterHost.$interfaceName = 'arc.mojom.ObbMounterHost';
+arc.mojom.ObbMounterHost_MountObb_ParamsSpec = { $: {} };
+arc.mojom.ObbMounterHost_MountObb_ResponseParamsSpec = { $: {} };
+arc.mojom.ObbMounterHost_UnmountObb_ParamsSpec = { $: {} };
+arc.mojom.ObbMounterHost_UnmountObb_ResponseParamsSpec = { $: {} };
+arc.mojom.ObbMounterInstance = {};
+arc.mojom.ObbMounterInstance.$interfaceName = 'arc.mojom.ObbMounterInstance';
+arc.mojom.ObbMounterInstance_Init_ParamsSpec = { $: {} };
+arc.mojom.ObbMounterInstance_Init_ResponseParamsSpec = { $: {} };
 
 // Interface: ObbMounterHost
-arc.mojom.ObbMounterHost = {};
+mojo.internal.Struct(
+    arc.mojom.ObbMounterHost_MountObb_ParamsSpec, 'arc.mojom.ObbMounterHost_MountObb_Params', [
+      mojo.internal.StructField('obb_file', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('target_path', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('owner_gid', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-arc.mojom.ObbMounterHost_MountObb_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ObbMounterHost_MountObb_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'obb_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'target_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'owner_gid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ObbMounterHost_MountObb_ResponseParamsSpec, 'arc.mojom.ObbMounterHost_MountObb_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ObbMounterHost_UnmountObb_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ObbMounterHost_UnmountObb_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'target_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ObbMounterHost_UnmountObb_ParamsSpec, 'arc.mojom.ObbMounterHost_UnmountObb_Params', [
+      mojo.internal.StructField('target_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.ObbMounterHost_UnmountObb_ResponseParamsSpec, 'arc.mojom.ObbMounterHost_UnmountObb_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.ObbMounterHostPendingReceiver = class {
   constructor(handle) {
@@ -102,82 +108,21 @@ arc.mojom.ObbMounterHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for MountObb
-arc.mojom.ObbMounterHost_MountObb_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ObbMounterHost.MountObb_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'obb_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'target_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'owner_gid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-arc.mojom.ObbMounterHost_MountObb_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ObbMounterHost.MountObb_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for UnmountObb
-arc.mojom.ObbMounterHost_UnmountObb_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ObbMounterHost.UnmountObb_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'target_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.ObbMounterHost_UnmountObb_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ObbMounterHost.UnmountObb_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.ObbMounterHostPtr = arc.mojom.ObbMounterHostRemote;
 arc.mojom.ObbMounterHostRequest = arc.mojom.ObbMounterHostPendingReceiver;
 
 
 // Interface: ObbMounterInstance
-arc.mojom.ObbMounterInstance = {};
+mojo.internal.Struct(
+    arc.mojom.ObbMounterInstance_Init_ParamsSpec, 'arc.mojom.ObbMounterInstance_Init_Params', [
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.ObbMounterHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ObbMounterInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ObbMounterInstance_Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ObbMounterHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ObbMounterInstance_Init_ResponseParamsSpec, 'arc.mojom.ObbMounterInstance_Init_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 arc.mojom.ObbMounterInstancePendingReceiver = class {
   constructor(handle) {
@@ -216,7 +161,7 @@ arc.mojom.ObbMounterInstanceRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       arc.mojom.ObbMounterInstance_Init_ParamsSpec,
-      null,
+      arc.mojom.ObbMounterInstance_Init_ResponseParamsSpec,
       [host_remote]);
   }
 
@@ -232,21 +177,6 @@ arc.mojom.ObbMounterInstance.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Init
-arc.mojom.ObbMounterInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ObbMounterInstance.Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ObbMounterHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.ObbMounterInstancePtr = arc.mojom.ObbMounterInstanceRemote;
 arc.mojom.ObbMounterInstanceRequest = arc.mojom.ObbMounterInstancePendingReceiver;
 

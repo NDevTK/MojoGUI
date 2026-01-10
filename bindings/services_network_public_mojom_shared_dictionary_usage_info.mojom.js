@@ -7,19 +7,14 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
 
+network.mojom.SharedDictionaryUsageInfoSpec = { $: {} };
 
 // Struct: SharedDictionaryUsageInfo
-network.mojom.SharedDictionaryUsageInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.SharedDictionaryUsageInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'isolation_key', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SharedDictionaryIsolationKeySpec, nullable: false, minVersion: 0 },
-        { name: 'total_size_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.SharedDictionaryUsageInfoSpec, 'network.mojom.SharedDictionaryUsageInfo', [
+      mojo.internal.StructField('isolation_key', 0, 0, network.mojom.SharedDictionaryIsolationKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('total_size_bytes', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);

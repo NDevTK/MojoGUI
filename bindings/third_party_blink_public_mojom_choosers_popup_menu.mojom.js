@@ -8,6 +8,12 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.TypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.MenuItemSpec = { $: {} };
+blink.mojom.PopupMenuClient = {};
+blink.mojom.PopupMenuClient.$interfaceName = 'blink.mojom.PopupMenuClient';
+blink.mojom.PopupMenuClient_DidAcceptIndices_ParamsSpec = { $: {} };
+blink.mojom.PopupMenuClient_DidCancel_ParamsSpec = { $: {} };
 
 // Enum: Type
 blink.mojom.Type = {
@@ -17,49 +23,25 @@ blink.mojom.Type = {
   kSeparator: 3,
   kSubMenu: 4,
 };
-blink.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: MenuItem
-blink.mojom.MenuItemSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MenuItem',
-      packedSize: 16,
-      fields: [
-        { name: 'kOption', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.MenuItemSpec, 'blink.mojom.MenuItem', [
+      mojo.internal.StructField('kOption', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: PopupMenuClient
-blink.mojom.PopupMenuClient = {};
+mojo.internal.Struct(
+    blink.mojom.PopupMenuClient_DidAcceptIndices_ParamsSpec, 'blink.mojom.PopupMenuClient_DidAcceptIndices_Params', [
+      mojo.internal.StructField('indices', 0, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.PopupMenuClient_DidAcceptIndices_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PopupMenuClient_DidAcceptIndices_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'indices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int32, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.PopupMenuClient_DidCancel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PopupMenuClient_DidCancel_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PopupMenuClient_DidCancel_ParamsSpec, 'blink.mojom.PopupMenuClient_DidCancel_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 blink.mojom.PopupMenuClientPendingReceiver = class {
   constructor(handle) {
@@ -123,34 +105,6 @@ blink.mojom.PopupMenuClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for DidAcceptIndices
-blink.mojom.PopupMenuClient_DidAcceptIndices_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PopupMenuClient.DidAcceptIndices_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'indices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int32, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DidCancel
-blink.mojom.PopupMenuClient_DidCancel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PopupMenuClient.DidCancel_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.PopupMenuClientPtr = blink.mojom.PopupMenuClientRemote;
 blink.mojom.PopupMenuClientRequest = blink.mojom.PopupMenuClientPendingReceiver;
 

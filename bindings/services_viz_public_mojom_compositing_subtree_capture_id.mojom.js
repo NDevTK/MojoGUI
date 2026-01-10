@@ -8,17 +8,11 @@
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
 
+viz.mojom.SubtreeCaptureIdSpec = { $: {} };
 
 // Struct: SubtreeCaptureId
-viz.mojom.SubtreeCaptureIdSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.SubtreeCaptureId',
-      packedSize: 16,
-      fields: [
-        { name: 'subtree_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.SubtreeCaptureIdSpec, 'viz.mojom.SubtreeCaptureId', [
+      mojo.internal.StructField('subtree_id', 0, 0, mojo_base.mojom.TokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);

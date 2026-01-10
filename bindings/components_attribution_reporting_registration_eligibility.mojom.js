@@ -8,6 +8,7 @@
 var attribution_reporting = attribution_reporting || {};
 attribution_reporting.mojom = attribution_reporting.mojom || {};
 
+attribution_reporting.mojom.RegistrationEligibilitySpec = { $: mojo.internal.Enum() };
 
 // Enum: RegistrationEligibility
 attribution_reporting.mojom.RegistrationEligibility = {
@@ -15,4 +16,3 @@ attribution_reporting.mojom.RegistrationEligibility = {
   kSource: 1,
   kTrigger: 2,
 };
-attribution_reporting.mojom.RegistrationEligibilitySpec = { $: mojo.internal.Enum() };

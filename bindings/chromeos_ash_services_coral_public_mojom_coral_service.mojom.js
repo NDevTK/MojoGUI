@@ -7,232 +7,190 @@
 // Module namespace
 var coral = coral || {};
 coral.mojom = coral.mojom || {};
+var chromeos = chromeos || {};
+var services = services || {};
 var url = url || {};
 
+coral.mojom.CoralErrorSpec = { $: mojo.internal.Enum() };
+coral.mojom.EntitySpec = { $: {} };
+coral.mojom.GroupResultSpec = { $: {} };
+coral.mojom.CacheEmbeddingsResultSpec = { $: {} };
+coral.mojom.TabSpec = { $: {} };
+coral.mojom.AppSpec = { $: {} };
+coral.mojom.EmbeddingOptionsSpec = { $: {} };
+coral.mojom.ClusteringOptionsSpec = { $: {} };
+coral.mojom.TitleGenerationOptionsSpec = { $: {} };
+coral.mojom.GroupSpec = { $: {} };
+coral.mojom.GroupRequestSpec = { $: {} };
+coral.mojom.GroupResponseSpec = { $: {} };
+coral.mojom.CacheEmbeddingsRequestSpec = { $: {} };
+coral.mojom.CacheEmbeddingsResponseSpec = { $: {} };
+coral.mojom.TitleObserver = {};
+coral.mojom.TitleObserver.$interfaceName = 'coral.mojom.TitleObserver';
+coral.mojom.TitleObserver_TitleUpdated_ParamsSpec = { $: {} };
+coral.mojom.CoralProcessor = {};
+coral.mojom.CoralProcessor.$interfaceName = 'coral.mojom.CoralProcessor';
+coral.mojom.CoralProcessor_Group_ParamsSpec = { $: {} };
+coral.mojom.CoralProcessor_Group_ResponseParamsSpec = { $: {} };
+coral.mojom.CoralProcessor_CacheEmbeddings_ParamsSpec = { $: {} };
+coral.mojom.CoralProcessor_CacheEmbeddings_ResponseParamsSpec = { $: {} };
+coral.mojom.CoralService = {};
+coral.mojom.CoralService.$interfaceName = 'coral.mojom.CoralService';
+coral.mojom.CoralService_GroupDeprecated_ParamsSpec = { $: {} };
+coral.mojom.CoralService_GroupDeprecated_ResponseParamsSpec = { $: {} };
+coral.mojom.CoralService_CacheEmbeddingsDeprecated_ParamsSpec = { $: {} };
+coral.mojom.CoralService_CacheEmbeddingsDeprecated_ResponseParamsSpec = { $: {} };
+coral.mojom.CoralService_PrepareResource_ParamsSpec = { $: {} };
+coral.mojom.CoralService_Initialize_ParamsSpec = { $: {} };
 
 // Enum: CoralError
 coral.mojom.CoralError = {
-  kLoadModelFailed: 0,
-  kInvalidArgs: 1,
-  kModelExecutionFailed: 2,
-  kClusteringError: 3,
+  kUnknownError: 0,
+  kLoadModelFailed: 1,
+  kInvalidArgs: 2,
+  kModelExecutionFailed: 3,
+  kClusteringError: 4,
 };
-coral.mojom.CoralErrorSpec = { $: mojo.internal.Enum() };
 
 // Union: Entity
-coral.mojom.EntitySpec = { $: mojo.internal.Union(
-    'coral.mojom.Entity', {
+mojo.internal.Union(
+    coral.mojom.EntitySpec, 'coral.mojom.Entity', {
       'unknown': {
         'ordinal': 0,
         'type': mojo.internal.Bool,
-      }},
+        'nullable': false,
+      },
       'tab': {
         'ordinal': 1,
         'type': coral.mojom.TabSpec,
-      }},
+        'nullable': false,
+      },
       'app': {
         'ordinal': 2,
         'type': coral.mojom.AppSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Union: GroupResult
-coral.mojom.GroupResultSpec = { $: mojo.internal.Union(
-    'coral.mojom.GroupResult', {
+mojo.internal.Union(
+    coral.mojom.GroupResultSpec, 'coral.mojom.GroupResult', {
       'error': {
         'ordinal': 0,
         'type': coral.mojom.CoralErrorSpec,
-      }},
+        'nullable': false,
+      },
       'response': {
         'ordinal': 1,
         'type': coral.mojom.GroupResponseSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Union: CacheEmbeddingsResult
-coral.mojom.CacheEmbeddingsResultSpec = { $: mojo.internal.Union(
-    'coral.mojom.CacheEmbeddingsResult', {
+mojo.internal.Union(
+    coral.mojom.CacheEmbeddingsResultSpec, 'coral.mojom.CacheEmbeddingsResult', {
       'error': {
         'ordinal': 0,
         'type': coral.mojom.CoralErrorSpec,
-      }},
+        'nullable': false,
+      },
       'response': {
         'ordinal': 1,
         'type': coral.mojom.CacheEmbeddingsResponseSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: Tab
-coral.mojom.TabSpec = {
-  $: {
-    structSpec: {
-      name: 'coral.mojom.Tab',
-      packedSize: 24,
-      fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    coral.mojom.TabSpec, 'coral.mojom.Tab', [
+      mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: App
-coral.mojom.AppSpec = {
-  $: {
-    structSpec: {
-      name: 'coral.mojom.App',
-      packedSize: 24,
-      fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    coral.mojom.AppSpec, 'coral.mojom.App', [
+      mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: EmbeddingOptions
-coral.mojom.EmbeddingOptionsSpec = {
-  $: {
-    structSpec: {
-      name: 'coral.mojom.EmbeddingOptions',
-      packedSize: 16,
-      fields: [
-        { name: 'check_safety_filter_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 1, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'check_safety_filter_$value', originalFieldName: 'check_safety_filter' } },
-        { name: 'check_safety_filter_$value', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 1, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'check_safety_filter_$flag', originalFieldName: 'check_safety_filter' } },
-      ],
-      versions: [{version: 1, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    coral.mojom.EmbeddingOptionsSpec, 'coral.mojom.EmbeddingOptions', [
+      mojo.internal.StructField('check_safety_filter_$flag', 0, 0, mojo.internal.Bool, false, false, 1, { isPrimary: true, linkedValueFieldName: 'check_safety_filter_$value', originalFieldName: 'check_safety_filter' }),
+      mojo.internal.StructField('check_safety_filter_$value', 0, 1, mojo.internal.Bool, false, false, 1, { isPrimary: false, linkedValueFieldName: 'check_safety_filter_$flag', originalFieldName: 'check_safety_filter' }),
+    ],
+    [[0, 8], [1, 16]]);
 
 // Struct: ClusteringOptions
-coral.mojom.ClusteringOptionsSpec = {
-  $: {
-    structSpec: {
-      name: 'coral.mojom.ClusteringOptions',
-      packedSize: 24,
-      fields: [
-        { name: 'min_items_in_cluster', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'max_items_in_cluster', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'max_clusters', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    coral.mojom.ClusteringOptionsSpec, 'coral.mojom.ClusteringOptions', [
+      mojo.internal.StructField('min_items_in_cluster', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('max_items_in_cluster', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('max_clusters', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: TitleGenerationOptions
-coral.mojom.TitleGenerationOptionsSpec = {
-  $: {
-    structSpec: {
-      name: 'coral.mojom.TitleGenerationOptions',
-      packedSize: 24,
-      fields: [
-        { name: 'max_characters', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'language_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    coral.mojom.TitleGenerationOptionsSpec, 'coral.mojom.TitleGenerationOptions', [
+      mojo.internal.StructField('max_characters', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('language_code', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: Group
-coral.mojom.GroupSpec = {
-  $: {
-    structSpec: {
-      name: 'coral.mojom.Group',
-      packedSize: 32,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false, minVersion: 0 },
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'entities', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(coral.mojom.EntitySpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    coral.mojom.GroupSpec, 'coral.mojom.Group', [
+      mojo.internal.StructField('id', 0, 0, mojo_base.mojom.TokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('entities', 16, 0, mojo.internal.Array(coral.mojom.EntitySpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: GroupRequest
-coral.mojom.GroupRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'coral.mojom.GroupRequest',
-      packedSize: 48,
-      fields: [
-        { name: 'entities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(coral.mojom.EntitySpec, false), nullable: false, minVersion: 0 },
-        { name: 'embedding_options', packedOffset: 8, packedBitOffset: 0, type: coral.mojom.EmbeddingOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'clustering_options', packedOffset: 16, packedBitOffset: 0, type: coral.mojom.ClusteringOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'title_generation_options', packedOffset: 24, packedBitOffset: 0, type: coral.mojom.TitleGenerationOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'suppression_context', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(coral.mojom.EntitySpec, false), nullable: true, minVersion: 1 },
-      ],
-      versions: [{version: 0, packedSize: 40}, {version: 1, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    coral.mojom.GroupRequestSpec, 'coral.mojom.GroupRequest', [
+      mojo.internal.StructField('entities', 0, 0, mojo.internal.Array(coral.mojom.EntitySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('embedding_options', 8, 0, coral.mojom.EmbeddingOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('clustering_options', 16, 0, coral.mojom.ClusteringOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('title_generation_options', 24, 0, coral.mojom.TitleGenerationOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('suppression_context', 32, 0, mojo.internal.Array(coral.mojom.EntitySpec, false), null, true, 1, undefined),
+    ],
+    [[0, 40], [1, 48]]);
 
 // Struct: GroupResponse
-coral.mojom.GroupResponseSpec = {
-  $: {
-    structSpec: {
-      name: 'coral.mojom.GroupResponse',
-      packedSize: 16,
-      fields: [
-        { name: 'groups', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(coral.mojom.GroupSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    coral.mojom.GroupResponseSpec, 'coral.mojom.GroupResponse', [
+      mojo.internal.StructField('groups', 0, 0, mojo.internal.Array(coral.mojom.GroupSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: CacheEmbeddingsRequest
-coral.mojom.CacheEmbeddingsRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'coral.mojom.CacheEmbeddingsRequest',
-      packedSize: 24,
-      fields: [
-        { name: 'entities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(coral.mojom.EntitySpec, false), nullable: false, minVersion: 0 },
-        { name: 'embedding_options', packedOffset: 8, packedBitOffset: 0, type: coral.mojom.EmbeddingOptionsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    coral.mojom.CacheEmbeddingsRequestSpec, 'coral.mojom.CacheEmbeddingsRequest', [
+      mojo.internal.StructField('entities', 0, 0, mojo.internal.Array(coral.mojom.EntitySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('embedding_options', 8, 0, coral.mojom.EmbeddingOptionsSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: CacheEmbeddingsResponse
-coral.mojom.CacheEmbeddingsResponseSpec = {
-  $: {
-    structSpec: {
-      name: 'coral.mojom.CacheEmbeddingsResponse',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    coral.mojom.CacheEmbeddingsResponseSpec, 'coral.mojom.CacheEmbeddingsResponse', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 // Interface: TitleObserver
-coral.mojom.TitleObserver = {};
-
-coral.mojom.TitleObserver_TitleUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'coral.mojom.TitleObserver_TitleUpdated_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'group_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false, minVersion: 0 },
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    coral.mojom.TitleObserver_TitleUpdated_ParamsSpec, 'coral.mojom.TitleObserver_TitleUpdated_Params', [
+      mojo.internal.StructField('group_id', 0, 0, mojo_base.mojom.TokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 coral.mojom.TitleObserverPendingReceiver = class {
   constructor(handle) {
@@ -287,55 +245,35 @@ coral.mojom.TitleObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for TitleUpdated
-coral.mojom.TitleObserver_TitleUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'coral.mojom.TitleObserver.TitleUpdated_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'group_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false, minVersion: 0 },
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 coral.mojom.TitleObserverPtr = coral.mojom.TitleObserverRemote;
 coral.mojom.TitleObserverRequest = coral.mojom.TitleObserverPendingReceiver;
 
 
 // Interface: CoralProcessor
-coral.mojom.CoralProcessor = {};
+mojo.internal.Struct(
+    coral.mojom.CoralProcessor_Group_ParamsSpec, 'coral.mojom.CoralProcessor_Group_Params', [
+      mojo.internal.StructField('request', 0, 0, coral.mojom.GroupRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('observer', 8, 0, mojo.internal.InterfaceProxy(coral.mojom.TitleObserverRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-coral.mojom.CoralProcessor_Group_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'coral.mojom.CoralProcessor_Group_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: coral.mojom.GroupRequestSpec, nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(coral.mojom.TitleObserverRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    coral.mojom.CoralProcessor_Group_ResponseParamsSpec, 'coral.mojom.CoralProcessor_Group_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, coral.mojom.GroupResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-coral.mojom.CoralProcessor_CacheEmbeddings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'coral.mojom.CoralProcessor_CacheEmbeddings_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: coral.mojom.CacheEmbeddingsRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    coral.mojom.CoralProcessor_CacheEmbeddings_ParamsSpec, 'coral.mojom.CoralProcessor_CacheEmbeddings_Params', [
+      mojo.internal.StructField('request', 0, 0, coral.mojom.CacheEmbeddingsRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    coral.mojom.CoralProcessor_CacheEmbeddings_ResponseParamsSpec, 'coral.mojom.CoralProcessor_CacheEmbeddings_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, coral.mojom.CacheEmbeddingsResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 coral.mojom.CoralProcessorPendingReceiver = class {
   constructor(handle) {
@@ -399,122 +337,48 @@ coral.mojom.CoralProcessor.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Group
-coral.mojom.CoralProcessor_Group_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'coral.mojom.CoralProcessor.Group_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: coral.mojom.GroupRequestSpec, nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(coral.mojom.TitleObserverRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-coral.mojom.CoralProcessor_Group_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'coral.mojom.CoralProcessor.Group_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: coral.mojom.GroupResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for CacheEmbeddings
-coral.mojom.CoralProcessor_CacheEmbeddings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'coral.mojom.CoralProcessor.CacheEmbeddings_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: coral.mojom.CacheEmbeddingsRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-coral.mojom.CoralProcessor_CacheEmbeddings_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'coral.mojom.CoralProcessor.CacheEmbeddings_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: coral.mojom.CacheEmbeddingsResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 coral.mojom.CoralProcessorPtr = coral.mojom.CoralProcessorRemote;
 coral.mojom.CoralProcessorRequest = coral.mojom.CoralProcessorPendingReceiver;
 
 
 // Interface: CoralService
-coral.mojom.CoralService = {};
+mojo.internal.Struct(
+    coral.mojom.CoralService_GroupDeprecated_ParamsSpec, 'coral.mojom.CoralService_GroupDeprecated_Params', [
+      mojo.internal.StructField('request', 0, 0, coral.mojom.GroupRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('observer', 8, 0, mojo.internal.InterfaceProxy(coral.mojom.TitleObserverRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-coral.mojom.CoralService_GroupDeprecated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'coral.mojom.CoralService_GroupDeprecated_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: coral.mojom.GroupRequestSpec, nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(coral.mojom.TitleObserverRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    coral.mojom.CoralService_GroupDeprecated_ResponseParamsSpec, 'coral.mojom.CoralService_GroupDeprecated_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, coral.mojom.GroupResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-coral.mojom.CoralService_CacheEmbeddingsDeprecated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'coral.mojom.CoralService_CacheEmbeddingsDeprecated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: coral.mojom.CacheEmbeddingsRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    coral.mojom.CoralService_CacheEmbeddingsDeprecated_ParamsSpec, 'coral.mojom.CoralService_CacheEmbeddingsDeprecated_Params', [
+      mojo.internal.StructField('request', 0, 0, coral.mojom.CacheEmbeddingsRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-coral.mojom.CoralService_PrepareResource_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'coral.mojom.CoralService_PrepareResource_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    coral.mojom.CoralService_CacheEmbeddingsDeprecated_ResponseParamsSpec, 'coral.mojom.CoralService_CacheEmbeddingsDeprecated_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, coral.mojom.CacheEmbeddingsResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-coral.mojom.CoralService_Initialize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'coral.mojom.CoralService_Initialize_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'ml_service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.machine_learning.mojom.MachineLearningServiceRemote), nullable: true, minVersion: 0 },
-        { name: 'processor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(coral.mojom.CoralProcessorRemote), nullable: false, minVersion: 0 },
-        { name: 'language_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 2 },
-      ],
-      versions: [{version: 0, packedSize: 24}, {version: 2, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    coral.mojom.CoralService_PrepareResource_ParamsSpec, 'coral.mojom.CoralService_PrepareResource_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    coral.mojom.CoralService_Initialize_ParamsSpec, 'coral.mojom.CoralService_Initialize_Params', [
+      mojo.internal.StructField('ml_service', 0, 0, mojo.internal.InterfaceProxy(chromeos.machine_learning.mojom.MachineLearningServiceRemote), null, true, 0, undefined),
+      mojo.internal.StructField('processor', 8, 0, mojo.internal.InterfaceRequest(coral.mojom.CoralProcessorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('language_code', 16, 0, mojo.internal.String, null, true, 2, undefined),
+    ],
+    [[0, 24], [2, 32]]);
 
 coral.mojom.CoralServicePendingReceiver = class {
   constructor(handle) {
@@ -596,91 +460,6 @@ coral.mojom.CoralService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GroupDeprecated
-coral.mojom.CoralService_GroupDeprecated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'coral.mojom.CoralService.GroupDeprecated_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: coral.mojom.GroupRequestSpec, nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(coral.mojom.TitleObserverRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-coral.mojom.CoralService_GroupDeprecated_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'coral.mojom.CoralService.GroupDeprecated_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: coral.mojom.GroupResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for CacheEmbeddingsDeprecated
-coral.mojom.CoralService_CacheEmbeddingsDeprecated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'coral.mojom.CoralService.CacheEmbeddingsDeprecated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: coral.mojom.CacheEmbeddingsRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-coral.mojom.CoralService_CacheEmbeddingsDeprecated_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'coral.mojom.CoralService.CacheEmbeddingsDeprecated_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: coral.mojom.CacheEmbeddingsResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for PrepareResource
-coral.mojom.CoralService_PrepareResource_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'coral.mojom.CoralService.PrepareResource_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for Initialize
-coral.mojom.CoralService_Initialize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'coral.mojom.CoralService.Initialize_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'ml_service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.machine_learning.mojom.MachineLearningServiceRemote), nullable: true, minVersion: 0 },
-        { name: 'processor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(coral.mojom.CoralProcessorRemote), nullable: false, minVersion: 0 },
-        { name: 'language_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 2 },
-      ],
-      versions: [{version: 0, packedSize: 24}, {version: 2, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 coral.mojom.CoralServicePtr = coral.mojom.CoralServiceRemote;
 coral.mojom.CoralServiceRequest = coral.mojom.CoralServicePendingReceiver;
 

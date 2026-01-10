@@ -11,6 +11,10 @@ var url = url || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+tenor.mojom.StatusSpec = { $: mojo.internal.Enum() };
+tenor.mojom.GifUrlsSpec = { $: {} };
+tenor.mojom.GifResponseSpec = { $: {} };
+tenor.mojom.PaginatedGifResponsesSpec = { $: {} };
 
 // Enum: Status
 tenor.mojom.Status = {
@@ -18,53 +22,31 @@ tenor.mojom.Status = {
   kNetError: 1,
   kHttpError: 2,
 };
-tenor.mojom.StatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: GifUrls
-tenor.mojom.GifUrlsSpec = {
-  $: {
-    structSpec: {
-      name: 'tenor.mojom.GifUrls',
-      packedSize: 32,
-      fields: [
-        { name: 'full', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'preview', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'preview_image', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tenor.mojom.GifUrlsSpec, 'tenor.mojom.GifUrls', [
+      mojo.internal.StructField('full', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('preview', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('preview_image', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: GifResponse
-tenor.mojom.GifResponseSpec = {
-  $: {
-    structSpec: {
-      name: 'tenor.mojom.GifResponse',
-      packedSize: 48,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'content_description', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: tenor.mojom.GifUrlsSpec, nullable: false, minVersion: 0 },
-        { name: 'preview_size', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'full_size', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tenor.mojom.GifResponseSpec, 'tenor.mojom.GifResponse', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('content_description', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('url', 16, 0, tenor.mojom.GifUrlsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('preview_size', 24, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('full_size', 32, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: PaginatedGifResponses
-tenor.mojom.PaginatedGifResponsesSpec = {
-  $: {
-    structSpec: {
-      name: 'tenor.mojom.PaginatedGifResponses',
-      packedSize: 24,
-      fields: [
-        { name: 'next', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(tenor.mojom.GifResponseSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tenor.mojom.PaginatedGifResponsesSpec, 'tenor.mojom.PaginatedGifResponses', [
+      mojo.internal.StructField('next', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('results', 8, 0, mojo.internal.Array(tenor.mojom.GifResponseSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);

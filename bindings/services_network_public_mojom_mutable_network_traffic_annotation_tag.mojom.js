@@ -8,17 +8,11 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+network.mojom.MutableNetworkTrafficAnnotationTagSpec = { $: {} };
 
 // Struct: MutableNetworkTrafficAnnotationTag
-network.mojom.MutableNetworkTrafficAnnotationTagSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.MutableNetworkTrafficAnnotationTag',
-      packedSize: 16,
-      fields: [
-        { name: 'unique_id_hash_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.MutableNetworkTrafficAnnotationTagSpec, 'network.mojom.MutableNetworkTrafficAnnotationTag', [
+      mojo.internal.StructField('unique_id_hash_code', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);

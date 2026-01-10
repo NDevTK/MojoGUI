@@ -8,19 +8,13 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.TextAutosizerPageInfoSpec = { $: {} };
 
 // Struct: TextAutosizerPageInfo
-blink.mojom.TextAutosizerPageInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TextAutosizerPageInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'main_frame_width', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'main_frame_layout_width', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'device_scale_adjustment', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.TextAutosizerPageInfoSpec, 'blink.mojom.TextAutosizerPageInfo', [
+      mojo.internal.StructField('main_frame_width', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('main_frame_layout_width', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('device_scale_adjustment', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);

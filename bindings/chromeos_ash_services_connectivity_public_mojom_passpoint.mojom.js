@@ -9,54 +9,45 @@ var chromeos = chromeos || {};
 chromeos.connectivity = chromeos.connectivity || {};
 chromeos.connectivity.mojom = chromeos.connectivity.mojom || {};
 
+chromeos.connectivity.mojom.PasspointSubscriptionSpec = { $: {} };
+chromeos.connectivity.mojom.PasspointEventsListener = {};
+chromeos.connectivity.mojom.PasspointEventsListener.$interfaceName = 'chromeos.connectivity.mojom.PasspointEventsListener';
+chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded_ParamsSpec = { $: {} };
+chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionRemoved_ParamsSpec = { $: {} };
+chromeos.connectivity.mojom.PasspointService = {};
+chromeos.connectivity.mojom.PasspointService.$interfaceName = 'chromeos.connectivity.mojom.PasspointService';
+chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ParamsSpec = { $: {} };
+chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ResponseParamsSpec = { $: {} };
+chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ParamsSpec = { $: {} };
+chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ResponseParamsSpec = { $: {} };
+chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ParamsSpec = { $: {} };
+chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ResponseParamsSpec = { $: {} };
+chromeos.connectivity.mojom.PasspointService_RegisterPasspointListener_ParamsSpec = { $: {} };
 
 // Struct: PasspointSubscription
-chromeos.connectivity.mojom.PasspointSubscriptionSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.connectivity.mojom.PasspointSubscription',
-      packedSize: 56,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'domains', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'friendly_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'provisioning_source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'trusted_ca', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'expiration_epoch_ms', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.connectivity.mojom.PasspointSubscriptionSpec, 'chromeos.connectivity.mojom.PasspointSubscription', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('domains', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('friendly_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('provisioning_source', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('trusted_ca', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('expiration_epoch_ms', 40, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Interface: PasspointEventsListener
-chromeos.connectivity.mojom.PasspointEventsListener = {};
+mojo.internal.Struct(
+    chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded_ParamsSpec, 'chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded_Params', [
+      mojo.internal.StructField('subscription', 0, 0, chromeos.connectivity.mojom.PasspointSubscriptionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'subscription', packedOffset: 0, packedBitOffset: 0, type: chromeos.connectivity.mojom.PasspointSubscriptionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionRemoved_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionRemoved_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'subscription', packedOffset: 0, packedBitOffset: 0, type: chromeos.connectivity.mojom.PasspointSubscriptionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionRemoved_ParamsSpec, 'chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionRemoved_Params', [
+      mojo.internal.StructField('subscription', 0, 0, chromeos.connectivity.mojom.PasspointSubscriptionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromeos.connectivity.mojom.PasspointEventsListenerPendingReceiver = class {
   constructor(handle) {
@@ -120,92 +111,51 @@ chromeos.connectivity.mojom.PasspointEventsListener.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnPasspointSubscriptionAdded
-chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.connectivity.mojom.PasspointEventsListener.OnPasspointSubscriptionAdded_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'subscription', packedOffset: 0, packedBitOffset: 0, type: chromeos.connectivity.mojom.PasspointSubscriptionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnPasspointSubscriptionRemoved
-chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionRemoved_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.connectivity.mojom.PasspointEventsListener.OnPasspointSubscriptionRemoved_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'subscription', packedOffset: 0, packedBitOffset: 0, type: chromeos.connectivity.mojom.PasspointSubscriptionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromeos.connectivity.mojom.PasspointEventsListenerPtr = chromeos.connectivity.mojom.PasspointEventsListenerRemote;
 chromeos.connectivity.mojom.PasspointEventsListenerRequest = chromeos.connectivity.mojom.PasspointEventsListenerPendingReceiver;
 
 
 // Interface: PasspointService
-chromeos.connectivity.mojom.PasspointService = {};
+mojo.internal.Struct(
+    chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ParamsSpec, 'chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_Params', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ResponseParamsSpec, 'chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, chromeos.connectivity.mojom.PasspointSubscriptionSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ParamsSpec, 'chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ResponseParamsSpec, 'chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Array(chromeos.connectivity.mojom.PasspointSubscriptionSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.connectivity.mojom.PasspointService_RegisterPasspointListener_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.connectivity.mojom.PasspointService_RegisterPasspointListener_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.connectivity.mojom.PasspointEventsListenerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ParamsSpec, 'chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_Params', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ResponseParamsSpec, 'chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chromeos.connectivity.mojom.PasspointService_RegisterPasspointListener_ParamsSpec, 'chromeos.connectivity.mojom.PasspointService_RegisterPasspointListener_Params', [
+      mojo.internal.StructField('listener', 0, 0, mojo.internal.InterfaceProxy(chromeos.connectivity.mojom.PasspointEventsListenerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromeos.connectivity.mojom.PasspointServicePendingReceiver = class {
   constructor(handle) {
@@ -287,101 +237,6 @@ chromeos.connectivity.mojom.PasspointService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetPasspointSubscription
-chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.connectivity.mojom.PasspointService.GetPasspointSubscription_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.connectivity.mojom.PasspointService.GetPasspointSubscription_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.connectivity.mojom.PasspointSubscriptionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ListPasspointSubscriptions
-chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.connectivity.mojom.PasspointService.ListPasspointSubscriptions_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.connectivity.mojom.PasspointService.ListPasspointSubscriptions_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromeos.connectivity.mojom.PasspointSubscriptionSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DeletePasspointSubscription
-chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.connectivity.mojom.PasspointService.DeletePasspointSubscription_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.connectivity.mojom.PasspointService.DeletePasspointSubscription_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RegisterPasspointListener
-chromeos.connectivity.mojom.PasspointService_RegisterPasspointListener_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.connectivity.mojom.PasspointService.RegisterPasspointListener_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.connectivity.mojom.PasspointEventsListenerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromeos.connectivity.mojom.PasspointServicePtr = chromeos.connectivity.mojom.PasspointServiceRemote;
 chromeos.connectivity.mojom.PasspointServiceRequest = chromeos.connectivity.mojom.PasspointServicePendingReceiver;
 

@@ -8,46 +8,48 @@
 var media = media || {};
 media.mojom = media.mojom || {};
 
+media.mojom.DemuxerStream = {};
+media.mojom.DemuxerStream.$interfaceName = 'media.mojom.DemuxerStream';
+media.mojom.DemuxerStream_Initialize_ParamsSpec = { $: {} };
+media.mojom.DemuxerStream_Initialize_ResponseParamsSpec = { $: {} };
+media.mojom.DemuxerStream_Read_ParamsSpec = { $: {} };
+media.mojom.DemuxerStream_Read_ResponseParamsSpec = { $: {} };
+media.mojom.DemuxerStream_EnableBitstreamConverter_ParamsSpec = { $: {} };
 
 // Interface: DemuxerStream
-media.mojom.DemuxerStream = {};
+mojo.internal.Struct(
+    media.mojom.DemuxerStream_Initialize_ParamsSpec, 'media.mojom.DemuxerStream_Initialize_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media.mojom.DemuxerStream_Initialize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.DemuxerStream_Initialize_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.DemuxerStream_Initialize_ResponseParamsSpec, 'media.mojom.DemuxerStream_Initialize_ResponseParams', [
+      mojo.internal.StructField('type', 24, 0, media.mojom.TypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pipe', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('audio_config', 8, 0, media.mojom.AudioDecoderConfigSpec, null, true, 0, undefined),
+      mojo.internal.StructField('video_config', 16, 0, media.mojom.VideoDecoderConfigSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
 
-media.mojom.DemuxerStream_Read_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.DemuxerStream_Read_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.DemuxerStream_Read_ParamsSpec, 'media.mojom.DemuxerStream_Read_Params', [
+      mojo.internal.StructField('count', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.DemuxerStream_EnableBitstreamConverter_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.DemuxerStream_EnableBitstreamConverter_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.DemuxerStream_Read_ResponseParamsSpec, 'media.mojom.DemuxerStream_Read_ResponseParams', [
+      mojo.internal.StructField('status', 24, 0, media.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('batch_buffers', 0, 0, mojo.internal.Array(media.mojom.DecoderBufferSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('audio_config', 8, 0, media.mojom.AudioDecoderConfigSpec, null, true, 0, undefined),
+      mojo.internal.StructField('video_config', 16, 0, media.mojom.VideoDecoderConfigSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    media.mojom.DemuxerStream_EnableBitstreamConverter_ParamsSpec, 'media.mojom.DemuxerStream_EnableBitstreamConverter_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 media.mojom.DemuxerStreamPendingReceiver = class {
   constructor(handle) {
@@ -120,79 +122,6 @@ media.mojom.DemuxerStream.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Initialize
-media.mojom.DemuxerStream_Initialize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.DemuxerStream.Initialize_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-media.mojom.DemuxerStream_Initialize_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.DemuxerStream.Initialize_ResponseParams',
-      packedSize: 40,
-      fields: [
-        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: media.mojom.TypeSpec, nullable: false, minVersion: 0 },
-        { name: 'pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'audio_config', packedOffset: 8, packedBitOffset: 0, type: media.mojom.AudioDecoderConfigSpec, nullable: true, minVersion: 0 },
-        { name: 'video_config', packedOffset: 16, packedBitOffset: 0, type: media.mojom.VideoDecoderConfigSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for Read
-media.mojom.DemuxerStream_Read_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.DemuxerStream.Read_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-media.mojom.DemuxerStream_Read_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.DemuxerStream.Read_ResponseParams',
-      packedSize: 40,
-      fields: [
-        { name: 'status', packedOffset: 24, packedBitOffset: 0, type: media.mojom.StatusSpec, nullable: false, minVersion: 0 },
-        { name: 'batch_buffers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.DecoderBufferSpec, false), nullable: false, minVersion: 0 },
-        { name: 'audio_config', packedOffset: 8, packedBitOffset: 0, type: media.mojom.AudioDecoderConfigSpec, nullable: true, minVersion: 0 },
-        { name: 'video_config', packedOffset: 16, packedBitOffset: 0, type: media.mojom.VideoDecoderConfigSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for EnableBitstreamConverter
-media.mojom.DemuxerStream_EnableBitstreamConverter_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.DemuxerStream.EnableBitstreamConverter_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.DemuxerStreamPtr = media.mojom.DemuxerStreamRemote;
 media.mojom.DemuxerStreamRequest = media.mojom.DemuxerStreamPendingReceiver;
 

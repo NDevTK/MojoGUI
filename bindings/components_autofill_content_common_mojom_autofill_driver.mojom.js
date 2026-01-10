@@ -7,234 +7,163 @@
 // Module namespace
 var autofill = autofill || {};
 autofill.mojom = autofill.mojom || {};
+var components = components || {};
 var ui = ui || {};
 var gfx = gfx || {};
 var url = url || {};
 
+autofill.mojom.AutofillDriver = {};
+autofill.mojom.AutofillDriver.$interfaceName = 'autofill.mojom.AutofillDriver';
+autofill.mojom.AutofillDriver_FormsSeen_ParamsSpec = { $: {} };
+autofill.mojom.AutofillDriver_FormSubmitted_ParamsSpec = { $: {} };
+autofill.mojom.AutofillDriver_CaretMovedInFormField_ParamsSpec = { $: {} };
+autofill.mojom.AutofillDriver_TextFieldValueChanged_ParamsSpec = { $: {} };
+autofill.mojom.AutofillDriver_DidEndTextFieldEditing_ParamsSpec = { $: {} };
+autofill.mojom.AutofillDriver_TextFieldDidScroll_ParamsSpec = { $: {} };
+autofill.mojom.AutofillDriver_SelectControlSelectionChanged_ParamsSpec = { $: {} };
+autofill.mojom.AutofillDriver_SelectFieldOptionsDidChange_ParamsSpec = { $: {} };
+autofill.mojom.AutofillDriver_FocusOnFormField_ParamsSpec = { $: {} };
+autofill.mojom.AutofillDriver_FocusOnNonFormField_ParamsSpec = { $: {} };
+autofill.mojom.AutofillDriver_AskForValuesToFill_ParamsSpec = { $: {} };
+autofill.mojom.AutofillDriver_HidePopup_ParamsSpec = { $: {} };
+autofill.mojom.AutofillDriver_DidAutofillForm_ParamsSpec = { $: {} };
+autofill.mojom.AutofillDriver_SuppressAutomaticRefills_ParamsSpec = { $: {} };
+autofill.mojom.AutofillDriver_RequestRefill_ParamsSpec = { $: {} };
+autofill.mojom.AutofillDriver_JavaScriptChangedAutofilledValue_ParamsSpec = { $: {} };
+autofill.mojom.PasswordManagerDriver = {};
+autofill.mojom.PasswordManagerDriver.$interfaceName = 'autofill.mojom.PasswordManagerDriver';
+autofill.mojom.PasswordManagerDriver_PasswordFormsParsed_ParamsSpec = { $: {} };
+autofill.mojom.PasswordManagerDriver_PasswordFormsRendered_ParamsSpec = { $: {} };
+autofill.mojom.PasswordManagerDriver_PasswordFormSubmitted_ParamsSpec = { $: {} };
+autofill.mojom.PasswordManagerDriver_InformAboutUserInput_ParamsSpec = { $: {} };
+autofill.mojom.PasswordManagerDriver_DynamicFormSubmission_ParamsSpec = { $: {} };
+autofill.mojom.PasswordManagerDriver_PasswordFormCleared_ParamsSpec = { $: {} };
+autofill.mojom.PasswordManagerDriver_RecordSavePasswordProgress_ParamsSpec = { $: {} };
+autofill.mojom.PasswordManagerDriver_UserModifiedPasswordField_ParamsSpec = { $: {} };
+autofill.mojom.PasswordManagerDriver_UserModifiedNonPasswordField_ParamsSpec = { $: {} };
+autofill.mojom.PasswordManagerDriver_ShowPasswordSuggestions_ParamsSpec = { $: {} };
+autofill.mojom.PasswordManagerDriver_CheckSafeBrowsingReputation_ParamsSpec = { $: {} };
+autofill.mojom.PasswordManagerDriver_FocusedInputChanged_ParamsSpec = { $: {} };
+autofill.mojom.PasswordManagerDriver_LogFirstFillingResult_ParamsSpec = { $: {} };
+autofill.mojom.PasswordGenerationDriver = {};
+autofill.mojom.PasswordGenerationDriver.$interfaceName = 'autofill.mojom.PasswordGenerationDriver';
+autofill.mojom.PasswordGenerationDriver_AutomaticGenerationAvailable_ParamsSpec = { $: {} };
+autofill.mojom.PasswordGenerationDriver_PresaveGeneratedPassword_ParamsSpec = { $: {} };
+autofill.mojom.PasswordGenerationDriver_PasswordNoLongerGenerated_ParamsSpec = { $: {} };
+autofill.mojom.PasswordGenerationDriver_ShowPasswordEditingPopup_ParamsSpec = { $: {} };
+autofill.mojom.PasswordGenerationDriver_PasswordGenerationRejectedByTyping_ParamsSpec = { $: {} };
+autofill.mojom.PasswordGenerationDriver_FrameWasScrolled_ParamsSpec = { $: {} };
+autofill.mojom.PasswordGenerationDriver_GenerationElementLostFocus_ParamsSpec = { $: {} };
 
 // Interface: AutofillDriver
-autofill.mojom.AutofillDriver = {};
+mojo.internal.Struct(
+    autofill.mojom.AutofillDriver_FormsSeen_ParamsSpec, 'autofill.mojom.AutofillDriver_FormsSeen_Params', [
+      mojo.internal.StructField('updated_forms', 0, 0, mojo.internal.Array(autofill.mojom.FormDataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('removed_forms', 8, 0, mojo.internal.Array(autofill.mojom.FormRendererIdSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-autofill.mojom.AutofillDriver_FormsSeen_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.AutofillDriver_FormsSeen_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'updated_forms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(autofill.mojom.FormDataSpec, false), nullable: false, minVersion: 0 },
-        { name: 'removed_forms', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(autofill.mojom.FormRendererIdSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.AutofillDriver_FormSubmitted_ParamsSpec, 'autofill.mojom.AutofillDriver_FormSubmitted_Params', [
+      mojo.internal.StructField('form', 0, 0, autofill.mojom.FormDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source', 8, 0, autofill.mojom.SubmissionSourceSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-autofill.mojom.AutofillDriver_FormSubmitted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.AutofillDriver_FormSubmitted_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'form', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false, minVersion: 0 },
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.SubmissionSourceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.AutofillDriver_CaretMovedInFormField_ParamsSpec, 'autofill.mojom.AutofillDriver_CaretMovedInFormField_Params', [
+      mojo.internal.StructField('form', 0, 0, autofill.mojom.FormDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('field_id', 8, 0, autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('caret_bounds', 16, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-autofill.mojom.AutofillDriver_CaretMovedInFormField_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.AutofillDriver_CaretMovedInFormField_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'form', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false, minVersion: 0 },
-        { name: 'field_id', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
-        { name: 'caret_bounds', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.AutofillDriver_TextFieldValueChanged_ParamsSpec, 'autofill.mojom.AutofillDriver_TextFieldValueChanged_Params', [
+      mojo.internal.StructField('form', 0, 0, autofill.mojom.FormDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('field_id', 8, 0, autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 16, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-autofill.mojom.AutofillDriver_TextFieldValueChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.AutofillDriver_TextFieldValueChanged_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'form', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false, minVersion: 0 },
-        { name: 'field_id', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
-        { name: 'timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.AutofillDriver_DidEndTextFieldEditing_ParamsSpec, 'autofill.mojom.AutofillDriver_DidEndTextFieldEditing_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-autofill.mojom.AutofillDriver_DidEndTextFieldEditing_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.AutofillDriver_DidEndTextFieldEditing_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.AutofillDriver_TextFieldDidScroll_ParamsSpec, 'autofill.mojom.AutofillDriver_TextFieldDidScroll_Params', [
+      mojo.internal.StructField('form', 0, 0, autofill.mojom.FormDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('field_id', 8, 0, autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-autofill.mojom.AutofillDriver_TextFieldDidScroll_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.AutofillDriver_TextFieldDidScroll_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'form', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false, minVersion: 0 },
-        { name: 'field_id', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.AutofillDriver_SelectControlSelectionChanged_ParamsSpec, 'autofill.mojom.AutofillDriver_SelectControlSelectionChanged_Params', [
+      mojo.internal.StructField('form', 0, 0, autofill.mojom.FormDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('field_id', 8, 0, autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-autofill.mojom.AutofillDriver_SelectControlSelectionChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.AutofillDriver_SelectControlSelectionChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'form', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false, minVersion: 0 },
-        { name: 'field_id', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.AutofillDriver_SelectFieldOptionsDidChange_ParamsSpec, 'autofill.mojom.AutofillDriver_SelectFieldOptionsDidChange_Params', [
+      mojo.internal.StructField('form', 0, 0, autofill.mojom.FormDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('field_id', 8, 0, autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-autofill.mojom.AutofillDriver_SelectFieldOptionsDidChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.AutofillDriver_SelectFieldOptionsDidChange_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'form', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false, minVersion: 0 },
-        { name: 'field_id', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.AutofillDriver_FocusOnFormField_ParamsSpec, 'autofill.mojom.AutofillDriver_FocusOnFormField_Params', [
+      mojo.internal.StructField('form', 0, 0, autofill.mojom.FormDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('field_id', 8, 0, autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-autofill.mojom.AutofillDriver_FocusOnFormField_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.AutofillDriver_FocusOnFormField_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'form', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false, minVersion: 0 },
-        { name: 'field_id', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.AutofillDriver_FocusOnNonFormField_ParamsSpec, 'autofill.mojom.AutofillDriver_FocusOnNonFormField_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-autofill.mojom.AutofillDriver_FocusOnNonFormField_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.AutofillDriver_FocusOnNonFormField_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.AutofillDriver_AskForValuesToFill_ParamsSpec, 'autofill.mojom.AutofillDriver_AskForValuesToFill_Params', [
+      mojo.internal.StructField('form', 0, 0, autofill.mojom.FormDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('field_id', 8, 0, autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('caret_bounds', 16, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('trigger_source', 32, 0, autofill.mojom.AutofillSuggestionTriggerSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('password_request', 24, 0, autofill.mojom.PasswordSuggestionRequestSpec, null, true, 0, undefined),
+    ],
+    [[0, 48]]);
 
-autofill.mojom.AutofillDriver_AskForValuesToFill_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.AutofillDriver_AskForValuesToFill_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'form', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false, minVersion: 0 },
-        { name: 'field_id', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
-        { name: 'caret_bounds', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'trigger_source', packedOffset: 32, packedBitOffset: 0, type: autofill.mojom.AutofillSuggestionTriggerSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'password_request', packedOffset: 24, packedBitOffset: 0, type: autofill.mojom.PasswordSuggestionRequestSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.AutofillDriver_HidePopup_ParamsSpec, 'autofill.mojom.AutofillDriver_HidePopup_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-autofill.mojom.AutofillDriver_HidePopup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.AutofillDriver_HidePopup_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.AutofillDriver_DidAutofillForm_ParamsSpec, 'autofill.mojom.AutofillDriver_DidAutofillForm_Params', [
+      mojo.internal.StructField('form', 0, 0, autofill.mojom.FormDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-autofill.mojom.AutofillDriver_DidAutofillForm_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.AutofillDriver_DidAutofillForm_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'form', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.AutofillDriver_SuppressAutomaticRefills_ParamsSpec, 'autofill.mojom.AutofillDriver_SuppressAutomaticRefills_Params', [
+      mojo.internal.StructField('fill_id', 0, 0, autofill.mojom.FillIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-autofill.mojom.AutofillDriver_SuppressAutomaticRefills_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.AutofillDriver_SuppressAutomaticRefills_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'fill_id', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FillIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.AutofillDriver_RequestRefill_ParamsSpec, 'autofill.mojom.AutofillDriver_RequestRefill_Params', [
+      mojo.internal.StructField('fill_id', 0, 0, autofill.mojom.FillIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-autofill.mojom.AutofillDriver_RequestRefill_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.AutofillDriver_RequestRefill_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'fill_id', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FillIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-autofill.mojom.AutofillDriver_JavaScriptChangedAutofilledValue_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.AutofillDriver_JavaScriptChangedAutofilledValue_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'form', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false, minVersion: 0 },
-        { name: 'field_id', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
-        { name: 'old_value', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.AutofillDriver_JavaScriptChangedAutofilledValue_ParamsSpec, 'autofill.mojom.AutofillDriver_JavaScriptChangedAutofilledValue_Params', [
+      mojo.internal.StructField('form', 0, 0, autofill.mojom.FormDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('field_id', 8, 0, autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('old_value', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 autofill.mojom.AutofillDriverPendingReceiver = class {
   constructor(handle) {
@@ -424,424 +353,93 @@ autofill.mojom.AutofillDriver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for FormsSeen
-autofill.mojom.AutofillDriver_FormsSeen_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.AutofillDriver.FormsSeen_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'updated_forms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(autofill.mojom.FormDataSpec, false), nullable: false, minVersion: 0 },
-        { name: 'removed_forms', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(autofill.mojom.FormRendererIdSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for FormSubmitted
-autofill.mojom.AutofillDriver_FormSubmitted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.AutofillDriver.FormSubmitted_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'form', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false, minVersion: 0 },
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.SubmissionSourceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for CaretMovedInFormField
-autofill.mojom.AutofillDriver_CaretMovedInFormField_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.AutofillDriver.CaretMovedInFormField_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'form', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false, minVersion: 0 },
-        { name: 'field_id', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
-        { name: 'caret_bounds', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for TextFieldValueChanged
-autofill.mojom.AutofillDriver_TextFieldValueChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.AutofillDriver.TextFieldValueChanged_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'form', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false, minVersion: 0 },
-        { name: 'field_id', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
-        { name: 'timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for DidEndTextFieldEditing
-autofill.mojom.AutofillDriver_DidEndTextFieldEditing_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.AutofillDriver.DidEndTextFieldEditing_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for TextFieldDidScroll
-autofill.mojom.AutofillDriver_TextFieldDidScroll_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.AutofillDriver.TextFieldDidScroll_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'form', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false, minVersion: 0 },
-        { name: 'field_id', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SelectControlSelectionChanged
-autofill.mojom.AutofillDriver_SelectControlSelectionChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.AutofillDriver.SelectControlSelectionChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'form', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false, minVersion: 0 },
-        { name: 'field_id', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SelectFieldOptionsDidChange
-autofill.mojom.AutofillDriver_SelectFieldOptionsDidChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.AutofillDriver.SelectFieldOptionsDidChange_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'form', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false, minVersion: 0 },
-        { name: 'field_id', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for FocusOnFormField
-autofill.mojom.AutofillDriver_FocusOnFormField_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.AutofillDriver.FocusOnFormField_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'form', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false, minVersion: 0 },
-        { name: 'field_id', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for FocusOnNonFormField
-autofill.mojom.AutofillDriver_FocusOnNonFormField_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.AutofillDriver.FocusOnNonFormField_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for AskForValuesToFill
-autofill.mojom.AutofillDriver_AskForValuesToFill_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.AutofillDriver.AskForValuesToFill_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'form', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false, minVersion: 0 },
-        { name: 'field_id', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
-        { name: 'caret_bounds', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'trigger_source', packedOffset: 32, packedBitOffset: 0, type: autofill.mojom.AutofillSuggestionTriggerSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'password_request', packedOffset: 24, packedBitOffset: 0, type: autofill.mojom.PasswordSuggestionRequestSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
-
-// ParamsSpec for HidePopup
-autofill.mojom.AutofillDriver_HidePopup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.AutofillDriver.HidePopup_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for DidAutofillForm
-autofill.mojom.AutofillDriver_DidAutofillForm_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.AutofillDriver.DidAutofillForm_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'form', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SuppressAutomaticRefills
-autofill.mojom.AutofillDriver_SuppressAutomaticRefills_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.AutofillDriver.SuppressAutomaticRefills_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'fill_id', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FillIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestRefill
-autofill.mojom.AutofillDriver_RequestRefill_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.AutofillDriver.RequestRefill_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'fill_id', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FillIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for JavaScriptChangedAutofilledValue
-autofill.mojom.AutofillDriver_JavaScriptChangedAutofilledValue_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.AutofillDriver.JavaScriptChangedAutofilledValue_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'form', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false, minVersion: 0 },
-        { name: 'field_id', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
-        { name: 'old_value', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 autofill.mojom.AutofillDriverPtr = autofill.mojom.AutofillDriverRemote;
 autofill.mojom.AutofillDriverRequest = autofill.mojom.AutofillDriverPendingReceiver;
 
 
 // Interface: PasswordManagerDriver
-autofill.mojom.PasswordManagerDriver = {};
+mojo.internal.Struct(
+    autofill.mojom.PasswordManagerDriver_PasswordFormsParsed_ParamsSpec, 'autofill.mojom.PasswordManagerDriver_PasswordFormsParsed_Params', [
+      mojo.internal.StructField('forms_data', 0, 0, mojo.internal.Array(autofill.mojom.FormDataSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-autofill.mojom.PasswordManagerDriver_PasswordFormsParsed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordManagerDriver_PasswordFormsParsed_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'forms_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(autofill.mojom.FormDataSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.PasswordManagerDriver_PasswordFormsRendered_ParamsSpec, 'autofill.mojom.PasswordManagerDriver_PasswordFormsRendered_Params', [
+      mojo.internal.StructField('visible_forms_data', 0, 0, mojo.internal.Array(autofill.mojom.FormDataSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-autofill.mojom.PasswordManagerDriver_PasswordFormsRendered_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordManagerDriver_PasswordFormsRendered_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'visible_forms_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(autofill.mojom.FormDataSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.PasswordManagerDriver_PasswordFormSubmitted_ParamsSpec, 'autofill.mojom.PasswordManagerDriver_PasswordFormSubmitted_Params', [
+      mojo.internal.StructField('form_data', 0, 0, autofill.mojom.FormDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-autofill.mojom.PasswordManagerDriver_PasswordFormSubmitted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordManagerDriver_PasswordFormSubmitted_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'form_data', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.PasswordManagerDriver_InformAboutUserInput_ParamsSpec, 'autofill.mojom.PasswordManagerDriver_InformAboutUserInput_Params', [
+      mojo.internal.StructField('form_data', 0, 0, autofill.mojom.FormDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-autofill.mojom.PasswordManagerDriver_InformAboutUserInput_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordManagerDriver_InformAboutUserInput_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'form_data', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.PasswordManagerDriver_DynamicFormSubmission_ParamsSpec, 'autofill.mojom.PasswordManagerDriver_DynamicFormSubmission_Params', [
+      mojo.internal.StructField('submission_indication_event', 0, 0, autofill.mojom.SubmissionIndicatorEventSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-autofill.mojom.PasswordManagerDriver_DynamicFormSubmission_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordManagerDriver_DynamicFormSubmission_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'submission_indication_event', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.SubmissionIndicatorEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.PasswordManagerDriver_PasswordFormCleared_ParamsSpec, 'autofill.mojom.PasswordManagerDriver_PasswordFormCleared_Params', [
+      mojo.internal.StructField('form_data', 0, 0, autofill.mojom.FormDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-autofill.mojom.PasswordManagerDriver_PasswordFormCleared_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordManagerDriver_PasswordFormCleared_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'form_data', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.PasswordManagerDriver_RecordSavePasswordProgress_ParamsSpec, 'autofill.mojom.PasswordManagerDriver_RecordSavePasswordProgress_Params', [
+      mojo.internal.StructField('log', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-autofill.mojom.PasswordManagerDriver_RecordSavePasswordProgress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordManagerDriver_RecordSavePasswordProgress_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'log', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.PasswordManagerDriver_UserModifiedPasswordField_ParamsSpec, 'autofill.mojom.PasswordManagerDriver_UserModifiedPasswordField_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-autofill.mojom.PasswordManagerDriver_UserModifiedPasswordField_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordManagerDriver_UserModifiedPasswordField_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.PasswordManagerDriver_UserModifiedNonPasswordField_ParamsSpec, 'autofill.mojom.PasswordManagerDriver_UserModifiedNonPasswordField_Params', [
+      mojo.internal.StructField('renderer_id', 0, 0, autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('autocomplete_attribute_has_username', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_likely_otp', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-autofill.mojom.PasswordManagerDriver_UserModifiedNonPasswordField_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordManagerDriver_UserModifiedNonPasswordField_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'renderer_id', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'autocomplete_attribute_has_username', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_likely_otp', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.PasswordManagerDriver_ShowPasswordSuggestions_ParamsSpec, 'autofill.mojom.PasswordManagerDriver_ShowPasswordSuggestions_Params', [
+      mojo.internal.StructField('request', 0, 0, autofill.mojom.PasswordSuggestionRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-autofill.mojom.PasswordManagerDriver_ShowPasswordSuggestions_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordManagerDriver_ShowPasswordSuggestions_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.PasswordSuggestionRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.PasswordManagerDriver_CheckSafeBrowsingReputation_ParamsSpec, 'autofill.mojom.PasswordManagerDriver_CheckSafeBrowsingReputation_Params', [
+      mojo.internal.StructField('form_action', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-autofill.mojom.PasswordManagerDriver_CheckSafeBrowsingReputation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordManagerDriver_CheckSafeBrowsingReputation_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'form_action', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'frame_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.PasswordManagerDriver_FocusedInputChanged_ParamsSpec, 'autofill.mojom.PasswordManagerDriver_FocusedInputChanged_Params', [
+      mojo.internal.StructField('focused_field_id', 0, 0, autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('focused_field_type', 8, 0, autofill.mojom.FocusedFieldTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-autofill.mojom.PasswordManagerDriver_FocusedInputChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordManagerDriver_FocusedInputChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'focused_field_id', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
-        { name: 'focused_field_type', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.FocusedFieldTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-autofill.mojom.PasswordManagerDriver_LogFirstFillingResult_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordManagerDriver_LogFirstFillingResult_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'form_renderer_id', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormRendererIdSpec, nullable: false, minVersion: 0 },
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.PasswordManagerDriver_LogFirstFillingResult_ParamsSpec, 'autofill.mojom.PasswordManagerDriver_LogFirstFillingResult_Params', [
+      mojo.internal.StructField('form_renderer_id', 0, 0, autofill.mojom.FormRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 autofill.mojom.PasswordManagerDriverPendingReceiver = class {
   constructor(handle) {
@@ -1004,292 +602,53 @@ autofill.mojom.PasswordManagerDriver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for PasswordFormsParsed
-autofill.mojom.PasswordManagerDriver_PasswordFormsParsed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordManagerDriver.PasswordFormsParsed_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'forms_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(autofill.mojom.FormDataSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for PasswordFormsRendered
-autofill.mojom.PasswordManagerDriver_PasswordFormsRendered_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordManagerDriver.PasswordFormsRendered_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'visible_forms_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(autofill.mojom.FormDataSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for PasswordFormSubmitted
-autofill.mojom.PasswordManagerDriver_PasswordFormSubmitted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordManagerDriver.PasswordFormSubmitted_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'form_data', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for InformAboutUserInput
-autofill.mojom.PasswordManagerDriver_InformAboutUserInput_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordManagerDriver.InformAboutUserInput_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'form_data', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DynamicFormSubmission
-autofill.mojom.PasswordManagerDriver_DynamicFormSubmission_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordManagerDriver.DynamicFormSubmission_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'submission_indication_event', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.SubmissionIndicatorEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for PasswordFormCleared
-autofill.mojom.PasswordManagerDriver_PasswordFormCleared_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordManagerDriver.PasswordFormCleared_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'form_data', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RecordSavePasswordProgress
-autofill.mojom.PasswordManagerDriver_RecordSavePasswordProgress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordManagerDriver.RecordSavePasswordProgress_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'log', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for UserModifiedPasswordField
-autofill.mojom.PasswordManagerDriver_UserModifiedPasswordField_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordManagerDriver.UserModifiedPasswordField_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for UserModifiedNonPasswordField
-autofill.mojom.PasswordManagerDriver_UserModifiedNonPasswordField_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordManagerDriver.UserModifiedNonPasswordField_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'renderer_id', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'autocomplete_attribute_has_username', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_likely_otp', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for ShowPasswordSuggestions
-autofill.mojom.PasswordManagerDriver_ShowPasswordSuggestions_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordManagerDriver.ShowPasswordSuggestions_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.PasswordSuggestionRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CheckSafeBrowsingReputation
-autofill.mojom.PasswordManagerDriver_CheckSafeBrowsingReputation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordManagerDriver.CheckSafeBrowsingReputation_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'form_action', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'frame_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for FocusedInputChanged
-autofill.mojom.PasswordManagerDriver_FocusedInputChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordManagerDriver.FocusedInputChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'focused_field_id', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
-        { name: 'focused_field_type', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.FocusedFieldTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for LogFirstFillingResult
-autofill.mojom.PasswordManagerDriver_LogFirstFillingResult_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordManagerDriver.LogFirstFillingResult_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'form_renderer_id', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormRendererIdSpec, nullable: false, minVersion: 0 },
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 autofill.mojom.PasswordManagerDriverPtr = autofill.mojom.PasswordManagerDriverRemote;
 autofill.mojom.PasswordManagerDriverRequest = autofill.mojom.PasswordManagerDriverPendingReceiver;
 
 
 // Interface: PasswordGenerationDriver
-autofill.mojom.PasswordGenerationDriver = {};
+mojo.internal.Struct(
+    autofill.mojom.PasswordGenerationDriver_AutomaticGenerationAvailable_ParamsSpec, 'autofill.mojom.PasswordGenerationDriver_AutomaticGenerationAvailable_Params', [
+      mojo.internal.StructField('password_generation_ui_data', 0, 0, autofill.mojom.PasswordGenerationUIDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-autofill.mojom.PasswordGenerationDriver_AutomaticGenerationAvailable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordGenerationDriver_AutomaticGenerationAvailable_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'password_generation_ui_data', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.PasswordGenerationUIDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.PasswordGenerationDriver_PresaveGeneratedPassword_ParamsSpec, 'autofill.mojom.PasswordGenerationDriver_PresaveGeneratedPassword_Params', [
+      mojo.internal.StructField('form_data', 0, 0, autofill.mojom.FormDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('password_value', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-autofill.mojom.PasswordGenerationDriver_PresaveGeneratedPassword_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordGenerationDriver_PresaveGeneratedPassword_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'form_data', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false, minVersion: 0 },
-        { name: 'password_value', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.PasswordGenerationDriver_PasswordNoLongerGenerated_ParamsSpec, 'autofill.mojom.PasswordGenerationDriver_PasswordNoLongerGenerated_Params', [
+      mojo.internal.StructField('form_data', 0, 0, autofill.mojom.FormDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-autofill.mojom.PasswordGenerationDriver_PasswordNoLongerGenerated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordGenerationDriver_PasswordNoLongerGenerated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'form_data', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.PasswordGenerationDriver_ShowPasswordEditingPopup_ParamsSpec, 'autofill.mojom.PasswordGenerationDriver_ShowPasswordEditingPopup_Params', [
+      mojo.internal.StructField('bounds', 0, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('form_data', 8, 0, autofill.mojom.FormDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('field_renderer_id', 16, 0, autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('password_value', 24, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-autofill.mojom.PasswordGenerationDriver_ShowPasswordEditingPopup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordGenerationDriver_ShowPasswordEditingPopup_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
-        { name: 'form_data', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false, minVersion: 0 },
-        { name: 'field_renderer_id', packedOffset: 16, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
-        { name: 'password_value', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.PasswordGenerationDriver_PasswordGenerationRejectedByTyping_ParamsSpec, 'autofill.mojom.PasswordGenerationDriver_PasswordGenerationRejectedByTyping_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-autofill.mojom.PasswordGenerationDriver_PasswordGenerationRejectedByTyping_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordGenerationDriver_PasswordGenerationRejectedByTyping_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.PasswordGenerationDriver_FrameWasScrolled_ParamsSpec, 'autofill.mojom.PasswordGenerationDriver_FrameWasScrolled_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-autofill.mojom.PasswordGenerationDriver_FrameWasScrolled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordGenerationDriver_FrameWasScrolled_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-autofill.mojom.PasswordGenerationDriver_GenerationElementLostFocus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordGenerationDriver_GenerationElementLostFocus_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.PasswordGenerationDriver_GenerationElementLostFocus_ParamsSpec, 'autofill.mojom.PasswordGenerationDriver_GenerationElementLostFocus_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 autofill.mojom.PasswordGenerationDriverPendingReceiver = class {
   constructor(handle) {
@@ -1398,106 +757,6 @@ autofill.mojom.PasswordGenerationDriver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AutomaticGenerationAvailable
-autofill.mojom.PasswordGenerationDriver_AutomaticGenerationAvailable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordGenerationDriver.AutomaticGenerationAvailable_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'password_generation_ui_data', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.PasswordGenerationUIDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for PresaveGeneratedPassword
-autofill.mojom.PasswordGenerationDriver_PresaveGeneratedPassword_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordGenerationDriver.PresaveGeneratedPassword_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'form_data', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false, minVersion: 0 },
-        { name: 'password_value', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for PasswordNoLongerGenerated
-autofill.mojom.PasswordGenerationDriver_PasswordNoLongerGenerated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordGenerationDriver.PasswordNoLongerGenerated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'form_data', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ShowPasswordEditingPopup
-autofill.mojom.PasswordGenerationDriver_ShowPasswordEditingPopup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordGenerationDriver.ShowPasswordEditingPopup_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
-        { name: 'form_data', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false, minVersion: 0 },
-        { name: 'field_renderer_id', packedOffset: 16, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
-        { name: 'password_value', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for PasswordGenerationRejectedByTyping
-autofill.mojom.PasswordGenerationDriver_PasswordGenerationRejectedByTyping_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordGenerationDriver.PasswordGenerationRejectedByTyping_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for FrameWasScrolled
-autofill.mojom.PasswordGenerationDriver_FrameWasScrolled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordGenerationDriver.FrameWasScrolled_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for GenerationElementLostFocus
-autofill.mojom.PasswordGenerationDriver_GenerationElementLostFocus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordGenerationDriver.GenerationElementLostFocus_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 autofill.mojom.PasswordGenerationDriverPtr = autofill.mojom.PasswordGenerationDriverRemote;
 autofill.mojom.PasswordGenerationDriverRequest = autofill.mojom.PasswordGenerationDriverPendingReceiver;
 

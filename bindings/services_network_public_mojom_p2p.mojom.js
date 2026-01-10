@@ -7,7 +7,35 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 
+network.mojom.EcnMarkingSpec = { $: mojo.internal.Enum() };
+network.mojom.P2PReceivedPacketSpec = { $: {} };
+network.mojom.P2PSendPacketSpec = { $: {} };
+network.mojom.P2PNetworkNotificationClient = {};
+network.mojom.P2PNetworkNotificationClient.$interfaceName = 'network.mojom.P2PNetworkNotificationClient';
+network.mojom.P2PNetworkNotificationClient_NetworkListChanged_ParamsSpec = { $: {} };
+network.mojom.P2PSocketManager = {};
+network.mojom.P2PSocketManager.$interfaceName = 'network.mojom.P2PSocketManager';
+network.mojom.P2PSocketManager_StartNetworkNotifications_ParamsSpec = { $: {} };
+network.mojom.P2PSocketManager_GetHostAddress_ParamsSpec = { $: {} };
+network.mojom.P2PSocketManager_GetHostAddress_ResponseParamsSpec = { $: {} };
+network.mojom.P2PSocketManager_CreateSocket_ParamsSpec = { $: {} };
+network.mojom.P2PSocket = {};
+network.mojom.P2PSocket.$interfaceName = 'network.mojom.P2PSocket';
+network.mojom.P2PSocket_Send_ParamsSpec = { $: {} };
+network.mojom.P2PSocket_SendBatch_ParamsSpec = { $: {} };
+network.mojom.P2PSocket_SetOption_ParamsSpec = { $: {} };
+network.mojom.P2PSocketClient = {};
+network.mojom.P2PSocketClient.$interfaceName = 'network.mojom.P2PSocketClient';
+network.mojom.P2PSocketClient_SocketCreated_ParamsSpec = { $: {} };
+network.mojom.P2PSocketClient_SendComplete_ParamsSpec = { $: {} };
+network.mojom.P2PSocketClient_SendBatchComplete_ParamsSpec = { $: {} };
+network.mojom.P2PSocketClient_DataReceived_ParamsSpec = { $: {} };
 
 // Enum: EcnMarking
 network.mojom.EcnMarking = {
@@ -16,57 +44,33 @@ network.mojom.EcnMarking = {
   kEct0: 2,
   kCe: 3,
 };
-network.mojom.EcnMarkingSpec = { $: mojo.internal.Enum() };
 
 // Struct: P2PReceivedPacket
-network.mojom.P2PReceivedPacketSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.P2PReceivedPacket',
-      packedSize: 40,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false, minVersion: 0 },
-        { name: 'socket_address', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
-        { name: 'timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'ecn', packedOffset: 24, packedBitOffset: 0, type: network.mojom.EcnMarkingSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.P2PReceivedPacketSpec, 'network.mojom.P2PReceivedPacket', [
+      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.ReadOnlyBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('socket_address', 8, 0, network.mojom.IPEndPointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 16, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('ecn', 24, 0, network.mojom.EcnMarkingSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: P2PSendPacket
-network.mojom.P2PSendPacketSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.P2PSendPacket',
-      packedSize: 24,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false, minVersion: 0 },
-        { name: 'packet_info', packedOffset: 8, packedBitOffset: 0, type: network.mojom.P2PPacketInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.P2PSendPacketSpec, 'network.mojom.P2PSendPacket', [
+      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.ReadOnlyBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('packet_info', 8, 0, network.mojom.P2PPacketInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: P2PNetworkNotificationClient
-network.mojom.P2PNetworkNotificationClient = {};
-
-network.mojom.P2PNetworkNotificationClient_NetworkListChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.P2PNetworkNotificationClient_NetworkListChanged_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'networks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.NetworkInterfaceSpec, false), nullable: false, minVersion: 0 },
-        { name: 'default_ipv4_local_address', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false, minVersion: 0 },
-        { name: 'default_ipv6_local_address', packedOffset: 16, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.P2PNetworkNotificationClient_NetworkListChanged_ParamsSpec, 'network.mojom.P2PNetworkNotificationClient_NetworkListChanged_Params', [
+      mojo.internal.StructField('networks', 0, 0, mojo.internal.Array(network.mojom.NetworkInterfaceSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('default_ipv4_local_address', 8, 0, network.mojom.IPAddressSpec, null, false, 0, undefined),
+      mojo.internal.StructField('default_ipv6_local_address', 16, 0, network.mojom.IPAddressSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 network.mojom.P2PNetworkNotificationClientPendingReceiver = class {
   constructor(handle) {
@@ -121,77 +125,43 @@ network.mojom.P2PNetworkNotificationClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for NetworkListChanged
-network.mojom.P2PNetworkNotificationClient_NetworkListChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.P2PNetworkNotificationClient.NetworkListChanged_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'networks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.NetworkInterfaceSpec, false), nullable: false, minVersion: 0 },
-        { name: 'default_ipv4_local_address', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false, minVersion: 0 },
-        { name: 'default_ipv6_local_address', packedOffset: 16, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.P2PNetworkNotificationClientPtr = network.mojom.P2PNetworkNotificationClientRemote;
 network.mojom.P2PNetworkNotificationClientRequest = network.mojom.P2PNetworkNotificationClientPendingReceiver;
 
 
 // Interface: P2PSocketManager
-network.mojom.P2PSocketManager = {};
+mojo.internal.Struct(
+    network.mojom.P2PSocketManager_StartNetworkNotifications_ParamsSpec, 'network.mojom.P2PSocketManager_StartNetworkNotifications_Params', [
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(network.mojom.P2PNetworkNotificationClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.P2PSocketManager_StartNetworkNotifications_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.P2PSocketManager_StartNetworkNotifications_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.P2PNetworkNotificationClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.P2PSocketManager_GetHostAddress_ParamsSpec, 'network.mojom.P2PSocketManager_GetHostAddress_Params', [
+      mojo.internal.StructField('host_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('address_family', 8, 0, network.mojom.AddressFamilySpec, null, true, 0, undefined),
+      mojo.internal.StructField('enable_mdns', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-network.mojom.P2PSocketManager_GetHostAddress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.P2PSocketManager_GetHostAddress_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'host_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'address_family', packedOffset: 8, packedBitOffset: 0, type: network.mojom.AddressFamilySpec, nullable: true, minVersion: 0 },
-        { name: 'enable_mdns', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.P2PSocketManager_GetHostAddress_ResponseParamsSpec, 'network.mojom.P2PSocketManager_GetHostAddress_ResponseParams', [
+      mojo.internal.StructField('addresses', 0, 0, mojo.internal.Array(network.mojom.IPAddressSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.P2PSocketManager_CreateSocket_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.P2PSocketManager_CreateSocket_Params',
-      packedSize: 72,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.P2PSocketTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'local_address', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
-        { name: 'port_range', packedOffset: 16, packedBitOffset: 0, type: network.mojom.P2PPortRangeSpec, nullable: false, minVersion: 0 },
-        { name: 'remote_address', packedOffset: 24, packedBitOffset: 0, type: network.mojom.P2PHostAndIPEndPointSpec, nullable: false, minVersion: 0 },
-        { name: 'traffic_annotation', packedOffset: 32, packedBitOffset: 0, type: network.mojom.MutableNetworkTrafficAnnotationTagSpec, nullable: false, minVersion: 0 },
-        { name: 'devtools_token', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
-        { name: 'client', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.P2PSocketClientRemote), nullable: false, minVersion: 0 },
-        { name: 'socket', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.P2PSocketRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 72}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.P2PSocketManager_CreateSocket_ParamsSpec, 'network.mojom.P2PSocketManager_CreateSocket_Params', [
+      mojo.internal.StructField('type', 0, 0, network.mojom.P2PSocketTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('local_address', 8, 0, network.mojom.IPEndPointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('port_range', 16, 0, network.mojom.P2PPortRangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('remote_address', 24, 0, network.mojom.P2PHostAndIPEndPointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('traffic_annotation', 32, 0, network.mojom.MutableNetworkTrafficAnnotationTagSpec, null, false, 0, undefined),
+      mojo.internal.StructField('devtools_token', 40, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('client', 48, 0, mojo.internal.InterfaceProxy(network.mojom.P2PSocketClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('socket', 56, 0, mojo.internal.InterfaceRequest(network.mojom.P2PSocketRemote), null, false, 0, undefined),
+    ],
+    [[0, 72]]);
 
 network.mojom.P2PSocketManagerPendingReceiver = class {
   constructor(handle) {
@@ -264,118 +234,30 @@ network.mojom.P2PSocketManager.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for StartNetworkNotifications
-network.mojom.P2PSocketManager_StartNetworkNotifications_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.P2PSocketManager.StartNetworkNotifications_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.P2PNetworkNotificationClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetHostAddress
-network.mojom.P2PSocketManager_GetHostAddress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.P2PSocketManager.GetHostAddress_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'host_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'address_family', packedOffset: 8, packedBitOffset: 0, type: network.mojom.AddressFamilySpec, nullable: true, minVersion: 0 },
-        { name: 'enable_mdns', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-network.mojom.P2PSocketManager_GetHostAddress_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.P2PSocketManager.GetHostAddress_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'addresses', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.IPAddressSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CreateSocket
-network.mojom.P2PSocketManager_CreateSocket_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.P2PSocketManager.CreateSocket_Params',
-      packedSize: 72,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.P2PSocketTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'local_address', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
-        { name: 'port_range', packedOffset: 16, packedBitOffset: 0, type: network.mojom.P2PPortRangeSpec, nullable: false, minVersion: 0 },
-        { name: 'remote_address', packedOffset: 24, packedBitOffset: 0, type: network.mojom.P2PHostAndIPEndPointSpec, nullable: false, minVersion: 0 },
-        { name: 'traffic_annotation', packedOffset: 32, packedBitOffset: 0, type: network.mojom.MutableNetworkTrafficAnnotationTagSpec, nullable: false, minVersion: 0 },
-        { name: 'devtools_token', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
-        { name: 'client', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.P2PSocketClientRemote), nullable: false, minVersion: 0 },
-        { name: 'socket', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.P2PSocketRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 72}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.P2PSocketManagerPtr = network.mojom.P2PSocketManagerRemote;
 network.mojom.P2PSocketManagerRequest = network.mojom.P2PSocketManagerPendingReceiver;
 
 
 // Interface: P2PSocket
-network.mojom.P2PSocket = {};
+mojo.internal.Struct(
+    network.mojom.P2PSocket_Send_ParamsSpec, 'network.mojom.P2PSocket_Send_Params', [
+      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.ReadOnlyBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('packet_info', 8, 0, network.mojom.P2PPacketInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-network.mojom.P2PSocket_Send_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.P2PSocket_Send_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false, minVersion: 0 },
-        { name: 'packet_info', packedOffset: 8, packedBitOffset: 0, type: network.mojom.P2PPacketInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.P2PSocket_SendBatch_ParamsSpec, 'network.mojom.P2PSocket_SendBatch_Params', [
+      mojo.internal.StructField('packet_batch', 0, 0, mojo.internal.Array(network.mojom.P2PSendPacketSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.P2PSocket_SendBatch_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.P2PSocket_SendBatch_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'packet_batch', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.P2PSendPacketSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-network.mojom.P2PSocket_SetOption_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.P2PSocket_SetOption_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'option', packedOffset: 0, packedBitOffset: 0, type: network.mojom.P2PSocketOptionSpec, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.P2PSocket_SetOption_ParamsSpec, 'network.mojom.P2PSocket_SetOption_Params', [
+      mojo.internal.StructField('option', 0, 0, network.mojom.P2PSocketOptionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 network.mojom.P2PSocketPendingReceiver = class {
   constructor(handle) {
@@ -448,110 +330,35 @@ network.mojom.P2PSocket.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Send
-network.mojom.P2PSocket_Send_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.P2PSocket.Send_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false, minVersion: 0 },
-        { name: 'packet_info', packedOffset: 8, packedBitOffset: 0, type: network.mojom.P2PPacketInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SendBatch
-network.mojom.P2PSocket_SendBatch_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.P2PSocket.SendBatch_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'packet_batch', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.P2PSendPacketSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetOption
-network.mojom.P2PSocket_SetOption_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.P2PSocket.SetOption_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'option', packedOffset: 0, packedBitOffset: 0, type: network.mojom.P2PSocketOptionSpec, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.P2PSocketPtr = network.mojom.P2PSocketRemote;
 network.mojom.P2PSocketRequest = network.mojom.P2PSocketPendingReceiver;
 
 
 // Interface: P2PSocketClient
-network.mojom.P2PSocketClient = {};
+mojo.internal.Struct(
+    network.mojom.P2PSocketClient_SocketCreated_ParamsSpec, 'network.mojom.P2PSocketClient_SocketCreated_Params', [
+      mojo.internal.StructField('local_address', 0, 0, network.mojom.IPEndPointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('remote_address', 8, 0, network.mojom.IPEndPointSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-network.mojom.P2PSocketClient_SocketCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.P2PSocketClient_SocketCreated_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'local_address', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
-        { name: 'remote_address', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.P2PSocketClient_SendComplete_ParamsSpec, 'network.mojom.P2PSocketClient_SendComplete_Params', [
+      mojo.internal.StructField('send_metrics', 0, 0, network.mojom.P2PSendPacketMetricsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.P2PSocketClient_SendComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.P2PSocketClient_SendComplete_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'send_metrics', packedOffset: 0, packedBitOffset: 0, type: network.mojom.P2PSendPacketMetricsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.P2PSocketClient_SendBatchComplete_ParamsSpec, 'network.mojom.P2PSocketClient_SendBatchComplete_Params', [
+      mojo.internal.StructField('send_metrics_batch', 0, 0, mojo.internal.Array(network.mojom.P2PSendPacketMetricsSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.P2PSocketClient_SendBatchComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.P2PSocketClient_SendBatchComplete_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'send_metrics_batch', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.P2PSendPacketMetricsSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-network.mojom.P2PSocketClient_DataReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.P2PSocketClient_DataReceived_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'packets', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.P2PReceivedPacketSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.P2PSocketClient_DataReceived_ParamsSpec, 'network.mojom.P2PSocketClient_DataReceived_Params', [
+      mojo.internal.StructField('packets', 0, 0, mojo.internal.Array(network.mojom.P2PReceivedPacketSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 network.mojom.P2PSocketClientPendingReceiver = class {
   constructor(handle) {
@@ -633,64 +440,6 @@ network.mojom.P2PSocketClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SocketCreated
-network.mojom.P2PSocketClient_SocketCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.P2PSocketClient.SocketCreated_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'local_address', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
-        { name: 'remote_address', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SendComplete
-network.mojom.P2PSocketClient_SendComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.P2PSocketClient.SendComplete_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'send_metrics', packedOffset: 0, packedBitOffset: 0, type: network.mojom.P2PSendPacketMetricsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SendBatchComplete
-network.mojom.P2PSocketClient_SendBatchComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.P2PSocketClient.SendBatchComplete_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'send_metrics_batch', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.P2PSendPacketMetricsSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DataReceived
-network.mojom.P2PSocketClient_DataReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.P2PSocketClient.DataReceived_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'packets', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.P2PReceivedPacketSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.P2PSocketClientPtr = network.mojom.P2PSocketClientRemote;
 network.mojom.P2PSocketClientRequest = network.mojom.P2PSocketClientPendingReceiver;
 

@@ -8,36 +8,28 @@
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
+arc.mojom.KioskHost = {};
+arc.mojom.KioskHost.$interfaceName = 'arc.mojom.KioskHost';
+arc.mojom.KioskHost_OnMaintenanceSessionCreated_ParamsSpec = { $: {} };
+arc.mojom.KioskHost_OnMaintenanceSessionFinished_ParamsSpec = { $: {} };
+arc.mojom.KioskInstance = {};
+arc.mojom.KioskInstance.$interfaceName = 'arc.mojom.KioskInstance';
+arc.mojom.KioskInstance_Init_ParamsSpec = { $: {} };
+arc.mojom.KioskInstance_Init_ResponseParamsSpec = { $: {} };
 
 // Interface: KioskHost
-arc.mojom.KioskHost = {};
+mojo.internal.Struct(
+    arc.mojom.KioskHost_OnMaintenanceSessionCreated_ParamsSpec, 'arc.mojom.KioskHost_OnMaintenanceSessionCreated_Params', [
+      mojo.internal.StructField('session_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.KioskHost_OnMaintenanceSessionCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.KioskHost_OnMaintenanceSessionCreated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.KioskHost_OnMaintenanceSessionFinished_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.KioskHost_OnMaintenanceSessionFinished_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'succeeded', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.KioskHost_OnMaintenanceSessionFinished_ParamsSpec, 'arc.mojom.KioskHost_OnMaintenanceSessionFinished_Params', [
+      mojo.internal.StructField('session_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('succeeded', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.KioskHostPendingReceiver = class {
   constructor(handle) {
@@ -101,55 +93,21 @@ arc.mojom.KioskHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnMaintenanceSessionCreated
-arc.mojom.KioskHost_OnMaintenanceSessionCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.KioskHost.OnMaintenanceSessionCreated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnMaintenanceSessionFinished
-arc.mojom.KioskHost_OnMaintenanceSessionFinished_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.KioskHost.OnMaintenanceSessionFinished_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'succeeded', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.KioskHostPtr = arc.mojom.KioskHostRemote;
 arc.mojom.KioskHostRequest = arc.mojom.KioskHostPendingReceiver;
 
 
 // Interface: KioskInstance
-arc.mojom.KioskInstance = {};
+mojo.internal.Struct(
+    arc.mojom.KioskInstance_Init_ParamsSpec, 'arc.mojom.KioskInstance_Init_Params', [
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.KioskHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.KioskInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.KioskInstance_Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.KioskHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.KioskInstance_Init_ResponseParamsSpec, 'arc.mojom.KioskInstance_Init_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 arc.mojom.KioskInstancePendingReceiver = class {
   constructor(handle) {
@@ -188,7 +146,7 @@ arc.mojom.KioskInstanceRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       arc.mojom.KioskInstance_Init_ParamsSpec,
-      null,
+      arc.mojom.KioskInstance_Init_ResponseParamsSpec,
       [host_remote]);
   }
 
@@ -204,21 +162,6 @@ arc.mojom.KioskInstance.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Init
-arc.mojom.KioskInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.KioskInstance.Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.KioskHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.KioskInstancePtr = arc.mojom.KioskInstanceRemote;
 arc.mojom.KioskInstanceRequest = arc.mojom.KioskInstancePendingReceiver;
 

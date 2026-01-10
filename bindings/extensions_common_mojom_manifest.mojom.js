@@ -8,6 +8,7 @@
 var extensions = extensions || {};
 extensions.mojom = extensions.mojom || {};
 
+extensions.mojom.ManifestLocationSpec = { $: mojo.internal.Enum() };
 
 // Enum: ManifestLocation
 extensions.mojom.ManifestLocation = {
@@ -23,4 +24,3 @@ extensions.mojom.ManifestLocation = {
   kExternalPolicy: 9,
   kExternalComponent: 10,
 };
-extensions.mojom.ManifestLocationSpec = { $: mojo.internal.Enum() };

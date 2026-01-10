@@ -7,297 +7,215 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 var url = url || {};
 var url = url || {};
 
+network.mojom.URLRequestDevToolsInfoSpec = { $: {} };
+network.mojom.URLResponseHeadDevToolsInfoSpec = { $: {} };
+network.mojom.OtherPartitionInfoSpec = { $: {} };
+network.mojom.DevToolsObserver = {};
+network.mojom.DevToolsObserver.$interfaceName = 'network.mojom.DevToolsObserver';
+network.mojom.DevToolsObserver_OnRawRequest_ParamsSpec = { $: {} };
+network.mojom.DevToolsObserver_OnRawResponse_ParamsSpec = { $: {} };
+network.mojom.DevToolsObserver_OnEarlyHintsResponse_ParamsSpec = { $: {} };
+network.mojom.DevToolsObserver_OnPrivateNetworkRequest_ParamsSpec = { $: {} };
+network.mojom.DevToolsObserver_OnCorsPreflightRequest_ParamsSpec = { $: {} };
+network.mojom.DevToolsObserver_OnCorsPreflightResponse_ParamsSpec = { $: {} };
+network.mojom.DevToolsObserver_OnCorsPreflightRequestCompleted_ParamsSpec = { $: {} };
+network.mojom.DevToolsObserver_OnTrustTokenOperationDone_ParamsSpec = { $: {} };
+network.mojom.DevToolsObserver_OnCorsError_ParamsSpec = { $: {} };
+network.mojom.DevToolsObserver_OnOrbError_ParamsSpec = { $: {} };
+network.mojom.DevToolsObserver_OnSharedDictionaryError_ParamsSpec = { $: {} };
+network.mojom.DevToolsObserver_OnSRIMessageSignatureIssue_ParamsSpec = { $: {} };
+network.mojom.DevToolsObserver_OnUnencodedDigestError_ParamsSpec = { $: {} };
+network.mojom.DevToolsObserver_Clone_ParamsSpec = { $: {} };
 
 // Struct: URLRequestDevToolsInfo
-network.mojom.URLRequestDevToolsInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.URLRequestDevToolsInfo',
-      packedSize: 48,
-      fields: [
-        { name: 'method', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'priority', packedOffset: 24, packedBitOffset: 0, type: network.mojom.RequestPrioritySpec, nullable: false, minVersion: 0 },
-        { name: 'referrer_policy', packedOffset: 28, packedBitOffset: 0, type: network.mojom.URLRequestReferrerPolicySpec, nullable: false, minVersion: 0 },
-        { name: 'trust_token_params', packedOffset: 16, packedBitOffset: 0, type: network.mojom.TrustTokenParamsSpec, nullable: true, minVersion: 0 },
-        { name: 'has_user_gesture', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'resource_type', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'is_ad_related', packedOffset: 36, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.URLRequestDevToolsInfoSpec, 'network.mojom.URLRequestDevToolsInfo', [
+      mojo.internal.StructField('method', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('priority', 24, 0, network.mojom.RequestPrioritySpec, null, false, 0, undefined),
+      mojo.internal.StructField('referrer_policy', 28, 0, network.mojom.URLRequestReferrerPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('trust_token_params', 16, 0, network.mojom.TrustTokenParamsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('has_user_gesture', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('resource_type', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_ad_related', 36, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: URLResponseHeadDevToolsInfo
-network.mojom.URLResponseHeadDevToolsInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.URLResponseHeadDevToolsInfo',
-      packedSize: 112,
-      fields: [
-        { name: 'response_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'headers', packedOffset: 8, packedBitOffset: 0, type: network.mojom.HttpResponseHeadersSpec, nullable: false, minVersion: 0 },
-        { name: 'mime_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'charset', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'load_timing', packedOffset: 32, packedBitOffset: 0, type: network.mojom.LoadTimingInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'cert_status', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'encoded_data_length', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'was_in_prefetch_cache', packedOffset: 100, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'was_fetched_via_service_worker', packedOffset: 100, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'cache_storage_cache_name', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'alpn_negotiated_protocol', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'alternate_protocol_usage', packedOffset: 92, packedBitOffset: 0, type: network.mojom.AlternateProtocolUsageSpec, nullable: false, minVersion: 0 },
-        { name: 'was_fetched_via_spdy', packedOffset: 100, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'service_worker_response_source', packedOffset: 96, packedBitOffset: 0, type: network.mojom.FetchResponseSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'service_worker_router_info', packedOffset: 64, packedBitOffset: 0, type: network.mojom.ServiceWorkerRouterInfoSpec, nullable: true, minVersion: 0 },
-        { name: 'ssl_info', packedOffset: 72, packedBitOffset: 0, type: network.mojom.SSLInfoSpec, nullable: true, minVersion: 0 },
-        { name: 'remote_endpoint', packedOffset: 80, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
-        { name: 'emitted_extra_info', packedOffset: 100, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 112}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.URLResponseHeadDevToolsInfoSpec, 'network.mojom.URLResponseHeadDevToolsInfo', [
+      mojo.internal.StructField('response_time', 0, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('headers', 8, 0, network.mojom.HttpResponseHeadersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mime_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('charset', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('load_timing', 32, 0, network.mojom.LoadTimingInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cert_status', 88, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('encoded_data_length', 40, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('was_in_prefetch_cache', 100, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('was_fetched_via_service_worker', 100, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('cache_storage_cache_name', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('alpn_negotiated_protocol', 56, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('alternate_protocol_usage', 92, 0, network.mojom.AlternateProtocolUsageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('was_fetched_via_spdy', 100, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('service_worker_response_source', 96, 0, network.mojom.FetchResponseSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('service_worker_router_info', 64, 0, network.mojom.ServiceWorkerRouterInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('ssl_info', 72, 0, network.mojom.SSLInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('remote_endpoint', 80, 0, network.mojom.IPEndPointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('emitted_extra_info', 100, 3, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 112]]);
 
 // Struct: OtherPartitionInfo
-network.mojom.OtherPartitionInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.OtherPartitionInfo',
-      packedSize: 16,
-      fields: [
-        { name: 'site_has_cookie_in_other_partition', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.OtherPartitionInfoSpec, 'network.mojom.OtherPartitionInfo', [
+      mojo.internal.StructField('site_has_cookie_in_other_partition', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: DevToolsObserver
-network.mojom.DevToolsObserver = {};
+mojo.internal.Struct(
+    network.mojom.DevToolsObserver_OnRawRequest_ParamsSpec, 'network.mojom.DevToolsObserver_OnRawRequest_Params', [
+      mojo.internal.StructField('devtool_request_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('cookies_with_access_result', 8, 0, mojo.internal.Array(network.mojom.CookieWithAccessResultSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('headers', 16, 0, mojo.internal.Array(network.mojom.HttpRawHeaderPairSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 24, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('client_security_state', 32, 0, network.mojom.ClientSecurityStateSpec, null, true, 0, undefined),
+      mojo.internal.StructField('other_partition_info', 40, 0, network.mojom.OtherPartitionInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('applied_network_conditions_id', 48, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+    ],
+    [[0, 64]]);
 
-network.mojom.DevToolsObserver_OnRawRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DevToolsObserver_OnRawRequest_Params',
-      packedSize: 64,
-      fields: [
-        { name: 'devtool_request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'cookies_with_access_result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.CookieWithAccessResultSpec, false), nullable: false, minVersion: 0 },
-        { name: 'headers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.HttpRawHeaderPairSpec, false), nullable: false, minVersion: 0 },
-        { name: 'timestamp', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'client_security_state', packedOffset: 32, packedBitOffset: 0, type: network.mojom.ClientSecurityStateSpec, nullable: true, minVersion: 0 },
-        { name: 'other_partition_info', packedOffset: 40, packedBitOffset: 0, type: network.mojom.OtherPartitionInfoSpec, nullable: true, minVersion: 0 },
-        { name: 'applied_network_conditions_id', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.DevToolsObserver_OnRawResponse_ParamsSpec, 'network.mojom.DevToolsObserver_OnRawResponse_Params', [
+      mojo.internal.StructField('devtool_request_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('cookies_with_access_result', 8, 0, mojo.internal.Array(network.mojom.CookieAndLineWithAccessResultSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('headers', 16, 0, mojo.internal.Array(network.mojom.HttpRawHeaderPairSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('raw_response_headers', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('resource_address_space', 40, 0, network.mojom.IPAddressSpaceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('http_status_code', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('cookie_partition_key', 32, 0, network.mojom.CookiePartitionKeySpec, null, true, 0, undefined),
+    ],
+    [[0, 56]]);
 
-network.mojom.DevToolsObserver_OnRawResponse_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DevToolsObserver_OnRawResponse_Params',
-      packedSize: 56,
-      fields: [
-        { name: 'devtool_request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'cookies_with_access_result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.CookieAndLineWithAccessResultSpec, false), nullable: false, minVersion: 0 },
-        { name: 'headers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.HttpRawHeaderPairSpec, false), nullable: false, minVersion: 0 },
-        { name: 'raw_response_headers', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'resource_address_space', packedOffset: 40, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false, minVersion: 0 },
-        { name: 'http_status_code', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'cookie_partition_key', packedOffset: 32, packedBitOffset: 0, type: network.mojom.CookiePartitionKeySpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.DevToolsObserver_OnEarlyHintsResponse_ParamsSpec, 'network.mojom.DevToolsObserver_OnEarlyHintsResponse_Params', [
+      mojo.internal.StructField('devtool_request_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('headers', 8, 0, mojo.internal.Array(network.mojom.HttpRawHeaderPairSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-network.mojom.DevToolsObserver_OnEarlyHintsResponse_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DevToolsObserver_OnEarlyHintsResponse_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'devtool_request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'headers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.HttpRawHeaderPairSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.DevToolsObserver_OnPrivateNetworkRequest_ParamsSpec, 'network.mojom.DevToolsObserver_OnPrivateNetworkRequest_Params', [
+      mojo.internal.StructField('devtool_request_id', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_warning', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('resource_address_space', 24, 0, network.mojom.IPAddressSpaceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('client_security_state', 16, 0, network.mojom.ClientSecurityStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-network.mojom.DevToolsObserver_OnPrivateNetworkRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DevToolsObserver_OnPrivateNetworkRequest_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'devtool_request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'is_warning', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'resource_address_space', packedOffset: 24, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false, minVersion: 0 },
-        { name: 'client_security_state', packedOffset: 16, packedBitOffset: 0, type: network.mojom.ClientSecurityStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.DevToolsObserver_OnCorsPreflightRequest_ParamsSpec, 'network.mojom.DevToolsObserver_OnCorsPreflightRequest_Params', [
+      mojo.internal.StructField('devtool_request_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request_headers', 8, 0, network.mojom.HttpRequestHeadersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request_info', 16, 0, network.mojom.URLRequestDevToolsInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('initiator_url', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('initiator_devtool_request_id', 32, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
-network.mojom.DevToolsObserver_OnCorsPreflightRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DevToolsObserver_OnCorsPreflightRequest_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'devtool_request_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'request_headers', packedOffset: 8, packedBitOffset: 0, type: network.mojom.HttpRequestHeadersSpec, nullable: false, minVersion: 0 },
-        { name: 'request_info', packedOffset: 16, packedBitOffset: 0, type: network.mojom.URLRequestDevToolsInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'initiator_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'initiator_devtool_request_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.DevToolsObserver_OnCorsPreflightResponse_ParamsSpec, 'network.mojom.DevToolsObserver_OnCorsPreflightResponse_Params', [
+      mojo.internal.StructField('devtool_request_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('head', 16, 0, network.mojom.URLResponseHeadDevToolsInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-network.mojom.DevToolsObserver_OnCorsPreflightResponse_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DevToolsObserver_OnCorsPreflightResponse_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'devtool_request_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'head', packedOffset: 16, packedBitOffset: 0, type: network.mojom.URLResponseHeadDevToolsInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.DevToolsObserver_OnCorsPreflightRequestCompleted_ParamsSpec, 'network.mojom.DevToolsObserver_OnCorsPreflightRequestCompleted_Params', [
+      mojo.internal.StructField('devtool_request_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 8, 0, network.mojom.URLLoaderCompletionStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-network.mojom.DevToolsObserver_OnCorsPreflightRequestCompleted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DevToolsObserver_OnCorsPreflightRequestCompleted_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'devtool_request_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: network.mojom.URLLoaderCompletionStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.DevToolsObserver_OnTrustTokenOperationDone_ParamsSpec, 'network.mojom.DevToolsObserver_OnTrustTokenOperationDone_Params', [
+      mojo.internal.StructField('devtool_request_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('result', 8, 0, network.mojom.TrustTokenOperationResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-network.mojom.DevToolsObserver_OnTrustTokenOperationDone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DevToolsObserver_OnTrustTokenOperationDone_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'devtool_request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: network.mojom.TrustTokenOperationResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.DevToolsObserver_OnCorsError_ParamsSpec, 'network.mojom.DevToolsObserver_OnCorsError_Params', [
+      mojo.internal.StructField('devtool_request_id', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('initiator_origin', 8, 0, url.mojom.OriginSpec, null, true, 0, undefined),
+      mojo.internal.StructField('client_security_state', 16, 0, network.mojom.ClientSecurityStateSpec, null, true, 0, undefined),
+      mojo.internal.StructField('url', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 32, 0, network.mojom.CorsErrorStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_warning', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
-network.mojom.DevToolsObserver_OnCorsError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DevToolsObserver_OnCorsError_Params',
-      packedSize: 56,
-      fields: [
-        { name: 'devtool_request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'initiator_origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true, minVersion: 0 },
-        { name: 'client_security_state', packedOffset: 16, packedBitOffset: 0, type: network.mojom.ClientSecurityStateSpec, nullable: true, minVersion: 0 },
-        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'status', packedOffset: 32, packedBitOffset: 0, type: network.mojom.CorsErrorStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'is_warning', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.DevToolsObserver_OnOrbError_ParamsSpec, 'network.mojom.DevToolsObserver_OnOrbError_Params', [
+      mojo.internal.StructField('devtools_request_id', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-network.mojom.DevToolsObserver_OnOrbError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DevToolsObserver_OnOrbError_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'devtools_request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.DevToolsObserver_OnSharedDictionaryError_ParamsSpec, 'network.mojom.DevToolsObserver_OnSharedDictionaryError_Params', [
+      mojo.internal.StructField('devtool_request_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 16, 0, network.mojom.SharedDictionaryErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-network.mojom.DevToolsObserver_OnSharedDictionaryError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DevToolsObserver_OnSharedDictionaryError_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'devtool_request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: network.mojom.SharedDictionaryErrorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.DevToolsObserver_OnSRIMessageSignatureIssue_ParamsSpec, 'network.mojom.DevToolsObserver_OnSRIMessageSignatureIssue_Params', [
+      mojo.internal.StructField('devtool_request_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('issues', 16, 0, mojo.internal.Array(network.mojom.SRIMessageSignatureIssueSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-network.mojom.DevToolsObserver_OnSRIMessageSignatureIssue_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DevToolsObserver_OnSRIMessageSignatureIssue_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'devtool_request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'issues', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.SRIMessageSignatureIssueSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.DevToolsObserver_OnUnencodedDigestError_ParamsSpec, 'network.mojom.DevToolsObserver_OnUnencodedDigestError_Params', [
+      mojo.internal.StructField('devtool_request_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('issue', 16, 0, network.mojom.UnencodedDigestIssueSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-network.mojom.DevToolsObserver_OnUnencodedDigestError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DevToolsObserver_OnUnencodedDigestError_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'devtool_request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'issue', packedOffset: 16, packedBitOffset: 0, type: network.mojom.UnencodedDigestIssueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-network.mojom.DevToolsObserver_Clone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DevToolsObserver_Clone_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.DevToolsObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.DevToolsObserver_Clone_ParamsSpec, 'network.mojom.DevToolsObserver_Clone_Params', [
+      mojo.internal.StructField('listener', 0, 0, mojo.internal.InterfaceRequest(network.mojom.DevToolsObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 network.mojom.DevToolsObserverPendingReceiver = class {
   constructor(handle) {
@@ -469,240 +387,6 @@ network.mojom.DevToolsObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnRawRequest
-network.mojom.DevToolsObserver_OnRawRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DevToolsObserver.OnRawRequest_Params',
-      packedSize: 64,
-      fields: [
-        { name: 'devtool_request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'cookies_with_access_result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.CookieWithAccessResultSpec, false), nullable: false, minVersion: 0 },
-        { name: 'headers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.HttpRawHeaderPairSpec, false), nullable: false, minVersion: 0 },
-        { name: 'timestamp', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'client_security_state', packedOffset: 32, packedBitOffset: 0, type: network.mojom.ClientSecurityStateSpec, nullable: true, minVersion: 0 },
-        { name: 'other_partition_info', packedOffset: 40, packedBitOffset: 0, type: network.mojom.OtherPartitionInfoSpec, nullable: true, minVersion: 0 },
-        { name: 'applied_network_conditions_id', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
-
-// ParamsSpec for OnRawResponse
-network.mojom.DevToolsObserver_OnRawResponse_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DevToolsObserver.OnRawResponse_Params',
-      packedSize: 56,
-      fields: [
-        { name: 'devtool_request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'cookies_with_access_result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.CookieAndLineWithAccessResultSpec, false), nullable: false, minVersion: 0 },
-        { name: 'headers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.HttpRawHeaderPairSpec, false), nullable: false, minVersion: 0 },
-        { name: 'raw_response_headers', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'resource_address_space', packedOffset: 40, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false, minVersion: 0 },
-        { name: 'http_status_code', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'cookie_partition_key', packedOffset: 32, packedBitOffset: 0, type: network.mojom.CookiePartitionKeySpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
-
-// ParamsSpec for OnEarlyHintsResponse
-network.mojom.DevToolsObserver_OnEarlyHintsResponse_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DevToolsObserver.OnEarlyHintsResponse_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'devtool_request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'headers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.HttpRawHeaderPairSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnPrivateNetworkRequest
-network.mojom.DevToolsObserver_OnPrivateNetworkRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DevToolsObserver.OnPrivateNetworkRequest_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'devtool_request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'is_warning', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'resource_address_space', packedOffset: 24, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false, minVersion: 0 },
-        { name: 'client_security_state', packedOffset: 16, packedBitOffset: 0, type: network.mojom.ClientSecurityStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for OnCorsPreflightRequest
-network.mojom.DevToolsObserver_OnCorsPreflightRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DevToolsObserver.OnCorsPreflightRequest_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'devtool_request_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'request_headers', packedOffset: 8, packedBitOffset: 0, type: network.mojom.HttpRequestHeadersSpec, nullable: false, minVersion: 0 },
-        { name: 'request_info', packedOffset: 16, packedBitOffset: 0, type: network.mojom.URLRequestDevToolsInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'initiator_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'initiator_devtool_request_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
-
-// ParamsSpec for OnCorsPreflightResponse
-network.mojom.DevToolsObserver_OnCorsPreflightResponse_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DevToolsObserver.OnCorsPreflightResponse_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'devtool_request_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'head', packedOffset: 16, packedBitOffset: 0, type: network.mojom.URLResponseHeadDevToolsInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for OnCorsPreflightRequestCompleted
-network.mojom.DevToolsObserver_OnCorsPreflightRequestCompleted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DevToolsObserver.OnCorsPreflightRequestCompleted_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'devtool_request_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: network.mojom.URLLoaderCompletionStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnTrustTokenOperationDone
-network.mojom.DevToolsObserver_OnTrustTokenOperationDone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DevToolsObserver.OnTrustTokenOperationDone_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'devtool_request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: network.mojom.TrustTokenOperationResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnCorsError
-network.mojom.DevToolsObserver_OnCorsError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DevToolsObserver.OnCorsError_Params',
-      packedSize: 56,
-      fields: [
-        { name: 'devtool_request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'initiator_origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true, minVersion: 0 },
-        { name: 'client_security_state', packedOffset: 16, packedBitOffset: 0, type: network.mojom.ClientSecurityStateSpec, nullable: true, minVersion: 0 },
-        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'status', packedOffset: 32, packedBitOffset: 0, type: network.mojom.CorsErrorStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'is_warning', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
-
-// ParamsSpec for OnOrbError
-network.mojom.DevToolsObserver_OnOrbError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DevToolsObserver.OnOrbError_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'devtools_request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnSharedDictionaryError
-network.mojom.DevToolsObserver_OnSharedDictionaryError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DevToolsObserver.OnSharedDictionaryError_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'devtool_request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: network.mojom.SharedDictionaryErrorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for OnSRIMessageSignatureIssue
-network.mojom.DevToolsObserver_OnSRIMessageSignatureIssue_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DevToolsObserver.OnSRIMessageSignatureIssue_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'devtool_request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'issues', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.SRIMessageSignatureIssueSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for OnUnencodedDigestError
-network.mojom.DevToolsObserver_OnUnencodedDigestError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DevToolsObserver.OnUnencodedDigestError_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'devtool_request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'issue', packedOffset: 16, packedBitOffset: 0, type: network.mojom.UnencodedDigestIssueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for Clone
-network.mojom.DevToolsObserver_Clone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DevToolsObserver.Clone_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.DevToolsObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.DevToolsObserverPtr = network.mojom.DevToolsObserverRemote;
 network.mojom.DevToolsObserverRequest = network.mojom.DevToolsObserverPendingReceiver;
 

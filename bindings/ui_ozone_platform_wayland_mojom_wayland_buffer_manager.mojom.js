@@ -8,6 +8,7 @@
 var ui = ui || {};
 ui.ozone = ui.ozone || {};
 ui.ozone.mojom = ui.ozone.mojom || {};
+var services = services || {};
 var skia = skia || {};
 var ui = ui || {};
 var gfx = gfx || {};
@@ -26,103 +27,72 @@ var gfx = gfx || {};
 var ui = ui || {};
 var ui = ui || {};
 
+ui.ozone.mojom.WaylandBufferManagerHost = {};
+ui.ozone.mojom.WaylandBufferManagerHost.$interfaceName = 'ui.ozone.mojom.WaylandBufferManagerHost';
+ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_ParamsSpec = { $: {} };
+ui.ozone.mojom.WaylandBufferManagerHost_CreateDmabufBasedBuffer_ParamsSpec = { $: {} };
+ui.ozone.mojom.WaylandBufferManagerHost_CreateShmBasedBuffer_ParamsSpec = { $: {} };
+ui.ozone.mojom.WaylandBufferManagerHost_CreateSinglePixelBuffer_ParamsSpec = { $: {} };
+ui.ozone.mojom.WaylandBufferManagerHost_DestroyBuffer_ParamsSpec = { $: {} };
+ui.ozone.mojom.WaylandBufferManagerHost_CommitOverlays_ParamsSpec = { $: {} };
+ui.ozone.mojom.WaylandBufferManagerGpu = {};
+ui.ozone.mojom.WaylandBufferManagerGpu.$interfaceName = 'ui.ozone.mojom.WaylandBufferManagerGpu';
+ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_ParamsSpec = { $: {} };
+ui.ozone.mojom.WaylandBufferManagerGpu_OnSubmission_ParamsSpec = { $: {} };
+ui.ozone.mojom.WaylandBufferManagerGpu_OnPresentation_ParamsSpec = { $: {} };
 
 // Interface: WaylandBufferManagerHost
-ui.ozone.mojom.WaylandBufferManagerHost = {};
+mojo.internal.Struct(
+    ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_Params', [
+      mojo.internal.StructField('buffer_manager_gpu_associated', 0, 0, mojo.internal.AssociatedInterfaceProxy(ui.ozone.mojom.WaylandBufferManagerGpuRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'buffer_manager_gpu_associated', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(ui.ozone.mojom.WaylandBufferManagerGpuRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ui.ozone.mojom.WaylandBufferManagerHost_CreateDmabufBasedBuffer_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerHost_CreateDmabufBasedBuffer_Params', [
+      mojo.internal.StructField('dmabuf_fd', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('size', 8, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('strides', 16, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+      mojo.internal.StructField('offsets', 24, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+      mojo.internal.StructField('modifiers', 32, 0, mojo.internal.Array(mojo.internal.Uint64, false), null, false, 0, undefined),
+      mojo.internal.StructField('format', 56, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('planes_count', 60, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('color_space', 40, 0, gfx.mojom.ColorSpaceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('hdr_metadata', 48, 0, gfx.mojom.HDRMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('buffer_id', 64, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 80]]);
 
-ui.ozone.mojom.WaylandBufferManagerHost_CreateDmabufBasedBuffer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.ozone.mojom.WaylandBufferManagerHost_CreateDmabufBasedBuffer_Params',
-      packedSize: 80,
-      fields: [
-        { name: 'dmabuf_fd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'strides', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: false, minVersion: 0 },
-        { name: 'offsets', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: false, minVersion: 0 },
-        { name: 'modifiers', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint64, false), nullable: false, minVersion: 0 },
-        { name: 'format', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'planes_count', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'color_space', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.ColorSpaceSpec, nullable: false, minVersion: 0 },
-        { name: 'hdr_metadata', packedOffset: 48, packedBitOffset: 0, type: gfx.mojom.HDRMetadataSpec, nullable: false, minVersion: 0 },
-        { name: 'buffer_id', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 80}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ui.ozone.mojom.WaylandBufferManagerHost_CreateShmBasedBuffer_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerHost_CreateShmBasedBuffer_Params', [
+      mojo.internal.StructField('shm_fd', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('length', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('size', 16, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('buffer_id', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-ui.ozone.mojom.WaylandBufferManagerHost_CreateShmBasedBuffer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.ozone.mojom.WaylandBufferManagerHost_CreateShmBasedBuffer_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'shm_fd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'buffer_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ui.ozone.mojom.WaylandBufferManagerHost_CreateSinglePixelBuffer_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerHost_CreateSinglePixelBuffer_Params', [
+      mojo.internal.StructField('color', 0, 0, skia.mojom.SkColor4fSpec, null, false, 0, undefined),
+      mojo.internal.StructField('buffer_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ui.ozone.mojom.WaylandBufferManagerHost_CreateSinglePixelBuffer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.ozone.mojom.WaylandBufferManagerHost_CreateSinglePixelBuffer_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'color', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.SkColor4fSpec, nullable: false, minVersion: 0 },
-        { name: 'buffer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ui.ozone.mojom.WaylandBufferManagerHost_DestroyBuffer_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerHost_DestroyBuffer_Params', [
+      mojo.internal.StructField('buffer_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ui.ozone.mojom.WaylandBufferManagerHost_DestroyBuffer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.ozone.mojom.WaylandBufferManagerHost_DestroyBuffer_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ui.ozone.mojom.WaylandBufferManagerHost_CommitOverlays_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.ozone.mojom.WaylandBufferManagerHost_CommitOverlays_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'widget', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.AcceleratedWidgetSpec, nullable: false, minVersion: 0 },
-        { name: 'frame_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.FrameDataSpec, nullable: false, minVersion: 0 },
-        { name: 'overlays', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(wl.mojom.WaylandOverlayConfigSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ui.ozone.mojom.WaylandBufferManagerHost_CommitOverlays_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerHost_CommitOverlays_Params', [
+      mojo.internal.StructField('widget', 0, 0, gfx.mojom.AcceleratedWidgetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame_id', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('data', 8, 0, gfx.mojom.FrameDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('overlays', 16, 0, mojo.internal.Array(wl.mojom.WaylandOverlayConfigSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 ui.ozone.mojom.WaylandBufferManagerHostPendingReceiver = class {
   constructor(handle) {
@@ -222,163 +192,39 @@ ui.ozone.mojom.WaylandBufferManagerHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetWaylandBufferManagerGpu
-ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.ozone.mojom.WaylandBufferManagerHost.SetWaylandBufferManagerGpu_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'buffer_manager_gpu_associated', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(ui.ozone.mojom.WaylandBufferManagerGpuRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CreateDmabufBasedBuffer
-ui.ozone.mojom.WaylandBufferManagerHost_CreateDmabufBasedBuffer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.ozone.mojom.WaylandBufferManagerHost.CreateDmabufBasedBuffer_Params',
-      packedSize: 80,
-      fields: [
-        { name: 'dmabuf_fd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'strides', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: false, minVersion: 0 },
-        { name: 'offsets', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: false, minVersion: 0 },
-        { name: 'modifiers', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint64, false), nullable: false, minVersion: 0 },
-        { name: 'format', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'planes_count', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'color_space', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.ColorSpaceSpec, nullable: false, minVersion: 0 },
-        { name: 'hdr_metadata', packedOffset: 48, packedBitOffset: 0, type: gfx.mojom.HDRMetadataSpec, nullable: false, minVersion: 0 },
-        { name: 'buffer_id', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 80}]
-    }
-  }
-};
-
-// ParamsSpec for CreateShmBasedBuffer
-ui.ozone.mojom.WaylandBufferManagerHost_CreateShmBasedBuffer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.ozone.mojom.WaylandBufferManagerHost.CreateShmBasedBuffer_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'shm_fd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'buffer_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for CreateSinglePixelBuffer
-ui.ozone.mojom.WaylandBufferManagerHost_CreateSinglePixelBuffer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.ozone.mojom.WaylandBufferManagerHost.CreateSinglePixelBuffer_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'color', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.SkColor4fSpec, nullable: false, minVersion: 0 },
-        { name: 'buffer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for DestroyBuffer
-ui.ozone.mojom.WaylandBufferManagerHost_DestroyBuffer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.ozone.mojom.WaylandBufferManagerHost.DestroyBuffer_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CommitOverlays
-ui.ozone.mojom.WaylandBufferManagerHost_CommitOverlays_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.ozone.mojom.WaylandBufferManagerHost.CommitOverlays_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'widget', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.AcceleratedWidgetSpec, nullable: false, minVersion: 0 },
-        { name: 'frame_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.FrameDataSpec, nullable: false, minVersion: 0 },
-        { name: 'overlays', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(wl.mojom.WaylandOverlayConfigSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// Legacy compatibility
 ui.ozone.mojom.WaylandBufferManagerHostPtr = ui.ozone.mojom.WaylandBufferManagerHostRemote;
 ui.ozone.mojom.WaylandBufferManagerHostRequest = ui.ozone.mojom.WaylandBufferManagerHostPendingReceiver;
 
 
 // Interface: WaylandBufferManagerGpu
-ui.ozone.mojom.WaylandBufferManagerGpu = {};
+mojo.internal.Struct(
+    ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_Params', [
+      mojo.internal.StructField('remote_host', 0, 0, mojo.internal.InterfaceProxy(ui.ozone.mojom.WaylandBufferManagerHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('shared_image_formats_with_modifiers', 8, 0, mojo.internal.Map(viz.mojom.SharedImageFormatSpec, mojo.internal.Array(mojo.internal.Uint64, false), false), null, false, 0, undefined),
+      mojo.internal.StructField('supports_dma_buf', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('supports_viewporter', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('supports_acquire_fence', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('supports_overlays', 16, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('supports_single_pixel_buffer', 16, 4, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'remote_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ui.ozone.mojom.WaylandBufferManagerHostRemote), nullable: false, minVersion: 0 },
-        { name: 'shared_image_formats_with_modifiers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(viz.mojom.SharedImageFormatSpec, mojo.internal.Array(mojo.internal.Uint64, false), false), nullable: false, minVersion: 0 },
-        { name: 'supports_dma_buf', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'supports_viewporter', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'supports_acquire_fence', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'supports_overlays', packedOffset: 16, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'supports_single_pixel_buffer', packedOffset: 16, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ui.ozone.mojom.WaylandBufferManagerGpu_OnSubmission_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerGpu_OnSubmission_Params', [
+      mojo.internal.StructField('widget', 0, 0, gfx.mojom.AcceleratedWidgetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame_id', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('swap_result', 28, 0, gfx.mojom.SwapResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('release_fence_handle', 8, 0, gfx.mojom.GpuFenceHandleSpec, null, true, 0, undefined),
+      mojo.internal.StructField('presentation_infos', 16, 0, mojo.internal.Array(wl.mojom.WaylandPresentationInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-ui.ozone.mojom.WaylandBufferManagerGpu_OnSubmission_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.ozone.mojom.WaylandBufferManagerGpu_OnSubmission_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'widget', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.AcceleratedWidgetSpec, nullable: false, minVersion: 0 },
-        { name: 'frame_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'swap_result', packedOffset: 28, packedBitOffset: 0, type: gfx.mojom.SwapResultSpec, nullable: false, minVersion: 0 },
-        { name: 'release_fence_handle', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.GpuFenceHandleSpec, nullable: true, minVersion: 0 },
-        { name: 'presentation_infos', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(wl.mojom.WaylandPresentationInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-ui.ozone.mojom.WaylandBufferManagerGpu_OnPresentation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.ozone.mojom.WaylandBufferManagerGpu_OnPresentation_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'widget', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.AcceleratedWidgetSpec, nullable: false, minVersion: 0 },
-        { name: 'presentation_infos', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(wl.mojom.WaylandPresentationInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ui.ozone.mojom.WaylandBufferManagerGpu_OnPresentation_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerGpu_OnPresentation_Params', [
+      mojo.internal.StructField('widget', 0, 0, gfx.mojom.AcceleratedWidgetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('presentation_infos', 8, 0, mojo.internal.Array(wl.mojom.WaylandPresentationInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 ui.ozone.mojom.WaylandBufferManagerGpuPendingReceiver = class {
   constructor(handle) {
@@ -451,60 +297,6 @@ ui.ozone.mojom.WaylandBufferManagerGpu.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Initialize
-ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.ozone.mojom.WaylandBufferManagerGpu.Initialize_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'remote_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ui.ozone.mojom.WaylandBufferManagerHostRemote), nullable: false, minVersion: 0 },
-        { name: 'shared_image_formats_with_modifiers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(viz.mojom.SharedImageFormatSpec, mojo.internal.Array(mojo.internal.Uint64, false), false), nullable: false, minVersion: 0 },
-        { name: 'supports_dma_buf', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'supports_viewporter', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'supports_acquire_fence', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'supports_overlays', packedOffset: 16, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'supports_single_pixel_buffer', packedOffset: 16, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for OnSubmission
-ui.ozone.mojom.WaylandBufferManagerGpu_OnSubmission_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.ozone.mojom.WaylandBufferManagerGpu.OnSubmission_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'widget', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.AcceleratedWidgetSpec, nullable: false, minVersion: 0 },
-        { name: 'frame_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'swap_result', packedOffset: 28, packedBitOffset: 0, type: gfx.mojom.SwapResultSpec, nullable: false, minVersion: 0 },
-        { name: 'release_fence_handle', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.GpuFenceHandleSpec, nullable: true, minVersion: 0 },
-        { name: 'presentation_infos', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(wl.mojom.WaylandPresentationInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for OnPresentation
-ui.ozone.mojom.WaylandBufferManagerGpu_OnPresentation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.ozone.mojom.WaylandBufferManagerGpu.OnPresentation_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'widget', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.AcceleratedWidgetSpec, nullable: false, minVersion: 0 },
-        { name: 'presentation_infos', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(wl.mojom.WaylandPresentationInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 ui.ozone.mojom.WaylandBufferManagerGpuPtr = ui.ozone.mojom.WaylandBufferManagerGpuRemote;
 ui.ozone.mojom.WaylandBufferManagerGpuRequest = ui.ozone.mojom.WaylandBufferManagerGpuPendingReceiver;
 

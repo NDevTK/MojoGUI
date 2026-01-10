@@ -8,17 +8,52 @@
 var emoji_picker = emoji_picker || {};
 emoji_picker.mojom = emoji_picker.mojom || {};
 var url = url || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var components = components || {};
 
+emoji_picker.mojom.FeatureSpec = { $: mojo.internal.Enum() };
+emoji_picker.mojom.CategorySpec = { $: mojo.internal.Enum() };
+emoji_picker.mojom.EmojiVariantSpec = { $: {} };
+emoji_picker.mojom.HistoryItemSpec = { $: {} };
+emoji_picker.mojom.PageHandlerFactory = {};
+emoji_picker.mojom.PageHandlerFactory.$interfaceName = 'emoji_picker.mojom.PageHandlerFactory';
+emoji_picker.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+emoji_picker.mojom.PageHandler = {};
+emoji_picker.mojom.PageHandler.$interfaceName = 'emoji_picker.mojom.PageHandler';
+emoji_picker.mojom.PageHandler_ShowUI_ParamsSpec = { $: {} };
+emoji_picker.mojom.PageHandler_InsertEmoji_ParamsSpec = { $: {} };
+emoji_picker.mojom.PageHandler_InsertGif_ParamsSpec = { $: {} };
+emoji_picker.mojom.PageHandler_IsIncognitoTextField_ParamsSpec = { $: {} };
+emoji_picker.mojom.PageHandler_IsIncognitoTextField_ResponseParamsSpec = { $: {} };
+emoji_picker.mojom.PageHandler_GetFeatureList_ParamsSpec = { $: {} };
+emoji_picker.mojom.PageHandler_GetFeatureList_ResponseParamsSpec = { $: {} };
+emoji_picker.mojom.PageHandler_GetCategories_ParamsSpec = { $: {} };
+emoji_picker.mojom.PageHandler_GetCategories_ResponseParamsSpec = { $: {} };
+emoji_picker.mojom.PageHandler_GetFeaturedGifs_ParamsSpec = { $: {} };
+emoji_picker.mojom.PageHandler_GetFeaturedGifs_ResponseParamsSpec = { $: {} };
+emoji_picker.mojom.PageHandler_SearchGifs_ParamsSpec = { $: {} };
+emoji_picker.mojom.PageHandler_SearchGifs_ResponseParamsSpec = { $: {} };
+emoji_picker.mojom.PageHandler_GetGifsByIds_ParamsSpec = { $: {} };
+emoji_picker.mojom.PageHandler_GetGifsByIds_ResponseParamsSpec = { $: {} };
+emoji_picker.mojom.PageHandler_OnUiFullyLoaded_ParamsSpec = { $: {} };
+emoji_picker.mojom.PageHandler_GetInitialCategory_ParamsSpec = { $: {} };
+emoji_picker.mojom.PageHandler_GetInitialCategory_ResponseParamsSpec = { $: {} };
+emoji_picker.mojom.PageHandler_GetInitialQuery_ParamsSpec = { $: {} };
+emoji_picker.mojom.PageHandler_GetInitialQuery_ResponseParamsSpec = { $: {} };
+emoji_picker.mojom.PageHandler_UpdateHistoryInPrefs_ParamsSpec = { $: {} };
+emoji_picker.mojom.PageHandler_UpdatePreferredVariantsInPrefs_ParamsSpec = { $: {} };
+emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ParamsSpec = { $: {} };
+emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ResponseParamsSpec = { $: {} };
 
 // Enum: Feature
 emoji_picker.mojom.Feature = {
   EMOJI_PICKER_EXTENSION: 0,
   EMOJI_PICKER_SEARCH_EXTENSION: 1,
   EMOJI_PICKER_GIF_SUPPORT: 2,
-  EMOJI_PICKER_VARIANT_GROUPING_SUPPORT: 3,
-  EMOJI_PICKER_MOJO_SEARCH: 4,
+  EMOJI_PICKER_VARIANT_GROUPING_SUPPORT: 5,
+  EMOJI_PICKER_MOJO_SEARCH: 6,
 };
-emoji_picker.mojom.FeatureSpec = { $: mojo.internal.Enum() };
 
 // Enum: Category
 emoji_picker.mojom.Category = {
@@ -27,53 +62,29 @@ emoji_picker.mojom.Category = {
   kEmoticons: 2,
   kGifs: 3,
 };
-emoji_picker.mojom.CategorySpec = { $: mojo.internal.Enum() };
 
 // Struct: EmojiVariant
-emoji_picker.mojom.EmojiVariantSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.EmojiVariant',
-      packedSize: 24,
-      fields: [
-        { name: 'base', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'variant', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    emoji_picker.mojom.EmojiVariantSpec, 'emoji_picker.mojom.EmojiVariant', [
+      mojo.internal.StructField('base', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('variant', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: HistoryItem
-emoji_picker.mojom.HistoryItemSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.HistoryItem',
-      packedSize: 24,
-      fields: [
-        { name: 'emoji', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.JSTimeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    emoji_picker.mojom.HistoryItemSpec, 'emoji_picker.mojom.HistoryItem', [
+      mojo.internal.StructField('emoji', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 8, 0, mojo_base.mojom.JSTimeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: PageHandlerFactory
-emoji_picker.mojom.PageHandlerFactory = {};
-
-emoji_picker.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(emoji_picker.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    emoji_picker.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'emoji_picker.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(emoji_picker.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 emoji_picker.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -128,219 +139,155 @@ emoji_picker.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-emoji_picker.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(emoji_picker.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 emoji_picker.mojom.PageHandlerFactoryPtr = emoji_picker.mojom.PageHandlerFactoryRemote;
 emoji_picker.mojom.PageHandlerFactoryRequest = emoji_picker.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-emoji_picker.mojom.PageHandler = {};
+mojo.internal.Struct(
+    emoji_picker.mojom.PageHandler_ShowUI_ParamsSpec, 'emoji_picker.mojom.PageHandler_ShowUI_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-emoji_picker.mojom.PageHandler_ShowUI_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandler_ShowUI_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    emoji_picker.mojom.PageHandler_InsertEmoji_ParamsSpec, 'emoji_picker.mojom.PageHandler_InsertEmoji_Params', [
+      mojo.internal.StructField('emoji', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('is_variant', 10, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('search_length', 8, 0, mojo.internal.Int16, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-emoji_picker.mojom.PageHandler_InsertEmoji_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandler_InsertEmoji_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'emoji', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_variant', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'search_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    emoji_picker.mojom.PageHandler_InsertGif_ParamsSpec, 'emoji_picker.mojom.PageHandler_InsertGif_Params', [
+      mojo.internal.StructField('gif', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-emoji_picker.mojom.PageHandler_InsertGif_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandler_InsertGif_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'gif', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    emoji_picker.mojom.PageHandler_IsIncognitoTextField_ParamsSpec, 'emoji_picker.mojom.PageHandler_IsIncognitoTextField_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-emoji_picker.mojom.PageHandler_IsIncognitoTextField_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandler_IsIncognitoTextField_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    emoji_picker.mojom.PageHandler_IsIncognitoTextField_ResponseParamsSpec, 'emoji_picker.mojom.PageHandler_IsIncognitoTextField_ResponseParams', [
+      mojo.internal.StructField('incognito', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-emoji_picker.mojom.PageHandler_GetFeatureList_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandler_GetFeatureList_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    emoji_picker.mojom.PageHandler_GetFeatureList_ParamsSpec, 'emoji_picker.mojom.PageHandler_GetFeatureList_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-emoji_picker.mojom.PageHandler_GetCategories_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandler_GetCategories_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    emoji_picker.mojom.PageHandler_GetFeatureList_ResponseParamsSpec, 'emoji_picker.mojom.PageHandler_GetFeatureList_ResponseParams', [
+      mojo.internal.StructField('feature_list', 0, 0, mojo.internal.Array(emoji_picker.mojom.FeatureSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-emoji_picker.mojom.PageHandler_GetFeaturedGifs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandler_GetFeaturedGifs_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    emoji_picker.mojom.PageHandler_GetCategories_ParamsSpec, 'emoji_picker.mojom.PageHandler_GetCategories_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-emoji_picker.mojom.PageHandler_SearchGifs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandler_SearchGifs_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pos', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    emoji_picker.mojom.PageHandler_GetCategories_ResponseParamsSpec, 'emoji_picker.mojom.PageHandler_GetCategories_ResponseParams', [
+      mojo.internal.StructField('status', 8, 0, tenor.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('gif_categories', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-emoji_picker.mojom.PageHandler_GetGifsByIds_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandler_GetGifsByIds_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    emoji_picker.mojom.PageHandler_GetFeaturedGifs_ParamsSpec, 'emoji_picker.mojom.PageHandler_GetFeaturedGifs_Params', [
+      mojo.internal.StructField('pos', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-emoji_picker.mojom.PageHandler_OnUiFullyLoaded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandler_OnUiFullyLoaded_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    emoji_picker.mojom.PageHandler_GetFeaturedGifs_ResponseParamsSpec, 'emoji_picker.mojom.PageHandler_GetFeaturedGifs_ResponseParams', [
+      mojo.internal.StructField('status', 8, 0, tenor.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('featured_gifs', 0, 0, tenor.mojom.PaginatedGifResponsesSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-emoji_picker.mojom.PageHandler_GetInitialCategory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandler_GetInitialCategory_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    emoji_picker.mojom.PageHandler_SearchGifs_ParamsSpec, 'emoji_picker.mojom.PageHandler_SearchGifs_Params', [
+      mojo.internal.StructField('query', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('pos', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-emoji_picker.mojom.PageHandler_GetInitialQuery_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandler_GetInitialQuery_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    emoji_picker.mojom.PageHandler_SearchGifs_ResponseParamsSpec, 'emoji_picker.mojom.PageHandler_SearchGifs_ResponseParams', [
+      mojo.internal.StructField('status', 8, 0, tenor.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('search_gifs', 0, 0, tenor.mojom.PaginatedGifResponsesSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-emoji_picker.mojom.PageHandler_UpdateHistoryInPrefs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandler_UpdateHistoryInPrefs_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'category', packedOffset: 8, packedBitOffset: 0, type: emoji_picker.mojom.CategorySpec, nullable: false, minVersion: 0 },
-        { name: 'history', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(emoji_picker.mojom.HistoryItemSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    emoji_picker.mojom.PageHandler_GetGifsByIds_ParamsSpec, 'emoji_picker.mojom.PageHandler_GetGifsByIds_Params', [
+      mojo.internal.StructField('ids', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-emoji_picker.mojom.PageHandler_UpdatePreferredVariantsInPrefs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandler_UpdatePreferredVariantsInPrefs_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'preferred_variants', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(emoji_picker.mojom.EmojiVariantSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    emoji_picker.mojom.PageHandler_GetGifsByIds_ResponseParamsSpec, 'emoji_picker.mojom.PageHandler_GetGifsByIds_ResponseParams', [
+      mojo.internal.StructField('status', 8, 0, tenor.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('selected_gifs', 0, 0, mojo.internal.Array(tenor.mojom.GifResponseSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: emoji_picker.mojom.CategorySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    emoji_picker.mojom.PageHandler_OnUiFullyLoaded_ParamsSpec, 'emoji_picker.mojom.PageHandler_OnUiFullyLoaded_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    emoji_picker.mojom.PageHandler_GetInitialCategory_ParamsSpec, 'emoji_picker.mojom.PageHandler_GetInitialCategory_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    emoji_picker.mojom.PageHandler_GetInitialCategory_ResponseParamsSpec, 'emoji_picker.mojom.PageHandler_GetInitialCategory_ResponseParams', [
+      mojo.internal.StructField('category', 0, 0, emoji_picker.mojom.CategorySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    emoji_picker.mojom.PageHandler_GetInitialQuery_ParamsSpec, 'emoji_picker.mojom.PageHandler_GetInitialQuery_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    emoji_picker.mojom.PageHandler_GetInitialQuery_ResponseParamsSpec, 'emoji_picker.mojom.PageHandler_GetInitialQuery_ResponseParams', [
+      mojo.internal.StructField('query', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    emoji_picker.mojom.PageHandler_UpdateHistoryInPrefs_ParamsSpec, 'emoji_picker.mojom.PageHandler_UpdateHistoryInPrefs_Params', [
+      mojo.internal.StructField('category', 8, 0, emoji_picker.mojom.CategorySpec, null, false, 0, undefined),
+      mojo.internal.StructField('history', 0, 0, mojo.internal.Array(emoji_picker.mojom.HistoryItemSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    emoji_picker.mojom.PageHandler_UpdatePreferredVariantsInPrefs_ParamsSpec, 'emoji_picker.mojom.PageHandler_UpdatePreferredVariantsInPrefs_Params', [
+      mojo.internal.StructField('preferred_variants', 0, 0, mojo.internal.Array(emoji_picker.mojom.EmojiVariantSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ParamsSpec, 'emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_Params', [
+      mojo.internal.StructField('category', 0, 0, emoji_picker.mojom.CategorySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ResponseParamsSpec, 'emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ResponseParams', [
+      mojo.internal.StructField('history', 0, 0, mojo.internal.Array(emoji_picker.mojom.HistoryItemSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 emoji_picker.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -521,335 +468,6 @@ emoji_picker.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ShowUI
-emoji_picker.mojom.PageHandler_ShowUI_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandler.ShowUI_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for InsertEmoji
-emoji_picker.mojom.PageHandler_InsertEmoji_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandler.InsertEmoji_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'emoji', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_variant', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'search_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for InsertGif
-emoji_picker.mojom.PageHandler_InsertGif_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandler.InsertGif_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'gif', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for IsIncognitoTextField
-emoji_picker.mojom.PageHandler_IsIncognitoTextField_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandler.IsIncognitoTextField_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-emoji_picker.mojom.PageHandler_IsIncognitoTextField_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandler.IsIncognitoTextField_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'incognito', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetFeatureList
-emoji_picker.mojom.PageHandler_GetFeatureList_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandler.GetFeatureList_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-emoji_picker.mojom.PageHandler_GetFeatureList_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandler.GetFeatureList_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'feature_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(emoji_picker.mojom.FeatureSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetCategories
-emoji_picker.mojom.PageHandler_GetCategories_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandler.GetCategories_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-emoji_picker.mojom.PageHandler_GetCategories_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandler.GetCategories_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: tenor.mojom.StatusSpec, nullable: false, minVersion: 0 },
-        { name: 'gif_categories', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for GetFeaturedGifs
-emoji_picker.mojom.PageHandler_GetFeaturedGifs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandler.GetFeaturedGifs_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-emoji_picker.mojom.PageHandler_GetFeaturedGifs_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandler.GetFeaturedGifs_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: tenor.mojom.StatusSpec, nullable: false, minVersion: 0 },
-        { name: 'featured_gifs', packedOffset: 0, packedBitOffset: 0, type: tenor.mojom.PaginatedGifResponsesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SearchGifs
-emoji_picker.mojom.PageHandler_SearchGifs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandler.SearchGifs_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pos', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-emoji_picker.mojom.PageHandler_SearchGifs_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandler.SearchGifs_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: tenor.mojom.StatusSpec, nullable: false, minVersion: 0 },
-        { name: 'search_gifs', packedOffset: 0, packedBitOffset: 0, type: tenor.mojom.PaginatedGifResponsesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for GetGifsByIds
-emoji_picker.mojom.PageHandler_GetGifsByIds_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandler.GetGifsByIds_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-emoji_picker.mojom.PageHandler_GetGifsByIds_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandler.GetGifsByIds_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: tenor.mojom.StatusSpec, nullable: false, minVersion: 0 },
-        { name: 'selected_gifs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(tenor.mojom.GifResponseSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnUiFullyLoaded
-emoji_picker.mojom.PageHandler_OnUiFullyLoaded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandler.OnUiFullyLoaded_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for GetInitialCategory
-emoji_picker.mojom.PageHandler_GetInitialCategory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandler.GetInitialCategory_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-emoji_picker.mojom.PageHandler_GetInitialCategory_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandler.GetInitialCategory_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: emoji_picker.mojom.CategorySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetInitialQuery
-emoji_picker.mojom.PageHandler_GetInitialQuery_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandler.GetInitialQuery_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-emoji_picker.mojom.PageHandler_GetInitialQuery_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandler.GetInitialQuery_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateHistoryInPrefs
-emoji_picker.mojom.PageHandler_UpdateHistoryInPrefs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandler.UpdateHistoryInPrefs_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'category', packedOffset: 8, packedBitOffset: 0, type: emoji_picker.mojom.CategorySpec, nullable: false, minVersion: 0 },
-        { name: 'history', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(emoji_picker.mojom.HistoryItemSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for UpdatePreferredVariantsInPrefs
-emoji_picker.mojom.PageHandler_UpdatePreferredVariantsInPrefs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandler.UpdatePreferredVariantsInPrefs_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'preferred_variants', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(emoji_picker.mojom.EmojiVariantSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetHistoryFromPrefs
-emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandler.GetHistoryFromPrefs_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: emoji_picker.mojom.CategorySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_picker.mojom.PageHandler.GetHistoryFromPrefs_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'history', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(emoji_picker.mojom.HistoryItemSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 emoji_picker.mojom.PageHandlerPtr = emoji_picker.mojom.PageHandlerRemote;
 emoji_picker.mojom.PageHandlerRequest = emoji_picker.mojom.PageHandlerPendingReceiver;
 

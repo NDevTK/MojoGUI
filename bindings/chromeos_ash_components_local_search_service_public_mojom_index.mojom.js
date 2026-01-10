@@ -8,100 +8,108 @@
 var ash = ash || {};
 ash.local_search_service = ash.local_search_service || {};
 ash.local_search_service.mojom = ash.local_search_service.mojom || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var components = components || {};
 
+ash.local_search_service.mojom.Index = {};
+ash.local_search_service.mojom.Index.$interfaceName = 'ash.local_search_service.mojom.Index';
+ash.local_search_service.mojom.Index_GetSize_ParamsSpec = { $: {} };
+ash.local_search_service.mojom.Index_GetSize_ResponseParamsSpec = { $: {} };
+ash.local_search_service.mojom.Index_AddOrUpdate_ParamsSpec = { $: {} };
+ash.local_search_service.mojom.Index_AddOrUpdate_ResponseParamsSpec = { $: {} };
+ash.local_search_service.mojom.Index_Delete_ParamsSpec = { $: {} };
+ash.local_search_service.mojom.Index_Delete_ResponseParamsSpec = { $: {} };
+ash.local_search_service.mojom.Index_UpdateDocuments_ParamsSpec = { $: {} };
+ash.local_search_service.mojom.Index_UpdateDocuments_ResponseParamsSpec = { $: {} };
+ash.local_search_service.mojom.Index_Find_ParamsSpec = { $: {} };
+ash.local_search_service.mojom.Index_Find_ResponseParamsSpec = { $: {} };
+ash.local_search_service.mojom.Index_ClearIndex_ParamsSpec = { $: {} };
+ash.local_search_service.mojom.Index_ClearIndex_ResponseParamsSpec = { $: {} };
+ash.local_search_service.mojom.Index_SetSearchParams_ParamsSpec = { $: {} };
+ash.local_search_service.mojom.Index_SetSearchParams_ResponseParamsSpec = { $: {} };
 
 // Interface: Index
-ash.local_search_service.mojom.Index = {};
+mojo.internal.Struct(
+    ash.local_search_service.mojom.Index_GetSize_ParamsSpec, 'ash.local_search_service.mojom.Index_GetSize_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.local_search_service.mojom.Index_GetSize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.local_search_service.mojom.Index_GetSize_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.local_search_service.mojom.Index_GetSize_ResponseParamsSpec, 'ash.local_search_service.mojom.Index_GetSize_ResponseParams', [
+      mojo.internal.StructField('num_items', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.local_search_service.mojom.Index_AddOrUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.local_search_service.mojom.Index_AddOrUpdate_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.local_search_service.mojom.DataSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.local_search_service.mojom.Index_AddOrUpdate_ParamsSpec, 'ash.local_search_service.mojom.Index_AddOrUpdate_Params', [
+      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(ash.local_search_service.mojom.DataSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.local_search_service.mojom.Index_Delete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.local_search_service.mojom.Index_Delete_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.local_search_service.mojom.Index_AddOrUpdate_ResponseParamsSpec, 'ash.local_search_service.mojom.Index_AddOrUpdate_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.local_search_service.mojom.Index_UpdateDocuments_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.local_search_service.mojom.Index_UpdateDocuments_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.local_search_service.mojom.DataSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.local_search_service.mojom.Index_Delete_ParamsSpec, 'ash.local_search_service.mojom.Index_Delete_Params', [
+      mojo.internal.StructField('ids', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.local_search_service.mojom.Index_Find_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.local_search_service.mojom.Index_Find_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'max_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.local_search_service.mojom.Index_Delete_ResponseParamsSpec, 'ash.local_search_service.mojom.Index_Delete_ResponseParams', [
+      mojo.internal.StructField('num_deleted', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.local_search_service.mojom.Index_ClearIndex_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.local_search_service.mojom.Index_ClearIndex_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.local_search_service.mojom.Index_UpdateDocuments_ParamsSpec, 'ash.local_search_service.mojom.Index_UpdateDocuments_Params', [
+      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(ash.local_search_service.mojom.DataSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.local_search_service.mojom.Index_SetSearchParams_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.local_search_service.mojom.Index_SetSearchParams_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'search_params', packedOffset: 0, packedBitOffset: 0, type: ash.local_search_service.mojom.SearchParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.local_search_service.mojom.Index_UpdateDocuments_ResponseParamsSpec, 'ash.local_search_service.mojom.Index_UpdateDocuments_ResponseParams', [
+      mojo.internal.StructField('num_deleted', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.local_search_service.mojom.Index_Find_ParamsSpec, 'ash.local_search_service.mojom.Index_Find_Params', [
+      mojo.internal.StructField('query', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('max_results', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    ash.local_search_service.mojom.Index_Find_ResponseParamsSpec, 'ash.local_search_service.mojom.Index_Find_ResponseParams', [
+      mojo.internal.StructField('status', 8, 0, ash.local_search_service.mojom.ResponseStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(ash.local_search_service.mojom.ResultSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    ash.local_search_service.mojom.Index_ClearIndex_ParamsSpec, 'ash.local_search_service.mojom.Index_ClearIndex_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    ash.local_search_service.mojom.Index_ClearIndex_ResponseParamsSpec, 'ash.local_search_service.mojom.Index_ClearIndex_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    ash.local_search_service.mojom.Index_SetSearchParams_ParamsSpec, 'ash.local_search_service.mojom.Index_SetSearchParams_Params', [
+      mojo.internal.StructField('search_params', 0, 0, ash.local_search_service.mojom.SearchParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.local_search_service.mojom.Index_SetSearchParams_ResponseParamsSpec, 'ash.local_search_service.mojom.Index_SetSearchParams_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 ash.local_search_service.mojom.IndexPendingReceiver = class {
   constructor(handle) {
@@ -149,7 +157,7 @@ ash.local_search_service.mojom.IndexRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       ash.local_search_service.mojom.Index_AddOrUpdate_ParamsSpec,
-      null,
+      ash.local_search_service.mojom.Index_AddOrUpdate_ResponseParamsSpec,
       [data]);
   }
 
@@ -185,7 +193,7 @@ ash.local_search_service.mojom.IndexRemoteCallHandler = class {
     return this.proxy.sendMessage(
       5,  // ordinal
       ash.local_search_service.mojom.Index_ClearIndex_ParamsSpec,
-      null,
+      ash.local_search_service.mojom.Index_ClearIndex_ResponseParamsSpec,
       []);
   }
 
@@ -194,7 +202,7 @@ ash.local_search_service.mojom.IndexRemoteCallHandler = class {
     return this.proxy.sendMessage(
       6,  // ordinal
       ash.local_search_service.mojom.Index_SetSearchParams_ParamsSpec,
-      null,
+      ash.local_search_service.mojom.Index_SetSearchParams_ResponseParamsSpec,
       [search_params]);
   }
 
@@ -210,157 +218,6 @@ ash.local_search_service.mojom.Index.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetSize
-ash.local_search_service.mojom.Index_GetSize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.local_search_service.mojom.Index.GetSize_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.local_search_service.mojom.Index_GetSize_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.local_search_service.mojom.Index.GetSize_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'num_items', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AddOrUpdate
-ash.local_search_service.mojom.Index_AddOrUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.local_search_service.mojom.Index.AddOrUpdate_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.local_search_service.mojom.DataSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Delete
-ash.local_search_service.mojom.Index_Delete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.local_search_service.mojom.Index.Delete_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.local_search_service.mojom.Index_Delete_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.local_search_service.mojom.Index.Delete_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'num_deleted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateDocuments
-ash.local_search_service.mojom.Index_UpdateDocuments_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.local_search_service.mojom.Index.UpdateDocuments_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.local_search_service.mojom.DataSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.local_search_service.mojom.Index_UpdateDocuments_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.local_search_service.mojom.Index.UpdateDocuments_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'num_deleted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Find
-ash.local_search_service.mojom.Index_Find_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.local_search_service.mojom.Index.Find_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'max_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-ash.local_search_service.mojom.Index_Find_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.local_search_service.mojom.Index.Find_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: ash.local_search_service.mojom.ResponseStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.local_search_service.mojom.ResultSpec, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ClearIndex
-ash.local_search_service.mojom.Index_ClearIndex_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.local_search_service.mojom.Index.ClearIndex_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetSearchParams
-ash.local_search_service.mojom.Index_SetSearchParams_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.local_search_service.mojom.Index.SetSearchParams_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'search_params', packedOffset: 0, packedBitOffset: 0, type: ash.local_search_service.mojom.SearchParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.local_search_service.mojom.IndexPtr = ash.local_search_service.mojom.IndexRemote;
 ash.local_search_service.mojom.IndexRequest = ash.local_search_service.mojom.IndexPendingReceiver;
 

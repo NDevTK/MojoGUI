@@ -10,6 +10,11 @@ chrome.mojom = chrome.mojom || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+chrome.mojom.IconSizeSpec = { $: mojo.internal.Enum() };
+chrome.mojom.UtilReadIcon = {};
+chrome.mojom.UtilReadIcon.$interfaceName = 'chrome.mojom.UtilReadIcon';
+chrome.mojom.UtilReadIcon_ReadIcon_ParamsSpec = { $: {} };
+chrome.mojom.UtilReadIcon_ReadIcon_ResponseParamsSpec = { $: {} };
 
 // Enum: IconSize
 chrome.mojom.IconSize = {
@@ -17,25 +22,21 @@ chrome.mojom.IconSize = {
   kNormal: 1,
   kLarge: 2,
 };
-chrome.mojom.IconSizeSpec = { $: mojo.internal.Enum() };
 
 // Interface: UtilReadIcon
-chrome.mojom.UtilReadIcon = {};
+mojo.internal.Struct(
+    chrome.mojom.UtilReadIcon_ReadIcon_ParamsSpec, 'chrome.mojom.UtilReadIcon_ReadIcon_Params', [
+      mojo.internal.StructField('file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('size', 8, 0, chrome.mojom.IconSizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scale', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-chrome.mojom.UtilReadIcon_ReadIcon_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.UtilReadIcon_ReadIcon_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: chrome.mojom.IconSizeSpec, nullable: false, minVersion: 0 },
-        { name: 'scale', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.UtilReadIcon_ReadIcon_ResponseParamsSpec, 'chrome.mojom.UtilReadIcon_ReadIcon_ResponseParams', [
+      mojo.internal.StructField('icon', 0, 0, gfx.mojom.ImageSkiaSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chrome.mojom.UtilReadIconPendingReceiver = class {
   constructor(handle) {
@@ -90,36 +91,6 @@ chrome.mojom.UtilReadIcon.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ReadIcon
-chrome.mojom.UtilReadIcon_ReadIcon_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.UtilReadIcon.ReadIcon_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: chrome.mojom.IconSizeSpec, nullable: false, minVersion: 0 },
-        { name: 'scale', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-chrome.mojom.UtilReadIcon_ReadIcon_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.UtilReadIcon.ReadIcon_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'icon', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chrome.mojom.UtilReadIconPtr = chrome.mojom.UtilReadIconRemote;
 chrome.mojom.UtilReadIconRequest = chrome.mojom.UtilReadIconPendingReceiver;
 

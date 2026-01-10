@@ -8,6 +8,11 @@
 var performance_manager = performance_manager || {};
 performance_manager.mojom = performance_manager.mojom || {};
 
+performance_manager.mojom.ScopeSpec = { $: mojo.internal.Enum() };
+performance_manager.mojom.ModeSpec = { $: mojo.internal.Enum() };
+performance_manager.mojom.WebMemoryAttributionSpec = { $: {} };
+performance_manager.mojom.WebMemoryBreakdownEntrySpec = { $: {} };
+performance_manager.mojom.WebMemoryMeasurementSpec = { $: {} };
 
 // Enum: Scope
 performance_manager.mojom.Scope = {
@@ -17,55 +22,32 @@ performance_manager.mojom.Scope = {
   kServiceWorker: 3,
   kSharedWorker: 4,
 };
-performance_manager.mojom.ScopeSpec = { $: mojo.internal.Enum() };
 
 // Enum: Mode
 performance_manager.mojom.Mode = {
   kDefault: 0,
   kEager: 1,
 };
-performance_manager.mojom.ModeSpec = { $: mojo.internal.Enum() };
 
 // Struct: WebMemoryAttribution
-performance_manager.mojom.WebMemoryAttributionSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.WebMemoryAttribution',
-      packedSize: 16,
-      fields: [
-        { name: 'kCrossOriginAggregated', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    performance_manager.mojom.WebMemoryAttributionSpec, 'performance_manager.mojom.WebMemoryAttribution', [
+      mojo.internal.StructField('kCrossOriginAggregated', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: WebMemoryBreakdownEntry
-performance_manager.mojom.WebMemoryBreakdownEntrySpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.WebMemoryBreakdownEntry',
-      packedSize: 32,
-      fields: [
-        { name: 'memory', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ByteSizeSpec, nullable: true, minVersion: 0 },
-        { name: 'canvas_memory', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ByteSizeSpec, nullable: true, minVersion: 0 },
-        { name: 'attribution', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(performance_manager.mojom.WebMemoryAttributionSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    performance_manager.mojom.WebMemoryBreakdownEntrySpec, 'performance_manager.mojom.WebMemoryBreakdownEntry', [
+      mojo.internal.StructField('memory', 0, 0, mojo_base.mojom.ByteSizeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('canvas_memory', 8, 0, mojo_base.mojom.ByteSizeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('attribution', 16, 0, mojo.internal.Array(performance_manager.mojom.WebMemoryAttributionSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: WebMemoryMeasurement
-performance_manager.mojom.WebMemoryMeasurementSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.WebMemoryMeasurement',
-      packedSize: 16,
-      fields: [
-        { name: 'kDefault', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    performance_manager.mojom.WebMemoryMeasurementSpec, 'performance_manager.mojom.WebMemoryMeasurement', [
+      mojo.internal.StructField('kDefault', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);

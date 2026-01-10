@@ -8,46 +8,35 @@
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
 
+chrome.mojom.NetworkEasterEgg = {};
+chrome.mojom.NetworkEasterEgg.$interfaceName = 'chrome.mojom.NetworkEasterEgg';
+chrome.mojom.NetworkEasterEgg_GetHighScore_ParamsSpec = { $: {} };
+chrome.mojom.NetworkEasterEgg_GetHighScore_ResponseParamsSpec = { $: {} };
+chrome.mojom.NetworkEasterEgg_UpdateHighScore_ParamsSpec = { $: {} };
+chrome.mojom.NetworkEasterEgg_ResetHighScore_ParamsSpec = { $: {} };
 
 // Interface: NetworkEasterEgg
-chrome.mojom.NetworkEasterEgg = {};
+mojo.internal.Struct(
+    chrome.mojom.NetworkEasterEgg_GetHighScore_ParamsSpec, 'chrome.mojom.NetworkEasterEgg_GetHighScore_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chrome.mojom.NetworkEasterEgg_GetHighScore_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.NetworkEasterEgg_GetHighScore_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.NetworkEasterEgg_GetHighScore_ResponseParamsSpec, 'chrome.mojom.NetworkEasterEgg_GetHighScore_ResponseParams', [
+      mojo.internal.StructField('high_score', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chrome.mojom.NetworkEasterEgg_UpdateHighScore_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.NetworkEasterEgg_UpdateHighScore_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'high_score', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.NetworkEasterEgg_UpdateHighScore_ParamsSpec, 'chrome.mojom.NetworkEasterEgg_UpdateHighScore_Params', [
+      mojo.internal.StructField('high_score', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chrome.mojom.NetworkEasterEgg_ResetHighScore_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.NetworkEasterEgg_ResetHighScore_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.NetworkEasterEgg_ResetHighScore_ParamsSpec, 'chrome.mojom.NetworkEasterEgg_ResetHighScore_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 chrome.mojom.NetworkEasterEggPendingReceiver = class {
   constructor(handle) {
@@ -120,60 +109,6 @@ chrome.mojom.NetworkEasterEgg.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetHighScore
-chrome.mojom.NetworkEasterEgg_GetHighScore_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.NetworkEasterEgg.GetHighScore_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chrome.mojom.NetworkEasterEgg_GetHighScore_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.NetworkEasterEgg.GetHighScore_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'high_score', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateHighScore
-chrome.mojom.NetworkEasterEgg_UpdateHighScore_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.NetworkEasterEgg.UpdateHighScore_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'high_score', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ResetHighScore
-chrome.mojom.NetworkEasterEgg_ResetHighScore_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.NetworkEasterEgg.ResetHighScore_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 chrome.mojom.NetworkEasterEggPtr = chrome.mojom.NetworkEasterEggRemote;
 chrome.mojom.NetworkEasterEggRequest = chrome.mojom.NetworkEasterEggPendingReceiver;
 

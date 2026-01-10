@@ -11,26 +11,20 @@ var blink = blink || {};
 var blink = blink || {};
 var url = url || {};
 
+blink.mojom.CloneableMessageSpec = { $: {} };
 
 // Struct: CloneableMessage
-blink.mojom.CloneableMessageSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CloneableMessage',
-      packedSize: 88,
-      fields: [
-        { name: 'encoded_message', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
-        { name: 'blobs', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SerializedBlobSpec, false), nullable: false, minVersion: 0 },
-        { name: 'sender_origin', packedOffset: 24, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true, minVersion: 0 },
-        { name: 'stack_trace_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'stack_trace_debugger_id_first', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'stack_trace_debugger_id_second', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'stack_trace_should_pause', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'sender_agent_cluster_id', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'locked_to_sender_agent_cluster', packedOffset: 72, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'file_system_access_tokens', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessTransferTokenRemote), false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 88}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.CloneableMessageSpec, 'blink.mojom.CloneableMessage', [
+      mojo.internal.StructField('encoded_message', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('blobs', 16, 0, mojo.internal.Array(blink.mojom.SerializedBlobSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('sender_origin', 24, 0, url.mojom.OriginSpec, null, true, 0, undefined),
+      mojo.internal.StructField('stack_trace_id', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('stack_trace_debugger_id_first', 40, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('stack_trace_debugger_id_second', 48, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('stack_trace_should_pause', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('sender_agent_cluster_id', 56, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('locked_to_sender_agent_cluster', 72, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('file_system_access_tokens', 64, 0, mojo.internal.Array(mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessTransferTokenRemote), false), null, false, 0, undefined),
+    ],
+    [[0, 88]]);

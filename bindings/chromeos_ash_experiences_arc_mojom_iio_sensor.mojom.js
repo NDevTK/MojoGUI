@@ -7,23 +7,24 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
+var chromeos = chromeos || {};
+var components = components || {};
 
+arc.mojom.IioSensorHost = {};
+arc.mojom.IioSensorHost.$interfaceName = 'arc.mojom.IioSensorHost';
+arc.mojom.IioSensorHost_RegisterSensorHalClient_ParamsSpec = { $: {} };
+arc.mojom.IioSensorInstance = {};
+arc.mojom.IioSensorInstance.$interfaceName = 'arc.mojom.IioSensorInstance';
+arc.mojom.IioSensorInstance_Init_ParamsSpec = { $: {} };
+arc.mojom.IioSensorInstance_Init_ResponseParamsSpec = { $: {} };
+arc.mojom.IioSensorInstance_OnTabletModeChanged_ParamsSpec = { $: {} };
 
 // Interface: IioSensorHost
-arc.mojom.IioSensorHost = {};
-
-arc.mojom.IioSensorHost_RegisterSensorHalClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IioSensorHost_RegisterSensorHalClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.sensors.mojom.SensorHalClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IioSensorHost_RegisterSensorHalClient_ParamsSpec, 'arc.mojom.IioSensorHost_RegisterSensorHalClient_Params', [
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(chromeos.sensors.mojom.SensorHalClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.IioSensorHostPendingReceiver = class {
   constructor(handle) {
@@ -78,53 +79,27 @@ arc.mojom.IioSensorHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RegisterSensorHalClient
-arc.mojom.IioSensorHost_RegisterSensorHalClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IioSensorHost.RegisterSensorHalClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.sensors.mojom.SensorHalClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.IioSensorHostPtr = arc.mojom.IioSensorHostRemote;
 arc.mojom.IioSensorHostRequest = arc.mojom.IioSensorHostPendingReceiver;
 
 
 // Interface: IioSensorInstance
-arc.mojom.IioSensorInstance = {};
+mojo.internal.Struct(
+    arc.mojom.IioSensorInstance_Init_ParamsSpec, 'arc.mojom.IioSensorInstance_Init_Params', [
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.IioSensorHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.IioSensorInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IioSensorInstance_Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.IioSensorHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IioSensorInstance_Init_ResponseParamsSpec, 'arc.mojom.IioSensorInstance_Init_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.IioSensorInstance_OnTabletModeChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IioSensorInstance_OnTabletModeChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_tablet_mode_on', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IioSensorInstance_OnTabletModeChanged_ParamsSpec, 'arc.mojom.IioSensorInstance_OnTabletModeChanged_Params', [
+      mojo.internal.StructField('is_tablet_mode_on', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.IioSensorInstancePendingReceiver = class {
   constructor(handle) {
@@ -163,7 +138,7 @@ arc.mojom.IioSensorInstanceRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       arc.mojom.IioSensorInstance_Init_ParamsSpec,
-      null,
+      arc.mojom.IioSensorInstance_Init_ResponseParamsSpec,
       [host_remote]);
   }
 
@@ -188,35 +163,6 @@ arc.mojom.IioSensorInstance.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Init
-arc.mojom.IioSensorInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IioSensorInstance.Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.IioSensorHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnTabletModeChanged
-arc.mojom.IioSensorInstance_OnTabletModeChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IioSensorInstance.OnTabletModeChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_tablet_mode_on', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.IioSensorInstancePtr = arc.mojom.IioSensorInstanceRemote;
 arc.mojom.IioSensorInstanceRequest = arc.mojom.IioSensorInstancePendingReceiver;
 

@@ -7,30 +7,42 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var services = services || {};
 
+arc.mojom.GetArcSafetySessionResultSpec = { $: mojo.internal.Enum() };
+arc.mojom.OnDeviceSafetyHost = {};
+arc.mojom.OnDeviceSafetyHost.$interfaceName = 'arc.mojom.OnDeviceSafetyHost';
+arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ParamsSpec = { $: {} };
+arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ResponseParamsSpec = { $: {} };
+arc.mojom.OnDeviceSafetyInstance = {};
+arc.mojom.OnDeviceSafetyInstance.$interfaceName = 'arc.mojom.OnDeviceSafetyInstance';
+arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ParamsSpec = { $: {} };
+arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ResponseParamsSpec = { $: {} };
+arc.mojom.OnDeviceSafetyInstance_Init_ParamsSpec = { $: {} };
+arc.mojom.OnDeviceSafetyInstance_Init_ResponseParamsSpec = { $: {} };
 
 // Enum: GetArcSafetySessionResult
 arc.mojom.GetArcSafetySessionResult = {
   kOk: 0,
-  kSafetyServiceNotFound: 1,
-  kBindSafetyServiceError: 2,
+  kGenericError: 1,
+  kSafetyServiceNotFound: 2,
+  kBindSafetyServiceError: 3,
+  MinVersion: 3,
 };
-arc.mojom.GetArcSafetySessionResultSpec = { $: mojo.internal.Enum() };
 
 // Interface: OnDeviceSafetyHost
-arc.mojom.OnDeviceSafetyHost = {};
+mojo.internal.Struct(
+    arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ParamsSpec, 'arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ResponseParamsSpec, 'arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ResponseParams', [
+      mojo.internal.StructField('is_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.OnDeviceSafetyHostPendingReceiver = class {
   constructor(handle) {
@@ -85,65 +97,33 @@ arc.mojom.OnDeviceSafetyHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for IsCrosSafetyServiceEnabled
-arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.OnDeviceSafetyHost.IsCrosSafetyServiceEnabled_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.OnDeviceSafetyHost.IsCrosSafetyServiceEnabled_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'is_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.OnDeviceSafetyHostPtr = arc.mojom.OnDeviceSafetyHostRemote;
 arc.mojom.OnDeviceSafetyHostRequest = arc.mojom.OnDeviceSafetyHostPendingReceiver;
 
 
 // Interface: OnDeviceSafetyInstance
-arc.mojom.OnDeviceSafetyInstance = {};
+mojo.internal.Struct(
+    arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ParamsSpec, 'arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_Params', [
+      mojo.internal.StructField('session', 0, 0, mojo.internal.InterfaceRequest(ash.cros_safety.mojom.OnDeviceSafetySessionRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.cros_safety.mojom.OnDeviceSafetySessionRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ResponseParamsSpec, 'arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, arc.mojom.GetArcSafetySessionResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.OnDeviceSafetyInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.OnDeviceSafetyInstance_Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.OnDeviceSafetyHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.OnDeviceSafetyInstance_Init_ParamsSpec, 'arc.mojom.OnDeviceSafetyInstance_Init_Params', [
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.OnDeviceSafetyHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.OnDeviceSafetyInstance_Init_ResponseParamsSpec, 'arc.mojom.OnDeviceSafetyInstance_Init_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 arc.mojom.OnDeviceSafetyInstancePendingReceiver = class {
   constructor(handle) {
@@ -191,7 +171,7 @@ arc.mojom.OnDeviceSafetyInstanceRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       arc.mojom.OnDeviceSafetyInstance_Init_ParamsSpec,
-      null,
+      arc.mojom.OnDeviceSafetyInstance_Init_ResponseParamsSpec,
       [host_remote]);
   }
 
@@ -207,48 +187,6 @@ arc.mojom.OnDeviceSafetyInstance.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetArcSafetySession
-arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.OnDeviceSafetyInstance.GetArcSafetySession_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.cros_safety.mojom.OnDeviceSafetySessionRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.OnDeviceSafetyInstance.GetArcSafetySession_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.GetArcSafetySessionResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Init
-arc.mojom.OnDeviceSafetyInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.OnDeviceSafetyInstance.Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.OnDeviceSafetyHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.OnDeviceSafetyInstancePtr = arc.mojom.OnDeviceSafetyInstanceRemote;
 arc.mojom.OnDeviceSafetyInstanceRequest = arc.mojom.OnDeviceSafetyInstancePendingReceiver;
 

@@ -8,6 +8,7 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+network.mojom.XFrameOptionsValueSpec = { $: mojo.internal.Enum() };
 
 // Enum: XFrameOptionsValue
 network.mojom.XFrameOptionsValue = {
@@ -18,4 +19,3 @@ network.mojom.XFrameOptionsValue = {
   kInvalid: 4,
   kConflict: 5,
 };
-network.mojom.XFrameOptionsValueSpec = { $: mojo.internal.Enum() };

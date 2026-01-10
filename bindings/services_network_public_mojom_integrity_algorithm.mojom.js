@@ -8,6 +8,7 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+network.mojom.IntegrityAlgorithmSpec = { $: mojo.internal.Enum() };
 
 // Enum: IntegrityAlgorithm
 network.mojom.IntegrityAlgorithm = {
@@ -16,4 +17,3 @@ network.mojom.IntegrityAlgorithm = {
   kSha512: 2,
   kEd25519: 3,
 };
-network.mojom.IntegrityAlgorithmSpec = { $: mojo.internal.Enum() };

@@ -8,6 +8,27 @@
 var font_service = font_service || {};
 font_service.mojom = font_service.mojom || {};
 
+font_service.mojom.TypefaceSlantSpec = { $: mojo.internal.Enum() };
+font_service.mojom.RenderStyleSwitchSpec = { $: mojo.internal.Enum() };
+font_service.mojom.TypefaceStyleSpec = { $: {} };
+font_service.mojom.FontIdentitySpec = { $: {} };
+font_service.mojom.FontRenderStyleSpec = { $: {} };
+font_service.mojom.FontService = {};
+font_service.mojom.FontService.$interfaceName = 'font_service.mojom.FontService';
+font_service.mojom.FontService_MatchFamilyName_ParamsSpec = { $: {} };
+font_service.mojom.FontService_MatchFamilyName_ResponseParamsSpec = { $: {} };
+font_service.mojom.FontService_OpenStream_ParamsSpec = { $: {} };
+font_service.mojom.FontService_OpenStream_ResponseParamsSpec = { $: {} };
+font_service.mojom.FontService_FallbackFontForCharacter_ParamsSpec = { $: {} };
+font_service.mojom.FontService_FallbackFontForCharacter_ResponseParamsSpec = { $: {} };
+font_service.mojom.FontService_FontRenderStyleForStrike_ParamsSpec = { $: {} };
+font_service.mojom.FontService_FontRenderStyleForStrike_ResponseParamsSpec = { $: {} };
+font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ParamsSpec = { $: {} };
+font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ResponseParamsSpec = { $: {} };
+font_service.mojom.FontService_ListFamilies_ParamsSpec = { $: {} };
+font_service.mojom.FontService_ListFamilies_ResponseParamsSpec = { $: {} };
+font_service.mojom.FontService_MatchFontWithFallback_ParamsSpec = { $: {} };
+font_service.mojom.FontService_MatchFontWithFallback_ResponseParamsSpec = { $: {} };
 
 // Enum: TypefaceSlant
 font_service.mojom.TypefaceSlant = {
@@ -15,7 +36,6 @@ font_service.mojom.TypefaceSlant = {
   ITALIC: 1,
   OBLIQUE: 2,
 };
-font_service.mojom.TypefaceSlantSpec = { $: mojo.internal.Enum() };
 
 // Enum: RenderStyleSwitch
 font_service.mojom.RenderStyleSwitch = {
@@ -23,162 +43,136 @@ font_service.mojom.RenderStyleSwitch = {
   ON: 1,
   NO_PREFERENCE: 2,
 };
-font_service.mojom.RenderStyleSwitchSpec = { $: mojo.internal.Enum() };
 
 // Struct: TypefaceStyle
-font_service.mojom.TypefaceStyleSpec = {
-  $: {
-    structSpec: {
-      name: 'font_service.mojom.TypefaceStyle',
-      packedSize: 16,
-      fields: [
-        { name: 'weight', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'width', packedOffset: 6, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'slant', packedOffset: 0, packedBitOffset: 0, type: font_service.mojom.TypefaceSlantSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    font_service.mojom.TypefaceStyleSpec, 'font_service.mojom.TypefaceStyle', [
+      mojo.internal.StructField('weight', 4, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('width', 6, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('slant', 0, 0, font_service.mojom.TypefaceSlantSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: FontIdentity
-font_service.mojom.FontIdentitySpec = {
-  $: {
-    structSpec: {
-      name: 'font_service.mojom.FontIdentity',
-      packedSize: 24,
-      fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'ttc_index', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'filepath', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    font_service.mojom.FontIdentitySpec, 'font_service.mojom.FontIdentity', [
+      mojo.internal.StructField('id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('ttc_index', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('filepath', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: FontRenderStyle
-font_service.mojom.FontRenderStyleSpec = {
-  $: {
-    structSpec: {
-      name: 'font_service.mojom.FontRenderStyle',
-      packedSize: 40,
-      fields: [
-        { name: 'use_bitmaps', packedOffset: 0, packedBitOffset: 0, type: font_service.mojom.RenderStyleSwitchSpec, nullable: false, minVersion: 0 },
-        { name: 'use_autohint', packedOffset: 4, packedBitOffset: 0, type: font_service.mojom.RenderStyleSwitchSpec, nullable: false, minVersion: 0 },
-        { name: 'use_hinting', packedOffset: 8, packedBitOffset: 0, type: font_service.mojom.RenderStyleSwitchSpec, nullable: false, minVersion: 0 },
-        { name: 'hint_style', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'use_antialias', packedOffset: 12, packedBitOffset: 0, type: font_service.mojom.RenderStyleSwitchSpec, nullable: false, minVersion: 0 },
-        { name: 'use_subpixel_rendering', packedOffset: 16, packedBitOffset: 0, type: font_service.mojom.RenderStyleSwitchSpec, nullable: false, minVersion: 0 },
-        { name: 'use_subpixel_positioning', packedOffset: 20, packedBitOffset: 0, type: font_service.mojom.RenderStyleSwitchSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    font_service.mojom.FontRenderStyleSpec, 'font_service.mojom.FontRenderStyle', [
+      mojo.internal.StructField('use_bitmaps', 0, 0, font_service.mojom.RenderStyleSwitchSpec, null, false, 0, undefined),
+      mojo.internal.StructField('use_autohint', 4, 0, font_service.mojom.RenderStyleSwitchSpec, null, false, 0, undefined),
+      mojo.internal.StructField('use_hinting', 8, 0, font_service.mojom.RenderStyleSwitchSpec, null, false, 0, undefined),
+      mojo.internal.StructField('hint_style', 24, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('use_antialias', 12, 0, font_service.mojom.RenderStyleSwitchSpec, null, false, 0, undefined),
+      mojo.internal.StructField('use_subpixel_rendering', 16, 0, font_service.mojom.RenderStyleSwitchSpec, null, false, 0, undefined),
+      mojo.internal.StructField('use_subpixel_positioning', 20, 0, font_service.mojom.RenderStyleSwitchSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Interface: FontService
-font_service.mojom.FontService = {};
+mojo.internal.Struct(
+    font_service.mojom.FontService_MatchFamilyName_ParamsSpec, 'font_service.mojom.FontService_MatchFamilyName_Params', [
+      mojo.internal.StructField('family_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('style', 8, 0, font_service.mojom.TypefaceStyleSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-font_service.mojom.FontService_MatchFamilyName_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'font_service.mojom.FontService_MatchFamilyName_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'family_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'style', packedOffset: 8, packedBitOffset: 0, type: font_service.mojom.TypefaceStyleSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    font_service.mojom.FontService_MatchFamilyName_ResponseParamsSpec, 'font_service.mojom.FontService_MatchFamilyName_ResponseParams', [
+      mojo.internal.StructField('identity', 0, 0, font_service.mojom.FontIdentitySpec, null, true, 0, undefined),
+      mojo.internal.StructField('family_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('style', 16, 0, font_service.mojom.TypefaceStyleSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-font_service.mojom.FontService_OpenStream_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'font_service.mojom.FontService_OpenStream_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    font_service.mojom.FontService_OpenStream_ParamsSpec, 'font_service.mojom.FontService_OpenStream_Params', [
+      mojo.internal.StructField('id_number', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-font_service.mojom.FontService_FallbackFontForCharacter_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'font_service.mojom.FontService_FallbackFontForCharacter_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'character', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'locale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    font_service.mojom.FontService_OpenStream_ResponseParamsSpec, 'font_service.mojom.FontService_OpenStream_ResponseParams', [
+      mojo.internal.StructField('font_handle', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-font_service.mojom.FontService_FontRenderStyleForStrike_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'font_service.mojom.FontService_FontRenderStyleForStrike_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'family', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'is_italic', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_bold', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'device_scale_factor', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    font_service.mojom.FontService_FallbackFontForCharacter_ParamsSpec, 'font_service.mojom.FontService_FallbackFontForCharacter_Params', [
+      mojo.internal.StructField('character', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('locale', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'postscript_name_or_full_font_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    font_service.mojom.FontService_FallbackFontForCharacter_ResponseParamsSpec, 'font_service.mojom.FontService_FallbackFontForCharacter_ResponseParams', [
+      mojo.internal.StructField('identity', 0, 0, font_service.mojom.FontIdentitySpec, null, true, 0, undefined),
+      mojo.internal.StructField('family_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('is_bold', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_italic', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-font_service.mojom.FontService_ListFamilies_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'font_service.mojom.FontService_ListFamilies_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    font_service.mojom.FontService_FontRenderStyleForStrike_ParamsSpec, 'font_service.mojom.FontService_FontRenderStyleForStrike_Params', [
+      mojo.internal.StructField('family', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('size', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_italic', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_bold', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('device_scale_factor', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-font_service.mojom.FontService_MatchFontWithFallback_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'font_service.mojom.FontService_MatchFontWithFallback_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'family', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_bold', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_italic', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'charset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'fallback_family_type', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    font_service.mojom.FontService_FontRenderStyleForStrike_ResponseParamsSpec, 'font_service.mojom.FontService_FontRenderStyleForStrike_ResponseParams', [
+      mojo.internal.StructField('font_render_style', 0, 0, font_service.mojom.FontRenderStyleSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ParamsSpec, 'font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_Params', [
+      mojo.internal.StructField('postscript_name_or_full_font_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ResponseParamsSpec, 'font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ResponseParams', [
+      mojo.internal.StructField('identity', 0, 0, font_service.mojom.FontIdentitySpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    font_service.mojom.FontService_ListFamilies_ParamsSpec, 'font_service.mojom.FontService_ListFamilies_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    font_service.mojom.FontService_ListFamilies_ResponseParamsSpec, 'font_service.mojom.FontService_ListFamilies_ResponseParams', [
+      mojo.internal.StructField('families', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    font_service.mojom.FontService_MatchFontWithFallback_ParamsSpec, 'font_service.mojom.FontService_MatchFontWithFallback_Params', [
+      mojo.internal.StructField('family', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('is_bold', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_italic', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('charset', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('fallback_family_type', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    font_service.mojom.FontService_MatchFontWithFallback_ResponseParamsSpec, 'font_service.mojom.FontService_MatchFontWithFallback_ResponseParams', [
+      mojo.internal.StructField('font_file_handle', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 font_service.mojom.FontServicePendingReceiver = class {
   constructor(handle) {
@@ -287,210 +281,6 @@ font_service.mojom.FontService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for MatchFamilyName
-font_service.mojom.FontService_MatchFamilyName_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'font_service.mojom.FontService.MatchFamilyName_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'family_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'style', packedOffset: 8, packedBitOffset: 0, type: font_service.mojom.TypefaceStyleSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-font_service.mojom.FontService_MatchFamilyName_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'font_service.mojom.FontService.MatchFamilyName_ResponseParams',
-      packedSize: 32,
-      fields: [
-        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: font_service.mojom.FontIdentitySpec, nullable: true, minVersion: 0 },
-        { name: 'family_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'style', packedOffset: 16, packedBitOffset: 0, type: font_service.mojom.TypefaceStyleSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for OpenStream
-font_service.mojom.FontService_OpenStream_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'font_service.mojom.FontService.OpenStream_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-font_service.mojom.FontService_OpenStream_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'font_service.mojom.FontService.OpenStream_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'font_handle', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for FallbackFontForCharacter
-font_service.mojom.FontService_FallbackFontForCharacter_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'font_service.mojom.FontService.FallbackFontForCharacter_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'character', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'locale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-font_service.mojom.FontService_FallbackFontForCharacter_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'font_service.mojom.FontService.FallbackFontForCharacter_ResponseParams',
-      packedSize: 32,
-      fields: [
-        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: font_service.mojom.FontIdentitySpec, nullable: true, minVersion: 0 },
-        { name: 'family_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_bold', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_italic', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for FontRenderStyleForStrike
-font_service.mojom.FontService_FontRenderStyleForStrike_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'font_service.mojom.FontService.FontRenderStyleForStrike_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'family', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'is_italic', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_bold', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'device_scale_factor', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-font_service.mojom.FontService_FontRenderStyleForStrike_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'font_service.mojom.FontService.FontRenderStyleForStrike_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'font_render_style', packedOffset: 0, packedBitOffset: 0, type: font_service.mojom.FontRenderStyleSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for MatchFontByPostscriptNameOrFullFontName
-font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'font_service.mojom.FontService.MatchFontByPostscriptNameOrFullFontName_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'postscript_name_or_full_font_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'font_service.mojom.FontService.MatchFontByPostscriptNameOrFullFontName_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: font_service.mojom.FontIdentitySpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ListFamilies
-font_service.mojom.FontService_ListFamilies_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'font_service.mojom.FontService.ListFamilies_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-font_service.mojom.FontService_ListFamilies_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'font_service.mojom.FontService.ListFamilies_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'families', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for MatchFontWithFallback
-font_service.mojom.FontService_MatchFontWithFallback_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'font_service.mojom.FontService.MatchFontWithFallback_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'family', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_bold', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_italic', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'charset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'fallback_family_type', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-font_service.mojom.FontService_MatchFontWithFallback_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'font_service.mojom.FontService.MatchFontWithFallback_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'font_file_handle', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 font_service.mojom.FontServicePtr = font_service.mojom.FontServiceRemote;
 font_service.mojom.FontServiceRequest = font_service.mojom.FontServicePendingReceiver;
 

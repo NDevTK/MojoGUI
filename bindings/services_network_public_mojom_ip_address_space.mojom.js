@@ -8,6 +8,7 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+network.mojom.IPAddressSpaceSpec = { $: mojo.internal.Enum() };
 
 // Enum: IPAddressSpace
 network.mojom.IPAddressSpace = {
@@ -16,4 +17,3 @@ network.mojom.IPAddressSpace = {
   kPublic: 2,
   kUnknown: 3,
 };
-network.mojom.IPAddressSpaceSpec = { $: mojo.internal.Enum() };

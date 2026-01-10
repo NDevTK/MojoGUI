@@ -9,139 +9,138 @@ var ash = ash || {};
 ash.diagnostics = ash.diagnostics || {};
 ash.diagnostics.mojom = ash.diagnostics.mojom || {};
 
+ash.diagnostics.mojom.ConnectionTypeSpec = { $: mojo.internal.Enum() };
+ash.diagnostics.mojom.PhysicalLayoutSpec = { $: mojo.internal.Enum() };
+ash.diagnostics.mojom.MechanicalLayoutSpec = { $: mojo.internal.Enum() };
+ash.diagnostics.mojom.NumberPadPresenceSpec = { $: mojo.internal.Enum() };
+ash.diagnostics.mojom.TopRowKeySpec = { $: mojo.internal.Enum() };
+ash.diagnostics.mojom.TopRightKeySpec = { $: mojo.internal.Enum() };
+ash.diagnostics.mojom.BottomLeftLayoutSpec = { $: mojo.internal.Enum() };
+ash.diagnostics.mojom.BottomRightLayoutSpec = { $: mojo.internal.Enum() };
+ash.diagnostics.mojom.NumpadLayoutSpec = { $: mojo.internal.Enum() };
+ash.diagnostics.mojom.KeyboardInfoSpec = { $: {} };
+ash.diagnostics.mojom.KeyboardDiagnosticEventInfoSpec = { $: {} };
 
 // Enum: ConnectionType
 ash.diagnostics.mojom.ConnectionType = {
-  kInternal: 0,
-  kUsb: 1,
-  kBluetooth: 2,
-  kUnknown: 3,
+  kUnmappedEnumField: 0,
+  kInternal: 1,
+  kUsb: 2,
+  kBluetooth: 3,
+  kUnknown: 4,
 };
-ash.diagnostics.mojom.ConnectionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PhysicalLayout
 ash.diagnostics.mojom.PhysicalLayout = {
-  kUnknown: 0,
-  kChromeOS: 1,
-  kChromeOSDellEnterpriseWilco: 2,
-  kChromeOSDellEnterpriseDrallion: 3,
+  kUnmappedEnumField: 0,
+  kUnknown: 1,
+  kChromeOS: 2,
+  kChromeOSDellEnterpriseWilco: 3,
+  kChromeOSDellEnterpriseDrallion: 4,
 };
-ash.diagnostics.mojom.PhysicalLayoutSpec = { $: mojo.internal.Enum() };
 
 // Enum: MechanicalLayout
 ash.diagnostics.mojom.MechanicalLayout = {
-  kUnknown: 0,
-  kAnsi: 1,
-  kIso: 2,
-  kJis: 3,
+  kUnmappedEnumField: 0,
+  kUnknown: 1,
+  kAnsi: 2,
+  kIso: 3,
+  kJis: 4,
 };
-ash.diagnostics.mojom.MechanicalLayoutSpec = { $: mojo.internal.Enum() };
 
 // Enum: NumberPadPresence
 ash.diagnostics.mojom.NumberPadPresence = {
-  kUnknown: 0,
-  kPresent: 1,
-  kNotPresent: 2,
+  kUnmappedEnumField: 0,
+  kUnknown: 1,
+  kPresent: 2,
+  kNotPresent: 3,
 };
-ash.diagnostics.mojom.NumberPadPresenceSpec = { $: mojo.internal.Enum() };
 
 // Enum: TopRowKey
 ash.diagnostics.mojom.TopRowKey = {
-  kNone: 0,
-  kUnknown: 1,
-  kBack: 2,
-  kForward: 3,
-  kRefresh: 4,
-  kFullscreen: 5,
-  kOverview: 6,
-  kScreenshot: 7,
-  kScreenBrightnessDown: 8,
-  kScreenBrightnessUp: 9,
-  kPrivacyScreenToggle: 10,
-  kMicrophoneMute: 11,
-  kVolumeMute: 12,
-  kVolumeDown: 13,
-  kVolumeUp: 14,
-  kKeyboardBacklightToggle: 15,
-  kKeyboardBacklightDown: 16,
-  kKeyboardBacklightUp: 17,
-  kNextTrack: 18,
-  kPreviousTrack: 19,
-  kPlayPause: 20,
-  kScreenMirror: 21,
-  kDelete: 22,
+  kUnmappedEnumField: 0,
+  kNone: 1,
+  kUnknown: 2,
+  kBack: 3,
+  kForward: 4,
+  kRefresh: 5,
+  kFullscreen: 6,
+  kOverview: 7,
+  kScreenshot: 8,
+  kScreenBrightnessDown: 9,
+  kScreenBrightnessUp: 10,
+  kPrivacyScreenToggle: 11,
+  kMicrophoneMute: 12,
+  kVolumeMute: 13,
+  kVolumeDown: 14,
+  kVolumeUp: 15,
+  kKeyboardBacklightToggle: 16,
+  kKeyboardBacklightDown: 17,
+  kKeyboardBacklightUp: 18,
+  kNextTrack: 19,
+  kPreviousTrack: 20,
+  kPlayPause: 21,
+  kScreenMirror: 22,
+  kDelete: 23,
+  MinVersion: 23,
+  MinVersion: 23,
 };
-ash.diagnostics.mojom.TopRowKeySpec = { $: mojo.internal.Enum() };
 
 // Enum: TopRightKey
 ash.diagnostics.mojom.TopRightKey = {
-  kUnknown: 0,
-  kPower: 1,
-  kLock: 2,
-  kControlPanel: 3,
+  kUnmappedEnumField: 0,
+  kUnknown: 1,
+  kPower: 2,
+  kLock: 3,
+  kControlPanel: 4,
 };
-ash.diagnostics.mojom.TopRightKeySpec = { $: mojo.internal.Enum() };
 
 // Enum: BottomLeftLayout
 ash.diagnostics.mojom.BottomLeftLayout = {
-  kBottomLeft3Keys: 0,
-  kBottomLeft4Keys: 1,
+  kUnknown: 0,
+  kBottomLeft3Keys: 1,
+  kBottomLeft4Keys: 2,
 };
-ash.diagnostics.mojom.BottomLeftLayoutSpec = { $: mojo.internal.Enum() };
 
 // Enum: BottomRightLayout
 ash.diagnostics.mojom.BottomRightLayout = {
-  kBottomRight2Keys: 0,
-  kBottomRight3Keys: 1,
-  kBottomRight4Keys: 2,
+  kUnknown: 0,
+  kBottomRight2Keys: 1,
+  kBottomRight3Keys: 2,
+  kBottomRight4Keys: 3,
 };
-ash.diagnostics.mojom.BottomRightLayoutSpec = { $: mojo.internal.Enum() };
 
 // Enum: NumpadLayout
 ash.diagnostics.mojom.NumpadLayout = {
-  kNumpad3Column: 0,
-  kNumpad4Column: 1,
+  kUnknown: 0,
+  kNumpad3Column: 1,
+  kNumpad4Column: 2,
 };
-ash.diagnostics.mojom.NumpadLayoutSpec = { $: mojo.internal.Enum() };
 
 // Struct: KeyboardInfo
-ash.diagnostics.mojom.KeyboardInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.diagnostics.mojom.KeyboardInfo',
-      packedSize: 72,
-      fields: [
-        { name: 'id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'connection_type', packedOffset: 28, packedBitOffset: 0, type: ash.diagnostics.mojom.ConnectionTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'physical_layout', packedOffset: 32, packedBitOffset: 0, type: ash.diagnostics.mojom.PhysicalLayoutSpec, nullable: false, minVersion: 0 },
-        { name: 'mechanical_layout', packedOffset: 36, packedBitOffset: 0, type: ash.diagnostics.mojom.MechanicalLayoutSpec, nullable: false, minVersion: 0 },
-        { name: 'region_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'number_pad_present', packedOffset: 40, packedBitOffset: 0, type: ash.diagnostics.mojom.NumberPadPresenceSpec, nullable: false, minVersion: 0 },
-        { name: 'top_row_keys', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(ash.diagnostics.mojom.TopRowKeySpec, false), nullable: false, minVersion: 0 },
-        { name: 'top_right_key', packedOffset: 44, packedBitOffset: 0, type: ash.diagnostics.mojom.TopRightKeySpec, nullable: false, minVersion: 0 },
-        { name: 'has_assistant_key', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'bottom_left_layout', packedOffset: 52, packedBitOffset: 0, type: ash.diagnostics.mojom.BottomLeftLayoutSpec, nullable: false, minVersion: 1 },
-        { name: 'bottom_right_layout', packedOffset: 56, packedBitOffset: 0, type: ash.diagnostics.mojom.BottomRightLayoutSpec, nullable: false, minVersion: 1 },
-        { name: 'numpad_layout', packedOffset: 60, packedBitOffset: 0, type: ash.diagnostics.mojom.NumpadLayoutSpec, nullable: false, minVersion: 1 },
-      ],
-      versions: [{version: 0, packedSize: 64}, {version: 1, packedSize: 72}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.diagnostics.mojom.KeyboardInfoSpec, 'ash.diagnostics.mojom.KeyboardInfo', [
+      mojo.internal.StructField('id', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('connection_type', 28, 0, ash.diagnostics.mojom.ConnectionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('physical_layout', 32, 0, ash.diagnostics.mojom.PhysicalLayoutSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mechanical_layout', 36, 0, ash.diagnostics.mojom.MechanicalLayoutSpec, null, false, 0, undefined),
+      mojo.internal.StructField('region_code', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('number_pad_present', 40, 0, ash.diagnostics.mojom.NumberPadPresenceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('top_row_keys', 16, 0, mojo.internal.Array(ash.diagnostics.mojom.TopRowKeySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('top_right_key', 44, 0, ash.diagnostics.mojom.TopRightKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('has_assistant_key', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('bottom_left_layout', 52, 0, ash.diagnostics.mojom.BottomLeftLayoutSpec, null, false, 1, undefined),
+      mojo.internal.StructField('bottom_right_layout', 56, 0, ash.diagnostics.mojom.BottomRightLayoutSpec, null, false, 1, undefined),
+      mojo.internal.StructField('numpad_layout', 60, 0, ash.diagnostics.mojom.NumpadLayoutSpec, null, false, 1, undefined),
+    ],
+    [[0, 64], [1, 72]]);
 
 // Struct: KeyboardDiagnosticEventInfo
-ash.diagnostics.mojom.KeyboardDiagnosticEventInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.diagnostics.mojom.KeyboardDiagnosticEventInfo',
-      packedSize: 32,
-      fields: [
-        { name: 'keyboard_info', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.KeyboardInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'tested_keys', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: false, minVersion: 0 },
-        { name: 'tested_top_row_keys', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.diagnostics.mojom.KeyboardDiagnosticEventInfoSpec, 'ash.diagnostics.mojom.KeyboardDiagnosticEventInfo', [
+      mojo.internal.StructField('keyboard_info', 0, 0, ash.diagnostics.mojom.KeyboardInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tested_keys', 8, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+      mojo.internal.StructField('tested_top_row_keys', 16, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);

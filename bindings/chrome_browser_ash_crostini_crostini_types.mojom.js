@@ -8,6 +8,9 @@
 var crostini = crostini || {};
 crostini.mojom = crostini.mojom || {};
 
+crostini.mojom.InstallerStateSpec = { $: mojo.internal.Enum() };
+crostini.mojom.InstallerErrorSpec = { $: mojo.internal.Enum() };
+crostini.mojom.DiskSliderTickSpec = { $: {} };
 
 // Enum: InstallerState
 crostini.mojom.InstallerState = {
@@ -23,7 +26,6 @@ crostini.mojom.InstallerState = {
   kMountContainer_DEPRECATED: 9,
   kConfigureContainer: 10,
 };
-crostini.mojom.InstallerStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: InstallerError
 crostini.mojom.InstallerError = {
@@ -41,20 +43,12 @@ crostini.mojom.InstallerError = {
   kErrorCreateContainer: 11,
   kErrorUnknown: 12,
 };
-crostini.mojom.InstallerErrorSpec = { $: mojo.internal.Enum() };
 
 // Struct: DiskSliderTick
-crostini.mojom.DiskSliderTickSpec = {
-  $: {
-    structSpec: {
-      name: 'crostini.mojom.DiskSliderTick',
-      packedSize: 32,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'aria_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crostini.mojom.DiskSliderTickSpec, 'crostini.mojom.DiskSliderTick', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('label', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('aria_value', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);

@@ -7,36 +7,41 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
 
+network.mojom.MdnsResponder = {};
+network.mojom.MdnsResponder.$interfaceName = 'network.mojom.MdnsResponder';
+network.mojom.MdnsResponder_CreateNameForAddress_ParamsSpec = { $: {} };
+network.mojom.MdnsResponder_CreateNameForAddress_ResponseParamsSpec = { $: {} };
+network.mojom.MdnsResponder_RemoveNameForAddress_ParamsSpec = { $: {} };
+network.mojom.MdnsResponder_RemoveNameForAddress_ResponseParamsSpec = { $: {} };
 
 // Interface: MdnsResponder
-network.mojom.MdnsResponder = {};
+mojo.internal.Struct(
+    network.mojom.MdnsResponder_CreateNameForAddress_ParamsSpec, 'network.mojom.MdnsResponder_CreateNameForAddress_Params', [
+      mojo.internal.StructField('address', 0, 0, network.mojom.IPAddressSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.MdnsResponder_CreateNameForAddress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.MdnsResponder_CreateNameForAddress_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'address', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.MdnsResponder_CreateNameForAddress_ResponseParamsSpec, 'network.mojom.MdnsResponder_CreateNameForAddress_ResponseParams', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('announcement_scheduled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-network.mojom.MdnsResponder_RemoveNameForAddress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.MdnsResponder_RemoveNameForAddress_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'address', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.MdnsResponder_RemoveNameForAddress_ParamsSpec, 'network.mojom.MdnsResponder_RemoveNameForAddress_Params', [
+      mojo.internal.StructField('address', 0, 0, network.mojom.IPAddressSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    network.mojom.MdnsResponder_RemoveNameForAddress_ResponseParamsSpec, 'network.mojom.MdnsResponder_RemoveNameForAddress_ResponseParams', [
+      mojo.internal.StructField('removed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('goodbye_scheduled', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 network.mojom.MdnsResponderPendingReceiver = class {
   constructor(handle) {
@@ -100,63 +105,6 @@ network.mojom.MdnsResponder.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateNameForAddress
-network.mojom.MdnsResponder_CreateNameForAddress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.MdnsResponder.CreateNameForAddress_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'address', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-network.mojom.MdnsResponder_CreateNameForAddress_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.MdnsResponder.CreateNameForAddress_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'announcement_scheduled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for RemoveNameForAddress
-network.mojom.MdnsResponder_RemoveNameForAddress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.MdnsResponder.RemoveNameForAddress_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'address', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-network.mojom.MdnsResponder_RemoveNameForAddress_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.MdnsResponder.RemoveNameForAddress_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'removed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'goodbye_scheduled', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.MdnsResponderPtr = network.mojom.MdnsResponderRemote;
 network.mojom.MdnsResponderRequest = network.mojom.MdnsResponderPendingReceiver;
 

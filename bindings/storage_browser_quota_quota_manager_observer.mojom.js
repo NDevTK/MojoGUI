@@ -7,36 +7,28 @@
 // Module namespace
 var storage = storage || {};
 storage.mojom = storage.mojom || {};
+var components = components || {};
+var services = services || {};
+var components = components || {};
+var services = services || {};
 
+storage.mojom.QuotaManagerObserver = {};
+storage.mojom.QuotaManagerObserver.$interfaceName = 'storage.mojom.QuotaManagerObserver';
+storage.mojom.QuotaManagerObserver_OnCreateOrUpdateBucket_ParamsSpec = { $: {} };
+storage.mojom.QuotaManagerObserver_OnDeleteBucket_ParamsSpec = { $: {} };
 
 // Interface: QuotaManagerObserver
-storage.mojom.QuotaManagerObserver = {};
+mojo.internal.Struct(
+    storage.mojom.QuotaManagerObserver_OnCreateOrUpdateBucket_ParamsSpec, 'storage.mojom.QuotaManagerObserver_OnCreateOrUpdateBucket_Params', [
+      mojo.internal.StructField('bucket_info', 0, 0, storage.mojom.BucketInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-storage.mojom.QuotaManagerObserver_OnCreateOrUpdateBucket_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.QuotaManagerObserver_OnCreateOrUpdateBucket_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'bucket_info', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-storage.mojom.QuotaManagerObserver_OnDeleteBucket_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.QuotaManagerObserver_OnDeleteBucket_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.QuotaManagerObserver_OnDeleteBucket_ParamsSpec, 'storage.mojom.QuotaManagerObserver_OnDeleteBucket_Params', [
+      mojo.internal.StructField('bucket_locator', 0, 0, storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 storage.mojom.QuotaManagerObserverPendingReceiver = class {
   constructor(handle) {
@@ -100,35 +92,6 @@ storage.mojom.QuotaManagerObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnCreateOrUpdateBucket
-storage.mojom.QuotaManagerObserver_OnCreateOrUpdateBucket_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.QuotaManagerObserver.OnCreateOrUpdateBucket_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'bucket_info', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnDeleteBucket
-storage.mojom.QuotaManagerObserver_OnDeleteBucket_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.QuotaManagerObserver.OnDeleteBucket_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 storage.mojom.QuotaManagerObserverPtr = storage.mojom.QuotaManagerObserverRemote;
 storage.mojom.QuotaManagerObserverRequest = storage.mojom.QuotaManagerObserverPendingReceiver;
 

@@ -8,36 +8,30 @@
 var video_capture = video_capture || {};
 video_capture.mojom = video_capture.mojom || {};
 
+video_capture.mojom.Producer = {};
+video_capture.mojom.Producer.$interfaceName = 'video_capture.mojom.Producer';
+video_capture.mojom.Producer_OnNewBuffer_ParamsSpec = { $: {} };
+video_capture.mojom.Producer_OnNewBuffer_ResponseParamsSpec = { $: {} };
+video_capture.mojom.Producer_OnBufferRetired_ParamsSpec = { $: {} };
 
 // Interface: Producer
-video_capture.mojom.Producer = {};
+mojo.internal.Struct(
+    video_capture.mojom.Producer_OnNewBuffer_ParamsSpec, 'video_capture.mojom.Producer_OnNewBuffer_Params', [
+      mojo.internal.StructField('buffer_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('buffer_handle', 0, 0, media.mojom.VideoBufferHandleSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-video_capture.mojom.Producer_OnNewBuffer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.Producer_OnNewBuffer_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'buffer_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'buffer_handle', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoBufferHandleSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    video_capture.mojom.Producer_OnNewBuffer_ResponseParamsSpec, 'video_capture.mojom.Producer_OnNewBuffer_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-video_capture.mojom.Producer_OnBufferRetired_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.Producer_OnBufferRetired_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    video_capture.mojom.Producer_OnBufferRetired_ParamsSpec, 'video_capture.mojom.Producer_OnBufferRetired_Params', [
+      mojo.internal.StructField('buffer_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 video_capture.mojom.ProducerPendingReceiver = class {
   constructor(handle) {
@@ -76,7 +70,7 @@ video_capture.mojom.ProducerRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       video_capture.mojom.Producer_OnNewBuffer_ParamsSpec,
-      null,
+      video_capture.mojom.Producer_OnNewBuffer_ResponseParamsSpec,
       [buffer_id, buffer_handle]);
   }
 
@@ -101,36 +95,6 @@ video_capture.mojom.Producer.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnNewBuffer
-video_capture.mojom.Producer_OnNewBuffer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.Producer.OnNewBuffer_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'buffer_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'buffer_handle', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoBufferHandleSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for OnBufferRetired
-video_capture.mojom.Producer_OnBufferRetired_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.Producer.OnBufferRetired_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 video_capture.mojom.ProducerPtr = video_capture.mojom.ProducerRemote;
 video_capture.mojom.ProducerRequest = video_capture.mojom.ProducerPendingReceiver;
 

@@ -8,19 +8,13 @@
 var display = display || {};
 display.mojom = display.mojom || {};
 
+display.mojom.GammaRampRGBEntrySpec = { $: {} };
 
 // Struct: GammaRampRGBEntry
-display.mojom.GammaRampRGBEntrySpec = {
-  $: {
-    structSpec: {
-      name: 'display.mojom.GammaRampRGBEntry',
-      packedSize: 16,
-      fields: [
-        { name: 'r', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'g', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'b', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    display.mojom.GammaRampRGBEntrySpec, 'display.mojom.GammaRampRGBEntry', [
+      mojo.internal.StructField('r', 0, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('g', 2, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('b', 4, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);

@@ -8,13 +8,15 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+network.mojom.SessionSourceSpec = { $: mojo.internal.Enum() };
+network.mojom.AdvertisedAltSvcStateSpec = { $: mojo.internal.Enum() };
+network.mojom.LoadTimingInternalInfoSpec = { $: {} };
 
 // Enum: SessionSource
 network.mojom.SessionSource = {
   kNew: 0,
   kExisting: 1,
 };
-network.mojom.SessionSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: AdvertisedAltSvcState
 network.mojom.AdvertisedAltSvcState = {
@@ -22,23 +24,15 @@ network.mojom.AdvertisedAltSvcState = {
   kQuicNotBroken: 1,
   kQuicBroken: 2,
 };
-network.mojom.AdvertisedAltSvcStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: LoadTimingInternalInfo
-network.mojom.LoadTimingInternalInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.LoadTimingInternalInfo',
-      packedSize: 48,
-      fields: [
-        { name: 'create_stream_delay', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'connected_callback_delay', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'initialize_stream_delay', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'session_source', packedOffset: 24, packedBitOffset: 0, type: network.mojom.SessionSourceSpec, nullable: true, minVersion: 0 },
-        { name: 'advertised_alt_svc_state', packedOffset: 28, packedBitOffset: 0, type: network.mojom.AdvertisedAltSvcStateSpec, nullable: false, minVersion: 0 },
-        { name: 'http_network_session_quic_enabled', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.LoadTimingInternalInfoSpec, 'network.mojom.LoadTimingInternalInfo', [
+      mojo.internal.StructField('create_stream_delay', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('connected_callback_delay', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('initialize_stream_delay', 16, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('session_source', 24, 0, network.mojom.SessionSourceSpec, null, true, 0, undefined),
+      mojo.internal.StructField('advertised_alt_svc_state', 28, 0, network.mojom.AdvertisedAltSvcStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('http_network_session_quic_enabled', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 48]]);

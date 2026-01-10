@@ -7,105 +7,88 @@
 // Module namespace
 var optimization_guide_internals = optimization_guide_internals || {};
 optimization_guide_internals.mojom = optimization_guide_internals.mojom || {};
+var components = components || {};
 
+optimization_guide_internals.mojom.DownloadedModelInfoSpec = { $: {} };
+optimization_guide_internals.mojom.LoggedClientIdsSpec = { $: {} };
+optimization_guide_internals.mojom.MqlsLogSpec = { $: {} };
+optimization_guide_internals.mojom.PageHandlerFactory = {};
+optimization_guide_internals.mojom.PageHandlerFactory.$interfaceName = 'optimization_guide_internals.mojom.PageHandlerFactory';
+optimization_guide_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ParamsSpec = { $: {} };
+optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ResponseParamsSpec = { $: {} };
+optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ParamsSpec = { $: {} };
+optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ResponseParamsSpec = { $: {} };
+optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ParamsSpec = { $: {} };
+optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ResponseParamsSpec = { $: {} };
+optimization_guide_internals.mojom.Page = {};
+optimization_guide_internals.mojom.Page.$interfaceName = 'optimization_guide_internals.mojom.Page';
+optimization_guide_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = { $: {} };
 
 // Struct: DownloadedModelInfo
-optimization_guide_internals.mojom.DownloadedModelInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'optimization_guide_internals.mojom.DownloadedModelInfo',
-      packedSize: 32,
-      fields: [
-        { name: 'optimization_target', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'file_path', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    optimization_guide_internals.mojom.DownloadedModelInfoSpec, 'optimization_guide_internals.mojom.DownloadedModelInfo', [
+      mojo.internal.StructField('optimization_target', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('version', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('file_path', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: LoggedClientIds
-optimization_guide_internals.mojom.LoggedClientIdsSpec = {
-  $: {
-    structSpec: {
-      name: 'optimization_guide_internals.mojom.LoggedClientIds',
-      packedSize: 16,
-      fields: [
-        { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    optimization_guide_internals.mojom.LoggedClientIdsSpec, 'optimization_guide_internals.mojom.LoggedClientIds', [
+      mojo.internal.StructField('client_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: MqlsLog
-optimization_guide_internals.mojom.MqlsLogSpec = {
-  $: {
-    structSpec: {
-      name: 'optimization_guide_internals.mojom.MqlsLog',
-      packedSize: 32,
-      fields: [
-        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'proto', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'status', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    optimization_guide_internals.mojom.MqlsLogSpec, 'optimization_guide_internals.mojom.MqlsLog', [
+      mojo.internal.StructField('feature', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('proto', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('status', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: PageHandlerFactory
-optimization_guide_internals.mojom.PageHandlerFactory = {};
+mojo.internal.Struct(
+    optimization_guide_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'optimization_guide_internals.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(optimization_guide_internals.mojom.PageRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-optimization_guide_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'optimization_guide_internals.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(optimization_guide_internals.mojom.PageRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ParamsSpec, 'optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ResponseParamsSpec, 'optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ResponseParams', [
+      mojo.internal.StructField('downloaded_models_info', 0, 0, mojo.internal.Array(optimization_guide_internals.mojom.DownloadedModelInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ParamsSpec, 'optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ResponseParamsSpec, 'optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ResponseParams', [
+      mojo.internal.StructField('logged_client_ids', 0, 0, mojo.internal.Array(optimization_guide_internals.mojom.LoggedClientIdsSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ParamsSpec, 'optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ResponseParamsSpec, 'optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ResponseParams', [
+      mojo.internal.StructField('mqls_logs', 0, 0, mojo.internal.Array(optimization_guide_internals.mojom.MqlsLogSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 optimization_guide_internals.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -187,122 +170,20 @@ optimization_guide_internals.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-optimization_guide_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'optimization_guide_internals.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(optimization_guide_internals.mojom.PageRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestDownloadedModelsInfo
-optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'optimization_guide_internals.mojom.PageHandlerFactory.RequestDownloadedModelsInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'optimization_guide_internals.mojom.PageHandlerFactory.RequestDownloadedModelsInfo_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'downloaded_models_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(optimization_guide_internals.mojom.DownloadedModelInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestLoggedModelQualityClientIds
-optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'optimization_guide_internals.mojom.PageHandlerFactory.RequestLoggedModelQualityClientIds_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'optimization_guide_internals.mojom.PageHandlerFactory.RequestLoggedModelQualityClientIds_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'logged_client_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(optimization_guide_internals.mojom.LoggedClientIdsSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestMqlsLogs
-optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'optimization_guide_internals.mojom.PageHandlerFactory.RequestMqlsLogs_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'optimization_guide_internals.mojom.PageHandlerFactory.RequestMqlsLogs_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'mqls_logs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(optimization_guide_internals.mojom.MqlsLogSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 optimization_guide_internals.mojom.PageHandlerFactoryPtr = optimization_guide_internals.mojom.PageHandlerFactoryRemote;
 optimization_guide_internals.mojom.PageHandlerFactoryRequest = optimization_guide_internals.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: Page
-optimization_guide_internals.mojom.Page = {};
-
-optimization_guide_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'optimization_guide_internals.mojom.Page_OnLogMessageAdded_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'event_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'log_source', packedOffset: 32, packedBitOffset: 0, type: optimization_guide_common.mojom.LogSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'source_file', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'source_line', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    optimization_guide_internals.mojom.Page_OnLogMessageAdded_ParamsSpec, 'optimization_guide_internals.mojom.Page_OnLogMessageAdded_Params', [
+      mojo.internal.StructField('event_time', 0, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('log_source', 32, 0, optimization_guide_common.mojom.LogSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source_file', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('source_line', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('message', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 optimization_guide_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
@@ -357,25 +238,6 @@ optimization_guide_internals.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnLogMessageAdded
-optimization_guide_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'optimization_guide_internals.mojom.Page.OnLogMessageAdded_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'event_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'log_source', packedOffset: 32, packedBitOffset: 0, type: optimization_guide_common.mojom.LogSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'source_file', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'source_line', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
-
-// Legacy compatibility
 optimization_guide_internals.mojom.PagePtr = optimization_guide_internals.mojom.PageRemote;
 optimization_guide_internals.mojom.PageRequest = optimization_guide_internals.mojom.PagePendingReceiver;
 

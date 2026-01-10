@@ -8,23 +8,17 @@
 var gpu = gpu || {};
 gpu.mojom = gpu.mojom || {};
 
+gpu.mojom.VulkanYCbCrInfoSpec = { $: {} };
 
 // Struct: VulkanYCbCrInfo
-gpu.mojom.VulkanYCbCrInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'gpu.mojom.VulkanYCbCrInfo',
-      packedSize: 40,
-      fields: [
-        { name: 'image_format', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'external_format', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'suggested_ycbcr_model', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'suggested_ycbcr_range', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'suggested_xchroma_offset', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'suggested_ychroma_offset', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'format_features', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gpu.mojom.VulkanYCbCrInfoSpec, 'gpu.mojom.VulkanYCbCrInfo', [
+      mojo.internal.StructField('image_format', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('external_format', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('suggested_ycbcr_model', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('suggested_ycbcr_range', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('suggested_xchroma_offset', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('suggested_ychroma_offset', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('format_features', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);

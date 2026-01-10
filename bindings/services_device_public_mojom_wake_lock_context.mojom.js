@@ -7,26 +7,21 @@
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
+var services = services || {};
 
+device.mojom.WakeLockContext = {};
+device.mojom.WakeLockContext.$interfaceName = 'device.mojom.WakeLockContext';
+device.mojom.WakeLockContext_GetWakeLock_ParamsSpec = { $: {} };
 
 // Interface: WakeLockContext
-device.mojom.WakeLockContext = {};
-
-device.mojom.WakeLockContext_GetWakeLock_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.WakeLockContext_GetWakeLock_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: device.mojom.WakeLockTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'reason', packedOffset: 20, packedBitOffset: 0, type: device.mojom.WakeLockReasonSpec, nullable: false, minVersion: 0 },
-        { name: 'description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'wake_lock', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.WakeLockRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.WakeLockContext_GetWakeLock_ParamsSpec, 'device.mojom.WakeLockContext_GetWakeLock_Params', [
+      mojo.internal.StructField('type', 16, 0, device.mojom.WakeLockTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 20, 0, device.mojom.WakeLockReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('description', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('wake_lock', 8, 0, mojo.internal.InterfaceRequest(device.mojom.WakeLockRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 device.mojom.WakeLockContextPendingReceiver = class {
   constructor(handle) {
@@ -81,24 +76,6 @@ device.mojom.WakeLockContext.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetWakeLock
-device.mojom.WakeLockContext_GetWakeLock_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.WakeLockContext.GetWakeLock_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: device.mojom.WakeLockTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'reason', packedOffset: 20, packedBitOffset: 0, type: device.mojom.WakeLockReasonSpec, nullable: false, minVersion: 0 },
-        { name: 'description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'wake_lock', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.WakeLockRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 device.mojom.WakeLockContextPtr = device.mojom.WakeLockContextRemote;
 device.mojom.WakeLockContextRequest = device.mojom.WakeLockContextPendingReceiver;
 

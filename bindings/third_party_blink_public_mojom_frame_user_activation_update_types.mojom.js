@@ -8,6 +8,7 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.UserActivationUpdateTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: UserActivationUpdateType
 blink.mojom.UserActivationUpdateType = {
@@ -16,4 +17,3 @@ blink.mojom.UserActivationUpdateType = {
   kConsumeTransientActivation: 2,
   kClearActivation: 3,
 };
-blink.mojom.UserActivationUpdateTypeSpec = { $: mojo.internal.Enum() };

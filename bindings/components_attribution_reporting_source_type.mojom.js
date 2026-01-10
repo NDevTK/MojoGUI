@@ -8,10 +8,10 @@
 var attribution_reporting = attribution_reporting || {};
 attribution_reporting.mojom = attribution_reporting.mojom || {};
 
+attribution_reporting.mojom.SourceTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SourceType
 attribution_reporting.mojom.SourceType = {
   kNavigation: 0,
   kEvent: 1,
 };
-attribution_reporting.mojom.SourceTypeSpec = { $: mojo.internal.Enum() };

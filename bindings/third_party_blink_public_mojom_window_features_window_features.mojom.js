@@ -10,22 +10,16 @@ blink.mojom = blink.mojom || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+blink.mojom.WindowFeaturesSpec = { $: {} };
 
 // Struct: WindowFeatures
-blink.mojom.WindowFeaturesSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WindowFeatures',
-      packedSize: 24,
-      fields: [
-        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'has_x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_y', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_width', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_height', packedOffset: 8, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_popup', packedOffset: 8, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WindowFeaturesSpec, 'blink.mojom.WindowFeatures', [
+      mojo.internal.StructField('bounds', 0, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('has_x', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_y', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_width', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_height', 8, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_popup', 8, 4, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);

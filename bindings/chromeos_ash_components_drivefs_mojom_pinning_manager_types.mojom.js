@@ -9,6 +9,7 @@ var drivefs = drivefs || {};
 drivefs.pinning_manager_types = drivefs.pinning_manager_types || {};
 drivefs.pinning_manager_types.mojom = drivefs.pinning_manager_types.mojom || {};
 
+drivefs.pinning_manager_types.mojom.StageSpec = { $: mojo.internal.Enum() };
 
 // Enum: Stage
 drivefs.pinning_manager_types.mojom.Stage = {
@@ -24,4 +25,3 @@ drivefs.pinning_manager_types.mojom.Stage = {
   kCannotListFiles: 9,
   kCannotEnableDocsOffline: 10,
 };
-drivefs.pinning_manager_types.mojom.StageSpec = { $: mojo.internal.Enum() };

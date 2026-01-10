@@ -8,6 +8,7 @@
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
+arc.mojom.ScaleFactorSpec = { $: mojo.internal.Enum() };
 
 // Enum: ScaleFactor
 arc.mojom.ScaleFactor = {
@@ -23,4 +24,3 @@ arc.mojom.ScaleFactor = {
   SCALE_FACTOR_300P: 9,
   NUM_SCALE_FACTORS: 10,
 };
-arc.mojom.ScaleFactorSpec = { $: mojo.internal.Enum() };

@@ -8,21 +8,15 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.InstallationService = {};
+blink.mojom.InstallationService.$interfaceName = 'blink.mojom.InstallationService';
+blink.mojom.InstallationService_OnInstall_ParamsSpec = { $: {} };
 
 // Interface: InstallationService
-blink.mojom.InstallationService = {};
-
-blink.mojom.InstallationService_OnInstall_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.InstallationService_OnInstall_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.InstallationService_OnInstall_ParamsSpec, 'blink.mojom.InstallationService_OnInstall_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 blink.mojom.InstallationServicePendingReceiver = class {
   constructor(handle) {
@@ -77,20 +71,6 @@ blink.mojom.InstallationService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnInstall
-blink.mojom.InstallationService_OnInstall_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.InstallationService.OnInstall_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.InstallationServicePtr = blink.mojom.InstallationServiceRemote;
 blink.mojom.InstallationServiceRequest = blink.mojom.InstallationServicePendingReceiver;
 

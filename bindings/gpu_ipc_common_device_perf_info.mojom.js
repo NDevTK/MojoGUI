@@ -8,6 +8,9 @@
 var gpu = gpu || {};
 gpu.mojom = gpu.mojom || {};
 
+gpu.mojom.Direct3DFeatureLevelSpec = { $: mojo.internal.Enum() };
+gpu.mojom.HasDiscreteGpuSpec = { $: mojo.internal.Enum() };
+gpu.mojom.DevicePerfInfoSpec = { $: {} };
 
 // Enum: Direct3DFeatureLevel
 gpu.mojom.Direct3DFeatureLevel = {
@@ -24,7 +27,6 @@ gpu.mojom.Direct3DFeatureLevel = {
   k12_1: 10,
   k12_2: 11,
 };
-gpu.mojom.Direct3DFeatureLevelSpec = { $: mojo.internal.Enum() };
 
 // Enum: HasDiscreteGpu
 gpu.mojom.HasDiscreteGpu = {
@@ -32,23 +34,15 @@ gpu.mojom.HasDiscreteGpu = {
   kNo: 1,
   kYes: 2,
 };
-gpu.mojom.HasDiscreteGpuSpec = { $: mojo.internal.Enum() };
 
 // Struct: DevicePerfInfo
-gpu.mojom.DevicePerfInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'gpu.mojom.DevicePerfInfo',
-      packedSize: 32,
-      fields: [
-        { name: 'total_physical_memory_mb', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'total_disk_space_mb', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'hardware_concurrency', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'system_commit_limit_mb', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'd3d11_feature_level', packedOffset: 16, packedBitOffset: 0, type: gpu.mojom.Direct3DFeatureLevelSpec, nullable: false, minVersion: 0 },
-        { name: 'has_discrete_gpu', packedOffset: 20, packedBitOffset: 0, type: gpu.mojom.HasDiscreteGpuSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gpu.mojom.DevicePerfInfoSpec, 'gpu.mojom.DevicePerfInfo', [
+      mojo.internal.StructField('total_physical_memory_mb', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('total_disk_space_mb', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('hardware_concurrency', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('system_commit_limit_mb', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('d3d11_feature_level', 16, 0, gpu.mojom.Direct3DFeatureLevelSpec, null, false, 0, undefined),
+      mojo.internal.StructField('has_discrete_gpu', 20, 0, gpu.mojom.HasDiscreteGpuSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);

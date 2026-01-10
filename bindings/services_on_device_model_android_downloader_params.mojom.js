@@ -8,17 +8,11 @@
 var on_device_model = on_device_model || {};
 on_device_model.mojom = on_device_model.mojom || {};
 
+on_device_model.mojom.DownloaderParamsSpec = { $: {} };
 
 // Struct: DownloaderParams
-on_device_model.mojom.DownloaderParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_model.mojom.DownloaderParams',
-      packedSize: 16,
-      fields: [
-        { name: 'require_persistent_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    on_device_model.mojom.DownloaderParamsSpec, 'on_device_model.mojom.DownloaderParams', [
+      mojo.internal.StructField('require_persistent_mode', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);

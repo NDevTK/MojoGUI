@@ -11,115 +11,92 @@ ash.settings.app_permission = ash.settings.app_permission || {};
 ash.settings.app_permission.mojom = ash.settings.app_permission.mojom || {};
 var ui = ui || {};
 
+ash.settings.app_permission.mojom.AppSpec = { $: {} };
+ash.settings.app_permission.mojom.AppPermissionsHandler = {};
+ash.settings.app_permission.mojom.AppPermissionsHandler.$interfaceName = 'ash.settings.app_permission.mojom.AppPermissionsHandler';
+ash.settings.app_permission.mojom.AppPermissionsHandler_AddObserver_ParamsSpec = { $: {} };
+ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ParamsSpec = { $: {} };
+ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ResponseParamsSpec = { $: {} };
+ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ParamsSpec = { $: {} };
+ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ResponseParamsSpec = { $: {} };
+ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ParamsSpec = { $: {} };
+ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ResponseParamsSpec = { $: {} };
+ash.settings.app_permission.mojom.AppPermissionsHandler_OpenBrowserPermissionSettings_ParamsSpec = { $: {} };
+ash.settings.app_permission.mojom.AppPermissionsHandler_OpenNativeSettings_ParamsSpec = { $: {} };
+ash.settings.app_permission.mojom.AppPermissionsHandler_SetPermission_ParamsSpec = { $: {} };
+ash.settings.app_permission.mojom.AppPermissionsObserver = {};
+ash.settings.app_permission.mojom.AppPermissionsObserver.$interfaceName = 'ash.settings.app_permission.mojom.AppPermissionsObserver';
+ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppRemoved_ParamsSpec = { $: {} };
+ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppUpdated_ParamsSpec = { $: {} };
 
 // Struct: App
-ash.settings.app_permission.mojom.AppSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_permission.mojom.App',
-      packedSize: 40,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: app_management.mojom.AppTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'permissions', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(app_management.mojom.PermissionTypeSpec, app_management.mojom.PermissionSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.app_permission.mojom.AppSpec, 'ash.settings.app_permission.mojom.App', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('type', 24, 0, app_management.mojom.AppTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('permissions', 16, 0, mojo.internal.Map(app_management.mojom.PermissionTypeSpec, app_management.mojom.PermissionSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Interface: AppPermissionsHandler
-ash.settings.app_permission.mojom.AppPermissionsHandler = {};
+mojo.internal.Struct(
+    ash.settings.app_permission.mojom.AppPermissionsHandler_AddObserver_ParamsSpec, 'ash.settings.app_permission.mojom.AppPermissionsHandler_AddObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.settings.app_permission.mojom.AppPermissionsObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.settings.app_permission.mojom.AppPermissionsHandler_AddObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_permission.mojom.AppPermissionsHandler_AddObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.app_permission.mojom.AppPermissionsObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ParamsSpec, 'ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ResponseParamsSpec, 'ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ResponseParams', [
+      mojo.internal.StructField('apps', 0, 0, mojo.internal.Array(ash.settings.app_permission.mojom.AppSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ParamsSpec, 'ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ResponseParamsSpec, 'ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ResponseParams', [
+      mojo.internal.StructField('apps', 0, 0, mojo.internal.Array(ash.settings.app_permission.mojom.AppSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.settings.app_permission.mojom.AppPermissionsHandler_OpenBrowserPermissionSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_permission.mojom.AppPermissionsHandler_OpenBrowserPermissionSettings_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'permission_type', packedOffset: 0, packedBitOffset: 0, type: app_management.mojom.PermissionTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ParamsSpec, 'ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.settings.app_permission.mojom.AppPermissionsHandler_OpenNativeSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_permission.mojom.AppPermissionsHandler_OpenNativeSettings_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ResponseParamsSpec, 'ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ResponseParams', [
+      mojo.internal.StructField('apps', 0, 0, mojo.internal.Array(ash.settings.app_permission.mojom.AppSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.settings.app_permission.mojom.AppPermissionsHandler_SetPermission_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_permission.mojom.AppPermissionsHandler_SetPermission_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'permission', packedOffset: 8, packedBitOffset: 0, type: app_management.mojom.PermissionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.app_permission.mojom.AppPermissionsHandler_OpenBrowserPermissionSettings_ParamsSpec, 'ash.settings.app_permission.mojom.AppPermissionsHandler_OpenBrowserPermissionSettings_Params', [
+      mojo.internal.StructField('permission_type', 0, 0, app_management.mojom.PermissionTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.settings.app_permission.mojom.AppPermissionsHandler_OpenNativeSettings_ParamsSpec, 'ash.settings.app_permission.mojom.AppPermissionsHandler_OpenNativeSettings_Params', [
+      mojo.internal.StructField('app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.settings.app_permission.mojom.AppPermissionsHandler_SetPermission_ParamsSpec, 'ash.settings.app_permission.mojom.AppPermissionsHandler_SetPermission_Params', [
+      mojo.internal.StructField('app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('permission', 8, 0, app_management.mojom.PermissionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 ash.settings.app_permission.mojom.AppPermissionsHandlerPendingReceiver = class {
   constructor(handle) {
@@ -228,174 +205,22 @@ ash.settings.app_permission.mojom.AppPermissionsHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddObserver
-ash.settings.app_permission.mojom.AppPermissionsHandler_AddObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_permission.mojom.AppPermissionsHandler.AddObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.app_permission.mojom.AppPermissionsObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetApps
-ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_permission.mojom.AppPermissionsHandler.GetApps_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_permission.mojom.AppPermissionsHandler.GetApps_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.settings.app_permission.mojom.AppSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetSystemAppsThatUseCamera
-ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_permission.mojom.AppPermissionsHandler.GetSystemAppsThatUseCamera_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_permission.mojom.AppPermissionsHandler.GetSystemAppsThatUseCamera_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.settings.app_permission.mojom.AppSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetSystemAppsThatUseMicrophone
-ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_permission.mojom.AppPermissionsHandler.GetSystemAppsThatUseMicrophone_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_permission.mojom.AppPermissionsHandler.GetSystemAppsThatUseMicrophone_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.settings.app_permission.mojom.AppSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OpenBrowserPermissionSettings
-ash.settings.app_permission.mojom.AppPermissionsHandler_OpenBrowserPermissionSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_permission.mojom.AppPermissionsHandler.OpenBrowserPermissionSettings_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'permission_type', packedOffset: 0, packedBitOffset: 0, type: app_management.mojom.PermissionTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OpenNativeSettings
-ash.settings.app_permission.mojom.AppPermissionsHandler_OpenNativeSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_permission.mojom.AppPermissionsHandler.OpenNativeSettings_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetPermission
-ash.settings.app_permission.mojom.AppPermissionsHandler_SetPermission_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_permission.mojom.AppPermissionsHandler.SetPermission_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'permission', packedOffset: 8, packedBitOffset: 0, type: app_management.mojom.PermissionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.settings.app_permission.mojom.AppPermissionsHandlerPtr = ash.settings.app_permission.mojom.AppPermissionsHandlerRemote;
 ash.settings.app_permission.mojom.AppPermissionsHandlerRequest = ash.settings.app_permission.mojom.AppPermissionsHandlerPendingReceiver;
 
 
 // Interface: AppPermissionsObserver
-ash.settings.app_permission.mojom.AppPermissionsObserver = {};
+mojo.internal.Struct(
+    ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppRemoved_ParamsSpec, 'ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppRemoved_Params', [
+      mojo.internal.StructField('app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppRemoved_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppRemoved_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'app', packedOffset: 0, packedBitOffset: 0, type: ash.settings.app_permission.mojom.AppSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppUpdated_ParamsSpec, 'ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppUpdated_Params', [
+      mojo.internal.StructField('app', 0, 0, ash.settings.app_permission.mojom.AppSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.settings.app_permission.mojom.AppPermissionsObserverPendingReceiver = class {
   constructor(handle) {
@@ -459,35 +284,6 @@ ash.settings.app_permission.mojom.AppPermissionsObserver.getRemote = function() 
   return remote.$;
 };
 
-// ParamsSpec for OnAppRemoved
-ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppRemoved_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_permission.mojom.AppPermissionsObserver.OnAppRemoved_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnAppUpdated
-ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_permission.mojom.AppPermissionsObserver.OnAppUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'app', packedOffset: 0, packedBitOffset: 0, type: ash.settings.app_permission.mojom.AppSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.settings.app_permission.mojom.AppPermissionsObserverPtr = ash.settings.app_permission.mojom.AppPermissionsObserverRemote;
 ash.settings.app_permission.mojom.AppPermissionsObserverRequest = ash.settings.app_permission.mojom.AppPermissionsObserverPendingReceiver;
 

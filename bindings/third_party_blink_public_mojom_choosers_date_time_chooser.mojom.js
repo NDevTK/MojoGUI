@@ -9,69 +9,53 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 var ui = ui || {};
 
+blink.mojom.DateTimeSuggestionSpec = { $: {} };
+blink.mojom.DateTimeDialogValueSpec = { $: {} };
+blink.mojom.DateTimeChooser = {};
+blink.mojom.DateTimeChooser.$interfaceName = 'blink.mojom.DateTimeChooser';
+blink.mojom.DateTimeChooser_OpenDateTimeDialog_ParamsSpec = { $: {} };
+blink.mojom.DateTimeChooser_OpenDateTimeDialog_ResponseParamsSpec = { $: {} };
+blink.mojom.DateTimeChooser_CloseDateTimeDialog_ParamsSpec = { $: {} };
 
 // Struct: DateTimeSuggestion
-blink.mojom.DateTimeSuggestionSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DateTimeSuggestion',
-      packedSize: 32,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'localized_value', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'label', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.DateTimeSuggestionSpec, 'blink.mojom.DateTimeSuggestion', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('localized_value', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('label', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: DateTimeDialogValue
-blink.mojom.DateTimeDialogValueSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DateTimeDialogValue',
-      packedSize: 56,
-      fields: [
-        { name: 'dialog_type', packedOffset: 40, packedBitOffset: 0, type: ui.mojom.TextInputTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'dialog_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'minimum', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'maximum', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'step', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'suggestions', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.DateTimeSuggestionSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.DateTimeDialogValueSpec, 'blink.mojom.DateTimeDialogValue', [
+      mojo.internal.StructField('dialog_type', 40, 0, ui.mojom.TextInputTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('dialog_value', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('minimum', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('maximum', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('step', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('suggestions', 32, 0, mojo.internal.Array(blink.mojom.DateTimeSuggestionSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Interface: DateTimeChooser
-blink.mojom.DateTimeChooser = {};
+mojo.internal.Struct(
+    blink.mojom.DateTimeChooser_OpenDateTimeDialog_ParamsSpec, 'blink.mojom.DateTimeChooser_OpenDateTimeDialog_Params', [
+      mojo.internal.StructField('value', 0, 0, blink.mojom.DateTimeDialogValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.DateTimeChooser_OpenDateTimeDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DateTimeChooser_OpenDateTimeDialog_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DateTimeDialogValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.DateTimeChooser_OpenDateTimeDialog_ResponseParamsSpec, 'blink.mojom.DateTimeChooser_OpenDateTimeDialog_ResponseParams', [
+      mojo.internal.StructField('success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('dialog_value', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.DateTimeChooser_CloseDateTimeDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DateTimeChooser_CloseDateTimeDialog_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.DateTimeChooser_CloseDateTimeDialog_ParamsSpec, 'blink.mojom.DateTimeChooser_CloseDateTimeDialog_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 blink.mojom.DateTimeChooserPendingReceiver = class {
   constructor(handle) {
@@ -135,48 +119,6 @@ blink.mojom.DateTimeChooser.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OpenDateTimeDialog
-blink.mojom.DateTimeChooser_OpenDateTimeDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DateTimeChooser.OpenDateTimeDialog_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DateTimeDialogValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.DateTimeChooser_OpenDateTimeDialog_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DateTimeChooser.OpenDateTimeDialog_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'dialog_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for CloseDateTimeDialog
-blink.mojom.DateTimeChooser_CloseDateTimeDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DateTimeChooser.CloseDateTimeDialog_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.DateTimeChooserPtr = blink.mojom.DateTimeChooserRemote;
 blink.mojom.DateTimeChooserRequest = blink.mojom.DateTimeChooserPendingReceiver;
 

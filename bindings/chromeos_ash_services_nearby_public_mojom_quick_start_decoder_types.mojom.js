@@ -9,6 +9,17 @@ var ash = ash || {};
 ash.quick_start = ash.quick_start || {};
 ash.quick_start.mojom = ash.quick_start.mojom || {};
 
+ash.quick_start.mojom.WifiSecurityTypeSpec = { $: mojo.internal.Enum() };
+ash.quick_start.mojom.UserVerificationResultSpec = { $: mojo.internal.Enum() };
+ash.quick_start.mojom.QuickStartDecoderErrorSpec = { $: mojo.internal.Enum() };
+ash.quick_start.mojom.QuickStartMessageSpec = { $: {} };
+ash.quick_start.mojom.BootstrapConfigurationsSpec = { $: {} };
+ash.quick_start.mojom.UserVerificationMethodSpec = { $: {} };
+ash.quick_start.mojom.UserVerificationResponseSpec = { $: {} };
+ash.quick_start.mojom.UserVerificationRequestedSpec = { $: {} };
+ash.quick_start.mojom.WifiCredentialsSpec = { $: {} };
+ash.quick_start.mojom.FidoAssertionResponseSpec = { $: {} };
+ash.quick_start.mojom.NotifySourceOfUpdateResponseSpec = { $: {} };
 
 // Enum: WifiSecurityType
 ash.quick_start.mojom.WifiSecurityType = {
@@ -19,7 +30,6 @@ ash.quick_start.mojom.WifiSecurityType = {
   kOWE: 4,
   kSAE: 5,
 };
-ash.quick_start.mojom.WifiSecurityTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: UserVerificationResult
 ash.quick_start.mojom.UserVerificationResult = {
@@ -27,7 +37,6 @@ ash.quick_start.mojom.UserVerificationResult = {
   kUserNotVerified: 1,
   kLSKFNotSet: 2,
 };
-ash.quick_start.mojom.UserVerificationResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: QuickStartDecoderError
 ash.quick_start.mojom.QuickStartDecoderError = {
@@ -38,145 +47,101 @@ ash.quick_start.mojom.QuickStartDecoderError = {
   kUnknownPayload: 4,
   kUnableToReadAsBase64: 5,
 };
-ash.quick_start.mojom.QuickStartDecoderErrorSpec = { $: mojo.internal.Enum() };
 
 // Union: QuickStartMessage
-ash.quick_start.mojom.QuickStartMessageSpec = { $: mojo.internal.Union(
-    'ash.quick_start.mojom.QuickStartMessage', {
+mojo.internal.Union(
+    ash.quick_start.mojom.QuickStartMessageSpec, 'ash.quick_start.mojom.QuickStartMessage', {
       'bootstrap_configurations': {
         'ordinal': 0,
         'type': ash.quick_start.mojom.BootstrapConfigurationsSpec,
-      }},
+        'nullable': false,
+      },
       'wifi_credentials': {
         'ordinal': 1,
         'type': ash.quick_start.mojom.WifiCredentialsSpec,
-      }},
+        'nullable': false,
+      },
       'notify_source_of_update_response': {
         'ordinal': 2,
         'type': ash.quick_start.mojom.NotifySourceOfUpdateResponseSpec,
-      }},
+        'nullable': false,
+      },
       'fido_assertion_response': {
         'ordinal': 3,
         'type': ash.quick_start.mojom.FidoAssertionResponseSpec,
-      }},
+        'nullable': false,
+      },
       'user_verification_requested': {
         'ordinal': 4,
         'type': ash.quick_start.mojom.UserVerificationRequestedSpec,
-      }},
+        'nullable': false,
+      },
       'user_verification_response': {
         'ordinal': 5,
         'type': ash.quick_start.mojom.UserVerificationResponseSpec,
-      }},
+        'nullable': false,
+      },
       'user_verification_method': {
         'ordinal': 6,
         'type': ash.quick_start.mojom.UserVerificationMethodSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: BootstrapConfigurations
-ash.quick_start.mojom.BootstrapConfigurationsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.quick_start.mojom.BootstrapConfigurations',
-      packedSize: 32,
-      fields: [
-        { name: 'instance_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_supervised_account', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'email', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.quick_start.mojom.BootstrapConfigurationsSpec, 'ash.quick_start.mojom.BootstrapConfigurations', [
+      mojo.internal.StructField('instance_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('is_supervised_account', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('email', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: UserVerificationMethod
-ash.quick_start.mojom.UserVerificationMethodSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.quick_start.mojom.UserVerificationMethod',
-      packedSize: 16,
-      fields: [
-        { name: 'use_source_lock_screen_prompt', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.quick_start.mojom.UserVerificationMethodSpec, 'ash.quick_start.mojom.UserVerificationMethod', [
+      mojo.internal.StructField('use_source_lock_screen_prompt', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: UserVerificationResponse
-ash.quick_start.mojom.UserVerificationResponseSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.quick_start.mojom.UserVerificationResponse',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.quick_start.mojom.UserVerificationResultSpec, nullable: false, minVersion: 0 },
-        { name: 'is_first_user_verification', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.quick_start.mojom.UserVerificationResponseSpec, 'ash.quick_start.mojom.UserVerificationResponse', [
+      mojo.internal.StructField('result', 0, 0, ash.quick_start.mojom.UserVerificationResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_first_user_verification', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: UserVerificationRequested
-ash.quick_start.mojom.UserVerificationRequestedSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.quick_start.mojom.UserVerificationRequested',
-      packedSize: 16,
-      fields: [
-        { name: 'is_awaiting_user_verification', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.quick_start.mojom.UserVerificationRequestedSpec, 'ash.quick_start.mojom.UserVerificationRequested', [
+      mojo.internal.StructField('is_awaiting_user_verification', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: WifiCredentials
-ash.quick_start.mojom.WifiCredentialsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.quick_start.mojom.WifiCredentials',
-      packedSize: 32,
-      fields: [
-        { name: 'ssid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'security_type', packedOffset: 16, packedBitOffset: 0, type: ash.quick_start.mojom.WifiSecurityTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'is_hidden', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'password', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.quick_start.mojom.WifiCredentialsSpec, 'ash.quick_start.mojom.WifiCredentials', [
+      mojo.internal.StructField('ssid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('security_type', 16, 0, ash.quick_start.mojom.WifiSecurityTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_hidden', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('password', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: FidoAssertionResponse
-ash.quick_start.mojom.FidoAssertionResponseSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.quick_start.mojom.FidoAssertionResponse',
-      packedSize: 40,
-      fields: [
-        { name: 'email', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'credential_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'auth_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'signature', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.quick_start.mojom.FidoAssertionResponseSpec, 'ash.quick_start.mojom.FidoAssertionResponse', [
+      mojo.internal.StructField('email', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('credential_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('auth_data', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('signature', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: NotifySourceOfUpdateResponse
-ash.quick_start.mojom.NotifySourceOfUpdateResponseSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.quick_start.mojom.NotifySourceOfUpdateResponse',
-      packedSize: 16,
-      fields: [
-        { name: 'ack_received', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.quick_start.mojom.NotifySourceOfUpdateResponseSpec, 'ash.quick_start.mojom.NotifySourceOfUpdateResponse', [
+      mojo.internal.StructField('ack_received', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);

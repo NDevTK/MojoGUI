@@ -25,43 +25,39 @@ var ui = ui || {};
 var gfx = gfx || {};
 var skia = skia || {};
 
+wl.mojom.TransformUnionSpec = { $: {} };
+wl.mojom.WaylandOverlayConfigSpec = { $: {} };
 
 // Union: TransformUnion
-wl.mojom.TransformUnionSpec = { $: mojo.internal.Union(
-    'wl.mojom.TransformUnion', {
+mojo.internal.Union(
+    wl.mojom.TransformUnionSpec, 'wl.mojom.TransformUnion', {
       'overlay_transform': {
         'ordinal': 0,
         'type': gfx.mojom.OverlayTransformSpec,
-      }},
+        'nullable': false,
+      },
       'matrix_transform': {
         'ordinal': 1,
         'type': gfx.mojom.TransformSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: WaylandOverlayConfig
-wl.mojom.WaylandOverlayConfigSpec = {
-  $: {
-    structSpec: {
-      name: 'wl.mojom.WaylandOverlayConfig',
-      packedSize: 96,
-      fields: [
-        { name: 'z_order', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'color_space', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.ColorSpaceSpec, nullable: true, minVersion: 0 },
-        { name: 'hdr_metadata', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.HDRMetadataSpec, nullable: false, minVersion: 0 },
-        { name: 'transform', packedOffset: 0, packedBitOffset: 0, type: wl.mojom.TransformUnionSpec, nullable: false, minVersion: 0 },
-        { name: 'buffer_id', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'surface_scale_factor', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'bounds_rect', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
-        { name: 'crop_rect', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
-        { name: 'damage_region', packedOffset: 48, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'enable_blend', packedOffset: 84, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'opacity', packedOffset: 76, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'access_fence_handle', packedOffset: 56, packedBitOffset: 0, type: gfx.mojom.GpuFenceHandleSpec, nullable: true, minVersion: 0 },
-        { name: 'priority_hint', packedOffset: 80, packedBitOffset: 0, type: gfx.mojom.OverlayPriorityHintSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 96}]
-    }
-  }
-};
+mojo.internal.Struct(
+    wl.mojom.WaylandOverlayConfigSpec, 'wl.mojom.WaylandOverlayConfig', [
+      mojo.internal.StructField('z_order', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('color_space', 16, 0, gfx.mojom.ColorSpaceSpec, null, true, 0, undefined),
+      mojo.internal.StructField('hdr_metadata', 24, 0, gfx.mojom.HDRMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('transform', 0, 0, wl.mojom.TransformUnionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('buffer_id', 68, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('surface_scale_factor', 72, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('bounds_rect', 32, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('crop_rect', 40, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('damage_region', 48, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('enable_blend', 84, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('opacity', 76, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('access_fence_handle', 56, 0, gfx.mojom.GpuFenceHandleSpec, null, true, 0, undefined),
+      mojo.internal.StructField('priority_hint', 80, 0, gfx.mojom.OverlayPriorityHintSpec, null, false, 0, undefined),
+    ],
+    [[0, 96]]);

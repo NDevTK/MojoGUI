@@ -8,6 +8,10 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+network.mojom.NoVarySearchParseErrorSpec = { $: mojo.internal.Enum() };
+network.mojom.SearchParamsVarianceSpec = { $: {} };
+network.mojom.NoVarySearchWithParseErrorSpec = { $: {} };
+network.mojom.NoVarySearchSpec = { $: {} };
 
 // Enum: NoVarySearchParseError
 network.mojom.NoVarySearchParseError = {
@@ -20,47 +24,41 @@ network.mojom.NoVarySearchParseError = {
   kExceptNotStringList: 6,
   kExceptWithoutTrueParams: 7,
 };
-network.mojom.NoVarySearchParseErrorSpec = { $: mojo.internal.Enum() };
 
 // Union: SearchParamsVariance
-network.mojom.SearchParamsVarianceSpec = { $: mojo.internal.Union(
-    'network.mojom.SearchParamsVariance', {
+mojo.internal.Union(
+    network.mojom.SearchParamsVarianceSpec, 'network.mojom.SearchParamsVariance', {
       'no_vary_params': {
         'ordinal': 0,
         'type': mojo.internal.Array(mojo.internal.String, false),
-      }},
+        'nullable': false,
+      },
       'vary_params': {
         'ordinal': 1,
         'type': mojo.internal.Array(mojo.internal.String, false),
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Union: NoVarySearchWithParseError
-network.mojom.NoVarySearchWithParseErrorSpec = { $: mojo.internal.Union(
-    'network.mojom.NoVarySearchWithParseError', {
+mojo.internal.Union(
+    network.mojom.NoVarySearchWithParseErrorSpec, 'network.mojom.NoVarySearchWithParseError', {
       'no_vary_search': {
         'ordinal': 0,
         'type': network.mojom.NoVarySearchSpec,
-      }},
+        'nullable': false,
+      },
       'parse_error': {
         'ordinal': 1,
         'type': network.mojom.NoVarySearchParseErrorSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: NoVarySearch
-network.mojom.NoVarySearchSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.NoVarySearch',
-      packedSize: 32,
-      fields: [
-        { name: 'search_variance', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SearchParamsVarianceSpec, nullable: false, minVersion: 0 },
-        { name: 'vary_on_key_order', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.NoVarySearchSpec, 'network.mojom.NoVarySearch', [
+      mojo.internal.StructField('search_variance', 0, 0, network.mojom.SearchParamsVarianceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('vary_on_key_order', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);

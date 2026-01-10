@@ -9,59 +9,49 @@ var chromeos = chromeos || {};
 chromeos.cfm = chromeos.cfm || {};
 chromeos.cfm.mojom = chromeos.cfm.mojom || {};
 
+chromeos.cfm.mojom.ExternalDisplayBrightness = {};
+chromeos.cfm.mojom.ExternalDisplayBrightness.$interfaceName = 'chromeos.cfm.mojom.ExternalDisplayBrightness';
+chromeos.cfm.mojom.ExternalDisplayBrightness_SetExternalDisplayALSBrightness_ParamsSpec = { $: {} };
+chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayALSBrightness_ParamsSpec = { $: {} };
+chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayALSBrightness_ResponseParamsSpec = { $: {} };
+chromeos.cfm.mojom.ExternalDisplayBrightness_SetExternalDisplayBrightnessPercent_ParamsSpec = { $: {} };
+chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayBrightnessPercent_ParamsSpec = { $: {} };
+chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayBrightnessPercent_ResponseParamsSpec = { $: {} };
 
 // Interface: ExternalDisplayBrightness
-chromeos.cfm.mojom.ExternalDisplayBrightness = {};
+mojo.internal.Struct(
+    chromeos.cfm.mojom.ExternalDisplayBrightness_SetExternalDisplayALSBrightness_ParamsSpec, 'chromeos.cfm.mojom.ExternalDisplayBrightness_SetExternalDisplayALSBrightness_Params', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.cfm.mojom.ExternalDisplayBrightness_SetExternalDisplayALSBrightness_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.ExternalDisplayBrightness_SetExternalDisplayALSBrightness_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayALSBrightness_ParamsSpec, 'chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayALSBrightness_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayALSBrightness_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayALSBrightness_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayALSBrightness_ResponseParamsSpec, 'chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayALSBrightness_ResponseParams', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.cfm.mojom.ExternalDisplayBrightness_SetExternalDisplayBrightnessPercent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.ExternalDisplayBrightness_SetExternalDisplayBrightnessPercent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cfm.mojom.ExternalDisplayBrightness_SetExternalDisplayBrightnessPercent_ParamsSpec, 'chromeos.cfm.mojom.ExternalDisplayBrightness_SetExternalDisplayBrightnessPercent_Params', [
+      mojo.internal.StructField('percent', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayBrightnessPercent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayBrightnessPercent_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayBrightnessPercent_ParamsSpec, 'chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayBrightnessPercent_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayBrightnessPercent_ResponseParamsSpec, 'chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayBrightnessPercent_ResponseParams', [
+      mojo.internal.StructField('percent', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromeos.cfm.mojom.ExternalDisplayBrightnessPendingReceiver = class {
   constructor(handle) {
@@ -143,87 +133,6 @@ chromeos.cfm.mojom.ExternalDisplayBrightness.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetExternalDisplayALSBrightness
-chromeos.cfm.mojom.ExternalDisplayBrightness_SetExternalDisplayALSBrightness_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.ExternalDisplayBrightness.SetExternalDisplayALSBrightness_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetExternalDisplayALSBrightness
-chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayALSBrightness_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.ExternalDisplayBrightness.GetExternalDisplayALSBrightness_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayALSBrightness_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.ExternalDisplayBrightness.GetExternalDisplayALSBrightness_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetExternalDisplayBrightnessPercent
-chromeos.cfm.mojom.ExternalDisplayBrightness_SetExternalDisplayBrightnessPercent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.ExternalDisplayBrightness.SetExternalDisplayBrightnessPercent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetExternalDisplayBrightnessPercent
-chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayBrightnessPercent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.ExternalDisplayBrightness.GetExternalDisplayBrightnessPercent_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayBrightnessPercent_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.ExternalDisplayBrightness.GetExternalDisplayBrightnessPercent_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromeos.cfm.mojom.ExternalDisplayBrightnessPtr = chromeos.cfm.mojom.ExternalDisplayBrightnessRemote;
 chromeos.cfm.mojom.ExternalDisplayBrightnessRequest = chromeos.cfm.mojom.ExternalDisplayBrightnessPendingReceiver;
 

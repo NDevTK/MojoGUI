@@ -8,18 +8,12 @@
 var gpu = gpu || {};
 gpu.mojom = gpu.mojom || {};
 
+gpu.mojom.LuidSpec = { $: {} };
 
 // Struct: Luid
-gpu.mojom.LuidSpec = {
-  $: {
-    structSpec: {
-      name: 'gpu.mojom.Luid',
-      packedSize: 16,
-      fields: [
-        { name: 'high', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'low', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gpu.mojom.LuidSpec, 'gpu.mojom.Luid', [
+      mojo.internal.StructField('high', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('low', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);

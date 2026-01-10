@@ -14,26 +14,20 @@ var blink = blink || {};
 var blink = blink || {};
 var blink = blink || {};
 
+blink.mojom.SharedWorkerConnector = {};
+blink.mojom.SharedWorkerConnector.$interfaceName = 'blink.mojom.SharedWorkerConnector';
+blink.mojom.SharedWorkerConnector_Connect_ParamsSpec = { $: {} };
 
 // Interface: SharedWorkerConnector
-blink.mojom.SharedWorkerConnector = {};
-
-blink.mojom.SharedWorkerConnector_Connect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedWorkerConnector_Connect_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SharedWorkerInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.SharedWorkerClientRemote), nullable: false, minVersion: 0 },
-        { name: 'creation_context_type', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.SharedWorkerCreationContextTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'message_port', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.MessagePortDescriptorSpec, nullable: false, minVersion: 0 },
-        { name: 'blob_url_token', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.BlobURLTokenRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SharedWorkerConnector_Connect_ParamsSpec, 'blink.mojom.SharedWorkerConnector_Connect_Params', [
+      mojo.internal.StructField('info', 0, 0, blink.mojom.SharedWorkerInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.SharedWorkerClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('creation_context_type', 32, 0, blink.mojom.SharedWorkerCreationContextTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message_port', 16, 0, blink.mojom.MessagePortDescriptorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('blob_url_token', 24, 0, mojo.internal.InterfaceProxy(blink.mojom.BlobURLTokenRemote), null, true, 0, undefined),
+    ],
+    [[0, 48]]);
 
 blink.mojom.SharedWorkerConnectorPendingReceiver = class {
   constructor(handle) {
@@ -88,25 +82,6 @@ blink.mojom.SharedWorkerConnector.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Connect
-blink.mojom.SharedWorkerConnector_Connect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedWorkerConnector.Connect_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SharedWorkerInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.SharedWorkerClientRemote), nullable: false, minVersion: 0 },
-        { name: 'creation_context_type', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.SharedWorkerCreationContextTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'message_port', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.MessagePortDescriptorSpec, nullable: false, minVersion: 0 },
-        { name: 'blob_url_token', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.BlobURLTokenRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.SharedWorkerConnectorPtr = blink.mojom.SharedWorkerConnectorRemote;
 blink.mojom.SharedWorkerConnectorRequest = blink.mojom.SharedWorkerConnectorPendingReceiver;
 

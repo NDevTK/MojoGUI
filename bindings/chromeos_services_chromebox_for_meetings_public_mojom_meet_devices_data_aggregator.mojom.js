@@ -9,42 +9,46 @@ var ash = ash || {};
 ash.cfm = ash.cfm || {};
 ash.cfm.mojom = ash.cfm.mojom || {};
 
+ash.cfm.mojom.FilterTypeSpec = { $: mojo.internal.Enum() };
+ash.cfm.mojom.DataFilterSpec = { $: {} };
+ash.cfm.mojom.DataWatchDog = {};
+ash.cfm.mojom.DataWatchDog.$interfaceName = 'ash.cfm.mojom.DataWatchDog';
+ash.cfm.mojom.DataWatchDog_OnNotify_ParamsSpec = { $: {} };
+ash.cfm.mojom.DataSource = {};
+ash.cfm.mojom.DataSource.$interfaceName = 'ash.cfm.mojom.DataSource';
+ash.cfm.mojom.DataSource_Fetch_ParamsSpec = { $: {} };
+ash.cfm.mojom.DataSource_Fetch_ResponseParamsSpec = { $: {} };
+ash.cfm.mojom.DataSource_AddWatchDog_ParamsSpec = { $: {} };
+ash.cfm.mojom.DataSource_AddWatchDog_ResponseParamsSpec = { $: {} };
+ash.cfm.mojom.DataSource_Flush_ParamsSpec = { $: {} };
+ash.cfm.mojom.DataAggregator = {};
+ash.cfm.mojom.DataAggregator.$interfaceName = 'ash.cfm.mojom.DataAggregator';
+ash.cfm.mojom.DataAggregator_GetDataSourceNames_ParamsSpec = { $: {} };
+ash.cfm.mojom.DataAggregator_GetDataSourceNames_ResponseParamsSpec = { $: {} };
+ash.cfm.mojom.DataAggregator_AddDataSource_ParamsSpec = { $: {} };
+ash.cfm.mojom.DataAggregator_AddDataSource_ResponseParamsSpec = { $: {} };
+ash.cfm.mojom.DataAggregator_AddWatchDog_ParamsSpec = { $: {} };
+ash.cfm.mojom.DataAggregator_AddWatchDog_ResponseParamsSpec = { $: {} };
 
 // Enum: FilterType
 ash.cfm.mojom.FilterType = {
-  CHANGE: 0,
+  REGEX: 0,
+  CHANGE: 1,
 };
-ash.cfm.mojom.FilterTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: DataFilter
-ash.cfm.mojom.DataFilterSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cfm.mojom.DataFilter',
-      packedSize: 16,
-      fields: [
-        { name: 'REGEX', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cfm.mojom.DataFilterSpec, 'ash.cfm.mojom.DataFilter', [
+      mojo.internal.StructField('REGEX', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: DataWatchDog
-ash.cfm.mojom.DataWatchDog = {};
-
-ash.cfm.mojom.DataWatchDog_OnNotify_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cfm.mojom.DataWatchDog_OnNotify_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cfm.mojom.DataWatchDog_OnNotify_ParamsSpec, 'ash.cfm.mojom.DataWatchDog_OnNotify_Params', [
+      mojo.internal.StructField('data', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.cfm.mojom.DataWatchDogPendingReceiver = class {
   constructor(handle) {
@@ -99,65 +103,39 @@ ash.cfm.mojom.DataWatchDog.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnNotify
-ash.cfm.mojom.DataWatchDog_OnNotify_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cfm.mojom.DataWatchDog.OnNotify_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.cfm.mojom.DataWatchDogPtr = ash.cfm.mojom.DataWatchDogRemote;
 ash.cfm.mojom.DataWatchDogRequest = ash.cfm.mojom.DataWatchDogPendingReceiver;
 
 
 // Interface: DataSource
-ash.cfm.mojom.DataSource = {};
+mojo.internal.Struct(
+    ash.cfm.mojom.DataSource_Fetch_ParamsSpec, 'ash.cfm.mojom.DataSource_Fetch_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.cfm.mojom.DataSource_Fetch_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cfm.mojom.DataSource_Fetch_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cfm.mojom.DataSource_Fetch_ResponseParamsSpec, 'ash.cfm.mojom.DataSource_Fetch_ResponseParams', [
+      mojo.internal.StructField('serialized_payloads', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.cfm.mojom.DataSource_AddWatchDog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cfm.mojom.DataSource_AddWatchDog_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'filter', packedOffset: 0, packedBitOffset: 0, type: ash.cfm.mojom.DataFilterSpec, nullable: false, minVersion: 0 },
-        { name: 'watch_dog', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cfm.mojom.DataWatchDogRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cfm.mojom.DataSource_AddWatchDog_ParamsSpec, 'ash.cfm.mojom.DataSource_AddWatchDog_Params', [
+      mojo.internal.StructField('filter', 0, 0, ash.cfm.mojom.DataFilterSpec, null, false, 0, undefined),
+      mojo.internal.StructField('watch_dog', 8, 0, mojo.internal.InterfaceProxy(ash.cfm.mojom.DataWatchDogRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.cfm.mojom.DataSource_Flush_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cfm.mojom.DataSource_Flush_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cfm.mojom.DataSource_AddWatchDog_ResponseParamsSpec, 'ash.cfm.mojom.DataSource_AddWatchDog_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.cfm.mojom.DataSource_Flush_ParamsSpec, 'ash.cfm.mojom.DataSource_Flush_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 ash.cfm.mojom.DataSourcePendingReceiver = class {
   constructor(handle) {
@@ -230,121 +208,48 @@ ash.cfm.mojom.DataSource.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Fetch
-ash.cfm.mojom.DataSource_Fetch_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cfm.mojom.DataSource.Fetch_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.cfm.mojom.DataSource_Fetch_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cfm.mojom.DataSource.Fetch_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'serialized_payloads', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AddWatchDog
-ash.cfm.mojom.DataSource_AddWatchDog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cfm.mojom.DataSource.AddWatchDog_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'filter', packedOffset: 0, packedBitOffset: 0, type: ash.cfm.mojom.DataFilterSpec, nullable: false, minVersion: 0 },
-        { name: 'watch_dog', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cfm.mojom.DataWatchDogRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-ash.cfm.mojom.DataSource_AddWatchDog_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cfm.mojom.DataSource.AddWatchDog_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Flush
-ash.cfm.mojom.DataSource_Flush_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cfm.mojom.DataSource.Flush_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.cfm.mojom.DataSourcePtr = ash.cfm.mojom.DataSourceRemote;
 ash.cfm.mojom.DataSourceRequest = ash.cfm.mojom.DataSourcePendingReceiver;
 
 
 // Interface: DataAggregator
-ash.cfm.mojom.DataAggregator = {};
+mojo.internal.Struct(
+    ash.cfm.mojom.DataAggregator_GetDataSourceNames_ParamsSpec, 'ash.cfm.mojom.DataAggregator_GetDataSourceNames_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.cfm.mojom.DataAggregator_GetDataSourceNames_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cfm.mojom.DataAggregator_GetDataSourceNames_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cfm.mojom.DataAggregator_GetDataSourceNames_ResponseParamsSpec, 'ash.cfm.mojom.DataAggregator_GetDataSourceNames_ResponseParams', [
+      mojo.internal.StructField('data_source_names', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.cfm.mojom.DataAggregator_AddDataSource_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cfm.mojom.DataAggregator_AddDataSource_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'source_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'data_source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cfm.mojom.DataSourceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cfm.mojom.DataAggregator_AddDataSource_ParamsSpec, 'ash.cfm.mojom.DataAggregator_AddDataSource_Params', [
+      mojo.internal.StructField('source_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('data_source', 8, 0, mojo.internal.InterfaceProxy(ash.cfm.mojom.DataSourceRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.cfm.mojom.DataAggregator_AddWatchDog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cfm.mojom.DataAggregator_AddWatchDog_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'source_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'filter', packedOffset: 8, packedBitOffset: 0, type: ash.cfm.mojom.DataFilterSpec, nullable: false, minVersion: 0 },
-        { name: 'watch_dog', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cfm.mojom.DataWatchDogRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cfm.mojom.DataAggregator_AddDataSource_ResponseParamsSpec, 'ash.cfm.mojom.DataAggregator_AddDataSource_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.cfm.mojom.DataAggregator_AddWatchDog_ParamsSpec, 'ash.cfm.mojom.DataAggregator_AddWatchDog_Params', [
+      mojo.internal.StructField('source_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('filter', 8, 0, ash.cfm.mojom.DataFilterSpec, null, false, 0, undefined),
+      mojo.internal.StructField('watch_dog', 16, 0, mojo.internal.InterfaceProxy(ash.cfm.mojom.DataWatchDogRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    ash.cfm.mojom.DataAggregator_AddWatchDog_ResponseParamsSpec, 'ash.cfm.mojom.DataAggregator_AddWatchDog_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.cfm.mojom.DataAggregatorPendingReceiver = class {
   constructor(handle) {
@@ -417,90 +322,6 @@ ash.cfm.mojom.DataAggregator.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetDataSourceNames
-ash.cfm.mojom.DataAggregator_GetDataSourceNames_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cfm.mojom.DataAggregator.GetDataSourceNames_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.cfm.mojom.DataAggregator_GetDataSourceNames_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cfm.mojom.DataAggregator.GetDataSourceNames_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'data_source_names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AddDataSource
-ash.cfm.mojom.DataAggregator_AddDataSource_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cfm.mojom.DataAggregator.AddDataSource_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'source_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'data_source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cfm.mojom.DataSourceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-ash.cfm.mojom.DataAggregator_AddDataSource_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cfm.mojom.DataAggregator.AddDataSource_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AddWatchDog
-ash.cfm.mojom.DataAggregator_AddWatchDog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cfm.mojom.DataAggregator.AddWatchDog_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'source_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'filter', packedOffset: 8, packedBitOffset: 0, type: ash.cfm.mojom.DataFilterSpec, nullable: false, minVersion: 0 },
-        { name: 'watch_dog', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cfm.mojom.DataWatchDogRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-ash.cfm.mojom.DataAggregator_AddWatchDog_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cfm.mojom.DataAggregator.AddWatchDog_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.cfm.mojom.DataAggregatorPtr = ash.cfm.mojom.DataAggregatorRemote;
 ash.cfm.mojom.DataAggregatorRequest = ash.cfm.mojom.DataAggregatorPendingReceiver;
 

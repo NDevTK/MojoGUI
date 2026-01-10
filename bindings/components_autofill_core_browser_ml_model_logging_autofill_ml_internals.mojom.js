@@ -9,6 +9,16 @@ var autofill_ml_internals = autofill_ml_internals || {};
 autofill_ml_internals.mojom = autofill_ml_internals.mojom || {};
 var url = url || {};
 
+autofill_ml_internals.mojom.OptimizationTargetSpec = { $: mojo.internal.Enum() };
+autofill_ml_internals.mojom.SelectOptionSpec = { $: {} };
+autofill_ml_internals.mojom.MlFieldPredictionLogSpec = { $: {} };
+autofill_ml_internals.mojom.MlPredictionLogSpec = { $: {} };
+autofill_ml_internals.mojom.Page = {};
+autofill_ml_internals.mojom.Page.$interfaceName = 'autofill_ml_internals.mojom.Page';
+autofill_ml_internals.mojom.Page_OnLogAdded_ParamsSpec = { $: {} };
+autofill_ml_internals.mojom.PageHandler = {};
+autofill_ml_internals.mojom.PageHandler.$interfaceName = 'autofill_ml_internals.mojom.PageHandler';
+autofill_ml_internals.mojom.PageHandler_SetPage_ParamsSpec = { $: {} };
 
 // Enum: OptimizationTarget
 autofill_ml_internals.mojom.OptimizationTarget = {
@@ -16,81 +26,50 @@ autofill_ml_internals.mojom.OptimizationTarget = {
   kAutofill: 1,
   kPassword: 2,
 };
-autofill_ml_internals.mojom.OptimizationTargetSpec = { $: mojo.internal.Enum() };
 
 // Struct: SelectOption
-autofill_ml_internals.mojom.SelectOptionSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill_ml_internals.mojom.SelectOption',
-      packedSize: 24,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill_ml_internals.mojom.SelectOptionSpec, 'autofill_ml_internals.mojom.SelectOption', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('text', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: MlFieldPredictionLog
-autofill_ml_internals.mojom.MlFieldPredictionLogSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill_ml_internals.mojom.MlFieldPredictionLog',
-      packedSize: 80,
-      fields: [
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'placeholder', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'autocomplete', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'form_control_type', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'select_options', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(autofill_ml_internals.mojom.SelectOptionSpec, false), nullable: false, minVersion: 0 },
-        { name: 'probabilities', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Float, false), nullable: true, minVersion: 0 },
-        { name: 'tokenized_field_representation', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 80}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill_ml_internals.mojom.MlFieldPredictionLogSpec, 'autofill_ml_internals.mojom.MlFieldPredictionLog', [
+      mojo.internal.StructField('label', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('placeholder', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('id', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('autocomplete', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('form_control_type', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('select_options', 48, 0, mojo.internal.Array(autofill_ml_internals.mojom.SelectOptionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('probabilities', 56, 0, mojo.internal.Array(mojo.internal.Float, false), null, true, 0, undefined),
+      mojo.internal.StructField('tokenized_field_representation', 64, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 80]]);
 
 // Struct: MlPredictionLog
-autofill_ml_internals.mojom.MlPredictionLogSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill_ml_internals.mojom.MlPredictionLog',
-      packedSize: 72,
-      fields: [
-        { name: 'form_signature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'form_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'model_output_types', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'field_predictions', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(autofill_ml_internals.mojom.MlFieldPredictionLogSpec, false), nullable: false, minVersion: 0 },
-        { name: 'start_time', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'end_time', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'duration', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'optimization_target', packedOffset: 56, packedBitOffset: 0, type: autofill_ml_internals.mojom.OptimizationTargetSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 72}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill_ml_internals.mojom.MlPredictionLogSpec, 'autofill_ml_internals.mojom.MlPredictionLog', [
+      mojo.internal.StructField('form_signature', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('form_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('model_output_types', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('field_predictions', 24, 0, mojo.internal.Array(autofill_ml_internals.mojom.MlFieldPredictionLogSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('start_time', 32, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('end_time', 40, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('duration', 48, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('optimization_target', 56, 0, autofill_ml_internals.mojom.OptimizationTargetSpec, null, false, 0, undefined),
+    ],
+    [[0, 72]]);
 
 // Interface: Page
-autofill_ml_internals.mojom.Page = {};
-
-autofill_ml_internals.mojom.Page_OnLogAdded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill_ml_internals.mojom.Page_OnLogAdded_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'log', packedOffset: 0, packedBitOffset: 0, type: autofill_ml_internals.mojom.MlPredictionLogSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill_ml_internals.mojom.Page_OnLogAdded_ParamsSpec, 'autofill_ml_internals.mojom.Page_OnLogAdded_Params', [
+      mojo.internal.StructField('log', 0, 0, autofill_ml_internals.mojom.MlPredictionLogSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 autofill_ml_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
@@ -145,40 +124,16 @@ autofill_ml_internals.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnLogAdded
-autofill_ml_internals.mojom.Page_OnLogAdded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill_ml_internals.mojom.Page.OnLogAdded_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'log', packedOffset: 0, packedBitOffset: 0, type: autofill_ml_internals.mojom.MlPredictionLogSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 autofill_ml_internals.mojom.PagePtr = autofill_ml_internals.mojom.PageRemote;
 autofill_ml_internals.mojom.PageRequest = autofill_ml_internals.mojom.PagePendingReceiver;
 
 
 // Interface: PageHandler
-autofill_ml_internals.mojom.PageHandler = {};
-
-autofill_ml_internals.mojom.PageHandler_SetPage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill_ml_internals.mojom.PageHandler_SetPage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(autofill_ml_internals.mojom.PageRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill_ml_internals.mojom.PageHandler_SetPage_ParamsSpec, 'autofill_ml_internals.mojom.PageHandler_SetPage_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(autofill_ml_internals.mojom.PageRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 autofill_ml_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -233,21 +188,6 @@ autofill_ml_internals.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetPage
-autofill_ml_internals.mojom.PageHandler_SetPage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill_ml_internals.mojom.PageHandler.SetPage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(autofill_ml_internals.mojom.PageRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 autofill_ml_internals.mojom.PageHandlerPtr = autofill_ml_internals.mojom.PageHandlerRemote;
 autofill_ml_internals.mojom.PageHandlerRequest = autofill_ml_internals.mojom.PageHandlerPendingReceiver;
 

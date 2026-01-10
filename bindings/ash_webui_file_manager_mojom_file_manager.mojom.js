@@ -9,23 +9,21 @@ var ash = ash || {};
 ash.file_manager = ash.file_manager || {};
 ash.file_manager.mojom = ash.file_manager.mojom || {};
 
+ash.file_manager.mojom.PageHandlerFactory = {};
+ash.file_manager.mojom.PageHandlerFactory.$interfaceName = 'ash.file_manager.mojom.PageHandlerFactory';
+ash.file_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+ash.file_manager.mojom.PageHandler = {};
+ash.file_manager.mojom.PageHandler.$interfaceName = 'ash.file_manager.mojom.PageHandler';
+ash.file_manager.mojom.Page = {};
+ash.file_manager.mojom.Page.$interfaceName = 'ash.file_manager.mojom.Page';
 
 // Interface: PageHandlerFactory
-ash.file_manager.mojom.PageHandlerFactory = {};
-
-ash.file_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.file_manager.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.file_manager.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.file_manager.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.file_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.file_manager.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(ash.file_manager.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(ash.file_manager.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 ash.file_manager.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -80,29 +78,11 @@ ash.file_manager.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-ash.file_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.file_manager.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.file_manager.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.file_manager.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.file_manager.mojom.PageHandlerFactoryPtr = ash.file_manager.mojom.PageHandlerFactoryRemote;
 ash.file_manager.mojom.PageHandlerFactoryRequest = ash.file_manager.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-ash.file_manager.mojom.PageHandler = {};
-
 ash.file_manager.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -147,14 +127,11 @@ ash.file_manager.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// Legacy compatibility
 ash.file_manager.mojom.PageHandlerPtr = ash.file_manager.mojom.PageHandlerRemote;
 ash.file_manager.mojom.PageHandlerRequest = ash.file_manager.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-ash.file_manager.mojom.Page = {};
-
 ash.file_manager.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -199,7 +176,6 @@ ash.file_manager.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// Legacy compatibility
 ash.file_manager.mojom.PagePtr = ash.file_manager.mojom.PageRemote;
 ash.file_manager.mojom.PageRequest = ash.file_manager.mojom.PagePendingReceiver;
 

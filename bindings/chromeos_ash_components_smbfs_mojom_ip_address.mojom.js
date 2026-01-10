@@ -8,17 +8,11 @@
 var smbfs = smbfs || {};
 smbfs.mojom = smbfs.mojom || {};
 
+smbfs.mojom.IPAddressSpec = { $: {} };
 
 // Struct: IPAddress
-smbfs.mojom.IPAddressSpec = {
-  $: {
-    structSpec: {
-      name: 'smbfs.mojom.IPAddress',
-      packedSize: 16,
-      fields: [
-        { name: 'address_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    smbfs.mojom.IPAddressSpec, 'smbfs.mojom.IPAddress', [
+      mojo.internal.StructField('address_bytes', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);

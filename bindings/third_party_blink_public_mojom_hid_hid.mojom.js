@@ -7,134 +7,124 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var services = services || {};
 
+blink.mojom.DeviceIdFilterSpec = { $: {} };
+blink.mojom.UsageFilterSpec = { $: {} };
+blink.mojom.VendorAndProductSpec = { $: {} };
+blink.mojom.HidDeviceFilterSpec = { $: {} };
+blink.mojom.HidService = {};
+blink.mojom.HidService.$interfaceName = 'blink.mojom.HidService';
+blink.mojom.HidService_RegisterClient_ParamsSpec = { $: {} };
+blink.mojom.HidService_GetDevices_ParamsSpec = { $: {} };
+blink.mojom.HidService_GetDevices_ResponseParamsSpec = { $: {} };
+blink.mojom.HidService_RequestDevice_ParamsSpec = { $: {} };
+blink.mojom.HidService_RequestDevice_ResponseParamsSpec = { $: {} };
+blink.mojom.HidService_Connect_ParamsSpec = { $: {} };
+blink.mojom.HidService_Connect_ResponseParamsSpec = { $: {} };
+blink.mojom.HidService_Forget_ParamsSpec = { $: {} };
+blink.mojom.HidService_Forget_ResponseParamsSpec = { $: {} };
 
 // Union: DeviceIdFilter
-blink.mojom.DeviceIdFilterSpec = { $: mojo.internal.Union(
-    'blink.mojom.DeviceIdFilter', {
+mojo.internal.Union(
+    blink.mojom.DeviceIdFilterSpec, 'blink.mojom.DeviceIdFilter', {
       'vendor': {
         'ordinal': 0,
         'type': mojo.internal.Uint16,
-      }},
+        'nullable': false,
+      },
       'vendor_and_product': {
         'ordinal': 1,
         'type': blink.mojom.VendorAndProductSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Union: UsageFilter
-blink.mojom.UsageFilterSpec = { $: mojo.internal.Union(
-    'blink.mojom.UsageFilter', {
+mojo.internal.Union(
+    blink.mojom.UsageFilterSpec, 'blink.mojom.UsageFilter', {
       'page': {
         'ordinal': 0,
         'type': mojo.internal.Uint16,
-      }},
+        'nullable': false,
+      },
       'usage_and_page': {
         'ordinal': 1,
         'type': device.mojom.HidUsageAndPageSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: VendorAndProduct
-blink.mojom.VendorAndProductSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.VendorAndProduct',
-      packedSize: 16,
-      fields: [
-        { name: 'vendor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'product', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.VendorAndProductSpec, 'blink.mojom.VendorAndProduct', [
+      mojo.internal.StructField('vendor', 0, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('product', 2, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: HidDeviceFilter
-blink.mojom.HidDeviceFilterSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.HidDeviceFilter',
-      packedSize: 40,
-      fields: [
-        { name: 'device_ids', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DeviceIdFilterSpec, nullable: true, minVersion: 0 },
-        { name: 'usage', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.UsageFilterSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.HidDeviceFilterSpec, 'blink.mojom.HidDeviceFilter', [
+      mojo.internal.StructField('device_ids', 0, 0, blink.mojom.DeviceIdFilterSpec, null, true, 0, undefined),
+      mojo.internal.StructField('usage', 16, 0, blink.mojom.UsageFilterSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Interface: HidService
-blink.mojom.HidService = {};
+mojo.internal.Struct(
+    blink.mojom.HidService_RegisterClient_ParamsSpec, 'blink.mojom.HidService_RegisterClient_Params', [
+      mojo.internal.StructField('client', 0, 0, mojo.internal.AssociatedInterfaceProxy(device.mojom.HidManagerClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.HidService_RegisterClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.HidService_RegisterClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(device.mojom.HidManagerClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.HidService_GetDevices_ParamsSpec, 'blink.mojom.HidService_GetDevices_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.HidService_GetDevices_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.HidService_GetDevices_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.HidService_GetDevices_ResponseParamsSpec, 'blink.mojom.HidService_GetDevices_ResponseParams', [
+      mojo.internal.StructField('devices', 0, 0, mojo.internal.Array(device.mojom.HidDeviceInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.HidService_RequestDevice_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.HidService_RequestDevice_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'filters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.HidDeviceFilterSpec, false), nullable: false, minVersion: 0 },
-        { name: 'exclusion_filters', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.HidDeviceFilterSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.HidService_RequestDevice_ParamsSpec, 'blink.mojom.HidService_RequestDevice_Params', [
+      mojo.internal.StructField('filters', 0, 0, mojo.internal.Array(blink.mojom.HidDeviceFilterSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('exclusion_filters', 8, 0, mojo.internal.Array(blink.mojom.HidDeviceFilterSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.HidService_Connect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.HidService_Connect_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'device_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.HidConnectionClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.HidService_RequestDevice_ResponseParamsSpec, 'blink.mojom.HidService_RequestDevice_ResponseParams', [
+      mojo.internal.StructField('devices', 0, 0, mojo.internal.Array(device.mojom.HidDeviceInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.HidService_Forget_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.HidService_Forget_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: device.mojom.HidDeviceInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.HidService_Connect_ParamsSpec, 'blink.mojom.HidService_Connect_Params', [
+      mojo.internal.StructField('device_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(device.mojom.HidConnectionClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    blink.mojom.HidService_Connect_ResponseParamsSpec, 'blink.mojom.HidService_Connect_ResponseParams', [
+      mojo.internal.StructField('connection', 0, 0, mojo.internal.InterfaceProxy(device.mojom.HidConnectionRemote), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.HidService_Forget_ParamsSpec, 'blink.mojom.HidService_Forget_Params', [
+      mojo.internal.StructField('device_info', 0, 0, device.mojom.HidDeviceInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.HidService_Forget_ResponseParamsSpec, 'blink.mojom.HidService_Forget_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 blink.mojom.HidServicePendingReceiver = class {
   constructor(handle) {
@@ -209,7 +199,7 @@ blink.mojom.HidServiceRemoteCallHandler = class {
     return this.proxy.sendMessage(
       4,  // ordinal
       blink.mojom.HidService_Forget_ParamsSpec,
-      null,
+      blink.mojom.HidService_Forget_ResponseParamsSpec,
       [device_info]);
   }
 
@@ -225,117 +215,6 @@ blink.mojom.HidService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RegisterClient
-blink.mojom.HidService_RegisterClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.HidService.RegisterClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(device.mojom.HidManagerClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetDevices
-blink.mojom.HidService_GetDevices_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.HidService.GetDevices_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.HidService_GetDevices_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.HidService.GetDevices_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.HidDeviceInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestDevice
-blink.mojom.HidService_RequestDevice_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.HidService.RequestDevice_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'filters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.HidDeviceFilterSpec, false), nullable: false, minVersion: 0 },
-        { name: 'exclusion_filters', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.HidDeviceFilterSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.HidService_RequestDevice_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.HidService.RequestDevice_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.HidDeviceInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Connect
-blink.mojom.HidService_Connect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.HidService.Connect_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'device_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.HidConnectionClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.HidService_Connect_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.HidService.Connect_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'connection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.HidConnectionRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Forget
-blink.mojom.HidService_Forget_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.HidService.Forget_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: device.mojom.HidDeviceInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.HidServicePtr = blink.mojom.HidServiceRemote;
 blink.mojom.HidServiceRequest = blink.mojom.HidServicePendingReceiver;
 

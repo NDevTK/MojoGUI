@@ -10,100 +10,93 @@ ash.cros_healthd = ash.cros_healthd || {};
 ash.cros_healthd.internal = ash.cros_healthd.internal || {};
 ash.cros_healthd.internal.mojom = ash.cros_healthd.internal.mojom || {};
 
+ash.cros_healthd.internal.mojom.ConnectionTypeSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.internal.mojom.TouchscreenDeviceSpec = { $: {} };
+ash.cros_healthd.internal.mojom.InputDeviceSpec = { $: {} };
+ash.cros_healthd.internal.mojom.ChromiumDataCollector = {};
+ash.cros_healthd.internal.mojom.ChromiumDataCollector.$interfaceName = 'ash.cros_healthd.internal.mojom.ChromiumDataCollector';
+ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ParamsSpec = { $: {} };
+ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ResponseParamsSpec = { $: {} };
+ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ParamsSpec = { $: {} };
+ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ResponseParamsSpec = { $: {} };
+ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ParamsSpec = { $: {} };
+ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ResponseParamsSpec = { $: {} };
+ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ParamsSpec = { $: {} };
+ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ResponseParamsSpec = { $: {} };
 
 // Enum: ConnectionType
 ash.cros_healthd.internal.mojom.ConnectionType = {
-  kInternal: 0,
-  kUSB: 1,
-  kBluetooth: 2,
-  kUnknown: 3,
+  kUnmappedEnumField: 0,
+  kInternal: 1,
+  kUSB: 2,
+  kBluetooth: 3,
+  kUnknown: 4,
 };
-ash.cros_healthd.internal.mojom.ConnectionTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: TouchscreenDevice
-ash.cros_healthd.internal.mojom.TouchscreenDeviceSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cros_healthd.internal.mojom.TouchscreenDevice',
-      packedSize: 24,
-      fields: [
-        { name: 'input_device', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.internal.mojom.InputDeviceSpec, nullable: false, minVersion: 0 },
-        { name: 'touch_points', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'has_stylus', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_stylus_garage_switch', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cros_healthd.internal.mojom.TouchscreenDeviceSpec, 'ash.cros_healthd.internal.mojom.TouchscreenDevice', [
+      mojo.internal.StructField('input_device', 0, 0, ash.cros_healthd.internal.mojom.InputDeviceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('touch_points', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('has_stylus', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_stylus_garage_switch', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: InputDevice
-ash.cros_healthd.internal.mojom.InputDeviceSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cros_healthd.internal.mojom.InputDevice',
-      packedSize: 24,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'kUnmappedEnumField', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cros_healthd.internal.mojom.InputDeviceSpec, 'ash.cros_healthd.internal.mojom.InputDevice', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('kUnmappedEnumField', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: ChromiumDataCollector
-ash.cros_healthd.internal.mojom.ChromiumDataCollector = {};
+mojo.internal.Struct(
+    ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ParamsSpec, 'ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ResponseParamsSpec, 'ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ResponseParams', [
+      mojo.internal.StructField('devices', 0, 0, mojo.internal.Array(ash.cros_healthd.internal.mojom.TouchscreenDeviceSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ParamsSpec, 'ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ResponseParamsSpec, 'ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ResponseParams', [
+      mojo.internal.StructField('library_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'mute_on', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ParamsSpec, 'ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_Params', [
+      mojo.internal.StructField('state', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ResponseParamsSpec, 'ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ParamsSpec, 'ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_Params', [
+      mojo.internal.StructField('mute_on', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ResponseParamsSpec, 'ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.cros_healthd.internal.mojom.ChromiumDataCollectorPendingReceiver = class {
   constructor(handle) {
@@ -185,113 +178,6 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollector.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetTouchscreenDevices
-ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cros_healthd.internal.mojom.ChromiumDataCollector.GetTouchscreenDevices_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cros_healthd.internal.mojom.ChromiumDataCollector.GetTouchscreenDevices_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.cros_healthd.internal.mojom.TouchscreenDeviceSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetTouchpadLibraryName
-ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cros_healthd.internal.mojom.ChromiumDataCollector.GetTouchpadLibraryName_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cros_healthd.internal.mojom.ChromiumDataCollector.GetTouchpadLibraryName_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'library_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetPrivacyScreenState
-ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cros_healthd.internal.mojom.ChromiumDataCollector.SetPrivacyScreenState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cros_healthd.internal.mojom.ChromiumDataCollector.SetPrivacyScreenState_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DEPRECATED_SetAudioOutputMute
-ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cros_healthd.internal.mojom.ChromiumDataCollector.DEPRECATED_SetAudioOutputMute_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'mute_on', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cros_healthd.internal.mojom.ChromiumDataCollector.DEPRECATED_SetAudioOutputMute_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.cros_healthd.internal.mojom.ChromiumDataCollectorPtr = ash.cros_healthd.internal.mojom.ChromiumDataCollectorRemote;
 ash.cros_healthd.internal.mojom.ChromiumDataCollectorRequest = ash.cros_healthd.internal.mojom.ChromiumDataCollectorPendingReceiver;
 

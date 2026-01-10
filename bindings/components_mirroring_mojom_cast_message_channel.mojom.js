@@ -8,41 +8,29 @@
 var mirroring = mirroring || {};
 mirroring.mojom = mirroring.mojom || {};
 
+mirroring.mojom.CastMessageSpec = { $: {} };
+mirroring.mojom.CastMessageChannel = {};
+mirroring.mojom.CastMessageChannel.$interfaceName = 'mirroring.mojom.CastMessageChannel';
+mirroring.mojom.CastMessageChannel_OnMessage_ParamsSpec = { $: {} };
 
 mirroring.mojom.kRemotingNamespace = "urn:x-cast:com.google.cast.remoting";
 
 mirroring.mojom.kWebRtcNamespace = "urn:x-cast:com.google.cast.webrtc";
 
 // Struct: CastMessage
-mirroring.mojom.CastMessageSpec = {
-  $: {
-    structSpec: {
-      name: 'mirroring.mojom.CastMessage',
-      packedSize: 24,
-      fields: [
-        { name: 'message_namespace', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'json_format_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mirroring.mojom.CastMessageSpec, 'mirroring.mojom.CastMessage', [
+      mojo.internal.StructField('message_namespace', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('json_format_data', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: CastMessageChannel
-mirroring.mojom.CastMessageChannel = {};
-
-mirroring.mojom.CastMessageChannel_OnMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mirroring.mojom.CastMessageChannel_OnMessage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mirroring.mojom.CastMessageSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mirroring.mojom.CastMessageChannel_OnMessage_ParamsSpec, 'mirroring.mojom.CastMessageChannel_OnMessage_Params', [
+      mojo.internal.StructField('message', 0, 0, mirroring.mojom.CastMessageSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 mirroring.mojom.CastMessageChannelPendingReceiver = class {
   constructor(handle) {
@@ -97,21 +85,6 @@ mirroring.mojom.CastMessageChannel.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnMessage
-mirroring.mojom.CastMessageChannel_OnMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mirroring.mojom.CastMessageChannel.OnMessage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mirroring.mojom.CastMessageSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 mirroring.mojom.CastMessageChannelPtr = mirroring.mojom.CastMessageChannelRemote;
 mirroring.mojom.CastMessageChannelRequest = mirroring.mojom.CastMessageChannelPendingReceiver;
 

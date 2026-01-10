@@ -8,10 +8,10 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.AncestorChainBitSpec = { $: mojo.internal.Enum() };
 
 // Enum: AncestorChainBit
 blink.mojom.AncestorChainBit = {
   kSameSite: 0,
   kCrossSite: 1,
 };
-blink.mojom.AncestorChainBitSpec = { $: mojo.internal.Enum() };

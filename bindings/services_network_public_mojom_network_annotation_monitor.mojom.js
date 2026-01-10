@@ -8,22 +8,16 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+network.mojom.NetworkAnnotationMonitor = {};
+network.mojom.NetworkAnnotationMonitor.$interfaceName = 'network.mojom.NetworkAnnotationMonitor';
+network.mojom.NetworkAnnotationMonitor_Report_ParamsSpec = { $: {} };
 
 // Interface: NetworkAnnotationMonitor
-network.mojom.NetworkAnnotationMonitor = {};
-
-network.mojom.NetworkAnnotationMonitor_Report_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.NetworkAnnotationMonitor_Report_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'hash_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.NetworkAnnotationMonitor_Report_ParamsSpec, 'network.mojom.NetworkAnnotationMonitor_Report_Params', [
+      mojo.internal.StructField('hash_code', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 network.mojom.NetworkAnnotationMonitorPendingReceiver = class {
   constructor(handle) {
@@ -78,21 +72,6 @@ network.mojom.NetworkAnnotationMonitor.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Report
-network.mojom.NetworkAnnotationMonitor_Report_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.NetworkAnnotationMonitor.Report_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'hash_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.NetworkAnnotationMonitorPtr = network.mojom.NetworkAnnotationMonitorRemote;
 network.mojom.NetworkAnnotationMonitorRequest = network.mojom.NetworkAnnotationMonitorPendingReceiver;
 

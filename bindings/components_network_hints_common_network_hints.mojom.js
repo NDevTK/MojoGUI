@@ -9,36 +9,24 @@ var network_hints = network_hints || {};
 network_hints.mojom = network_hints.mojom || {};
 var url = url || {};
 
+network_hints.mojom.NetworkHintsHandler = {};
+network_hints.mojom.NetworkHintsHandler.$interfaceName = 'network_hints.mojom.NetworkHintsHandler';
+network_hints.mojom.NetworkHintsHandler_PrefetchDNS_ParamsSpec = { $: {} };
+network_hints.mojom.NetworkHintsHandler_Preconnect_ParamsSpec = { $: {} };
 
 // Interface: NetworkHintsHandler
-network_hints.mojom.NetworkHintsHandler = {};
+mojo.internal.Struct(
+    network_hints.mojom.NetworkHintsHandler_PrefetchDNS_ParamsSpec, 'network_hints.mojom.NetworkHintsHandler_PrefetchDNS_Params', [
+      mojo.internal.StructField('url_list', 0, 0, mojo.internal.Array(url.mojom.SchemeHostPortSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network_hints.mojom.NetworkHintsHandler_PrefetchDNS_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network_hints.mojom.NetworkHintsHandler_PrefetchDNS_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.SchemeHostPortSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-network_hints.mojom.NetworkHintsHandler_Preconnect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network_hints.mojom.NetworkHintsHandler_Preconnect_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.SchemeHostPortSpec, nullable: false, minVersion: 0 },
-        { name: 'allow_credentials', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network_hints.mojom.NetworkHintsHandler_Preconnect_ParamsSpec, 'network_hints.mojom.NetworkHintsHandler_Preconnect_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.SchemeHostPortSpec, null, false, 0, undefined),
+      mojo.internal.StructField('allow_credentials', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 network_hints.mojom.NetworkHintsHandlerPendingReceiver = class {
   constructor(handle) {
@@ -102,36 +90,6 @@ network_hints.mojom.NetworkHintsHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for PrefetchDNS
-network_hints.mojom.NetworkHintsHandler_PrefetchDNS_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network_hints.mojom.NetworkHintsHandler.PrefetchDNS_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.SchemeHostPortSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Preconnect
-network_hints.mojom.NetworkHintsHandler_Preconnect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network_hints.mojom.NetworkHintsHandler.Preconnect_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.SchemeHostPortSpec, nullable: false, minVersion: 0 },
-        { name: 'allow_credentials', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 network_hints.mojom.NetworkHintsHandlerPtr = network_hints.mojom.NetworkHintsHandlerRemote;
 network_hints.mojom.NetworkHintsHandlerRequest = network_hints.mojom.NetworkHintsHandlerPendingReceiver;
 

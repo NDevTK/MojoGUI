@@ -8,6 +8,7 @@
 var ntp_tiles = ntp_tiles || {};
 ntp_tiles.mojom = ntp_tiles.mojom || {};
 
+ntp_tiles.mojom.TileSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: TileSource
 ntp_tiles.mojom.TileSource = {
@@ -19,4 +20,3 @@ ntp_tiles.mojom.TileSource = {
   HOMEPAGE: 5,
   ENTERPRISE_SHORTCUTS: 6,
 };
-ntp_tiles.mojom.TileSourceSpec = { $: mojo.internal.Enum() };

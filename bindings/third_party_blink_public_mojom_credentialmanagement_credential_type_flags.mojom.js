@@ -8,12 +8,12 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.CredentialTypeFlagsSpec = { $: mojo.internal.Enum() };
 
 // Enum: CredentialTypeFlags
 blink.mojom.CredentialTypeFlags = {
   kNone: 0,
   kPassword: 1,
   kPublicKey: 2,
-  kAll: 3,
+  kAll: -1,
 };
-blink.mojom.CredentialTypeFlagsSpec = { $: mojo.internal.Enum() };

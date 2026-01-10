@@ -8,6 +8,7 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.SameDocumentNavigationTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SameDocumentNavigationType
 blink.mojom.SameDocumentNavigationType = {
@@ -16,4 +17,3 @@ blink.mojom.SameDocumentNavigationType = {
   kNavigationApiIntercept: 2,
   kPrerenderNoVarySearchActivation: 3,
 };
-blink.mojom.SameDocumentNavigationTypeSpec = { $: mojo.internal.Enum() };

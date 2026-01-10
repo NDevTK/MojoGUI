@@ -10,51 +10,33 @@ blink.mojom = blink.mojom || {};
 var blink = blink || {};
 var url = url || {};
 
+blink.mojom.SameOriginBfcacheNotRestoredDetailsSpec = { $: {} };
+blink.mojom.BFCacheBlockingDetailedReasonSpec = { $: {} };
+blink.mojom.BackForwardCacheNotRestoredReasonsSpec = { $: {} };
 
 // Struct: SameOriginBfcacheNotRestoredDetails
-blink.mojom.SameOriginBfcacheNotRestoredDetailsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SameOriginBfcacheNotRestoredDetails',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'children', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.BackForwardCacheNotRestoredReasonsSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SameOriginBfcacheNotRestoredDetailsSpec, 'blink.mojom.SameOriginBfcacheNotRestoredDetails', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('children', 8, 0, mojo.internal.Array(blink.mojom.BackForwardCacheNotRestoredReasonsSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: BFCacheBlockingDetailedReason
-blink.mojom.BFCacheBlockingDetailedReasonSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BFCacheBlockingDetailedReason',
-      packedSize: 24,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ScriptSourceLocationSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.BFCacheBlockingDetailedReasonSpec, 'blink.mojom.BFCacheBlockingDetailedReason', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('source', 8, 0, blink.mojom.ScriptSourceLocationSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: BackForwardCacheNotRestoredReasons
-blink.mojom.BackForwardCacheNotRestoredReasonsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BackForwardCacheNotRestoredReasons',
-      packedSize: 48,
-      fields: [
-        { name: 'src', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'reasons', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.BFCacheBlockingDetailedReasonSpec, false), nullable: false, minVersion: 0 },
-        { name: 'same_origin_details', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.SameOriginBfcacheNotRestoredDetailsSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.BackForwardCacheNotRestoredReasonsSpec, 'blink.mojom.BackForwardCacheNotRestoredReasons', [
+      mojo.internal.StructField('src', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('id', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('name', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('reasons', 24, 0, mojo.internal.Array(blink.mojom.BFCacheBlockingDetailedReasonSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('same_origin_details', 32, 0, blink.mojom.SameOriginBfcacheNotRestoredDetailsSpec, null, true, 0, undefined),
+    ],
+    [[0, 48]]);

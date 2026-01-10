@@ -8,34 +8,22 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.ScriptToolAnnotationsSpec = { $: {} };
+blink.mojom.ScriptToolSpec = { $: {} };
 
 // Struct: ScriptToolAnnotations
-blink.mojom.ScriptToolAnnotationsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ScriptToolAnnotations',
-      packedSize: 16,
-      fields: [
-        { name: 'read_only', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ScriptToolAnnotationsSpec, 'blink.mojom.ScriptToolAnnotations', [
+      mojo.internal.StructField('read_only', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: ScriptTool
-blink.mojom.ScriptToolSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ScriptTool',
-      packedSize: 40,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'description', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'input_schema', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'annotations', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ScriptToolAnnotationsSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ScriptToolSpec, 'blink.mojom.ScriptTool', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('description', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('input_schema', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('annotations', 24, 0, blink.mojom.ScriptToolAnnotationsSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);

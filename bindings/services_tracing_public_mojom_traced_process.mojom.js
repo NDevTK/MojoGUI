@@ -7,37 +7,32 @@
 // Module namespace
 var tracing = tracing || {};
 tracing.mojom = tracing.mojom || {};
+var services = services || {};
 
+tracing.mojom.ConnectToTracingRequestSpec = { $: {} };
+tracing.mojom.TracedProcess = {};
+tracing.mojom.TracedProcess.$interfaceName = 'tracing.mojom.TracedProcess';
+tracing.mojom.TracedProcess_ConnectToTracingService_ParamsSpec = { $: {} };
+tracing.mojom.TracedProcess_ConnectToTracingService_ResponseParamsSpec = { $: {} };
 
 // Struct: ConnectToTracingRequest
-tracing.mojom.ConnectToTracingRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'tracing.mojom.ConnectToTracingRequest',
-      packedSize: 16,
-      fields: [
-        { name: 'perfetto_service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(tracing.mojom.PerfettoServiceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tracing.mojom.ConnectToTracingRequestSpec, 'tracing.mojom.ConnectToTracingRequest', [
+      mojo.internal.StructField('perfetto_service', 0, 0, mojo.internal.InterfaceProxy(tracing.mojom.PerfettoServiceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: TracedProcess
-tracing.mojom.TracedProcess = {};
+mojo.internal.Struct(
+    tracing.mojom.TracedProcess_ConnectToTracingService_ParamsSpec, 'tracing.mojom.TracedProcess_ConnectToTracingService_Params', [
+      mojo.internal.StructField('request', 0, 0, tracing.mojom.ConnectToTracingRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-tracing.mojom.TracedProcess_ConnectToTracingService_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tracing.mojom.TracedProcess_ConnectToTracingService_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: tracing.mojom.ConnectToTracingRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tracing.mojom.TracedProcess_ConnectToTracingService_ResponseParamsSpec, 'tracing.mojom.TracedProcess_ConnectToTracingService_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 tracing.mojom.TracedProcessPendingReceiver = class {
   constructor(handle) {
@@ -76,7 +71,7 @@ tracing.mojom.TracedProcessRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       tracing.mojom.TracedProcess_ConnectToTracingService_ParamsSpec,
-      null,
+      tracing.mojom.TracedProcess_ConnectToTracingService_ResponseParamsSpec,
       [request]);
   }
 
@@ -92,21 +87,6 @@ tracing.mojom.TracedProcess.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ConnectToTracingService
-tracing.mojom.TracedProcess_ConnectToTracingService_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tracing.mojom.TracedProcess.ConnectToTracingService_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: tracing.mojom.ConnectToTracingRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 tracing.mojom.TracedProcessPtr = tracing.mojom.TracedProcessRemote;
 tracing.mojom.TracedProcessRequest = tracing.mojom.TracedProcessPendingReceiver;
 

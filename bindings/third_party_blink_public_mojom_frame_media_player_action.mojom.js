@@ -8,6 +8,8 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.MediaPlayerActionTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.MediaPlayerActionSpec = { $: {} };
 
 // Enum: MediaPlayerActionType
 blink.mojom.MediaPlayerActionType = {
@@ -16,21 +18,13 @@ blink.mojom.MediaPlayerActionType = {
   kSaveVideoFrameAs: 2,
   kCopyVideoFrame: 3,
   kPictureInPicture: 4,
-  kDefaultActionType: 5,
+  kDefaultActionType: 4,
 };
-blink.mojom.MediaPlayerActionTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: MediaPlayerAction
-blink.mojom.MediaPlayerActionSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaPlayerAction',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.MediaPlayerActionTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'enable', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.MediaPlayerActionSpec, 'blink.mojom.MediaPlayerAction', [
+      mojo.internal.StructField('type', 0, 0, blink.mojom.MediaPlayerActionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('enable', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);

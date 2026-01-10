@@ -7,21 +7,17 @@
 // Module namespace
 var storage = storage || {};
 storage.mojom = storage.mojom || {};
+var components = components || {};
+var services = services || {};
 var blink = blink || {};
 
+storage.mojom.BucketLocatorSpec = { $: {} };
 
 // Struct: BucketLocator
-storage.mojom.BucketLocatorSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.BucketLocator',
-      packedSize: 32,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketIdSpec, nullable: true, minVersion: 0 },
-        { name: 'storage_key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
-        { name: 'is_default', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.BucketLocatorSpec, 'storage.mojom.BucketLocator', [
+      mojo.internal.StructField('id', 0, 0, storage.mojom.BucketIdSpec, null, true, 0, undefined),
+      mojo.internal.StructField('storage_key', 8, 0, blink.mojom.StorageKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_default', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);

@@ -7,109 +7,72 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 var blink = blink || {};
 var url = url || {};
 
+blink.mojom.ResourceLoadInfoNotifier = {};
+blink.mojom.ResourceLoadInfoNotifier.$interfaceName = 'blink.mojom.ResourceLoadInfoNotifier';
+blink.mojom.ResourceLoadInfoNotifier_NotifyUpdateUserGestureCarryoverInfo_ParamsSpec = { $: {} };
+blink.mojom.ResourceLoadInfoNotifier_NotifyResourceRedirectReceived_ParamsSpec = { $: {} };
+blink.mojom.ResourceLoadInfoNotifier_NotifyResourceResponseReceived_ParamsSpec = { $: {} };
+blink.mojom.ResourceLoadInfoNotifier_NotifyResourceTransferSizeUpdated_ParamsSpec = { $: {} };
+blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCompleted_ParamsSpec = { $: {} };
+blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCanceled_ParamsSpec = { $: {} };
+blink.mojom.ResourceLoadInfoNotifier_Clone_ParamsSpec = { $: {} };
 
 // Interface: ResourceLoadInfoNotifier
-blink.mojom.ResourceLoadInfoNotifier = {};
+mojo.internal.Struct(
+    blink.mojom.ResourceLoadInfoNotifier_NotifyUpdateUserGestureCarryoverInfo_ParamsSpec, 'blink.mojom.ResourceLoadInfoNotifier_NotifyUpdateUserGestureCarryoverInfo_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.ResourceLoadInfoNotifier_NotifyUpdateUserGestureCarryoverInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ResourceLoadInfoNotifier_NotifyUpdateUserGestureCarryoverInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ResourceLoadInfoNotifier_NotifyResourceRedirectReceived_ParamsSpec, 'blink.mojom.ResourceLoadInfoNotifier_NotifyResourceRedirectReceived_Params', [
+      mojo.internal.StructField('redirect_info', 0, 0, network.mojom.URLRequestRedirectInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('redirect_response', 8, 0, network.mojom.URLResponseHeadSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.ResourceLoadInfoNotifier_NotifyResourceRedirectReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ResourceLoadInfoNotifier_NotifyResourceRedirectReceived_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'redirect_info', packedOffset: 0, packedBitOffset: 0, type: network.mojom.URLRequestRedirectInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'redirect_response', packedOffset: 8, packedBitOffset: 0, type: network.mojom.URLResponseHeadSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ResourceLoadInfoNotifier_NotifyResourceResponseReceived_ParamsSpec, 'blink.mojom.ResourceLoadInfoNotifier_NotifyResourceResponseReceived_Params', [
+      mojo.internal.StructField('request_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('final_response_url', 8, 0, url.mojom.SchemeHostPortSpec, null, false, 0, undefined),
+      mojo.internal.StructField('head', 16, 0, network.mojom.URLResponseHeadSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request_destination', 24, 0, network.mojom.RequestDestinationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_ad_resource', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-blink.mojom.ResourceLoadInfoNotifier_NotifyResourceResponseReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ResourceLoadInfoNotifier_NotifyResourceResponseReceived_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'final_response_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.SchemeHostPortSpec, nullable: false, minVersion: 0 },
-        { name: 'head', packedOffset: 16, packedBitOffset: 0, type: network.mojom.URLResponseHeadSpec, nullable: false, minVersion: 0 },
-        { name: 'request_destination', packedOffset: 24, packedBitOffset: 0, type: network.mojom.RequestDestinationSpec, nullable: false, minVersion: 0 },
-        { name: 'is_ad_resource', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ResourceLoadInfoNotifier_NotifyResourceTransferSizeUpdated_ParamsSpec, 'blink.mojom.ResourceLoadInfoNotifier_NotifyResourceTransferSizeUpdated_Params', [
+      mojo.internal.StructField('request_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('transfer_size_diff', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.ResourceLoadInfoNotifier_NotifyResourceTransferSizeUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ResourceLoadInfoNotifier_NotifyResourceTransferSizeUpdated_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'transfer_size_diff', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCompleted_ParamsSpec, 'blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCompleted_Params', [
+      mojo.internal.StructField('resource_load_info', 0, 0, blink.mojom.ResourceLoadInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 8, 0, network.mojom.URLLoaderCompletionStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCompleted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCompleted_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'resource_load_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ResourceLoadInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: network.mojom.URLLoaderCompletionStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCanceled_ParamsSpec, 'blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCanceled_Params', [
+      mojo.internal.StructField('request_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCanceled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCanceled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.ResourceLoadInfoNotifier_Clone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ResourceLoadInfoNotifier_Clone_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pending_resource_load_info_notifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.ResourceLoadInfoNotifierRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ResourceLoadInfoNotifier_Clone_ParamsSpec, 'blink.mojom.ResourceLoadInfoNotifier_Clone_Params', [
+      mojo.internal.StructField('pending_resource_load_info_notifier', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.ResourceLoadInfoNotifierRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.ResourceLoadInfoNotifierPendingReceiver = class {
   constructor(handle) {
@@ -218,111 +181,6 @@ blink.mojom.ResourceLoadInfoNotifier.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for NotifyUpdateUserGestureCarryoverInfo
-blink.mojom.ResourceLoadInfoNotifier_NotifyUpdateUserGestureCarryoverInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ResourceLoadInfoNotifier.NotifyUpdateUserGestureCarryoverInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for NotifyResourceRedirectReceived
-blink.mojom.ResourceLoadInfoNotifier_NotifyResourceRedirectReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ResourceLoadInfoNotifier.NotifyResourceRedirectReceived_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'redirect_info', packedOffset: 0, packedBitOffset: 0, type: network.mojom.URLRequestRedirectInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'redirect_response', packedOffset: 8, packedBitOffset: 0, type: network.mojom.URLResponseHeadSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for NotifyResourceResponseReceived
-blink.mojom.ResourceLoadInfoNotifier_NotifyResourceResponseReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ResourceLoadInfoNotifier.NotifyResourceResponseReceived_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'final_response_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.SchemeHostPortSpec, nullable: false, minVersion: 0 },
-        { name: 'head', packedOffset: 16, packedBitOffset: 0, type: network.mojom.URLResponseHeadSpec, nullable: false, minVersion: 0 },
-        { name: 'request_destination', packedOffset: 24, packedBitOffset: 0, type: network.mojom.RequestDestinationSpec, nullable: false, minVersion: 0 },
-        { name: 'is_ad_resource', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for NotifyResourceTransferSizeUpdated
-blink.mojom.ResourceLoadInfoNotifier_NotifyResourceTransferSizeUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ResourceLoadInfoNotifier.NotifyResourceTransferSizeUpdated_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'transfer_size_diff', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for NotifyResourceLoadCompleted
-blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCompleted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ResourceLoadInfoNotifier.NotifyResourceLoadCompleted_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'resource_load_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ResourceLoadInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: network.mojom.URLLoaderCompletionStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for NotifyResourceLoadCanceled
-blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCanceled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ResourceLoadInfoNotifier.NotifyResourceLoadCanceled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Clone
-blink.mojom.ResourceLoadInfoNotifier_Clone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ResourceLoadInfoNotifier.Clone_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pending_resource_load_info_notifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.ResourceLoadInfoNotifierRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.ResourceLoadInfoNotifierPtr = blink.mojom.ResourceLoadInfoNotifierRemote;
 blink.mojom.ResourceLoadInfoNotifierRequest = blink.mojom.ResourceLoadInfoNotifierPendingReceiver;
 

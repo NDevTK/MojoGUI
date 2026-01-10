@@ -8,18 +8,12 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+network.mojom.HttpRawHeaderPairSpec = { $: {} };
 
 // Struct: HttpRawHeaderPair
-network.mojom.HttpRawHeaderPairSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.HttpRawHeaderPair',
-      packedSize: 24,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.HttpRawHeaderPairSpec, 'network.mojom.HttpRawHeaderPair', [
+      mojo.internal.StructField('key', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);

@@ -8,24 +8,19 @@
 var ash = ash || {};
 ash.mojom = ash.mojom || {};
 ash.mojom.sample_swa = ash.mojom.sample_swa || {};
+var ash = ash || {};
 
+ash.mojom.sample_swa.UntrustedPageInterfacesFactory = {};
+ash.mojom.sample_swa.UntrustedPageInterfacesFactory.$interfaceName = 'ash.mojom.sample_swa.UntrustedPageInterfacesFactory';
+ash.mojom.sample_swa.UntrustedPageInterfacesFactory_CreateParentPage_ParamsSpec = { $: {} };
 
 // Interface: UntrustedPageInterfacesFactory
-ash.mojom.sample_swa.UntrustedPageInterfacesFactory = {};
-
-ash.mojom.sample_swa.UntrustedPageInterfacesFactory_CreateParentPage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.mojom.sample_swa.UntrustedPageInterfacesFactory_CreateParentPage_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'child_page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.mojom.sample_swa.ChildUntrustedPageRemote), nullable: false, minVersion: 0 },
-        { name: 'parent_page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.mojom.sample_swa.ParentTrustedPageRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.mojom.sample_swa.UntrustedPageInterfacesFactory_CreateParentPage_ParamsSpec, 'ash.mojom.sample_swa.UntrustedPageInterfacesFactory_CreateParentPage_Params', [
+      mojo.internal.StructField('child_page', 0, 0, mojo.internal.InterfaceProxy(ash.mojom.sample_swa.ChildUntrustedPageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('parent_page', 8, 0, mojo.internal.InterfaceRequest(ash.mojom.sample_swa.ParentTrustedPageRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 ash.mojom.sample_swa.UntrustedPageInterfacesFactoryPendingReceiver = class {
   constructor(handle) {
@@ -80,22 +75,6 @@ ash.mojom.sample_swa.UntrustedPageInterfacesFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateParentPage
-ash.mojom.sample_swa.UntrustedPageInterfacesFactory_CreateParentPage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.mojom.sample_swa.UntrustedPageInterfacesFactory.CreateParentPage_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'child_page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.mojom.sample_swa.ChildUntrustedPageRemote), nullable: false, minVersion: 0 },
-        { name: 'parent_page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.mojom.sample_swa.ParentTrustedPageRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.mojom.sample_swa.UntrustedPageInterfacesFactoryPtr = ash.mojom.sample_swa.UntrustedPageInterfacesFactoryRemote;
 ash.mojom.sample_swa.UntrustedPageInterfacesFactoryRequest = ash.mojom.sample_swa.UntrustedPageInterfacesFactoryPendingReceiver;
 

@@ -8,60 +8,50 @@
 var skia = skia || {};
 skia.mojom = skia.mojom || {};
 
+skia.mojom.ColorTypeSpec = { $: mojo.internal.Enum() };
+skia.mojom.AlphaTypeSpec = { $: mojo.internal.Enum() };
+skia.mojom.ImageInfoSpec = { $: {} };
+skia.mojom.BitmapN32ImageInfoSpec = { $: {} };
 
 // Enum: ColorType
 skia.mojom.ColorType = {
-  ALPHA_8: 0,
-  RGB_565: 1,
-  ARGB_4444: 2,
-  RGBA_8888: 3,
-  BGRA_8888: 4,
-  DEPRECATED_INDEX_8: 5,
-  GRAY_8: 6,
+  UNKNOWN: 0,
+  ALPHA_8: 1,
+  RGB_565: 2,
+  ARGB_4444: 3,
+  RGBA_8888: 4,
+  BGRA_8888: 5,
+  DEPRECATED_INDEX_8: 6,
+  GRAY_8: 7,
 };
-skia.mojom.ColorTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AlphaType
 skia.mojom.AlphaType = {
-  ALPHA_TYPE_OPAQUE: 0,
-  PREMUL: 1,
-  UNPREMUL: 2,
+  UNKNOWN: 0,
+  ALPHA_TYPE_OPAQUE: 1,
+  PREMUL: 2,
+  UNPREMUL: 3,
 };
-skia.mojom.AlphaTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: ImageInfo
-skia.mojom.ImageInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'skia.mojom.ImageInfo',
-      packedSize: 40,
-      fields: [
-        { name: 'color_type', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.ColorTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'alpha_type', packedOffset: 20, packedBitOffset: 0, type: skia.mojom.AlphaTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'width', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'height', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'color_transfer_function', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: true, minVersion: 0 },
-        { name: 'color_to_xyz_matrix', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    skia.mojom.ImageInfoSpec, 'skia.mojom.ImageInfo', [
+      mojo.internal.StructField('color_type', 16, 0, skia.mojom.ColorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('alpha_type', 20, 0, skia.mojom.AlphaTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('width', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('height', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('color_transfer_function', 0, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, true, 0, undefined),
+      mojo.internal.StructField('color_to_xyz_matrix', 8, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, true, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: BitmapN32ImageInfo
-skia.mojom.BitmapN32ImageInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'skia.mojom.BitmapN32ImageInfo',
-      packedSize: 40,
-      fields: [
-        { name: 'alpha_type', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.AlphaTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'width', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'height', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'color_transfer_function', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: true, minVersion: 0 },
-        { name: 'color_to_xyz_matrix', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    skia.mojom.BitmapN32ImageInfoSpec, 'skia.mojom.BitmapN32ImageInfo', [
+      mojo.internal.StructField('alpha_type', 16, 0, skia.mojom.AlphaTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('width', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('height', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('color_transfer_function', 0, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, true, 0, undefined),
+      mojo.internal.StructField('color_to_xyz_matrix', 8, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, true, 0, undefined),
+    ],
+    [[0, 40]]);

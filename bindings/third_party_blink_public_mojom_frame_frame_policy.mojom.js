@@ -7,24 +7,20 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var services = services || {};
 var blink = blink || {};
+var services = services || {};
 var blink = blink || {};
 var blink = blink || {};
 
+blink.mojom.FramePolicySpec = { $: {} };
 
 // Struct: FramePolicy
-blink.mojom.FramePolicySpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FramePolicy',
-      packedSize: 32,
-      fields: [
-        { name: 'sandbox_flags', packedOffset: 16, packedBitOffset: 0, type: network.mojom.WebSandboxFlagsSpec, nullable: false, minVersion: 0 },
-        { name: 'container_policy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.ParsedPermissionsPolicyDeclarationSpec, false), nullable: false, minVersion: 0 },
-        { name: 'required_document_policy', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(blink.mojom.DocumentPolicyFeatureSpec, blink.mojom.PolicyValueSpec, false), nullable: false, minVersion: 0 },
-        { name: 'deferred_fetch_policy', packedOffset: 20, packedBitOffset: 0, type: blink.mojom.DeferredFetchPolicySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FramePolicySpec, 'blink.mojom.FramePolicy', [
+      mojo.internal.StructField('sandbox_flags', 16, 0, network.mojom.WebSandboxFlagsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('container_policy', 0, 0, mojo.internal.Array(network.mojom.ParsedPermissionsPolicyDeclarationSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('required_document_policy', 8, 0, mojo.internal.Map(blink.mojom.DocumentPolicyFeatureSpec, blink.mojom.PolicyValueSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('deferred_fetch_policy', 20, 0, blink.mojom.DeferredFetchPolicySpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);

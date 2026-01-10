@@ -8,22 +8,23 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.Hyphenation = {};
+blink.mojom.Hyphenation.$interfaceName = 'blink.mojom.Hyphenation';
+blink.mojom.Hyphenation_OpenDictionary_ParamsSpec = { $: {} };
+blink.mojom.Hyphenation_OpenDictionary_ResponseParamsSpec = { $: {} };
 
 // Interface: Hyphenation
-blink.mojom.Hyphenation = {};
+mojo.internal.Struct(
+    blink.mojom.Hyphenation_OpenDictionary_ParamsSpec, 'blink.mojom.Hyphenation_OpenDictionary_Params', [
+      mojo.internal.StructField('locale', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.Hyphenation_OpenDictionary_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.Hyphenation_OpenDictionary_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'locale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.Hyphenation_OpenDictionary_ResponseParamsSpec, 'blink.mojom.Hyphenation_OpenDictionary_ResponseParams', [
+      mojo.internal.StructField('hyphenation_dictionary_handle', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.HyphenationPendingReceiver = class {
   constructor(handle) {
@@ -78,34 +79,6 @@ blink.mojom.Hyphenation.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OpenDictionary
-blink.mojom.Hyphenation_OpenDictionary_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.Hyphenation.OpenDictionary_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'locale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.Hyphenation_OpenDictionary_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.Hyphenation.OpenDictionary_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'hyphenation_dictionary_handle', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.HyphenationPtr = blink.mojom.HyphenationRemote;
 blink.mojom.HyphenationRequest = blink.mojom.HyphenationPendingReceiver;
 

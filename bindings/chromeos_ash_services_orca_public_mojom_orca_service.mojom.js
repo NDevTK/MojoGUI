@@ -12,376 +12,303 @@ var ui = ui || {};
 var gfx = gfx || {};
 var url = url || {};
 
+ash.orca.mojom.PresetTextQueryTypeSpec = { $: mojo.internal.Enum() };
+ash.orca.mojom.MetricEventSpec = { $: mojo.internal.Enum() };
+ash.orca.mojom.TextQueryErrorCodeSpec = { $: mojo.internal.Enum() };
+ash.orca.mojom.TextQueryResponseSpec = { $: {} };
+ash.orca.mojom.PresetTextQuerySpec = { $: {} };
+ash.orca.mojom.TextQueryRequestSpec = { $: {} };
+ash.orca.mojom.TextQueryResultSpec = { $: {} };
+ash.orca.mojom.TextQueryErrorSpec = { $: {} };
+ash.orca.mojom.SurroundingTextSpec = { $: {} };
+ash.orca.mojom.ContextSpec = { $: {} };
+ash.orca.mojom.EditorConfigSpec = { $: {} };
+ash.orca.mojom.TriggerContextSpec = { $: {} };
+ash.orca.mojom.EditorClient = {};
+ash.orca.mojom.EditorClient.$interfaceName = 'ash.orca.mojom.EditorClient';
+ash.orca.mojom.EditorClient_GetPresetTextQueries_ParamsSpec = { $: {} };
+ash.orca.mojom.EditorClient_GetPresetTextQueries_ResponseParamsSpec = { $: {} };
+ash.orca.mojom.EditorClient_RequestPresetRewrite_ParamsSpec = { $: {} };
+ash.orca.mojom.EditorClient_RequestPresetRewrite_ResponseParamsSpec = { $: {} };
+ash.orca.mojom.EditorClient_RequestFreeformRewrite_ParamsSpec = { $: {} };
+ash.orca.mojom.EditorClient_RequestFreeformRewrite_ResponseParamsSpec = { $: {} };
+ash.orca.mojom.EditorClient_RequestFreeformWrite_ParamsSpec = { $: {} };
+ash.orca.mojom.EditorClient_RequestFreeformWrite_ResponseParamsSpec = { $: {} };
+ash.orca.mojom.EditorClient_InsertText_ParamsSpec = { $: {} };
+ash.orca.mojom.EditorClient_ApproveConsent_ParamsSpec = { $: {} };
+ash.orca.mojom.EditorClient_DeclineConsent_ParamsSpec = { $: {} };
+ash.orca.mojom.EditorClient_DismissConsent_ParamsSpec = { $: {} };
+ash.orca.mojom.EditorClient_OpenUrlInNewWindow_ParamsSpec = { $: {} };
+ash.orca.mojom.EditorClient_ShowUI_ParamsSpec = { $: {} };
+ash.orca.mojom.EditorClient_CloseUI_ParamsSpec = { $: {} };
+ash.orca.mojom.EditorClient_AppendText_ParamsSpec = { $: {} };
+ash.orca.mojom.EditorClient_PreviewFeedback_ParamsSpec = { $: {} };
+ash.orca.mojom.EditorClient_PreviewFeedback_ResponseParamsSpec = { $: {} };
+ash.orca.mojom.EditorClient_SubmitFeedback_ParamsSpec = { $: {} };
+ash.orca.mojom.EditorClient_OnTrigger_ParamsSpec = { $: {} };
+ash.orca.mojom.EditorClient_EmitMetricEvent_ParamsSpec = { $: {} };
+ash.orca.mojom.EditorClientConnector = {};
+ash.orca.mojom.EditorClientConnector.$interfaceName = 'ash.orca.mojom.EditorClientConnector';
+ash.orca.mojom.EditorClientConnector_BindEditorClient_ParamsSpec = { $: {} };
+ash.orca.mojom.EditorEventSink = {};
+ash.orca.mojom.EditorEventSink.$interfaceName = 'ash.orca.mojom.EditorEventSink';
+ash.orca.mojom.EditorEventSink_OnContextUpdated_ParamsSpec = { $: {} };
+ash.orca.mojom.SystemActuator = {};
+ash.orca.mojom.SystemActuator.$interfaceName = 'ash.orca.mojom.SystemActuator';
+ash.orca.mojom.SystemActuator_InsertText_ParamsSpec = { $: {} };
+ash.orca.mojom.SystemActuator_ApproveConsent_ParamsSpec = { $: {} };
+ash.orca.mojom.SystemActuator_DeclineConsent_ParamsSpec = { $: {} };
+ash.orca.mojom.SystemActuator_OpenUrlInNewWindow_ParamsSpec = { $: {} };
+ash.orca.mojom.SystemActuator_ShowUI_ParamsSpec = { $: {} };
+ash.orca.mojom.SystemActuator_CloseUI_ParamsSpec = { $: {} };
+ash.orca.mojom.SystemActuator_SubmitFeedback_ParamsSpec = { $: {} };
+ash.orca.mojom.SystemActuator_OnTrigger_ParamsSpec = { $: {} };
+ash.orca.mojom.SystemActuator_EmitMetricEvent_ParamsSpec = { $: {} };
+ash.orca.mojom.TextQueryProvider = {};
+ash.orca.mojom.TextQueryProvider.$interfaceName = 'ash.orca.mojom.TextQueryProvider';
+ash.orca.mojom.TextQueryProvider_Process_ParamsSpec = { $: {} };
+ash.orca.mojom.TextQueryProvider_Process_ResponseParamsSpec = { $: {} };
+ash.orca.mojom.OrcaService = {};
+ash.orca.mojom.OrcaService.$interfaceName = 'ash.orca.mojom.OrcaService';
+ash.orca.mojom.OrcaService_BindEditor_ParamsSpec = { $: {} };
 
 // Enum: PresetTextQueryType
 ash.orca.mojom.PresetTextQueryType = {
-  kShorten: 0,
-  kElaborate: 1,
-  kRephrase: 2,
-  kFormalize: 3,
-  kEmojify: 4,
+  kUnknown: 0,
+  kShorten: 1,
+  kElaborate: 2,
+  kRephrase: 3,
+  kFormalize: 4,
+  kEmojify: 5,
+  MinVersion: 5,
 };
-ash.orca.mojom.PresetTextQueryTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: MetricEvent
 ash.orca.mojom.MetricEvent = {
-  kRefineRequest: 0,
-  kFeedbackThumbsUp: 1,
-  kFeedbackThumbsDown: 2,
-  kReturnToPreviousSuggestions: 3,
-  kWebUIRequest: 4,
+  kUnknown: 0,
+  kRefineRequest: 1,
+  kFeedbackThumbsUp: 2,
+  kFeedbackThumbsDown: 3,
+  kReturnToPreviousSuggestions: 4,
+  kWebUIRequest: 5,
 };
-ash.orca.mojom.MetricEventSpec = { $: mojo.internal.Enum() };
 
 // Enum: TextQueryErrorCode
 ash.orca.mojom.TextQueryErrorCode = {
-  kInvalidArgument: 0,
+  kUnknown: 0,
+  kInvalidArgument: 1,
+  MinVersion: 1,
+  MinVersion: 1,
+  MinVersion: 1,
+  MinVersion: 1,
+  MinVersion: 1,
+  MinVersion: 1,
 };
-ash.orca.mojom.TextQueryErrorCodeSpec = { $: mojo.internal.Enum() };
 
 // Union: TextQueryResponse
-ash.orca.mojom.TextQueryResponseSpec = { $: mojo.internal.Union(
-    'ash.orca.mojom.TextQueryResponse', {
+mojo.internal.Union(
+    ash.orca.mojom.TextQueryResponseSpec, 'ash.orca.mojom.TextQueryResponse', {
       'results': {
         'ordinal': 0,
         'type': mojo.internal.Array(ash.orca.mojom.TextQueryResultSpec, false),
-      }},
+        'nullable': false,
+      },
       'error': {
         'ordinal': 1,
         'type': ash.orca.mojom.TextQueryErrorSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: PresetTextQuery
-ash.orca.mojom.PresetTextQuerySpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.PresetTextQuery',
-      packedSize: 40,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'description', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: ash.orca.mojom.PresetTextQueryTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.orca.mojom.PresetTextQuerySpec, 'ash.orca.mojom.PresetTextQuery', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('label', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('description', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('type', 24, 0, ash.orca.mojom.PresetTextQueryTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: TextQueryRequest
-ash.orca.mojom.TextQueryRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.TextQueryRequest',
-      packedSize: 32,
-      fields: [
-        { name: 'text_query_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'parameters', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.orca.mojom.TextQueryRequestSpec, 'ash.orca.mojom.TextQueryRequest', [
+      mojo.internal.StructField('text_query_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('version', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('parameters', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: TextQueryResult
-ash.orca.mojom.TextQueryResultSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.TextQueryResult',
-      packedSize: 24,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.orca.mojom.TextQueryResultSpec, 'ash.orca.mojom.TextQueryResult', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('text', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: TextQueryError
-ash.orca.mojom.TextQueryErrorSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.TextQueryError',
-      packedSize: 24,
-      fields: [
-        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: ash.orca.mojom.TextQueryErrorCodeSpec, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.orca.mojom.TextQueryErrorSpec, 'ash.orca.mojom.TextQueryError', [
+      mojo.internal.StructField('code', 8, 0, ash.orca.mojom.TextQueryErrorCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: SurroundingText
-ash.orca.mojom.SurroundingTextSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.SurroundingText',
-      packedSize: 24,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'range', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RangeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.orca.mojom.SurroundingTextSpec, 'ash.orca.mojom.SurroundingText', [
+      mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('range', 8, 0, gfx.mojom.RangeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: Context
-ash.orca.mojom.ContextSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.Context',
-      packedSize: 16,
-      fields: [
-        { name: 'surrounding_text', packedOffset: 0, packedBitOffset: 0, type: ash.orca.mojom.SurroundingTextSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.orca.mojom.ContextSpec, 'ash.orca.mojom.Context', [
+      mojo.internal.StructField('surrounding_text', 0, 0, ash.orca.mojom.SurroundingTextSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: EditorConfig
-ash.orca.mojom.EditorConfigSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorConfig',
-      packedSize: 24,
-      fields: [
-        { name: 'allowed_query_types', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.orca.mojom.PresetTextQueryTypeSpec, false), nullable: false, minVersion: 0 },
-        { name: 'language_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 12 },
-      ],
-      versions: [{version: 0, packedSize: 16}, {version: 12, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.orca.mojom.EditorConfigSpec, 'ash.orca.mojom.EditorConfig', [
+      mojo.internal.StructField('allowed_query_types', 0, 0, mojo.internal.Array(ash.orca.mojom.PresetTextQueryTypeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('language_code', 8, 0, mojo.internal.String, null, true, 12, undefined),
+    ],
+    [[0, 16], [12, 24]]);
 
 // Struct: TriggerContext
-ash.orca.mojom.TriggerContextSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.TriggerContext',
-      packedSize: 16,
-      fields: [
-        { name: 'freeform_selected', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'preset_type_selected', packedOffset: 0, packedBitOffset: 0, type: ash.orca.mojom.PresetTextQueryTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.orca.mojom.TriggerContextSpec, 'ash.orca.mojom.TriggerContext', [
+      mojo.internal.StructField('freeform_selected', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('preset_type_selected', 0, 0, ash.orca.mojom.PresetTextQueryTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: EditorClient
-ash.orca.mojom.EditorClient = {};
+mojo.internal.Struct(
+    ash.orca.mojom.EditorClient_GetPresetTextQueries_ParamsSpec, 'ash.orca.mojom.EditorClient_GetPresetTextQueries_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.orca.mojom.EditorClient_GetPresetTextQueries_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorClient_GetPresetTextQueries_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.orca.mojom.EditorClient_GetPresetTextQueries_ResponseParamsSpec, 'ash.orca.mojom.EditorClient_GetPresetTextQueries_ResponseParams', [
+      mojo.internal.StructField('text_queries', 0, 0, mojo.internal.Array(ash.orca.mojom.PresetTextQuerySpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.orca.mojom.EditorClient_RequestPresetRewrite_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorClient_RequestPresetRewrite_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'text_query_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'text_override', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.orca.mojom.EditorClient_RequestPresetRewrite_ParamsSpec, 'ash.orca.mojom.EditorClient_RequestPresetRewrite_Params', [
+      mojo.internal.StructField('text_query_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('text_override', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.orca.mojom.EditorClient_RequestFreeformRewrite_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorClient_RequestFreeformRewrite_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'text_override', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.orca.mojom.EditorClient_RequestPresetRewrite_ResponseParamsSpec, 'ash.orca.mojom.EditorClient_RequestPresetRewrite_ResponseParams', [
+      mojo.internal.StructField('response', 0, 0, ash.orca.mojom.TextQueryResponseSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.orca.mojom.EditorClient_RequestFreeformWrite_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorClient_RequestFreeformWrite_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.orca.mojom.EditorClient_RequestFreeformRewrite_ParamsSpec, 'ash.orca.mojom.EditorClient_RequestFreeformRewrite_Params', [
+      mojo.internal.StructField('input', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('text_override', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.orca.mojom.EditorClient_InsertText_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorClient_InsertText_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.orca.mojom.EditorClient_RequestFreeformRewrite_ResponseParamsSpec, 'ash.orca.mojom.EditorClient_RequestFreeformRewrite_ResponseParams', [
+      mojo.internal.StructField('response', 0, 0, ash.orca.mojom.TextQueryResponseSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.orca.mojom.EditorClient_ApproveConsent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorClient_ApproveConsent_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.orca.mojom.EditorClient_RequestFreeformWrite_ParamsSpec, 'ash.orca.mojom.EditorClient_RequestFreeformWrite_Params', [
+      mojo.internal.StructField('input', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.orca.mojom.EditorClient_DeclineConsent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorClient_DeclineConsent_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.orca.mojom.EditorClient_RequestFreeformWrite_ResponseParamsSpec, 'ash.orca.mojom.EditorClient_RequestFreeformWrite_ResponseParams', [
+      mojo.internal.StructField('response', 0, 0, ash.orca.mojom.TextQueryResponseSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.orca.mojom.EditorClient_DismissConsent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorClient_DismissConsent_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.orca.mojom.EditorClient_InsertText_ParamsSpec, 'ash.orca.mojom.EditorClient_InsertText_Params', [
+      mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.orca.mojom.EditorClient_OpenUrlInNewWindow_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorClient_OpenUrlInNewWindow_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.orca.mojom.EditorClient_ApproveConsent_ParamsSpec, 'ash.orca.mojom.EditorClient_ApproveConsent_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.orca.mojom.EditorClient_ShowUI_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorClient_ShowUI_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.orca.mojom.EditorClient_DeclineConsent_ParamsSpec, 'ash.orca.mojom.EditorClient_DeclineConsent_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.orca.mojom.EditorClient_CloseUI_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorClient_CloseUI_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.orca.mojom.EditorClient_DismissConsent_ParamsSpec, 'ash.orca.mojom.EditorClient_DismissConsent_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.orca.mojom.EditorClient_AppendText_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorClient_AppendText_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.orca.mojom.EditorClient_OpenUrlInNewWindow_ParamsSpec, 'ash.orca.mojom.EditorClient_OpenUrlInNewWindow_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.orca.mojom.EditorClient_PreviewFeedback_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorClient_PreviewFeedback_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'result_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.orca.mojom.EditorClient_ShowUI_ParamsSpec, 'ash.orca.mojom.EditorClient_ShowUI_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.orca.mojom.EditorClient_SubmitFeedback_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorClient_SubmitFeedback_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'result_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'user_description', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.orca.mojom.EditorClient_CloseUI_ParamsSpec, 'ash.orca.mojom.EditorClient_CloseUI_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.orca.mojom.EditorClient_OnTrigger_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorClient_OnTrigger_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'trigger_context', packedOffset: 0, packedBitOffset: 0, type: ash.orca.mojom.TriggerContextSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.orca.mojom.EditorClient_AppendText_ParamsSpec, 'ash.orca.mojom.EditorClient_AppendText_Params', [
+      mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.orca.mojom.EditorClient_EmitMetricEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorClient_EmitMetricEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'metric_event', packedOffset: 0, packedBitOffset: 0, type: ash.orca.mojom.MetricEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.orca.mojom.EditorClient_PreviewFeedback_ParamsSpec, 'ash.orca.mojom.EditorClient_PreviewFeedback_Params', [
+      mojo.internal.StructField('result_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.orca.mojom.EditorClient_PreviewFeedback_ResponseParamsSpec, 'ash.orca.mojom.EditorClient_PreviewFeedback_ResponseParams', [
+      mojo.internal.StructField('preview', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.orca.mojom.EditorClient_SubmitFeedback_ParamsSpec, 'ash.orca.mojom.EditorClient_SubmitFeedback_Params', [
+      mojo.internal.StructField('result_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('user_description', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    ash.orca.mojom.EditorClient_OnTrigger_ParamsSpec, 'ash.orca.mojom.EditorClient_OnTrigger_Params', [
+      mojo.internal.StructField('trigger_context', 0, 0, ash.orca.mojom.TriggerContextSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.orca.mojom.EditorClient_EmitMetricEvent_ParamsSpec, 'ash.orca.mojom.EditorClient_EmitMetricEvent_Params', [
+      mojo.internal.StructField('metric_event', 0, 0, ash.orca.mojom.MetricEventSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.orca.mojom.EditorClientPendingReceiver = class {
   constructor(handle) {
@@ -571,312 +498,16 @@ ash.orca.mojom.EditorClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetPresetTextQueries
-ash.orca.mojom.EditorClient_GetPresetTextQueries_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorClient.GetPresetTextQueries_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.orca.mojom.EditorClient_GetPresetTextQueries_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorClient.GetPresetTextQueries_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'text_queries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.orca.mojom.PresetTextQuerySpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestPresetRewrite
-ash.orca.mojom.EditorClient_RequestPresetRewrite_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorClient.RequestPresetRewrite_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'text_query_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'text_override', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-ash.orca.mojom.EditorClient_RequestPresetRewrite_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorClient.RequestPresetRewrite_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.orca.mojom.TextQueryResponseSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for RequestFreeformRewrite
-ash.orca.mojom.EditorClient_RequestFreeformRewrite_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorClient.RequestFreeformRewrite_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'text_override', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-ash.orca.mojom.EditorClient_RequestFreeformRewrite_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorClient.RequestFreeformRewrite_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.orca.mojom.TextQueryResponseSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for RequestFreeformWrite
-ash.orca.mojom.EditorClient_RequestFreeformWrite_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorClient.RequestFreeformWrite_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.orca.mojom.EditorClient_RequestFreeformWrite_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorClient.RequestFreeformWrite_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.orca.mojom.TextQueryResponseSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for InsertText
-ash.orca.mojom.EditorClient_InsertText_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorClient.InsertText_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ApproveConsent
-ash.orca.mojom.EditorClient_ApproveConsent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorClient.ApproveConsent_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for DeclineConsent
-ash.orca.mojom.EditorClient_DeclineConsent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorClient.DeclineConsent_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for DismissConsent
-ash.orca.mojom.EditorClient_DismissConsent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorClient.DismissConsent_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OpenUrlInNewWindow
-ash.orca.mojom.EditorClient_OpenUrlInNewWindow_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorClient.OpenUrlInNewWindow_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ShowUI
-ash.orca.mojom.EditorClient_ShowUI_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorClient.ShowUI_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for CloseUI
-ash.orca.mojom.EditorClient_CloseUI_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorClient.CloseUI_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for AppendText
-ash.orca.mojom.EditorClient_AppendText_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorClient.AppendText_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for PreviewFeedback
-ash.orca.mojom.EditorClient_PreviewFeedback_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorClient.PreviewFeedback_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'result_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.orca.mojom.EditorClient_PreviewFeedback_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorClient.PreviewFeedback_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'preview', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SubmitFeedback
-ash.orca.mojom.EditorClient_SubmitFeedback_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorClient.SubmitFeedback_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'result_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'user_description', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnTrigger
-ash.orca.mojom.EditorClient_OnTrigger_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorClient.OnTrigger_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'trigger_context', packedOffset: 0, packedBitOffset: 0, type: ash.orca.mojom.TriggerContextSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EmitMetricEvent
-ash.orca.mojom.EditorClient_EmitMetricEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorClient.EmitMetricEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'metric_event', packedOffset: 0, packedBitOffset: 0, type: ash.orca.mojom.MetricEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.orca.mojom.EditorClientPtr = ash.orca.mojom.EditorClientRemote;
 ash.orca.mojom.EditorClientRequest = ash.orca.mojom.EditorClientPendingReceiver;
 
 
 // Interface: EditorClientConnector
-ash.orca.mojom.EditorClientConnector = {};
-
-ash.orca.mojom.EditorClientConnector_BindEditorClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorClientConnector_BindEditorClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'editor_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.orca.mojom.EditorClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.orca.mojom.EditorClientConnector_BindEditorClient_ParamsSpec, 'ash.orca.mojom.EditorClientConnector_BindEditorClient_Params', [
+      mojo.internal.StructField('editor_client', 0, 0, mojo.internal.InterfaceRequest(ash.orca.mojom.EditorClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.orca.mojom.EditorClientConnectorPendingReceiver = class {
   constructor(handle) {
@@ -931,40 +562,16 @@ ash.orca.mojom.EditorClientConnector.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for BindEditorClient
-ash.orca.mojom.EditorClientConnector_BindEditorClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorClientConnector.BindEditorClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'editor_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.orca.mojom.EditorClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.orca.mojom.EditorClientConnectorPtr = ash.orca.mojom.EditorClientConnectorRemote;
 ash.orca.mojom.EditorClientConnectorRequest = ash.orca.mojom.EditorClientConnectorPendingReceiver;
 
 
 // Interface: EditorEventSink
-ash.orca.mojom.EditorEventSink = {};
-
-ash.orca.mojom.EditorEventSink_OnContextUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorEventSink_OnContextUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'context', packedOffset: 0, packedBitOffset: 0, type: ash.orca.mojom.ContextSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.orca.mojom.EditorEventSink_OnContextUpdated_ParamsSpec, 'ash.orca.mojom.EditorEventSink_OnContextUpdated_Params', [
+      mojo.internal.StructField('context', 0, 0, ash.orca.mojom.ContextSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.orca.mojom.EditorEventSinkPendingReceiver = class {
   constructor(handle) {
@@ -1019,140 +626,60 @@ ash.orca.mojom.EditorEventSink.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnContextUpdated
-ash.orca.mojom.EditorEventSink_OnContextUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.EditorEventSink.OnContextUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'context', packedOffset: 0, packedBitOffset: 0, type: ash.orca.mojom.ContextSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.orca.mojom.EditorEventSinkPtr = ash.orca.mojom.EditorEventSinkRemote;
 ash.orca.mojom.EditorEventSinkRequest = ash.orca.mojom.EditorEventSinkPendingReceiver;
 
 
 // Interface: SystemActuator
-ash.orca.mojom.SystemActuator = {};
+mojo.internal.Struct(
+    ash.orca.mojom.SystemActuator_InsertText_ParamsSpec, 'ash.orca.mojom.SystemActuator_InsertText_Params', [
+      mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.orca.mojom.SystemActuator_InsertText_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.SystemActuator_InsertText_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.orca.mojom.SystemActuator_ApproveConsent_ParamsSpec, 'ash.orca.mojom.SystemActuator_ApproveConsent_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.orca.mojom.SystemActuator_ApproveConsent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.SystemActuator_ApproveConsent_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.orca.mojom.SystemActuator_DeclineConsent_ParamsSpec, 'ash.orca.mojom.SystemActuator_DeclineConsent_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.orca.mojom.SystemActuator_DeclineConsent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.SystemActuator_DeclineConsent_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.orca.mojom.SystemActuator_OpenUrlInNewWindow_ParamsSpec, 'ash.orca.mojom.SystemActuator_OpenUrlInNewWindow_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.orca.mojom.SystemActuator_OpenUrlInNewWindow_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.SystemActuator_OpenUrlInNewWindow_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.orca.mojom.SystemActuator_ShowUI_ParamsSpec, 'ash.orca.mojom.SystemActuator_ShowUI_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.orca.mojom.SystemActuator_ShowUI_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.SystemActuator_ShowUI_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.orca.mojom.SystemActuator_CloseUI_ParamsSpec, 'ash.orca.mojom.SystemActuator_CloseUI_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.orca.mojom.SystemActuator_CloseUI_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.SystemActuator_CloseUI_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.orca.mojom.SystemActuator_SubmitFeedback_ParamsSpec, 'ash.orca.mojom.SystemActuator_SubmitFeedback_Params', [
+      mojo.internal.StructField('description', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.orca.mojom.SystemActuator_SubmitFeedback_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.SystemActuator_SubmitFeedback_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.orca.mojom.SystemActuator_OnTrigger_ParamsSpec, 'ash.orca.mojom.SystemActuator_OnTrigger_Params', [
+      mojo.internal.StructField('trigger_context', 0, 0, ash.orca.mojom.TriggerContextSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.orca.mojom.SystemActuator_OnTrigger_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.SystemActuator_OnTrigger_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'trigger_context', packedOffset: 0, packedBitOffset: 0, type: ash.orca.mojom.TriggerContextSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.orca.mojom.SystemActuator_EmitMetricEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.SystemActuator_EmitMetricEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'metric_event', packedOffset: 0, packedBitOffset: 0, type: ash.orca.mojom.MetricEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.orca.mojom.SystemActuator_EmitMetricEvent_ParamsSpec, 'ash.orca.mojom.SystemActuator_EmitMetricEvent_Params', [
+      mojo.internal.StructField('metric_event', 0, 0, ash.orca.mojom.MetricEventSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.orca.mojom.SystemActuatorPendingReceiver = class {
   constructor(handle) {
@@ -1279,148 +806,22 @@ ash.orca.mojom.SystemActuator.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for InsertText
-ash.orca.mojom.SystemActuator_InsertText_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.SystemActuator.InsertText_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ApproveConsent
-ash.orca.mojom.SystemActuator_ApproveConsent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.SystemActuator.ApproveConsent_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for DeclineConsent
-ash.orca.mojom.SystemActuator_DeclineConsent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.SystemActuator.DeclineConsent_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OpenUrlInNewWindow
-ash.orca.mojom.SystemActuator_OpenUrlInNewWindow_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.SystemActuator.OpenUrlInNewWindow_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ShowUI
-ash.orca.mojom.SystemActuator_ShowUI_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.SystemActuator.ShowUI_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for CloseUI
-ash.orca.mojom.SystemActuator_CloseUI_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.SystemActuator.CloseUI_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SubmitFeedback
-ash.orca.mojom.SystemActuator_SubmitFeedback_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.SystemActuator.SubmitFeedback_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnTrigger
-ash.orca.mojom.SystemActuator_OnTrigger_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.SystemActuator.OnTrigger_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'trigger_context', packedOffset: 0, packedBitOffset: 0, type: ash.orca.mojom.TriggerContextSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EmitMetricEvent
-ash.orca.mojom.SystemActuator_EmitMetricEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.SystemActuator.EmitMetricEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'metric_event', packedOffset: 0, packedBitOffset: 0, type: ash.orca.mojom.MetricEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.orca.mojom.SystemActuatorPtr = ash.orca.mojom.SystemActuatorRemote;
 ash.orca.mojom.SystemActuatorRequest = ash.orca.mojom.SystemActuatorPendingReceiver;
 
 
 // Interface: TextQueryProvider
-ash.orca.mojom.TextQueryProvider = {};
+mojo.internal.Struct(
+    ash.orca.mojom.TextQueryProvider_Process_ParamsSpec, 'ash.orca.mojom.TextQueryProvider_Process_Params', [
+      mojo.internal.StructField('request', 0, 0, ash.orca.mojom.TextQueryRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.orca.mojom.TextQueryProvider_Process_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.TextQueryProvider_Process_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: ash.orca.mojom.TextQueryRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.orca.mojom.TextQueryProvider_Process_ResponseParamsSpec, 'ash.orca.mojom.TextQueryProvider_Process_ResponseParams', [
+      mojo.internal.StructField('response', 0, 0, ash.orca.mojom.TextQueryResponseSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 ash.orca.mojom.TextQueryProviderPendingReceiver = class {
   constructor(handle) {
@@ -1475,57 +876,20 @@ ash.orca.mojom.TextQueryProvider.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Process
-ash.orca.mojom.TextQueryProvider_Process_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.TextQueryProvider.Process_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: ash.orca.mojom.TextQueryRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.orca.mojom.TextQueryProvider_Process_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.TextQueryProvider.Process_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.orca.mojom.TextQueryResponseSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.orca.mojom.TextQueryProviderPtr = ash.orca.mojom.TextQueryProviderRemote;
 ash.orca.mojom.TextQueryProviderRequest = ash.orca.mojom.TextQueryProviderPendingReceiver;
 
 
 // Interface: OrcaService
-ash.orca.mojom.OrcaService = {};
-
-ash.orca.mojom.OrcaService_BindEditor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.OrcaService_BindEditor_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'system_actuator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(ash.orca.mojom.SystemActuatorRemote), nullable: false, minVersion: 0 },
-        { name: 'text_query_provider', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(ash.orca.mojom.TextQueryProviderRemote), nullable: false, minVersion: 0 },
-        { name: 'client_connector', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(ash.orca.mojom.EditorClientConnectorRemote), nullable: false, minVersion: 0 },
-        { name: 'event_sink', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(ash.orca.mojom.EditorEventSinkRemote), nullable: false, minVersion: 0 },
-        { name: 'editor_config', packedOffset: 32, packedBitOffset: 0, type: ash.orca.mojom.EditorConfigSpec, nullable: true, minVersion: 9 },
-      ],
-      versions: [{version: 0, packedSize: 40}, {version: 9, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.orca.mojom.OrcaService_BindEditor_ParamsSpec, 'ash.orca.mojom.OrcaService_BindEditor_Params', [
+      mojo.internal.StructField('system_actuator', 0, 0, mojo.internal.AssociatedInterfaceProxy(ash.orca.mojom.SystemActuatorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('text_query_provider', 8, 0, mojo.internal.AssociatedInterfaceProxy(ash.orca.mojom.TextQueryProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client_connector', 16, 0, mojo.internal.AssociatedInterfaceRequest(ash.orca.mojom.EditorClientConnectorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('event_sink', 24, 0, mojo.internal.AssociatedInterfaceRequest(ash.orca.mojom.EditorEventSinkRemote), null, false, 0, undefined),
+      mojo.internal.StructField('editor_config', 32, 0, ash.orca.mojom.EditorConfigSpec, null, true, 9, undefined),
+    ],
+    [[0, 40], [9, 48]]);
 
 ash.orca.mojom.OrcaServicePendingReceiver = class {
   constructor(handle) {
@@ -1580,25 +944,6 @@ ash.orca.mojom.OrcaService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for BindEditor
-ash.orca.mojom.OrcaService_BindEditor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.orca.mojom.OrcaService.BindEditor_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'system_actuator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(ash.orca.mojom.SystemActuatorRemote), nullable: false, minVersion: 0 },
-        { name: 'text_query_provider', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(ash.orca.mojom.TextQueryProviderRemote), nullable: false, minVersion: 0 },
-        { name: 'client_connector', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(ash.orca.mojom.EditorClientConnectorRemote), nullable: false, minVersion: 0 },
-        { name: 'event_sink', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(ash.orca.mojom.EditorEventSinkRemote), nullable: false, minVersion: 0 },
-        { name: 'editor_config', packedOffset: 32, packedBitOffset: 0, type: ash.orca.mojom.EditorConfigSpec, nullable: true, minVersion: 9 },
-      ],
-      versions: [{version: 0, packedSize: 40}, {version: 9, packedSize: 48}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.orca.mojom.OrcaServicePtr = ash.orca.mojom.OrcaServiceRemote;
 ash.orca.mojom.OrcaServiceRequest = ash.orca.mojom.OrcaServicePendingReceiver;
 

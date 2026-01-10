@@ -7,129 +7,89 @@
 // Module namespace
 var input = input || {};
 input.mojom = input.mojom || {};
+var services = services || {};
 var blink = blink || {};
 var blink = blink || {};
 var blink = blink || {};
 var ui = ui || {};
 
+input.mojom.RenderInputRouterConfigSpec = { $: {} };
+input.mojom.TouchTransferStateSpec = { $: {} };
+input.mojom.RenderInputRouterDelegate = {};
+input.mojom.RenderInputRouterDelegate.$interfaceName = 'input.mojom.RenderInputRouterDelegate';
+input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec = { $: {} };
+input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec = { $: {} };
+input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_ParamsSpec = { $: {} };
+input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_ParamsSpec = { $: {} };
+input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_ParamsSpec = { $: {} };
+input.mojom.RenderInputRouterDelegate_ResetGestureDetection_ParamsSpec = { $: {} };
+input.mojom.RenderInputRouterDelegateClient = {};
+input.mojom.RenderInputRouterDelegateClient.$interfaceName = 'input.mojom.RenderInputRouterDelegateClient';
+input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_ParamsSpec = { $: {} };
+input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_ParamsSpec = { $: {} };
+input.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_ParamsSpec = { $: {} };
+input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_ParamsSpec = { $: {} };
+input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_ParamsSpec = { $: {} };
 
 // Struct: RenderInputRouterConfig
-input.mojom.RenderInputRouterConfigSpec = {
-  $: {
-    structSpec: {
-      name: 'input.mojom.RenderInputRouterConfig',
-      packedSize: 32,
-      fields: [
-        { name: 'rir_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.RenderInputRouterClientRemote), nullable: false, minVersion: 0 },
-        { name: 'grouping_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'force_enable_zoom', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    input.mojom.RenderInputRouterConfigSpec, 'input.mojom.RenderInputRouterConfig', [
+      mojo.internal.StructField('rir_client', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.RenderInputRouterClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('grouping_id', 8, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('force_enable_zoom', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: TouchTransferState
-input.mojom.TouchTransferStateSpec = {
-  $: {
-    structSpec: {
-      name: 'input.mojom.TouchTransferState',
-      packedSize: 48,
-      fields: [
-        { name: 'down_time_ms', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'root_widget_frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
-        { name: 'web_contents_y_offset_pix', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'dip_scale', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'browser_would_have_handled', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'down_event', packedOffset: 16, packedBitOffset: 0, type: ui.mojom.CachedMotionEventAndroidSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    input.mojom.TouchTransferStateSpec, 'input.mojom.TouchTransferState', [
+      mojo.internal.StructField('down_time_ms', 0, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('root_widget_frame_sink_id', 8, 0, viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('web_contents_y_offset_pix', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('dip_scale', 28, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('browser_would_have_handled', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('down_event', 16, 0, ui.mojom.CachedMotionEventAndroidSpec, null, true, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Interface: RenderInputRouterDelegate
-input.mojom.RenderInputRouterDelegate = {};
+mojo.internal.Struct(
+    input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec, 'input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_Params', [
+      mojo.internal.StructField('state', 0, 0, input.mojom.TouchTransferStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: input.mojom.TouchTransferStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec, 'input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_Params', [
+      mojo.internal.StructField('force_enable_zoom', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('frame_sink_id', 0, 0, viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'force_enable_zoom', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_ParamsSpec, 'input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_Params', [
+      mojo.internal.StructField('frame_sink_id', 0, 0, viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_ParamsSpec, 'input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_Params', [
+      mojo.internal.StructField('frame_sink_id', 0, 0, viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_ParamsSpec, 'input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_Params', [
+      mojo.internal.StructField('frame_sink_id', 0, 0, viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_hidden', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
-        { name: 'is_hidden', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-input.mojom.RenderInputRouterDelegate_ResetGestureDetection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'input.mojom.RenderInputRouterDelegate_ResetGestureDetection_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'root_widget_frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    input.mojom.RenderInputRouterDelegate_ResetGestureDetection_ParamsSpec, 'input.mojom.RenderInputRouterDelegate_ResetGestureDetection_Params', [
+      mojo.internal.StructField('root_widget_frame_sink_id', 0, 0, viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 input.mojom.RenderInputRouterDelegatePendingReceiver = class {
   constructor(handle) {
@@ -229,167 +189,43 @@ input.mojom.RenderInputRouterDelegate.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for StateOnTouchTransfer
-input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'input.mojom.RenderInputRouterDelegate.StateOnTouchTransfer_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: input.mojom.TouchTransferStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ForceEnableZoomStateChanged
-input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'input.mojom.RenderInputRouterDelegate.ForceEnableZoomStateChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'force_enable_zoom', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for StopFlingingOnViz
-input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'input.mojom.RenderInputRouterDelegate.StopFlingingOnViz_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RestartInputEventAckTimeoutIfNecessary
-input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'input.mojom.RenderInputRouterDelegate.RestartInputEventAckTimeoutIfNecessary_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for NotifyVisibilityChanged
-input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'input.mojom.RenderInputRouterDelegate.NotifyVisibilityChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
-        { name: 'is_hidden', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ResetGestureDetection
-input.mojom.RenderInputRouterDelegate_ResetGestureDetection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'input.mojom.RenderInputRouterDelegate.ResetGestureDetection_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'root_widget_frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 input.mojom.RenderInputRouterDelegatePtr = input.mojom.RenderInputRouterDelegateRemote;
 input.mojom.RenderInputRouterDelegateRequest = input.mojom.RenderInputRouterDelegatePendingReceiver;
 
 
 // Interface: RenderInputRouterDelegateClient
-input.mojom.RenderInputRouterDelegateClient = {};
+mojo.internal.Struct(
+    input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_ParamsSpec, 'input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_Params', [
+      mojo.internal.StructField('event', 0, 0, blink.mojom.EventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('dispatched_to_renderer', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.EventSpec, nullable: false, minVersion: 0 },
-        { name: 'dispatched_to_renderer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_ParamsSpec, 'input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_Params', [
+      mojo.internal.StructField('ack_source', 8, 0, blink.mojom.InputEventResultSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('ack_result', 12, 0, blink.mojom.InputEventResultStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event', 0, 0, blink.mojom.EventSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'ack_source', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.InputEventResultSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'ack_result', packedOffset: 12, packedBitOffset: 0, type: blink.mojom.InputEventResultStateSpec, nullable: false, minVersion: 0 },
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.EventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    input.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_ParamsSpec, 'input.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-input.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'input.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_ParamsSpec, 'input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_Params', [
+      mojo.internal.StructField('overscroll', 0, 0, blink.mojom.DidOverscrollParamsSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'overscroll', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DidOverscrollParamsSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'is_responsive', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'ack_timeout_ts', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_ParamsSpec, 'input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_Params', [
+      mojo.internal.StructField('is_responsive', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('ack_timeout_ts', 0, 0, mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 input.mojom.RenderInputRouterDelegateClientPendingReceiver = class {
   constructor(handle) {
@@ -480,80 +316,6 @@ input.mojom.RenderInputRouterDelegateClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for NotifyObserversOfInputEvent
-input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'input.mojom.RenderInputRouterDelegateClient.NotifyObserversOfInputEvent_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.EventSpec, nullable: false, minVersion: 0 },
-        { name: 'dispatched_to_renderer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for NotifyObserversOfInputEventAcks
-input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'input.mojom.RenderInputRouterDelegateClient.NotifyObserversOfInputEventAcks_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'ack_source', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.InputEventResultSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'ack_result', packedOffset: 12, packedBitOffset: 0, type: blink.mojom.InputEventResultStateSpec, nullable: false, minVersion: 0 },
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.EventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnInvalidInputEventSource
-input.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'input.mojom.RenderInputRouterDelegateClient.OnInvalidInputEventSource_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for StateOnOverscrollTransfer
-input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'input.mojom.RenderInputRouterDelegateClient.StateOnOverscrollTransfer_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'overscroll', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DidOverscrollParamsSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RendererInputResponsivenessChanged
-input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'input.mojom.RenderInputRouterDelegateClient.RendererInputResponsivenessChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'is_responsive', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'ack_timeout_ts', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 input.mojom.RenderInputRouterDelegateClientPtr = input.mojom.RenderInputRouterDelegateClientRemote;
 input.mojom.RenderInputRouterDelegateClientRequest = input.mojom.RenderInputRouterDelegateClientPendingReceiver;
 

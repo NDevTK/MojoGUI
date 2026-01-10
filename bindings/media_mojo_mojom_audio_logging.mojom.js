@@ -8,6 +8,20 @@
 var media = media || {};
 media.mojom = media.mojom || {};
 
+media.mojom.AudioLogComponentSpec = { $: mojo.internal.Enum() };
+media.mojom.AudioLog = {};
+media.mojom.AudioLog.$interfaceName = 'media.mojom.AudioLog';
+media.mojom.AudioLog_OnCreated_ParamsSpec = { $: {} };
+media.mojom.AudioLog_OnStarted_ParamsSpec = { $: {} };
+media.mojom.AudioLog_OnStopped_ParamsSpec = { $: {} };
+media.mojom.AudioLog_OnClosed_ParamsSpec = { $: {} };
+media.mojom.AudioLog_OnError_ParamsSpec = { $: {} };
+media.mojom.AudioLog_OnSetVolume_ParamsSpec = { $: {} };
+media.mojom.AudioLog_OnProcessingStateChanged_ParamsSpec = { $: {} };
+media.mojom.AudioLog_OnLogMessage_ParamsSpec = { $: {} };
+media.mojom.AudioLogFactory = {};
+media.mojom.AudioLogFactory.$interfaceName = 'media.mojom.AudioLogFactory';
+media.mojom.AudioLogFactory_CreateAudioLog_ParamsSpec = { $: {} };
 
 // Enum: AudioLogComponent
 media.mojom.AudioLogComponent = {
@@ -15,111 +29,52 @@ media.mojom.AudioLogComponent = {
   kOutputController: 1,
   kOutputStream: 2,
 };
-media.mojom.AudioLogComponentSpec = { $: mojo.internal.Enum() };
 
 // Interface: AudioLog
-media.mojom.AudioLog = {};
+mojo.internal.Struct(
+    media.mojom.AudioLog_OnCreated_ParamsSpec, 'media.mojom.AudioLog_OnCreated_Params', [
+      mojo.internal.StructField('params', 0, 0, media.mojom.AudioParametersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('device_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-media.mojom.AudioLog_OnCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AudioLog_OnCreated_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: false, minVersion: 0 },
-        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.AudioLog_OnStarted_ParamsSpec, 'media.mojom.AudioLog_OnStarted_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media.mojom.AudioLog_OnStarted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AudioLog_OnStarted_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.AudioLog_OnStopped_ParamsSpec, 'media.mojom.AudioLog_OnStopped_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media.mojom.AudioLog_OnStopped_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AudioLog_OnStopped_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.AudioLog_OnClosed_ParamsSpec, 'media.mojom.AudioLog_OnClosed_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media.mojom.AudioLog_OnClosed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AudioLog_OnClosed_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.AudioLog_OnError_ParamsSpec, 'media.mojom.AudioLog_OnError_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media.mojom.AudioLog_OnError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AudioLog_OnError_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.AudioLog_OnSetVolume_ParamsSpec, 'media.mojom.AudioLog_OnSetVolume_Params', [
+      mojo.internal.StructField('volume', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.AudioLog_OnSetVolume_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AudioLog_OnSetVolume_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.AudioLog_OnProcessingStateChanged_ParamsSpec, 'media.mojom.AudioLog_OnProcessingStateChanged_Params', [
+      mojo.internal.StructField('message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.AudioLog_OnProcessingStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AudioLog_OnProcessingStateChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-media.mojom.AudioLog_OnLogMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AudioLog_OnLogMessage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.AudioLog_OnLogMessage_ParamsSpec, 'media.mojom.AudioLog_OnLogMessage_Params', [
+      mojo.internal.StructField('message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media.mojom.AudioLogPendingReceiver = class {
   constructor(handle) {
@@ -237,137 +192,18 @@ media.mojom.AudioLog.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnCreated
-media.mojom.AudioLog_OnCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AudioLog.OnCreated_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: false, minVersion: 0 },
-        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnStarted
-media.mojom.AudioLog_OnStarted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AudioLog.OnStarted_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnStopped
-media.mojom.AudioLog_OnStopped_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AudioLog.OnStopped_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnClosed
-media.mojom.AudioLog_OnClosed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AudioLog.OnClosed_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnError
-media.mojom.AudioLog_OnError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AudioLog.OnError_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnSetVolume
-media.mojom.AudioLog_OnSetVolume_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AudioLog.OnSetVolume_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnProcessingStateChanged
-media.mojom.AudioLog_OnProcessingStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AudioLog.OnProcessingStateChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnLogMessage
-media.mojom.AudioLog_OnLogMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AudioLog.OnLogMessage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.AudioLogPtr = media.mojom.AudioLogRemote;
 media.mojom.AudioLogRequest = media.mojom.AudioLogPendingReceiver;
 
 
 // Interface: AudioLogFactory
-media.mojom.AudioLogFactory = {};
-
-media.mojom.AudioLogFactory_CreateAudioLog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AudioLogFactory_CreateAudioLog_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'component', packedOffset: 8, packedBitOffset: 0, type: media.mojom.AudioLogComponentSpec, nullable: false, minVersion: 0 },
-        { name: 'component_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'audio_log_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.AudioLogRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.AudioLogFactory_CreateAudioLog_ParamsSpec, 'media.mojom.AudioLogFactory_CreateAudioLog_Params', [
+      mojo.internal.StructField('component', 8, 0, media.mojom.AudioLogComponentSpec, null, false, 0, undefined),
+      mojo.internal.StructField('component_id', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('audio_log_receiver', 0, 0, mojo.internal.InterfaceRequest(media.mojom.AudioLogRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 media.mojom.AudioLogFactoryPendingReceiver = class {
   constructor(handle) {
@@ -422,23 +258,6 @@ media.mojom.AudioLogFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateAudioLog
-media.mojom.AudioLogFactory_CreateAudioLog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AudioLogFactory.CreateAudioLog_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'component', packedOffset: 8, packedBitOffset: 0, type: media.mojom.AudioLogComponentSpec, nullable: false, minVersion: 0 },
-        { name: 'component_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'audio_log_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.AudioLogRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.AudioLogFactoryPtr = media.mojom.AudioLogFactoryRemote;
 media.mojom.AudioLogFactoryRequest = media.mojom.AudioLogFactoryPendingReceiver;
 

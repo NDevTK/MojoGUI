@@ -8,22 +8,28 @@
 var chromecast = chromecast || {};
 chromecast.mojom = chromecast.mojom || {};
 
+chromecast.mojom.MessageCallback = {};
+chromecast.mojom.MessageCallback.$interfaceName = 'chromecast.mojom.MessageCallback';
+chromecast.mojom.MessageCallback_OnMessage_ParamsSpec = { $: {} };
+chromecast.mojom.WebUi = {};
+chromecast.mojom.WebUi.$interfaceName = 'chromecast.mojom.WebUi';
+chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec = { $: {} };
+chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec = { $: {} };
+chromecast.mojom.Resources = {};
+chromecast.mojom.Resources.$interfaceName = 'chromecast.mojom.Resources';
+chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec = { $: {} };
+chromecast.mojom.Resources_RequestResourceBytes_ResponseParamsSpec = { $: {} };
+chromecast.mojom.WebUiClient = {};
+chromecast.mojom.WebUiClient.$interfaceName = 'chromecast.mojom.WebUiClient';
+chromecast.mojom.WebUiClient_CreateController_ParamsSpec = { $: {} };
+chromecast.mojom.WebUiClient_CreateResources_ParamsSpec = { $: {} };
 
 // Interface: MessageCallback
-chromecast.mojom.MessageCallback = {};
-
-chromecast.mojom.MessageCallback_OnMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.MessageCallback_OnMessage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'list', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.MessageCallback_OnMessage_ParamsSpec, 'chromecast.mojom.MessageCallback_OnMessage_Params', [
+      mojo.internal.StructField('list', 0, 0, mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromecast.mojom.MessageCallbackPendingReceiver = class {
   constructor(handle) {
@@ -78,55 +84,24 @@ chromecast.mojom.MessageCallback.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnMessage
-chromecast.mojom.MessageCallback_OnMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.MessageCallback.OnMessage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'list', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromecast.mojom.MessageCallbackPtr = chromecast.mojom.MessageCallbackRemote;
 chromecast.mojom.MessageCallbackRequest = chromecast.mojom.MessageCallbackPendingReceiver;
 
 
 // Interface: WebUi
-chromecast.mojom.WebUi = {};
+mojo.internal.Struct(
+    chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec, 'chromecast.mojom.WebUi_RegisterMessageCallback_Params', [
+      mojo.internal.StructField('message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('cb', 8, 0, mojo.internal.InterfaceProxy(chromecast.mojom.MessageCallbackRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.WebUi_RegisterMessageCallback_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'cb', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.mojom.MessageCallbackRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.WebUi_CallJavascriptFunction_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'function', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'args', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec, 'chromecast.mojom.WebUi_CallJavascriptFunction_Params', [
+      mojo.internal.StructField('function', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('args', 8, 0, mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 chromecast.mojom.WebUiPendingReceiver = class {
   constructor(handle) {
@@ -190,56 +165,22 @@ chromecast.mojom.WebUi.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RegisterMessageCallback
-chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.WebUi.RegisterMessageCallback_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'cb', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.mojom.MessageCallbackRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for CallJavascriptFunction
-chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.WebUi.CallJavascriptFunction_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'function', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'args', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromecast.mojom.WebUiPtr = chromecast.mojom.WebUiRemote;
 chromecast.mojom.WebUiRequest = chromecast.mojom.WebUiPendingReceiver;
 
 
 // Interface: Resources
-chromecast.mojom.Resources = {};
+mojo.internal.Struct(
+    chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec, 'chromecast.mojom.Resources_RequestResourceBytes_Params', [
+      mojo.internal.StructField('path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.Resources_RequestResourceBytes_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.Resources_RequestResourceBytes_ResponseParamsSpec, 'chromecast.mojom.Resources_RequestResourceBytes_ResponseParams', [
+      mojo.internal.StructField('bytes', 0, 0, mojo_base.mojom.RefCountedMemorySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromecast.mojom.ResourcesPendingReceiver = class {
   constructor(handle) {
@@ -294,69 +235,25 @@ chromecast.mojom.Resources.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RequestResourceBytes
-chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.Resources.RequestResourceBytes_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromecast.mojom.Resources_RequestResourceBytes_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.Resources.RequestResourceBytes_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'bytes', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.RefCountedMemorySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromecast.mojom.ResourcesPtr = chromecast.mojom.ResourcesRemote;
 chromecast.mojom.ResourcesRequest = chromecast.mojom.ResourcesPendingReceiver;
 
 
 // Interface: WebUiClient
-chromecast.mojom.WebUiClient = {};
+mojo.internal.Struct(
+    chromecast.mojom.WebUiClient_CreateController_ParamsSpec, 'chromecast.mojom.WebUiClient_CreateController_Params', [
+      mojo.internal.StructField('host', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('web_ui', 8, 0, mojo.internal.InterfaceProxy(chromecast.mojom.WebUiRemote), null, false, 0, undefined),
+      mojo.internal.StructField('resources', 16, 0, mojo.internal.InterfaceRequest(chromecast.mojom.ResourcesRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-chromecast.mojom.WebUiClient_CreateController_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.WebUiClient_CreateController_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'web_ui', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.mojom.WebUiRemote), nullable: false, minVersion: 0 },
-        { name: 'resources', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromecast.mojom.ResourcesRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-chromecast.mojom.WebUiClient_CreateResources_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.WebUiClient_CreateResources_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'resources', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromecast.mojom.ResourcesRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.WebUiClient_CreateResources_ParamsSpec, 'chromecast.mojom.WebUiClient_CreateResources_Params', [
+      mojo.internal.StructField('host', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('resources', 8, 0, mojo.internal.InterfaceRequest(chromecast.mojom.ResourcesRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 chromecast.mojom.WebUiClientPendingReceiver = class {
   constructor(handle) {
@@ -420,38 +317,6 @@ chromecast.mojom.WebUiClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateController
-chromecast.mojom.WebUiClient_CreateController_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.WebUiClient.CreateController_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'web_ui', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.mojom.WebUiRemote), nullable: false, minVersion: 0 },
-        { name: 'resources', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromecast.mojom.ResourcesRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for CreateResources
-chromecast.mojom.WebUiClient_CreateResources_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.WebUiClient.CreateResources_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'resources', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromecast.mojom.ResourcesRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromecast.mojom.WebUiClientPtr = chromecast.mojom.WebUiClientRemote;
 chromecast.mojom.WebUiClientRequest = chromecast.mojom.WebUiClientPendingReceiver;
 

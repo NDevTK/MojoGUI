@@ -11,20 +11,40 @@ var ui = ui || {};
 var gfx = gfx || {};
 var url = url || {};
 
+crosapi.mojom.SearchStatusSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.SearchResultTypeSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.OptionalBoolSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.OmniboxTypeSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.MetricsTypeSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.AnswerTypeSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.TextTypeSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.PageTransitionSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.SearchResultSpec = { $: {} };
+crosapi.mojom.SearchResultsPublisher = {};
+crosapi.mojom.SearchResultsPublisher.$interfaceName = 'crosapi.mojom.SearchResultsPublisher';
+crosapi.mojom.SearchResultsPublisher_OnSearchResultsReceived_ParamsSpec = { $: {} };
+crosapi.mojom.SearchController = {};
+crosapi.mojom.SearchController.$interfaceName = 'crosapi.mojom.SearchController';
+crosapi.mojom.SearchController_Search_ParamsSpec = { $: {} };
+crosapi.mojom.SearchController_Search_ResponseParamsSpec = { $: {} };
+crosapi.mojom.SearchResultConsumer = {};
+crosapi.mojom.SearchResultConsumer.$interfaceName = 'crosapi.mojom.SearchResultConsumer';
+crosapi.mojom.SearchResultConsumer_OnFaviconReceived_ParamsSpec = { $: {} };
 
 // Enum: SearchStatus
 crosapi.mojom.SearchStatus = {
-  kDone: 0,
-  kInProgress: 1,
-  kCancelled: 2,
+  kError: 0,
+  kDone: 1,
+  kInProgress: 2,
+  kCancelled: 3,
+  MinVersion: 3,
 };
-crosapi.mojom.SearchStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: SearchResultType
 crosapi.mojom.SearchResultType = {
-  kOmniboxResult: 0,
+  kUnknown: 0,
+  kOmniboxResult: 1,
 };
-crosapi.mojom.SearchResultTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: OptionalBool
 crosapi.mojom.OptionalBool = {
@@ -32,115 +52,101 @@ crosapi.mojom.OptionalBool = {
   kFalse: 1,
   kTrue: 2,
 };
-crosapi.mojom.OptionalBoolSpec = { $: mojo.internal.Enum() };
 
 // Enum: OmniboxType
 crosapi.mojom.OmniboxType = {
-  kRichImageDeprecated: 0,
-  kFaviconDeprecated: 1,
-  kCalculatorDeprecated: 2,
+  kUnset: 0,
+  kRichImageDeprecated: 1,
+  kFaviconDeprecated: 2,
+  kCalculatorDeprecated: 7,
   kBookmark: 3,
   kDomain: 4,
   kSearch: 5,
   kHistory: 6,
+  MinVersion: 6,
 };
-crosapi.mojom.OmniboxTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: MetricsType
 crosapi.mojom.MetricsType = {
-  kWhatYouTyped: 0,
-  kRecentlyVisitedWebsite: 1,
-  kHistoryTitle: 2,
-  kSearchWhatYouTyped: 3,
-  kSearchHistory: 4,
-  kSearchSuggest: 5,
-  kSearchSuggestPersonalized: 6,
-  kBookmark: 7,
-  kSearchSuggestEntity: 8,
-  kNavSuggest: 9,
-  kCalculator: 10,
+  kUnset: 0,
+  kWhatYouTyped: 1,
+  kRecentlyVisitedWebsite: 2,
+  kHistoryTitle: 3,
+  kSearchWhatYouTyped: 4,
+  kSearchHistory: 5,
+  kSearchSuggest: 6,
+  kSearchSuggestPersonalized: 7,
+  kBookmark: 8,
+  kSearchSuggestEntity: 9,
+  kNavSuggest: 10,
+  kCalculator: 11,
 };
-crosapi.mojom.MetricsTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AnswerType
 crosapi.mojom.AnswerType = {
-  kDefaultAnswer: 0,
-  kWeather: 1,
-  kCurrency: 2,
-  kDictionary: 3,
-  kFinance: 4,
-  kSunrise: 5,
-  kTranslation: 6,
-  kWhenIs: 7,
+  kUnset: 0,
+  kDefaultAnswer: 1,
+  kWeather: 2,
+  kCurrency: 3,
+  kDictionary: 4,
+  kFinance: 5,
+  kSunrise: 6,
+  kTranslation: 7,
+  kWhenIs: 8,
+  MinVersion: 8,
 };
-crosapi.mojom.AnswerTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: TextType
 crosapi.mojom.TextType = {
-  kPositive: 0,
-  kNegative: 1,
+  kUnset: 0,
+  kPositive: 1,
+  kNegative: 2,
+  MinVersion: 2,
 };
-crosapi.mojom.TextTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PageTransition
 crosapi.mojom.PageTransition = {
-  kTyped: 0,
-  kGenerated: 1,
+  kUnset: 0,
+  kTyped: 1,
+  kGenerated: 2,
 };
-crosapi.mojom.PageTransitionSpec = { $: mojo.internal.Enum() };
 
 // Struct: SearchResult
-crosapi.mojom.SearchResultSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.SearchResult',
-      packedSize: 152,
-      fields: [
-        { name: 'type', packedOffset: 72, packedBitOffset: 0, type: crosapi.mojom.SearchResultTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'relevance', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'destination_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
-        { name: 'is_omnibox_search', packedOffset: 76, packedBitOffset: 0, type: crosapi.mojom.OptionalBoolSpec, nullable: false, minVersion: 0 },
-        { name: 'is_answer', packedOffset: 80, packedBitOffset: 0, type: crosapi.mojom.OptionalBoolSpec, nullable: false, minVersion: 0 },
-        { name: 'omnibox_type', packedOffset: 84, packedBitOffset: 0, type: crosapi.mojom.OmniboxTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'answer_type', packedOffset: 88, packedBitOffset: 0, type: crosapi.mojom.AnswerTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'image_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
-        { name: 'favicon', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: true, minVersion: 0 },
-        { name: 'contents', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
-        { name: 'additional_contents', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
-        { name: 'description', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
-        { name: 'additional_description', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
-        { name: 'additional_description_type', packedOffset: 92, packedBitOffset: 0, type: crosapi.mojom.TextTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'kUnset', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'stripped_destination_url', packedOffset: 96, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 2 },
-        { name: 'page_transition', packedOffset: 104, packedBitOffset: 0, type: crosapi.mojom.PageTransitionSpec, nullable: false, minVersion: 2 },
-        { name: 'contents_type', packedOffset: 108, packedBitOffset: 0, type: crosapi.mojom.TextTypeSpec, nullable: false, minVersion: 2 },
-        { name: 'additional_contents_type', packedOffset: 112, packedBitOffset: 0, type: crosapi.mojom.TextTypeSpec, nullable: false, minVersion: 2 },
-        { name: 'description_type', packedOffset: 116, packedBitOffset: 0, type: crosapi.mojom.TextTypeSpec, nullable: false, minVersion: 2 },
-        { name: 'description_a11y_label', packedOffset: 120, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 3 },
-        { name: 'metrics_type', packedOffset: 136, packedBitOffset: 0, type: crosapi.mojom.MetricsTypeSpec, nullable: false, minVersion: 5 },
-        { name: 'receiver', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.SearchResultConsumerRemote), nullable: true, minVersion: 5 },
-      ],
-      versions: [{version: 0, packedSize: 104}, {version: 2, packedSize: 128}, {version: 3, packedSize: 136}, {version: 5, packedSize: 152}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.SearchResultSpec, 'crosapi.mojom.SearchResult', [
+      mojo.internal.StructField('type', 72, 0, crosapi.mojom.SearchResultTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('relevance', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('destination_url', 8, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('is_omnibox_search', 76, 0, crosapi.mojom.OptionalBoolSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_answer', 80, 0, crosapi.mojom.OptionalBoolSpec, null, false, 0, undefined),
+      mojo.internal.StructField('omnibox_type', 84, 0, crosapi.mojom.OmniboxTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('answer_type', 88, 0, crosapi.mojom.AnswerTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('image_url', 16, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('favicon', 24, 0, gfx.mojom.ImageSkiaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('contents', 32, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('additional_contents', 40, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('description', 48, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('additional_description', 56, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('additional_description_type', 92, 0, crosapi.mojom.TextTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('kUnset', 64, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('stripped_destination_url', 96, 0, url.mojom.UrlSpec, null, true, 2, undefined),
+      mojo.internal.StructField('page_transition', 104, 0, crosapi.mojom.PageTransitionSpec, null, false, 2, undefined),
+      mojo.internal.StructField('contents_type', 108, 0, crosapi.mojom.TextTypeSpec, null, false, 2, undefined),
+      mojo.internal.StructField('additional_contents_type', 112, 0, crosapi.mojom.TextTypeSpec, null, false, 2, undefined),
+      mojo.internal.StructField('description_type', 116, 0, crosapi.mojom.TextTypeSpec, null, false, 2, undefined),
+      mojo.internal.StructField('description_a11y_label', 120, 0, mojo_base.mojom.String16Spec, null, true, 3, undefined),
+      mojo.internal.StructField('metrics_type', 136, 0, crosapi.mojom.MetricsTypeSpec, null, false, 5, undefined),
+      mojo.internal.StructField('receiver', 128, 0, mojo.internal.InterfaceRequest(crosapi.mojom.SearchResultConsumerRemote), null, true, 5, undefined),
+    ],
+    [[0, 104], [2, 128], [3, 136], [5, 152]]);
 
 // Interface: SearchResultsPublisher
-crosapi.mojom.SearchResultsPublisher = {};
-
-crosapi.mojom.SearchResultsPublisher_OnSearchResultsReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.SearchResultsPublisher_OnSearchResultsReceived_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.SearchStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(crosapi.mojom.SearchResultSpec, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.SearchResultsPublisher_OnSearchResultsReceived_ParamsSpec, 'crosapi.mojom.SearchResultsPublisher_OnSearchResultsReceived_Params', [
+      mojo.internal.StructField('status', 8, 0, crosapi.mojom.SearchStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Array(crosapi.mojom.SearchResultSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 crosapi.mojom.SearchResultsPublisherPendingReceiver = class {
   constructor(handle) {
@@ -195,41 +201,22 @@ crosapi.mojom.SearchResultsPublisher.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnSearchResultsReceived
-crosapi.mojom.SearchResultsPublisher_OnSearchResultsReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.SearchResultsPublisher.OnSearchResultsReceived_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.SearchStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(crosapi.mojom.SearchResultSpec, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 crosapi.mojom.SearchResultsPublisherPtr = crosapi.mojom.SearchResultsPublisherRemote;
 crosapi.mojom.SearchResultsPublisherRequest = crosapi.mojom.SearchResultsPublisherPendingReceiver;
 
 
 // Interface: SearchController
-crosapi.mojom.SearchController = {};
+mojo.internal.Struct(
+    crosapi.mojom.SearchController_Search_ParamsSpec, 'crosapi.mojom.SearchController_Search_Params', [
+      mojo.internal.StructField('query', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-crosapi.mojom.SearchController_Search_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.SearchController_Search_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.SearchController_Search_ResponseParamsSpec, 'crosapi.mojom.SearchController_Search_ResponseParams', [
+      mojo.internal.StructField('publisher', 0, 0, mojo.internal.AssociatedInterfaceRequest(crosapi.mojom.SearchResultsPublisherRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 crosapi.mojom.SearchControllerPendingReceiver = class {
   constructor(handle) {
@@ -284,53 +271,16 @@ crosapi.mojom.SearchController.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Search
-crosapi.mojom.SearchController_Search_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.SearchController.Search_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-crosapi.mojom.SearchController_Search_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.SearchController.Search_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'publisher', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(crosapi.mojom.SearchResultsPublisherRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 crosapi.mojom.SearchControllerPtr = crosapi.mojom.SearchControllerRemote;
 crosapi.mojom.SearchControllerRequest = crosapi.mojom.SearchControllerPendingReceiver;
 
 
 // Interface: SearchResultConsumer
-crosapi.mojom.SearchResultConsumer = {};
-
-crosapi.mojom.SearchResultConsumer_OnFaviconReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.SearchResultConsumer_OnFaviconReceived_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'favicon', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.SearchResultConsumer_OnFaviconReceived_ParamsSpec, 'crosapi.mojom.SearchResultConsumer_OnFaviconReceived_Params', [
+      mojo.internal.StructField('favicon', 0, 0, gfx.mojom.ImageSkiaSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 crosapi.mojom.SearchResultConsumerPendingReceiver = class {
   constructor(handle) {
@@ -385,21 +335,6 @@ crosapi.mojom.SearchResultConsumer.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnFaviconReceived
-crosapi.mojom.SearchResultConsumer_OnFaviconReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.SearchResultConsumer.OnFaviconReceived_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'favicon', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 crosapi.mojom.SearchResultConsumerPtr = crosapi.mojom.SearchResultConsumerRemote;
 crosapi.mojom.SearchResultConsumerRequest = crosapi.mojom.SearchResultConsumerPendingReceiver;
 

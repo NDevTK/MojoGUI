@@ -7,37 +7,26 @@
 // Module namespace
 var content = content || {};
 content.mojom = content.mojom || {};
+var components = components || {};
 
+content.mojom.RendererVariationsConfiguration = {};
+content.mojom.RendererVariationsConfiguration.$interfaceName = 'content.mojom.RendererVariationsConfiguration';
+content.mojom.RendererVariationsConfiguration_SetVariationsHeaders_ParamsSpec = { $: {} };
+content.mojom.RendererVariationsConfiguration_SetFieldTrialGroup_ParamsSpec = { $: {} };
 
 // Interface: RendererVariationsConfiguration
-content.mojom.RendererVariationsConfiguration = {};
+mojo.internal.Struct(
+    content.mojom.RendererVariationsConfiguration_SetVariationsHeaders_ParamsSpec, 'content.mojom.RendererVariationsConfiguration_SetVariationsHeaders_Params', [
+      mojo.internal.StructField('variations_headers', 0, 0, variations.mojom.VariationsHeadersSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.RendererVariationsConfiguration_SetVariationsHeaders_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.RendererVariationsConfiguration_SetVariationsHeaders_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'variations_headers', packedOffset: 0, packedBitOffset: 0, type: variations.mojom.VariationsHeadersSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-content.mojom.RendererVariationsConfiguration_SetFieldTrialGroup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.RendererVariationsConfiguration_SetFieldTrialGroup_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'trial_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'group_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.RendererVariationsConfiguration_SetFieldTrialGroup_ParamsSpec, 'content.mojom.RendererVariationsConfiguration_SetFieldTrialGroup_Params', [
+      mojo.internal.StructField('trial_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('group_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 content.mojom.RendererVariationsConfigurationPendingReceiver = class {
   constructor(handle) {
@@ -101,36 +90,6 @@ content.mojom.RendererVariationsConfiguration.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetVariationsHeaders
-content.mojom.RendererVariationsConfiguration_SetVariationsHeaders_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.RendererVariationsConfiguration.SetVariationsHeaders_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'variations_headers', packedOffset: 0, packedBitOffset: 0, type: variations.mojom.VariationsHeadersSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetFieldTrialGroup
-content.mojom.RendererVariationsConfiguration_SetFieldTrialGroup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.RendererVariationsConfiguration.SetFieldTrialGroup_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'trial_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'group_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 content.mojom.RendererVariationsConfigurationPtr = content.mojom.RendererVariationsConfigurationRemote;
 content.mojom.RendererVariationsConfigurationRequest = content.mojom.RendererVariationsConfigurationPendingReceiver;
 

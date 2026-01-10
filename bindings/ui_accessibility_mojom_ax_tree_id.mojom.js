@@ -9,17 +9,19 @@ var ax = ax || {};
 ax.mojom = ax.mojom || {};
 var ui = ui || {};
 
+ax.mojom.AXTreeIDSpec = { $: {} };
 
 // Union: AXTreeID
-ax.mojom.AXTreeIDSpec = { $: mojo.internal.Union(
-    'ax.mojom.AXTreeID', {
+mojo.internal.Union(
+    ax.mojom.AXTreeIDSpec, 'ax.mojom.AXTreeID', {
       'unknown': {
         'ordinal': 0,
         'type': mojo.internal.Uint8,
-      }},
+        'nullable': false,
+      },
       'token': {
         'ordinal': 1,
         'type': mojo_base.mojom.UnguessableTokenSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });

@@ -8,6 +8,7 @@
 var extensions = extensions || {};
 extensions.mojom = extensions.mojom || {};
 
+extensions.mojom.ChannelSpec = { $: mojo.internal.Enum() };
 
 // Enum: Channel
 extensions.mojom.Channel = {
@@ -17,4 +18,3 @@ extensions.mojom.Channel = {
   kBeta: 3,
   kStable: 4,
 };
-extensions.mojom.ChannelSpec = { $: mojo.internal.Enum() };

@@ -8,62 +8,50 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+network.mojom.SSLVersionSpec = { $: mojo.internal.Enum() };
+network.mojom.SSLNamedGroupsPresetSpec = { $: mojo.internal.Enum() };
+network.mojom.SSLConfigSpec = { $: {} };
+network.mojom.SSLConfigClient = {};
+network.mojom.SSLConfigClient.$interfaceName = 'network.mojom.SSLConfigClient';
+network.mojom.SSLConfigClient_OnSSLConfigUpdated_ParamsSpec = { $: {} };
 
 // Enum: SSLVersion
 network.mojom.SSLVersion = {
   kTLS12: 0,
   kTLS13: 1,
 };
-network.mojom.SSLVersionSpec = { $: mojo.internal.Enum() };
 
 // Enum: SSLNamedGroupsPreset
 network.mojom.SSLNamedGroupsPreset = {
   kDefault: 0,
   kCnsa2: 1,
 };
-network.mojom.SSLNamedGroupsPresetSpec = { $: mojo.internal.Enum() };
 
 // Struct: SSLConfig
-network.mojom.SSLConfigSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.SSLConfig',
-      packedSize: 56,
-      fields: [
-        { name: 'rev_checking_enabled', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'rev_checking_required_local_anchors', packedOffset: 44, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'sha1_local_anchors_enabled', packedOffset: 44, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'version_min', packedOffset: 32, packedBitOffset: 0, type: network.mojom.SSLVersionSpec, nullable: false, minVersion: 0 },
-        { name: 'version_max', packedOffset: 36, packedBitOffset: 0, type: network.mojom.SSLVersionSpec, nullable: false, minVersion: 0 },
-        { name: 'disabled_cipher_suites', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint16, false), nullable: false, minVersion: 0 },
-        { name: 'tls13_cipher_prefer_aes_256', packedOffset: 44, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'client_cert_pooling_policy', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'named_groups_preset', packedOffset: 40, packedBitOffset: 0, type: network.mojom.SSLNamedGroupsPresetSpec, nullable: false, minVersion: 0 },
-        { name: 'post_quantum_key_agreement_enabled', packedOffset: 44, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'ech_enabled', packedOffset: 44, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'trust_anchor_ids', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), nullable: false, minVersion: 0 },
-        { name: 'mtc_trust_anchor_ids', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.SSLConfigSpec, 'network.mojom.SSLConfig', [
+      mojo.internal.StructField('rev_checking_enabled', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('rev_checking_required_local_anchors', 44, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('sha1_local_anchors_enabled', 44, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('version_min', 32, 0, network.mojom.SSLVersionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('version_max', 36, 0, network.mojom.SSLVersionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('disabled_cipher_suites', 0, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
+      mojo.internal.StructField('tls13_cipher_prefer_aes_256', 44, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('client_cert_pooling_policy', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('named_groups_preset', 40, 0, network.mojom.SSLNamedGroupsPresetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('post_quantum_key_agreement_enabled', 44, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('ech_enabled', 44, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('trust_anchor_ids', 16, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
+      mojo.internal.StructField('mtc_trust_anchor_ids', 24, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Interface: SSLConfigClient
-network.mojom.SSLConfigClient = {};
-
-network.mojom.SSLConfigClient_OnSSLConfigUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.SSLConfigClient_OnSSLConfigUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'ssl_config', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SSLConfigSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.SSLConfigClient_OnSSLConfigUpdated_ParamsSpec, 'network.mojom.SSLConfigClient_OnSSLConfigUpdated_Params', [
+      mojo.internal.StructField('ssl_config', 0, 0, network.mojom.SSLConfigSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 network.mojom.SSLConfigClientPendingReceiver = class {
   constructor(handle) {
@@ -118,21 +106,6 @@ network.mojom.SSLConfigClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnSSLConfigUpdated
-network.mojom.SSLConfigClient_OnSSLConfigUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.SSLConfigClient.OnSSLConfigUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'ssl_config', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SSLConfigSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.SSLConfigClientPtr = network.mojom.SSLConfigClientRemote;
 network.mojom.SSLConfigClientRequest = network.mojom.SSLConfigClientPendingReceiver;
 

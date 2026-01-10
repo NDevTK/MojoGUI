@@ -8,6 +8,7 @@
 var nearby_share = nearby_share || {};
 nearby_share.mojom = nearby_share.mojom || {};
 
+nearby_share.mojom.ShareTargetTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ShareTargetType
 nearby_share.mojom.ShareTargetType = {
@@ -16,4 +17,3 @@ nearby_share.mojom.ShareTargetType = {
   kTablet: 2,
   kLaptop: 3,
 };
-nearby_share.mojom.ShareTargetTypeSpec = { $: mojo.internal.Enum() };

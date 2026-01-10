@@ -10,6 +10,16 @@ ntp.most_relevant_tab_resumption = ntp.most_relevant_tab_resumption || {};
 ntp.most_relevant_tab_resumption.mojom = ntp.most_relevant_tab_resumption.mojom || {};
 var url = url || {};
 
+ntp.most_relevant_tab_resumption.mojom.ScoredURLUserActionSpec = { $: mojo.internal.Enum() };
+ntp.most_relevant_tab_resumption.mojom.PageHandler = {};
+ntp.most_relevant_tab_resumption.mojom.PageHandler.$interfaceName = 'ntp.most_relevant_tab_resumption.mojom.PageHandler';
+ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ParamsSpec = { $: {} };
+ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ResponseParamsSpec = { $: {} };
+ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissModule_ParamsSpec = { $: {} };
+ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_ParamsSpec = { $: {} };
+ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreModule_ParamsSpec = { $: {} };
+ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_ParamsSpec = { $: {} };
+ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_ParamsSpec = { $: {} };
 
 // Enum: ScoredURLUserAction
 ntp.most_relevant_tab_resumption.mojom.ScoredURLUserAction = {
@@ -18,89 +28,50 @@ ntp.most_relevant_tab_resumption.mojom.ScoredURLUserAction = {
   kActivated: 2,
   kDismissed: 3,
 };
-ntp.most_relevant_tab_resumption.mojom.ScoredURLUserActionSpec = { $: mojo.internal.Enum() };
 
 // Interface: PageHandler
-ntp.most_relevant_tab_resumption.mojom.PageHandler = {};
+mojo.internal.Struct(
+    ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ParamsSpec, 'ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ResponseParamsSpec, 'ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ResponseParams', [
+      mojo.internal.StructField('url_visits', 0, 0, mojo.internal.Array(ntp.most_relevant_tab_resumption.mojom.URLVisitSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissModule_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissModule_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url_visits', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ntp.most_relevant_tab_resumption.mojom.URLVisitSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissModule_ParamsSpec, 'ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissModule_Params', [
+      mojo.internal.StructField('url_visits', 0, 0, mojo.internal.Array(ntp.most_relevant_tab_resumption.mojom.URLVisitSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url_visit', packedOffset: 0, packedBitOffset: 0, type: ntp.most_relevant_tab_resumption.mojom.URLVisitSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_ParamsSpec, 'ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_Params', [
+      mojo.internal.StructField('url_visit', 0, 0, ntp.most_relevant_tab_resumption.mojom.URLVisitSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreModule_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreModule_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url_visits', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ntp.most_relevant_tab_resumption.mojom.URLVisitSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreModule_ParamsSpec, 'ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreModule_Params', [
+      mojo.internal.StructField('url_visits', 0, 0, mojo.internal.Array(ntp.most_relevant_tab_resumption.mojom.URLVisitSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url_visit', packedOffset: 0, packedBitOffset: 0, type: ntp.most_relevant_tab_resumption.mojom.URLVisitSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_ParamsSpec, 'ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_Params', [
+      mojo.internal.StructField('url_visit', 0, 0, ntp.most_relevant_tab_resumption.mojom.URLVisitSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'action', packedOffset: 16, packedBitOffset: 0, type: ntp.most_relevant_tab_resumption.mojom.ScoredURLUserActionSpec, nullable: false, minVersion: 0 },
-        { name: 'url_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'visit_request_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_ParamsSpec, 'ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_Params', [
+      mojo.internal.StructField('action', 16, 0, ntp.most_relevant_tab_resumption.mojom.ScoredURLUserActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('visit_request_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 ntp.most_relevant_tab_resumption.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -200,105 +171,6 @@ ntp.most_relevant_tab_resumption.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetURLVisits
-ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp.most_relevant_tab_resumption.mojom.PageHandler.GetURLVisits_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp.most_relevant_tab_resumption.mojom.PageHandler.GetURLVisits_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'url_visits', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ntp.most_relevant_tab_resumption.mojom.URLVisitSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DismissModule
-ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissModule_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp.most_relevant_tab_resumption.mojom.PageHandler.DismissModule_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url_visits', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ntp.most_relevant_tab_resumption.mojom.URLVisitSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DismissURLVisit
-ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp.most_relevant_tab_resumption.mojom.PageHandler.DismissURLVisit_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url_visit', packedOffset: 0, packedBitOffset: 0, type: ntp.most_relevant_tab_resumption.mojom.URLVisitSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RestoreModule
-ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreModule_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp.most_relevant_tab_resumption.mojom.PageHandler.RestoreModule_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url_visits', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ntp.most_relevant_tab_resumption.mojom.URLVisitSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RestoreURLVisit
-ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp.most_relevant_tab_resumption.mojom.PageHandler.RestoreURLVisit_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url_visit', packedOffset: 0, packedBitOffset: 0, type: ntp.most_relevant_tab_resumption.mojom.URLVisitSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RecordAction
-ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp.most_relevant_tab_resumption.mojom.PageHandler.RecordAction_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'action', packedOffset: 16, packedBitOffset: 0, type: ntp.most_relevant_tab_resumption.mojom.ScoredURLUserActionSpec, nullable: false, minVersion: 0 },
-        { name: 'url_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'visit_request_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 ntp.most_relevant_tab_resumption.mojom.PageHandlerPtr = ntp.most_relevant_tab_resumption.mojom.PageHandlerRemote;
 ntp.most_relevant_tab_resumption.mojom.PageHandlerRequest = ntp.most_relevant_tab_resumption.mojom.PageHandlerPendingReceiver;
 

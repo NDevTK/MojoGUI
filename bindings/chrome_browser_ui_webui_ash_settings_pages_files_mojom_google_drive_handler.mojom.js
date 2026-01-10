@@ -9,42 +9,45 @@ var ash = ash || {};
 ash.settings = ash.settings || {};
 ash.settings.google_drive = ash.settings.google_drive || {};
 ash.settings.google_drive.mojom = ash.settings.google_drive.mojom || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var components = components || {};
 
+ash.settings.google_drive.mojom.StatusSpec = { $: {} };
+ash.settings.google_drive.mojom.PageHandlerFactory = {};
+ash.settings.google_drive.mojom.PageHandlerFactory.$interfaceName = 'ash.settings.google_drive.mojom.PageHandlerFactory';
+ash.settings.google_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+ash.settings.google_drive.mojom.PageHandler = {};
+ash.settings.google_drive.mojom.PageHandler.$interfaceName = 'ash.settings.google_drive.mojom.PageHandler';
+ash.settings.google_drive.mojom.PageHandler_CalculateRequiredSpace_ParamsSpec = { $: {} };
+ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ParamsSpec = { $: {} };
+ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ResponseParamsSpec = { $: {} };
+ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ParamsSpec = { $: {} };
+ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ResponseParamsSpec = { $: {} };
+ash.settings.google_drive.mojom.PageHandler_RecordBulkPinningEnabledMetric_ParamsSpec = { $: {} };
+ash.settings.google_drive.mojom.Page = {};
+ash.settings.google_drive.mojom.Page.$interfaceName = 'ash.settings.google_drive.mojom.Page';
+ash.settings.google_drive.mojom.Page_OnServiceUnavailable_ParamsSpec = { $: {} };
+ash.settings.google_drive.mojom.Page_OnProgress_ParamsSpec = { $: {} };
 
 // Struct: Status
-ash.settings.google_drive.mojom.StatusSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.google_drive.mojom.Status',
-      packedSize: 40,
-      fields: [
-        { name: 'required_space', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'free_space', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'stage', packedOffset: 24, packedBitOffset: 0, type: drivefs.pinning_manager_types.mojom.StageSpec, nullable: false, minVersion: 0 },
-        { name: 'listed_files', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'is_error', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.google_drive.mojom.StatusSpec, 'ash.settings.google_drive.mojom.Status', [
+      mojo.internal.StructField('required_space', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('free_space', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('stage', 24, 0, drivefs.pinning_manager_types.mojom.StageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('listed_files', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('is_error', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Interface: PageHandlerFactory
-ash.settings.google_drive.mojom.PageHandlerFactory = {};
-
-ash.settings.google_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.google_drive.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.google_drive.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.settings.google_drive.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.google_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.settings.google_drive.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(ash.settings.google_drive.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(ash.settings.google_drive.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 ash.settings.google_drive.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -99,76 +102,41 @@ ash.settings.google_drive.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-ash.settings.google_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.google_drive.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.google_drive.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.settings.google_drive.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.settings.google_drive.mojom.PageHandlerFactoryPtr = ash.settings.google_drive.mojom.PageHandlerFactoryRemote;
 ash.settings.google_drive.mojom.PageHandlerFactoryRequest = ash.settings.google_drive.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-ash.settings.google_drive.mojom.PageHandler = {};
+mojo.internal.Struct(
+    ash.settings.google_drive.mojom.PageHandler_CalculateRequiredSpace_ParamsSpec, 'ash.settings.google_drive.mojom.PageHandler_CalculateRequiredSpace_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.settings.google_drive.mojom.PageHandler_CalculateRequiredSpace_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.google_drive.mojom.PageHandler_CalculateRequiredSpace_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ParamsSpec, 'ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ResponseParamsSpec, 'ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ResponseParams', [
+      mojo.internal.StructField('size', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ParamsSpec, 'ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.settings.google_drive.mojom.PageHandler_RecordBulkPinningEnabledMetric_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.google_drive.mojom.PageHandler_RecordBulkPinningEnabledMetric_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ResponseParamsSpec, 'ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    ash.settings.google_drive.mojom.PageHandler_RecordBulkPinningEnabledMetric_ParamsSpec, 'ash.settings.google_drive.mojom.PageHandler_RecordBulkPinningEnabledMetric_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 ash.settings.google_drive.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -225,7 +193,7 @@ ash.settings.google_drive.mojom.PageHandlerRemoteCallHandler = class {
     return this.proxy.sendMessage(
       2,  // ordinal
       ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ParamsSpec,
-      null,
+      ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ResponseParamsSpec,
       []);
   }
 
@@ -250,103 +218,21 @@ ash.settings.google_drive.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CalculateRequiredSpace
-ash.settings.google_drive.mojom.PageHandler_CalculateRequiredSpace_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.google_drive.mojom.PageHandler.CalculateRequiredSpace_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for GetContentCacheSize
-ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.google_drive.mojom.PageHandler.GetContentCacheSize_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.google_drive.mojom.PageHandler.GetContentCacheSize_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ClearPinnedFiles
-ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.google_drive.mojom.PageHandler.ClearPinnedFiles_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for RecordBulkPinningEnabledMetric
-ash.settings.google_drive.mojom.PageHandler_RecordBulkPinningEnabledMetric_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.google_drive.mojom.PageHandler.RecordBulkPinningEnabledMetric_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.settings.google_drive.mojom.PageHandlerPtr = ash.settings.google_drive.mojom.PageHandlerRemote;
 ash.settings.google_drive.mojom.PageHandlerRequest = ash.settings.google_drive.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-ash.settings.google_drive.mojom.Page = {};
+mojo.internal.Struct(
+    ash.settings.google_drive.mojom.Page_OnServiceUnavailable_ParamsSpec, 'ash.settings.google_drive.mojom.Page_OnServiceUnavailable_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.settings.google_drive.mojom.Page_OnServiceUnavailable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.google_drive.mojom.Page_OnServiceUnavailable_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.settings.google_drive.mojom.Page_OnProgress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.google_drive.mojom.Page_OnProgress_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.settings.google_drive.mojom.StatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.google_drive.mojom.Page_OnProgress_ParamsSpec, 'ash.settings.google_drive.mojom.Page_OnProgress_Params', [
+      mojo.internal.StructField('status', 0, 0, ash.settings.google_drive.mojom.StatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.settings.google_drive.mojom.PagePendingReceiver = class {
   constructor(handle) {
@@ -410,34 +296,6 @@ ash.settings.google_drive.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnServiceUnavailable
-ash.settings.google_drive.mojom.Page_OnServiceUnavailable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.google_drive.mojom.Page.OnServiceUnavailable_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnProgress
-ash.settings.google_drive.mojom.Page_OnProgress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.google_drive.mojom.Page.OnProgress_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.settings.google_drive.mojom.StatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.settings.google_drive.mojom.PagePtr = ash.settings.google_drive.mojom.PageRemote;
 ash.settings.google_drive.mojom.PageRequest = ash.settings.google_drive.mojom.PagePendingReceiver;
 

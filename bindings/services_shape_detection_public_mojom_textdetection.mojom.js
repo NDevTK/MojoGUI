@@ -11,38 +11,33 @@ var skia = skia || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+shape_detection.mojom.TextDetectionResultSpec = { $: {} };
+shape_detection.mojom.TextDetection = {};
+shape_detection.mojom.TextDetection.$interfaceName = 'shape_detection.mojom.TextDetection';
+shape_detection.mojom.TextDetection_Detect_ParamsSpec = { $: {} };
+shape_detection.mojom.TextDetection_Detect_ResponseParamsSpec = { $: {} };
 
 // Struct: TextDetectionResult
-shape_detection.mojom.TextDetectionResultSpec = {
-  $: {
-    structSpec: {
-      name: 'shape_detection.mojom.TextDetectionResult',
-      packedSize: 32,
-      fields: [
-        { name: 'raw_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'bounding_box', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
-        { name: 'corner_points', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.PointFSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    shape_detection.mojom.TextDetectionResultSpec, 'shape_detection.mojom.TextDetectionResult', [
+      mojo.internal.StructField('raw_value', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('bounding_box', 8, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('corner_points', 16, 0, mojo.internal.Array(gfx.mojom.PointFSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: TextDetection
-shape_detection.mojom.TextDetection = {};
+mojo.internal.Struct(
+    shape_detection.mojom.TextDetection_Detect_ParamsSpec, 'shape_detection.mojom.TextDetection_Detect_Params', [
+      mojo.internal.StructField('bitmap_data', 0, 0, skia.mojom.BitmapN32Spec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-shape_detection.mojom.TextDetection_Detect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'shape_detection.mojom.TextDetection_Detect_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'bitmap_data', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    shape_detection.mojom.TextDetection_Detect_ResponseParamsSpec, 'shape_detection.mojom.TextDetection_Detect_ResponseParams', [
+      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(shape_detection.mojom.TextDetectionResultSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 shape_detection.mojom.TextDetectionPendingReceiver = class {
   constructor(handle) {
@@ -97,34 +92,6 @@ shape_detection.mojom.TextDetection.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Detect
-shape_detection.mojom.TextDetection_Detect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'shape_detection.mojom.TextDetection.Detect_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'bitmap_data', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-shape_detection.mojom.TextDetection_Detect_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'shape_detection.mojom.TextDetection.Detect_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(shape_detection.mojom.TextDetectionResultSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 shape_detection.mojom.TextDetectionPtr = shape_detection.mojom.TextDetectionRemote;
 shape_detection.mojom.TextDetectionRequest = shape_detection.mojom.TextDetectionPendingReceiver;
 

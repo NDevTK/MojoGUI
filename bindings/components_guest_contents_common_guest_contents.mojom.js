@@ -9,23 +9,24 @@ var guest_contents = guest_contents || {};
 guest_contents.mojom = guest_contents.mojom || {};
 var blink = blink || {};
 
+guest_contents.mojom.GuestContentsHost = {};
+guest_contents.mojom.GuestContentsHost.$interfaceName = 'guest_contents.mojom.GuestContentsHost';
+guest_contents.mojom.GuestContentsHost_Attach_ParamsSpec = { $: {} };
+guest_contents.mojom.GuestContentsHost_Attach_ResponseParamsSpec = { $: {} };
 
 // Interface: GuestContentsHost
-guest_contents.mojom.GuestContentsHost = {};
+mojo.internal.Struct(
+    guest_contents.mojom.GuestContentsHost_Attach_ParamsSpec, 'guest_contents.mojom.GuestContentsHost_Attach_Params', [
+      mojo.internal.StructField('frame_to_swap', 0, 0, blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('guest_contents_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-guest_contents.mojom.GuestContentsHost_Attach_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'guest_contents.mojom.GuestContentsHost_Attach_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'frame_to_swap', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'guest_contents_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    guest_contents.mojom.GuestContentsHost_Attach_ResponseParamsSpec, 'guest_contents.mojom.GuestContentsHost_Attach_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 guest_contents.mojom.GuestContentsHostPendingReceiver = class {
   constructor(handle) {
@@ -80,35 +81,6 @@ guest_contents.mojom.GuestContentsHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Attach
-guest_contents.mojom.GuestContentsHost_Attach_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'guest_contents.mojom.GuestContentsHost.Attach_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'frame_to_swap', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'guest_contents_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-guest_contents.mojom.GuestContentsHost_Attach_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'guest_contents.mojom.GuestContentsHost.Attach_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 guest_contents.mojom.GuestContentsHostPtr = guest_contents.mojom.GuestContentsHostRemote;
 guest_contents.mojom.GuestContentsHostRequest = guest_contents.mojom.GuestContentsHostPendingReceiver;
 

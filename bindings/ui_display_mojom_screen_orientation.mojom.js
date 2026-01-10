@@ -8,6 +8,7 @@
 var display = display || {};
 display.mojom = display.mojom || {};
 
+display.mojom.ScreenOrientationSpec = { $: mojo.internal.Enum() };
 
 // Enum: ScreenOrientation
 display.mojom.ScreenOrientation = {
@@ -17,4 +18,3 @@ display.mojom.ScreenOrientation = {
   kLandscapePrimary: 3,
   kLandscapeSecondary: 4,
 };
-display.mojom.ScreenOrientationSpec = { $: mojo.internal.Enum() };

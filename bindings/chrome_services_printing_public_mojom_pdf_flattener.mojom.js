@@ -8,50 +8,39 @@
 var printing = printing || {};
 printing.mojom = printing.mojom || {};
 
+printing.mojom.FlattenPdfResultSpec = { $: {} };
+printing.mojom.PdfFlattener = {};
+printing.mojom.PdfFlattener.$interfaceName = 'printing.mojom.PdfFlattener';
+printing.mojom.PdfFlattener_FlattenPdf_ParamsSpec = { $: {} };
+printing.mojom.PdfFlattener_FlattenPdf_ResponseParamsSpec = { $: {} };
+printing.mojom.PdfFlattener_SetUseSkiaRendererPolicy_ParamsSpec = { $: {} };
 
 // Struct: FlattenPdfResult
-printing.mojom.FlattenPdfResultSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.FlattenPdfResult',
-      packedSize: 24,
-      fields: [
-        { name: 'flattened_pdf_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
-        { name: 'page_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    printing.mojom.FlattenPdfResultSpec, 'printing.mojom.FlattenPdfResult', [
+      mojo.internal.StructField('flattened_pdf_region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('page_count', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: PdfFlattener
-printing.mojom.PdfFlattener = {};
+mojo.internal.Struct(
+    printing.mojom.PdfFlattener_FlattenPdf_ParamsSpec, 'printing.mojom.PdfFlattener_FlattenPdf_Params', [
+      mojo.internal.StructField('src_pdf_region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-printing.mojom.PdfFlattener_FlattenPdf_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PdfFlattener_FlattenPdf_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'src_pdf_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    printing.mojom.PdfFlattener_FlattenPdf_ResponseParamsSpec, 'printing.mojom.PdfFlattener_FlattenPdf_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, printing.mojom.FlattenPdfResultSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-printing.mojom.PdfFlattener_SetUseSkiaRendererPolicy_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PdfFlattener_SetUseSkiaRendererPolicy_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'use_skia', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    printing.mojom.PdfFlattener_SetUseSkiaRendererPolicy_ParamsSpec, 'printing.mojom.PdfFlattener_SetUseSkiaRendererPolicy_Params', [
+      mojo.internal.StructField('use_skia', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 printing.mojom.PdfFlattenerPendingReceiver = class {
   constructor(handle) {
@@ -115,48 +104,6 @@ printing.mojom.PdfFlattener.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for FlattenPdf
-printing.mojom.PdfFlattener_FlattenPdf_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PdfFlattener.FlattenPdf_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'src_pdf_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-printing.mojom.PdfFlattener_FlattenPdf_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PdfFlattener.FlattenPdf_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.FlattenPdfResultSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetUseSkiaRendererPolicy
-printing.mojom.PdfFlattener_SetUseSkiaRendererPolicy_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PdfFlattener.SetUseSkiaRendererPolicy_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'use_skia', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 printing.mojom.PdfFlattenerPtr = printing.mojom.PdfFlattenerRemote;
 printing.mojom.PdfFlattenerRequest = printing.mojom.PdfFlattenerPendingReceiver;
 

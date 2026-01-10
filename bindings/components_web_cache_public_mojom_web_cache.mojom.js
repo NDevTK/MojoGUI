@@ -8,22 +8,16 @@
 var web_cache = web_cache || {};
 web_cache.mojom = web_cache.mojom || {};
 
+web_cache.mojom.WebCache = {};
+web_cache.mojom.WebCache.$interfaceName = 'web_cache.mojom.WebCache';
+web_cache.mojom.WebCache_ClearCache_ParamsSpec = { $: {} };
 
 // Interface: WebCache
-web_cache.mojom.WebCache = {};
-
-web_cache.mojom.WebCache_ClearCache_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'web_cache.mojom.WebCache_ClearCache_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'on_navigation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    web_cache.mojom.WebCache_ClearCache_ParamsSpec, 'web_cache.mojom.WebCache_ClearCache_Params', [
+      mojo.internal.StructField('on_navigation', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 web_cache.mojom.WebCachePendingReceiver = class {
   constructor(handle) {
@@ -78,21 +72,6 @@ web_cache.mojom.WebCache.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ClearCache
-web_cache.mojom.WebCache_ClearCache_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'web_cache.mojom.WebCache.ClearCache_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'on_navigation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 web_cache.mojom.WebCachePtr = web_cache.mojom.WebCacheRemote;
 web_cache.mojom.WebCacheRequest = web_cache.mojom.WebCachePendingReceiver;
 

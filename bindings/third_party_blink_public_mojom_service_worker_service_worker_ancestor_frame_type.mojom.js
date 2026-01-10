@@ -8,10 +8,10 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.AncestorFrameTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AncestorFrameType
 blink.mojom.AncestorFrameType = {
   kNormalFrame: 0,
   kFencedFrame: 1,
 };
-blink.mojom.AncestorFrameTypeSpec = { $: mojo.internal.Enum() };

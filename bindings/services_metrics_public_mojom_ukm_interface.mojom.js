@@ -8,53 +8,45 @@
 var ukm = ukm || {};
 ukm.mojom = ukm.mojom || {};
 
+ukm.mojom.UkmEntrySpec = { $: {} };
+ukm.mojom.UkmRecorderParametersSpec = { $: {} };
+ukm.mojom.SingularUkmInterface = {};
+ukm.mojom.SingularUkmInterface.$interfaceName = 'ukm.mojom.SingularUkmInterface';
+ukm.mojom.SingularUkmInterface_Submit_ParamsSpec = { $: {} };
+ukm.mojom.UkmRecorderClientInterface = {};
+ukm.mojom.UkmRecorderClientInterface.$interfaceName = 'ukm.mojom.UkmRecorderClientInterface';
+ukm.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec = { $: {} };
+ukm.mojom.UkmRecorderInterface = {};
+ukm.mojom.UkmRecorderInterface.$interfaceName = 'ukm.mojom.UkmRecorderInterface';
+ukm.mojom.UkmRecorderInterface_AddEntry_ParamsSpec = { $: {} };
+ukm.mojom.UkmRecorderInterface_UpdateSourceURL_ParamsSpec = { $: {} };
+ukm.mojom.UkmRecorderFactory = {};
+ukm.mojom.UkmRecorderFactory.$interfaceName = 'ukm.mojom.UkmRecorderFactory';
+ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec = { $: {} };
 
 // Struct: UkmEntry
-ukm.mojom.UkmEntrySpec = {
-  $: {
-    structSpec: {
-      name: 'ukm.mojom.UkmEntry',
-      packedSize: 32,
-      fields: [
-        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'event_hash', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'metrics', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Uint64, mojo.internal.Int64, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ukm.mojom.UkmEntrySpec, 'ukm.mojom.UkmEntry', [
+      mojo.internal.StructField('source_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('event_hash', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('metrics', 16, 0, mojo.internal.Map(mojo.internal.Uint64, mojo.internal.Int64, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: UkmRecorderParameters
-ukm.mojom.UkmRecorderParametersSpec = {
-  $: {
-    structSpec: {
-      name: 'ukm.mojom.UkmRecorderParameters',
-      packedSize: 24,
-      fields: [
-        { name: 'is_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'event_hash_bypass_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint64, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ukm.mojom.UkmRecorderParametersSpec, 'ukm.mojom.UkmRecorderParameters', [
+      mojo.internal.StructField('is_enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('event_hash_bypass_list', 0, 0, mojo.internal.Array(mojo.internal.Uint64, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: SingularUkmInterface
-ukm.mojom.SingularUkmInterface = {};
-
-ukm.mojom.SingularUkmInterface_Submit_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ukm.mojom.SingularUkmInterface_Submit_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: ukm.mojom.UkmEntrySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ukm.mojom.SingularUkmInterface_Submit_ParamsSpec, 'ukm.mojom.SingularUkmInterface_Submit_Params', [
+      mojo.internal.StructField('entry', 0, 0, ukm.mojom.UkmEntrySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ukm.mojom.SingularUkmInterfacePendingReceiver = class {
   constructor(handle) {
@@ -109,40 +101,16 @@ ukm.mojom.SingularUkmInterface.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Submit
-ukm.mojom.SingularUkmInterface_Submit_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ukm.mojom.SingularUkmInterface.Submit_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: ukm.mojom.UkmEntrySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ukm.mojom.SingularUkmInterfacePtr = ukm.mojom.SingularUkmInterfaceRemote;
 ukm.mojom.SingularUkmInterfaceRequest = ukm.mojom.SingularUkmInterfacePendingReceiver;
 
 
 // Interface: UkmRecorderClientInterface
-ukm.mojom.UkmRecorderClientInterface = {};
-
-ukm.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ukm.mojom.UkmRecorderClientInterface_SetParameters_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: ukm.mojom.UkmRecorderParametersSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ukm.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec, 'ukm.mojom.UkmRecorderClientInterface_SetParameters_Params', [
+      mojo.internal.StructField('params', 0, 0, ukm.mojom.UkmRecorderParametersSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ukm.mojom.UkmRecorderClientInterfacePendingReceiver = class {
   constructor(handle) {
@@ -197,54 +165,23 @@ ukm.mojom.UkmRecorderClientInterface.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetParameters
-ukm.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ukm.mojom.UkmRecorderClientInterface.SetParameters_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: ukm.mojom.UkmRecorderParametersSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ukm.mojom.UkmRecorderClientInterfacePtr = ukm.mojom.UkmRecorderClientInterfaceRemote;
 ukm.mojom.UkmRecorderClientInterfaceRequest = ukm.mojom.UkmRecorderClientInterfacePendingReceiver;
 
 
 // Interface: UkmRecorderInterface
-ukm.mojom.UkmRecorderInterface = {};
+mojo.internal.Struct(
+    ukm.mojom.UkmRecorderInterface_AddEntry_ParamsSpec, 'ukm.mojom.UkmRecorderInterface_AddEntry_Params', [
+      mojo.internal.StructField('entry', 0, 0, ukm.mojom.UkmEntrySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ukm.mojom.UkmRecorderInterface_AddEntry_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ukm.mojom.UkmRecorderInterface_AddEntry_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: ukm.mojom.UkmEntrySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ukm.mojom.UkmRecorderInterface_UpdateSourceURL_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ukm.mojom.UkmRecorderInterface_UpdateSourceURL_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ukm.mojom.UkmRecorderInterface_UpdateSourceURL_ParamsSpec, 'ukm.mojom.UkmRecorderInterface_UpdateSourceURL_Params', [
+      mojo.internal.StructField('source_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 ukm.mojom.UkmRecorderInterfacePendingReceiver = class {
   constructor(handle) {
@@ -308,56 +245,17 @@ ukm.mojom.UkmRecorderInterface.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddEntry
-ukm.mojom.UkmRecorderInterface_AddEntry_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ukm.mojom.UkmRecorderInterface.AddEntry_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: ukm.mojom.UkmEntrySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateSourceURL
-ukm.mojom.UkmRecorderInterface_UpdateSourceURL_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ukm.mojom.UkmRecorderInterface.UpdateSourceURL_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 ukm.mojom.UkmRecorderInterfacePtr = ukm.mojom.UkmRecorderInterfaceRemote;
 ukm.mojom.UkmRecorderInterfaceRequest = ukm.mojom.UkmRecorderInterfacePendingReceiver;
 
 
 // Interface: UkmRecorderFactory
-ukm.mojom.UkmRecorderFactory = {};
-
-ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ukm.mojom.UkmRecorderInterfaceRemote), nullable: false, minVersion: 0 },
-        { name: 'client_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ukm.mojom.UkmRecorderClientInterfaceRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec, 'ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(ukm.mojom.UkmRecorderInterfaceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client_remote', 8, 0, mojo.internal.InterfaceProxy(ukm.mojom.UkmRecorderClientInterfaceRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 ukm.mojom.UkmRecorderFactoryPendingReceiver = class {
   constructor(handle) {
@@ -412,22 +310,6 @@ ukm.mojom.UkmRecorderFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateUkmRecorder
-ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ukm.mojom.UkmRecorderFactory.CreateUkmRecorder_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ukm.mojom.UkmRecorderInterfaceRemote), nullable: false, minVersion: 0 },
-        { name: 'client_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ukm.mojom.UkmRecorderClientInterfaceRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 ukm.mojom.UkmRecorderFactoryPtr = ukm.mojom.UkmRecorderFactoryRemote;
 ukm.mojom.UkmRecorderFactoryRequest = ukm.mojom.UkmRecorderFactoryPendingReceiver;
 

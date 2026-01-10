@@ -19,6 +19,35 @@ var blink = blink || {};
 var blink = blink || {};
 var blink = blink || {};
 
+blink.mojom.FileSystemAccessAccessHandleLockModeSpec = { $: mojo.internal.Enum() };
+blink.mojom.FileSystemAccessWritableFileStreamLockModeSpec = { $: mojo.internal.Enum() };
+blink.mojom.FileSystemAccessAccessHandleFileSpec = { $: {} };
+blink.mojom.FileSystemAccessRegularFileSpec = { $: {} };
+blink.mojom.FileSystemAccessFileHandle = {};
+blink.mojom.FileSystemAccessFileHandle.$interfaceName = 'blink.mojom.FileSystemAccessFileHandle';
+blink.mojom.FileSystemAccessFileHandle_GetPermissionStatus_ParamsSpec = { $: {} };
+blink.mojom.FileSystemAccessFileHandle_GetPermissionStatus_ResponseParamsSpec = { $: {} };
+blink.mojom.FileSystemAccessFileHandle_RequestPermission_ParamsSpec = { $: {} };
+blink.mojom.FileSystemAccessFileHandle_RequestPermission_ResponseParamsSpec = { $: {} };
+blink.mojom.FileSystemAccessFileHandle_AsBlob_ParamsSpec = { $: {} };
+blink.mojom.FileSystemAccessFileHandle_AsBlob_ResponseParamsSpec = { $: {} };
+blink.mojom.FileSystemAccessFileHandle_CreateFileWriter_ParamsSpec = { $: {} };
+blink.mojom.FileSystemAccessFileHandle_CreateFileWriter_ResponseParamsSpec = { $: {} };
+blink.mojom.FileSystemAccessFileHandle_Rename_ParamsSpec = { $: {} };
+blink.mojom.FileSystemAccessFileHandle_Rename_ResponseParamsSpec = { $: {} };
+blink.mojom.FileSystemAccessFileHandle_Move_ParamsSpec = { $: {} };
+blink.mojom.FileSystemAccessFileHandle_Move_ResponseParamsSpec = { $: {} };
+blink.mojom.FileSystemAccessFileHandle_Remove_ParamsSpec = { $: {} };
+blink.mojom.FileSystemAccessFileHandle_Remove_ResponseParamsSpec = { $: {} };
+blink.mojom.FileSystemAccessFileHandle_OpenAccessHandle_ParamsSpec = { $: {} };
+blink.mojom.FileSystemAccessFileHandle_OpenAccessHandle_ResponseParamsSpec = { $: {} };
+blink.mojom.FileSystemAccessFileHandle_IsSameEntry_ParamsSpec = { $: {} };
+blink.mojom.FileSystemAccessFileHandle_IsSameEntry_ResponseParamsSpec = { $: {} };
+blink.mojom.FileSystemAccessFileHandle_Transfer_ParamsSpec = { $: {} };
+blink.mojom.FileSystemAccessFileHandle_GetUniqueId_ParamsSpec = { $: {} };
+blink.mojom.FileSystemAccessFileHandle_GetUniqueId_ResponseParamsSpec = { $: {} };
+blink.mojom.FileSystemAccessFileHandle_GetCloudIdentifiers_ParamsSpec = { $: {} };
+blink.mojom.FileSystemAccessFileHandle_GetCloudIdentifiers_ResponseParamsSpec = { $: {} };
 
 // Enum: FileSystemAccessAccessHandleLockMode
 blink.mojom.FileSystemAccessAccessHandleLockMode = {
@@ -26,202 +55,183 @@ blink.mojom.FileSystemAccessAccessHandleLockMode = {
   kReadOnly: 1,
   kReadwriteUnsafe: 2,
 };
-blink.mojom.FileSystemAccessAccessHandleLockModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: FileSystemAccessWritableFileStreamLockMode
 blink.mojom.FileSystemAccessWritableFileStreamLockMode = {
   kExclusive: 0,
   kSiloed: 1,
 };
-blink.mojom.FileSystemAccessWritableFileStreamLockModeSpec = { $: mojo.internal.Enum() };
 
 // Union: FileSystemAccessAccessHandleFile
-blink.mojom.FileSystemAccessAccessHandleFileSpec = { $: mojo.internal.Union(
-    'blink.mojom.FileSystemAccessAccessHandleFile', {
+mojo.internal.Union(
+    blink.mojom.FileSystemAccessAccessHandleFileSpec, 'blink.mojom.FileSystemAccessAccessHandleFile', {
       'regular_file': {
         'ordinal': 0,
         'type': blink.mojom.FileSystemAccessRegularFileSpec,
-      }},
+        'nullable': false,
+      },
       'incognito_file_delegate': {
         'ordinal': 1,
         'type': mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessFileDelegateHostRemote),
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: FileSystemAccessRegularFile
-blink.mojom.FileSystemAccessRegularFileSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessRegularFile',
-      packedSize: 32,
-      fields: [
-        { name: 'os_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
-        { name: 'file_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'file_modification_host', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessFileModificationHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FileSystemAccessRegularFileSpec, 'blink.mojom.FileSystemAccessRegularFile', [
+      mojo.internal.StructField('os_file', 0, 0, mojo_base.mojom.FileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('file_size', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('file_modification_host', 16, 0, mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessFileModificationHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: FileSystemAccessFileHandle
-blink.mojom.FileSystemAccessFileHandle = {};
+mojo.internal.Struct(
+    blink.mojom.FileSystemAccessFileHandle_GetPermissionStatus_ParamsSpec, 'blink.mojom.FileSystemAccessFileHandle_GetPermissionStatus_Params', [
+      mojo.internal.StructField('mode', 0, 0, blink.mojom.FileSystemAccessPermissionModeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.FileSystemAccessFileHandle_GetPermissionStatus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileHandle_GetPermissionStatus_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessPermissionModeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FileSystemAccessFileHandle_GetPermissionStatus_ResponseParamsSpec, 'blink.mojom.FileSystemAccessFileHandle_GetPermissionStatus_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, blink.mojom.PermissionStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.FileSystemAccessFileHandle_RequestPermission_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileHandle_RequestPermission_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessPermissionModeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FileSystemAccessFileHandle_RequestPermission_ParamsSpec, 'blink.mojom.FileSystemAccessFileHandle_RequestPermission_Params', [
+      mojo.internal.StructField('mode', 0, 0, blink.mojom.FileSystemAccessPermissionModeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.FileSystemAccessFileHandle_AsBlob_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileHandle_AsBlob_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FileSystemAccessFileHandle_RequestPermission_ResponseParamsSpec, 'blink.mojom.FileSystemAccessFileHandle_RequestPermission_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 8, 0, blink.mojom.PermissionStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.FileSystemAccessFileHandle_CreateFileWriter_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileHandle_CreateFileWriter_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'keep_existing_data', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'auto_close', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessWritableFileStreamLockModeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FileSystemAccessFileHandle_AsBlob_ParamsSpec, 'blink.mojom.FileSystemAccessFileHandle_AsBlob_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.FileSystemAccessFileHandle_Rename_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileHandle_Rename_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'new_entry_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FileSystemAccessFileHandle_AsBlob_ResponseParamsSpec, 'blink.mojom.FileSystemAccessFileHandle_AsBlob_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('info', 8, 0, mojo_base.mojom.FileInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('blob', 16, 0, blink.mojom.SerializedBlobSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
-blink.mojom.FileSystemAccessFileHandle_Move_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileHandle_Move_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'destination_directory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessTransferTokenRemote), nullable: false, minVersion: 0 },
-        { name: 'new_entry_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FileSystemAccessFileHandle_CreateFileWriter_ParamsSpec, 'blink.mojom.FileSystemAccessFileHandle_CreateFileWriter_Params', [
+      mojo.internal.StructField('keep_existing_data', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('auto_close', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('mode', 0, 0, blink.mojom.FileSystemAccessWritableFileStreamLockModeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.FileSystemAccessFileHandle_Remove_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileHandle_Remove_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FileSystemAccessFileHandle_CreateFileWriter_ResponseParamsSpec, 'blink.mojom.FileSystemAccessFileHandle_CreateFileWriter_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('writer', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessFileWriterRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.FileSystemAccessFileHandle_OpenAccessHandle_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileHandle_OpenAccessHandle_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessAccessHandleLockModeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FileSystemAccessFileHandle_Rename_ParamsSpec, 'blink.mojom.FileSystemAccessFileHandle_Rename_Params', [
+      mojo.internal.StructField('new_entry_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.FileSystemAccessFileHandle_IsSameEntry_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileHandle_IsSameEntry_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'other', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessTransferTokenRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FileSystemAccessFileHandle_Rename_ResponseParamsSpec, 'blink.mojom.FileSystemAccessFileHandle_Rename_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.FileSystemAccessFileHandle_Transfer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileHandle_Transfer_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.FileSystemAccessTransferTokenRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FileSystemAccessFileHandle_Move_ParamsSpec, 'blink.mojom.FileSystemAccessFileHandle_Move_Params', [
+      mojo.internal.StructField('destination_directory', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessTransferTokenRemote), null, false, 0, undefined),
+      mojo.internal.StructField('new_entry_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.FileSystemAccessFileHandle_GetUniqueId_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileHandle_GetUniqueId_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FileSystemAccessFileHandle_Move_ResponseParamsSpec, 'blink.mojom.FileSystemAccessFileHandle_Move_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.FileSystemAccessFileHandle_GetCloudIdentifiers_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileHandle_GetCloudIdentifiers_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FileSystemAccessFileHandle_Remove_ParamsSpec, 'blink.mojom.FileSystemAccessFileHandle_Remove_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    blink.mojom.FileSystemAccessFileHandle_Remove_ResponseParamsSpec, 'blink.mojom.FileSystemAccessFileHandle_Remove_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.FileSystemAccessFileHandle_OpenAccessHandle_ParamsSpec, 'blink.mojom.FileSystemAccessFileHandle_OpenAccessHandle_Params', [
+      mojo.internal.StructField('mode', 0, 0, blink.mojom.FileSystemAccessAccessHandleLockModeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.FileSystemAccessFileHandle_OpenAccessHandle_ResponseParamsSpec, 'blink.mojom.FileSystemAccessFileHandle_OpenAccessHandle_ResponseParams', [
+      mojo.internal.StructField('result', 16, 0, blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('file', 0, 0, blink.mojom.FileSystemAccessAccessHandleFileSpec, null, true, 0, undefined),
+      mojo.internal.StructField('access_handle_host', 24, 0, mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessAccessHandleHostRemote), null, true, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    blink.mojom.FileSystemAccessFileHandle_IsSameEntry_ParamsSpec, 'blink.mojom.FileSystemAccessFileHandle_IsSameEntry_Params', [
+      mojo.internal.StructField('other', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessTransferTokenRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.FileSystemAccessFileHandle_IsSameEntry_ResponseParamsSpec, 'blink.mojom.FileSystemAccessFileHandle_IsSameEntry_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_same', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    blink.mojom.FileSystemAccessFileHandle_Transfer_ParamsSpec, 'blink.mojom.FileSystemAccessFileHandle_Transfer_Params', [
+      mojo.internal.StructField('token', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.FileSystemAccessTransferTokenRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.FileSystemAccessFileHandle_GetUniqueId_ParamsSpec, 'blink.mojom.FileSystemAccessFileHandle_GetUniqueId_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    blink.mojom.FileSystemAccessFileHandle_GetUniqueId_ResponseParamsSpec, 'blink.mojom.FileSystemAccessFileHandle_GetUniqueId_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    blink.mojom.FileSystemAccessFileHandle_GetCloudIdentifiers_ParamsSpec, 'blink.mojom.FileSystemAccessFileHandle_GetCloudIdentifiers_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    blink.mojom.FileSystemAccessFileHandle_GetCloudIdentifiers_ResponseParamsSpec, 'blink.mojom.FileSystemAccessFileHandle_GetCloudIdentifiers_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cloud_identifiers', 8, 0, mojo.internal.Array(blink.mojom.FileSystemAccessCloudIdentifierSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 blink.mojom.FileSystemAccessFileHandlePendingReceiver = class {
   constructor(handle) {
@@ -375,326 +385,6 @@ blink.mojom.FileSystemAccessFileHandle.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetPermissionStatus
-blink.mojom.FileSystemAccessFileHandle_GetPermissionStatus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileHandle.GetPermissionStatus_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessPermissionModeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.FileSystemAccessFileHandle_GetPermissionStatus_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileHandle.GetPermissionStatus_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestPermission
-blink.mojom.FileSystemAccessFileHandle_RequestPermission_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileHandle.RequestPermission_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessPermissionModeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.FileSystemAccessFileHandle_RequestPermission_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileHandle.RequestPermission_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PermissionStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for AsBlob
-blink.mojom.FileSystemAccessFileHandle_AsBlob_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileHandle.AsBlob_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.FileSystemAccessFileHandle_AsBlob_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileHandle.AsBlob_ResponseParams',
-      packedSize: 32,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'blob', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.SerializedBlobSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for CreateFileWriter
-blink.mojom.FileSystemAccessFileHandle_CreateFileWriter_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileHandle.CreateFileWriter_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'keep_existing_data', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'auto_close', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessWritableFileStreamLockModeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.FileSystemAccessFileHandle_CreateFileWriter_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileHandle.CreateFileWriter_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'writer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessFileWriterRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for Rename
-blink.mojom.FileSystemAccessFileHandle_Rename_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileHandle.Rename_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'new_entry_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.FileSystemAccessFileHandle_Rename_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileHandle.Rename_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Move
-blink.mojom.FileSystemAccessFileHandle_Move_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileHandle.Move_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'destination_directory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessTransferTokenRemote), nullable: false, minVersion: 0 },
-        { name: 'new_entry_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.FileSystemAccessFileHandle_Move_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileHandle.Move_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Remove
-blink.mojom.FileSystemAccessFileHandle_Remove_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileHandle.Remove_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.FileSystemAccessFileHandle_Remove_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileHandle.Remove_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OpenAccessHandle
-blink.mojom.FileSystemAccessFileHandle_OpenAccessHandle_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileHandle.OpenAccessHandle_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessAccessHandleLockModeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.FileSystemAccessFileHandle_OpenAccessHandle_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileHandle.OpenAccessHandle_ResponseParams',
-      packedSize: 40,
-      fields: [
-        { name: 'result', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessAccessHandleFileSpec, nullable: true, minVersion: 0 },
-        { name: 'access_handle_host', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessAccessHandleHostRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for IsSameEntry
-blink.mojom.FileSystemAccessFileHandle_IsSameEntry_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileHandle.IsSameEntry_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'other', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessTransferTokenRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.FileSystemAccessFileHandle_IsSameEntry_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileHandle.IsSameEntry_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'is_same', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for Transfer
-blink.mojom.FileSystemAccessFileHandle_Transfer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileHandle.Transfer_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.FileSystemAccessTransferTokenRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetUniqueId
-blink.mojom.FileSystemAccessFileHandle_GetUniqueId_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileHandle.GetUniqueId_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.FileSystemAccessFileHandle_GetUniqueId_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileHandle.GetUniqueId_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for GetCloudIdentifiers
-blink.mojom.FileSystemAccessFileHandle_GetCloudIdentifiers_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileHandle.GetCloudIdentifiers_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.FileSystemAccessFileHandle_GetCloudIdentifiers_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileHandle.GetCloudIdentifiers_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'cloud_identifiers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.FileSystemAccessCloudIdentifierSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.FileSystemAccessFileHandlePtr = blink.mojom.FileSystemAccessFileHandleRemote;
 blink.mojom.FileSystemAccessFileHandleRequest = blink.mojom.FileSystemAccessFileHandlePendingReceiver;
 

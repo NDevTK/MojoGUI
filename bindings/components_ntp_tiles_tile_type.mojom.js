@@ -8,6 +8,7 @@
 var ntp_tiles = ntp_tiles || {};
 ntp_tiles.mojom = ntp_tiles.mojom || {};
 
+ntp_tiles.mojom.TileTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: TileType
 ntp_tiles.mojom.TileType = {
@@ -15,4 +16,3 @@ ntp_tiles.mojom.TileType = {
   kCustomLinks: 1,
   kEnterpriseShortcuts: 2,
 };
-ntp_tiles.mojom.TileTypeSpec = { $: mojo.internal.Enum() };

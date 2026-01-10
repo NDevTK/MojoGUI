@@ -8,10 +8,10 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+network.mojom.SocketConnectionTracker = {};
+network.mojom.SocketConnectionTracker.$interfaceName = 'network.mojom.SocketConnectionTracker';
 
 // Interface: SocketConnectionTracker
-network.mojom.SocketConnectionTracker = {};
-
 network.mojom.SocketConnectionTrackerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -56,7 +56,6 @@ network.mojom.SocketConnectionTracker.getRemote = function() {
   return remote.$;
 };
 
-// Legacy compatibility
 network.mojom.SocketConnectionTrackerPtr = network.mojom.SocketConnectionTrackerRemote;
 network.mojom.SocketConnectionTrackerRequest = network.mojom.SocketConnectionTrackerPendingReceiver;
 

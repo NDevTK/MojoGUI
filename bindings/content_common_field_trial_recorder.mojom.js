@@ -8,22 +8,16 @@
 var content = content || {};
 content.mojom = content.mojom || {};
 
+content.mojom.FieldTrialRecorder = {};
+content.mojom.FieldTrialRecorder.$interfaceName = 'content.mojom.FieldTrialRecorder';
+content.mojom.FieldTrialRecorder_FieldTrialActivated_ParamsSpec = { $: {} };
 
 // Interface: FieldTrialRecorder
-content.mojom.FieldTrialRecorder = {};
-
-content.mojom.FieldTrialRecorder_FieldTrialActivated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.FieldTrialRecorder_FieldTrialActivated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'trial_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.FieldTrialRecorder_FieldTrialActivated_ParamsSpec, 'content.mojom.FieldTrialRecorder_FieldTrialActivated_Params', [
+      mojo.internal.StructField('trial_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 content.mojom.FieldTrialRecorderPendingReceiver = class {
   constructor(handle) {
@@ -78,21 +72,6 @@ content.mojom.FieldTrialRecorder.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for FieldTrialActivated
-content.mojom.FieldTrialRecorder_FieldTrialActivated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.FieldTrialRecorder.FieldTrialActivated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'trial_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 content.mojom.FieldTrialRecorderPtr = content.mojom.FieldTrialRecorderRemote;
 content.mojom.FieldTrialRecorderRequest = content.mojom.FieldTrialRecorderPendingReceiver;
 

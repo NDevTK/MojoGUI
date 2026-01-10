@@ -7,24 +7,26 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
+var services = services || {};
 
+media.mojom.CdmService = {};
+media.mojom.CdmService.$interfaceName = 'media.mojom.CdmService';
+media.mojom.CdmService_CreateCdmFactory_ParamsSpec = { $: {} };
+media.mojom.SeatbeltExtensionTokenProvider = {};
+media.mojom.SeatbeltExtensionTokenProvider.$interfaceName = 'media.mojom.SeatbeltExtensionTokenProvider';
+media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec = { $: {} };
+media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec = { $: {} };
+media.mojom.CdmServiceBroker = {};
+media.mojom.CdmServiceBroker.$interfaceName = 'media.mojom.CdmServiceBroker';
+media.mojom.CdmServiceBroker_GetService_ParamsSpec = { $: {} };
 
 // Interface: CdmService
-media.mojom.CdmService = {};
-
-media.mojom.CdmService_CreateCdmFactory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CdmService_CreateCdmFactory_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.CdmFactoryRemote), nullable: false, minVersion: 0 },
-        { name: 'frame_interfaces', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.FrameInterfaceFactoryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.CdmService_CreateCdmFactory_ParamsSpec, 'media.mojom.CdmService_CreateCdmFactory_Params', [
+      mojo.internal.StructField('factory', 0, 0, mojo.internal.InterfaceRequest(media.mojom.CdmFactoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('frame_interfaces', 8, 0, mojo.internal.InterfaceProxy(media.mojom.FrameInterfaceFactoryRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 media.mojom.CdmServicePendingReceiver = class {
   constructor(handle) {
@@ -79,40 +81,21 @@ media.mojom.CdmService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateCdmFactory
-media.mojom.CdmService_CreateCdmFactory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CdmService.CreateCdmFactory_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.CdmFactoryRemote), nullable: false, minVersion: 0 },
-        { name: 'frame_interfaces', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.FrameInterfaceFactoryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.CdmServicePtr = media.mojom.CdmServiceRemote;
 media.mojom.CdmServiceRequest = media.mojom.CdmServicePendingReceiver;
 
 
 // Interface: SeatbeltExtensionTokenProvider
-media.mojom.SeatbeltExtensionTokenProvider = {};
+mojo.internal.Struct(
+    media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec, 'media.mojom.SeatbeltExtensionTokenProvider_GetTokens_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.SeatbeltExtensionTokenProvider_GetTokens_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec, 'media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParams', [
+      mojo.internal.StructField('tokens', 0, 0, mojo.internal.Array(sandbox.mac.mojom.SeatbeltExtensionTokenSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media.mojom.SeatbeltExtensionTokenProviderPendingReceiver = class {
   constructor(handle) {
@@ -167,54 +150,18 @@ media.mojom.SeatbeltExtensionTokenProvider.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetTokens
-media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.SeatbeltExtensionTokenProvider.GetTokens_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.SeatbeltExtensionTokenProvider.GetTokens_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'tokens', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(sandbox.mac.mojom.SeatbeltExtensionTokenSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.SeatbeltExtensionTokenProviderPtr = media.mojom.SeatbeltExtensionTokenProviderRemote;
 media.mojom.SeatbeltExtensionTokenProviderRequest = media.mojom.SeatbeltExtensionTokenProviderPendingReceiver;
 
 
 // Interface: CdmServiceBroker
-media.mojom.CdmServiceBroker = {};
-
-media.mojom.CdmServiceBroker_GetService_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CdmServiceBroker_GetService_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'cdm_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'token_provider', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.SeatbeltExtensionTokenProviderRemote), nullable: true, minVersion: 0 },
-        { name: 'receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.CdmServiceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.CdmServiceBroker_GetService_ParamsSpec, 'media.mojom.CdmServiceBroker_GetService_Params', [
+      mojo.internal.StructField('cdm_path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('token_provider', 8, 0, mojo.internal.InterfaceProxy(media.mojom.SeatbeltExtensionTokenProviderRemote), null, true, 0, undefined),
+      mojo.internal.StructField('receiver', 16, 0, mojo.internal.InterfaceRequest(media.mojom.CdmServiceRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 media.mojom.CdmServiceBrokerPendingReceiver = class {
   constructor(handle) {
@@ -269,23 +216,6 @@ media.mojom.CdmServiceBroker.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetService
-media.mojom.CdmServiceBroker_GetService_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CdmServiceBroker.GetService_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'cdm_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'token_provider', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.SeatbeltExtensionTokenProviderRemote), nullable: true, minVersion: 0 },
-        { name: 'receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.CdmServiceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.CdmServiceBrokerPtr = media.mojom.CdmServiceBrokerRemote;
 media.mojom.CdmServiceBrokerRequest = media.mojom.CdmServiceBrokerPendingReceiver;
 

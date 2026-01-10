@@ -11,105 +11,82 @@ var ui = ui || {};
 var gfx = gfx || {};
 var url = url || {};
 
+android_webview.mojom.HitTestDataTypeSpec = { $: mojo.internal.Enum() };
+android_webview.mojom.HitTestDataSpec = { $: {} };
+android_webview.mojom.LocalMainFrame = {};
+android_webview.mojom.LocalMainFrame.$interfaceName = 'android_webview.mojom.LocalMainFrame';
+android_webview.mojom.LocalMainFrame_SetInitialPageScale_ParamsSpec = { $: {} };
+android_webview.mojom.LocalMainFrame_SetTextZoomFactor_ParamsSpec = { $: {} };
+android_webview.mojom.LocalMainFrame_DocumentHasImage_ParamsSpec = { $: {} };
+android_webview.mojom.LocalMainFrame_DocumentHasImage_ResponseParamsSpec = { $: {} };
+android_webview.mojom.LocalMainFrame_ResetScrollAndScaleState_ParamsSpec = { $: {} };
+android_webview.mojom.LocalMainFrame_SmoothScroll_ParamsSpec = { $: {} };
+android_webview.mojom.FrameHost = {};
+android_webview.mojom.FrameHost.$interfaceName = 'android_webview.mojom.FrameHost';
+android_webview.mojom.FrameHost_UpdateHitTestData_ParamsSpec = { $: {} };
+android_webview.mojom.FrameHost_ContentsSizeChanged_ParamsSpec = { $: {} };
+android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ParamsSpec = { $: {} };
+android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ResponseParamsSpec = { $: {} };
 
 // Enum: HitTestDataType
 android_webview.mojom.HitTestDataType = {
   kUnknown: 0,
-  kPhone: 1,
-  kGeo: 2,
-  kEmail: 3,
-  kImage: 4,
-  kSrcLink: 5,
-  kSrcImageLink: 6,
-  kEditText: 7,
+  kPhone: 2,
+  kGeo: 3,
+  kEmail: 4,
+  kImage: 5,
+  kSrcLink: 7,
+  kSrcImageLink: 8,
+  kEditText: 9,
 };
-android_webview.mojom.HitTestDataTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: HitTestData
-android_webview.mojom.HitTestDataSpec = {
-  $: {
-    structSpec: {
-      name: 'android_webview.mojom.HitTestData',
-      packedSize: 48,
-      fields: [
-        { name: 'type', packedOffset: 32, packedBitOffset: 0, type: android_webview.mojom.HitTestDataTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'extra_data_for_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'href', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'anchor_text', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'img_src', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    android_webview.mojom.HitTestDataSpec, 'android_webview.mojom.HitTestData', [
+      mojo.internal.StructField('type', 32, 0, android_webview.mojom.HitTestDataTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('extra_data_for_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('href', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('anchor_text', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('img_src', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Interface: LocalMainFrame
-android_webview.mojom.LocalMainFrame = {};
+mojo.internal.Struct(
+    android_webview.mojom.LocalMainFrame_SetInitialPageScale_ParamsSpec, 'android_webview.mojom.LocalMainFrame_SetInitialPageScale_Params', [
+      mojo.internal.StructField('page_scale_factor', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-android_webview.mojom.LocalMainFrame_SetInitialPageScale_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'android_webview.mojom.LocalMainFrame_SetInitialPageScale_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page_scale_factor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    android_webview.mojom.LocalMainFrame_SetTextZoomFactor_ParamsSpec, 'android_webview.mojom.LocalMainFrame_SetTextZoomFactor_Params', [
+      mojo.internal.StructField('zoom_factor', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-android_webview.mojom.LocalMainFrame_SetTextZoomFactor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'android_webview.mojom.LocalMainFrame_SetTextZoomFactor_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'zoom_factor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    android_webview.mojom.LocalMainFrame_DocumentHasImage_ParamsSpec, 'android_webview.mojom.LocalMainFrame_DocumentHasImage_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-android_webview.mojom.LocalMainFrame_DocumentHasImage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'android_webview.mojom.LocalMainFrame_DocumentHasImage_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    android_webview.mojom.LocalMainFrame_DocumentHasImage_ResponseParamsSpec, 'android_webview.mojom.LocalMainFrame_DocumentHasImage_ResponseParams', [
+      mojo.internal.StructField('has_images', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-android_webview.mojom.LocalMainFrame_ResetScrollAndScaleState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'android_webview.mojom.LocalMainFrame_ResetScrollAndScaleState_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    android_webview.mojom.LocalMainFrame_ResetScrollAndScaleState_ParamsSpec, 'android_webview.mojom.LocalMainFrame_ResetScrollAndScaleState_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-android_webview.mojom.LocalMainFrame_SmoothScroll_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'android_webview.mojom.LocalMainFrame_SmoothScroll_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'target_x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'target_y', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'duration', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    android_webview.mojom.LocalMainFrame_SmoothScroll_ParamsSpec, 'android_webview.mojom.LocalMainFrame_SmoothScroll_Params', [
+      mojo.internal.StructField('target_x', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('target_y', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('duration', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 android_webview.mojom.LocalMainFramePendingReceiver = class {
   constructor(handle) {
@@ -200,138 +177,37 @@ android_webview.mojom.LocalMainFrame.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetInitialPageScale
-android_webview.mojom.LocalMainFrame_SetInitialPageScale_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'android_webview.mojom.LocalMainFrame.SetInitialPageScale_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page_scale_factor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetTextZoomFactor
-android_webview.mojom.LocalMainFrame_SetTextZoomFactor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'android_webview.mojom.LocalMainFrame.SetTextZoomFactor_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'zoom_factor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DocumentHasImage
-android_webview.mojom.LocalMainFrame_DocumentHasImage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'android_webview.mojom.LocalMainFrame.DocumentHasImage_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-android_webview.mojom.LocalMainFrame_DocumentHasImage_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'android_webview.mojom.LocalMainFrame.DocumentHasImage_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'has_images', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ResetScrollAndScaleState
-android_webview.mojom.LocalMainFrame_ResetScrollAndScaleState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'android_webview.mojom.LocalMainFrame.ResetScrollAndScaleState_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SmoothScroll
-android_webview.mojom.LocalMainFrame_SmoothScroll_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'android_webview.mojom.LocalMainFrame.SmoothScroll_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'target_x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'target_y', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'duration', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 android_webview.mojom.LocalMainFramePtr = android_webview.mojom.LocalMainFrameRemote;
 android_webview.mojom.LocalMainFrameRequest = android_webview.mojom.LocalMainFramePendingReceiver;
 
 
 // Interface: FrameHost
-android_webview.mojom.FrameHost = {};
+mojo.internal.Struct(
+    android_webview.mojom.FrameHost_UpdateHitTestData_ParamsSpec, 'android_webview.mojom.FrameHost_UpdateHitTestData_Params', [
+      mojo.internal.StructField('data', 0, 0, android_webview.mojom.HitTestDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-android_webview.mojom.FrameHost_UpdateHitTestData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'android_webview.mojom.FrameHost_UpdateHitTestData_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: android_webview.mojom.HitTestDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    android_webview.mojom.FrameHost_ContentsSizeChanged_ParamsSpec, 'android_webview.mojom.FrameHost_ContentsSizeChanged_Params', [
+      mojo.internal.StructField('contents_size', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-android_webview.mojom.FrameHost_ContentsSizeChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'android_webview.mojom.FrameHost_ContentsSizeChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'contents_size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ParamsSpec, 'android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_Params', [
+      mojo.internal.StructField('url', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('has_user_gesture', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_redirect', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_outermost_main_frame', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'has_user_gesture', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_redirect', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_outermost_main_frame', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ResponseParamsSpec, 'android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 android_webview.mojom.FrameHostPendingReceiver = class {
   constructor(handle) {
@@ -404,65 +280,6 @@ android_webview.mojom.FrameHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for UpdateHitTestData
-android_webview.mojom.FrameHost_UpdateHitTestData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'android_webview.mojom.FrameHost.UpdateHitTestData_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: android_webview.mojom.HitTestDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ContentsSizeChanged
-android_webview.mojom.FrameHost_ContentsSizeChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'android_webview.mojom.FrameHost.ContentsSizeChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'contents_size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ShouldOverrideUrlLoading
-android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'android_webview.mojom.FrameHost.ShouldOverrideUrlLoading_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'has_user_gesture', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_redirect', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_outermost_main_frame', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'android_webview.mojom.FrameHost.ShouldOverrideUrlLoading_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 android_webview.mojom.FrameHostPtr = android_webview.mojom.FrameHostRemote;
 android_webview.mojom.FrameHostRequest = android_webview.mojom.FrameHostPendingReceiver;
 

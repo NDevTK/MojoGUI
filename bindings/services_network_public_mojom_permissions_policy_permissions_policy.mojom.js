@@ -7,59 +7,42 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
 var url = url || {};
 
+network.mojom.OriginWithPossibleWildcardsSpec = { $: {} };
+network.mojom.ParsedPermissionsPolicyDeclarationSpec = { $: {} };
+network.mojom.PermissionsPolicySpec = { $: {} };
 
 // Struct: OriginWithPossibleWildcards
-network.mojom.OriginWithPossibleWildcardsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.OriginWithPossibleWildcards',
-      packedSize: 32,
-      fields: [
-        { name: 'scheme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'port', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'is_host_wildcard', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_port_wildcard', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.OriginWithPossibleWildcardsSpec, 'network.mojom.OriginWithPossibleWildcards', [
+      mojo.internal.StructField('scheme', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('host', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('port', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_host_wildcard', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_port_wildcard', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: ParsedPermissionsPolicyDeclaration
-network.mojom.ParsedPermissionsPolicyDeclarationSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ParsedPermissionsPolicyDeclaration',
-      packedSize: 40,
-      fields: [
-        { name: 'feature', packedOffset: 24, packedBitOffset: 0, type: network.mojom.PermissionsPolicyFeatureSpec, nullable: false, minVersion: 0 },
-        { name: 'allowed_origins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.OriginWithPossibleWildcardsSpec, false), nullable: false, minVersion: 0 },
-        { name: 'self_if_matches', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true, minVersion: 0 },
-        { name: 'matches_all_origins', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'matches_opaque_src', packedOffset: 28, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'reporting_endpoint', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.ParsedPermissionsPolicyDeclarationSpec, 'network.mojom.ParsedPermissionsPolicyDeclaration', [
+      mojo.internal.StructField('feature', 24, 0, network.mojom.PermissionsPolicyFeatureSpec, null, false, 0, undefined),
+      mojo.internal.StructField('allowed_origins', 0, 0, mojo.internal.Array(network.mojom.OriginWithPossibleWildcardsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('self_if_matches', 8, 0, url.mojom.OriginSpec, null, true, 0, undefined),
+      mojo.internal.StructField('matches_all_origins', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('matches_opaque_src', 28, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('reporting_endpoint', 16, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: PermissionsPolicy
-network.mojom.PermissionsPolicySpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.PermissionsPolicy',
-      packedSize: 40,
-      fields: [
-        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-        { name: 'headerless', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'declarations', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.ParsedPermissionsPolicyDeclarationSpec, false), nullable: false, minVersion: 0 },
-        { name: 'inherited_policies', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.PermissionsPolicySpec, 'network.mojom.PermissionsPolicy', [
+      mojo.internal.StructField('origin', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('headerless', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('declarations', 8, 0, mojo.internal.Array(network.mojom.ParsedPermissionsPolicyDeclarationSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('inherited_policies', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);

@@ -8,19 +8,25 @@
 var display = display || {};
 display.mojom = display.mojom || {};
 
+display.mojom.DisplayConnectionTypeSpec = { $: mojo.internal.Enum() };
+display.mojom.HDCPStateSpec = { $: mojo.internal.Enum() };
+display.mojom.ContentProtectionMethodSpec = { $: mojo.internal.Enum() };
+display.mojom.PanelOrientationSpec = { $: mojo.internal.Enum() };
+display.mojom.PrivacyScreenStateSpec = { $: mojo.internal.Enum() };
+display.mojom.VariableRefreshRateStateSpec = { $: mojo.internal.Enum() };
+display.mojom.ModesetFlagsSpec = { $: {} };
 
 // Enum: DisplayConnectionType
 display.mojom.DisplayConnectionType = {
   DISPLAY_CONNECTION_TYPE_NONE: 0,
   DISPLAY_CONNECTION_TYPE_UNKNOWN: 1,
   DISPLAY_CONNECTION_TYPE_INTERNAL: 2,
-  DISPLAY_CONNECTION_TYPE_VGA: 3,
-  DISPLAY_CONNECTION_TYPE_HDMI: 4,
-  DISPLAY_CONNECTION_TYPE_DVI: 5,
-  DISPLAY_CONNECTION_TYPE_DISPLAYPORT: 6,
-  DISPLAY_CONNECTION_TYPE_NETWORK: 7,
+  DISPLAY_CONNECTION_TYPE_VGA: 4,
+  DISPLAY_CONNECTION_TYPE_HDMI: 8,
+  DISPLAY_CONNECTION_TYPE_DVI: 16,
+  DISPLAY_CONNECTION_TYPE_DISPLAYPORT: 32,
+  DISPLAY_CONNECTION_TYPE_NETWORK: 64,
 };
-display.mojom.DisplayConnectionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: HDCPState
 display.mojom.HDCPState = {
@@ -28,7 +34,6 @@ display.mojom.HDCPState = {
   HDCP_STATE_DESIRED: 1,
   HDCP_STATE_ENABLED: 2,
 };
-display.mojom.HDCPStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: ContentProtectionMethod
 display.mojom.ContentProtectionMethod = {
@@ -36,7 +41,6 @@ display.mojom.ContentProtectionMethod = {
   CONTENT_PROTECTION_METHOD_HDCP_TYPE_0: 1,
   CONTENT_PROTECTION_METHOD_HDCP_TYPE_1: 2,
 };
-display.mojom.ContentProtectionMethodSpec = { $: mojo.internal.Enum() };
 
 // Enum: PanelOrientation
 display.mojom.PanelOrientation = {
@@ -45,7 +49,6 @@ display.mojom.PanelOrientation = {
   LEFT_UP: 2,
   RIGHT_UP: 3,
 };
-display.mojom.PanelOrientationSpec = { $: mojo.internal.Enum() };
 
 // Enum: PrivacyScreenState
 display.mojom.PrivacyScreenState = {
@@ -55,7 +58,6 @@ display.mojom.PrivacyScreenState = {
   ENABLED_LOCKED: 3,
   NOT_SUPPORTED: 4,
 };
-display.mojom.PrivacyScreenStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: VariableRefreshRateState
 display.mojom.VariableRefreshRateState = {
@@ -63,18 +65,10 @@ display.mojom.VariableRefreshRateState = {
   kVrrEnabled: 1,
   kVrrNotCapable: 2,
 };
-display.mojom.VariableRefreshRateStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: ModesetFlags
-display.mojom.ModesetFlagsSpec = {
-  $: {
-    structSpec: {
-      name: 'display.mojom.ModesetFlags',
-      packedSize: 16,
-      fields: [
-        { name: 'bitmask', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    display.mojom.ModesetFlagsSpec, 'display.mojom.ModesetFlags', [
+      mojo.internal.StructField('bitmask', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);

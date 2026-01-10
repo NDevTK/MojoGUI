@@ -8,36 +8,24 @@
 var webnn = webnn || {};
 webnn.mojom = webnn.mojom || {};
 
+webnn.mojom.PackageVersionSpec = { $: {} };
+webnn.mojom.EpPackageInfoSpec = { $: {} };
 
 // Struct: PackageVersion
-webnn.mojom.PackageVersionSpec = {
-  $: {
-    structSpec: {
-      name: 'webnn.mojom.PackageVersion',
-      packedSize: 16,
-      fields: [
-        { name: 'revision', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'build', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'minor', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'major', packedOffset: 6, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    webnn.mojom.PackageVersionSpec, 'webnn.mojom.PackageVersion', [
+      mojo.internal.StructField('revision', 0, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('build', 2, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('minor', 4, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('major', 6, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: EpPackageInfo
-webnn.mojom.EpPackageInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'webnn.mojom.EpPackageInfo',
-      packedSize: 32,
-      fields: [
-        { name: 'family_name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.WStringSpec, nullable: false, minVersion: 0 },
-        { name: 'version', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.PackageVersionSpec, nullable: false, minVersion: 0 },
-        { name: 'library_path', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    webnn.mojom.EpPackageInfoSpec, 'webnn.mojom.EpPackageInfo', [
+      mojo.internal.StructField('family_name', 0, 0, mojo_base.mojom.WStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('version', 8, 0, webnn.mojom.PackageVersionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('library_path', 16, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);

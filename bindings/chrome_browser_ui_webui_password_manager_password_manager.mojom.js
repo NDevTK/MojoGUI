@@ -9,55 +9,62 @@ var password_manager = password_manager || {};
 password_manager.mojom = password_manager.mojom || {};
 var url = url || {};
 
+password_manager.mojom.DomainInfoSpec = { $: {} };
+password_manager.mojom.ActorLoginPermissionSpec = { $: {} };
+password_manager.mojom.PageHandlerFactory = {};
+password_manager.mojom.PageHandlerFactory.$interfaceName = 'password_manager.mojom.PageHandlerFactory';
+password_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+password_manager.mojom.PageHandler = {};
+password_manager.mojom.PageHandler.$interfaceName = 'password_manager.mojom.PageHandler';
+password_manager.mojom.PageHandler_ExtendAuthValidity_ParamsSpec = { $: {} };
+password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ParamsSpec = { $: {} };
+password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ResponseParamsSpec = { $: {} };
+password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ParamsSpec = { $: {} };
+password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ResponseParamsSpec = { $: {} };
+password_manager.mojom.PageHandler_RemoveBackupPassword_ParamsSpec = { $: {} };
+password_manager.mojom.PageHandler_GetActorLoginPermissions_ParamsSpec = { $: {} };
+password_manager.mojom.PageHandler_GetActorLoginPermissions_ResponseParamsSpec = { $: {} };
+password_manager.mojom.PageHandler_RevokeActorLoginPermission_ParamsSpec = { $: {} };
+password_manager.mojom.PageHandler_ChangePasswordManagerPin_ParamsSpec = { $: {} };
+password_manager.mojom.PageHandler_ChangePasswordManagerPin_ResponseParamsSpec = { $: {} };
+password_manager.mojom.PageHandler_ShowAddShortcutDialog_ParamsSpec = { $: {} };
+password_manager.mojom.PageHandler_IsAccountStorageEnabled_ParamsSpec = { $: {} };
+password_manager.mojom.PageHandler_IsAccountStorageEnabled_ResponseParamsSpec = { $: {} };
+password_manager.mojom.PageHandler_SetAccountStorageEnabled_ParamsSpec = { $: {} };
+password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ParamsSpec = { $: {} };
+password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ResponseParamsSpec = { $: {} };
+password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ParamsSpec = { $: {} };
+password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ResponseParamsSpec = { $: {} };
+password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ParamsSpec = { $: {} };
+password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ResponseParamsSpec = { $: {} };
+password_manager.mojom.Page = {};
+password_manager.mojom.Page.$interfaceName = 'password_manager.mojom.Page';
 
 // Struct: DomainInfo
-password_manager.mojom.DomainInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.DomainInfo',
-      packedSize: 32,
-      fields: [
-        { name: 'human_readable_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'signon_realm', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    password_manager.mojom.DomainInfoSpec, 'password_manager.mojom.DomainInfo', [
+      mojo.internal.StructField('human_readable_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('signon_realm', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: ActorLoginPermission
-password_manager.mojom.ActorLoginPermissionSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.ActorLoginPermission',
-      packedSize: 32,
-      fields: [
-        { name: 'domain_info', packedOffset: 0, packedBitOffset: 0, type: password_manager.mojom.DomainInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'favicon_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'username', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    password_manager.mojom.ActorLoginPermissionSpec, 'password_manager.mojom.ActorLoginPermission', [
+      mojo.internal.StructField('domain_info', 0, 0, password_manager.mojom.DomainInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('favicon_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('username', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: PageHandlerFactory
-password_manager.mojom.PageHandlerFactory = {};
-
-password_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(password_manager.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(password_manager.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    password_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'password_manager.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(password_manager.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(password_manager.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 password_manager.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -112,188 +119,127 @@ password_manager.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-password_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(password_manager.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(password_manager.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 password_manager.mojom.PageHandlerFactoryPtr = password_manager.mojom.PageHandlerFactoryRemote;
 password_manager.mojom.PageHandlerFactoryRequest = password_manager.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-password_manager.mojom.PageHandler = {};
+mojo.internal.Struct(
+    password_manager.mojom.PageHandler_ExtendAuthValidity_ParamsSpec, 'password_manager.mojom.PageHandler_ExtendAuthValidity_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-password_manager.mojom.PageHandler_ExtendAuthValidity_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.PageHandler_ExtendAuthValidity_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ParamsSpec, 'password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ResponseParamsSpec, 'password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ParamsSpec, 'password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_Params', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-password_manager.mojom.PageHandler_RemoveBackupPassword_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.PageHandler_RemoveBackupPassword_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ResponseParamsSpec, 'password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-password_manager.mojom.PageHandler_GetActorLoginPermissions_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.PageHandler_GetActorLoginPermissions_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    password_manager.mojom.PageHandler_RemoveBackupPassword_ParamsSpec, 'password_manager.mojom.PageHandler_RemoveBackupPassword_Params', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-password_manager.mojom.PageHandler_RevokeActorLoginPermission_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.PageHandler_RevokeActorLoginPermission_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'site', packedOffset: 0, packedBitOffset: 0, type: password_manager.mojom.ActorLoginPermissionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    password_manager.mojom.PageHandler_GetActorLoginPermissions_ParamsSpec, 'password_manager.mojom.PageHandler_GetActorLoginPermissions_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-password_manager.mojom.PageHandler_ChangePasswordManagerPin_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.PageHandler_ChangePasswordManagerPin_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    password_manager.mojom.PageHandler_GetActorLoginPermissions_ResponseParamsSpec, 'password_manager.mojom.PageHandler_GetActorLoginPermissions_ResponseParams', [
+      mojo.internal.StructField('sites', 0, 0, mojo.internal.Array(password_manager.mojom.ActorLoginPermissionSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-password_manager.mojom.PageHandler_ShowAddShortcutDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.PageHandler_ShowAddShortcutDialog_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    password_manager.mojom.PageHandler_RevokeActorLoginPermission_ParamsSpec, 'password_manager.mojom.PageHandler_RevokeActorLoginPermission_Params', [
+      mojo.internal.StructField('site', 0, 0, password_manager.mojom.ActorLoginPermissionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-password_manager.mojom.PageHandler_IsAccountStorageEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.PageHandler_IsAccountStorageEnabled_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    password_manager.mojom.PageHandler_ChangePasswordManagerPin_ParamsSpec, 'password_manager.mojom.PageHandler_ChangePasswordManagerPin_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-password_manager.mojom.PageHandler_SetAccountStorageEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.PageHandler_SetAccountStorageEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    password_manager.mojom.PageHandler_ChangePasswordManagerPin_ResponseParamsSpec, 'password_manager.mojom.PageHandler_ChangePasswordManagerPin_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    password_manager.mojom.PageHandler_ShowAddShortcutDialog_ParamsSpec, 'password_manager.mojom.PageHandler_ShowAddShortcutDialog_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    password_manager.mojom.PageHandler_IsAccountStorageEnabled_ParamsSpec, 'password_manager.mojom.PageHandler_IsAccountStorageEnabled_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    password_manager.mojom.PageHandler_IsAccountStorageEnabled_ResponseParamsSpec, 'password_manager.mojom.PageHandler_IsAccountStorageEnabled_ResponseParams', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    password_manager.mojom.PageHandler_SetAccountStorageEnabled_ParamsSpec, 'password_manager.mojom.PageHandler_SetAccountStorageEnabled_Params', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ParamsSpec, 'password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ResponseParamsSpec, 'password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ResponseParams', [
+      mojo.internal.StructField('should_show', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ParamsSpec, 'password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ResponseParamsSpec, 'password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ResponseParams', [
+      mojo.internal.StructField('is_available', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ParamsSpec, 'password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ResponseParamsSpec, 'password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 password_manager.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -456,291 +402,11 @@ password_manager.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ExtendAuthValidity
-password_manager.mojom.PageHandler_ExtendAuthValidity_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.PageHandler.ExtendAuthValidity_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for DeleteAllPasswordManagerData
-password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.PageHandler.DeleteAllPasswordManagerData_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.PageHandler.DeleteAllPasswordManagerData_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CopyPlaintextBackupPassword
-password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.PageHandler.CopyPlaintextBackupPassword_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.PageHandler.CopyPlaintextBackupPassword_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RemoveBackupPassword
-password_manager.mojom.PageHandler_RemoveBackupPassword_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.PageHandler.RemoveBackupPassword_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetActorLoginPermissions
-password_manager.mojom.PageHandler_GetActorLoginPermissions_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.PageHandler.GetActorLoginPermissions_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-password_manager.mojom.PageHandler_GetActorLoginPermissions_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.PageHandler.GetActorLoginPermissions_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'sites', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(password_manager.mojom.ActorLoginPermissionSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RevokeActorLoginPermission
-password_manager.mojom.PageHandler_RevokeActorLoginPermission_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.PageHandler.RevokeActorLoginPermission_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'site', packedOffset: 0, packedBitOffset: 0, type: password_manager.mojom.ActorLoginPermissionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ChangePasswordManagerPin
-password_manager.mojom.PageHandler_ChangePasswordManagerPin_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.PageHandler.ChangePasswordManagerPin_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-password_manager.mojom.PageHandler_ChangePasswordManagerPin_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.PageHandler.ChangePasswordManagerPin_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ShowAddShortcutDialog
-password_manager.mojom.PageHandler_ShowAddShortcutDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.PageHandler.ShowAddShortcutDialog_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for IsAccountStorageEnabled
-password_manager.mojom.PageHandler_IsAccountStorageEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.PageHandler.IsAccountStorageEnabled_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-password_manager.mojom.PageHandler_IsAccountStorageEnabled_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.PageHandler.IsAccountStorageEnabled_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetAccountStorageEnabled
-password_manager.mojom.PageHandler_SetAccountStorageEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.PageHandler.SetAccountStorageEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ShouldShowAccountStorageSettingToggle
-password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.PageHandler.ShouldShowAccountStorageSettingToggle_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.PageHandler.ShouldShowAccountStorageSettingToggle_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'should_show', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for IsPasswordManagerPinAvailable
-password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.PageHandler.IsPasswordManagerPinAvailable_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.PageHandler.IsPasswordManagerPinAvailable_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'is_available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SwitchBiometricAuthBeforeFillingState
-password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.PageHandler.SwitchBiometricAuthBeforeFillingState_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.PageHandler.SwitchBiometricAuthBeforeFillingState_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 password_manager.mojom.PageHandlerPtr = password_manager.mojom.PageHandlerRemote;
 password_manager.mojom.PageHandlerRequest = password_manager.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-password_manager.mojom.Page = {};
-
 password_manager.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -785,7 +451,6 @@ password_manager.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// Legacy compatibility
 password_manager.mojom.PagePtr = password_manager.mojom.PageRemote;
 password_manager.mojom.PageRequest = password_manager.mojom.PagePendingReceiver;
 

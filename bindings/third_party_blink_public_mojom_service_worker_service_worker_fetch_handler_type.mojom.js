@@ -8,6 +8,7 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.ServiceWorkerFetchHandlerTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ServiceWorkerFetchHandlerType
 blink.mojom.ServiceWorkerFetchHandlerType = {
@@ -15,4 +16,3 @@ blink.mojom.ServiceWorkerFetchHandlerType = {
   kNotSkippable: 1,
   kEmptyFetchHandler: 2,
 };
-blink.mojom.ServiceWorkerFetchHandlerTypeSpec = { $: mojo.internal.Enum() };

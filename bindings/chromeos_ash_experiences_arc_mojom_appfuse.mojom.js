@@ -8,53 +8,60 @@
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
+arc.mojom.AppfuseHost = {};
+arc.mojom.AppfuseHost.$interfaceName = 'arc.mojom.AppfuseHost';
+arc.mojom.AppfuseHost_Mount_ParamsSpec = { $: {} };
+arc.mojom.AppfuseHost_Mount_ResponseParamsSpec = { $: {} };
+arc.mojom.AppfuseHost_Unmount_ParamsSpec = { $: {} };
+arc.mojom.AppfuseHost_Unmount_ResponseParamsSpec = { $: {} };
+arc.mojom.AppfuseHost_OpenFile_ParamsSpec = { $: {} };
+arc.mojom.AppfuseHost_OpenFile_ResponseParamsSpec = { $: {} };
+arc.mojom.AppfuseInstance = {};
+arc.mojom.AppfuseInstance.$interfaceName = 'arc.mojom.AppfuseInstance';
+arc.mojom.AppfuseInstance_Init_ParamsSpec = { $: {} };
+arc.mojom.AppfuseInstance_Init_ResponseParamsSpec = { $: {} };
 
 // Interface: AppfuseHost
-arc.mojom.AppfuseHost = {};
+mojo.internal.Struct(
+    arc.mojom.AppfuseHost_Mount_ParamsSpec, 'arc.mojom.AppfuseHost_Mount_Params', [
+      mojo.internal.StructField('uid', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('mount_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.AppfuseHost_Mount_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppfuseHost_Mount_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'uid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'mount_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppfuseHost_Mount_ResponseParamsSpec, 'arc.mojom.AppfuseHost_Mount_ResponseParams', [
+      mojo.internal.StructField('fd', 0, 0, mojo.internal.Handle, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.AppfuseHost_Unmount_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppfuseHost_Unmount_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'uid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'mount_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppfuseHost_Unmount_ParamsSpec, 'arc.mojom.AppfuseHost_Unmount_Params', [
+      mojo.internal.StructField('uid', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('mount_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.AppfuseHost_OpenFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppfuseHost_OpenFile_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'uid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'mount_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'file_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'flags', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppfuseHost_Unmount_ResponseParamsSpec, 'arc.mojom.AppfuseHost_Unmount_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.AppfuseHost_OpenFile_ParamsSpec, 'arc.mojom.AppfuseHost_OpenFile_Params', [
+      mojo.internal.StructField('uid', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('mount_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('file_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('flags', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    arc.mojom.AppfuseHost_OpenFile_ResponseParamsSpec, 'arc.mojom.AppfuseHost_OpenFile_ResponseParams', [
+      mojo.internal.StructField('fd', 0, 0, mojo.internal.Handle, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.AppfuseHostPendingReceiver = class {
   constructor(handle) {
@@ -127,112 +134,21 @@ arc.mojom.AppfuseHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Mount
-arc.mojom.AppfuseHost_Mount_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppfuseHost.Mount_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'uid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'mount_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.AppfuseHost_Mount_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppfuseHost.Mount_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'fd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Unmount
-arc.mojom.AppfuseHost_Unmount_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppfuseHost.Unmount_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'uid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'mount_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.AppfuseHost_Unmount_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppfuseHost.Unmount_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OpenFile
-arc.mojom.AppfuseHost_OpenFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppfuseHost.OpenFile_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'uid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'mount_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'file_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'flags', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-arc.mojom.AppfuseHost_OpenFile_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppfuseHost.OpenFile_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'fd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.AppfuseHostPtr = arc.mojom.AppfuseHostRemote;
 arc.mojom.AppfuseHostRequest = arc.mojom.AppfuseHostPendingReceiver;
 
 
 // Interface: AppfuseInstance
-arc.mojom.AppfuseInstance = {};
+mojo.internal.Struct(
+    arc.mojom.AppfuseInstance_Init_ParamsSpec, 'arc.mojom.AppfuseInstance_Init_Params', [
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.AppfuseHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.AppfuseInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppfuseInstance_Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.AppfuseHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppfuseInstance_Init_ResponseParamsSpec, 'arc.mojom.AppfuseInstance_Init_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 arc.mojom.AppfuseInstancePendingReceiver = class {
   constructor(handle) {
@@ -271,7 +187,7 @@ arc.mojom.AppfuseInstanceRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       arc.mojom.AppfuseInstance_Init_ParamsSpec,
-      null,
+      arc.mojom.AppfuseInstance_Init_ResponseParamsSpec,
       [host_remote]);
   }
 
@@ -287,21 +203,6 @@ arc.mojom.AppfuseInstance.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Init
-arc.mojom.AppfuseInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppfuseInstance.Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.AppfuseHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.AppfuseInstancePtr = arc.mojom.AppfuseInstanceRemote;
 arc.mojom.AppfuseInstanceRequest = arc.mojom.AppfuseInstancePendingReceiver;
 

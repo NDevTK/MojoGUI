@@ -8,44 +8,42 @@
 var aim_eligibility = aim_eligibility || {};
 aim_eligibility.mojom = aim_eligibility.mojom || {};
 
+aim_eligibility.mojom.EligibilityStateSpec = { $: {} };
+aim_eligibility.mojom.Page = {};
+aim_eligibility.mojom.Page.$interfaceName = 'aim_eligibility.mojom.Page';
+aim_eligibility.mojom.Page_OnEligibilityStateChanged_ParamsSpec = { $: {} };
+aim_eligibility.mojom.PageHandler = {};
+aim_eligibility.mojom.PageHandler.$interfaceName = 'aim_eligibility.mojom.PageHandler';
+aim_eligibility.mojom.PageHandler_GetEligibilityState_ParamsSpec = { $: {} };
+aim_eligibility.mojom.PageHandler_GetEligibilityState_ResponseParamsSpec = { $: {} };
+aim_eligibility.mojom.PageHandler_RequestServerEligibilityForDebugging_ParamsSpec = { $: {} };
+aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ParamsSpec = { $: {} };
+aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ResponseParamsSpec = { $: {} };
+aim_eligibility.mojom.PageHandlerFactory = {};
+aim_eligibility.mojom.PageHandlerFactory.$interfaceName = 'aim_eligibility.mojom.PageHandlerFactory';
+aim_eligibility.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
 
 // Struct: EligibilityState
-aim_eligibility.mojom.EligibilityStateSpec = {
-  $: {
-    structSpec: {
-      name: 'aim_eligibility.mojom.EligibilityState',
-      packedSize: 48,
-      fields: [
-        { name: 'is_eligible', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_eligible_by_policy', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_eligible_by_dse', packedOffset: 32, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_eligible_by_server', packedOffset: 32, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_server_eligibility_enabled', packedOffset: 32, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'server_response_base64_encoded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'server_response_base64_url_encoded', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'server_response_source', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'last_updated', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.JSTimeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    aim_eligibility.mojom.EligibilityStateSpec, 'aim_eligibility.mojom.EligibilityState', [
+      mojo.internal.StructField('is_eligible', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_eligible_by_policy', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_eligible_by_dse', 32, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_eligible_by_server', 32, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_server_eligibility_enabled', 32, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('server_response_base64_encoded', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('server_response_base64_url_encoded', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('server_response_source', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('last_updated', 24, 0, mojo_base.mojom.JSTimeSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Interface: Page
-aim_eligibility.mojom.Page = {};
-
-aim_eligibility.mojom.Page_OnEligibilityStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'aim_eligibility.mojom.Page_OnEligibilityStateChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: aim_eligibility.mojom.EligibilityStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    aim_eligibility.mojom.Page_OnEligibilityStateChanged_ParamsSpec, 'aim_eligibility.mojom.Page_OnEligibilityStateChanged_Params', [
+      mojo.internal.StructField('state', 0, 0, aim_eligibility.mojom.EligibilityStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 aim_eligibility.mojom.PagePendingReceiver = class {
   constructor(handle) {
@@ -100,64 +98,38 @@ aim_eligibility.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnEligibilityStateChanged
-aim_eligibility.mojom.Page_OnEligibilityStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'aim_eligibility.mojom.Page.OnEligibilityStateChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: aim_eligibility.mojom.EligibilityStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 aim_eligibility.mojom.PagePtr = aim_eligibility.mojom.PageRemote;
 aim_eligibility.mojom.PageRequest = aim_eligibility.mojom.PagePendingReceiver;
 
 
 // Interface: PageHandler
-aim_eligibility.mojom.PageHandler = {};
+mojo.internal.Struct(
+    aim_eligibility.mojom.PageHandler_GetEligibilityState_ParamsSpec, 'aim_eligibility.mojom.PageHandler_GetEligibilityState_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-aim_eligibility.mojom.PageHandler_GetEligibilityState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'aim_eligibility.mojom.PageHandler_GetEligibilityState_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    aim_eligibility.mojom.PageHandler_GetEligibilityState_ResponseParamsSpec, 'aim_eligibility.mojom.PageHandler_GetEligibilityState_ResponseParams', [
+      mojo.internal.StructField('state', 0, 0, aim_eligibility.mojom.EligibilityStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-aim_eligibility.mojom.PageHandler_RequestServerEligibilityForDebugging_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'aim_eligibility.mojom.PageHandler_RequestServerEligibilityForDebugging_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    aim_eligibility.mojom.PageHandler_RequestServerEligibilityForDebugging_ParamsSpec, 'aim_eligibility.mojom.PageHandler_RequestServerEligibilityForDebugging_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'base64_encoded_response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ParamsSpec, 'aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_Params', [
+      mojo.internal.StructField('base64_encoded_response', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ResponseParamsSpec, 'aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 aim_eligibility.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -230,93 +202,17 @@ aim_eligibility.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetEligibilityState
-aim_eligibility.mojom.PageHandler_GetEligibilityState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'aim_eligibility.mojom.PageHandler.GetEligibilityState_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-aim_eligibility.mojom.PageHandler_GetEligibilityState_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'aim_eligibility.mojom.PageHandler.GetEligibilityState_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: aim_eligibility.mojom.EligibilityStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestServerEligibilityForDebugging
-aim_eligibility.mojom.PageHandler_RequestServerEligibilityForDebugging_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'aim_eligibility.mojom.PageHandler.RequestServerEligibilityForDebugging_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetEligibilityResponseForDebugging
-aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'aim_eligibility.mojom.PageHandler.SetEligibilityResponseForDebugging_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'base64_encoded_response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'aim_eligibility.mojom.PageHandler.SetEligibilityResponseForDebugging_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 aim_eligibility.mojom.PageHandlerPtr = aim_eligibility.mojom.PageHandlerRemote;
 aim_eligibility.mojom.PageHandlerRequest = aim_eligibility.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: PageHandlerFactory
-aim_eligibility.mojom.PageHandlerFactory = {};
-
-aim_eligibility.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'aim_eligibility.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(aim_eligibility.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(aim_eligibility.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    aim_eligibility.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'aim_eligibility.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(aim_eligibility.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(aim_eligibility.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 aim_eligibility.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -371,22 +267,6 @@ aim_eligibility.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-aim_eligibility.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'aim_eligibility.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(aim_eligibility.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(aim_eligibility.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 aim_eligibility.mojom.PageHandlerFactoryPtr = aim_eligibility.mojom.PageHandlerFactoryRemote;
 aim_eligibility.mojom.PageHandlerFactoryRequest = aim_eligibility.mojom.PageHandlerFactoryPendingReceiver;
 

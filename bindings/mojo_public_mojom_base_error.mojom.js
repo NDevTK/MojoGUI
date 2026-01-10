@@ -8,39 +8,33 @@
 var mojo_base = mojo_base || {};
 mojo_base.mojom = mojo_base.mojom || {};
 
+mojo_base.mojom.CodeSpec = { $: mojo.internal.Enum() };
+mojo_base.mojom.ErrorSpec = { $: {} };
 
 // Enum: Code
 mojo_base.mojom.Code = {
-  kCancelled: 0,
-  kUnknown: 1,
-  kInvalidArgument: 2,
-  kDeadlineExceeded: 3,
-  kNotFound: 4,
-  kAlreadyExists: 5,
-  kPermissionDenied: 6,
-  kResourceExhausted: 7,
-  kFailedPrecondition: 8,
-  kAborted: 9,
-  kOutOfRange: 10,
-  kUnimplemented: 11,
-  kInternal: 12,
-  kUnavailable: 13,
-  kDataLoss: 14,
-  kUnauthenticated: 15,
+  kCancelled: 1,
+  kUnknown: 2,
+  kInvalidArgument: 3,
+  kDeadlineExceeded: 4,
+  kNotFound: 5,
+  kAlreadyExists: 6,
+  kPermissionDenied: 7,
+  kResourceExhausted: 8,
+  kFailedPrecondition: 9,
+  kAborted: 10,
+  kOutOfRange: 11,
+  kUnimplemented: 12,
+  kInternal: 13,
+  kUnavailable: 14,
+  kDataLoss: 15,
+  kUnauthenticated: 16,
 };
-mojo_base.mojom.CodeSpec = { $: mojo.internal.Enum() };
 
 // Struct: Error
-mojo_base.mojom.ErrorSpec = {
-  $: {
-    structSpec: {
-      name: 'mojo_base.mojom.Error',
-      packedSize: 24,
-      fields: [
-        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.CodeSpec, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojo_base.mojom.ErrorSpec, 'mojo_base.mojom.Error', [
+      mojo.internal.StructField('code', 8, 0, mojo_base.mojom.CodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);

@@ -7,51 +7,34 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
 
+network.mojom.PinSetSpec = { $: {} };
+network.mojom.PinSetInfoSpec = { $: {} };
+network.mojom.PinListSpec = { $: {} };
 
 // Struct: PinSet
-network.mojom.PinSetSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.PinSet',
-      packedSize: 32,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'static_spki_hashes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.SHA256HashValueSpec, false), nullable: false, minVersion: 0 },
-        { name: 'bad_static_spki_hashes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.SHA256HashValueSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.PinSetSpec, 'network.mojom.PinSet', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('static_spki_hashes', 8, 0, mojo.internal.Array(network.mojom.SHA256HashValueSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('bad_static_spki_hashes', 16, 0, mojo.internal.Array(network.mojom.SHA256HashValueSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: PinSetInfo
-network.mojom.PinSetInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.PinSetInfo',
-      packedSize: 32,
-      fields: [
-        { name: 'hostname', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pinset_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'include_subdomains', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.PinSetInfoSpec, 'network.mojom.PinSetInfo', [
+      mojo.internal.StructField('hostname', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('pinset_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('include_subdomains', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: PinList
-network.mojom.PinListSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.PinList',
-      packedSize: 24,
-      fields: [
-        { name: 'pinsets', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.PinSetSpec, false), nullable: false, minVersion: 0 },
-        { name: 'host_pins', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.PinSetInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.PinListSpec, 'network.mojom.PinList', [
+      mojo.internal.StructField('pinsets', 0, 0, mojo.internal.Array(network.mojom.PinSetSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('host_pins', 8, 0, mojo.internal.Array(network.mojom.PinSetInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);

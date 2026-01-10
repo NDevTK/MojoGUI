@@ -8,74 +8,57 @@
 var content = content || {};
 content.mojom = content.mojom || {};
 
+content.mojom.ResourceTypeStatSpec = { $: {} };
+content.mojom.ResourceTypeStatsSpec = { $: {} };
+content.mojom.ResourceUsageDataSpec = { $: {} };
+content.mojom.ResourceUsageReporter = {};
+content.mojom.ResourceUsageReporter.$interfaceName = 'content.mojom.ResourceUsageReporter';
+content.mojom.ResourceUsageReporter_GetUsageData_ParamsSpec = { $: {} };
+content.mojom.ResourceUsageReporter_GetUsageData_ResponseParamsSpec = { $: {} };
 
 // Struct: ResourceTypeStat
-content.mojom.ResourceTypeStatSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ResourceTypeStat',
-      packedSize: 40,
-      fields: [
-        { name: 'count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'live_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'decoded_size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.ResourceTypeStatSpec, 'content.mojom.ResourceTypeStat', [
+      mojo.internal.StructField('count', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('size', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('live_size', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('decoded_size', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: ResourceTypeStats
-content.mojom.ResourceTypeStatsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ResourceTypeStats',
-      packedSize: 56,
-      fields: [
-        { name: 'images', packedOffset: 0, packedBitOffset: 0, type: content.mojom.ResourceTypeStatSpec, nullable: false, minVersion: 0 },
-        { name: 'css_style_sheets', packedOffset: 8, packedBitOffset: 0, type: content.mojom.ResourceTypeStatSpec, nullable: false, minVersion: 0 },
-        { name: 'scripts', packedOffset: 16, packedBitOffset: 0, type: content.mojom.ResourceTypeStatSpec, nullable: false, minVersion: 0 },
-        { name: 'xsl_style_sheets', packedOffset: 24, packedBitOffset: 0, type: content.mojom.ResourceTypeStatSpec, nullable: false, minVersion: 0 },
-        { name: 'fonts', packedOffset: 32, packedBitOffset: 0, type: content.mojom.ResourceTypeStatSpec, nullable: false, minVersion: 0 },
-        { name: 'other', packedOffset: 40, packedBitOffset: 0, type: content.mojom.ResourceTypeStatSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.ResourceTypeStatsSpec, 'content.mojom.ResourceTypeStats', [
+      mojo.internal.StructField('images', 0, 0, content.mojom.ResourceTypeStatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('css_style_sheets', 8, 0, content.mojom.ResourceTypeStatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scripts', 16, 0, content.mojom.ResourceTypeStatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('xsl_style_sheets', 24, 0, content.mojom.ResourceTypeStatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('fonts', 32, 0, content.mojom.ResourceTypeStatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('other', 40, 0, content.mojom.ResourceTypeStatSpec, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Struct: ResourceUsageData
-content.mojom.ResourceUsageDataSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ResourceUsageData',
-      packedSize: 40,
-      fields: [
-        { name: 'reports_v8_stats', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'v8_bytes_allocated', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'v8_bytes_used', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'web_cache_stats', packedOffset: 16, packedBitOffset: 0, type: content.mojom.ResourceTypeStatsSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.ResourceUsageDataSpec, 'content.mojom.ResourceUsageData', [
+      mojo.internal.StructField('reports_v8_stats', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('v8_bytes_allocated', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('v8_bytes_used', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('web_cache_stats', 16, 0, content.mojom.ResourceTypeStatsSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Interface: ResourceUsageReporter
-content.mojom.ResourceUsageReporter = {};
+mojo.internal.Struct(
+    content.mojom.ResourceUsageReporter_GetUsageData_ParamsSpec, 'content.mojom.ResourceUsageReporter_GetUsageData_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.ResourceUsageReporter_GetUsageData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ResourceUsageReporter_GetUsageData_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.ResourceUsageReporter_GetUsageData_ResponseParamsSpec, 'content.mojom.ResourceUsageReporter_GetUsageData_ResponseParams', [
+      mojo.internal.StructField('data', 0, 0, content.mojom.ResourceUsageDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 content.mojom.ResourceUsageReporterPendingReceiver = class {
   constructor(handle) {
@@ -130,33 +113,6 @@ content.mojom.ResourceUsageReporter.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetUsageData
-content.mojom.ResourceUsageReporter_GetUsageData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ResourceUsageReporter.GetUsageData_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-content.mojom.ResourceUsageReporter_GetUsageData_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ResourceUsageReporter.GetUsageData_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: content.mojom.ResourceUsageDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 content.mojom.ResourceUsageReporterPtr = content.mojom.ResourceUsageReporterRemote;
 content.mojom.ResourceUsageReporterRequest = content.mojom.ResourceUsageReporterPendingReceiver;
 

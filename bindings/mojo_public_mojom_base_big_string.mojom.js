@@ -8,17 +8,11 @@
 var mojo_base = mojo_base || {};
 mojo_base.mojom = mojo_base.mojom || {};
 
+mojo_base.mojom.BigStringSpec = { $: {} };
 
 // Struct: BigString
-mojo_base.mojom.BigStringSpec = {
-  $: {
-    structSpec: {
-      name: 'mojo_base.mojom.BigString',
-      packedSize: 24,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojo_base.mojom.BigStringSpec, 'mojo_base.mojom.BigString', [
+      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);

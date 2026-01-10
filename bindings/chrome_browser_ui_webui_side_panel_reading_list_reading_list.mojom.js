@@ -10,6 +10,32 @@ reading_list.mojom = reading_list.mojom || {};
 var ui = ui || {};
 var url = url || {};
 
+reading_list.mojom.CurrentPageActionButtonStateSpec = { $: mojo.internal.Enum() };
+reading_list.mojom.ReadLaterEntriesByStatusSpec = { $: {} };
+reading_list.mojom.ReadLaterEntrySpec = { $: {} };
+reading_list.mojom.WindowSpec = { $: {} };
+reading_list.mojom.PageHandlerFactory = {};
+reading_list.mojom.PageHandlerFactory.$interfaceName = 'reading_list.mojom.PageHandlerFactory';
+reading_list.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+reading_list.mojom.PageHandler = {};
+reading_list.mojom.PageHandler.$interfaceName = 'reading_list.mojom.PageHandler';
+reading_list.mojom.PageHandler_GetReadLaterEntries_ParamsSpec = { $: {} };
+reading_list.mojom.PageHandler_GetReadLaterEntries_ResponseParamsSpec = { $: {} };
+reading_list.mojom.PageHandler_OpenURL_ParamsSpec = { $: {} };
+reading_list.mojom.PageHandler_UpdateReadStatus_ParamsSpec = { $: {} };
+reading_list.mojom.PageHandler_MarkCurrentTabAsRead_ParamsSpec = { $: {} };
+reading_list.mojom.PageHandler_AddCurrentTab_ParamsSpec = { $: {} };
+reading_list.mojom.PageHandler_RemoveEntry_ParamsSpec = { $: {} };
+reading_list.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec = { $: {} };
+reading_list.mojom.PageHandler_UpdateCurrentPageActionButtonState_ParamsSpec = { $: {} };
+reading_list.mojom.PageHandler_ShowUI_ParamsSpec = { $: {} };
+reading_list.mojom.PageHandler_CloseUI_ParamsSpec = { $: {} };
+reading_list.mojom.PageHandler_GetWindowData_ParamsSpec = { $: {} };
+reading_list.mojom.PageHandler_GetWindowData_ResponseParamsSpec = { $: {} };
+reading_list.mojom.Page = {};
+reading_list.mojom.Page.$interfaceName = 'reading_list.mojom.Page';
+reading_list.mojom.Page_ItemsChanged_ParamsSpec = { $: {} };
+reading_list.mojom.Page_CurrentPageActionButtonStateChanged_ParamsSpec = { $: {} };
 
 // Enum: CurrentPageActionButtonState
 reading_list.mojom.CurrentPageActionButtonState = {
@@ -17,73 +43,42 @@ reading_list.mojom.CurrentPageActionButtonState = {
   kDisabled: 1,
   kMarkAsRead: 2,
 };
-reading_list.mojom.CurrentPageActionButtonStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: ReadLaterEntriesByStatus
-reading_list.mojom.ReadLaterEntriesByStatusSpec = {
-  $: {
-    structSpec: {
-      name: 'reading_list.mojom.ReadLaterEntriesByStatus',
-      packedSize: 24,
-      fields: [
-        { name: 'unread_entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(reading_list.mojom.ReadLaterEntrySpec, false), nullable: false, minVersion: 0 },
-        { name: 'read_entries', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(reading_list.mojom.ReadLaterEntrySpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    reading_list.mojom.ReadLaterEntriesByStatusSpec, 'reading_list.mojom.ReadLaterEntriesByStatus', [
+      mojo.internal.StructField('unread_entries', 0, 0, mojo.internal.Array(reading_list.mojom.ReadLaterEntrySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('read_entries', 8, 0, mojo.internal.Array(reading_list.mojom.ReadLaterEntrySpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: ReadLaterEntry
-reading_list.mojom.ReadLaterEntrySpec = {
-  $: {
-    structSpec: {
-      name: 'reading_list.mojom.ReadLaterEntry',
-      packedSize: 56,
-      fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'display_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'update_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'read', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'display_time_since_update', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    reading_list.mojom.ReadLaterEntrySpec, 'reading_list.mojom.ReadLaterEntry', [
+      mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('display_url', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('update_time', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('read', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('display_time_since_update', 32, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Struct: Window
-reading_list.mojom.WindowSpec = {
-  $: {
-    structSpec: {
-      name: 'reading_list.mojom.Window',
-      packedSize: 16,
-      fields: [
-        { name: 'active', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'height', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    reading_list.mojom.WindowSpec, 'reading_list.mojom.Window', [
+      mojo.internal.StructField('active', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('height', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: PageHandlerFactory
-reading_list.mojom.PageHandlerFactory = {};
-
-reading_list.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'reading_list.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(reading_list.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(reading_list.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    reading_list.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'reading_list.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(reading_list.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(reading_list.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 reading_list.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -138,169 +133,86 @@ reading_list.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-reading_list.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'reading_list.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(reading_list.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(reading_list.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 reading_list.mojom.PageHandlerFactoryPtr = reading_list.mojom.PageHandlerFactoryRemote;
 reading_list.mojom.PageHandlerFactoryRequest = reading_list.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-reading_list.mojom.PageHandler = {};
+mojo.internal.Struct(
+    reading_list.mojom.PageHandler_GetReadLaterEntries_ParamsSpec, 'reading_list.mojom.PageHandler_GetReadLaterEntries_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-reading_list.mojom.PageHandler_GetReadLaterEntries_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'reading_list.mojom.PageHandler_GetReadLaterEntries_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    reading_list.mojom.PageHandler_GetReadLaterEntries_ResponseParamsSpec, 'reading_list.mojom.PageHandler_GetReadLaterEntries_ResponseParams', [
+      mojo.internal.StructField('entries', 0, 0, reading_list.mojom.ReadLaterEntriesByStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-reading_list.mojom.PageHandler_OpenURL_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'reading_list.mojom.PageHandler_OpenURL_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'mark_as_read', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'click_modifiers', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.ClickModifiersSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    reading_list.mojom.PageHandler_OpenURL_ParamsSpec, 'reading_list.mojom.PageHandler_OpenURL_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mark_as_read', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('click_modifiers', 8, 0, ui.mojom.ClickModifiersSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-reading_list.mojom.PageHandler_UpdateReadStatus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'reading_list.mojom.PageHandler_UpdateReadStatus_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'read', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    reading_list.mojom.PageHandler_UpdateReadStatus_ParamsSpec, 'reading_list.mojom.PageHandler_UpdateReadStatus_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('read', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-reading_list.mojom.PageHandler_MarkCurrentTabAsRead_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'reading_list.mojom.PageHandler_MarkCurrentTabAsRead_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    reading_list.mojom.PageHandler_MarkCurrentTabAsRead_ParamsSpec, 'reading_list.mojom.PageHandler_MarkCurrentTabAsRead_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-reading_list.mojom.PageHandler_AddCurrentTab_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'reading_list.mojom.PageHandler_AddCurrentTab_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    reading_list.mojom.PageHandler_AddCurrentTab_ParamsSpec, 'reading_list.mojom.PageHandler_AddCurrentTab_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-reading_list.mojom.PageHandler_RemoveEntry_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'reading_list.mojom.PageHandler_RemoveEntry_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    reading_list.mojom.PageHandler_RemoveEntry_ParamsSpec, 'reading_list.mojom.PageHandler_RemoveEntry_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-reading_list.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'reading_list.mojom.PageHandler_ShowContextMenuForURL_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'y', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    reading_list.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec, 'reading_list.mojom.PageHandler_ShowContextMenuForURL_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('x', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('y', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-reading_list.mojom.PageHandler_UpdateCurrentPageActionButtonState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'reading_list.mojom.PageHandler_UpdateCurrentPageActionButtonState_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    reading_list.mojom.PageHandler_UpdateCurrentPageActionButtonState_ParamsSpec, 'reading_list.mojom.PageHandler_UpdateCurrentPageActionButtonState_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-reading_list.mojom.PageHandler_ShowUI_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'reading_list.mojom.PageHandler_ShowUI_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    reading_list.mojom.PageHandler_ShowUI_ParamsSpec, 'reading_list.mojom.PageHandler_ShowUI_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-reading_list.mojom.PageHandler_CloseUI_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'reading_list.mojom.PageHandler_CloseUI_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    reading_list.mojom.PageHandler_CloseUI_ParamsSpec, 'reading_list.mojom.PageHandler_CloseUI_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-reading_list.mojom.PageHandler_GetWindowData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'reading_list.mojom.PageHandler_GetWindowData_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    reading_list.mojom.PageHandler_GetWindowData_ParamsSpec, 'reading_list.mojom.PageHandler_GetWindowData_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    reading_list.mojom.PageHandler_GetWindowData_ResponseParamsSpec, 'reading_list.mojom.PageHandler_GetWindowData_ResponseParams', [
+      mojo.internal.StructField('windows', 0, 0, mojo.internal.Array(reading_list.mojom.WindowSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 reading_list.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -445,217 +357,22 @@ reading_list.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetReadLaterEntries
-reading_list.mojom.PageHandler_GetReadLaterEntries_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'reading_list.mojom.PageHandler.GetReadLaterEntries_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-reading_list.mojom.PageHandler_GetReadLaterEntries_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'reading_list.mojom.PageHandler.GetReadLaterEntries_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: reading_list.mojom.ReadLaterEntriesByStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OpenURL
-reading_list.mojom.PageHandler_OpenURL_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'reading_list.mojom.PageHandler.OpenURL_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'mark_as_read', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'click_modifiers', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.ClickModifiersSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateReadStatus
-reading_list.mojom.PageHandler_UpdateReadStatus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'reading_list.mojom.PageHandler.UpdateReadStatus_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'read', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for MarkCurrentTabAsRead
-reading_list.mojom.PageHandler_MarkCurrentTabAsRead_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'reading_list.mojom.PageHandler.MarkCurrentTabAsRead_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for AddCurrentTab
-reading_list.mojom.PageHandler_AddCurrentTab_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'reading_list.mojom.PageHandler.AddCurrentTab_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for RemoveEntry
-reading_list.mojom.PageHandler_RemoveEntry_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'reading_list.mojom.PageHandler.RemoveEntry_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ShowContextMenuForURL
-reading_list.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'reading_list.mojom.PageHandler.ShowContextMenuForURL_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'y', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateCurrentPageActionButtonState
-reading_list.mojom.PageHandler_UpdateCurrentPageActionButtonState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'reading_list.mojom.PageHandler.UpdateCurrentPageActionButtonState_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for ShowUI
-reading_list.mojom.PageHandler_ShowUI_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'reading_list.mojom.PageHandler.ShowUI_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for CloseUI
-reading_list.mojom.PageHandler_CloseUI_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'reading_list.mojom.PageHandler.CloseUI_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for GetWindowData
-reading_list.mojom.PageHandler_GetWindowData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'reading_list.mojom.PageHandler.GetWindowData_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-reading_list.mojom.PageHandler_GetWindowData_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'reading_list.mojom.PageHandler.GetWindowData_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'windows', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(reading_list.mojom.WindowSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 reading_list.mojom.PageHandlerPtr = reading_list.mojom.PageHandlerRemote;
 reading_list.mojom.PageHandlerRequest = reading_list.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-reading_list.mojom.Page = {};
+mojo.internal.Struct(
+    reading_list.mojom.Page_ItemsChanged_ParamsSpec, 'reading_list.mojom.Page_ItemsChanged_Params', [
+      mojo.internal.StructField('entries', 0, 0, reading_list.mojom.ReadLaterEntriesByStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-reading_list.mojom.Page_ItemsChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'reading_list.mojom.Page_ItemsChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: reading_list.mojom.ReadLaterEntriesByStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-reading_list.mojom.Page_CurrentPageActionButtonStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'reading_list.mojom.Page_CurrentPageActionButtonStateChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: reading_list.mojom.CurrentPageActionButtonStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    reading_list.mojom.Page_CurrentPageActionButtonStateChanged_ParamsSpec, 'reading_list.mojom.Page_CurrentPageActionButtonStateChanged_Params', [
+      mojo.internal.StructField('state', 0, 0, reading_list.mojom.CurrentPageActionButtonStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 reading_list.mojom.PagePendingReceiver = class {
   constructor(handle) {
@@ -719,35 +436,6 @@ reading_list.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ItemsChanged
-reading_list.mojom.Page_ItemsChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'reading_list.mojom.Page.ItemsChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: reading_list.mojom.ReadLaterEntriesByStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CurrentPageActionButtonStateChanged
-reading_list.mojom.Page_CurrentPageActionButtonStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'reading_list.mojom.Page.CurrentPageActionButtonStateChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: reading_list.mojom.CurrentPageActionButtonStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 reading_list.mojom.PagePtr = reading_list.mojom.PageRemote;
 reading_list.mojom.PageRequest = reading_list.mojom.PagePendingReceiver;
 

@@ -13,23 +13,24 @@ var gfx = gfx || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+chromecast.media.mojom.VideoGeometryChangeClient = {};
+chromecast.media.mojom.VideoGeometryChangeClient.$interfaceName = 'chromecast.media.mojom.VideoGeometryChangeClient';
+chromecast.media.mojom.VideoGeometryChangeClient_OnVideoGeometryChange_ParamsSpec = { $: {} };
+chromecast.media.mojom.VideoGeometryChangeSubscriber = {};
+chromecast.media.mojom.VideoGeometryChangeSubscriber.$interfaceName = 'chromecast.media.mojom.VideoGeometryChangeSubscriber';
+chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ParamsSpec = { $: {} };
+chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ResponseParamsSpec = { $: {} };
+chromecast.media.mojom.VideoGeometrySetter = {};
+chromecast.media.mojom.VideoGeometrySetter.$interfaceName = 'chromecast.media.mojom.VideoGeometrySetter';
+chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_ParamsSpec = { $: {} };
 
 // Interface: VideoGeometryChangeClient
-chromecast.media.mojom.VideoGeometryChangeClient = {};
-
-chromecast.media.mojom.VideoGeometryChangeClient_OnVideoGeometryChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.media.mojom.VideoGeometryChangeClient_OnVideoGeometryChange_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'rect_f', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
-        { name: 'transform', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.OverlayTransformSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.media.mojom.VideoGeometryChangeClient_OnVideoGeometryChange_ParamsSpec, 'chromecast.media.mojom.VideoGeometryChangeClient_OnVideoGeometryChange_Params', [
+      mojo.internal.StructField('rect_f', 0, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('transform', 8, 0, gfx.mojom.OverlayTransformSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 chromecast.media.mojom.VideoGeometryChangeClientPendingReceiver = class {
   constructor(handle) {
@@ -84,42 +85,22 @@ chromecast.media.mojom.VideoGeometryChangeClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnVideoGeometryChange
-chromecast.media.mojom.VideoGeometryChangeClient_OnVideoGeometryChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.media.mojom.VideoGeometryChangeClient.OnVideoGeometryChange_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'rect_f', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
-        { name: 'transform', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.OverlayTransformSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromecast.media.mojom.VideoGeometryChangeClientPtr = chromecast.media.mojom.VideoGeometryChangeClientRemote;
 chromecast.media.mojom.VideoGeometryChangeClientRequest = chromecast.media.mojom.VideoGeometryChangeClientPendingReceiver;
 
 
 // Interface: VideoGeometryChangeSubscriber
-chromecast.media.mojom.VideoGeometryChangeSubscriber = {};
+mojo.internal.Struct(
+    chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ParamsSpec, 'chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_Params', [
+      mojo.internal.StructField('overlay_plane_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('client_pending_remote', 8, 0, mojo.internal.InterfaceProxy(chromecast.media.mojom.VideoGeometryChangeClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'overlay_plane_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'client_pending_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.media.mojom.VideoGeometryChangeClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ResponseParamsSpec, 'chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 chromecast.media.mojom.VideoGeometryChangeSubscriberPendingReceiver = class {
   constructor(handle) {
@@ -158,7 +139,7 @@ chromecast.media.mojom.VideoGeometryChangeSubscriberRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ParamsSpec,
-      null,
+      chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ResponseParamsSpec,
       [overlay_plane_id, client_pending_remote]);
   }
 
@@ -174,43 +155,18 @@ chromecast.media.mojom.VideoGeometryChangeSubscriber.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SubscribeToVideoGeometryChange
-chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.media.mojom.VideoGeometryChangeSubscriber.SubscribeToVideoGeometryChange_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'overlay_plane_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'client_pending_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.media.mojom.VideoGeometryChangeClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromecast.media.mojom.VideoGeometryChangeSubscriberPtr = chromecast.media.mojom.VideoGeometryChangeSubscriberRemote;
 chromecast.media.mojom.VideoGeometryChangeSubscriberRequest = chromecast.media.mojom.VideoGeometryChangeSubscriberPendingReceiver;
 
 
 // Interface: VideoGeometrySetter
-chromecast.media.mojom.VideoGeometrySetter = {};
-
-chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'rect_f', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
-        { name: 'transform', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.OverlayTransformSpec, nullable: false, minVersion: 0 },
-        { name: 'overlay_plane_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_ParamsSpec, 'chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_Params', [
+      mojo.internal.StructField('rect_f', 0, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('transform', 16, 0, gfx.mojom.OverlayTransformSpec, null, false, 0, undefined),
+      mojo.internal.StructField('overlay_plane_id', 8, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 chromecast.media.mojom.VideoGeometrySetterPendingReceiver = class {
   constructor(handle) {
@@ -265,23 +221,6 @@ chromecast.media.mojom.VideoGeometrySetter.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetVideoGeometry
-chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.media.mojom.VideoGeometrySetter.SetVideoGeometry_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'rect_f', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
-        { name: 'transform', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.OverlayTransformSpec, nullable: false, minVersion: 0 },
-        { name: 'overlay_plane_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromecast.media.mojom.VideoGeometrySetterPtr = chromecast.media.mojom.VideoGeometrySetterRemote;
 chromecast.media.mojom.VideoGeometrySetterRequest = chromecast.media.mojom.VideoGeometrySetterPendingReceiver;
 

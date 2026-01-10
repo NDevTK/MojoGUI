@@ -8,17 +8,11 @@
 var sharing = sharing || {};
 sharing.mojom = sharing.mojom || {};
 
+sharing.mojom.TcpServerSocketPortSpec = { $: {} };
 
 // Struct: TcpServerSocketPort
-sharing.mojom.TcpServerSocketPortSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.TcpServerSocketPort',
-      packedSize: 16,
-      fields: [
-        { name: 'port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    sharing.mojom.TcpServerSocketPortSpec, 'sharing.mojom.TcpServerSocketPort', [
+      mojo.internal.StructField('port', 0, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);

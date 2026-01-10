@@ -7,8 +7,14 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 var url = url || {};
 
+network.mojom.IsolationInfoRequestTypeSpec = { $: mojo.internal.Enum() };
+network.mojom.IsolationInfoFrameAncestorRelationSpec = { $: mojo.internal.Enum() };
+network.mojom.IsolationInfoSpec = { $: {} };
 
 // Enum: IsolationInfoRequestType
 network.mojom.IsolationInfoRequestType = {
@@ -16,7 +22,6 @@ network.mojom.IsolationInfoRequestType = {
   kSubFrame: 1,
   kOther: 2,
 };
-network.mojom.IsolationInfoRequestTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: IsolationInfoFrameAncestorRelation
 network.mojom.IsolationInfoFrameAncestorRelation = {
@@ -24,24 +29,16 @@ network.mojom.IsolationInfoFrameAncestorRelation = {
   kSameSite: 1,
   kCrossSite: 2,
 };
-network.mojom.IsolationInfoFrameAncestorRelationSpec = { $: mojo.internal.Enum() };
 
 // Struct: IsolationInfo
-network.mojom.IsolationInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.IsolationInfo',
-      packedSize: 56,
-      fields: [
-        { name: 'request_type', packedOffset: 32, packedBitOffset: 0, type: network.mojom.IsolationInfoRequestTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'top_frame_origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true, minVersion: 0 },
-        { name: 'frame_origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true, minVersion: 0 },
-        { name: 'nonce', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
-        { name: 'site_for_cookies', packedOffset: 24, packedBitOffset: 0, type: network.mojom.SiteForCookiesSpec, nullable: false, minVersion: 0 },
-        { name: 'network_isolation_partition', packedOffset: 36, packedBitOffset: 0, type: network.mojom.NetworkIsolationPartitionSpec, nullable: false, minVersion: 0 },
-        { name: 'frame_ancestor_relation', packedOffset: 40, packedBitOffset: 0, type: network.mojom.IsolationInfoFrameAncestorRelationSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.IsolationInfoSpec, 'network.mojom.IsolationInfo', [
+      mojo.internal.StructField('request_type', 32, 0, network.mojom.IsolationInfoRequestTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('top_frame_origin', 0, 0, url.mojom.OriginSpec, null, true, 0, undefined),
+      mojo.internal.StructField('frame_origin', 8, 0, url.mojom.OriginSpec, null, true, 0, undefined),
+      mojo.internal.StructField('nonce', 16, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('site_for_cookies', 24, 0, network.mojom.SiteForCookiesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('network_isolation_partition', 36, 0, network.mojom.NetworkIsolationPartitionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame_ancestor_relation', 40, 0, network.mojom.IsolationInfoFrameAncestorRelationSpec, null, true, 0, undefined),
+    ],
+    [[0, 56]]);

@@ -7,19 +7,14 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
 
+network.mojom.IPEndPointSpec = { $: {} };
 
 // Struct: IPEndPoint
-network.mojom.IPEndPointSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.IPEndPoint',
-      packedSize: 24,
-      fields: [
-        { name: 'address', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false, minVersion: 0 },
-        { name: 'port', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.IPEndPointSpec, 'network.mojom.IPEndPoint', [
+      mojo.internal.StructField('address', 0, 0, network.mojom.IPAddressSpec, null, false, 0, undefined),
+      mojo.internal.StructField('port', 8, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);

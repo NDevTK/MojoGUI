@@ -8,24 +8,18 @@
 var skia = skia || {};
 skia.mojom = skia.mojom || {};
 
+skia.mojom.SkColorSpacePrimariesSpec = { $: {} };
 
 // Struct: SkColorSpacePrimaries
-skia.mojom.SkColorSpacePrimariesSpec = {
-  $: {
-    structSpec: {
-      name: 'skia.mojom.SkColorSpacePrimaries',
-      packedSize: 40,
-      fields: [
-        { name: 'rX', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'rY', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'gX', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'gY', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'bX', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'bY', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'wX', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'wY', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    skia.mojom.SkColorSpacePrimariesSpec, 'skia.mojom.SkColorSpacePrimaries', [
+      mojo.internal.StructField('rX', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('rY', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('gX', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('gY', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('bX', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('bY', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('wX', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('wY', 28, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);

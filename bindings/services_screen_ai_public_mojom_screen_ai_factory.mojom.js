@@ -7,23 +7,25 @@
 // Module namespace
 var screen_ai = screen_ai || {};
 screen_ai.mojom = screen_ai.mojom || {};
+var services = services || {};
 var ui = ui || {};
 
+screen_ai.mojom.ScreenAIServiceShutdownHandler = {};
+screen_ai.mojom.ScreenAIServiceShutdownHandler.$interfaceName = 'screen_ai.mojom.ScreenAIServiceShutdownHandler';
+screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec = { $: {} };
+screen_ai.mojom.ScreenAIServiceFactory = {};
+screen_ai.mojom.ScreenAIServiceFactory.$interfaceName = 'screen_ai.mojom.ScreenAIServiceFactory';
+screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec = { $: {} };
+screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ResponseParamsSpec = { $: {} };
+screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpec = { $: {} };
+screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ResponseParamsSpec = { $: {} };
+screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec = { $: {} };
 
 // Interface: ScreenAIServiceShutdownHandler
-screen_ai.mojom.ScreenAIServiceShutdownHandler = {};
-
-screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec, 'screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 screen_ai.mojom.ScreenAIServiceShutdownHandlerPendingReceiver = class {
   constructor(handle) {
@@ -78,69 +80,44 @@ screen_ai.mojom.ScreenAIServiceShutdownHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ShuttingDownOnIdle
-screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'screen_ai.mojom.ScreenAIServiceShutdownHandler.ShuttingDownOnIdle_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 screen_ai.mojom.ScreenAIServiceShutdownHandlerPtr = screen_ai.mojom.ScreenAIServiceShutdownHandlerRemote;
 screen_ai.mojom.ScreenAIServiceShutdownHandlerRequest = screen_ai.mojom.ScreenAIServiceShutdownHandlerPendingReceiver;
 
 
 // Interface: ScreenAIServiceFactory
-screen_ai.mojom.ScreenAIServiceFactory = {};
+mojo.internal.Struct(
+    screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec, 'screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_Params', [
+      mojo.internal.StructField('library_path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('model_files', 8, 0, mojo.internal.Map(mojo_base.mojom.RelativeFilePathSpec, mojo_base.mojom.ReadOnlyFileSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('ocr_service_receiver', 16, 0, mojo.internal.InterfaceRequest(screen_ai.mojom.OCRServiceRemote), null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
-screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'library_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'model_files', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo_base.mojom.RelativeFilePathSpec, mojo_base.mojom.ReadOnlyFileSpec, false), nullable: false, minVersion: 0 },
-        { name: 'ocr_service_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(screen_ai.mojom.OCRServiceRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ResponseParamsSpec, 'screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ResponseParams', [
+      mojo.internal.StructField('initialized', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'library_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'model_files', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo_base.mojom.RelativeFilePathSpec, mojo_base.mojom.ReadOnlyFileSpec, false), nullable: false, minVersion: 0 },
-        { name: 'main_content_extractor_service', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(screen_ai.mojom.MainContentExtractionServiceRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpec, 'screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_Params', [
+      mojo.internal.StructField('library_path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('model_files', 8, 0, mojo.internal.Map(mojo_base.mojom.RelativeFilePathSpec, mojo_base.mojom.ReadOnlyFileSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('main_content_extractor_service', 16, 0, mojo.internal.InterfaceRequest(screen_ai.mojom.MainContentExtractionServiceRemote), null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
-screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'shutdown_handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(screen_ai.mojom.ScreenAIServiceShutdownHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ResponseParamsSpec, 'screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ResponseParams', [
+      mojo.internal.StructField('initialized', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec, 'screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_Params', [
+      mojo.internal.StructField('shutdown_handler', 0, 0, mojo.internal.InterfaceProxy(screen_ai.mojom.ScreenAIServiceShutdownHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 screen_ai.mojom.ScreenAIServiceFactoryPendingReceiver = class {
   constructor(handle) {
@@ -213,79 +190,6 @@ screen_ai.mojom.ScreenAIServiceFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for InitializeOCR
-screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'screen_ai.mojom.ScreenAIServiceFactory.InitializeOCR_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'library_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'model_files', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo_base.mojom.RelativeFilePathSpec, mojo_base.mojom.ReadOnlyFileSpec, false), nullable: false, minVersion: 0 },
-        { name: 'ocr_service_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(screen_ai.mojom.OCRServiceRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'screen_ai.mojom.ScreenAIServiceFactory.InitializeOCR_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'initialized', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for InitializeMainContentExtraction
-screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'screen_ai.mojom.ScreenAIServiceFactory.InitializeMainContentExtraction_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'library_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'model_files', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo_base.mojom.RelativeFilePathSpec, mojo_base.mojom.ReadOnlyFileSpec, false), nullable: false, minVersion: 0 },
-        { name: 'main_content_extractor_service', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(screen_ai.mojom.MainContentExtractionServiceRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'screen_ai.mojom.ScreenAIServiceFactory.InitializeMainContentExtraction_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'initialized', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindShutdownHandler
-screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'screen_ai.mojom.ScreenAIServiceFactory.BindShutdownHandler_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'shutdown_handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(screen_ai.mojom.ScreenAIServiceShutdownHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 screen_ai.mojom.ScreenAIServiceFactoryPtr = screen_ai.mojom.ScreenAIServiceFactoryRemote;
 screen_ai.mojom.ScreenAIServiceFactoryRequest = screen_ai.mojom.ScreenAIServiceFactoryPendingReceiver;
 

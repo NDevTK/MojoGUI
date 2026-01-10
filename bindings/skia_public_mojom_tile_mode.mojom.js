@@ -8,6 +8,7 @@
 var skia = skia || {};
 skia.mojom = skia.mojom || {};
 
+skia.mojom.TileModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: TileMode
 skia.mojom.TileMode = {
@@ -16,4 +17,3 @@ skia.mojom.TileMode = {
   MIRROR: 2,
   DECAL: 3,
 };
-skia.mojom.TileModeSpec = { $: mojo.internal.Enum() };

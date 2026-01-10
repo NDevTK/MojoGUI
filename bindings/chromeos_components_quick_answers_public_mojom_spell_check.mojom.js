@@ -8,22 +8,27 @@
 var quick_answers = quick_answers || {};
 quick_answers.mojom = quick_answers.mojom || {};
 
+quick_answers.mojom.SpellCheckService = {};
+quick_answers.mojom.SpellCheckService.$interfaceName = 'quick_answers.mojom.SpellCheckService';
+quick_answers.mojom.SpellCheckService_CreateDictionary_ParamsSpec = { $: {} };
+quick_answers.mojom.SpellCheckService_CreateDictionary_ResponseParamsSpec = { $: {} };
+quick_answers.mojom.SpellCheckDictionary = {};
+quick_answers.mojom.SpellCheckDictionary.$interfaceName = 'quick_answers.mojom.SpellCheckDictionary';
+quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ParamsSpec = { $: {} };
+quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ResponseParamsSpec = { $: {} };
 
 // Interface: SpellCheckService
-quick_answers.mojom.SpellCheckService = {};
+mojo.internal.Struct(
+    quick_answers.mojom.SpellCheckService_CreateDictionary_ParamsSpec, 'quick_answers.mojom.SpellCheckService_CreateDictionary_Params', [
+      mojo.internal.StructField('dictionary_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-quick_answers.mojom.SpellCheckService_CreateDictionary_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'quick_answers.mojom.SpellCheckService_CreateDictionary_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'dictionary_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    quick_answers.mojom.SpellCheckService_CreateDictionary_ResponseParamsSpec, 'quick_answers.mojom.SpellCheckService_CreateDictionary_ResponseParams', [
+      mojo.internal.StructField('dictionary', 0, 0, mojo.internal.InterfaceProxy(quick_answers.mojom.SpellCheckDictionaryRemote), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 quick_answers.mojom.SpellCheckServicePendingReceiver = class {
   constructor(handle) {
@@ -78,53 +83,22 @@ quick_answers.mojom.SpellCheckService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateDictionary
-quick_answers.mojom.SpellCheckService_CreateDictionary_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'quick_answers.mojom.SpellCheckService.CreateDictionary_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'dictionary_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-quick_answers.mojom.SpellCheckService_CreateDictionary_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'quick_answers.mojom.SpellCheckService.CreateDictionary_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'dictionary', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(quick_answers.mojom.SpellCheckDictionaryRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 quick_answers.mojom.SpellCheckServicePtr = quick_answers.mojom.SpellCheckServiceRemote;
 quick_answers.mojom.SpellCheckServiceRequest = quick_answers.mojom.SpellCheckServicePendingReceiver;
 
 
 // Interface: SpellCheckDictionary
-quick_answers.mojom.SpellCheckDictionary = {};
+mojo.internal.Struct(
+    quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ParamsSpec, 'quick_answers.mojom.SpellCheckDictionary_CheckSpelling_Params', [
+      mojo.internal.StructField('word', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'quick_answers.mojom.SpellCheckDictionary_CheckSpelling_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'word', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ResponseParamsSpec, 'quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ResponseParams', [
+      mojo.internal.StructField('correctness', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 quick_answers.mojom.SpellCheckDictionaryPendingReceiver = class {
   constructor(handle) {
@@ -179,34 +153,6 @@ quick_answers.mojom.SpellCheckDictionary.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CheckSpelling
-quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'quick_answers.mojom.SpellCheckDictionary.CheckSpelling_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'word', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'quick_answers.mojom.SpellCheckDictionary.CheckSpelling_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'correctness', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 quick_answers.mojom.SpellCheckDictionaryPtr = quick_answers.mojom.SpellCheckDictionaryRemote;
 quick_answers.mojom.SpellCheckDictionaryRequest = quick_answers.mojom.SpellCheckDictionaryPendingReceiver;
 

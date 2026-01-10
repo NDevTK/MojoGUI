@@ -8,96 +8,66 @@
 var payments = payments || {};
 payments.mojom = payments.mojom || {};
 
+payments.mojom.PaymentAddressSpec = { $: {} };
+payments.mojom.PaymentCurrencyAmountSpec = { $: {} };
+payments.mojom.PaymentValidationErrorsSpec = { $: {} };
+payments.mojom.PayerErrorsSpec = { $: {} };
+payments.mojom.AddressErrorsSpec = { $: {} };
 
 // Struct: PaymentAddress
-payments.mojom.PaymentAddressSpec = {
-  $: {
-    structSpec: {
-      name: 'payments.mojom.PaymentAddress',
-      packedSize: 88,
-      fields: [
-        { name: 'country', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'address_line', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'region', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'city', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'dependent_locality', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'postal_code', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'sorting_code', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'organization', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'recipient', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'phone', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 88}]
-    }
-  }
-};
+mojo.internal.Struct(
+    payments.mojom.PaymentAddressSpec, 'payments.mojom.PaymentAddress', [
+      mojo.internal.StructField('country', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('address_line', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('region', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('city', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('dependent_locality', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('postal_code', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('sorting_code', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('organization', 56, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('recipient', 64, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('phone', 72, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 88]]);
 
 // Struct: PaymentCurrencyAmount
-payments.mojom.PaymentCurrencyAmountSpec = {
-  $: {
-    structSpec: {
-      name: 'payments.mojom.PaymentCurrencyAmount',
-      packedSize: 24,
-      fields: [
-        { name: 'currency', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    payments.mojom.PaymentCurrencyAmountSpec, 'payments.mojom.PaymentCurrencyAmount', [
+      mojo.internal.StructField('currency', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: PaymentValidationErrors
-payments.mojom.PaymentValidationErrorsSpec = {
-  $: {
-    structSpec: {
-      name: 'payments.mojom.PaymentValidationErrors',
-      packedSize: 32,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'payer', packedOffset: 8, packedBitOffset: 0, type: payments.mojom.PayerErrorsSpec, nullable: false, minVersion: 0 },
-        { name: 'shipping_address', packedOffset: 16, packedBitOffset: 0, type: payments.mojom.AddressErrorsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    payments.mojom.PaymentValidationErrorsSpec, 'payments.mojom.PaymentValidationErrors', [
+      mojo.internal.StructField('error', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('payer', 8, 0, payments.mojom.PayerErrorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('shipping_address', 16, 0, payments.mojom.AddressErrorsSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: PayerErrors
-payments.mojom.PayerErrorsSpec = {
-  $: {
-    structSpec: {
-      name: 'payments.mojom.PayerErrors',
-      packedSize: 32,
-      fields: [
-        { name: 'email', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'phone', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    payments.mojom.PayerErrorsSpec, 'payments.mojom.PayerErrors', [
+      mojo.internal.StructField('email', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('phone', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: AddressErrors
-payments.mojom.AddressErrorsSpec = {
-  $: {
-    structSpec: {
-      name: 'payments.mojom.AddressErrors',
-      packedSize: 88,
-      fields: [
-        { name: 'address_line', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'city', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'country', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'dependent_locality', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'organization', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'phone', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'postal_code', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'recipient', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'region', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'sorting_code', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 88}]
-    }
-  }
-};
+mojo.internal.Struct(
+    payments.mojom.AddressErrorsSpec, 'payments.mojom.AddressErrors', [
+      mojo.internal.StructField('address_line', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('city', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('country', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('dependent_locality', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('organization', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('phone', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('postal_code', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('recipient', 56, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('region', 64, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('sorting_code', 72, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 88]]);

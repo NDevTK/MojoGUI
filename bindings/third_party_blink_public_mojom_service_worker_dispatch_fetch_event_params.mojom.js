@@ -7,24 +7,20 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var services = services || {};
+var services = services || {};
 var blink = blink || {};
 var blink = blink || {};
 
+blink.mojom.DispatchFetchEventParamsSpec = { $: {} };
 
 // Struct: DispatchFetchEventParams
-blink.mojom.DispatchFetchEventParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DispatchFetchEventParams',
-      packedSize: 48,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FetchAPIRequestSpec, nullable: false, minVersion: 0 },
-        { name: 'client_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'resulting_client_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'preload_url_loader_client_receiver', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.URLLoaderClientRemote), nullable: true, minVersion: 0 },
-        { name: 'race_network_request_loader_factory', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.URLLoaderFactoryRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.DispatchFetchEventParamsSpec, 'blink.mojom.DispatchFetchEventParams', [
+      mojo.internal.StructField('request', 0, 0, blink.mojom.FetchAPIRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('client_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('resulting_client_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('preload_url_loader_client_receiver', 24, 0, mojo.internal.InterfaceRequest(network.mojom.URLLoaderClientRemote), null, true, 0, undefined),
+      mojo.internal.StructField('race_network_request_loader_factory', 32, 0, mojo.internal.InterfaceProxy(network.mojom.URLLoaderFactoryRemote), null, true, 0, undefined),
+    ],
+    [[0, 48]]);

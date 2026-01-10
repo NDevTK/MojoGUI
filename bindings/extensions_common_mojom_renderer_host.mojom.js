@@ -9,72 +9,55 @@ var extensions = extensions || {};
 extensions.mojom = extensions.mojom || {};
 var url = url || {};
 
+extensions.mojom.RendererHost = {};
+extensions.mojom.RendererHost.$interfaceName = 'extensions.mojom.RendererHost';
+extensions.mojom.RendererHost_AddAPIActionToActivityLog_ParamsSpec = { $: {} };
+extensions.mojom.RendererHost_AddEventToActivityLog_ParamsSpec = { $: {} };
+extensions.mojom.RendererHost_AddDOMActionToActivityLog_ParamsSpec = { $: {} };
+extensions.mojom.RendererHost_GetMessageBundle_ParamsSpec = { $: {} };
+extensions.mojom.RendererHost_GetMessageBundle_ResponseParamsSpec = { $: {} };
 
 // Interface: RendererHost
-extensions.mojom.RendererHost = {};
+mojo.internal.Struct(
+    extensions.mojom.RendererHost_AddAPIActionToActivityLog_ParamsSpec, 'extensions.mojom.RendererHost_AddAPIActionToActivityLog_Params', [
+      mojo.internal.StructField('extension_id', 0, 0, extensions.mojom.ExtensionIdSpec, null, true, 0, undefined),
+      mojo.internal.StructField('call_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('args', 16, 0, mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('extra', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-extensions.mojom.RendererHost_AddAPIActionToActivityLog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.RendererHost_AddAPIActionToActivityLog_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: true, minVersion: 0 },
-        { name: 'call_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'args', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false, minVersion: 0 },
-        { name: 'extra', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions.mojom.RendererHost_AddEventToActivityLog_ParamsSpec, 'extensions.mojom.RendererHost_AddEventToActivityLog_Params', [
+      mojo.internal.StructField('extension_id', 0, 0, extensions.mojom.ExtensionIdSpec, null, true, 0, undefined),
+      mojo.internal.StructField('call_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('args', 16, 0, mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('extra', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-extensions.mojom.RendererHost_AddEventToActivityLog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.RendererHost_AddEventToActivityLog_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: true, minVersion: 0 },
-        { name: 'call_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'args', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false, minVersion: 0 },
-        { name: 'extra', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions.mojom.RendererHost_AddDOMActionToActivityLog_ParamsSpec, 'extensions.mojom.RendererHost_AddDOMActionToActivityLog_Params', [
+      mojo.internal.StructField('extension_id', 0, 0, extensions.mojom.ExtensionIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('call_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('args', 16, 0, mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url_title', 32, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('call_type', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
-extensions.mojom.RendererHost_AddDOMActionToActivityLog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.RendererHost_AddDOMActionToActivityLog_Params',
-      packedSize: 56,
-      fields: [
-        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: false, minVersion: 0 },
-        { name: 'call_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'args', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'url_title', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'call_type', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions.mojom.RendererHost_GetMessageBundle_ParamsSpec, 'extensions.mojom.RendererHost_GetMessageBundle_Params', [
+      mojo.internal.StructField('extension_id', 0, 0, extensions.mojom.ExtensionIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-extensions.mojom.RendererHost_GetMessageBundle_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.RendererHost_GetMessageBundle_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions.mojom.RendererHost_GetMessageBundle_ResponseParamsSpec, 'extensions.mojom.RendererHost_GetMessageBundle_ResponseParams', [
+      mojo.internal.StructField('message_map', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 extensions.mojom.RendererHostPendingReceiver = class {
   constructor(handle) {
@@ -156,87 +139,6 @@ extensions.mojom.RendererHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddAPIActionToActivityLog
-extensions.mojom.RendererHost_AddAPIActionToActivityLog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.RendererHost.AddAPIActionToActivityLog_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: true, minVersion: 0 },
-        { name: 'call_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'args', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false, minVersion: 0 },
-        { name: 'extra', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for AddEventToActivityLog
-extensions.mojom.RendererHost_AddEventToActivityLog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.RendererHost.AddEventToActivityLog_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: true, minVersion: 0 },
-        { name: 'call_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'args', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false, minVersion: 0 },
-        { name: 'extra', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for AddDOMActionToActivityLog
-extensions.mojom.RendererHost_AddDOMActionToActivityLog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.RendererHost.AddDOMActionToActivityLog_Params',
-      packedSize: 56,
-      fields: [
-        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: false, minVersion: 0 },
-        { name: 'call_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'args', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'url_title', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'call_type', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
-
-// ParamsSpec for GetMessageBundle
-extensions.mojom.RendererHost_GetMessageBundle_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.RendererHost.GetMessageBundle_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-extensions.mojom.RendererHost_GetMessageBundle_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.RendererHost.GetMessageBundle_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'message_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 extensions.mojom.RendererHostPtr = extensions.mojom.RendererHostRemote;
 extensions.mojom.RendererHostRequest = extensions.mojom.RendererHostPendingReceiver;
 

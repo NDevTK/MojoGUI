@@ -10,36 +10,24 @@ blink.mojom = blink.mojom || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+blink.mojom.UnhandledTapInfoSpec = { $: {} };
+blink.mojom.UnhandledTapNotifier = {};
+blink.mojom.UnhandledTapNotifier.$interfaceName = 'blink.mojom.UnhandledTapNotifier';
+blink.mojom.UnhandledTapNotifier_ShowUnhandledTapUIIfNeeded_ParamsSpec = { $: {} };
 
 // Struct: UnhandledTapInfo
-blink.mojom.UnhandledTapInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.UnhandledTapInfo',
-      packedSize: 16,
-      fields: [
-        { name: 'tapped_position_in_viewport', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.UnhandledTapInfoSpec, 'blink.mojom.UnhandledTapInfo', [
+      mojo.internal.StructField('tapped_position_in_viewport', 0, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: UnhandledTapNotifier
-blink.mojom.UnhandledTapNotifier = {};
-
-blink.mojom.UnhandledTapNotifier_ShowUnhandledTapUIIfNeeded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.UnhandledTapNotifier_ShowUnhandledTapUIIfNeeded_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'unhandled_tap_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.UnhandledTapInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.UnhandledTapNotifier_ShowUnhandledTapUIIfNeeded_ParamsSpec, 'blink.mojom.UnhandledTapNotifier_ShowUnhandledTapUIIfNeeded_Params', [
+      mojo.internal.StructField('unhandled_tap_info', 0, 0, blink.mojom.UnhandledTapInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.UnhandledTapNotifierPendingReceiver = class {
   constructor(handle) {
@@ -94,21 +82,6 @@ blink.mojom.UnhandledTapNotifier.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ShowUnhandledTapUIIfNeeded
-blink.mojom.UnhandledTapNotifier_ShowUnhandledTapUIIfNeeded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.UnhandledTapNotifier.ShowUnhandledTapUIIfNeeded_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'unhandled_tap_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.UnhandledTapInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.UnhandledTapNotifierPtr = blink.mojom.UnhandledTapNotifierRemote;
 blink.mojom.UnhandledTapNotifierRequest = blink.mojom.UnhandledTapNotifierPendingReceiver;
 

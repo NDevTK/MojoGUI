@@ -10,17 +10,11 @@ cc.mojom = cc.mojom || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+cc.mojom.SyncedScrollOffsetSpec = { $: {} };
 
 // Struct: SyncedScrollOffset
-cc.mojom.SyncedScrollOffsetSpec = {
-  $: {
-    structSpec: {
-      name: 'cc.mojom.SyncedScrollOffset',
-      packedSize: 16,
-      fields: [
-        { name: 'scroll_offset', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cc.mojom.SyncedScrollOffsetSpec, 'cc.mojom.SyncedScrollOffset', [
+      mojo.internal.StructField('scroll_offset', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);

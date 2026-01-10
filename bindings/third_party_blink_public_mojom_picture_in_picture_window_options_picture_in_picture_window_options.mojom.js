@@ -8,20 +8,14 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.PictureInPictureWindowOptionsSpec = { $: {} };
 
 // Struct: PictureInPictureWindowOptions
-blink.mojom.PictureInPictureWindowOptionsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PictureInPictureWindowOptions',
-      packedSize: 32,
-      fields: [
-        { name: 'width', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'height', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'disallow_return_to_opener', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'prefer_initial_window_placement', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PictureInPictureWindowOptionsSpec, 'blink.mojom.PictureInPictureWindowOptions', [
+      mojo.internal.StructField('width', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('height', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('disallow_return_to_opener', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('prefer_initial_window_placement', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);

@@ -8,6 +8,7 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.DeferredFetchPolicySpec = { $: mojo.internal.Enum() };
 
 // Enum: DeferredFetchPolicy
 blink.mojom.DeferredFetchPolicy = {
@@ -15,4 +16,3 @@ blink.mojom.DeferredFetchPolicy = {
   kDeferredFetch: 1,
   kDeferredFetchMinimal: 2,
 };
-blink.mojom.DeferredFetchPolicySpec = { $: mojo.internal.Enum() };

@@ -11,17 +11,38 @@ actor.webui.mojom = actor.webui.mojom || {};
 var skia = skia || {};
 var url = url || {};
 
+actor.webui.mojom.UserGrantedPermissionDurationSpec = { $: mojo.internal.Enum() };
+actor.webui.mojom.SelectCredentialDialogErrorReasonSpec = { $: mojo.internal.Enum() };
+actor.webui.mojom.SelectAutofillSuggestionsDialogErrorReasonSpec = { $: mojo.internal.Enum() };
+actor.webui.mojom.ConfirmationRequestErrorReasonSpec = { $: mojo.internal.Enum() };
+actor.webui.mojom.SelectAutofillSuggestionsDialogResultSpec = { $: {} };
+actor.webui.mojom.UserConfirmationDialogResultSpec = { $: {} };
+actor.webui.mojom.ConfirmationRequestResultSpec = { $: {} };
+actor.webui.mojom.TaskOptionsSpec = { $: {} };
+actor.webui.mojom.CredentialSpec = { $: {} };
+actor.webui.mojom.SelectCredentialDialogRequestSpec = { $: {} };
+actor.webui.mojom.SelectCredentialDialogResponseSpec = { $: {} };
+actor.webui.mojom.AutofillSuggestionSpec = { $: {} };
+actor.webui.mojom.FormFillingRequestSpec = { $: {} };
+actor.webui.mojom.SelectAutofillSuggestionsDialogRequestSpec = { $: {} };
+actor.webui.mojom.FormFillingResponseSpec = { $: {} };
+actor.webui.mojom.SelectAutofillSuggestionsDialogResponseSpec = { $: {} };
+actor.webui.mojom.UserConfirmationDialogPayloadSpec = { $: {} };
+actor.webui.mojom.UserConfirmationDialogRequestSpec = { $: {} };
+actor.webui.mojom.UserConfirmationDialogResponseSpec = { $: {} };
+actor.webui.mojom.NavigationConfirmationRequestSpec = { $: {} };
+actor.webui.mojom.NavigationConfirmationResponseSpec = { $: {} };
 
 // Enum: UserGrantedPermissionDuration
 actor.webui.mojom.UserGrantedPermissionDuration = {
-  kAlwaysAllow: 0,
+  kOneTime: 0,
+  kAlwaysAllow: 1,
 };
-actor.webui.mojom.UserGrantedPermissionDurationSpec = { $: mojo.internal.Enum() };
 
 // Enum: SelectCredentialDialogErrorReason
 actor.webui.mojom.SelectCredentialDialogErrorReason = {
+  kDialogPromiseNoSubscriber: 0,
 };
-actor.webui.mojom.SelectCredentialDialogErrorReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: SelectAutofillSuggestionsDialogErrorReason
 actor.webui.mojom.SelectAutofillSuggestionsDialogErrorReason = {
@@ -29,267 +50,171 @@ actor.webui.mojom.SelectAutofillSuggestionsDialogErrorReason = {
   kMismatchedTaskId: 1,
   kNoActorTaskDelegate: 2,
 };
-actor.webui.mojom.SelectAutofillSuggestionsDialogErrorReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: ConfirmationRequestErrorReason
 actor.webui.mojom.ConfirmationRequestErrorReason = {
-  kPreemptedByNewRequest: 0,
+  kRequestPromiseNoSubscriber: 0,
+  kPreemptedByNewRequest: 1,
 };
-actor.webui.mojom.ConfirmationRequestErrorReasonSpec = { $: mojo.internal.Enum() };
 
 // Union: SelectAutofillSuggestionsDialogResult
-actor.webui.mojom.SelectAutofillSuggestionsDialogResultSpec = { $: mojo.internal.Union(
-    'actor.webui.mojom.SelectAutofillSuggestionsDialogResult', {
+mojo.internal.Union(
+    actor.webui.mojom.SelectAutofillSuggestionsDialogResultSpec, 'actor.webui.mojom.SelectAutofillSuggestionsDialogResult', {
       'error_reason': {
         'ordinal': 0,
         'type': actor.webui.mojom.SelectAutofillSuggestionsDialogErrorReasonSpec,
-      }},
+        'nullable': false,
+      },
       'selected_suggestions': {
         'ordinal': 1,
         'type': mojo.internal.Array(actor.webui.mojom.FormFillingResponseSpec, false),
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Union: UserConfirmationDialogResult
-actor.webui.mojom.UserConfirmationDialogResultSpec = { $: mojo.internal.Union(
-    'actor.webui.mojom.UserConfirmationDialogResult', {
+mojo.internal.Union(
+    actor.webui.mojom.UserConfirmationDialogResultSpec, 'actor.webui.mojom.UserConfirmationDialogResult', {
       'permission_granted': {
         'ordinal': 0,
         'type': mojo.internal.Bool,
-      }},
+        'nullable': false,
+      },
       'error_reason': {
         'ordinal': 1,
         'type': actor.webui.mojom.ConfirmationRequestErrorReasonSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Union: ConfirmationRequestResult
-actor.webui.mojom.ConfirmationRequestResultSpec = { $: mojo.internal.Union(
-    'actor.webui.mojom.ConfirmationRequestResult', {
+mojo.internal.Union(
+    actor.webui.mojom.ConfirmationRequestResultSpec, 'actor.webui.mojom.ConfirmationRequestResult', {
       'permission_granted': {
         'ordinal': 0,
         'type': mojo.internal.Bool,
-      }},
+        'nullable': false,
+      },
       'error_reason': {
         'ordinal': 1,
         'type': actor.webui.mojom.ConfirmationRequestErrorReasonSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: TaskOptions
-actor.webui.mojom.TaskOptionsSpec = {
-  $: {
-    structSpec: {
-      name: 'actor.webui.mojom.TaskOptions',
-      packedSize: 16,
-      fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    actor.webui.mojom.TaskOptionsSpec, 'actor.webui.mojom.TaskOptions', [
+      mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: Credential
-actor.webui.mojom.CredentialSpec = {
-  $: {
-    structSpec: {
-      name: 'actor.webui.mojom.Credential',
-      packedSize: 48,
-      fields: [
-        { name: 'id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'username', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'source_site_or_app', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'request_origin', packedOffset: 16, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-        { name: 'display_origin', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    actor.webui.mojom.CredentialSpec, 'actor.webui.mojom.Credential', [
+      mojo.internal.StructField('id', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('username', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('source_site_or_app', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('request_origin', 16, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('display_origin', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: SelectCredentialDialogRequest
-actor.webui.mojom.SelectCredentialDialogRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'actor.webui.mojom.SelectCredentialDialogRequest',
-      packedSize: 32,
-      fields: [
-        { name: 'task_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'show_dialog', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'credentials', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(actor.webui.mojom.CredentialSpec, false), nullable: false, minVersion: 0 },
-        { name: 'icons', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, skia.mojom.BitmapN32Spec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    actor.webui.mojom.SelectCredentialDialogRequestSpec, 'actor.webui.mojom.SelectCredentialDialogRequest', [
+      mojo.internal.StructField('task_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('show_dialog', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('credentials', 0, 0, mojo.internal.Array(actor.webui.mojom.CredentialSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('icons', 8, 0, mojo.internal.Map(mojo.internal.String, skia.mojom.BitmapN32Spec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: SelectCredentialDialogResponse
-actor.webui.mojom.SelectCredentialDialogResponseSpec = {
-  $: {
-    structSpec: {
-      name: 'actor.webui.mojom.SelectCredentialDialogResponse',
-      packedSize: 32,
-      fields: [
-        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'error_reason', packedOffset: 4, packedBitOffset: 0, type: actor.webui.mojom.SelectCredentialDialogErrorReasonSpec, nullable: true, minVersion: 0 },
-        { name: 'permission_duration', packedOffset: 8, packedBitOffset: 0, type: actor.webui.mojom.UserGrantedPermissionDurationSpec, nullable: true, minVersion: 0 },
-        { name: 'selected_credential_id_$flag', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'selected_credential_id_$value', originalFieldName: 'selected_credential_id' } },
-        { name: 'selected_credential_id_$value', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'selected_credential_id_$flag', originalFieldName: 'selected_credential_id' } },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    actor.webui.mojom.SelectCredentialDialogResponseSpec, 'actor.webui.mojom.SelectCredentialDialogResponse', [
+      mojo.internal.StructField('task_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('error_reason', 4, 0, actor.webui.mojom.SelectCredentialDialogErrorReasonSpec, null, true, 0, undefined),
+      mojo.internal.StructField('permission_duration', 8, 0, actor.webui.mojom.UserGrantedPermissionDurationSpec, null, true, 0, undefined),
+      mojo.internal.StructField('selected_credential_id_$flag', 16, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'selected_credential_id_$value', originalFieldName: 'selected_credential_id' }),
+      mojo.internal.StructField('selected_credential_id_$value', 12, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'selected_credential_id_$flag', originalFieldName: 'selected_credential_id' }),
+    ],
+    [[0, 32]]);
 
 // Struct: AutofillSuggestion
-actor.webui.mojom.AutofillSuggestionSpec = {
-  $: {
-    structSpec: {
-      name: 'actor.webui.mojom.AutofillSuggestion',
-      packedSize: 40,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'details', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'icon', packedOffset: 24, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    actor.webui.mojom.AutofillSuggestionSpec, 'actor.webui.mojom.AutofillSuggestion', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('details', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('icon', 24, 0, skia.mojom.BitmapN32Spec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: FormFillingRequest
-actor.webui.mojom.FormFillingRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'actor.webui.mojom.FormFillingRequest',
-      packedSize: 24,
-      fields: [
-        { name: 'requested_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'suggestions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(actor.webui.mojom.AutofillSuggestionSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    actor.webui.mojom.FormFillingRequestSpec, 'actor.webui.mojom.FormFillingRequest', [
+      mojo.internal.StructField('requested_data', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('suggestions', 8, 0, mojo.internal.Array(actor.webui.mojom.AutofillSuggestionSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: SelectAutofillSuggestionsDialogRequest
-actor.webui.mojom.SelectAutofillSuggestionsDialogRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'actor.webui.mojom.SelectAutofillSuggestionsDialogRequest',
-      packedSize: 24,
-      fields: [
-        { name: 'task_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'form_filling_requests', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(actor.webui.mojom.FormFillingRequestSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    actor.webui.mojom.SelectAutofillSuggestionsDialogRequestSpec, 'actor.webui.mojom.SelectAutofillSuggestionsDialogRequest', [
+      mojo.internal.StructField('task_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('form_filling_requests', 0, 0, mojo.internal.Array(actor.webui.mojom.FormFillingRequestSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: FormFillingResponse
-actor.webui.mojom.FormFillingResponseSpec = {
-  $: {
-    structSpec: {
-      name: 'actor.webui.mojom.FormFillingResponse',
-      packedSize: 16,
-      fields: [
-        { name: 'selected_suggestion_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    actor.webui.mojom.FormFillingResponseSpec, 'actor.webui.mojom.FormFillingResponse', [
+      mojo.internal.StructField('selected_suggestion_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: SelectAutofillSuggestionsDialogResponse
-actor.webui.mojom.SelectAutofillSuggestionsDialogResponseSpec = {
-  $: {
-    structSpec: {
-      name: 'actor.webui.mojom.SelectAutofillSuggestionsDialogResponse',
-      packedSize: 32,
-      fields: [
-        { name: 'task_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: actor.webui.mojom.SelectAutofillSuggestionsDialogResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    actor.webui.mojom.SelectAutofillSuggestionsDialogResponseSpec, 'actor.webui.mojom.SelectAutofillSuggestionsDialogResponse', [
+      mojo.internal.StructField('task_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, actor.webui.mojom.SelectAutofillSuggestionsDialogResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: UserConfirmationDialogPayload
-actor.webui.mojom.UserConfirmationDialogPayloadSpec = {
-  $: {
-    structSpec: {
-      name: 'actor.webui.mojom.UserConfirmationDialogPayload',
-      packedSize: 24,
-      fields: [
-        { name: 'navigation_origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-        { name: 'for_blocklisted_origin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    actor.webui.mojom.UserConfirmationDialogPayloadSpec, 'actor.webui.mojom.UserConfirmationDialogPayload', [
+      mojo.internal.StructField('navigation_origin', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('for_blocklisted_origin', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: UserConfirmationDialogRequest
-actor.webui.mojom.UserConfirmationDialogRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'actor.webui.mojom.UserConfirmationDialogRequest',
-      packedSize: 16,
-      fields: [
-        { name: 'payload', packedOffset: 0, packedBitOffset: 0, type: actor.webui.mojom.UserConfirmationDialogPayloadSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    actor.webui.mojom.UserConfirmationDialogRequestSpec, 'actor.webui.mojom.UserConfirmationDialogRequest', [
+      mojo.internal.StructField('payload', 0, 0, actor.webui.mojom.UserConfirmationDialogPayloadSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: UserConfirmationDialogResponse
-actor.webui.mojom.UserConfirmationDialogResponseSpec = {
-  $: {
-    structSpec: {
-      name: 'actor.webui.mojom.UserConfirmationDialogResponse',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: actor.webui.mojom.ConfirmationRequestResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    actor.webui.mojom.UserConfirmationDialogResponseSpec, 'actor.webui.mojom.UserConfirmationDialogResponse', [
+      mojo.internal.StructField('result', 0, 0, actor.webui.mojom.ConfirmationRequestResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: NavigationConfirmationRequest
-actor.webui.mojom.NavigationConfirmationRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'actor.webui.mojom.NavigationConfirmationRequest',
-      packedSize: 24,
-      fields: [
-        { name: 'task_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'navigation_origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    actor.webui.mojom.NavigationConfirmationRequestSpec, 'actor.webui.mojom.NavigationConfirmationRequest', [
+      mojo.internal.StructField('task_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('navigation_origin', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: NavigationConfirmationResponse
-actor.webui.mojom.NavigationConfirmationResponseSpec = {
-  $: {
-    structSpec: {
-      name: 'actor.webui.mojom.NavigationConfirmationResponse',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: actor.webui.mojom.ConfirmationRequestResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    actor.webui.mojom.NavigationConfirmationResponseSpec, 'actor.webui.mojom.NavigationConfirmationResponse', [
+      mojo.internal.StructField('result', 0, 0, actor.webui.mojom.ConfirmationRequestResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);

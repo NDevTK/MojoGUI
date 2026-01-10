@@ -9,23 +9,17 @@ var ash = ash || {};
 ash.common = ash.common || {};
 ash.common.mojom = ash.common.mojom || {};
 
+ash.common.mojom.WebUiSyslogEmitter = {};
+ash.common.mojom.WebUiSyslogEmitter.$interfaceName = 'ash.common.mojom.WebUiSyslogEmitter';
+ash.common.mojom.WebUiSyslogEmitter_EmitSyslog_ParamsSpec = { $: {} };
 
 // Interface: WebUiSyslogEmitter
-ash.common.mojom.WebUiSyslogEmitter = {};
-
-ash.common.mojom.WebUiSyslogEmitter_EmitSyslog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.common.mojom.WebUiSyslogEmitter_EmitSyslog_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'prefix', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.common.mojom.WebUiSyslogEmitter_EmitSyslog_ParamsSpec, 'ash.common.mojom.WebUiSyslogEmitter_EmitSyslog_Params', [
+      mojo.internal.StructField('prefix', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('message', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 ash.common.mojom.WebUiSyslogEmitterPendingReceiver = class {
   constructor(handle) {
@@ -80,22 +74,6 @@ ash.common.mojom.WebUiSyslogEmitter.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for EmitSyslog
-ash.common.mojom.WebUiSyslogEmitter_EmitSyslog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.common.mojom.WebUiSyslogEmitter.EmitSyslog_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'prefix', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.common.mojom.WebUiSyslogEmitterPtr = ash.common.mojom.WebUiSyslogEmitterRemote;
 ash.common.mojom.WebUiSyslogEmitterRequest = ash.common.mojom.WebUiSyslogEmitterPendingReceiver;
 

@@ -8,12 +8,12 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.PermissionStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: PermissionStatus
 blink.mojom.PermissionStatus = {
   GRANTED: 0,
   DENIED: 1,
   ASK: 2,
-  LAST: 3,
+  LAST: 2,
 };
-blink.mojom.PermissionStatusSpec = { $: mojo.internal.Enum() };

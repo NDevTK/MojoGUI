@@ -8,19 +8,14 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 var url = url || {};
+var services = services || {};
 
+blink.mojom.ReferrerSpec = { $: {} };
 
 // Struct: Referrer
-blink.mojom.ReferrerSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.Referrer',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'policy', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ReferrerPolicySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ReferrerSpec, 'blink.mojom.Referrer', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('policy', 8, 0, network.mojom.ReferrerPolicySpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);

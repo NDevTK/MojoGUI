@@ -9,6 +9,9 @@ var ash = ash || {};
 ash.ime = ash.ime || {};
 ash.ime.mojom = ash.ime.mojom || {};
 
+ash.ime.mojom.JpPosTypeSpec = { $: mojo.internal.Enum() };
+ash.ime.mojom.JapaneseDictionaryEntrySpec = { $: {} };
+ash.ime.mojom.JapaneseDictionarySpec = { $: {} };
 
 // Enum: JpPosType
 ash.ime.mojom.JpPosType = {
@@ -58,37 +61,22 @@ ash.ime.mojom.JpPosType = {
   kFreeStandingWord: 43,
   kSuppressionWord: 44,
 };
-ash.ime.mojom.JpPosTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: JapaneseDictionaryEntry
-ash.ime.mojom.JapaneseDictionaryEntrySpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.JapaneseDictionaryEntry',
-      packedSize: 40,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pos', packedOffset: 24, packedBitOffset: 0, type: ash.ime.mojom.JpPosTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'comment', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.JapaneseDictionaryEntrySpec, 'ash.ime.mojom.JapaneseDictionaryEntry', [
+      mojo.internal.StructField('key', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('pos', 24, 0, ash.ime.mojom.JpPosTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('comment', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: JapaneseDictionary
-ash.ime.mojom.JapaneseDictionarySpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.JapaneseDictionary',
-      packedSize: 32,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'entries', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(ash.ime.mojom.JapaneseDictionaryEntrySpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.JapaneseDictionarySpec, 'ash.ime.mojom.JapaneseDictionary', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('entries', 16, 0, mojo.internal.Array(ash.ime.mojom.JapaneseDictionaryEntrySpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);

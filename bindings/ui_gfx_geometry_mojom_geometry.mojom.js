@@ -8,242 +8,152 @@
 var gfx = gfx || {};
 gfx.mojom = gfx.mojom || {};
 
+gfx.mojom.PointSpec = { $: {} };
+gfx.mojom.PointFSpec = { $: {} };
+gfx.mojom.Point3FSpec = { $: {} };
+gfx.mojom.SizeSpec = { $: {} };
+gfx.mojom.SizeFSpec = { $: {} };
+gfx.mojom.RectSpec = { $: {} };
+gfx.mojom.RectFSpec = { $: {} };
+gfx.mojom.InsetsSpec = { $: {} };
+gfx.mojom.InsetsFSpec = { $: {} };
+gfx.mojom.Vector2dSpec = { $: {} };
+gfx.mojom.Vector2dFSpec = { $: {} };
+gfx.mojom.Vector3dFSpec = { $: {} };
+gfx.mojom.QuaternionSpec = { $: {} };
+gfx.mojom.QuadFSpec = { $: {} };
+gfx.mojom.AxisTransform2dSpec = { $: {} };
 
 // Struct: Point
-gfx.mojom.PointSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.Point',
-      packedSize: 16,
-      fields: [
-        { name: 'x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'y', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.PointSpec, 'gfx.mojom.Point', [
+      mojo.internal.StructField('x', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('y', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: PointF
-gfx.mojom.PointFSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.PointF',
-      packedSize: 16,
-      fields: [
-        { name: 'x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'y', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.PointFSpec, 'gfx.mojom.PointF', [
+      mojo.internal.StructField('x', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('y', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: Point3F
-gfx.mojom.Point3FSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.Point3F',
-      packedSize: 24,
-      fields: [
-        { name: 'x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'y', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'z', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.Point3FSpec, 'gfx.mojom.Point3F', [
+      mojo.internal.StructField('x', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('y', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('z', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: Size
-gfx.mojom.SizeSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.Size',
-      packedSize: 16,
-      fields: [
-        { name: 'width', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'height', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.SizeSpec, 'gfx.mojom.Size', [
+      mojo.internal.StructField('width', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('height', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: SizeF
-gfx.mojom.SizeFSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.SizeF',
-      packedSize: 16,
-      fields: [
-        { name: 'width', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'height', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.SizeFSpec, 'gfx.mojom.SizeF', [
+      mojo.internal.StructField('width', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('height', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: Rect
-gfx.mojom.RectSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.Rect',
-      packedSize: 24,
-      fields: [
-        { name: 'x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'y', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'width', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'height', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.RectSpec, 'gfx.mojom.Rect', [
+      mojo.internal.StructField('x', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('y', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('width', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('height', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: RectF
-gfx.mojom.RectFSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.RectF',
-      packedSize: 24,
-      fields: [
-        { name: 'x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'y', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'width', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'height', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.RectFSpec, 'gfx.mojom.RectF', [
+      mojo.internal.StructField('x', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('y', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('width', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('height', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: Insets
-gfx.mojom.InsetsSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.Insets',
-      packedSize: 24,
-      fields: [
-        { name: 'top', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'left', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'bottom', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'right', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.InsetsSpec, 'gfx.mojom.Insets', [
+      mojo.internal.StructField('top', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('left', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('bottom', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('right', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: InsetsF
-gfx.mojom.InsetsFSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.InsetsF',
-      packedSize: 24,
-      fields: [
-        { name: 'top', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'left', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'bottom', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'right', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.InsetsFSpec, 'gfx.mojom.InsetsF', [
+      mojo.internal.StructField('top', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('left', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('bottom', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('right', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: Vector2d
-gfx.mojom.Vector2dSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.Vector2d',
-      packedSize: 16,
-      fields: [
-        { name: 'x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'y', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.Vector2dSpec, 'gfx.mojom.Vector2d', [
+      mojo.internal.StructField('x', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('y', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: Vector2dF
-gfx.mojom.Vector2dFSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.Vector2dF',
-      packedSize: 16,
-      fields: [
-        { name: 'x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'y', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.Vector2dFSpec, 'gfx.mojom.Vector2dF', [
+      mojo.internal.StructField('x', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('y', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: Vector3dF
-gfx.mojom.Vector3dFSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.Vector3dF',
-      packedSize: 24,
-      fields: [
-        { name: 'x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'y', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'z', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.Vector3dFSpec, 'gfx.mojom.Vector3dF', [
+      mojo.internal.StructField('x', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('y', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('z', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: Quaternion
-gfx.mojom.QuaternionSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.Quaternion',
-      packedSize: 40,
-      fields: [
-        { name: 'x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'y', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'z', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'w', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.QuaternionSpec, 'gfx.mojom.Quaternion', [
+      mojo.internal.StructField('x', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('y', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('z', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('w', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: QuadF
-gfx.mojom.QuadFSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.QuadF',
-      packedSize: 40,
-      fields: [
-        { name: 'p1', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'p2', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'p3', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'p4', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.QuadFSpec, 'gfx.mojom.QuadF', [
+      mojo.internal.StructField('p1', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('p2', 8, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('p3', 16, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('p4', 24, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: AxisTransform2d
-gfx.mojom.AxisTransform2dSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.AxisTransform2d',
-      packedSize: 24,
-      fields: [
-        { name: 'scale', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.Vector2dFSpec, nullable: false, minVersion: 0 },
-        { name: 'translation', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.Vector2dFSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.AxisTransform2dSpec, 'gfx.mojom.AxisTransform2d', [
+      mojo.internal.StructField('scale', 0, 0, gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('translation', 8, 0, gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);

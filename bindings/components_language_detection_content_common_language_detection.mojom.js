@@ -8,6 +8,13 @@
 var language_detection = language_detection || {};
 language_detection.mojom = language_detection.mojom || {};
 
+language_detection.mojom.LanguageDetectionModelStatusSpec = { $: mojo.internal.Enum() };
+language_detection.mojom.ContentLanguageDetectionDriver = {};
+language_detection.mojom.ContentLanguageDetectionDriver.$interfaceName = 'language_detection.mojom.ContentLanguageDetectionDriver';
+language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ParamsSpec = { $: {} };
+language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ResponseParamsSpec = { $: {} };
+language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ParamsSpec = { $: {} };
+language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ResponseParamsSpec = { $: {} };
 
 // Enum: LanguageDetectionModelStatus
 language_detection.mojom.LanguageDetectionModelStatus = {
@@ -15,34 +22,29 @@ language_detection.mojom.LanguageDetectionModelStatus = {
   kAfterDownload: 1,
   kNotAvailable: 2,
 };
-language_detection.mojom.LanguageDetectionModelStatusSpec = { $: mojo.internal.Enum() };
 
 // Interface: ContentLanguageDetectionDriver
-language_detection.mojom.ContentLanguageDetectionDriver = {};
+mojo.internal.Struct(
+    language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ParamsSpec, 'language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ResponseParamsSpec, 'language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ResponseParams', [
+      mojo.internal.StructField('model_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ParamsSpec, 'language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ResponseParamsSpec, 'language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, language_detection.mojom.LanguageDetectionModelStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 language_detection.mojom.ContentLanguageDetectionDriverPendingReceiver = class {
   constructor(handle) {
@@ -106,59 +108,6 @@ language_detection.mojom.ContentLanguageDetectionDriver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetLanguageDetectionModel
-language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'language_detection.mojom.ContentLanguageDetectionDriver.GetLanguageDetectionModel_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'language_detection.mojom.ContentLanguageDetectionDriver.GetLanguageDetectionModel_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'model_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetLanguageDetectionModelStatus
-language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'language_detection.mojom.ContentLanguageDetectionDriver.GetLanguageDetectionModelStatus_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'language_detection.mojom.ContentLanguageDetectionDriver.GetLanguageDetectionModelStatus_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: language_detection.mojom.LanguageDetectionModelStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 language_detection.mojom.ContentLanguageDetectionDriverPtr = language_detection.mojom.ContentLanguageDetectionDriverRemote;
 language_detection.mojom.ContentLanguageDetectionDriverRequest = language_detection.mojom.ContentLanguageDetectionDriverPendingReceiver;
 

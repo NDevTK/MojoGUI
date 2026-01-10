@@ -7,90 +7,79 @@
 // Module namespace
 var commerce = commerce || {};
 commerce.mojom = commerce.mojom || {};
+var components = components || {};
+var components = components || {};
 var url = url || {};
 
+commerce.mojom.EligibilityDetailSpec = { $: {} };
+commerce.mojom.ShoppingEligibilityDetailsSpec = { $: {} };
+commerce.mojom.SubscriptionSpec = { $: {} };
+commerce.mojom.ProductSpecificationsSetSpec = { $: {} };
+commerce.mojom.CommerceInternalsHandlerFactory = {};
+commerce.mojom.CommerceInternalsHandlerFactory.$interfaceName = 'commerce.mojom.CommerceInternalsHandlerFactory';
+commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_ParamsSpec = { $: {} };
+commerce.mojom.CommerceInternalsHandler = {};
+commerce.mojom.CommerceInternalsHandler.$interfaceName = 'commerce.mojom.CommerceInternalsHandler';
+commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ParamsSpec = { $: {} };
+commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ResponseParamsSpec = { $: {} };
+commerce.mojom.CommerceInternalsHandler_ResetPriceTrackingEmailPref_ParamsSpec = { $: {} };
+commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ParamsSpec = { $: {} };
+commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ResponseParamsSpec = { $: {} };
+commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ParamsSpec = { $: {} };
+commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponseParamsSpec = { $: {} };
+commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ParamsSpec = { $: {} };
+commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ResponseParamsSpec = { $: {} };
+commerce.mojom.CommerceInternalsHandler_ResetProductSpecifications_ParamsSpec = { $: {} };
+commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ParamsSpec = { $: {} };
+commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponseParamsSpec = { $: {} };
+commerce.mojom.CommerceInternalsPage = {};
+commerce.mojom.CommerceInternalsPage.$interfaceName = 'commerce.mojom.CommerceInternalsPage';
+commerce.mojom.CommerceInternalsPage_OnShoppingListEligibilityChanged_ParamsSpec = { $: {} };
 
 // Struct: EligibilityDetail
-commerce.mojom.EligibilityDetailSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.mojom.EligibilityDetail',
-      packedSize: 24,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'expected_value', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    commerce.mojom.EligibilityDetailSpec, 'commerce.mojom.EligibilityDetail', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('expected_value', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: ShoppingEligibilityDetails
-commerce.mojom.ShoppingEligibilityDetailsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.mojom.ShoppingEligibilityDetails',
-      packedSize: 32,
-      fields: [
-        { name: 'country', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'locale', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'details', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(commerce.mojom.EligibilityDetailSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    commerce.mojom.ShoppingEligibilityDetailsSpec, 'commerce.mojom.ShoppingEligibilityDetails', [
+      mojo.internal.StructField('country', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('locale', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('details', 16, 0, mojo.internal.Array(commerce.mojom.EligibilityDetailSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: Subscription
-commerce.mojom.SubscriptionSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.mojom.Subscription',
-      packedSize: 24,
-      fields: [
-        { name: 'cluster_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'product_infos', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(commerce.shared.mojom.BookmarkProductInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    commerce.mojom.SubscriptionSpec, 'commerce.mojom.Subscription', [
+      mojo.internal.StructField('cluster_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('product_infos', 8, 0, mojo.internal.Array(commerce.shared.mojom.BookmarkProductInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: ProductSpecificationsSet
-commerce.mojom.ProductSpecificationsSetSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.mojom.ProductSpecificationsSet',
-      packedSize: 48,
-      fields: [
-        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'creation_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'update_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'url_infos', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(shopping_service.mojom.UrlInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    commerce.mojom.ProductSpecificationsSetSpec, 'commerce.mojom.ProductSpecificationsSet', [
+      mojo.internal.StructField('uuid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('creation_time', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('update_time', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('url_infos', 32, 0, mojo.internal.Array(shopping_service.mojom.UrlInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Interface: CommerceInternalsHandlerFactory
-commerce.mojom.CommerceInternalsHandlerFactory = {};
-
-commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(commerce.mojom.CommerceInternalsPageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(commerce.mojom.CommerceInternalsHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_ParamsSpec, 'commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(commerce.mojom.CommerceInternalsPageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(commerce.mojom.CommerceInternalsHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 commerce.mojom.CommerceInternalsHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -145,113 +134,76 @@ commerce.mojom.CommerceInternalsHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateCommerceInternalsHandler
-commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.mojom.CommerceInternalsHandlerFactory.CreateCommerceInternalsHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(commerce.mojom.CommerceInternalsPageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(commerce.mojom.CommerceInternalsHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 commerce.mojom.CommerceInternalsHandlerFactoryPtr = commerce.mojom.CommerceInternalsHandlerFactoryRemote;
 commerce.mojom.CommerceInternalsHandlerFactoryRequest = commerce.mojom.CommerceInternalsHandlerFactoryPendingReceiver;
 
 
 // Interface: CommerceInternalsHandler
-commerce.mojom.CommerceInternalsHandler = {};
+mojo.internal.Struct(
+    commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ParamsSpec, 'commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ResponseParamsSpec, 'commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ResponseParams', [
+      mojo.internal.StructField('eligible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-commerce.mojom.CommerceInternalsHandler_ResetPriceTrackingEmailPref_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.mojom.CommerceInternalsHandler_ResetPriceTrackingEmailPref_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    commerce.mojom.CommerceInternalsHandler_ResetPriceTrackingEmailPref_ParamsSpec, 'commerce.mojom.CommerceInternalsHandler_ResetPriceTrackingEmailPref_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ParamsSpec, 'commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ResponseParamsSpec, 'commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ResponseParams', [
+      mojo.internal.StructField('info', 0, 0, commerce.shared.mojom.ProductInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ParamsSpec, 'commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-commerce.mojom.CommerceInternalsHandler_ResetProductSpecifications_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.mojom.CommerceInternalsHandler_ResetProductSpecifications_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponseParamsSpec, 'commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponseParams', [
+      mojo.internal.StructField('subscriptions', 0, 0, mojo.internal.Array(commerce.mojom.SubscriptionSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ParamsSpec, 'commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ResponseParamsSpec, 'commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ResponseParams', [
+      mojo.internal.StructField('product_specifications_set', 0, 0, mojo.internal.Array(commerce.mojom.ProductSpecificationsSetSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    commerce.mojom.CommerceInternalsHandler_ResetProductSpecifications_ParamsSpec, 'commerce.mojom.CommerceInternalsHandler_ResetProductSpecifications_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ParamsSpec, 'commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponseParamsSpec, 'commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponseParams', [
+      mojo.internal.StructField('details', 0, 0, commerce.mojom.ShoppingEligibilityDetailsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 commerce.mojom.CommerceInternalsHandlerPendingReceiver = class {
   constructor(handle) {
@@ -360,183 +312,16 @@ commerce.mojom.CommerceInternalsHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetIsShoppingListEligible
-commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.mojom.CommerceInternalsHandler.GetIsShoppingListEligible_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.mojom.CommerceInternalsHandler.GetIsShoppingListEligible_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'eligible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ResetPriceTrackingEmailPref
-commerce.mojom.CommerceInternalsHandler_ResetPriceTrackingEmailPref_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.mojom.CommerceInternalsHandler.ResetPriceTrackingEmailPref_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for GetProductInfoForUrl
-commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.mojom.CommerceInternalsHandler.GetProductInfoForUrl_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.mojom.CommerceInternalsHandler.GetProductInfoForUrl_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: commerce.shared.mojom.ProductInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetSubscriptionDetails
-commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.mojom.CommerceInternalsHandler.GetSubscriptionDetails_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.mojom.CommerceInternalsHandler.GetSubscriptionDetails_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'subscriptions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(commerce.mojom.SubscriptionSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetProductSpecificationsDetails
-commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.mojom.CommerceInternalsHandler.GetProductSpecificationsDetails_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.mojom.CommerceInternalsHandler.GetProductSpecificationsDetails_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'product_specifications_set', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(commerce.mojom.ProductSpecificationsSetSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ResetProductSpecifications
-commerce.mojom.CommerceInternalsHandler_ResetProductSpecifications_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.mojom.CommerceInternalsHandler.ResetProductSpecifications_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for GetShoppingEligibilityDetails
-commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.mojom.CommerceInternalsHandler.GetShoppingEligibilityDetails_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.mojom.CommerceInternalsHandler.GetShoppingEligibilityDetails_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: commerce.mojom.ShoppingEligibilityDetailsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 commerce.mojom.CommerceInternalsHandlerPtr = commerce.mojom.CommerceInternalsHandlerRemote;
 commerce.mojom.CommerceInternalsHandlerRequest = commerce.mojom.CommerceInternalsHandlerPendingReceiver;
 
 
 // Interface: CommerceInternalsPage
-commerce.mojom.CommerceInternalsPage = {};
-
-commerce.mojom.CommerceInternalsPage_OnShoppingListEligibilityChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.mojom.CommerceInternalsPage_OnShoppingListEligibilityChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'eligible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    commerce.mojom.CommerceInternalsPage_OnShoppingListEligibilityChanged_ParamsSpec, 'commerce.mojom.CommerceInternalsPage_OnShoppingListEligibilityChanged_Params', [
+      mojo.internal.StructField('eligible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 commerce.mojom.CommerceInternalsPagePendingReceiver = class {
   constructor(handle) {
@@ -591,21 +376,6 @@ commerce.mojom.CommerceInternalsPage.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnShoppingListEligibilityChanged
-commerce.mojom.CommerceInternalsPage_OnShoppingListEligibilityChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.mojom.CommerceInternalsPage.OnShoppingListEligibilityChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'eligible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 commerce.mojom.CommerceInternalsPagePtr = commerce.mojom.CommerceInternalsPageRemote;
 commerce.mojom.CommerceInternalsPageRequest = commerce.mojom.CommerceInternalsPagePendingReceiver;
 

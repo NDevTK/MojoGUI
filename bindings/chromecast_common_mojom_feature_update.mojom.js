@@ -8,22 +8,19 @@
 var chromecast = chromecast || {};
 chromecast.mojom = chromecast.mojom || {};
 
+chromecast.mojom.FeatureUpdateObserver = {};
+chromecast.mojom.FeatureUpdateObserver.$interfaceName = 'chromecast.mojom.FeatureUpdateObserver';
+chromecast.mojom.FeatureUpdateObserver_OnFeaturesUpdated_ParamsSpec = { $: {} };
+chromecast.mojom.FeatureUpdateService = {};
+chromecast.mojom.FeatureUpdateService.$interfaceName = 'chromecast.mojom.FeatureUpdateService';
+chromecast.mojom.FeatureUpdateService_RegisterFeatureUpdateObserver_ParamsSpec = { $: {} };
 
 // Interface: FeatureUpdateObserver
-chromecast.mojom.FeatureUpdateObserver = {};
-
-chromecast.mojom.FeatureUpdateObserver_OnFeaturesUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.FeatureUpdateObserver_OnFeaturesUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'features', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.FeatureUpdateObserver_OnFeaturesUpdated_ParamsSpec, 'chromecast.mojom.FeatureUpdateObserver_OnFeaturesUpdated_Params', [
+      mojo.internal.StructField('features', 0, 0, mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromecast.mojom.FeatureUpdateObserverPendingReceiver = class {
   constructor(handle) {
@@ -78,40 +75,16 @@ chromecast.mojom.FeatureUpdateObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnFeaturesUpdated
-chromecast.mojom.FeatureUpdateObserver_OnFeaturesUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.FeatureUpdateObserver.OnFeaturesUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'features', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromecast.mojom.FeatureUpdateObserverPtr = chromecast.mojom.FeatureUpdateObserverRemote;
 chromecast.mojom.FeatureUpdateObserverRequest = chromecast.mojom.FeatureUpdateObserverPendingReceiver;
 
 
 // Interface: FeatureUpdateService
-chromecast.mojom.FeatureUpdateService = {};
-
-chromecast.mojom.FeatureUpdateService_RegisterFeatureUpdateObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.FeatureUpdateService_RegisterFeatureUpdateObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.mojom.FeatureUpdateObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.FeatureUpdateService_RegisterFeatureUpdateObserver_ParamsSpec, 'chromecast.mojom.FeatureUpdateService_RegisterFeatureUpdateObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(chromecast.mojom.FeatureUpdateObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromecast.mojom.FeatureUpdateServicePendingReceiver = class {
   constructor(handle) {
@@ -166,21 +139,6 @@ chromecast.mojom.FeatureUpdateService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RegisterFeatureUpdateObserver
-chromecast.mojom.FeatureUpdateService_RegisterFeatureUpdateObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.FeatureUpdateService.RegisterFeatureUpdateObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.mojom.FeatureUpdateObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromecast.mojom.FeatureUpdateServicePtr = chromecast.mojom.FeatureUpdateServiceRemote;
 chromecast.mojom.FeatureUpdateServiceRequest = chromecast.mojom.FeatureUpdateServicePendingReceiver;
 

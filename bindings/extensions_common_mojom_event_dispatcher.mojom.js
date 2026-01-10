@@ -9,62 +9,51 @@ var extensions = extensions || {};
 extensions.mojom = extensions.mojom || {};
 var url = url || {};
 
+extensions.mojom.EventFilteringInfoSpec = { $: {} };
+extensions.mojom.DispatchEventParamsSpec = { $: {} };
+extensions.mojom.EventDispatcher = {};
+extensions.mojom.EventDispatcher.$interfaceName = 'extensions.mojom.EventDispatcher';
+extensions.mojom.EventDispatcher_DispatchEvent_ParamsSpec = { $: {} };
+extensions.mojom.EventDispatcher_DispatchEvent_ResponseParamsSpec = { $: {} };
 
 // Struct: EventFilteringInfo
-extensions.mojom.EventFilteringInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.EventFilteringInfo',
-      packedSize: 40,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
-        { name: 'service_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'has_instance_id', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'instance_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'window_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'has_window_exposed_by_default', packedOffset: 28, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'window_exposed_by_default', packedOffset: 28, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions.mojom.EventFilteringInfoSpec, 'extensions.mojom.EventFilteringInfo', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('service_type', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('has_instance_id', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('instance_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('window_type', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('has_window_exposed_by_default', 28, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('window_exposed_by_default', 28, 2, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: DispatchEventParams
-extensions.mojom.DispatchEventParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.DispatchEventParams',
-      packedSize: 48,
-      fields: [
-        { name: 'worker_thread_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'host_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.HostIDSpec, nullable: false, minVersion: 0 },
-        { name: 'event_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'event_id', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'is_user_gesture', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'filtering_info', packedOffset: 16, packedBitOffset: 0, type: extensions.mojom.EventFilteringInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions.mojom.DispatchEventParamsSpec, 'extensions.mojom.DispatchEventParams', [
+      mojo.internal.StructField('worker_thread_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('host_id', 0, 0, extensions.mojom.HostIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('event_id', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_user_gesture', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('filtering_info', 16, 0, extensions.mojom.EventFilteringInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Interface: EventDispatcher
-extensions.mojom.EventDispatcher = {};
+mojo.internal.Struct(
+    extensions.mojom.EventDispatcher_DispatchEvent_ParamsSpec, 'extensions.mojom.EventDispatcher_DispatchEvent_Params', [
+      mojo.internal.StructField('params', 0, 0, extensions.mojom.DispatchEventParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event_args', 8, 0, mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-extensions.mojom.EventDispatcher_DispatchEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.EventDispatcher_DispatchEvent_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.DispatchEventParamsSpec, nullable: false, minVersion: 0 },
-        { name: 'event_args', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions.mojom.EventDispatcher_DispatchEvent_ResponseParamsSpec, 'extensions.mojom.EventDispatcher_DispatchEvent_ResponseParams', [
+      mojo.internal.StructField('event_will_run_in_lazy_background_page_script', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 extensions.mojom.EventDispatcherPendingReceiver = class {
   constructor(handle) {
@@ -119,35 +108,6 @@ extensions.mojom.EventDispatcher.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for DispatchEvent
-extensions.mojom.EventDispatcher_DispatchEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.EventDispatcher.DispatchEvent_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.DispatchEventParamsSpec, nullable: false, minVersion: 0 },
-        { name: 'event_args', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-extensions.mojom.EventDispatcher_DispatchEvent_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.EventDispatcher.DispatchEvent_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'event_will_run_in_lazy_background_page_script', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 extensions.mojom.EventDispatcherPtr = extensions.mojom.EventDispatcherRemote;
 extensions.mojom.EventDispatcherRequest = extensions.mojom.EventDispatcherPendingReceiver;
 

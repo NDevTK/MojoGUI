@@ -8,22 +8,16 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.PersistentRendererPrefsService = {};
+blink.mojom.PersistentRendererPrefsService.$interfaceName = 'blink.mojom.PersistentRendererPrefsService';
+blink.mojom.PersistentRendererPrefsService_SetViewSourceLineWrapping_ParamsSpec = { $: {} };
 
 // Interface: PersistentRendererPrefsService
-blink.mojom.PersistentRendererPrefsService = {};
-
-blink.mojom.PersistentRendererPrefsService_SetViewSourceLineWrapping_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PersistentRendererPrefsService_SetViewSourceLineWrapping_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PersistentRendererPrefsService_SetViewSourceLineWrapping_ParamsSpec, 'blink.mojom.PersistentRendererPrefsService_SetViewSourceLineWrapping_Params', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.PersistentRendererPrefsServicePendingReceiver = class {
   constructor(handle) {
@@ -78,21 +72,6 @@ blink.mojom.PersistentRendererPrefsService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetViewSourceLineWrapping
-blink.mojom.PersistentRendererPrefsService_SetViewSourceLineWrapping_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PersistentRendererPrefsService.SetViewSourceLineWrapping_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.PersistentRendererPrefsServicePtr = blink.mojom.PersistentRendererPrefsServiceRemote;
 blink.mojom.PersistentRendererPrefsServiceRequest = blink.mojom.PersistentRendererPrefsServicePendingReceiver;
 

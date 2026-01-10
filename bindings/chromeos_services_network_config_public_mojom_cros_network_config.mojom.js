@@ -8,8 +8,163 @@
 var chromeos = chromeos || {};
 chromeos.network_config = chromeos.network_config || {};
 chromeos.network_config.mojom = chromeos.network_config.mojom || {};
+var chromeos = chromeos || {};
+var services = services || {};
+var services = services || {};
 var url = url || {};
 
+chromeos.network_config.mojom.ActivationStateTypeSpec = { $: mojo.internal.Enum() };
+chromeos.network_config.mojom.AuthenticationTypeSpec = { $: mojo.internal.Enum() };
+chromeos.network_config.mojom.HiddenSsidModeSpec = { $: mojo.internal.Enum() };
+chromeos.network_config.mojom.ProxyModeSpec = { $: mojo.internal.Enum() };
+chromeos.network_config.mojom.SecurityTypeSpec = { $: mojo.internal.Enum() };
+chromeos.network_config.mojom.MatchTypeSpec = { $: mojo.internal.Enum() };
+chromeos.network_config.mojom.VpnTypeSpec = { $: mojo.internal.Enum() };
+chromeos.network_config.mojom.FilterTypeSpec = { $: mojo.internal.Enum() };
+chromeos.network_config.mojom.StartConnectResultSpec = { $: mojo.internal.Enum() };
+chromeos.network_config.mojom.CertificateTypeSpec = { $: mojo.internal.Enum() };
+chromeos.network_config.mojom.InhibitReasonSpec = { $: mojo.internal.Enum() };
+chromeos.network_config.mojom.AlwaysOnVpnModeSpec = { $: mojo.internal.Enum() };
+chromeos.network_config.mojom.ApnStateSpec = { $: mojo.internal.Enum() };
+chromeos.network_config.mojom.ApnAuthenticationTypeSpec = { $: mojo.internal.Enum() };
+chromeos.network_config.mojom.ApnIpTypeSpec = { $: mojo.internal.Enum() };
+chromeos.network_config.mojom.ApnTypeSpec = { $: mojo.internal.Enum() };
+chromeos.network_config.mojom.ApnSourceSpec = { $: mojo.internal.Enum() };
+chromeos.network_config.mojom.TypeSpec = { $: mojo.internal.Enum() };
+chromeos.network_config.mojom.SuppressionTypeSpec = { $: mojo.internal.Enum() };
+chromeos.network_config.mojom.TrafficCounterSourceSpec = { $: mojo.internal.Enum() };
+chromeos.network_config.mojom.NetworkTypeStatePropertiesSpec = { $: {} };
+chromeos.network_config.mojom.NetworkTypeManagedPropertiesSpec = { $: {} };
+chromeos.network_config.mojom.NetworkTypeConfigPropertiesSpec = { $: {} };
+chromeos.network_config.mojom.SIMLockStatusSpec = { $: {} };
+chromeos.network_config.mojom.SIMInfoSpec = { $: {} };
+chromeos.network_config.mojom.CellularStatePropertiesSpec = { $: {} };
+chromeos.network_config.mojom.EthernetStatePropertiesSpec = { $: {} };
+chromeos.network_config.mojom.TetherStatePropertiesSpec = { $: {} };
+chromeos.network_config.mojom.VPNStatePropertiesSpec = { $: {} };
+chromeos.network_config.mojom.WiFiStatePropertiesSpec = { $: {} };
+chromeos.network_config.mojom.NetworkStatePropertiesSpec = { $: {} };
+chromeos.network_config.mojom.DeviceStatePropertiesSpec = { $: {} };
+chromeos.network_config.mojom.NetworkFilterSpec = { $: {} };
+chromeos.network_config.mojom.ApnPropertiesSpec = { $: {} };
+chromeos.network_config.mojom.RoamingPropertiesSpec = { $: {} };
+chromeos.network_config.mojom.CellularProviderPropertiesSpec = { $: {} };
+chromeos.network_config.mojom.FoundNetworkPropertiesSpec = { $: {} };
+chromeos.network_config.mojom.IPConfigPropertiesSpec = { $: {} };
+chromeos.network_config.mojom.PaymentPortalPropertiesSpec = { $: {} };
+chromeos.network_config.mojom.WireGuardPeerPropertiesSpec = { $: {} };
+chromeos.network_config.mojom.ManagedBooleanSpec = { $: {} };
+chromeos.network_config.mojom.ManagedInt32Spec = { $: {} };
+chromeos.network_config.mojom.ManagedStringSpec = { $: {} };
+chromeos.network_config.mojom.ManagedStringListSpec = { $: {} };
+chromeos.network_config.mojom.ManagedApnPropertiesSpec = { $: {} };
+chromeos.network_config.mojom.ManagedApnListSpec = { $: {} };
+chromeos.network_config.mojom.ManagedIssuerSubjectPatternSpec = { $: {} };
+chromeos.network_config.mojom.ManagedCertificatePatternSpec = { $: {} };
+chromeos.network_config.mojom.ManagedEAPPropertiesSpec = { $: {} };
+chromeos.network_config.mojom.ManagedSubjectAltNameMatchListSpec = { $: {} };
+chromeos.network_config.mojom.ManagedIPConfigPropertiesSpec = { $: {} };
+chromeos.network_config.mojom.ManagedIPSecPropertiesSpec = { $: {} };
+chromeos.network_config.mojom.ManagedL2TPPropertiesSpec = { $: {} };
+chromeos.network_config.mojom.ManagedProxyLocationSpec = { $: {} };
+chromeos.network_config.mojom.ManagedManualProxySettingsSpec = { $: {} };
+chromeos.network_config.mojom.ManagedProxySettingsSpec = { $: {} };
+chromeos.network_config.mojom.ManagedVerifyX509PropertiesSpec = { $: {} };
+chromeos.network_config.mojom.ManagedOpenVPNPropertiesSpec = { $: {} };
+chromeos.network_config.mojom.ManagedWireGuardPeerListSpec = { $: {} };
+chromeos.network_config.mojom.ManagedWireGuardPropertiesSpec = { $: {} };
+chromeos.network_config.mojom.ManagedCellularPropertiesSpec = { $: {} };
+chromeos.network_config.mojom.ManagedEthernetPropertiesSpec = { $: {} };
+chromeos.network_config.mojom.ManagedVPNPropertiesSpec = { $: {} };
+chromeos.network_config.mojom.ManagedWiFiPropertiesSpec = { $: {} };
+chromeos.network_config.mojom.UInt32ValueSpec = { $: {} };
+chromeos.network_config.mojom.TrafficCounterPropertiesSpec = { $: {} };
+chromeos.network_config.mojom.ManagedPropertiesSpec = { $: {} };
+chromeos.network_config.mojom.AutoConnectConfigSpec = { $: {} };
+chromeos.network_config.mojom.MeteredConfigSpec = { $: {} };
+chromeos.network_config.mojom.PriorityConfigSpec = { $: {} };
+chromeos.network_config.mojom.VpnTypeConfigSpec = { $: {} };
+chromeos.network_config.mojom.ProxyLocationSpec = { $: {} };
+chromeos.network_config.mojom.ManualProxySettingsSpec = { $: {} };
+chromeos.network_config.mojom.ProxySettingsSpec = { $: {} };
+chromeos.network_config.mojom.EAPConfigPropertiesSpec = { $: {} };
+chromeos.network_config.mojom.SubjectAltNameSpec = { $: {} };
+chromeos.network_config.mojom.IPSecConfigPropertiesSpec = { $: {} };
+chromeos.network_config.mojom.L2TPConfigPropertiesSpec = { $: {} };
+chromeos.network_config.mojom.OpenVPNConfigPropertiesSpec = { $: {} };
+chromeos.network_config.mojom.WireGuardConfigPropertiesSpec = { $: {} };
+chromeos.network_config.mojom.TextMessagesAllowStateSpec = { $: {} };
+chromeos.network_config.mojom.CellularConfigPropertiesSpec = { $: {} };
+chromeos.network_config.mojom.EthernetConfigPropertiesSpec = { $: {} };
+chromeos.network_config.mojom.VPNConfigPropertiesSpec = { $: {} };
+chromeos.network_config.mojom.WiFiConfigPropertiesSpec = { $: {} };
+chromeos.network_config.mojom.ConfigPropertiesSpec = { $: {} };
+chromeos.network_config.mojom.CellularSimStateSpec = { $: {} };
+chromeos.network_config.mojom.GlobalPolicySpec = { $: {} };
+chromeos.network_config.mojom.VpnProviderSpec = { $: {} };
+chromeos.network_config.mojom.NetworkCertificateSpec = { $: {} };
+chromeos.network_config.mojom.AlwaysOnVpnPropertiesSpec = { $: {} };
+chromeos.network_config.mojom.TrafficCounterSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig = {};
+chromeos.network_config.mojom.CrosNetworkConfig.$interfaceName = 'chromeos.network_config.mojom.CrosNetworkConfig';
+chromeos.network_config.mojom.CrosNetworkConfig_AddObserver_ParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkState_ParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkState_ResponseParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkStateList_ParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkStateList_ResponseParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_GetDeviceStateList_ParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_GetDeviceStateList_ResponseParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_GetManagedProperties_ParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_GetManagedProperties_ResponseParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_SetProperties_ParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_SetProperties_ResponseParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_ConfigureNetwork_ParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_ConfigureNetwork_ResponseParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_ForgetNetwork_ParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_ForgetNetwork_ResponseParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_SetNetworkTypeEnabledState_ParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_SetNetworkTypeEnabledState_ResponseParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_SetCellularSimState_ParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_SetCellularSimState_ResponseParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_SelectCellularMobileNetwork_ParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_SelectCellularMobileNetwork_ResponseParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_RequestNetworkScan_ParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_GetGlobalPolicy_ParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_GetGlobalPolicy_ResponseParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_StartConnect_ParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_StartConnect_ResponseParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_StartDisconnect_ParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_StartDisconnect_ResponseParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_SetVpnProviders_ParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_GetVpnProviders_ParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_GetVpnProviders_ResponseParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkCertificates_ParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkCertificates_ResponseParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_GetAlwaysOnVpn_ParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_GetAlwaysOnVpn_ResponseParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_SetAlwaysOnVpn_ParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_GetSupportedVpnTypes_ParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_GetSupportedVpnTypes_ResponseParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_RequestTrafficCounters_ParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_RequestTrafficCounters_ResponseParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_ResetTrafficCounters_ParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_SetTrafficCountersResetDay_ParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_SetTrafficCountersResetDay_ResponseParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_CreateCustomApn_ParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_CreateCustomApn_ResponseParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_CreateExclusivelyEnabledCustomApn_ParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_CreateExclusivelyEnabledCustomApn_ResponseParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_RemoveCustomApn_ParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfig_ModifyCustomApn_ParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfigObserver = {};
+chromeos.network_config.mojom.CrosNetworkConfigObserver.$interfaceName = 'chromeos.network_config.mojom.CrosNetworkConfigObserver';
+chromeos.network_config.mojom.CrosNetworkConfigObserver_OnActiveNetworksChanged_ParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkStateChanged_ParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkStateListChanged_ParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfigObserver_OnDeviceStateListChanged_ParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfigObserver_OnVpnProvidersChanged_ParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkCertificatesChanged_ParamsSpec = { $: {} };
+chromeos.network_config.mojom.CrosNetworkConfigObserver_OnPoliciesApplied_ParamsSpec = { $: {} };
 
 chromeos.network_config.mojom.kMaxNumCustomApns = 10;
 
@@ -26,14 +181,12 @@ chromeos.network_config.mojom.ActivationStateType = {
   kActivated: 4,
   kNoService: 5,
 };
-chromeos.network_config.mojom.ActivationStateTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AuthenticationType
 chromeos.network_config.mojom.AuthenticationType = {
   kNone: 0,
   k8021x: 1,
 };
-chromeos.network_config.mojom.AuthenticationTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: HiddenSsidMode
 chromeos.network_config.mojom.HiddenSsidMode = {
@@ -41,7 +194,6 @@ chromeos.network_config.mojom.HiddenSsidMode = {
   kDisabled: 1,
   kEnabled: 2,
 };
-chromeos.network_config.mojom.HiddenSsidModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ProxyMode
 chromeos.network_config.mojom.ProxyMode = {
@@ -51,7 +203,6 @@ chromeos.network_config.mojom.ProxyMode = {
   kFixedServers: 3,
   kSystem: 4,
 };
-chromeos.network_config.mojom.ProxyModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SecurityType
 chromeos.network_config.mojom.SecurityType = {
@@ -61,7 +212,6 @@ chromeos.network_config.mojom.SecurityType = {
   kWpaEap: 3,
   kWpaPsk: 4,
 };
-chromeos.network_config.mojom.SecurityTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: MatchType
 chromeos.network_config.mojom.MatchType = {
@@ -70,7 +220,6 @@ chromeos.network_config.mojom.MatchType = {
   kRoaming: 2,
   kUnknown: 3,
 };
-chromeos.network_config.mojom.MatchTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: VpnType
 chromeos.network_config.mojom.VpnType = {
@@ -81,7 +230,6 @@ chromeos.network_config.mojom.VpnType = {
   kExtension: 4,
   kArc: 5,
 };
-chromeos.network_config.mojom.VpnTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: FilterType
 chromeos.network_config.mojom.FilterType = {
@@ -90,7 +238,6 @@ chromeos.network_config.mojom.FilterType = {
   kConfigured: 2,
   kAll: 3,
 };
-chromeos.network_config.mojom.FilterTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: StartConnectResult
 chromeos.network_config.mojom.StartConnectResult = {
@@ -102,14 +249,12 @@ chromeos.network_config.mojom.StartConnectResult = {
   kBlocked: 5,
   kUnknown: 6,
 };
-chromeos.network_config.mojom.StartConnectResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: CertificateType
 chromeos.network_config.mojom.CertificateType = {
   kServerCA: 0,
   kUserCert: 1,
 };
-chromeos.network_config.mojom.CertificateTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: InhibitReason
 chromeos.network_config.mojom.InhibitReason = {
@@ -123,7 +268,6 @@ chromeos.network_config.mojom.InhibitReason = {
   kDisablingProfile: 7,
   kRequestingAvailableProfiles: 8,
 };
-chromeos.network_config.mojom.InhibitReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: AlwaysOnVpnMode
 chromeos.network_config.mojom.AlwaysOnVpnMode = {
@@ -131,14 +275,12 @@ chromeos.network_config.mojom.AlwaysOnVpnMode = {
   kBestEffort: 1,
   kStrict: 2,
 };
-chromeos.network_config.mojom.AlwaysOnVpnModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ApnState
 chromeos.network_config.mojom.ApnState = {
   kEnabled: 0,
   kDisabled: 1,
 };
-chromeos.network_config.mojom.ApnStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: ApnAuthenticationType
 chromeos.network_config.mojom.ApnAuthenticationType = {
@@ -146,7 +288,6 @@ chromeos.network_config.mojom.ApnAuthenticationType = {
   kPap: 1,
   kChap: 2,
 };
-chromeos.network_config.mojom.ApnAuthenticationTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ApnIpType
 chromeos.network_config.mojom.ApnIpType = {
@@ -155,7 +296,6 @@ chromeos.network_config.mojom.ApnIpType = {
   kIpv6: 2,
   kIpv4Ipv6: 3,
 };
-chromeos.network_config.mojom.ApnIpTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ApnType
 chromeos.network_config.mojom.ApnType = {
@@ -163,7 +303,6 @@ chromeos.network_config.mojom.ApnType = {
   kAttach: 1,
   kTether: 2,
 };
-chromeos.network_config.mojom.ApnTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ApnSource
 chromeos.network_config.mojom.ApnSource = {
@@ -171,7 +310,6 @@ chromeos.network_config.mojom.ApnSource = {
   kModb: 1,
   kUi: 2,
 };
-chromeos.network_config.mojom.ApnSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: Type
 chromeos.network_config.mojom.Type = {
@@ -179,7 +317,6 @@ chromeos.network_config.mojom.Type = {
   kDns: 1,
   kUri: 2,
 };
-chromeos.network_config.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SuppressionType
 chromeos.network_config.mojom.SuppressionType = {
@@ -187,7 +324,6 @@ chromeos.network_config.mojom.SuppressionType = {
   kAllow: 1,
   kSuppress: 2,
 };
-chromeos.network_config.mojom.SuppressionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: TrafficCounterSource
 chromeos.network_config.mojom.TrafficCounterSource = {
@@ -201,1788 +337,1247 @@ chromeos.network_config.mojom.TrafficCounterSource = {
   kVpn: 7,
   kSystem: 8,
 };
-chromeos.network_config.mojom.TrafficCounterSourceSpec = { $: mojo.internal.Enum() };
 
 // Union: NetworkTypeStateProperties
-chromeos.network_config.mojom.NetworkTypeStatePropertiesSpec = { $: mojo.internal.Union(
-    'chromeos.network_config.mojom.NetworkTypeStateProperties', {
+mojo.internal.Union(
+    chromeos.network_config.mojom.NetworkTypeStatePropertiesSpec, 'chromeos.network_config.mojom.NetworkTypeStateProperties', {
       'cellular': {
         'ordinal': 0,
         'type': chromeos.network_config.mojom.CellularStatePropertiesSpec,
-      }},
+        'nullable': false,
+      },
       'ethernet': {
         'ordinal': 1,
         'type': chromeos.network_config.mojom.EthernetStatePropertiesSpec,
-      }},
+        'nullable': false,
+      },
       'tether': {
         'ordinal': 2,
         'type': chromeos.network_config.mojom.TetherStatePropertiesSpec,
-      }},
+        'nullable': false,
+      },
       'vpn': {
         'ordinal': 3,
         'type': chromeos.network_config.mojom.VPNStatePropertiesSpec,
-      }},
+        'nullable': false,
+      },
       'wifi': {
         'ordinal': 4,
         'type': chromeos.network_config.mojom.WiFiStatePropertiesSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Union: NetworkTypeManagedProperties
-chromeos.network_config.mojom.NetworkTypeManagedPropertiesSpec = { $: mojo.internal.Union(
-    'chromeos.network_config.mojom.NetworkTypeManagedProperties', {
+mojo.internal.Union(
+    chromeos.network_config.mojom.NetworkTypeManagedPropertiesSpec, 'chromeos.network_config.mojom.NetworkTypeManagedProperties', {
       'cellular': {
         'ordinal': 0,
         'type': chromeos.network_config.mojom.ManagedCellularPropertiesSpec,
-      }},
+        'nullable': false,
+      },
       'ethernet': {
         'ordinal': 1,
         'type': chromeos.network_config.mojom.ManagedEthernetPropertiesSpec,
-      }},
+        'nullable': false,
+      },
       'tether': {
         'ordinal': 2,
         'type': chromeos.network_config.mojom.TetherStatePropertiesSpec,
-      }},
+        'nullable': false,
+      },
       'vpn': {
         'ordinal': 3,
         'type': chromeos.network_config.mojom.ManagedVPNPropertiesSpec,
-      }},
+        'nullable': false,
+      },
       'wifi': {
         'ordinal': 4,
         'type': chromeos.network_config.mojom.ManagedWiFiPropertiesSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Union: NetworkTypeConfigProperties
-chromeos.network_config.mojom.NetworkTypeConfigPropertiesSpec = { $: mojo.internal.Union(
-    'chromeos.network_config.mojom.NetworkTypeConfigProperties', {
+mojo.internal.Union(
+    chromeos.network_config.mojom.NetworkTypeConfigPropertiesSpec, 'chromeos.network_config.mojom.NetworkTypeConfigProperties', {
       'cellular': {
         'ordinal': 0,
         'type': chromeos.network_config.mojom.CellularConfigPropertiesSpec,
-      }},
+        'nullable': false,
+      },
       'ethernet': {
         'ordinal': 1,
         'type': chromeos.network_config.mojom.EthernetConfigPropertiesSpec,
-      }},
+        'nullable': false,
+      },
       'vpn': {
         'ordinal': 2,
         'type': chromeos.network_config.mojom.VPNConfigPropertiesSpec,
-      }},
+        'nullable': false,
+      },
       'wifi': {
         'ordinal': 3,
         'type': chromeos.network_config.mojom.WiFiConfigPropertiesSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: SIMLockStatus
-chromeos.network_config.mojom.SIMLockStatusSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.SIMLockStatus',
-      packedSize: 24,
-      fields: [
-        { name: 'lock_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'lock_enabled', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'retries_left', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.SIMLockStatusSpec, 'chromeos.network_config.mojom.SIMLockStatus', [
+      mojo.internal.StructField('lock_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('lock_enabled', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('retries_left', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: SIMInfo
-chromeos.network_config.mojom.SIMInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.SIMInfo',
-      packedSize: 32,
-      fields: [
-        { name: 'slot_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'eid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'iccid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_primary', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.SIMInfoSpec, 'chromeos.network_config.mojom.SIMInfo', [
+      mojo.internal.StructField('slot_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('eid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('iccid', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('is_primary', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: CellularStateProperties
-chromeos.network_config.mojom.CellularStatePropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CellularStateProperties',
-      packedSize: 72,
-      fields: [
-        { name: 'iccid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'eid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'activation_state', packedOffset: 48, packedBitOffset: 0, type: chromeos.network_config.mojom.ActivationStateTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'network_technology', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'roaming', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'signal_strength', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'sim_lock_enabled', packedOffset: 56, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'sim_locked', packedOffset: 56, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'sim_lock_type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'has_nick_name', packedOffset: 56, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'network_operator', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'payment_portal', packedOffset: 40, packedBitOffset: 0, type: chromeos.network_config.mojom.PaymentPortalPropertiesSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 72}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CellularStatePropertiesSpec, 'chromeos.network_config.mojom.CellularStateProperties', [
+      mojo.internal.StructField('iccid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('eid', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('activation_state', 48, 0, chromeos.network_config.mojom.ActivationStateTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('network_technology', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('roaming', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('signal_strength', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('sim_lock_enabled', 56, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('sim_locked', 56, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('sim_lock_type', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('has_nick_name', 56, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('network_operator', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('payment_portal', 40, 0, chromeos.network_config.mojom.PaymentPortalPropertiesSpec, null, true, 0, undefined),
+    ],
+    [[0, 72]]);
 
 // Struct: EthernetStateProperties
-chromeos.network_config.mojom.EthernetStatePropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.EthernetStateProperties',
-      packedSize: 16,
-      fields: [
-        { name: 'authentication', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.AuthenticationTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.EthernetStatePropertiesSpec, 'chromeos.network_config.mojom.EthernetStateProperties', [
+      mojo.internal.StructField('authentication', 0, 0, chromeos.network_config.mojom.AuthenticationTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: TetherStateProperties
-chromeos.network_config.mojom.TetherStatePropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.TetherStateProperties',
-      packedSize: 32,
-      fields: [
-        { name: 'battery_percentage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'carrier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'has_connected_to_host', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'signal_strength', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.TetherStatePropertiesSpec, 'chromeos.network_config.mojom.TetherStateProperties', [
+      mojo.internal.StructField('battery_percentage', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('carrier', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('has_connected_to_host', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('signal_strength', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: VPNStateProperties
-chromeos.network_config.mojom.VPNStatePropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.VPNStateProperties',
-      packedSize: 32,
-      fields: [
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: chromeos.network_config.mojom.VpnTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'provider_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'provider_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.VPNStatePropertiesSpec, 'chromeos.network_config.mojom.VPNStateProperties', [
+      mojo.internal.StructField('type', 16, 0, chromeos.network_config.mojom.VpnTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('provider_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('provider_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: WiFiStateProperties
-chromeos.network_config.mojom.WiFiStatePropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.WiFiStateProperties',
-      packedSize: 56,
-      fields: [
-        { name: 'bssid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'frequency', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'hex_ssid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'security', packedOffset: 36, packedBitOffset: 0, type: chromeos.network_config.mojom.SecurityTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'signal_strength', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'ssid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'visible', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'hidden_ssid', packedOffset: 44, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'passpoint_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.WiFiStatePropertiesSpec, 'chromeos.network_config.mojom.WiFiStateProperties', [
+      mojo.internal.StructField('bssid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('frequency', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('hex_ssid', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('security', 36, 0, chromeos.network_config.mojom.SecurityTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('signal_strength', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('ssid', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('visible', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('hidden_ssid', 44, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('passpoint_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Struct: NetworkStateProperties
-chromeos.network_config.mojom.NetworkStatePropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.NetworkStateProperties',
-      packedSize: 88,
-      fields: [
-        { name: 'connectable', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'connect_requested', packedOffset: 72, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'connection_state', packedOffset: 48, packedBitOffset: 0, type: chromeos.network_config.mojom.ConnectionStateTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'error_state', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'guid', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'portal_state', packedOffset: 52, packedBitOffset: 0, type: chromeos.network_config.mojom.PortalStateSpec, nullable: false, minVersion: 0 },
-        { name: 'portal_probe_url', packedOffset: 40, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
-        { name: 'priority', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'proxy_mode', packedOffset: 60, packedBitOffset: 0, type: chromeos.network_config.mojom.ProxyModeSpec, nullable: false, minVersion: 0 },
-        { name: 'prohibited_by_policy', packedOffset: 72, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'source', packedOffset: 64, packedBitOffset: 0, type: chromeos.network_config.mojom.OncSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 68, packedBitOffset: 0, type: chromeos.network_config.mojom.NetworkTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'type_state', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.NetworkTypeStatePropertiesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 88}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.NetworkStatePropertiesSpec, 'chromeos.network_config.mojom.NetworkStateProperties', [
+      mojo.internal.StructField('connectable', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('connect_requested', 72, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('connection_state', 48, 0, chromeos.network_config.mojom.ConnectionStateTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error_state', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('guid', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('name', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('portal_state', 52, 0, chromeos.network_config.mojom.PortalStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('portal_probe_url', 40, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('priority', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('proxy_mode', 60, 0, chromeos.network_config.mojom.ProxyModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('prohibited_by_policy', 72, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('source', 64, 0, chromeos.network_config.mojom.OncSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 68, 0, chromeos.network_config.mojom.NetworkTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type_state', 0, 0, chromeos.network_config.mojom.NetworkTypeStatePropertiesSpec, null, false, 0, undefined),
+    ],
+    [[0, 88]]);
 
 // Struct: DeviceStateProperties
-chromeos.network_config.mojom.DeviceStatePropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.DeviceStateProperties',
-      packedSize: 80,
-      fields: [
-        { name: 'ipv4_address', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: true, minVersion: 0 },
-        { name: 'ipv6_address', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: true, minVersion: 0 },
-        { name: 'imei', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'mac_address', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'scanning', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'sim_lock_status', packedOffset: 32, packedBitOffset: 0, type: chromeos.network_config.mojom.SIMLockStatusSpec, nullable: true, minVersion: 0 },
-        { name: 'sim_infos', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(chromeos.network_config.mojom.SIMInfoSpec, false), nullable: true, minVersion: 0 },
-        { name: 'inhibit_reason', packedOffset: 56, packedBitOffset: 0, type: chromeos.network_config.mojom.InhibitReasonSpec, nullable: false, minVersion: 0 },
-        { name: 'sim_absent', packedOffset: 68, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'device_state', packedOffset: 60, packedBitOffset: 0, type: chromeos.network_config.mojom.DeviceStateTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 64, packedBitOffset: 0, type: chromeos.network_config.mojom.NetworkTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'managed_network_available', packedOffset: 68, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'serial', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'is_carrier_locked', packedOffset: 68, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_flashing', packedOffset: 68, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 80}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.DeviceStatePropertiesSpec, 'chromeos.network_config.mojom.DeviceStateProperties', [
+      mojo.internal.StructField('ipv4_address', 0, 0, network.mojom.IPAddressSpec, null, true, 0, undefined),
+      mojo.internal.StructField('ipv6_address', 8, 0, network.mojom.IPAddressSpec, null, true, 0, undefined),
+      mojo.internal.StructField('imei', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('mac_address', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('scanning', 68, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('sim_lock_status', 32, 0, chromeos.network_config.mojom.SIMLockStatusSpec, null, true, 0, undefined),
+      mojo.internal.StructField('sim_infos', 40, 0, mojo.internal.Array(chromeos.network_config.mojom.SIMInfoSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('inhibit_reason', 56, 0, chromeos.network_config.mojom.InhibitReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('sim_absent', 68, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('device_state', 60, 0, chromeos.network_config.mojom.DeviceStateTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 64, 0, chromeos.network_config.mojom.NetworkTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('managed_network_available', 68, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('serial', 48, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('is_carrier_locked', 68, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_flashing', 68, 4, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 80]]);
 
 // Struct: NetworkFilter
-chromeos.network_config.mojom.NetworkFilterSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.NetworkFilter',
-      packedSize: 24,
-      fields: [
-        { name: 'filter', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.FilterTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'network_type', packedOffset: 4, packedBitOffset: 0, type: chromeos.network_config.mojom.NetworkTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'limit', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.NetworkFilterSpec, 'chromeos.network_config.mojom.NetworkFilter', [
+      mojo.internal.StructField('filter', 0, 0, chromeos.network_config.mojom.FilterTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('network_type', 4, 0, chromeos.network_config.mojom.NetworkTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('limit', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: ApnProperties
-chromeos.network_config.mojom.ApnPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.ApnProperties',
-      packedSize: 96,
-      fields: [
-        { name: 'access_point_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'authentication', packedOffset: 72, packedBitOffset: 0, type: chromeos.network_config.mojom.ApnAuthenticationTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'language', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'localized_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'password', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'username', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'attach', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'state', packedOffset: 76, packedBitOffset: 0, type: chromeos.network_config.mojom.ApnStateSpec, nullable: false, minVersion: 0 },
-        { name: 'ip_type', packedOffset: 80, packedBitOffset: 0, type: chromeos.network_config.mojom.ApnIpTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'apn_types', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array(chromeos.network_config.mojom.ApnTypeSpec, false), nullable: false, minVersion: 0 },
-        { name: 'source', packedOffset: 84, packedBitOffset: 0, type: chromeos.network_config.mojom.ApnSourceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 96}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.ApnPropertiesSpec, 'chromeos.network_config.mojom.ApnProperties', [
+      mojo.internal.StructField('access_point_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('id', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('authentication', 72, 0, chromeos.network_config.mojom.ApnAuthenticationTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('language', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('localized_name', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('name', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('password', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('username', 48, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('attach', 56, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('state', 76, 0, chromeos.network_config.mojom.ApnStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('ip_type', 80, 0, chromeos.network_config.mojom.ApnIpTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('apn_types', 64, 0, mojo.internal.Array(chromeos.network_config.mojom.ApnTypeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('source', 84, 0, chromeos.network_config.mojom.ApnSourceSpec, null, false, 0, undefined),
+    ],
+    [[0, 96]]);
 
 // Struct: RoamingProperties
-chromeos.network_config.mojom.RoamingPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.RoamingProperties',
-      packedSize: 16,
-      fields: [
-        { name: 'allow_roaming', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.RoamingPropertiesSpec, 'chromeos.network_config.mojom.RoamingProperties', [
+      mojo.internal.StructField('allow_roaming', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: CellularProviderProperties
-chromeos.network_config.mojom.CellularProviderPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CellularProviderProperties',
-      packedSize: 32,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'country', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CellularProviderPropertiesSpec, 'chromeos.network_config.mojom.CellularProviderProperties', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('code', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('country', 16, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: FoundNetworkProperties
-chromeos.network_config.mojom.FoundNetworkPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.FoundNetworkProperties',
-      packedSize: 48,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'network_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'technology', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'short_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'long_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.FoundNetworkPropertiesSpec, 'chromeos.network_config.mojom.FoundNetworkProperties', [
+      mojo.internal.StructField('status', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('network_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('technology', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('short_name', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('long_name', 32, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: IPConfigProperties
-chromeos.network_config.mojom.IPConfigPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.IPConfigProperties',
-      packedSize: 72,
-      fields: [
-        { name: 'gateway', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'ip_address', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'excluded_routes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
-        { name: 'included_routes', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
-        { name: 'name_servers', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
-        { name: 'search_domains', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
-        { name: 'routing_prefix', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 60, packedBitOffset: 0, type: chromeos.network_config.mojom.IPConfigTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'web_proxy_auto_discovery_url', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 72}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.IPConfigPropertiesSpec, 'chromeos.network_config.mojom.IPConfigProperties', [
+      mojo.internal.StructField('gateway', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('ip_address', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('excluded_routes', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('included_routes', 24, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('name_servers', 32, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('search_domains', 40, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('routing_prefix', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('type', 60, 0, chromeos.network_config.mojom.IPConfigTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('web_proxy_auto_discovery_url', 48, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 72]]);
 
 // Struct: PaymentPortalProperties
-chromeos.network_config.mojom.PaymentPortalPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.PaymentPortalProperties',
-      packedSize: 32,
-      fields: [
-        { name: 'method', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'post_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.PaymentPortalPropertiesSpec, 'chromeos.network_config.mojom.PaymentPortalProperties', [
+      mojo.internal.StructField('method', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('post_data', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('url', 16, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: WireGuardPeerProperties
-chromeos.network_config.mojom.WireGuardPeerPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.WireGuardPeerProperties',
-      packedSize: 48,
-      fields: [
-        { name: 'public_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'preshared_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'allowed_ips', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'endpoint', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'persistent_keepalive_interval', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.WireGuardPeerPropertiesSpec, 'chromeos.network_config.mojom.WireGuardPeerProperties', [
+      mojo.internal.StructField('public_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('preshared_key', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('allowed_ips', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('endpoint', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('persistent_keepalive_interval', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: ManagedBoolean
-chromeos.network_config.mojom.ManagedBooleanSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.ManagedBoolean',
-      packedSize: 16,
-      fields: [
-        { name: 'active_value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'policy_source', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.PolicySourceSpec, nullable: false, minVersion: 0 },
-        { name: 'policy_value', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.ManagedBooleanSpec, 'chromeos.network_config.mojom.ManagedBoolean', [
+      mojo.internal.StructField('active_value', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('policy_source', 0, 0, chromeos.network_config.mojom.PolicySourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('policy_value', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: ManagedInt32
-chromeos.network_config.mojom.ManagedInt32Spec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.ManagedInt32',
-      packedSize: 24,
-      fields: [
-        { name: 'active_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'policy_source', packedOffset: 4, packedBitOffset: 0, type: chromeos.network_config.mojom.PolicySourceSpec, nullable: false, minVersion: 0 },
-        { name: 'policy_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.ManagedInt32Spec, 'chromeos.network_config.mojom.ManagedInt32', [
+      mojo.internal.StructField('active_value', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('policy_source', 4, 0, chromeos.network_config.mojom.PolicySourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('policy_value', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: ManagedString
-chromeos.network_config.mojom.ManagedStringSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.ManagedString',
-      packedSize: 32,
-      fields: [
-        { name: 'active_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'policy_source', packedOffset: 16, packedBitOffset: 0, type: chromeos.network_config.mojom.PolicySourceSpec, nullable: false, minVersion: 0 },
-        { name: 'policy_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.ManagedStringSpec, 'chromeos.network_config.mojom.ManagedString', [
+      mojo.internal.StructField('active_value', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('policy_source', 16, 0, chromeos.network_config.mojom.PolicySourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('policy_value', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: ManagedStringList
-chromeos.network_config.mojom.ManagedStringListSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.ManagedStringList',
-      packedSize: 32,
-      fields: [
-        { name: 'active_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'policy_source', packedOffset: 16, packedBitOffset: 0, type: chromeos.network_config.mojom.PolicySourceSpec, nullable: false, minVersion: 0 },
-        { name: 'policy_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.ManagedStringListSpec, 'chromeos.network_config.mojom.ManagedStringList', [
+      mojo.internal.StructField('active_value', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('policy_source', 16, 0, chromeos.network_config.mojom.PolicySourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('policy_value', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: ManagedApnProperties
-chromeos.network_config.mojom.ManagedApnPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.ManagedApnProperties',
-      packedSize: 72,
-      fields: [
-        { name: 'access_point_name', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: false, minVersion: 0 },
-        { name: 'authentication', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'language', packedOffset: 16, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'localized_name', packedOffset: 24, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'name', packedOffset: 32, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'password', packedOffset: 40, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'username', packedOffset: 48, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'attach', packedOffset: 56, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 72}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.ManagedApnPropertiesSpec, 'chromeos.network_config.mojom.ManagedApnProperties', [
+      mojo.internal.StructField('access_point_name', 0, 0, chromeos.network_config.mojom.ManagedStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('authentication', 8, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('language', 16, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('localized_name', 24, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('name', 32, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('password', 40, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('username', 48, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('attach', 56, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+    ],
+    [[0, 72]]);
 
 // Struct: ManagedApnList
-chromeos.network_config.mojom.ManagedApnListSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.ManagedApnList',
-      packedSize: 32,
-      fields: [
-        { name: 'active_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromeos.network_config.mojom.ApnPropertiesSpec, false), nullable: false, minVersion: 0 },
-        { name: 'policy_source', packedOffset: 16, packedBitOffset: 0, type: chromeos.network_config.mojom.PolicySourceSpec, nullable: false, minVersion: 0 },
-        { name: 'policy_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(chromeos.network_config.mojom.ApnPropertiesSpec, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.ManagedApnListSpec, 'chromeos.network_config.mojom.ManagedApnList', [
+      mojo.internal.StructField('active_value', 0, 0, mojo.internal.Array(chromeos.network_config.mojom.ApnPropertiesSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('policy_source', 16, 0, chromeos.network_config.mojom.PolicySourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('policy_value', 8, 0, mojo.internal.Array(chromeos.network_config.mojom.ApnPropertiesSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: ManagedIssuerSubjectPattern
-chromeos.network_config.mojom.ManagedIssuerSubjectPatternSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.ManagedIssuerSubjectPattern',
-      packedSize: 40,
-      fields: [
-        { name: 'common_name', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'locality', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'organization', packedOffset: 16, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'organizational_unit', packedOffset: 24, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.ManagedIssuerSubjectPatternSpec, 'chromeos.network_config.mojom.ManagedIssuerSubjectPattern', [
+      mojo.internal.StructField('common_name', 0, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('locality', 8, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('organization', 16, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('organizational_unit', 24, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: ManagedCertificatePattern
-chromeos.network_config.mojom.ManagedCertificatePatternSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.ManagedCertificatePattern',
-      packedSize: 40,
-      fields: [
-        { name: 'enrollment_uri', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringListSpec, nullable: true, minVersion: 0 },
-        { name: 'issuer', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedIssuerSubjectPatternSpec, nullable: true, minVersion: 0 },
-        { name: 'issuer_ca_ref', packedOffset: 16, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringListSpec, nullable: true, minVersion: 0 },
-        { name: 'subject', packedOffset: 24, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedIssuerSubjectPatternSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.ManagedCertificatePatternSpec, 'chromeos.network_config.mojom.ManagedCertificatePattern', [
+      mojo.internal.StructField('enrollment_uri', 0, 0, chromeos.network_config.mojom.ManagedStringListSpec, null, true, 0, undefined),
+      mojo.internal.StructField('issuer', 8, 0, chromeos.network_config.mojom.ManagedIssuerSubjectPatternSpec, null, true, 0, undefined),
+      mojo.internal.StructField('issuer_ca_ref', 16, 0, chromeos.network_config.mojom.ManagedStringListSpec, null, true, 0, undefined),
+      mojo.internal.StructField('subject', 24, 0, chromeos.network_config.mojom.ManagedIssuerSubjectPatternSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: ManagedEAPProperties
-chromeos.network_config.mojom.ManagedEAPPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.ManagedEAPProperties',
-      packedSize: 160,
-      fields: [
-        { name: 'anonymous_identity', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'client_cert_pattern', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedCertificatePatternSpec, nullable: true, minVersion: 0 },
-        { name: 'client_cert_pkcs11_id', packedOffset: 16, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'client_cert_provisioning_profile_id', packedOffset: 24, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'client_cert_ref', packedOffset: 32, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'client_cert_type', packedOffset: 40, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'domain_suffix_match', packedOffset: 48, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringListSpec, nullable: true, minVersion: 0 },
-        { name: 'identity', packedOffset: 56, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'inner', packedOffset: 64, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'outer', packedOffset: 72, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'password', packedOffset: 80, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'save_credentials', packedOffset: 88, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedBooleanSpec, nullable: true, minVersion: 0 },
-        { name: 'server_ca_pems', packedOffset: 96, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringListSpec, nullable: true, minVersion: 0 },
-        { name: 'server_ca_refs', packedOffset: 104, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringListSpec, nullable: true, minVersion: 0 },
-        { name: 'subject_alt_name_match', packedOffset: 112, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedSubjectAltNameMatchListSpec, nullable: true, minVersion: 0 },
-        { name: 'subject_match', packedOffset: 120, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'tls_version_max', packedOffset: 128, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'use_proactive_key_caching', packedOffset: 136, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedBooleanSpec, nullable: true, minVersion: 0 },
-        { name: 'use_system_cas', packedOffset: 144, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedBooleanSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 160}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.ManagedEAPPropertiesSpec, 'chromeos.network_config.mojom.ManagedEAPProperties', [
+      mojo.internal.StructField('anonymous_identity', 0, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('client_cert_pattern', 8, 0, chromeos.network_config.mojom.ManagedCertificatePatternSpec, null, true, 0, undefined),
+      mojo.internal.StructField('client_cert_pkcs11_id', 16, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('client_cert_provisioning_profile_id', 24, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('client_cert_ref', 32, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('client_cert_type', 40, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('domain_suffix_match', 48, 0, chromeos.network_config.mojom.ManagedStringListSpec, null, true, 0, undefined),
+      mojo.internal.StructField('identity', 56, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('inner', 64, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('outer', 72, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('password', 80, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('save_credentials', 88, 0, chromeos.network_config.mojom.ManagedBooleanSpec, null, true, 0, undefined),
+      mojo.internal.StructField('server_ca_pems', 96, 0, chromeos.network_config.mojom.ManagedStringListSpec, null, true, 0, undefined),
+      mojo.internal.StructField('server_ca_refs', 104, 0, chromeos.network_config.mojom.ManagedStringListSpec, null, true, 0, undefined),
+      mojo.internal.StructField('subject_alt_name_match', 112, 0, chromeos.network_config.mojom.ManagedSubjectAltNameMatchListSpec, null, true, 0, undefined),
+      mojo.internal.StructField('subject_match', 120, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('tls_version_max', 128, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('use_proactive_key_caching', 136, 0, chromeos.network_config.mojom.ManagedBooleanSpec, null, true, 0, undefined),
+      mojo.internal.StructField('use_system_cas', 144, 0, chromeos.network_config.mojom.ManagedBooleanSpec, null, true, 0, undefined),
+    ],
+    [[0, 160]]);
 
 // Struct: ManagedSubjectAltNameMatchList
-chromeos.network_config.mojom.ManagedSubjectAltNameMatchListSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.ManagedSubjectAltNameMatchList',
-      packedSize: 32,
-      fields: [
-        { name: 'active_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromeos.network_config.mojom.SubjectAltNameSpec, false), nullable: false, minVersion: 0 },
-        { name: 'policy_source', packedOffset: 16, packedBitOffset: 0, type: chromeos.network_config.mojom.PolicySourceSpec, nullable: false, minVersion: 0 },
-        { name: 'policy_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(chromeos.network_config.mojom.SubjectAltNameSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.ManagedSubjectAltNameMatchListSpec, 'chromeos.network_config.mojom.ManagedSubjectAltNameMatchList', [
+      mojo.internal.StructField('active_value', 0, 0, mojo.internal.Array(chromeos.network_config.mojom.SubjectAltNameSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('policy_source', 16, 0, chromeos.network_config.mojom.PolicySourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('policy_value', 8, 0, mojo.internal.Array(chromeos.network_config.mojom.SubjectAltNameSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: ManagedIPConfigProperties
-chromeos.network_config.mojom.ManagedIPConfigPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.ManagedIPConfigProperties',
-      packedSize: 56,
-      fields: [
-        { name: 'gateway', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'ip_address', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'name_servers', packedOffset: 16, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringListSpec, nullable: true, minVersion: 0 },
-        { name: 'routing_prefix', packedOffset: 24, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedInt32Spec, nullable: true, minVersion: 0 },
-        { name: 'type', packedOffset: 40, packedBitOffset: 0, type: chromeos.network_config.mojom.IPConfigTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'web_proxy_auto_discovery_url', packedOffset: 32, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.ManagedIPConfigPropertiesSpec, 'chromeos.network_config.mojom.ManagedIPConfigProperties', [
+      mojo.internal.StructField('gateway', 0, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('ip_address', 8, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('name_servers', 16, 0, chromeos.network_config.mojom.ManagedStringListSpec, null, true, 0, undefined),
+      mojo.internal.StructField('routing_prefix', 24, 0, chromeos.network_config.mojom.ManagedInt32Spec, null, true, 0, undefined),
+      mojo.internal.StructField('type', 40, 0, chromeos.network_config.mojom.IPConfigTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('web_proxy_auto_discovery_url', 32, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Struct: ManagedIPSecProperties
-chromeos.network_config.mojom.ManagedIPSecPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.ManagedIPSecProperties',
-      packedSize: 128,
-      fields: [
-        { name: 'authentication_type', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: false, minVersion: 0 },
-        { name: 'client_cert_pattern', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedCertificatePatternSpec, nullable: true, minVersion: 0 },
-        { name: 'client_cert_pkcs11_id', packedOffset: 16, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'client_cert_provisioning_profile_id', packedOffset: 24, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'client_cert_ref', packedOffset: 32, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'client_cert_type', packedOffset: 40, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'eap', packedOffset: 48, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedEAPPropertiesSpec, nullable: true, minVersion: 0 },
-        { name: 'group', packedOffset: 56, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'ike_version', packedOffset: 64, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedInt32Spec, nullable: true, minVersion: 0 },
-        { name: 'local_identity', packedOffset: 72, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'psk', packedOffset: 80, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'remote_identity', packedOffset: 88, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'save_credentials', packedOffset: 96, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedBooleanSpec, nullable: true, minVersion: 0 },
-        { name: 'server_ca_pems', packedOffset: 104, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringListSpec, nullable: true, minVersion: 0 },
-        { name: 'server_ca_refs', packedOffset: 112, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringListSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 128}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.ManagedIPSecPropertiesSpec, 'chromeos.network_config.mojom.ManagedIPSecProperties', [
+      mojo.internal.StructField('authentication_type', 0, 0, chromeos.network_config.mojom.ManagedStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('client_cert_pattern', 8, 0, chromeos.network_config.mojom.ManagedCertificatePatternSpec, null, true, 0, undefined),
+      mojo.internal.StructField('client_cert_pkcs11_id', 16, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('client_cert_provisioning_profile_id', 24, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('client_cert_ref', 32, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('client_cert_type', 40, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('eap', 48, 0, chromeos.network_config.mojom.ManagedEAPPropertiesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('group', 56, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('ike_version', 64, 0, chromeos.network_config.mojom.ManagedInt32Spec, null, true, 0, undefined),
+      mojo.internal.StructField('local_identity', 72, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('psk', 80, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('remote_identity', 88, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('save_credentials', 96, 0, chromeos.network_config.mojom.ManagedBooleanSpec, null, true, 0, undefined),
+      mojo.internal.StructField('server_ca_pems', 104, 0, chromeos.network_config.mojom.ManagedStringListSpec, null, true, 0, undefined),
+      mojo.internal.StructField('server_ca_refs', 112, 0, chromeos.network_config.mojom.ManagedStringListSpec, null, true, 0, undefined),
+    ],
+    [[0, 128]]);
 
 // Struct: ManagedL2TPProperties
-chromeos.network_config.mojom.ManagedL2TPPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.ManagedL2TPProperties',
-      packedSize: 40,
-      fields: [
-        { name: 'lcp_echo_disabled', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedBooleanSpec, nullable: true, minVersion: 0 },
-        { name: 'password', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'save_credentials', packedOffset: 16, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedBooleanSpec, nullable: true, minVersion: 0 },
-        { name: 'username', packedOffset: 24, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.ManagedL2TPPropertiesSpec, 'chromeos.network_config.mojom.ManagedL2TPProperties', [
+      mojo.internal.StructField('lcp_echo_disabled', 0, 0, chromeos.network_config.mojom.ManagedBooleanSpec, null, true, 0, undefined),
+      mojo.internal.StructField('password', 8, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('save_credentials', 16, 0, chromeos.network_config.mojom.ManagedBooleanSpec, null, true, 0, undefined),
+      mojo.internal.StructField('username', 24, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: ManagedProxyLocation
-chromeos.network_config.mojom.ManagedProxyLocationSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.ManagedProxyLocation',
-      packedSize: 24,
-      fields: [
-        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: false, minVersion: 0 },
-        { name: 'port', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedInt32Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.ManagedProxyLocationSpec, 'chromeos.network_config.mojom.ManagedProxyLocation', [
+      mojo.internal.StructField('host', 0, 0, chromeos.network_config.mojom.ManagedStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('port', 8, 0, chromeos.network_config.mojom.ManagedInt32Spec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: ManagedManualProxySettings
-chromeos.network_config.mojom.ManagedManualProxySettingsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.ManagedManualProxySettings',
-      packedSize: 40,
-      fields: [
-        { name: 'http_proxy', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedProxyLocationSpec, nullable: true, minVersion: 0 },
-        { name: 'secure_http_proxy', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedProxyLocationSpec, nullable: true, minVersion: 0 },
-        { name: 'ftp_proxy', packedOffset: 16, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedProxyLocationSpec, nullable: true, minVersion: 0 },
-        { name: 'socks', packedOffset: 24, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedProxyLocationSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.ManagedManualProxySettingsSpec, 'chromeos.network_config.mojom.ManagedManualProxySettings', [
+      mojo.internal.StructField('http_proxy', 0, 0, chromeos.network_config.mojom.ManagedProxyLocationSpec, null, true, 0, undefined),
+      mojo.internal.StructField('secure_http_proxy', 8, 0, chromeos.network_config.mojom.ManagedProxyLocationSpec, null, true, 0, undefined),
+      mojo.internal.StructField('ftp_proxy', 16, 0, chromeos.network_config.mojom.ManagedProxyLocationSpec, null, true, 0, undefined),
+      mojo.internal.StructField('socks', 24, 0, chromeos.network_config.mojom.ManagedProxyLocationSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: ManagedProxySettings
-chromeos.network_config.mojom.ManagedProxySettingsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.ManagedProxySettings',
-      packedSize: 40,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: false, minVersion: 0 },
-        { name: 'manual', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedManualProxySettingsSpec, nullable: true, minVersion: 0 },
-        { name: 'exclude_domains', packedOffset: 16, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringListSpec, nullable: true, minVersion: 0 },
-        { name: 'pac', packedOffset: 24, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.ManagedProxySettingsSpec, 'chromeos.network_config.mojom.ManagedProxySettings', [
+      mojo.internal.StructField('type', 0, 0, chromeos.network_config.mojom.ManagedStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('manual', 8, 0, chromeos.network_config.mojom.ManagedManualProxySettingsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('exclude_domains', 16, 0, chromeos.network_config.mojom.ManagedStringListSpec, null, true, 0, undefined),
+      mojo.internal.StructField('pac', 24, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: ManagedVerifyX509Properties
-chromeos.network_config.mojom.ManagedVerifyX509PropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.ManagedVerifyX509Properties',
-      packedSize: 24,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.ManagedVerifyX509PropertiesSpec, 'chromeos.network_config.mojom.ManagedVerifyX509Properties', [
+      mojo.internal.StructField('name', 0, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: ManagedOpenVPNProperties
-chromeos.network_config.mojom.ManagedOpenVPNPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.ManagedOpenVPNProperties',
-      packedSize: 304,
-      fields: [
-        { name: 'auth', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'auth_retry', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'auth_no_cache', packedOffset: 16, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedBooleanSpec, nullable: true, minVersion: 0 },
-        { name: 'cipher', packedOffset: 24, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'client_cert_pkcs11_id', packedOffset: 32, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'client_cert_pattern', packedOffset: 40, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedCertificatePatternSpec, nullable: true, minVersion: 0 },
-        { name: 'client_cert_provisioning_profile_id', packedOffset: 48, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'client_cert_ref', packedOffset: 56, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'client_cert_type', packedOffset: 64, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'compression_algorithm', packedOffset: 72, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'extra_hosts', packedOffset: 80, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringListSpec, nullable: true, minVersion: 0 },
-        { name: 'ignore_default_route', packedOffset: 88, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedBooleanSpec, nullable: true, minVersion: 0 },
-        { name: 'key_direction', packedOffset: 96, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'ns_cert_type', packedOffset: 104, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'password', packedOffset: 112, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'port', packedOffset: 120, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedInt32Spec, nullable: true, minVersion: 0 },
-        { name: 'proto', packedOffset: 128, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'push_peer_info', packedOffset: 136, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedBooleanSpec, nullable: true, minVersion: 0 },
-        { name: 'remote_cert_eku', packedOffset: 144, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'remote_cert_ku', packedOffset: 152, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringListSpec, nullable: true, minVersion: 0 },
-        { name: 'remote_cert_tls', packedOffset: 160, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'reneg_sec', packedOffset: 168, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedInt32Spec, nullable: true, minVersion: 0 },
-        { name: 'save_credentials', packedOffset: 176, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedBooleanSpec, nullable: true, minVersion: 0 },
-        { name: 'server_ca_pems', packedOffset: 184, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringListSpec, nullable: true, minVersion: 0 },
-        { name: 'server_ca_refs', packedOffset: 192, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringListSpec, nullable: true, minVersion: 0 },
-        { name: 'server_cert_ref', packedOffset: 200, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'server_poll_timeout', packedOffset: 208, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedInt32Spec, nullable: true, minVersion: 0 },
-        { name: 'shaper', packedOffset: 216, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedInt32Spec, nullable: true, minVersion: 0 },
-        { name: 'static_challenge', packedOffset: 224, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'tls_auth_contents', packedOffset: 232, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'tls_remote', packedOffset: 240, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'tls_version_min', packedOffset: 248, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'user_authentication_type', packedOffset: 256, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'username', packedOffset: 264, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'verb', packedOffset: 272, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'verify_hash', packedOffset: 280, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'verify_x509', packedOffset: 288, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedVerifyX509PropertiesSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 304}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.ManagedOpenVPNPropertiesSpec, 'chromeos.network_config.mojom.ManagedOpenVPNProperties', [
+      mojo.internal.StructField('auth', 0, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('auth_retry', 8, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('auth_no_cache', 16, 0, chromeos.network_config.mojom.ManagedBooleanSpec, null, true, 0, undefined),
+      mojo.internal.StructField('cipher', 24, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('client_cert_pkcs11_id', 32, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('client_cert_pattern', 40, 0, chromeos.network_config.mojom.ManagedCertificatePatternSpec, null, true, 0, undefined),
+      mojo.internal.StructField('client_cert_provisioning_profile_id', 48, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('client_cert_ref', 56, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('client_cert_type', 64, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('compression_algorithm', 72, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('extra_hosts', 80, 0, chromeos.network_config.mojom.ManagedStringListSpec, null, true, 0, undefined),
+      mojo.internal.StructField('ignore_default_route', 88, 0, chromeos.network_config.mojom.ManagedBooleanSpec, null, true, 0, undefined),
+      mojo.internal.StructField('key_direction', 96, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('ns_cert_type', 104, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('password', 112, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('port', 120, 0, chromeos.network_config.mojom.ManagedInt32Spec, null, true, 0, undefined),
+      mojo.internal.StructField('proto', 128, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('push_peer_info', 136, 0, chromeos.network_config.mojom.ManagedBooleanSpec, null, true, 0, undefined),
+      mojo.internal.StructField('remote_cert_eku', 144, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('remote_cert_ku', 152, 0, chromeos.network_config.mojom.ManagedStringListSpec, null, true, 0, undefined),
+      mojo.internal.StructField('remote_cert_tls', 160, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('reneg_sec', 168, 0, chromeos.network_config.mojom.ManagedInt32Spec, null, true, 0, undefined),
+      mojo.internal.StructField('save_credentials', 176, 0, chromeos.network_config.mojom.ManagedBooleanSpec, null, true, 0, undefined),
+      mojo.internal.StructField('server_ca_pems', 184, 0, chromeos.network_config.mojom.ManagedStringListSpec, null, true, 0, undefined),
+      mojo.internal.StructField('server_ca_refs', 192, 0, chromeos.network_config.mojom.ManagedStringListSpec, null, true, 0, undefined),
+      mojo.internal.StructField('server_cert_ref', 200, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('server_poll_timeout', 208, 0, chromeos.network_config.mojom.ManagedInt32Spec, null, true, 0, undefined),
+      mojo.internal.StructField('shaper', 216, 0, chromeos.network_config.mojom.ManagedInt32Spec, null, true, 0, undefined),
+      mojo.internal.StructField('static_challenge', 224, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('tls_auth_contents', 232, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('tls_remote', 240, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('tls_version_min', 248, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('user_authentication_type', 256, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('username', 264, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('verb', 272, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('verify_hash', 280, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('verify_x509', 288, 0, chromeos.network_config.mojom.ManagedVerifyX509PropertiesSpec, null, true, 0, undefined),
+    ],
+    [[0, 304]]);
 
 // Struct: ManagedWireGuardPeerList
-chromeos.network_config.mojom.ManagedWireGuardPeerListSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.ManagedWireGuardPeerList',
-      packedSize: 32,
-      fields: [
-        { name: 'active_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromeos.network_config.mojom.WireGuardPeerPropertiesSpec, false), nullable: false, minVersion: 0 },
-        { name: 'policy_source', packedOffset: 16, packedBitOffset: 0, type: chromeos.network_config.mojom.PolicySourceSpec, nullable: false, minVersion: 0 },
-        { name: 'policy_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(chromeos.network_config.mojom.WireGuardPeerPropertiesSpec, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.ManagedWireGuardPeerListSpec, 'chromeos.network_config.mojom.ManagedWireGuardPeerList', [
+      mojo.internal.StructField('active_value', 0, 0, mojo.internal.Array(chromeos.network_config.mojom.WireGuardPeerPropertiesSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('policy_source', 16, 0, chromeos.network_config.mojom.PolicySourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('policy_value', 8, 0, mojo.internal.Array(chromeos.network_config.mojom.WireGuardPeerPropertiesSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: ManagedWireGuardProperties
-chromeos.network_config.mojom.ManagedWireGuardPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.ManagedWireGuardProperties',
-      packedSize: 40,
-      fields: [
-        { name: 'ip_addresses', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringListSpec, nullable: true, minVersion: 0 },
-        { name: 'private_key', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'public_key', packedOffset: 16, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'peers', packedOffset: 24, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedWireGuardPeerListSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.ManagedWireGuardPropertiesSpec, 'chromeos.network_config.mojom.ManagedWireGuardProperties', [
+      mojo.internal.StructField('ip_addresses', 0, 0, chromeos.network_config.mojom.ManagedStringListSpec, null, true, 0, undefined),
+      mojo.internal.StructField('private_key', 8, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('public_key', 16, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('peers', 24, 0, chromeos.network_config.mojom.ManagedWireGuardPeerListSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: ManagedCellularProperties
-chromeos.network_config.mojom.ManagedCellularPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.ManagedCellularProperties',
-      packedSize: 240,
-      fields: [
-        { name: 'activation_state', packedOffset: 216, packedBitOffset: 0, type: chromeos.network_config.mojom.ActivationStateTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'sim_locked', packedOffset: 224, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'allow_roaming', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedBooleanSpec, nullable: true, minVersion: 0 },
-        { name: 'allow_text_messages', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedBooleanSpec, nullable: true, minVersion: 0 },
-        { name: 'apn_list', packedOffset: 16, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedApnListSpec, nullable: true, minVersion: 0 },
-        { name: 'auto_connect', packedOffset: 24, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedBooleanSpec, nullable: true, minVersion: 0 },
-        { name: 'custom_apn_list', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(chromeos.network_config.mojom.ApnPropertiesSpec, false), nullable: true, minVersion: 0 },
-        { name: 'eid', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'esn', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'family', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'firmware_revision', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'found_networks', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array(chromeos.network_config.mojom.FoundNetworkPropertiesSpec, false), nullable: true, minVersion: 0 },
-        { name: 'hardware_revision', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'home_provider', packedOffset: 88, packedBitOffset: 0, type: chromeos.network_config.mojom.CellularProviderPropertiesSpec, nullable: true, minVersion: 0 },
-        { name: 'iccid', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'imei', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'last_good_apn', packedOffset: 112, packedBitOffset: 0, type: chromeos.network_config.mojom.ApnPropertiesSpec, nullable: true, minVersion: 0 },
-        { name: 'connected_apn', packedOffset: 120, packedBitOffset: 0, type: chromeos.network_config.mojom.ApnPropertiesSpec, nullable: true, minVersion: 0 },
-        { name: 'manufacturer', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'mdn', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'meid', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'min', packedOffset: 152, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'model_id', packedOffset: 160, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'network_technology', packedOffset: 168, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'sim_lock_type', packedOffset: 176, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'payment_portal', packedOffset: 184, packedBitOffset: 0, type: chromeos.network_config.mojom.PaymentPortalPropertiesSpec, nullable: true, minVersion: 0 },
-        { name: 'roaming_state', packedOffset: 192, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'selected_apn', packedOffset: 200, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedApnPropertiesSpec, nullable: true, minVersion: 0 },
-        { name: 'serving_operator', packedOffset: 208, packedBitOffset: 0, type: chromeos.network_config.mojom.CellularProviderPropertiesSpec, nullable: true, minVersion: 0 },
-        { name: 'signal_strength', packedOffset: 220, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'support_network_scan', packedOffset: 224, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 240}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.ManagedCellularPropertiesSpec, 'chromeos.network_config.mojom.ManagedCellularProperties', [
+      mojo.internal.StructField('activation_state', 216, 0, chromeos.network_config.mojom.ActivationStateTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('sim_locked', 224, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('allow_roaming', 0, 0, chromeos.network_config.mojom.ManagedBooleanSpec, null, true, 0, undefined),
+      mojo.internal.StructField('allow_text_messages', 8, 0, chromeos.network_config.mojom.ManagedBooleanSpec, null, true, 0, undefined),
+      mojo.internal.StructField('apn_list', 16, 0, chromeos.network_config.mojom.ManagedApnListSpec, null, true, 0, undefined),
+      mojo.internal.StructField('auto_connect', 24, 0, chromeos.network_config.mojom.ManagedBooleanSpec, null, true, 0, undefined),
+      mojo.internal.StructField('custom_apn_list', 32, 0, mojo.internal.Array(chromeos.network_config.mojom.ApnPropertiesSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('eid', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('esn', 48, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('family', 56, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('firmware_revision', 64, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('found_networks', 72, 0, mojo.internal.Array(chromeos.network_config.mojom.FoundNetworkPropertiesSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('hardware_revision', 80, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('home_provider', 88, 0, chromeos.network_config.mojom.CellularProviderPropertiesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('iccid', 96, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('imei', 104, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('last_good_apn', 112, 0, chromeos.network_config.mojom.ApnPropertiesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('connected_apn', 120, 0, chromeos.network_config.mojom.ApnPropertiesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('manufacturer', 128, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('mdn', 136, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('meid', 144, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('min', 152, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('model_id', 160, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('network_technology', 168, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('sim_lock_type', 176, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('payment_portal', 184, 0, chromeos.network_config.mojom.PaymentPortalPropertiesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('roaming_state', 192, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('selected_apn', 200, 0, chromeos.network_config.mojom.ManagedApnPropertiesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('serving_operator', 208, 0, chromeos.network_config.mojom.CellularProviderPropertiesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('signal_strength', 220, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('support_network_scan', 224, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 240]]);
 
 // Struct: ManagedEthernetProperties
-chromeos.network_config.mojom.ManagedEthernetPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.ManagedEthernetProperties',
-      packedSize: 24,
-      fields: [
-        { name: 'authentication', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'eap', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedEAPPropertiesSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.ManagedEthernetPropertiesSpec, 'chromeos.network_config.mojom.ManagedEthernetProperties', [
+      mojo.internal.StructField('authentication', 0, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('eap', 8, 0, chromeos.network_config.mojom.ManagedEAPPropertiesSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: ManagedVPNProperties
-chromeos.network_config.mojom.ManagedVPNPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.ManagedVPNProperties',
-      packedSize: 80,
-      fields: [
-        { name: 'auto_connect', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedBooleanSpec, nullable: true, minVersion: 0 },
-        { name: 'host', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'ip_sec', packedOffset: 16, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedIPSecPropertiesSpec, nullable: true, minVersion: 0 },
-        { name: 'l2tp', packedOffset: 24, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedL2TPPropertiesSpec, nullable: true, minVersion: 0 },
-        { name: 'open_vpn', packedOffset: 32, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedOpenVPNPropertiesSpec, nullable: true, minVersion: 0 },
-        { name: 'wireguard', packedOffset: 40, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedWireGuardPropertiesSpec, nullable: true, minVersion: 0 },
-        { name: 'provider_id', packedOffset: 48, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'provider_name', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 64, packedBitOffset: 0, type: chromeos.network_config.mojom.VpnTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 80}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.ManagedVPNPropertiesSpec, 'chromeos.network_config.mojom.ManagedVPNProperties', [
+      mojo.internal.StructField('auto_connect', 0, 0, chromeos.network_config.mojom.ManagedBooleanSpec, null, true, 0, undefined),
+      mojo.internal.StructField('host', 8, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('ip_sec', 16, 0, chromeos.network_config.mojom.ManagedIPSecPropertiesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('l2tp', 24, 0, chromeos.network_config.mojom.ManagedL2TPPropertiesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('open_vpn', 32, 0, chromeos.network_config.mojom.ManagedOpenVPNPropertiesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('wireguard', 40, 0, chromeos.network_config.mojom.ManagedWireGuardPropertiesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('provider_id', 48, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('provider_name', 56, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('type', 64, 0, chromeos.network_config.mojom.VpnTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 80]]);
 
 // Struct: ManagedWiFiProperties
-chromeos.network_config.mojom.ManagedWiFiPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.ManagedWiFiProperties',
-      packedSize: 112,
-      fields: [
-        { name: 'allow_gateway_arp_polling', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedBooleanSpec, nullable: true, minVersion: 0 },
-        { name: 'auto_connect', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedBooleanSpec, nullable: true, minVersion: 0 },
-        { name: 'bssid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'eap', packedOffset: 24, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedEAPPropertiesSpec, nullable: true, minVersion: 0 },
-        { name: 'frequency', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'frequency_list', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int32, false), nullable: true, minVersion: 0 },
-        { name: 'hex_ssid', packedOffset: 40, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'hidden_ssid', packedOffset: 48, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedBooleanSpec, nullable: true, minVersion: 0 },
-        { name: 'passphrase', packedOffset: 56, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'ssid', packedOffset: 64, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: false, minVersion: 0 },
-        { name: 'security', packedOffset: 84, packedBitOffset: 0, type: chromeos.network_config.mojom.SecurityTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'signal_strength', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'is_syncable', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_configured_by_active_user', packedOffset: 96, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'passpoint_id', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'passpoint_match_type', packedOffset: 92, packedBitOffset: 0, type: chromeos.network_config.mojom.MatchTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 112}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.ManagedWiFiPropertiesSpec, 'chromeos.network_config.mojom.ManagedWiFiProperties', [
+      mojo.internal.StructField('allow_gateway_arp_polling', 0, 0, chromeos.network_config.mojom.ManagedBooleanSpec, null, true, 0, undefined),
+      mojo.internal.StructField('auto_connect', 8, 0, chromeos.network_config.mojom.ManagedBooleanSpec, null, true, 0, undefined),
+      mojo.internal.StructField('bssid', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('eap', 24, 0, chromeos.network_config.mojom.ManagedEAPPropertiesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('frequency', 80, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('frequency_list', 32, 0, mojo.internal.Array(mojo.internal.Int32, false), null, true, 0, undefined),
+      mojo.internal.StructField('hex_ssid', 40, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('hidden_ssid', 48, 0, chromeos.network_config.mojom.ManagedBooleanSpec, null, true, 0, undefined),
+      mojo.internal.StructField('passphrase', 56, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('ssid', 64, 0, chromeos.network_config.mojom.ManagedStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('security', 84, 0, chromeos.network_config.mojom.SecurityTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('signal_strength', 88, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_syncable', 96, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_configured_by_active_user', 96, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('passpoint_id', 72, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('passpoint_match_type', 92, 0, chromeos.network_config.mojom.MatchTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 112]]);
 
 // Struct: UInt32Value
-chromeos.network_config.mojom.UInt32ValueSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.UInt32Value',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.UInt32ValueSpec, 'chromeos.network_config.mojom.UInt32Value', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: TrafficCounterProperties
-chromeos.network_config.mojom.TrafficCounterPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.TrafficCounterProperties',
-      packedSize: 32,
-      fields: [
-        { name: 'last_reset_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true, minVersion: 0 },
-        { name: 'friendly_date', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'auto_reset', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'user_specified_reset_day', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.TrafficCounterPropertiesSpec, 'chromeos.network_config.mojom.TrafficCounterProperties', [
+      mojo.internal.StructField('last_reset_time', 0, 0, mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('friendly_date', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('auto_reset', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('user_specified_reset_day', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: ManagedProperties
-chromeos.network_config.mojom.ManagedPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.ManagedProperties',
-      packedSize: 144,
-      fields: [
-        { name: 'connection_state', packedOffset: 112, packedBitOffset: 0, type: chromeos.network_config.mojom.ConnectionStateTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'source', packedOffset: 116, packedBitOffset: 0, type: chromeos.network_config.mojom.OncSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'connectable', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'error_state', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'guid', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'ip_address_config_type', packedOffset: 32, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: false, minVersion: 0 },
-        { name: 'ip_configs', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(chromeos.network_config.mojom.IPConfigPropertiesSpec, false), nullable: true, minVersion: 0 },
-        { name: 'metered', packedOffset: 48, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedBooleanSpec, nullable: true, minVersion: 0 },
-        { name: 'name', packedOffset: 56, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true, minVersion: 0 },
-        { name: 'name_servers_config_type', packedOffset: 64, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: false, minVersion: 0 },
-        { name: 'priority', packedOffset: 72, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedInt32Spec, nullable: true, minVersion: 0 },
-        { name: 'proxy_settings', packedOffset: 80, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedProxySettingsSpec, nullable: true, minVersion: 0 },
-        { name: 'portal_state', packedOffset: 120, packedBitOffset: 0, type: chromeos.network_config.mojom.PortalStateSpec, nullable: false, minVersion: 0 },
-        { name: 'static_ip_config', packedOffset: 88, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedIPConfigPropertiesSpec, nullable: true, minVersion: 0 },
-        { name: 'saved_ip_config', packedOffset: 96, packedBitOffset: 0, type: chromeos.network_config.mojom.IPConfigPropertiesSpec, nullable: true, minVersion: 0 },
-        { name: 'type', packedOffset: 124, packedBitOffset: 0, type: chromeos.network_config.mojom.NetworkTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'type_properties', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.NetworkTypeManagedPropertiesSpec, nullable: false, minVersion: 0 },
-        { name: 'traffic_counter_properties', packedOffset: 104, packedBitOffset: 0, type: chromeos.network_config.mojom.TrafficCounterPropertiesSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 144}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.ManagedPropertiesSpec, 'chromeos.network_config.mojom.ManagedProperties', [
+      mojo.internal.StructField('connection_state', 112, 0, chromeos.network_config.mojom.ConnectionStateTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source', 116, 0, chromeos.network_config.mojom.OncSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('connectable', 128, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('error_state', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('guid', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('ip_address_config_type', 32, 0, chromeos.network_config.mojom.ManagedStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('ip_configs', 40, 0, mojo.internal.Array(chromeos.network_config.mojom.IPConfigPropertiesSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('metered', 48, 0, chromeos.network_config.mojom.ManagedBooleanSpec, null, true, 0, undefined),
+      mojo.internal.StructField('name', 56, 0, chromeos.network_config.mojom.ManagedStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('name_servers_config_type', 64, 0, chromeos.network_config.mojom.ManagedStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('priority', 72, 0, chromeos.network_config.mojom.ManagedInt32Spec, null, true, 0, undefined),
+      mojo.internal.StructField('proxy_settings', 80, 0, chromeos.network_config.mojom.ManagedProxySettingsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('portal_state', 120, 0, chromeos.network_config.mojom.PortalStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('static_ip_config', 88, 0, chromeos.network_config.mojom.ManagedIPConfigPropertiesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('saved_ip_config', 96, 0, chromeos.network_config.mojom.IPConfigPropertiesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('type', 124, 0, chromeos.network_config.mojom.NetworkTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type_properties', 0, 0, chromeos.network_config.mojom.NetworkTypeManagedPropertiesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('traffic_counter_properties', 104, 0, chromeos.network_config.mojom.TrafficCounterPropertiesSpec, null, true, 0, undefined),
+    ],
+    [[0, 144]]);
 
 // Struct: AutoConnectConfig
-chromeos.network_config.mojom.AutoConnectConfigSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.AutoConnectConfig',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.AutoConnectConfigSpec, 'chromeos.network_config.mojom.AutoConnectConfig', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: MeteredConfig
-chromeos.network_config.mojom.MeteredConfigSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.MeteredConfig',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.MeteredConfigSpec, 'chromeos.network_config.mojom.MeteredConfig', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: PriorityConfig
-chromeos.network_config.mojom.PriorityConfigSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.PriorityConfig',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.PriorityConfigSpec, 'chromeos.network_config.mojom.PriorityConfig', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: VpnTypeConfig
-chromeos.network_config.mojom.VpnTypeConfigSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.VpnTypeConfig',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.VpnTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.VpnTypeConfigSpec, 'chromeos.network_config.mojom.VpnTypeConfig', [
+      mojo.internal.StructField('value', 0, 0, chromeos.network_config.mojom.VpnTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: ProxyLocation
-chromeos.network_config.mojom.ProxyLocationSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.ProxyLocation',
-      packedSize: 24,
-      fields: [
-        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'port', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.ProxyLocationSpec, 'chromeos.network_config.mojom.ProxyLocation', [
+      mojo.internal.StructField('host', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('port', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: ManualProxySettings
-chromeos.network_config.mojom.ManualProxySettingsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.ManualProxySettings',
-      packedSize: 40,
-      fields: [
-        { name: 'http_proxy', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.ProxyLocationSpec, nullable: true, minVersion: 0 },
-        { name: 'secure_http_proxy', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.ProxyLocationSpec, nullable: true, minVersion: 0 },
-        { name: 'ftp_proxy', packedOffset: 16, packedBitOffset: 0, type: chromeos.network_config.mojom.ProxyLocationSpec, nullable: true, minVersion: 0 },
-        { name: 'socks', packedOffset: 24, packedBitOffset: 0, type: chromeos.network_config.mojom.ProxyLocationSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.ManualProxySettingsSpec, 'chromeos.network_config.mojom.ManualProxySettings', [
+      mojo.internal.StructField('http_proxy', 0, 0, chromeos.network_config.mojom.ProxyLocationSpec, null, true, 0, undefined),
+      mojo.internal.StructField('secure_http_proxy', 8, 0, chromeos.network_config.mojom.ProxyLocationSpec, null, true, 0, undefined),
+      mojo.internal.StructField('ftp_proxy', 16, 0, chromeos.network_config.mojom.ProxyLocationSpec, null, true, 0, undefined),
+      mojo.internal.StructField('socks', 24, 0, chromeos.network_config.mojom.ProxyLocationSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: ProxySettings
-chromeos.network_config.mojom.ProxySettingsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.ProxySettings',
-      packedSize: 40,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'manual', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.ManualProxySettingsSpec, nullable: true, minVersion: 0 },
-        { name: 'exclude_domains', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
-        { name: 'pac', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.ProxySettingsSpec, 'chromeos.network_config.mojom.ProxySettings', [
+      mojo.internal.StructField('type', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('manual', 8, 0, chromeos.network_config.mojom.ManualProxySettingsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('exclude_domains', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('pac', 24, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: EAPConfigProperties
-chromeos.network_config.mojom.EAPConfigPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.EAPConfigProperties',
-      packedSize: 104,
-      fields: [
-        { name: 'anonymous_identity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'client_cert_pkcs11_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'client_cert_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'domain_suffix_match', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'identity', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'inner', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'outer', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'password', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'save_credentials', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'server_ca_pems', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
-        { name: 'subject_alt_name_match', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array(chromeos.network_config.mojom.SubjectAltNameSpec, false), nullable: false, minVersion: 0 },
-        { name: 'subject_match', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'use_system_cas', packedOffset: 88, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 104}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.EAPConfigPropertiesSpec, 'chromeos.network_config.mojom.EAPConfigProperties', [
+      mojo.internal.StructField('anonymous_identity', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('client_cert_pkcs11_id', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('client_cert_type', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('domain_suffix_match', 24, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('identity', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('inner', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('outer', 48, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('password', 56, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('save_credentials', 88, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('server_ca_pems', 64, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('subject_alt_name_match', 72, 0, mojo.internal.Array(chromeos.network_config.mojom.SubjectAltNameSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('subject_match', 80, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('use_system_cas', 88, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 104]]);
 
 // Struct: SubjectAltName
-chromeos.network_config.mojom.SubjectAltNameSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.SubjectAltName',
-      packedSize: 16,
-      fields: [
-        { name: 'kEmail', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.SubjectAltNameSpec, 'chromeos.network_config.mojom.SubjectAltName', [
+      mojo.internal.StructField('kEmail', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: IPSecConfigProperties
-chromeos.network_config.mojom.IPSecConfigPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.IPSecConfigProperties',
-      packedSize: 96,
-      fields: [
-        { name: 'authentication_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'client_cert_pkcs11_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'client_cert_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'eap', packedOffset: 24, packedBitOffset: 0, type: chromeos.network_config.mojom.EAPConfigPropertiesSpec, nullable: true, minVersion: 0 },
-        { name: 'group', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'ike_version', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'local_identity', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'psk', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'remote_identity', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'save_credentials', packedOffset: 84, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'server_ca_pems', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
-        { name: 'server_ca_refs', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 96}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.IPSecConfigPropertiesSpec, 'chromeos.network_config.mojom.IPSecConfigProperties', [
+      mojo.internal.StructField('authentication_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('client_cert_pkcs11_id', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('client_cert_type', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('eap', 24, 0, chromeos.network_config.mojom.EAPConfigPropertiesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('group', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('ike_version', 80, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('local_identity', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('psk', 48, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('remote_identity', 56, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('save_credentials', 84, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('server_ca_pems', 64, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('server_ca_refs', 72, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+    ],
+    [[0, 96]]);
 
 // Struct: L2TPConfigProperties
-chromeos.network_config.mojom.L2TPConfigPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.L2TPConfigProperties',
-      packedSize: 32,
-      fields: [
-        { name: 'lcp_echo_disabled', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'password', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'save_credentials', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'username', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.L2TPConfigPropertiesSpec, 'chromeos.network_config.mojom.L2TPConfigProperties', [
+      mojo.internal.StructField('lcp_echo_disabled', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('password', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('save_credentials', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('username', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: OpenVPNConfigProperties
-chromeos.network_config.mojom.OpenVPNConfigPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.OpenVPNConfigProperties',
-      packedSize: 88,
-      fields: [
-        { name: 'client_cert_pkcs11_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'client_cert_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'extra_hosts', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
-        { name: 'otp', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'password', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'save_credentials', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'server_ca_pems', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
-        { name: 'server_ca_refs', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
-        { name: 'username', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'user_authentication_type', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 88}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.OpenVPNConfigPropertiesSpec, 'chromeos.network_config.mojom.OpenVPNConfigProperties', [
+      mojo.internal.StructField('client_cert_pkcs11_id', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('client_cert_type', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('extra_hosts', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('otp', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('password', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('save_credentials', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('server_ca_pems', 40, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('server_ca_refs', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('username', 56, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('user_authentication_type', 64, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 88]]);
 
 // Struct: WireGuardConfigProperties
-chromeos.network_config.mojom.WireGuardConfigPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.WireGuardConfigProperties',
-      packedSize: 32,
-      fields: [
-        { name: 'ip_addresses', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
-        { name: 'private_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'peers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(chromeos.network_config.mojom.WireGuardPeerPropertiesSpec, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.WireGuardConfigPropertiesSpec, 'chromeos.network_config.mojom.WireGuardConfigProperties', [
+      mojo.internal.StructField('ip_addresses', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('private_key', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('peers', 16, 0, mojo.internal.Array(chromeos.network_config.mojom.WireGuardPeerPropertiesSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: TextMessagesAllowState
-chromeos.network_config.mojom.TextMessagesAllowStateSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.TextMessagesAllowState',
-      packedSize: 16,
-      fields: [
-        { name: 'allow_text_messages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.TextMessagesAllowStateSpec, 'chromeos.network_config.mojom.TextMessagesAllowState', [
+      mojo.internal.StructField('allow_text_messages', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: CellularConfigProperties
-chromeos.network_config.mojom.CellularConfigPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CellularConfigProperties',
-      packedSize: 32,
-      fields: [
-        { name: 'apn', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.ApnPropertiesSpec, nullable: true, minVersion: 0 },
-        { name: 'roaming', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.RoamingPropertiesSpec, nullable: true, minVersion: 0 },
-        { name: 'text_message_allow_state', packedOffset: 16, packedBitOffset: 0, type: chromeos.network_config.mojom.TextMessagesAllowStateSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CellularConfigPropertiesSpec, 'chromeos.network_config.mojom.CellularConfigProperties', [
+      mojo.internal.StructField('apn', 0, 0, chromeos.network_config.mojom.ApnPropertiesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('roaming', 8, 0, chromeos.network_config.mojom.RoamingPropertiesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('text_message_allow_state', 16, 0, chromeos.network_config.mojom.TextMessagesAllowStateSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: EthernetConfigProperties
-chromeos.network_config.mojom.EthernetConfigPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.EthernetConfigProperties',
-      packedSize: 24,
-      fields: [
-        { name: 'authentication', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'eap', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.EAPConfigPropertiesSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.EthernetConfigPropertiesSpec, 'chromeos.network_config.mojom.EthernetConfigProperties', [
+      mojo.internal.StructField('authentication', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('eap', 8, 0, chromeos.network_config.mojom.EAPConfigPropertiesSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: VPNConfigProperties
-chromeos.network_config.mojom.VPNConfigPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.VPNConfigProperties',
-      packedSize: 56,
-      fields: [
-        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'ip_sec', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.IPSecConfigPropertiesSpec, nullable: true, minVersion: 0 },
-        { name: 'l2tp', packedOffset: 16, packedBitOffset: 0, type: chromeos.network_config.mojom.L2TPConfigPropertiesSpec, nullable: true, minVersion: 0 },
-        { name: 'open_vpn', packedOffset: 24, packedBitOffset: 0, type: chromeos.network_config.mojom.OpenVPNConfigPropertiesSpec, nullable: true, minVersion: 0 },
-        { name: 'wireguard', packedOffset: 32, packedBitOffset: 0, type: chromeos.network_config.mojom.WireGuardConfigPropertiesSpec, nullable: true, minVersion: 0 },
-        { name: 'type', packedOffset: 40, packedBitOffset: 0, type: chromeos.network_config.mojom.VpnTypeConfigSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.VPNConfigPropertiesSpec, 'chromeos.network_config.mojom.VPNConfigProperties', [
+      mojo.internal.StructField('host', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('ip_sec', 8, 0, chromeos.network_config.mojom.IPSecConfigPropertiesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('l2tp', 16, 0, chromeos.network_config.mojom.L2TPConfigPropertiesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('open_vpn', 24, 0, chromeos.network_config.mojom.OpenVPNConfigPropertiesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('wireguard', 32, 0, chromeos.network_config.mojom.WireGuardConfigPropertiesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('type', 40, 0, chromeos.network_config.mojom.VpnTypeConfigSpec, null, true, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Struct: WiFiConfigProperties
-chromeos.network_config.mojom.WiFiConfigPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.WiFiConfigProperties',
-      packedSize: 40,
-      fields: [
-        { name: 'eap', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.EAPConfigPropertiesSpec, nullable: true, minVersion: 0 },
-        { name: 'passphrase', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'ssid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'security', packedOffset: 24, packedBitOffset: 0, type: chromeos.network_config.mojom.SecurityTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'hidden_ssid', packedOffset: 28, packedBitOffset: 0, type: chromeos.network_config.mojom.HiddenSsidModeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.WiFiConfigPropertiesSpec, 'chromeos.network_config.mojom.WiFiConfigProperties', [
+      mojo.internal.StructField('eap', 0, 0, chromeos.network_config.mojom.EAPConfigPropertiesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('passphrase', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('ssid', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('security', 24, 0, chromeos.network_config.mojom.SecurityTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('hidden_ssid', 28, 0, chromeos.network_config.mojom.HiddenSsidModeSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: ConfigProperties
-chromeos.network_config.mojom.ConfigPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.ConfigProperties',
-      packedSize: 96,
-      fields: [
-        { name: 'auto_connect', packedOffset: 16, packedBitOffset: 0, type: chromeos.network_config.mojom.AutoConnectConfigSpec, nullable: true, minVersion: 0 },
-        { name: 'guid', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'ip_address_config_type', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'metered', packedOffset: 40, packedBitOffset: 0, type: chromeos.network_config.mojom.MeteredConfigSpec, nullable: true, minVersion: 0 },
-        { name: 'name', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'name_servers_config_type', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'priority', packedOffset: 64, packedBitOffset: 0, type: chromeos.network_config.mojom.PriorityConfigSpec, nullable: true, minVersion: 0 },
-        { name: 'proxy_settings', packedOffset: 72, packedBitOffset: 0, type: chromeos.network_config.mojom.ProxySettingsSpec, nullable: true, minVersion: 0 },
-        { name: 'static_ip_config', packedOffset: 80, packedBitOffset: 0, type: chromeos.network_config.mojom.IPConfigPropertiesSpec, nullable: true, minVersion: 0 },
-        { name: 'type_config', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.NetworkTypeConfigPropertiesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 96}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.ConfigPropertiesSpec, 'chromeos.network_config.mojom.ConfigProperties', [
+      mojo.internal.StructField('auto_connect', 16, 0, chromeos.network_config.mojom.AutoConnectConfigSpec, null, true, 0, undefined),
+      mojo.internal.StructField('guid', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('ip_address_config_type', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('metered', 40, 0, chromeos.network_config.mojom.MeteredConfigSpec, null, true, 0, undefined),
+      mojo.internal.StructField('name', 48, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('name_servers_config_type', 56, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('priority', 64, 0, chromeos.network_config.mojom.PriorityConfigSpec, null, true, 0, undefined),
+      mojo.internal.StructField('proxy_settings', 72, 0, chromeos.network_config.mojom.ProxySettingsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('static_ip_config', 80, 0, chromeos.network_config.mojom.IPConfigPropertiesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('type_config', 0, 0, chromeos.network_config.mojom.NetworkTypeConfigPropertiesSpec, null, false, 0, undefined),
+    ],
+    [[0, 96]]);
 
 // Struct: CellularSimState
-chromeos.network_config.mojom.CellularSimStateSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CellularSimState',
-      packedSize: 32,
-      fields: [
-        { name: 'current_pin_or_puk', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'new_pin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'require_pin', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CellularSimStateSpec, 'chromeos.network_config.mojom.CellularSimState', [
+      mojo.internal.StructField('current_pin_or_puk', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('new_pin', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('require_pin', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: GlobalPolicy
-chromeos.network_config.mojom.GlobalPolicySpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.GlobalPolicy',
-      packedSize: 24,
-      fields: [
-        { name: 'allow_apn_modification', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'allow_cellular_sim_lock', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'allow_cellular_hotspot', packedOffset: 12, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'allow_only_policy_cellular_networks', packedOffset: 12, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'allow_only_policy_networks_to_autoconnect', packedOffset: 12, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'allow_only_policy_wifi_networks_to_connect', packedOffset: 12, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'allow_only_policy_wifi_networks_to_connect_if_available', packedOffset: 12, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'dns_queries_monitored', packedOffset: 12, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'report_xdr_events_enabled', packedOffset: 13, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'blocked_hex_ssids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'recommended_values_are_ephemeral', packedOffset: 13, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'user_created_network_configurations_are_ephemeral', packedOffset: 13, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'allow_text_messages', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.SuppressionTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.GlobalPolicySpec, 'chromeos.network_config.mojom.GlobalPolicy', [
+      mojo.internal.StructField('allow_apn_modification', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('allow_cellular_sim_lock', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('allow_cellular_hotspot', 12, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('allow_only_policy_cellular_networks', 12, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('allow_only_policy_networks_to_autoconnect', 12, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('allow_only_policy_wifi_networks_to_connect', 12, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('allow_only_policy_wifi_networks_to_connect_if_available', 12, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('dns_queries_monitored', 12, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('report_xdr_events_enabled', 13, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('blocked_hex_ssids', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('recommended_values_are_ephemeral', 13, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('user_created_network_configurations_are_ephemeral', 13, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('allow_text_messages', 8, 0, chromeos.network_config.mojom.SuppressionTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: VpnProvider
-chromeos.network_config.mojom.VpnProviderSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.VpnProvider',
-      packedSize: 48,
-      fields: [
-        { name: 'type', packedOffset: 32, packedBitOffset: 0, type: chromeos.network_config.mojom.VpnTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'provider_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'provider_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'app_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'last_launch_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.VpnProviderSpec, 'chromeos.network_config.mojom.VpnProvider', [
+      mojo.internal.StructField('type', 32, 0, chromeos.network_config.mojom.VpnTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('provider_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('provider_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('app_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('last_launch_time', 24, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: NetworkCertificate
-chromeos.network_config.mojom.NetworkCertificateSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.NetworkCertificate',
-      packedSize: 48,
-      fields: [
-        { name: 'type', packedOffset: 32, packedBitOffset: 0, type: chromeos.network_config.mojom.CertificateTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'hash', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'issued_by', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'issued_to', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pem_or_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'available_for_network_auth', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'hardware_backed', packedOffset: 36, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'device_wide', packedOffset: 36, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.NetworkCertificateSpec, 'chromeos.network_config.mojom.NetworkCertificate', [
+      mojo.internal.StructField('type', 32, 0, chromeos.network_config.mojom.CertificateTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('hash', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('issued_by', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('issued_to', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('pem_or_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('available_for_network_auth', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('hardware_backed', 36, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('device_wide', 36, 2, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: AlwaysOnVpnProperties
-chromeos.network_config.mojom.AlwaysOnVpnPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.AlwaysOnVpnProperties',
-      packedSize: 24,
-      fields: [
-        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.AlwaysOnVpnModeSpec, nullable: false, minVersion: 0 },
-        { name: 'service_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.AlwaysOnVpnPropertiesSpec, 'chromeos.network_config.mojom.AlwaysOnVpnProperties', [
+      mojo.internal.StructField('mode', 8, 0, chromeos.network_config.mojom.AlwaysOnVpnModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('service_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: TrafficCounter
-chromeos.network_config.mojom.TrafficCounterSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.TrafficCounter',
-      packedSize: 32,
-      fields: [
-        { name: 'source', packedOffset: 16, packedBitOffset: 0, type: chromeos.network_config.mojom.TrafficCounterSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'rx_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'tx_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.TrafficCounterSpec, 'chromeos.network_config.mojom.TrafficCounter', [
+      mojo.internal.StructField('source', 16, 0, chromeos.network_config.mojom.TrafficCounterSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('rx_bytes', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('tx_bytes', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: CrosNetworkConfig
-chromeos.network_config.mojom.CrosNetworkConfig = {};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_AddObserver_ParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_AddObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(chromeos.network_config.mojom.CrosNetworkConfigObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.network_config.mojom.CrosNetworkConfig_AddObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig_AddObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.network_config.mojom.CrosNetworkConfigObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkState_ParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkState_Params', [
+      mojo.internal.StructField('guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkState_ResponseParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkState_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, chromeos.network_config.mojom.NetworkStatePropertiesSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkStateList_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkStateList_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'filter', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.NetworkFilterSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkStateList_ParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkStateList_Params', [
+      mojo.internal.StructField('filter', 0, 0, chromeos.network_config.mojom.NetworkFilterSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.network_config.mojom.CrosNetworkConfig_GetDeviceStateList_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig_GetDeviceStateList_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkStateList_ResponseParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkStateList_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Array(chromeos.network_config.mojom.NetworkStatePropertiesSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.network_config.mojom.CrosNetworkConfig_GetManagedProperties_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig_GetManagedProperties_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_GetDeviceStateList_ParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_GetDeviceStateList_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromeos.network_config.mojom.CrosNetworkConfig_SetProperties_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig_SetProperties_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'properties', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.ConfigPropertiesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_GetDeviceStateList_ResponseParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_GetDeviceStateList_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Array(chromeos.network_config.mojom.DeviceStatePropertiesSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.network_config.mojom.CrosNetworkConfig_ConfigureNetwork_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig_ConfigureNetwork_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.ConfigPropertiesSpec, nullable: false, minVersion: 0 },
-        { name: 'shared', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_GetManagedProperties_ParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_GetManagedProperties_Params', [
+      mojo.internal.StructField('guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.network_config.mojom.CrosNetworkConfig_ForgetNetwork_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig_ForgetNetwork_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_GetManagedProperties_ResponseParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_GetManagedProperties_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, chromeos.network_config.mojom.ManagedPropertiesSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.network_config.mojom.CrosNetworkConfig_SetNetworkTypeEnabledState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig_SetNetworkTypeEnabledState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.NetworkTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'enabled', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_SetProperties_ParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_SetProperties_Params', [
+      mojo.internal.StructField('guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('properties', 8, 0, chromeos.network_config.mojom.ConfigPropertiesSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-chromeos.network_config.mojom.CrosNetworkConfig_SetCellularSimState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig_SetCellularSimState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.CellularSimStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_SetProperties_ResponseParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_SetProperties_ResponseParams', [
+      mojo.internal.StructField('success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('error_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-chromeos.network_config.mojom.CrosNetworkConfig_SelectCellularMobileNetwork_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig_SelectCellularMobileNetwork_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'network_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_ConfigureNetwork_ParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_ConfigureNetwork_Params', [
+      mojo.internal.StructField('properties', 0, 0, chromeos.network_config.mojom.ConfigPropertiesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('shared', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-chromeos.network_config.mojom.CrosNetworkConfig_RequestNetworkScan_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig_RequestNetworkScan_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.NetworkTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_ConfigureNetwork_ResponseParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_ConfigureNetwork_ResponseParams', [
+      mojo.internal.StructField('guid', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('error_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-chromeos.network_config.mojom.CrosNetworkConfig_GetGlobalPolicy_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig_GetGlobalPolicy_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_ForgetNetwork_ParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_ForgetNetwork_Params', [
+      mojo.internal.StructField('guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.network_config.mojom.CrosNetworkConfig_StartConnect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig_StartConnect_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_ForgetNetwork_ResponseParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_ForgetNetwork_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.network_config.mojom.CrosNetworkConfig_StartDisconnect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig_StartDisconnect_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_SetNetworkTypeEnabledState_ParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_SetNetworkTypeEnabledState_Params', [
+      mojo.internal.StructField('type', 0, 0, chromeos.network_config.mojom.NetworkTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('enabled', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.network_config.mojom.CrosNetworkConfig_SetVpnProviders_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig_SetVpnProviders_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'providers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromeos.network_config.mojom.VpnProviderSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_SetNetworkTypeEnabledState_ResponseParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_SetNetworkTypeEnabledState_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.network_config.mojom.CrosNetworkConfig_GetVpnProviders_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig_GetVpnProviders_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_SetCellularSimState_ParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_SetCellularSimState_Params', [
+      mojo.internal.StructField('state', 0, 0, chromeos.network_config.mojom.CellularSimStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkCertificates_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkCertificates_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_SetCellularSimState_ResponseParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_SetCellularSimState_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.network_config.mojom.CrosNetworkConfig_GetAlwaysOnVpn_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig_GetAlwaysOnVpn_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_SelectCellularMobileNetwork_ParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_SelectCellularMobileNetwork_Params', [
+      mojo.internal.StructField('guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('network_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-chromeos.network_config.mojom.CrosNetworkConfig_SetAlwaysOnVpn_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig_SetAlwaysOnVpn_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.AlwaysOnVpnPropertiesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_SelectCellularMobileNetwork_ResponseParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_SelectCellularMobileNetwork_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.network_config.mojom.CrosNetworkConfig_GetSupportedVpnTypes_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig_GetSupportedVpnTypes_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_RequestNetworkScan_ParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_RequestNetworkScan_Params', [
+      mojo.internal.StructField('type', 0, 0, chromeos.network_config.mojom.NetworkTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.network_config.mojom.CrosNetworkConfig_RequestTrafficCounters_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig_RequestTrafficCounters_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_GetGlobalPolicy_ParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_GetGlobalPolicy_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromeos.network_config.mojom.CrosNetworkConfig_ResetTrafficCounters_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig_ResetTrafficCounters_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_GetGlobalPolicy_ResponseParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_GetGlobalPolicy_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, chromeos.network_config.mojom.GlobalPolicySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.network_config.mojom.CrosNetworkConfig_SetTrafficCountersResetDay_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig_SetTrafficCountersResetDay_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'day', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.UInt32ValueSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_StartConnect_ParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_StartConnect_Params', [
+      mojo.internal.StructField('guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.network_config.mojom.CrosNetworkConfig_CreateCustomApn_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig_CreateCustomApn_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'network_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'apn', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.ApnPropertiesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_StartConnect_ResponseParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_StartConnect_ResponseParams', [
+      mojo.internal.StructField('result', 8, 0, chromeos.network_config.mojom.StartConnectResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-chromeos.network_config.mojom.CrosNetworkConfig_CreateExclusivelyEnabledCustomApn_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig_CreateExclusivelyEnabledCustomApn_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'network_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'apn', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.ApnPropertiesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_StartDisconnect_ParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_StartDisconnect_Params', [
+      mojo.internal.StructField('guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.network_config.mojom.CrosNetworkConfig_RemoveCustomApn_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig_RemoveCustomApn_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'network_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'apn_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_StartDisconnect_ResponseParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_StartDisconnect_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.network_config.mojom.CrosNetworkConfig_ModifyCustomApn_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig_ModifyCustomApn_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'network_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'apn', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.ApnPropertiesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_SetVpnProviders_ParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_SetVpnProviders_Params', [
+      mojo.internal.StructField('providers', 0, 0, mojo.internal.Array(chromeos.network_config.mojom.VpnProviderSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_GetVpnProviders_ParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_GetVpnProviders_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_GetVpnProviders_ResponseParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_GetVpnProviders_ResponseParams', [
+      mojo.internal.StructField('providers', 0, 0, mojo.internal.Array(chromeos.network_config.mojom.VpnProviderSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkCertificates_ParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkCertificates_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkCertificates_ResponseParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkCertificates_ResponseParams', [
+      mojo.internal.StructField('server_cas', 0, 0, mojo.internal.Array(chromeos.network_config.mojom.NetworkCertificateSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('user_certs', 8, 0, mojo.internal.Array(chromeos.network_config.mojom.NetworkCertificateSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_GetAlwaysOnVpn_ParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_GetAlwaysOnVpn_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_GetAlwaysOnVpn_ResponseParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_GetAlwaysOnVpn_ResponseParams', [
+      mojo.internal.StructField('properties', 0, 0, chromeos.network_config.mojom.AlwaysOnVpnPropertiesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_SetAlwaysOnVpn_ParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_SetAlwaysOnVpn_Params', [
+      mojo.internal.StructField('properties', 0, 0, chromeos.network_config.mojom.AlwaysOnVpnPropertiesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_GetSupportedVpnTypes_ParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_GetSupportedVpnTypes_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_GetSupportedVpnTypes_ResponseParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_GetSupportedVpnTypes_ResponseParams', [
+      mojo.internal.StructField('vpn_types', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_RequestTrafficCounters_ParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_RequestTrafficCounters_Params', [
+      mojo.internal.StructField('guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_RequestTrafficCounters_ResponseParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_RequestTrafficCounters_ResponseParams', [
+      mojo.internal.StructField('traffic_counters', 0, 0, mojo.internal.Array(chromeos.network_config.mojom.TrafficCounterSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_ResetTrafficCounters_ParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_ResetTrafficCounters_Params', [
+      mojo.internal.StructField('guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_SetTrafficCountersResetDay_ParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_SetTrafficCountersResetDay_Params', [
+      mojo.internal.StructField('guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('day', 8, 0, chromeos.network_config.mojom.UInt32ValueSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_SetTrafficCountersResetDay_ResponseParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_SetTrafficCountersResetDay_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_CreateCustomApn_ParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_CreateCustomApn_Params', [
+      mojo.internal.StructField('network_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('apn', 8, 0, chromeos.network_config.mojom.ApnPropertiesSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_CreateCustomApn_ResponseParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_CreateCustomApn_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_CreateExclusivelyEnabledCustomApn_ParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_CreateExclusivelyEnabledCustomApn_Params', [
+      mojo.internal.StructField('network_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('apn', 8, 0, chromeos.network_config.mojom.ApnPropertiesSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_CreateExclusivelyEnabledCustomApn_ResponseParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_CreateExclusivelyEnabledCustomApn_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_RemoveCustomApn_ParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_RemoveCustomApn_Params', [
+      mojo.internal.StructField('network_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('apn_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfig_ModifyCustomApn_ParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_ModifyCustomApn_Params', [
+      mojo.internal.StructField('network_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('apn', 8, 0, chromeos.network_config.mojom.ApnPropertiesSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 chromeos.network_config.mojom.CrosNetworkConfigPendingReceiver = class {
   constructor(handle) {
@@ -2280,772 +1875,48 @@ chromeos.network_config.mojom.CrosNetworkConfig.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddObserver
-chromeos.network_config.mojom.CrosNetworkConfig_AddObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.AddObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.network_config.mojom.CrosNetworkConfigObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetNetworkState
-chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.GetNetworkState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkState_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.GetNetworkState_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.NetworkStatePropertiesSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetNetworkStateList
-chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkStateList_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.GetNetworkStateList_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'filter', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.NetworkFilterSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkStateList_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.GetNetworkStateList_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromeos.network_config.mojom.NetworkStatePropertiesSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetDeviceStateList
-chromeos.network_config.mojom.CrosNetworkConfig_GetDeviceStateList_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.GetDeviceStateList_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chromeos.network_config.mojom.CrosNetworkConfig_GetDeviceStateList_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.GetDeviceStateList_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromeos.network_config.mojom.DeviceStatePropertiesSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetManagedProperties
-chromeos.network_config.mojom.CrosNetworkConfig_GetManagedProperties_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.GetManagedProperties_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromeos.network_config.mojom.CrosNetworkConfig_GetManagedProperties_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.GetManagedProperties_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedPropertiesSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetProperties
-chromeos.network_config.mojom.CrosNetworkConfig_SetProperties_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.SetProperties_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'properties', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.ConfigPropertiesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-chromeos.network_config.mojom.CrosNetworkConfig_SetProperties_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.SetProperties_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ConfigureNetwork
-chromeos.network_config.mojom.CrosNetworkConfig_ConfigureNetwork_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.ConfigureNetwork_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.ConfigPropertiesSpec, nullable: false, minVersion: 0 },
-        { name: 'shared', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-chromeos.network_config.mojom.CrosNetworkConfig_ConfigureNetwork_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.ConfigureNetwork_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ForgetNetwork
-chromeos.network_config.mojom.CrosNetworkConfig_ForgetNetwork_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.ForgetNetwork_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromeos.network_config.mojom.CrosNetworkConfig_ForgetNetwork_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.ForgetNetwork_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetNetworkTypeEnabledState
-chromeos.network_config.mojom.CrosNetworkConfig_SetNetworkTypeEnabledState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.SetNetworkTypeEnabledState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.NetworkTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'enabled', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromeos.network_config.mojom.CrosNetworkConfig_SetNetworkTypeEnabledState_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.SetNetworkTypeEnabledState_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetCellularSimState
-chromeos.network_config.mojom.CrosNetworkConfig_SetCellularSimState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.SetCellularSimState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.CellularSimStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromeos.network_config.mojom.CrosNetworkConfig_SetCellularSimState_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.SetCellularSimState_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SelectCellularMobileNetwork
-chromeos.network_config.mojom.CrosNetworkConfig_SelectCellularMobileNetwork_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.SelectCellularMobileNetwork_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'network_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-chromeos.network_config.mojom.CrosNetworkConfig_SelectCellularMobileNetwork_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.SelectCellularMobileNetwork_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestNetworkScan
-chromeos.network_config.mojom.CrosNetworkConfig_RequestNetworkScan_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.RequestNetworkScan_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.NetworkTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetGlobalPolicy
-chromeos.network_config.mojom.CrosNetworkConfig_GetGlobalPolicy_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.GetGlobalPolicy_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chromeos.network_config.mojom.CrosNetworkConfig_GetGlobalPolicy_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.GetGlobalPolicy_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.GlobalPolicySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StartConnect
-chromeos.network_config.mojom.CrosNetworkConfig_StartConnect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.StartConnect_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromeos.network_config.mojom.CrosNetworkConfig_StartConnect_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.StartConnect_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.StartConnectResultSpec, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for StartDisconnect
-chromeos.network_config.mojom.CrosNetworkConfig_StartDisconnect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.StartDisconnect_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromeos.network_config.mojom.CrosNetworkConfig_StartDisconnect_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.StartDisconnect_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetVpnProviders
-chromeos.network_config.mojom.CrosNetworkConfig_SetVpnProviders_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.SetVpnProviders_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'providers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromeos.network_config.mojom.VpnProviderSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetVpnProviders
-chromeos.network_config.mojom.CrosNetworkConfig_GetVpnProviders_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.GetVpnProviders_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chromeos.network_config.mojom.CrosNetworkConfig_GetVpnProviders_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.GetVpnProviders_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'providers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromeos.network_config.mojom.VpnProviderSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetNetworkCertificates
-chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkCertificates_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.GetNetworkCertificates_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkCertificates_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.GetNetworkCertificates_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'server_cas', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromeos.network_config.mojom.NetworkCertificateSpec, false), nullable: false, minVersion: 0 },
-        { name: 'user_certs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(chromeos.network_config.mojom.NetworkCertificateSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for GetAlwaysOnVpn
-chromeos.network_config.mojom.CrosNetworkConfig_GetAlwaysOnVpn_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.GetAlwaysOnVpn_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chromeos.network_config.mojom.CrosNetworkConfig_GetAlwaysOnVpn_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.GetAlwaysOnVpn_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.AlwaysOnVpnPropertiesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetAlwaysOnVpn
-chromeos.network_config.mojom.CrosNetworkConfig_SetAlwaysOnVpn_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.SetAlwaysOnVpn_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.AlwaysOnVpnPropertiesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetSupportedVpnTypes
-chromeos.network_config.mojom.CrosNetworkConfig_GetSupportedVpnTypes_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.GetSupportedVpnTypes_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chromeos.network_config.mojom.CrosNetworkConfig_GetSupportedVpnTypes_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.GetSupportedVpnTypes_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'vpn_types', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestTrafficCounters
-chromeos.network_config.mojom.CrosNetworkConfig_RequestTrafficCounters_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.RequestTrafficCounters_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromeos.network_config.mojom.CrosNetworkConfig_RequestTrafficCounters_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.RequestTrafficCounters_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'traffic_counters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromeos.network_config.mojom.TrafficCounterSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ResetTrafficCounters
-chromeos.network_config.mojom.CrosNetworkConfig_ResetTrafficCounters_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.ResetTrafficCounters_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetTrafficCountersResetDay
-chromeos.network_config.mojom.CrosNetworkConfig_SetTrafficCountersResetDay_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.SetTrafficCountersResetDay_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'day', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.UInt32ValueSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-chromeos.network_config.mojom.CrosNetworkConfig_SetTrafficCountersResetDay_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.SetTrafficCountersResetDay_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CreateCustomApn
-chromeos.network_config.mojom.CrosNetworkConfig_CreateCustomApn_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.CreateCustomApn_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'network_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'apn', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.ApnPropertiesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-chromeos.network_config.mojom.CrosNetworkConfig_CreateCustomApn_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.CreateCustomApn_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CreateExclusivelyEnabledCustomApn
-chromeos.network_config.mojom.CrosNetworkConfig_CreateExclusivelyEnabledCustomApn_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.CreateExclusivelyEnabledCustomApn_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'network_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'apn', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.ApnPropertiesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-chromeos.network_config.mojom.CrosNetworkConfig_CreateExclusivelyEnabledCustomApn_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.CreateExclusivelyEnabledCustomApn_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RemoveCustomApn
-chromeos.network_config.mojom.CrosNetworkConfig_RemoveCustomApn_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.RemoveCustomApn_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'network_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'apn_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ModifyCustomApn
-chromeos.network_config.mojom.CrosNetworkConfig_ModifyCustomApn_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfig.ModifyCustomApn_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'network_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'apn', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.ApnPropertiesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromeos.network_config.mojom.CrosNetworkConfigPtr = chromeos.network_config.mojom.CrosNetworkConfigRemote;
 chromeos.network_config.mojom.CrosNetworkConfigRequest = chromeos.network_config.mojom.CrosNetworkConfigPendingReceiver;
 
 
 // Interface: CrosNetworkConfigObserver
-chromeos.network_config.mojom.CrosNetworkConfigObserver = {};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfigObserver_OnActiveNetworksChanged_ParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfigObserver_OnActiveNetworksChanged_Params', [
+      mojo.internal.StructField('networks', 0, 0, mojo.internal.Array(chromeos.network_config.mojom.NetworkStatePropertiesSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.network_config.mojom.CrosNetworkConfigObserver_OnActiveNetworksChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfigObserver_OnActiveNetworksChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'networks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromeos.network_config.mojom.NetworkStatePropertiesSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkStateChanged_ParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkStateChanged_Params', [
+      mojo.internal.StructField('network', 0, 0, chromeos.network_config.mojom.NetworkStatePropertiesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkStateChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'network', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.NetworkStatePropertiesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkStateListChanged_ParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkStateListChanged_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkStateListChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkStateListChanged_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfigObserver_OnDeviceStateListChanged_ParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfigObserver_OnDeviceStateListChanged_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromeos.network_config.mojom.CrosNetworkConfigObserver_OnDeviceStateListChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfigObserver_OnDeviceStateListChanged_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfigObserver_OnVpnProvidersChanged_ParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfigObserver_OnVpnProvidersChanged_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromeos.network_config.mojom.CrosNetworkConfigObserver_OnVpnProvidersChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfigObserver_OnVpnProvidersChanged_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkCertificatesChanged_ParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkCertificatesChanged_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkCertificatesChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkCertificatesChanged_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chromeos.network_config.mojom.CrosNetworkConfigObserver_OnPoliciesApplied_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfigObserver_OnPoliciesApplied_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'userhash', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_config.mojom.CrosNetworkConfigObserver_OnPoliciesApplied_ParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfigObserver_OnPoliciesApplied_Params', [
+      mojo.internal.StructField('userhash', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromeos.network_config.mojom.CrosNetworkConfigObserverPendingReceiver = class {
   constructor(handle) {
@@ -3154,101 +2025,6 @@ chromeos.network_config.mojom.CrosNetworkConfigObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnActiveNetworksChanged
-chromeos.network_config.mojom.CrosNetworkConfigObserver_OnActiveNetworksChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfigObserver.OnActiveNetworksChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'networks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromeos.network_config.mojom.NetworkStatePropertiesSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnNetworkStateChanged
-chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfigObserver.OnNetworkStateChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'network', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.NetworkStatePropertiesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnNetworkStateListChanged
-chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkStateListChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfigObserver.OnNetworkStateListChanged_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnDeviceStateListChanged
-chromeos.network_config.mojom.CrosNetworkConfigObserver_OnDeviceStateListChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfigObserver.OnDeviceStateListChanged_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnVpnProvidersChanged
-chromeos.network_config.mojom.CrosNetworkConfigObserver_OnVpnProvidersChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfigObserver.OnVpnProvidersChanged_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnNetworkCertificatesChanged
-chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkCertificatesChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfigObserver.OnNetworkCertificatesChanged_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnPoliciesApplied
-chromeos.network_config.mojom.CrosNetworkConfigObserver_OnPoliciesApplied_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_config.mojom.CrosNetworkConfigObserver.OnPoliciesApplied_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'userhash', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromeos.network_config.mojom.CrosNetworkConfigObserverPtr = chromeos.network_config.mojom.CrosNetworkConfigObserverRemote;
 chromeos.network_config.mojom.CrosNetworkConfigObserverRequest = chromeos.network_config.mojom.CrosNetworkConfigObserverPendingReceiver;
 

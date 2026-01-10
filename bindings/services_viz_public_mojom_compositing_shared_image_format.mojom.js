@@ -7,7 +7,13 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
+var services = services || {};
 
+viz.mojom.PlaneConfigSpec = { $: mojo.internal.Enum() };
+viz.mojom.SubsamplingSpec = { $: mojo.internal.Enum() };
+viz.mojom.ChannelFormatSpec = { $: mojo.internal.Enum() };
+viz.mojom.SharedImageFormatSpec = { $: {} };
+viz.mojom.MultiplanarFormatSpec = { $: {} };
 
 // Enum: PlaneConfig
 viz.mojom.PlaneConfig = {
@@ -17,7 +23,6 @@ viz.mojom.PlaneConfig = {
   kY_UV_A: 3,
   kY_U_V_A: 4,
 };
-viz.mojom.PlaneConfigSpec = { $: mojo.internal.Enum() };
 
 // Enum: Subsampling
 viz.mojom.Subsampling = {
@@ -25,7 +30,6 @@ viz.mojom.Subsampling = {
   k422: 1,
   k444: 2,
 };
-viz.mojom.SubsamplingSpec = { $: mojo.internal.Enum() };
 
 // Enum: ChannelFormat
 viz.mojom.ChannelFormat = {
@@ -34,35 +38,28 @@ viz.mojom.ChannelFormat = {
   k16: 2,
   k16F: 3,
 };
-viz.mojom.ChannelFormatSpec = { $: mojo.internal.Enum() };
 
 // Union: SharedImageFormat
-viz.mojom.SharedImageFormatSpec = { $: mojo.internal.Union(
-    'viz.mojom.SharedImageFormat', {
+mojo.internal.Union(
+    viz.mojom.SharedImageFormatSpec, 'viz.mojom.SharedImageFormat', {
       'singleplanar_format': {
         'ordinal': 0,
         'type': viz.mojom.SingleplanarFormatSpec,
-      }},
+        'nullable': false,
+      },
       'multiplanar_format': {
         'ordinal': 1,
         'type': viz.mojom.MultiplanarFormatSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: MultiplanarFormat
-viz.mojom.MultiplanarFormatSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.MultiplanarFormat',
-      packedSize: 24,
-      fields: [
-        { name: 'plane_config', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.PlaneConfigSpec, nullable: false, minVersion: 0 },
-        { name: 'subsampling', packedOffset: 4, packedBitOffset: 0, type: viz.mojom.SubsamplingSpec, nullable: false, minVersion: 0 },
-        { name: 'channel_format', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.ChannelFormatSpec, nullable: false, minVersion: 0 },
-        { name: 'prefers_external_sampler', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.MultiplanarFormatSpec, 'viz.mojom.MultiplanarFormat', [
+      mojo.internal.StructField('plane_config', 0, 0, viz.mojom.PlaneConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('subsampling', 4, 0, viz.mojom.SubsamplingSpec, null, false, 0, undefined),
+      mojo.internal.StructField('channel_format', 8, 0, viz.mojom.ChannelFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('prefers_external_sampler', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);

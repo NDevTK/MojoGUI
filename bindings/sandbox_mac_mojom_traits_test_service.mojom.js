@@ -9,22 +9,23 @@ var sandbox = sandbox || {};
 sandbox.mac = sandbox.mac || {};
 sandbox.mac.mojom = sandbox.mac.mojom || {};
 
+sandbox.mac.mojom.TraitsTestService = {};
+sandbox.mac.mojom.TraitsTestService.$interfaceName = 'sandbox.mac.mojom.TraitsTestService';
+sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ParamsSpec = { $: {} };
+sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ResponseParamsSpec = { $: {} };
 
 // Interface: TraitsTestService
-sandbox.mac.mojom.TraitsTestService = {};
+mojo.internal.Struct(
+    sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ParamsSpec, 'sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_Params', [
+      mojo.internal.StructField('in', 0, 0, sandbox.mac.mojom.SeatbeltExtensionTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'in', packedOffset: 0, packedBitOffset: 0, type: sandbox.mac.mojom.SeatbeltExtensionTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ResponseParamsSpec, 'sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ResponseParams', [
+      mojo.internal.StructField('out', 0, 0, sandbox.mac.mojom.SeatbeltExtensionTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 sandbox.mac.mojom.TraitsTestServicePendingReceiver = class {
   constructor(handle) {
@@ -79,34 +80,6 @@ sandbox.mac.mojom.TraitsTestService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for EchoSeatbeltExtensionToken
-sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sandbox.mac.mojom.TraitsTestService.EchoSeatbeltExtensionToken_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'in', packedOffset: 0, packedBitOffset: 0, type: sandbox.mac.mojom.SeatbeltExtensionTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sandbox.mac.mojom.TraitsTestService.EchoSeatbeltExtensionToken_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'out', packedOffset: 0, packedBitOffset: 0, type: sandbox.mac.mojom.SeatbeltExtensionTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 sandbox.mac.mojom.TraitsTestServicePtr = sandbox.mac.mojom.TraitsTestServiceRemote;
 sandbox.mac.mojom.TraitsTestServiceRequest = sandbox.mac.mojom.TraitsTestServicePendingReceiver;
 

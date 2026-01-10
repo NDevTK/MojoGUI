@@ -8,6 +8,9 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+network.mojom.ConnectionAllowlistIssueSpec = { $: mojo.internal.Enum() };
+network.mojom.ConnectionAllowlistSpec = { $: {} };
+network.mojom.ConnectionAllowlistsSpec = { $: {} };
 
 // Enum: ConnectionAllowlistIssue
 network.mojom.ConnectionAllowlistIssue = {
@@ -17,35 +20,20 @@ network.mojom.ConnectionAllowlistIssue = {
   kInvalidAllowlistItemType: 3,
   kReportingEndpointNotToken: 4,
 };
-network.mojom.ConnectionAllowlistIssueSpec = { $: mojo.internal.Enum() };
 
 // Struct: ConnectionAllowlist
-network.mojom.ConnectionAllowlistSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ConnectionAllowlist',
-      packedSize: 32,
-      fields: [
-        { name: 'allowlist', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'reporting_endpoint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'issues', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.ConnectionAllowlistIssueSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.ConnectionAllowlistSpec, 'network.mojom.ConnectionAllowlist', [
+      mojo.internal.StructField('allowlist', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('reporting_endpoint', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('issues', 16, 0, mojo.internal.Array(network.mojom.ConnectionAllowlistIssueSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: ConnectionAllowlists
-network.mojom.ConnectionAllowlistsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ConnectionAllowlists',
-      packedSize: 24,
-      fields: [
-        { name: 'enforced', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ConnectionAllowlistSpec, nullable: true, minVersion: 0 },
-        { name: 'report_only', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ConnectionAllowlistSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.ConnectionAllowlistsSpec, 'network.mojom.ConnectionAllowlists', [
+      mojo.internal.StructField('enforced', 0, 0, network.mojom.ConnectionAllowlistSpec, null, true, 0, undefined),
+      mojo.internal.StructField('report_only', 8, 0, network.mojom.ConnectionAllowlistSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);

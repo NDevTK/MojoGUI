@@ -7,61 +7,38 @@
 // Module namespace
 var dom_distiller = dom_distiller || {};
 dom_distiller.mojom = dom_distiller.mojom || {};
+var components = components || {};
 
+dom_distiller.mojom.DistillerJavaScriptService = {};
+dom_distiller.mojom.DistillerJavaScriptService.$interfaceName = 'dom_distiller.mojom.DistillerJavaScriptService';
+dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_ParamsSpec = { $: {} };
+dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec = { $: {} };
+dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsSpec = { $: {} };
+dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_ParamsSpec = { $: {} };
 
 // Interface: DistillerJavaScriptService
-dom_distiller.mojom.DistillerJavaScriptService = {};
+mojo.internal.Struct(
+    dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_ParamsSpec, 'dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec, 'dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_Params', [
+      mojo.internal.StructField('theme', 0, 0, dom_distiller.mojom.ThemeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: dom_distiller.mojom.ThemeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsSpec, 'dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_Params', [
+      mojo.internal.StructField('font_family', 0, 0, dom_distiller.mojom.FontFamilySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'font_family', packedOffset: 0, packedBitOffset: 0, type: dom_distiller.mojom.FontFamilySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'font_scale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_ParamsSpec, 'dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_Params', [
+      mojo.internal.StructField('font_scale', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 dom_distiller.mojom.DistillerJavaScriptServicePendingReceiver = class {
   constructor(handle) {
@@ -143,62 +120,6 @@ dom_distiller.mojom.DistillerJavaScriptService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for HandleDistillerOpenSettingsCall
-dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'dom_distiller.mojom.DistillerJavaScriptService.HandleDistillerOpenSettingsCall_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for HandleStoreThemePref
-dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'dom_distiller.mojom.DistillerJavaScriptService.HandleStoreThemePref_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: dom_distiller.mojom.ThemeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for HandleStoreFontFamilyPref
-dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'dom_distiller.mojom.DistillerJavaScriptService.HandleStoreFontFamilyPref_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'font_family', packedOffset: 0, packedBitOffset: 0, type: dom_distiller.mojom.FontFamilySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for HandleStoreFontScalingPref
-dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'dom_distiller.mojom.DistillerJavaScriptService.HandleStoreFontScalingPref_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'font_scale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 dom_distiller.mojom.DistillerJavaScriptServicePtr = dom_distiller.mojom.DistillerJavaScriptServiceRemote;
 dom_distiller.mojom.DistillerJavaScriptServiceRequest = dom_distiller.mojom.DistillerJavaScriptServicePendingReceiver;
 

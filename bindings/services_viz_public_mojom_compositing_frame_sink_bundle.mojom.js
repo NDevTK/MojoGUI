@@ -7,129 +7,102 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 
+viz.mojom.BundledFrameSubmissionDataSpec = { $: {} };
+viz.mojom.BundledFrameSubmissionSpec = { $: {} };
+viz.mojom.BundledCompositorFrameSpec = { $: {} };
+viz.mojom.BundledReturnedResourcesSpec = { $: {} };
+viz.mojom.BeginFrameInfoSpec = { $: {} };
+viz.mojom.FrameSinkBundle = {};
+viz.mojom.FrameSinkBundle.$interfaceName = 'viz.mojom.FrameSinkBundle';
+viz.mojom.FrameSinkBundle_SetNeedsBeginFrame_ParamsSpec = { $: {} };
+viz.mojom.FrameSinkBundle_Submit_ParamsSpec = { $: {} };
+viz.mojom.FrameSinkBundle_SetThreads_ParamsSpec = { $: {} };
+viz.mojom.FrameSinkBundleClient = {};
+viz.mojom.FrameSinkBundleClient.$interfaceName = 'viz.mojom.FrameSinkBundleClient';
+viz.mojom.FrameSinkBundleClient_FlushNotifications_ParamsSpec = { $: {} };
+viz.mojom.FrameSinkBundleClient_OnBeginFramePausedChanged_ParamsSpec = { $: {} };
+viz.mojom.FrameSinkBundleClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec = { $: {} };
 
 // Union: BundledFrameSubmissionData
-viz.mojom.BundledFrameSubmissionDataSpec = { $: mojo.internal.Union(
-    'viz.mojom.BundledFrameSubmissionData', {
+mojo.internal.Union(
+    viz.mojom.BundledFrameSubmissionDataSpec, 'viz.mojom.BundledFrameSubmissionData', {
       'frame': {
         'ordinal': 0,
         'type': viz.mojom.BundledCompositorFrameSpec,
-      }},
+        'nullable': false,
+      },
       'did_not_produce_frame': {
         'ordinal': 1,
         'type': viz.mojom.BeginFrameAckSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: BundledFrameSubmission
-viz.mojom.BundledFrameSubmissionSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.BundledFrameSubmission',
-      packedSize: 32,
-      fields: [
-        { name: 'sink_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.BundledFrameSubmissionDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.BundledFrameSubmissionSpec, 'viz.mojom.BundledFrameSubmission', [
+      mojo.internal.StructField('sink_id', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, viz.mojom.BundledFrameSubmissionDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: BundledCompositorFrame
-viz.mojom.BundledCompositorFrameSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.BundledCompositorFrame',
-      packedSize: 40,
-      fields: [
-        { name: 'local_surface_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.LocalSurfaceIdSpec, nullable: false, minVersion: 0 },
-        { name: 'frame', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.CompositorFrameSpec, nullable: false, minVersion: 0 },
-        { name: 'hit_test_region_list', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.HitTestRegionListSpec, nullable: true, minVersion: 0 },
-        { name: 'submit_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.BundledCompositorFrameSpec, 'viz.mojom.BundledCompositorFrame', [
+      mojo.internal.StructField('local_surface_id', 0, 0, viz.mojom.LocalSurfaceIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame', 8, 0, viz.mojom.CompositorFrameSpec, null, false, 0, undefined),
+      mojo.internal.StructField('hit_test_region_list', 16, 0, viz.mojom.HitTestRegionListSpec, null, true, 0, undefined),
+      mojo.internal.StructField('submit_time', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: BundledReturnedResources
-viz.mojom.BundledReturnedResourcesSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.BundledReturnedResources',
-      packedSize: 24,
-      fields: [
-        { name: 'sink_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'resources', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.ReturnedResourceSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.BundledReturnedResourcesSpec, 'viz.mojom.BundledReturnedResources', [
+      mojo.internal.StructField('sink_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('resources', 0, 0, mojo.internal.Array(viz.mojom.ReturnedResourceSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: BeginFrameInfo
-viz.mojom.BeginFrameInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.BeginFrameInfo',
-      packedSize: 40,
-      fields: [
-        { name: 'sink_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.BeginFrameArgsSpec, nullable: false, minVersion: 0 },
-        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Uint32, viz.mojom.FrameTimingDetailsSpec, false), nullable: false, minVersion: 0 },
-        { name: 'resources', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.ReturnedResourceSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.BeginFrameInfoSpec, 'viz.mojom.BeginFrameInfo', [
+      mojo.internal.StructField('sink_id', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('args', 0, 0, viz.mojom.BeginFrameArgsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('details', 8, 0, mojo.internal.Map(mojo.internal.Uint32, viz.mojom.FrameTimingDetailsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('resources', 16, 0, mojo.internal.Array(viz.mojom.ReturnedResourceSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Interface: FrameSinkBundle
-viz.mojom.FrameSinkBundle = {};
+mojo.internal.Struct(
+    viz.mojom.FrameSinkBundle_SetNeedsBeginFrame_ParamsSpec, 'viz.mojom.FrameSinkBundle_SetNeedsBeginFrame_Params', [
+      mojo.internal.StructField('sink_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('needs_begin_frame', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-viz.mojom.FrameSinkBundle_SetNeedsBeginFrame_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.FrameSinkBundle_SetNeedsBeginFrame_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'needs_begin_frame', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.FrameSinkBundle_Submit_ParamsSpec, 'viz.mojom.FrameSinkBundle_Submit_Params', [
+      mojo.internal.StructField('submissions', 0, 0, mojo.internal.Array(viz.mojom.BundledFrameSubmissionSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-viz.mojom.FrameSinkBundle_Submit_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.FrameSinkBundle_Submit_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'submissions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.BundledFrameSubmissionSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-viz.mojom.FrameSinkBundle_SetThreads_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.FrameSinkBundle_SetThreads_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'sink_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'threads', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.ThreadSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.FrameSinkBundle_SetThreads_ParamsSpec, 'viz.mojom.FrameSinkBundle_SetThreads_Params', [
+      mojo.internal.StructField('sink_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('threads', 0, 0, mojo.internal.Array(viz.mojom.ThreadSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 viz.mojom.FrameSinkBundlePendingReceiver = class {
   constructor(handle) {
@@ -202,100 +175,32 @@ viz.mojom.FrameSinkBundle.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetNeedsBeginFrame
-viz.mojom.FrameSinkBundle_SetNeedsBeginFrame_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.FrameSinkBundle.SetNeedsBeginFrame_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'needs_begin_frame', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Submit
-viz.mojom.FrameSinkBundle_Submit_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.FrameSinkBundle.Submit_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'submissions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.BundledFrameSubmissionSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetThreads
-viz.mojom.FrameSinkBundle_SetThreads_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.FrameSinkBundle.SetThreads_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'sink_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'threads', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.ThreadSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 viz.mojom.FrameSinkBundlePtr = viz.mojom.FrameSinkBundleRemote;
 viz.mojom.FrameSinkBundleRequest = viz.mojom.FrameSinkBundlePendingReceiver;
 
 
 // Interface: FrameSinkBundleClient
-viz.mojom.FrameSinkBundleClient = {};
+mojo.internal.Struct(
+    viz.mojom.FrameSinkBundleClient_FlushNotifications_ParamsSpec, 'viz.mojom.FrameSinkBundleClient_FlushNotifications_Params', [
+      mojo.internal.StructField('acks', 0, 0, mojo.internal.Array(viz.mojom.BundledReturnedResourcesSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('begin_frames', 8, 0, mojo.internal.Array(viz.mojom.BeginFrameInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('reclaimed_resources', 16, 0, mojo.internal.Array(viz.mojom.BundledReturnedResourcesSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-viz.mojom.FrameSinkBundleClient_FlushNotifications_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.FrameSinkBundleClient_FlushNotifications_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'acks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.BundledReturnedResourcesSpec, false), nullable: false, minVersion: 0 },
-        { name: 'begin_frames', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.BeginFrameInfoSpec, false), nullable: false, minVersion: 0 },
-        { name: 'reclaimed_resources', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.BundledReturnedResourcesSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.FrameSinkBundleClient_OnBeginFramePausedChanged_ParamsSpec, 'viz.mojom.FrameSinkBundleClient_OnBeginFramePausedChanged_Params', [
+      mojo.internal.StructField('sink_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('paused', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-viz.mojom.FrameSinkBundleClient_OnBeginFramePausedChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.FrameSinkBundleClient_OnBeginFramePausedChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'paused', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-viz.mojom.FrameSinkBundleClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.FrameSinkBundleClient_OnCompositorFrameTransitionDirectiveProcessed_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'sequence_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.FrameSinkBundleClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec, 'viz.mojom.FrameSinkBundleClient_OnCompositorFrameTransitionDirectiveProcessed_Params', [
+      mojo.internal.StructField('sink_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('sequence_id', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 viz.mojom.FrameSinkBundleClientPendingReceiver = class {
   constructor(handle) {
@@ -368,53 +273,6 @@ viz.mojom.FrameSinkBundleClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for FlushNotifications
-viz.mojom.FrameSinkBundleClient_FlushNotifications_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.FrameSinkBundleClient.FlushNotifications_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'acks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.BundledReturnedResourcesSpec, false), nullable: false, minVersion: 0 },
-        { name: 'begin_frames', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.BeginFrameInfoSpec, false), nullable: false, minVersion: 0 },
-        { name: 'reclaimed_resources', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.BundledReturnedResourcesSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for OnBeginFramePausedChanged
-viz.mojom.FrameSinkBundleClient_OnBeginFramePausedChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.FrameSinkBundleClient.OnBeginFramePausedChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'paused', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnCompositorFrameTransitionDirectiveProcessed
-viz.mojom.FrameSinkBundleClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.FrameSinkBundleClient.OnCompositorFrameTransitionDirectiveProcessed_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'sequence_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 viz.mojom.FrameSinkBundleClientPtr = viz.mojom.FrameSinkBundleClientRemote;
 viz.mojom.FrameSinkBundleClientRequest = viz.mojom.FrameSinkBundleClientPendingReceiver;
 

@@ -9,310 +9,229 @@ var history = history || {};
 history.mojom = history.mojom || {};
 var url = url || {};
 
+history.mojom.FilteringBehaviorSpec = { $: mojo.internal.Enum() };
+history.mojom.QueryStateSpec = { $: {} };
+history.mojom.HistoryQuerySpec = { $: {} };
+history.mojom.DebugInfoSpec = { $: {} };
+history.mojom.HistoryEntrySpec = { $: {} };
+history.mojom.QueryResultSpec = { $: {} };
+history.mojom.RemovalItemSpec = { $: {} };
+history.mojom.AccountInfoSpec = { $: {} };
+history.mojom.PageHandler = {};
+history.mojom.PageHandler.$interfaceName = 'history.mojom.PageHandler';
+history.mojom.PageHandler_SetPage_ParamsSpec = { $: {} };
+history.mojom.PageHandler_QueryHistory_ParamsSpec = { $: {} };
+history.mojom.PageHandler_QueryHistory_ResponseParamsSpec = { $: {} };
+history.mojom.PageHandler_QueryHistoryContinuation_ParamsSpec = { $: {} };
+history.mojom.PageHandler_QueryHistoryContinuation_ResponseParamsSpec = { $: {} };
+history.mojom.PageHandler_RemoveVisits_ParamsSpec = { $: {} };
+history.mojom.PageHandler_RemoveVisits_ResponseParamsSpec = { $: {} };
+history.mojom.PageHandler_OpenClearBrowsingDataDialog_ParamsSpec = { $: {} };
+history.mojom.PageHandler_RemoveBookmark_ParamsSpec = { $: {} };
+history.mojom.PageHandler_SetLastSelectedTab_ParamsSpec = { $: {} };
+history.mojom.PageHandler_ShowSidePanelUI_ParamsSpec = { $: {} };
+history.mojom.PageHandler_RequestAccountInfo_ParamsSpec = { $: {} };
+history.mojom.PageHandler_RequestAccountInfo_ResponseParamsSpec = { $: {} };
+history.mojom.PageHandler_TurnOnHistorySync_ParamsSpec = { $: {} };
+history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ParamsSpec = { $: {} };
+history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ResponseParamsSpec = { $: {} };
+history.mojom.PageHandler_RecordHistoryPageHistorySyncPromoDismissed_ParamsSpec = { $: {} };
+history.mojom.PageHandler_IncrementHistoryPageHistorySyncPromoShownCount_ParamsSpec = { $: {} };
+history.mojom.Page = {};
+history.mojom.Page.$interfaceName = 'history.mojom.Page';
+history.mojom.Page_OnHistoryDeleted_ParamsSpec = { $: {} };
+history.mojom.Page_OnHasOtherFormsChanged_ParamsSpec = { $: {} };
+history.mojom.Page_SendAccountInfo_ParamsSpec = { $: {} };
 
 // Enum: FilteringBehavior
 history.mojom.FilteringBehavior = {
-  kUnknown: 0,
-  kAllow: 1,
+  kUnknown: -1,
+  kAllow: 0,
   kBlock: 2,
   kInvalid: 3,
 };
-history.mojom.FilteringBehaviorSpec = { $: mojo.internal.Enum() };
 
 // Struct: QueryState
-history.mojom.QueryStateSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.QueryState',
-      packedSize: 32,
-      fields: [
-        { name: 'incremental', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'querying', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'search_term', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'after', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    history.mojom.QueryStateSpec, 'history.mojom.QueryState', [
+      mojo.internal.StructField('incremental', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('querying', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('search_term', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('after', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: HistoryQuery
-history.mojom.HistoryQuerySpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.HistoryQuery',
-      packedSize: 24,
-      fields: [
-        { name: 'term', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'finished', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    history.mojom.HistoryQuerySpec, 'history.mojom.HistoryQuery', [
+      mojo.internal.StructField('term', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('finished', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: DebugInfo
-history.mojom.DebugInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.DebugInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'is_url_in_local_database', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'visit_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'typed_count', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    history.mojom.DebugInfoSpec, 'history.mojom.DebugInfo', [
+      mojo.internal.StructField('is_url_in_local_database', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('visit_count', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('typed_count', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: HistoryEntry
-history.mojom.HistoryEntrySpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.HistoryEntry',
-      packedSize: 136,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'domain', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'fallback_favicon_text', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'time', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'all_timestamps', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Double, false), nullable: false, minVersion: 0 },
-        { name: 'date_short', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'device_name', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'device_type', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'date_time_of_day', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'date_relative_day', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'selected', packedOffset: 124, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'readableTimestamp', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'snippet', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'starred', packedOffset: 124, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'host_filtering_behavior', packedOffset: 120, packedBitOffset: 0, type: history.mojom.FilteringBehaviorSpec, nullable: false, minVersion: 0 },
-        { name: 'blocked_visit', packedOffset: 124, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_url_in_remote_user_data', packedOffset: 124, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_actor_visit', packedOffset: 124, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'remote_icon_url_for_uma', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'debug', packedOffset: 112, packedBitOffset: 0, type: history.mojom.DebugInfoSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 136}]
-    }
-  }
-};
+mojo.internal.Struct(
+    history.mojom.HistoryEntrySpec, 'history.mojom.HistoryEntry', [
+      mojo.internal.StructField('url', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('domain', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('fallback_favicon_text', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('time', 32, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('all_timestamps', 40, 0, mojo.internal.Array(mojo.internal.Double, false), null, false, 0, undefined),
+      mojo.internal.StructField('date_short', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('device_name', 56, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('device_type', 64, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('date_time_of_day', 72, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('date_relative_day', 80, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('selected', 124, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('readableTimestamp', 88, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('snippet', 96, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('starred', 124, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('host_filtering_behavior', 120, 0, history.mojom.FilteringBehaviorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('blocked_visit', 124, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_url_in_remote_user_data', 124, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_actor_visit', 124, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('remote_icon_url_for_uma', 104, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('debug', 112, 0, history.mojom.DebugInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 136]]);
 
 // Struct: QueryResult
-history.mojom.QueryResultSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.QueryResult',
-      packedSize: 24,
-      fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: history.mojom.HistoryQuerySpec, nullable: true, minVersion: 0 },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(history.mojom.HistoryEntrySpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    history.mojom.QueryResultSpec, 'history.mojom.QueryResult', [
+      mojo.internal.StructField('info', 0, 0, history.mojom.HistoryQuerySpec, null, true, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo.internal.Array(history.mojom.HistoryEntrySpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: RemovalItem
-history.mojom.RemovalItemSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.RemovalItem',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'timestamps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Double, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    history.mojom.RemovalItemSpec, 'history.mojom.RemovalItem', [
+      mojo.internal.StructField('url', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('timestamps', 8, 0, mojo.internal.Array(mojo.internal.Double, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: AccountInfo
-history.mojom.AccountInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.AccountInfo',
-      packedSize: 32,
-      fields: [
-        { name: 'account_image_src', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'email', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    history.mojom.AccountInfoSpec, 'history.mojom.AccountInfo', [
+      mojo.internal.StructField('account_image_src', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('email', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: PageHandler
-history.mojom.PageHandler = {};
+mojo.internal.Struct(
+    history.mojom.PageHandler_SetPage_ParamsSpec, 'history.mojom.PageHandler_SetPage_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(history.mojom.PageRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-history.mojom.PageHandler_SetPage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.PageHandler_SetPage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(history.mojom.PageRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    history.mojom.PageHandler_QueryHistory_ParamsSpec, 'history.mojom.PageHandler_QueryHistory_Params', [
+      mojo.internal.StructField('query', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('max_results', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('begin_time_$flag', 20, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'begin_time_$value', originalFieldName: 'begin_time' }),
+      mojo.internal.StructField('begin_time_$value', 8, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'begin_time_$flag', originalFieldName: 'begin_time' }),
+    ],
+    [[0, 32]]);
 
-history.mojom.PageHandler_QueryHistory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.PageHandler_QueryHistory_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'max_results', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'begin_time_$flag', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'begin_time_$value', originalFieldName: 'begin_time' } },
-        { name: 'begin_time_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'begin_time_$flag', originalFieldName: 'begin_time' } },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    history.mojom.PageHandler_QueryHistory_ResponseParamsSpec, 'history.mojom.PageHandler_QueryHistory_ResponseParams', [
+      mojo.internal.StructField('results', 0, 0, history.mojom.QueryResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-history.mojom.PageHandler_QueryHistoryContinuation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.PageHandler_QueryHistoryContinuation_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    history.mojom.PageHandler_QueryHistoryContinuation_ParamsSpec, 'history.mojom.PageHandler_QueryHistoryContinuation_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-history.mojom.PageHandler_RemoveVisits_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.PageHandler_RemoveVisits_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'items', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(history.mojom.RemovalItemSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    history.mojom.PageHandler_QueryHistoryContinuation_ResponseParamsSpec, 'history.mojom.PageHandler_QueryHistoryContinuation_ResponseParams', [
+      mojo.internal.StructField('results', 0, 0, history.mojom.QueryResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-history.mojom.PageHandler_OpenClearBrowsingDataDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.PageHandler_OpenClearBrowsingDataDialog_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    history.mojom.PageHandler_RemoveVisits_ParamsSpec, 'history.mojom.PageHandler_RemoveVisits_Params', [
+      mojo.internal.StructField('items', 0, 0, mojo.internal.Array(history.mojom.RemovalItemSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-history.mojom.PageHandler_RemoveBookmark_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.PageHandler_RemoveBookmark_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    history.mojom.PageHandler_RemoveVisits_ResponseParamsSpec, 'history.mojom.PageHandler_RemoveVisits_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-history.mojom.PageHandler_SetLastSelectedTab_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.PageHandler_SetLastSelectedTab_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'last_tab', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    history.mojom.PageHandler_OpenClearBrowsingDataDialog_ParamsSpec, 'history.mojom.PageHandler_OpenClearBrowsingDataDialog_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-history.mojom.PageHandler_ShowSidePanelUI_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.PageHandler_ShowSidePanelUI_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    history.mojom.PageHandler_RemoveBookmark_ParamsSpec, 'history.mojom.PageHandler_RemoveBookmark_Params', [
+      mojo.internal.StructField('url', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-history.mojom.PageHandler_RequestAccountInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.PageHandler_RequestAccountInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    history.mojom.PageHandler_SetLastSelectedTab_ParamsSpec, 'history.mojom.PageHandler_SetLastSelectedTab_Params', [
+      mojo.internal.StructField('last_tab', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-history.mojom.PageHandler_TurnOnHistorySync_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.PageHandler_TurnOnHistorySync_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    history.mojom.PageHandler_ShowSidePanelUI_ParamsSpec, 'history.mojom.PageHandler_ShowSidePanelUI_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    history.mojom.PageHandler_RequestAccountInfo_ParamsSpec, 'history.mojom.PageHandler_RequestAccountInfo_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-history.mojom.PageHandler_RecordHistoryPageHistorySyncPromoDismissed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.PageHandler_RecordHistoryPageHistorySyncPromoDismissed_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    history.mojom.PageHandler_RequestAccountInfo_ResponseParamsSpec, 'history.mojom.PageHandler_RequestAccountInfo_ResponseParams', [
+      mojo.internal.StructField('account_info', 0, 0, history.mojom.AccountInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-history.mojom.PageHandler_IncrementHistoryPageHistorySyncPromoShownCount_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.PageHandler_IncrementHistoryPageHistorySyncPromoShownCount_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    history.mojom.PageHandler_TurnOnHistorySync_ParamsSpec, 'history.mojom.PageHandler_TurnOnHistorySync_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ParamsSpec, 'history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ResponseParamsSpec, 'history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ResponseParams', [
+      mojo.internal.StructField('should_show', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    history.mojom.PageHandler_RecordHistoryPageHistorySyncPromoDismissed_ParamsSpec, 'history.mojom.PageHandler_RecordHistoryPageHistorySyncPromoDismissed_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    history.mojom.PageHandler_IncrementHistoryPageHistorySyncPromoShownCount_ParamsSpec, 'history.mojom.PageHandler_IncrementHistoryPageHistorySyncPromoShownCount_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 history.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -378,7 +297,7 @@ history.mojom.PageHandlerRemoteCallHandler = class {
     return this.proxy.sendMessage(
       3,  // ordinal
       history.mojom.PageHandler_RemoveVisits_ParamsSpec,
-      null,
+      history.mojom.PageHandler_RemoveVisits_ResponseParamsSpec,
       [items]);
   }
 
@@ -475,280 +394,27 @@ history.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetPage
-history.mojom.PageHandler_SetPage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.PageHandler.SetPage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(history.mojom.PageRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for QueryHistory
-history.mojom.PageHandler_QueryHistory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.PageHandler.QueryHistory_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'max_results', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'begin_time_$flag', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'begin_time_$value', originalFieldName: 'begin_time' } },
-        { name: 'begin_time_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'begin_time_$flag', originalFieldName: 'begin_time' } },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-history.mojom.PageHandler_QueryHistory_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.PageHandler.QueryHistory_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: history.mojom.QueryResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for QueryHistoryContinuation
-history.mojom.PageHandler_QueryHistoryContinuation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.PageHandler.QueryHistoryContinuation_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-history.mojom.PageHandler_QueryHistoryContinuation_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.PageHandler.QueryHistoryContinuation_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: history.mojom.QueryResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RemoveVisits
-history.mojom.PageHandler_RemoveVisits_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.PageHandler.RemoveVisits_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'items', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(history.mojom.RemovalItemSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OpenClearBrowsingDataDialog
-history.mojom.PageHandler_OpenClearBrowsingDataDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.PageHandler.OpenClearBrowsingDataDialog_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for RemoveBookmark
-history.mojom.PageHandler_RemoveBookmark_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.PageHandler.RemoveBookmark_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetLastSelectedTab
-history.mojom.PageHandler_SetLastSelectedTab_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.PageHandler.SetLastSelectedTab_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'last_tab', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ShowSidePanelUI
-history.mojom.PageHandler_ShowSidePanelUI_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.PageHandler.ShowSidePanelUI_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for RequestAccountInfo
-history.mojom.PageHandler_RequestAccountInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.PageHandler.RequestAccountInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-history.mojom.PageHandler_RequestAccountInfo_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.PageHandler.RequestAccountInfo_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'account_info', packedOffset: 0, packedBitOffset: 0, type: history.mojom.AccountInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for TurnOnHistorySync
-history.mojom.PageHandler_TurnOnHistorySync_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.PageHandler.TurnOnHistorySync_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for ShouldShowHistoryPageHistorySyncPromo
-history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.PageHandler.ShouldShowHistoryPageHistorySyncPromo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.PageHandler.ShouldShowHistoryPageHistorySyncPromo_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'should_show', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RecordHistoryPageHistorySyncPromoDismissed
-history.mojom.PageHandler_RecordHistoryPageHistorySyncPromoDismissed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.PageHandler.RecordHistoryPageHistorySyncPromoDismissed_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for IncrementHistoryPageHistorySyncPromoShownCount
-history.mojom.PageHandler_IncrementHistoryPageHistorySyncPromoShownCount_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.PageHandler.IncrementHistoryPageHistorySyncPromoShownCount_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 history.mojom.PageHandlerPtr = history.mojom.PageHandlerRemote;
 history.mojom.PageHandlerRequest = history.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-history.mojom.Page = {};
+mojo.internal.Struct(
+    history.mojom.Page_OnHistoryDeleted_ParamsSpec, 'history.mojom.Page_OnHistoryDeleted_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-history.mojom.Page_OnHistoryDeleted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.Page_OnHistoryDeleted_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    history.mojom.Page_OnHasOtherFormsChanged_ParamsSpec, 'history.mojom.Page_OnHasOtherFormsChanged_Params', [
+      mojo.internal.StructField('has_other_forms', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-history.mojom.Page_OnHasOtherFormsChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.Page_OnHasOtherFormsChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'has_other_forms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-history.mojom.Page_SendAccountInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.Page_SendAccountInfo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'account_info', packedOffset: 0, packedBitOffset: 0, type: history.mojom.AccountInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    history.mojom.Page_SendAccountInfo_ParamsSpec, 'history.mojom.Page_SendAccountInfo_Params', [
+      mojo.internal.StructField('account_info', 0, 0, history.mojom.AccountInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 history.mojom.PagePendingReceiver = class {
   constructor(handle) {
@@ -821,48 +487,6 @@ history.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnHistoryDeleted
-history.mojom.Page_OnHistoryDeleted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.Page.OnHistoryDeleted_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnHasOtherFormsChanged
-history.mojom.Page_OnHasOtherFormsChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.Page.OnHasOtherFormsChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'has_other_forms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SendAccountInfo
-history.mojom.Page_SendAccountInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history.mojom.Page.SendAccountInfo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'account_info', packedOffset: 0, packedBitOffset: 0, type: history.mojom.AccountInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 history.mojom.PagePtr = history.mojom.PageRemote;
 history.mojom.PageRequest = history.mojom.PagePendingReceiver;
 

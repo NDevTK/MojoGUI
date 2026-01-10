@@ -7,37 +7,45 @@
 // Module namespace
 var mantis = mantis || {};
 mantis.mojom = mantis.mojom || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var components = components || {};
+var chromeos = chromeos || {};
+var services = services || {};
 
+mantis.mojom.MantisFeatureStatusSpec = { $: mojo.internal.Enum() };
+mantis.mojom.InitializeResultSpec = { $: mojo.internal.Enum() };
+mantis.mojom.PlatformModelProgressObserver = {};
+mantis.mojom.PlatformModelProgressObserver.$interfaceName = 'mantis.mojom.PlatformModelProgressObserver';
+mantis.mojom.PlatformModelProgressObserver_Progress_ParamsSpec = { $: {} };
+mantis.mojom.MantisService = {};
+mantis.mojom.MantisService.$interfaceName = 'mantis.mojom.MantisService';
+mantis.mojom.MantisService_GetMantisFeatureStatus_ParamsSpec = { $: {} };
+mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec = { $: {} };
+mantis.mojom.MantisService_Initialize_ParamsSpec = { $: {} };
+mantis.mojom.MantisService_Initialize_ResponseParamsSpec = { $: {} };
 
 // Enum: MantisFeatureStatus
 mantis.mojom.MantisFeatureStatus = {
-  kARCVMDisabled: 0,
-  kAvailable: 1,
+  kDeviceNotSupported: 0,
+  kARCVMDisabled: 1,
+  kAvailable: 2,
 };
-mantis.mojom.MantisFeatureStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: InitializeResult
 mantis.mojom.InitializeResult = {
   kSuccess: 0,
   kGpuBlocked: 1,
+  kFailedToLoadLibrary: 2,
+  MinVersion: 2,
 };
-mantis.mojom.InitializeResultSpec = { $: mojo.internal.Enum() };
 
 // Interface: PlatformModelProgressObserver
-mantis.mojom.PlatformModelProgressObserver = {};
-
-mantis.mojom.PlatformModelProgressObserver_Progress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mantis.mojom.PlatformModelProgressObserver_Progress_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'progress', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mantis.mojom.PlatformModelProgressObserver_Progress_ParamsSpec, 'mantis.mojom.PlatformModelProgressObserver_Progress_Params', [
+      mojo.internal.StructField('progress', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 mantis.mojom.PlatformModelProgressObserverPendingReceiver = class {
   constructor(handle) {
@@ -92,55 +100,36 @@ mantis.mojom.PlatformModelProgressObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Progress
-mantis.mojom.PlatformModelProgressObserver_Progress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mantis.mojom.PlatformModelProgressObserver.Progress_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'progress', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 mantis.mojom.PlatformModelProgressObserverPtr = mantis.mojom.PlatformModelProgressObserverRemote;
 mantis.mojom.PlatformModelProgressObserverRequest = mantis.mojom.PlatformModelProgressObserverPendingReceiver;
 
 
 // Interface: MantisService
-mantis.mojom.MantisService = {};
+mojo.internal.Struct(
+    mantis.mojom.MantisService_GetMantisFeatureStatus_ParamsSpec, 'mantis.mojom.MantisService_GetMantisFeatureStatus_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-mantis.mojom.MantisService_GetMantisFeatureStatus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mantis.mojom.MantisService_GetMantisFeatureStatus_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec, 'mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, mantis.mojom.MantisFeatureStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-mantis.mojom.MantisService_Initialize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mantis.mojom.MantisService_Initialize_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'progress_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(mantis.mojom.PlatformModelProgressObserverRemote), nullable: true, minVersion: 0 },
-        { name: 'processor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(mantis.mojom.MantisProcessorRemote), nullable: false, minVersion: 0 },
-        { name: 'dlc_uuid', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: true, minVersion: 3 },
-        { name: 'text_classifier', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.machine_learning.mojom.TextClassifierRemote), nullable: true, minVersion: 4 },
-      ],
-      versions: [{version: 0, packedSize: 24}, {version: 3, packedSize: 32}, {version: 4, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mantis.mojom.MantisService_Initialize_ParamsSpec, 'mantis.mojom.MantisService_Initialize_Params', [
+      mojo.internal.StructField('progress_observer', 0, 0, mojo.internal.InterfaceProxy(mantis.mojom.PlatformModelProgressObserverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('processor', 8, 0, mojo.internal.InterfaceRequest(mantis.mojom.MantisProcessorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('dlc_uuid', 16, 0, mojo_base.mojom.UuidSpec, null, true, 3, undefined),
+      mojo.internal.StructField('text_classifier', 24, 0, mojo.internal.InterfaceProxy(chromeos.machine_learning.mojom.TextClassifierRemote), null, true, 4, undefined),
+    ],
+    [[0, 24], [3, 32], [4, 40]]);
+
+mojo.internal.Struct(
+    mantis.mojom.MantisService_Initialize_ResponseParamsSpec, 'mantis.mojom.MantisService_Initialize_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mantis.mojom.InitializeResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 mantis.mojom.MantisServicePendingReceiver = class {
   constructor(handle) {
@@ -204,63 +193,6 @@ mantis.mojom.MantisService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetMantisFeatureStatus
-mantis.mojom.MantisService_GetMantisFeatureStatus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mantis.mojom.MantisService.GetMantisFeatureStatus_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mantis.mojom.MantisService.GetMantisFeatureStatus_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mantis.mojom.MantisFeatureStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Initialize
-mantis.mojom.MantisService_Initialize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mantis.mojom.MantisService.Initialize_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'progress_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(mantis.mojom.PlatformModelProgressObserverRemote), nullable: true, minVersion: 0 },
-        { name: 'processor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(mantis.mojom.MantisProcessorRemote), nullable: false, minVersion: 0 },
-        { name: 'dlc_uuid', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: true, minVersion: 3 },
-        { name: 'text_classifier', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.machine_learning.mojom.TextClassifierRemote), nullable: true, minVersion: 4 },
-      ],
-      versions: [{version: 0, packedSize: 24}, {version: 3, packedSize: 32}, {version: 4, packedSize: 40}]
-    }
-  }
-};
-
-mantis.mojom.MantisService_Initialize_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mantis.mojom.MantisService.Initialize_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mantis.mojom.InitializeResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 mantis.mojom.MantisServicePtr = mantis.mojom.MantisServiceRemote;
 mantis.mojom.MantisServiceRequest = mantis.mojom.MantisServicePendingReceiver;
 

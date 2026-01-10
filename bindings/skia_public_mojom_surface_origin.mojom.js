@@ -8,10 +8,10 @@
 var skia = skia || {};
 skia.mojom = skia.mojom || {};
 
+skia.mojom.SurfaceOriginSpec = { $: mojo.internal.Enum() };
 
 // Enum: SurfaceOrigin
 skia.mojom.SurfaceOrigin = {
   kTopLeft: 0,
   kBottomLeft: 1,
 };
-skia.mojom.SurfaceOriginSpec = { $: mojo.internal.Enum() };

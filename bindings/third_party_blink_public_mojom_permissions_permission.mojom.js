@@ -12,6 +12,39 @@ var url = url || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+blink.mojom.PermissionNameSpec = { $: mojo.internal.Enum() };
+blink.mojom.EmbeddedPermissionControlResultSpec = { $: mojo.internal.Enum() };
+blink.mojom.PermissionDescriptorExtensionSpec = { $: {} };
+blink.mojom.MidiPermissionDescriptorSpec = { $: {} };
+blink.mojom.ClipboardPermissionDescriptorSpec = { $: {} };
+blink.mojom.CameraDevicePermissionDescriptorSpec = { $: {} };
+blink.mojom.TopLevelStorageAccessPermissionDescriptorSpec = { $: {} };
+blink.mojom.FullscreenPermissionDescriptorSpec = { $: {} };
+blink.mojom.PermissionDescriptorSpec = { $: {} };
+blink.mojom.GeolocationEmbeddedPermissionRequestDescriptorSpec = { $: {} };
+blink.mojom.EmbeddedPermissionRequestDescriptorSpec = { $: {} };
+blink.mojom.PermissionObserver = {};
+blink.mojom.PermissionObserver.$interfaceName = 'blink.mojom.PermissionObserver';
+blink.mojom.PermissionObserver_OnPermissionStatusChange_ParamsSpec = { $: {} };
+blink.mojom.EmbeddedPermissionControlClient = {};
+blink.mojom.EmbeddedPermissionControlClient.$interfaceName = 'blink.mojom.EmbeddedPermissionControlClient';
+blink.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistered_ParamsSpec = { $: {} };
+blink.mojom.PermissionService = {};
+blink.mojom.PermissionService.$interfaceName = 'blink.mojom.PermissionService';
+blink.mojom.PermissionService_HasPermission_ParamsSpec = { $: {} };
+blink.mojom.PermissionService_HasPermission_ResponseParamsSpec = { $: {} };
+blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_ParamsSpec = { $: {} };
+blink.mojom.PermissionService_RequestPageEmbeddedPermission_ParamsSpec = { $: {} };
+blink.mojom.PermissionService_RequestPageEmbeddedPermission_ResponseParamsSpec = { $: {} };
+blink.mojom.PermissionService_RequestPermission_ParamsSpec = { $: {} };
+blink.mojom.PermissionService_RequestPermission_ResponseParamsSpec = { $: {} };
+blink.mojom.PermissionService_RequestPermissions_ParamsSpec = { $: {} };
+blink.mojom.PermissionService_RequestPermissions_ResponseParamsSpec = { $: {} };
+blink.mojom.PermissionService_RevokePermission_ParamsSpec = { $: {} };
+blink.mojom.PermissionService_RevokePermission_ResponseParamsSpec = { $: {} };
+blink.mojom.PermissionService_AddPermissionObserver_ParamsSpec = { $: {} };
+blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec = { $: {} };
+blink.mojom.PermissionService_NotifyEventListener_ParamsSpec = { $: {} };
 
 // Enum: PermissionName
 blink.mojom.PermissionName = {
@@ -54,7 +87,6 @@ blink.mojom.PermissionName = {
   SMART_CARD: 36,
   GEOLOCATION_APPROXIMATE: 37,
 };
-blink.mojom.PermissionNameSpec = { $: mojo.internal.Enum() };
 
 // Enum: EmbeddedPermissionControlResult
 blink.mojom.EmbeddedPermissionControlResult = {
@@ -64,164 +96,102 @@ blink.mojom.EmbeddedPermissionControlResult = {
   kNotSupported: 3,
   kResolvedNoUserGesture: 4,
 };
-blink.mojom.EmbeddedPermissionControlResultSpec = { $: mojo.internal.Enum() };
 
 // Union: PermissionDescriptorExtension
-blink.mojom.PermissionDescriptorExtensionSpec = { $: mojo.internal.Union(
-    'blink.mojom.PermissionDescriptorExtension', {
+mojo.internal.Union(
+    blink.mojom.PermissionDescriptorExtensionSpec, 'blink.mojom.PermissionDescriptorExtension', {
       'midi': {
         'ordinal': 0,
         'type': blink.mojom.MidiPermissionDescriptorSpec,
-      }},
+        'nullable': false,
+      },
       'clipboard': {
         'ordinal': 1,
         'type': blink.mojom.ClipboardPermissionDescriptorSpec,
-      }},
+        'nullable': false,
+      },
       'camera_device': {
         'ordinal': 2,
         'type': blink.mojom.CameraDevicePermissionDescriptorSpec,
-      }},
+        'nullable': false,
+      },
       'top_level_storage_access': {
         'ordinal': 3,
         'type': blink.mojom.TopLevelStorageAccessPermissionDescriptorSpec,
-      }},
+        'nullable': false,
+      },
       'fullscreen': {
         'ordinal': 4,
         'type': blink.mojom.FullscreenPermissionDescriptorSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: MidiPermissionDescriptor
-blink.mojom.MidiPermissionDescriptorSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MidiPermissionDescriptor',
-      packedSize: 16,
-      fields: [
-        { name: 'sysex', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.MidiPermissionDescriptorSpec, 'blink.mojom.MidiPermissionDescriptor', [
+      mojo.internal.StructField('sysex', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: ClipboardPermissionDescriptor
-blink.mojom.ClipboardPermissionDescriptorSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ClipboardPermissionDescriptor',
-      packedSize: 16,
-      fields: [
-        { name: 'has_user_gesture', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'will_be_sanitized', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ClipboardPermissionDescriptorSpec, 'blink.mojom.ClipboardPermissionDescriptor', [
+      mojo.internal.StructField('has_user_gesture', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('will_be_sanitized', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: CameraDevicePermissionDescriptor
-blink.mojom.CameraDevicePermissionDescriptorSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CameraDevicePermissionDescriptor',
-      packedSize: 16,
-      fields: [
-        { name: 'panTiltZoom', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.CameraDevicePermissionDescriptorSpec, 'blink.mojom.CameraDevicePermissionDescriptor', [
+      mojo.internal.StructField('panTiltZoom', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: TopLevelStorageAccessPermissionDescriptor
-blink.mojom.TopLevelStorageAccessPermissionDescriptorSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TopLevelStorageAccessPermissionDescriptor',
-      packedSize: 16,
-      fields: [
-        { name: 'requestedOrigin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.TopLevelStorageAccessPermissionDescriptorSpec, 'blink.mojom.TopLevelStorageAccessPermissionDescriptor', [
+      mojo.internal.StructField('requestedOrigin', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: FullscreenPermissionDescriptor
-blink.mojom.FullscreenPermissionDescriptorSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FullscreenPermissionDescriptor',
-      packedSize: 16,
-      fields: [
-        { name: 'allow_without_user_gesture', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FullscreenPermissionDescriptorSpec, 'blink.mojom.FullscreenPermissionDescriptor', [
+      mojo.internal.StructField('allow_without_user_gesture', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: PermissionDescriptor
-blink.mojom.PermissionDescriptorSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PermissionDescriptor',
-      packedSize: 32,
-      fields: [
-        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.PermissionNameSpec, nullable: false, minVersion: 0 },
-        { name: 'extension', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionDescriptorExtensionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PermissionDescriptorSpec, 'blink.mojom.PermissionDescriptor', [
+      mojo.internal.StructField('name', 16, 0, blink.mojom.PermissionNameSpec, null, false, 0, undefined),
+      mojo.internal.StructField('extension', 0, 0, blink.mojom.PermissionDescriptorExtensionSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: GeolocationEmbeddedPermissionRequestDescriptor
-blink.mojom.GeolocationEmbeddedPermissionRequestDescriptorSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.GeolocationEmbeddedPermissionRequestDescriptor',
-      packedSize: 16,
-      fields: [
-        { name: 'autolocate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.GeolocationEmbeddedPermissionRequestDescriptorSpec, 'blink.mojom.GeolocationEmbeddedPermissionRequestDescriptor', [
+      mojo.internal.StructField('autolocate', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: EmbeddedPermissionRequestDescriptor
-blink.mojom.EmbeddedPermissionRequestDescriptorSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.EmbeddedPermissionRequestDescriptor',
-      packedSize: 24,
-      fields: [
-        { name: 'element_position', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'geolocation', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.GeolocationEmbeddedPermissionRequestDescriptorSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.EmbeddedPermissionRequestDescriptorSpec, 'blink.mojom.EmbeddedPermissionRequestDescriptor', [
+      mojo.internal.StructField('element_position', 0, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('geolocation', 8, 0, blink.mojom.GeolocationEmbeddedPermissionRequestDescriptorSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: PermissionObserver
-blink.mojom.PermissionObserver = {};
-
-blink.mojom.PermissionObserver_OnPermissionStatusChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PermissionObserver_OnPermissionStatusChange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PermissionObserver_OnPermissionStatusChange_ParamsSpec, 'blink.mojom.PermissionObserver_OnPermissionStatusChange_Params', [
+      mojo.internal.StructField('status', 0, 0, blink.mojom.PermissionStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.PermissionObserverPendingReceiver = class {
   constructor(handle) {
@@ -276,41 +246,17 @@ blink.mojom.PermissionObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnPermissionStatusChange
-blink.mojom.PermissionObserver_OnPermissionStatusChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PermissionObserver.OnPermissionStatusChange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.PermissionObserverPtr = blink.mojom.PermissionObserverRemote;
 blink.mojom.PermissionObserverRequest = blink.mojom.PermissionObserverPendingReceiver;
 
 
 // Interface: EmbeddedPermissionControlClient
-blink.mojom.EmbeddedPermissionControlClient = {};
-
-blink.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistered_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistered_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'allow', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'statuses', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.PermissionStatusSpec, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistered_ParamsSpec, 'blink.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistered_Params', [
+      mojo.internal.StructField('allow', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('statuses', 0, 0, mojo.internal.Array(blink.mojom.PermissionStatusSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 blink.mojom.EmbeddedPermissionControlClientPendingReceiver = class {
   constructor(handle) {
@@ -365,156 +311,105 @@ blink.mojom.EmbeddedPermissionControlClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnEmbeddedPermissionControlRegistered
-blink.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistered_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.EmbeddedPermissionControlClient.OnEmbeddedPermissionControlRegistered_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'allow', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'statuses', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.PermissionStatusSpec, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.EmbeddedPermissionControlClientPtr = blink.mojom.EmbeddedPermissionControlClientRemote;
 blink.mojom.EmbeddedPermissionControlClientRequest = blink.mojom.EmbeddedPermissionControlClientPendingReceiver;
 
 
 // Interface: PermissionService
-blink.mojom.PermissionService = {};
+mojo.internal.Struct(
+    blink.mojom.PermissionService_HasPermission_ParamsSpec, 'blink.mojom.PermissionService_HasPermission_Params', [
+      mojo.internal.StructField('permission', 0, 0, blink.mojom.PermissionDescriptorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.PermissionService_HasPermission_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PermissionService_HasPermission_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'permission', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionDescriptorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PermissionService_HasPermission_ResponseParamsSpec, 'blink.mojom.PermissionService_HasPermission_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, blink.mojom.PermissionStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'permissions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.PermissionDescriptorSpec, false), nullable: false, minVersion: 0 },
-        { name: 'descriptor', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.EmbeddedPermissionRequestDescriptorSpec, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.EmbeddedPermissionControlClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_ParamsSpec, 'blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_Params', [
+      mojo.internal.StructField('permissions', 0, 0, mojo.internal.Array(blink.mojom.PermissionDescriptorSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('descriptor', 8, 0, blink.mojom.EmbeddedPermissionRequestDescriptorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('client', 16, 0, mojo.internal.InterfaceProxy(blink.mojom.EmbeddedPermissionControlClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-blink.mojom.PermissionService_RequestPageEmbeddedPermission_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PermissionService_RequestPageEmbeddedPermission_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'permissions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.PermissionDescriptorSpec, false), nullable: false, minVersion: 0 },
-        { name: 'descriptor', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.EmbeddedPermissionRequestDescriptorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PermissionService_RequestPageEmbeddedPermission_ParamsSpec, 'blink.mojom.PermissionService_RequestPageEmbeddedPermission_Params', [
+      mojo.internal.StructField('permissions', 0, 0, mojo.internal.Array(blink.mojom.PermissionDescriptorSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('descriptor', 8, 0, blink.mojom.EmbeddedPermissionRequestDescriptorSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.PermissionService_RequestPermission_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PermissionService_RequestPermission_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'permission', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionDescriptorSpec, nullable: false, minVersion: 0 },
-        { name: 'user_gesture', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PermissionService_RequestPageEmbeddedPermission_ResponseParamsSpec, 'blink.mojom.PermissionService_RequestPageEmbeddedPermission_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, blink.mojom.EmbeddedPermissionControlResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.PermissionService_RequestPermissions_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PermissionService_RequestPermissions_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'permission', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.PermissionDescriptorSpec, false), nullable: false, minVersion: 0 },
-        { name: 'user_gesture', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PermissionService_RequestPermission_ParamsSpec, 'blink.mojom.PermissionService_RequestPermission_Params', [
+      mojo.internal.StructField('permission', 0, 0, blink.mojom.PermissionDescriptorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('user_gesture', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.PermissionService_RevokePermission_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PermissionService_RevokePermission_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'permission', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionDescriptorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PermissionService_RequestPermission_ResponseParamsSpec, 'blink.mojom.PermissionService_RequestPermission_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, blink.mojom.PermissionStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.PermissionService_AddPermissionObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PermissionService_AddPermissionObserver_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'permission', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionDescriptorSpec, nullable: false, minVersion: 0 },
-        { name: 'last_known_status', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.PermissionStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.PermissionObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PermissionService_RequestPermissions_ParamsSpec, 'blink.mojom.PermissionService_RequestPermissions_Params', [
+      mojo.internal.StructField('permission', 0, 0, mojo.internal.Array(blink.mojom.PermissionDescriptorSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('user_gesture', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'permission', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionDescriptorSpec, nullable: false, minVersion: 0 },
-        { name: 'last_known_status', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.PermissionStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.PermissionObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PermissionService_RequestPermissions_ResponseParamsSpec, 'blink.mojom.PermissionService_RequestPermissions_ResponseParams', [
+      mojo.internal.StructField('statuses', 0, 0, mojo.internal.Array(blink.mojom.PermissionStatusSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.PermissionService_NotifyEventListener_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PermissionService_NotifyEventListener_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'permission', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionDescriptorSpec, nullable: false, minVersion: 0 },
-        { name: 'event_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_added', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PermissionService_RevokePermission_ParamsSpec, 'blink.mojom.PermissionService_RevokePermission_Params', [
+      mojo.internal.StructField('permission', 0, 0, blink.mojom.PermissionDescriptorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.PermissionService_RevokePermission_ResponseParamsSpec, 'blink.mojom.PermissionService_RevokePermission_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, blink.mojom.PermissionStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.PermissionService_AddPermissionObserver_ParamsSpec, 'blink.mojom.PermissionService_AddPermissionObserver_Params', [
+      mojo.internal.StructField('permission', 0, 0, blink.mojom.PermissionDescriptorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('last_known_status', 16, 0, blink.mojom.PermissionStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('observer', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.PermissionObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec, 'blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_Params', [
+      mojo.internal.StructField('permission', 0, 0, blink.mojom.PermissionDescriptorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('last_known_status', 16, 0, blink.mojom.PermissionStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('observer', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.PermissionObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    blink.mojom.PermissionService_NotifyEventListener_ParamsSpec, 'blink.mojom.PermissionService_NotifyEventListener_Params', [
+      mojo.internal.StructField('permission', 0, 0, blink.mojom.PermissionDescriptorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('is_added', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 blink.mojom.PermissionServicePendingReceiver = class {
   constructor(handle) {
@@ -641,209 +536,6 @@ blink.mojom.PermissionService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for HasPermission
-blink.mojom.PermissionService_HasPermission_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PermissionService.HasPermission_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'permission', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionDescriptorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.PermissionService_HasPermission_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PermissionService.HasPermission_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RegisterPageEmbeddedPermissionControl
-blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PermissionService.RegisterPageEmbeddedPermissionControl_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'permissions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.PermissionDescriptorSpec, false), nullable: false, minVersion: 0 },
-        { name: 'descriptor', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.EmbeddedPermissionRequestDescriptorSpec, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.EmbeddedPermissionControlClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for RequestPageEmbeddedPermission
-blink.mojom.PermissionService_RequestPageEmbeddedPermission_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PermissionService.RequestPageEmbeddedPermission_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'permissions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.PermissionDescriptorSpec, false), nullable: false, minVersion: 0 },
-        { name: 'descriptor', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.EmbeddedPermissionRequestDescriptorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.PermissionService_RequestPageEmbeddedPermission_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PermissionService.RequestPageEmbeddedPermission_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.EmbeddedPermissionControlResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestPermission
-blink.mojom.PermissionService_RequestPermission_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PermissionService.RequestPermission_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'permission', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionDescriptorSpec, nullable: false, minVersion: 0 },
-        { name: 'user_gesture', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.PermissionService_RequestPermission_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PermissionService.RequestPermission_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestPermissions
-blink.mojom.PermissionService_RequestPermissions_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PermissionService.RequestPermissions_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'permission', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.PermissionDescriptorSpec, false), nullable: false, minVersion: 0 },
-        { name: 'user_gesture', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.PermissionService_RequestPermissions_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PermissionService.RequestPermissions_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'statuses', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.PermissionStatusSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RevokePermission
-blink.mojom.PermissionService_RevokePermission_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PermissionService.RevokePermission_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'permission', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionDescriptorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.PermissionService_RevokePermission_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PermissionService.RevokePermission_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AddPermissionObserver
-blink.mojom.PermissionService_AddPermissionObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PermissionService.AddPermissionObserver_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'permission', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionDescriptorSpec, nullable: false, minVersion: 0 },
-        { name: 'last_known_status', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.PermissionStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.PermissionObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for AddPageEmbeddedPermissionObserver
-blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PermissionService.AddPageEmbeddedPermissionObserver_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'permission', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionDescriptorSpec, nullable: false, minVersion: 0 },
-        { name: 'last_known_status', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.PermissionStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.PermissionObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for NotifyEventListener
-blink.mojom.PermissionService_NotifyEventListener_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PermissionService.NotifyEventListener_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'permission', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionDescriptorSpec, nullable: false, minVersion: 0 },
-        { name: 'event_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_added', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.PermissionServicePtr = blink.mojom.PermissionServiceRemote;
 blink.mojom.PermissionServiceRequest = blink.mojom.PermissionServicePendingReceiver;
 

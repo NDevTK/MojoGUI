@@ -7,22 +7,24 @@
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
+var services = services || {};
 
+device.mojom.BatteryMonitor = {};
+device.mojom.BatteryMonitor.$interfaceName = 'device.mojom.BatteryMonitor';
+device.mojom.BatteryMonitor_QueryNextStatus_ParamsSpec = { $: {} };
+device.mojom.BatteryMonitor_QueryNextStatus_ResponseParamsSpec = { $: {} };
 
 // Interface: BatteryMonitor
-device.mojom.BatteryMonitor = {};
+mojo.internal.Struct(
+    device.mojom.BatteryMonitor_QueryNextStatus_ParamsSpec, 'device.mojom.BatteryMonitor_QueryNextStatus_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-device.mojom.BatteryMonitor_QueryNextStatus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.BatteryMonitor_QueryNextStatus_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.BatteryMonitor_QueryNextStatus_ResponseParamsSpec, 'device.mojom.BatteryMonitor_QueryNextStatus_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, device.mojom.BatteryStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 device.mojom.BatteryMonitorPendingReceiver = class {
   constructor(handle) {
@@ -77,33 +79,6 @@ device.mojom.BatteryMonitor.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for QueryNextStatus
-device.mojom.BatteryMonitor_QueryNextStatus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.BatteryMonitor.QueryNextStatus_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-device.mojom.BatteryMonitor_QueryNextStatus_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.BatteryMonitor.QueryNextStatus_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: device.mojom.BatteryStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 device.mojom.BatteryMonitorPtr = device.mojom.BatteryMonitorRemote;
 device.mojom.BatteryMonitorRequest = device.mojom.BatteryMonitorPendingReceiver;
 

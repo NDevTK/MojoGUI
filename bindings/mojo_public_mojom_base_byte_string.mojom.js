@@ -8,17 +8,11 @@
 var mojo_base = mojo_base || {};
 mojo_base.mojom = mojo_base.mojom || {};
 
+mojo_base.mojom.ByteStringSpec = { $: {} };
 
 // Struct: ByteString
-mojo_base.mojom.ByteStringSpec = {
-  $: {
-    structSpec: {
-      name: 'mojo_base.mojom.ByteString',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojo_base.mojom.ByteStringSpec, 'mojo_base.mojom.ByteString', [
+      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);

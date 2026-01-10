@@ -7,6 +7,8 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var services = services || {};
+var services = services || {};
 var blink = blink || {};
 var blink = blink || {};
 var blink = blink || {};
@@ -29,6 +31,84 @@ var blink = blink || {};
 var url = url || {};
 var url = url || {};
 
+blink.mojom.FocusErrorSpec = { $: mojo.internal.Enum() };
+blink.mojom.FetchHandlerExistenceSpec = { $: mojo.internal.Enum() };
+blink.mojom.FocusResultSpec = { $: {} };
+blink.mojom.ExtendableMessageEventSpec = { $: {} };
+blink.mojom.ServiceWorkerHost = {};
+blink.mojom.ServiceWorkerHost.$interfaceName = 'blink.mojom.ServiceWorkerHost';
+blink.mojom.ServiceWorkerHost_SetCachedMetadata_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorkerHost_ClearCachedMetadata_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorkerHost_GetClients_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorkerHost_GetClients_ResponseParamsSpec = { $: {} };
+blink.mojom.ServiceWorkerHost_GetClient_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorkerHost_GetClient_ResponseParamsSpec = { $: {} };
+blink.mojom.ServiceWorkerHost_OpenNewTab_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorkerHost_OpenNewTab_ResponseParamsSpec = { $: {} };
+blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ResponseParamsSpec = { $: {} };
+blink.mojom.ServiceWorkerHost_PostMessageToClient_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorkerHost_FocusClient_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorkerHost_FocusClient_ResponseParamsSpec = { $: {} };
+blink.mojom.ServiceWorkerHost_NavigateClient_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorkerHost_NavigateClient_ResponseParamsSpec = { $: {} };
+blink.mojom.ServiceWorkerHost_SkipWaiting_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorkerHost_SkipWaiting_ResponseParamsSpec = { $: {} };
+blink.mojom.ServiceWorkerHost_ClaimClients_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorkerHost_ClaimClients_ResponseParamsSpec = { $: {} };
+blink.mojom.ServiceWorkerHost_AddRoutes_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorkerHost_AddRoutes_ResponseParamsSpec = { $: {} };
+blink.mojom.ServiceWorker = {};
+blink.mojom.ServiceWorker.$interfaceName = 'blink.mojom.ServiceWorker';
+blink.mojom.ServiceWorker_InitializeGlobalScope_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_DispatchInstallEvent_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_DispatchInstallEvent_ResponseParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_DispatchActivateEvent_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_DispatchActivateEvent_ResponseParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ResponseParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ResponseParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ResponseParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ResponseParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ResponseParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ResponseParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ResponseParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ResponseParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_DispatchPushEvent_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_DispatchPushEvent_ResponseParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ResponseParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ResponseParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_DispatchSyncEvent_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_DispatchSyncEvent_ResponseParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ResponseParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ResponseParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ResponseParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ResponseParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ResponseParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ResponseParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_Ping_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_Ping_ResponseParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_SetIdleDelay_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_AddKeepAlive_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_ClearKeepAlive_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_AddMessageToConsole_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_ExecuteScriptForTest_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorker_ExecuteScriptForTest_ResponseParamsSpec = { $: {} };
 
 blink.mojom.kPushEventTimeoutSeconds = 90;
 
@@ -39,7 +119,6 @@ blink.mojom.FocusError = {
   CLIENT_NOT_FOUND: 0,
   CLIENT_INACTIVE: 1,
 };
-blink.mojom.FocusErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: FetchHandlerExistence
 blink.mojom.FetchHandlerExistence = {
@@ -47,198 +126,166 @@ blink.mojom.FetchHandlerExistence = {
   EXISTS: 1,
   DOES_NOT_EXIST: 2,
 };
-blink.mojom.FetchHandlerExistenceSpec = { $: mojo.internal.Enum() };
 
 // Union: FocusResult
-blink.mojom.FocusResultSpec = { $: mojo.internal.Union(
-    'blink.mojom.FocusResult', {
+mojo.internal.Union(
+    blink.mojom.FocusResultSpec, 'blink.mojom.FocusResult', {
       'client': {
         'ordinal': 0,
         'type': blink.mojom.ServiceWorkerClientInfoSpec,
-      }},
+        'nullable': false,
+      },
       'error_code': {
         'ordinal': 1,
         'type': blink.mojom.FocusErrorSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: ExtendableMessageEvent
-blink.mojom.ExtendableMessageEventSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ExtendableMessageEvent',
-      packedSize: 40,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.TransferableMessageSpec, nullable: false, minVersion: 0 },
-        { name: 'source_origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-        { name: 'source_info_for_client', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ServiceWorkerClientInfoSpec, nullable: true, minVersion: 0 },
-        { name: 'source_info_for_service_worker', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ServiceWorkerObjectInfoSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ExtendableMessageEventSpec, 'blink.mojom.ExtendableMessageEvent', [
+      mojo.internal.StructField('message', 0, 0, blink.mojom.TransferableMessageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source_origin', 8, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source_info_for_client', 16, 0, blink.mojom.ServiceWorkerClientInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('source_info_for_service_worker', 24, 0, blink.mojom.ServiceWorkerObjectInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Interface: ServiceWorkerHost
-blink.mojom.ServiceWorkerHost = {};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerHost_SetCachedMetadata_ParamsSpec, 'blink.mojom.ServiceWorkerHost_SetCachedMetadata_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 8, 0, mojo_base.mojom.ReadOnlyBufferSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.ServiceWorkerHost_SetCachedMetadata_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerHost_SetCachedMetadata_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerHost_ClearCachedMetadata_ParamsSpec, 'blink.mojom.ServiceWorkerHost_ClearCachedMetadata_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.ServiceWorkerHost_ClearCachedMetadata_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerHost_ClearCachedMetadata_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerHost_GetClients_ParamsSpec, 'blink.mojom.ServiceWorkerHost_GetClients_Params', [
+      mojo.internal.StructField('options', 0, 0, blink.mojom.ServiceWorkerClientQueryOptionsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.ServiceWorkerHost_GetClients_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerHost_GetClients_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerClientQueryOptionsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerHost_GetClients_ResponseParamsSpec, 'blink.mojom.ServiceWorkerHost_GetClients_ResponseParams', [
+      mojo.internal.StructField('clients', 0, 0, mojo.internal.Array(blink.mojom.ServiceWorkerClientInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.ServiceWorkerHost_GetClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerHost_GetClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client_uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerHost_GetClient_ParamsSpec, 'blink.mojom.ServiceWorkerHost_GetClient_Params', [
+      mojo.internal.StructField('client_uuid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.ServiceWorkerHost_OpenNewTab_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerHost_OpenNewTab_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerHost_GetClient_ResponseParamsSpec, 'blink.mojom.ServiceWorkerHost_GetClient_ResponseParams', [
+      mojo.internal.StructField('client', 0, 0, blink.mojom.ServiceWorkerClientInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerHost_OpenNewTab_ParamsSpec, 'blink.mojom.ServiceWorkerHost_OpenNewTab_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.ServiceWorkerHost_PostMessageToClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerHost_PostMessageToClient_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'client_uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.TransferableMessageSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerHost_OpenNewTab_ResponseParamsSpec, 'blink.mojom.ServiceWorkerHost_OpenNewTab_ResponseParams', [
+      mojo.internal.StructField('success', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, blink.mojom.ServiceWorkerClientInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error_msg', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
-blink.mojom.ServiceWorkerHost_FocusClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerHost_FocusClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client_uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ParamsSpec, 'blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.ServiceWorkerHost_NavigateClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerHost_NavigateClient_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'client_uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ResponseParamsSpec, 'blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ResponseParams', [
+      mojo.internal.StructField('success', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, blink.mojom.ServiceWorkerClientInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error_msg', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
-blink.mojom.ServiceWorkerHost_SkipWaiting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerHost_SkipWaiting_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerHost_PostMessageToClient_ParamsSpec, 'blink.mojom.ServiceWorkerHost_PostMessageToClient_Params', [
+      mojo.internal.StructField('client_uuid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('message', 8, 0, blink.mojom.TransferableMessageSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.ServiceWorkerHost_ClaimClients_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerHost_ClaimClients_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerHost_FocusClient_ParamsSpec, 'blink.mojom.ServiceWorkerHost_FocusClient_Params', [
+      mojo.internal.StructField('client_uuid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.ServiceWorkerHost_AddRoutes_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerHost_AddRoutes_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'rules', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterRulesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerHost_FocusClient_ResponseParamsSpec, 'blink.mojom.ServiceWorkerHost_FocusClient_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, blink.mojom.FocusResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerHost_NavigateClient_ParamsSpec, 'blink.mojom.ServiceWorkerHost_NavigateClient_Params', [
+      mojo.internal.StructField('client_uuid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerHost_NavigateClient_ResponseParamsSpec, 'blink.mojom.ServiceWorkerHost_NavigateClient_ResponseParams', [
+      mojo.internal.StructField('success', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, blink.mojom.ServiceWorkerClientInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error_msg', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerHost_SkipWaiting_ParamsSpec, 'blink.mojom.ServiceWorkerHost_SkipWaiting_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerHost_SkipWaiting_ResponseParamsSpec, 'blink.mojom.ServiceWorkerHost_SkipWaiting_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerHost_ClaimClients_ParamsSpec, 'blink.mojom.ServiceWorkerHost_ClaimClients_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerHost_ClaimClients_ResponseParamsSpec, 'blink.mojom.ServiceWorkerHost_ClaimClients_ResponseParams', [
+      mojo.internal.StructField('error', 8, 0, blink.mojom.ServiceWorkerErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error_msg', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerHost_AddRoutes_ParamsSpec, 'blink.mojom.ServiceWorkerHost_AddRoutes_Params', [
+      mojo.internal.StructField('rules', 0, 0, blink.mojom.ServiceWorkerRouterRulesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerHost_AddRoutes_ResponseParamsSpec, 'blink.mojom.ServiceWorkerHost_AddRoutes_ResponseParams', [
+      mojo.internal.StructField('is_parse_error', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.ServiceWorkerHostPendingReceiver = class {
   constructor(handle) {
@@ -392,672 +439,321 @@ blink.mojom.ServiceWorkerHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetCachedMetadata
-blink.mojom.ServiceWorkerHost_SetCachedMetadata_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerHost.SetCachedMetadata_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ClearCachedMetadata
-blink.mojom.ServiceWorkerHost_ClearCachedMetadata_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerHost.ClearCachedMetadata_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetClients
-blink.mojom.ServiceWorkerHost_GetClients_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerHost.GetClients_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerClientQueryOptionsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.ServiceWorkerHost_GetClients_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerHost.GetClients_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'clients', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.ServiceWorkerClientInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetClient
-blink.mojom.ServiceWorkerHost_GetClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerHost.GetClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client_uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.ServiceWorkerHost_GetClient_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerHost.GetClient_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerClientInfoSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OpenNewTab
-blink.mojom.ServiceWorkerHost_OpenNewTab_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerHost.OpenNewTab_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.ServiceWorkerHost_OpenNewTab_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerHost.OpenNewTab_ResponseParams',
-      packedSize: 32,
-      fields: [
-        { name: 'success', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerClientInfoSpec, nullable: true, minVersion: 0 },
-        { name: 'error_msg', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for OpenPaymentHandlerWindow
-blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerHost.OpenPaymentHandlerWindow_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerHost.OpenPaymentHandlerWindow_ResponseParams',
-      packedSize: 32,
-      fields: [
-        { name: 'success', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerClientInfoSpec, nullable: true, minVersion: 0 },
-        { name: 'error_msg', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for PostMessageToClient
-blink.mojom.ServiceWorkerHost_PostMessageToClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerHost.PostMessageToClient_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'client_uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.TransferableMessageSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for FocusClient
-blink.mojom.ServiceWorkerHost_FocusClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerHost.FocusClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client_uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.ServiceWorkerHost_FocusClient_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerHost.FocusClient_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FocusResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for NavigateClient
-blink.mojom.ServiceWorkerHost_NavigateClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerHost.NavigateClient_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'client_uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.ServiceWorkerHost_NavigateClient_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerHost.NavigateClient_ResponseParams',
-      packedSize: 32,
-      fields: [
-        { name: 'success', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerClientInfoSpec, nullable: true, minVersion: 0 },
-        { name: 'error_msg', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for SkipWaiting
-blink.mojom.ServiceWorkerHost_SkipWaiting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerHost.SkipWaiting_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.ServiceWorkerHost_SkipWaiting_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerHost.SkipWaiting_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ClaimClients
-blink.mojom.ServiceWorkerHost_ClaimClients_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerHost.ClaimClients_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.ServiceWorkerHost_ClaimClients_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerHost.ClaimClients_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerErrorTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'error_msg', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for AddRoutes
-blink.mojom.ServiceWorkerHost_AddRoutes_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerHost.AddRoutes_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'rules', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterRulesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.ServiceWorkerHost_AddRoutes_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerHost.AddRoutes_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'is_parse_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.ServiceWorkerHostPtr = blink.mojom.ServiceWorkerHostRemote;
 blink.mojom.ServiceWorkerHostRequest = blink.mojom.ServiceWorkerHostPendingReceiver;
 
 
 // Interface: ServiceWorker
-blink.mojom.ServiceWorker = {};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_InitializeGlobalScope_ParamsSpec, 'blink.mojom.ServiceWorker_InitializeGlobalScope_Params', [
+      mojo.internal.StructField('service_worker_host', 0, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.ServiceWorkerHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('associated_interfaces_to_browser', 8, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.AssociatedInterfaceProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('associated_interfaces_from_browser', 16, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.AssociatedInterfaceProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('registration_info', 24, 0, blink.mojom.ServiceWorkerRegistrationObjectInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('service_worker_info', 32, 0, blink.mojom.ServiceWorkerObjectInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('fetch_handler_existence', 48, 0, blink.mojom.FetchHandlerExistenceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('ancestor_frame_type', 52, 0, blink.mojom.AncestorFrameTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('storage_key', 40, 0, blink.mojom.StorageKeySpec, null, false, 0, undefined),
+    ],
+    [[0, 64]]);
 
-blink.mojom.ServiceWorker_InitializeGlobalScope_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker_InitializeGlobalScope_Params',
-      packedSize: 64,
-      fields: [
-        { name: 'service_worker_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(blink.mojom.ServiceWorkerHostRemote), nullable: false, minVersion: 0 },
-        { name: 'associated_interfaces_to_browser', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(blink.mojom.AssociatedInterfaceProviderRemote), nullable: false, minVersion: 0 },
-        { name: 'associated_interfaces_from_browser', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(blink.mojom.AssociatedInterfaceProviderRemote), nullable: false, minVersion: 0 },
-        { name: 'registration_info', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRegistrationObjectInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'service_worker_info', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.ServiceWorkerObjectInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'fetch_handler_existence', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.FetchHandlerExistenceSpec, nullable: false, minVersion: 0 },
-        { name: 'ancestor_frame_type', packedOffset: 52, packedBitOffset: 0, type: blink.mojom.AncestorFrameTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'storage_key', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_DispatchInstallEvent_ParamsSpec, 'blink.mojom.ServiceWorker_DispatchInstallEvent_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.ServiceWorker_DispatchInstallEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker_DispatchInstallEvent_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_DispatchInstallEvent_ResponseParamsSpec, 'blink.mojom.ServiceWorker_DispatchInstallEvent_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, blink.mojom.ServiceWorkerEventStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('fetch_count', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.ServiceWorker_DispatchActivateEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker_DispatchActivateEvent_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_DispatchActivateEvent_ParamsSpec, 'blink.mojom.ServiceWorker_DispatchActivateEvent_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BackgroundFetchRegistrationSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_DispatchActivateEvent_ResponseParamsSpec, 'blink.mojom.ServiceWorker_DispatchActivateEvent_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, blink.mojom.ServiceWorkerEventStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BackgroundFetchRegistrationSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ParamsSpec, 'blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_Params', [
+      mojo.internal.StructField('registration', 0, 0, blink.mojom.BackgroundFetchRegistrationSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BackgroundFetchRegistrationSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ResponseParamsSpec, 'blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, blink.mojom.ServiceWorkerEventStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BackgroundFetchRegistrationSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ParamsSpec, 'blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_Params', [
+      mojo.internal.StructField('registration', 0, 0, blink.mojom.BackgroundFetchRegistrationSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker_DispatchCookieChangeEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'change', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CookieChangeInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ResponseParamsSpec, 'blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, blink.mojom.ServiceWorkerEventStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DispatchFetchEventParamsSpec, nullable: false, minVersion: 0 },
-        { name: 'response_callback', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.ServiceWorkerFetchResponseCallbackRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ParamsSpec, 'blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_Params', [
+      mojo.internal.StructField('registration', 0, 0, blink.mojom.BackgroundFetchRegistrationSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker_DispatchNotificationClickEvent_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'notification_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'notification_data', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.NotificationDataSpec, nullable: false, minVersion: 0 },
-        { name: 'action_index', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'reply', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ResponseParamsSpec, 'blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, blink.mojom.ServiceWorkerEventStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'notification_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'notification_data', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.NotificationDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ParamsSpec, 'blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_Params', [
+      mojo.internal.StructField('registration', 0, 0, blink.mojom.BackgroundFetchRegistrationSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.ServiceWorker_DispatchPushEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker_DispatchPushEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'payload', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ResponseParamsSpec, 'blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, blink.mojom.ServiceWorkerEventStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'payload', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ParamsSpec, 'blink.mojom.ServiceWorker_DispatchCookieChangeEvent_Params', [
+      mojo.internal.StructField('change', 0, 0, network.mojom.CookieChangeInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'old_subscription', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PushSubscriptionSpec, nullable: true, minVersion: 0 },
-        { name: 'new_subscription', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PushSubscriptionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ResponseParamsSpec, 'blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, blink.mojom.ServiceWorkerEventStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.ServiceWorker_DispatchSyncEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker_DispatchSyncEvent_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'tag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'last_chance', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'timeout', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ParamsSpec, 'blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_Params', [
+      mojo.internal.StructField('params', 0, 0, blink.mojom.DispatchFetchEventParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response_callback', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.ServiceWorkerFetchResponseCallbackRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'tag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'timeout', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ResponseParamsSpec, 'blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, blink.mojom.ServiceWorkerEventStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'result_of_abort_payment', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(payments.mojom.PaymentHandlerResponseCallbackRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ParamsSpec, 'blink.mojom.ServiceWorker_DispatchNotificationClickEvent_Params', [
+      mojo.internal.StructField('notification_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('notification_data', 8, 0, blink.mojom.NotificationDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('action_index', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('reply', 16, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
 
-blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'event_data', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.CanMakePaymentEventDataSpec, nullable: false, minVersion: 0 },
-        { name: 'result_of_can_make_payment', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(payments.mojom.PaymentHandlerResponseCallbackRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ResponseParamsSpec, 'blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, blink.mojom.ServiceWorkerEventStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'request_data', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PaymentRequestEventDataSpec, nullable: false, minVersion: 0 },
-        { name: 'response_callback', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(payments.mojom.PaymentHandlerResponseCallbackRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ParamsSpec, 'blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_Params', [
+      mojo.internal.StructField('notification_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('notification_data', 8, 0, blink.mojom.NotificationDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ExtendableMessageEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ResponseParamsSpec, 'blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, blink.mojom.ServiceWorkerEventStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker_DispatchContentDeleteEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_DispatchPushEvent_ParamsSpec, 'blink.mojom.ServiceWorker_DispatchPushEvent_Params', [
+      mojo.internal.StructField('payload', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.ServiceWorker_Ping_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker_Ping_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_DispatchPushEvent_ResponseParamsSpec, 'blink.mojom.ServiceWorker_DispatchPushEvent_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, blink.mojom.ServiceWorkerEventStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.ServiceWorker_SetIdleDelay_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker_SetIdleDelay_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'delay', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ParamsSpec, 'blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_Params', [
+      mojo.internal.StructField('payload', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.ServiceWorker_AddKeepAlive_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker_AddKeepAlive_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ResponseParamsSpec, 'blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ResponseParams', [
+      mojo.internal.StructField('status', 8, 0, blink.mojom.ServiceWorkerEventStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('requested_urls', 0, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.ServiceWorker_ClearKeepAlive_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker_ClearKeepAlive_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ParamsSpec, 'blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_Params', [
+      mojo.internal.StructField('old_subscription', 0, 0, blink.mojom.PushSubscriptionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('new_subscription', 8, 0, blink.mojom.PushSubscriptionSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.ServiceWorker_AddMessageToConsole_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker_AddMessageToConsole_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'level', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ConsoleMessageLevelSpec, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ResponseParamsSpec, 'blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, blink.mojom.ServiceWorkerEventStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.ServiceWorker_ExecuteScriptForTest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker_ExecuteScriptForTest_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'javascript', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigString16Spec, nullable: false, minVersion: 0 },
-        { name: 'wants_result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_DispatchSyncEvent_ParamsSpec, 'blink.mojom.ServiceWorker_DispatchSyncEvent_Params', [
+      mojo.internal.StructField('tag', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('last_chance', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('timeout', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_DispatchSyncEvent_ResponseParamsSpec, 'blink.mojom.ServiceWorker_DispatchSyncEvent_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, blink.mojom.ServiceWorkerEventStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ParamsSpec, 'blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_Params', [
+      mojo.internal.StructField('tag', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('timeout', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ResponseParamsSpec, 'blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, blink.mojom.ServiceWorkerEventStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ParamsSpec, 'blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_Params', [
+      mojo.internal.StructField('result_of_abort_payment', 0, 0, mojo.internal.InterfaceProxy(payments.mojom.PaymentHandlerResponseCallbackRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ResponseParamsSpec, 'blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, blink.mojom.ServiceWorkerEventStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ParamsSpec, 'blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_Params', [
+      mojo.internal.StructField('event_data', 0, 0, payments.mojom.CanMakePaymentEventDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result_of_can_make_payment', 8, 0, mojo.internal.InterfaceProxy(payments.mojom.PaymentHandlerResponseCallbackRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ResponseParamsSpec, 'blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, blink.mojom.ServiceWorkerEventStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ParamsSpec, 'blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_Params', [
+      mojo.internal.StructField('request_data', 0, 0, payments.mojom.PaymentRequestEventDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response_callback', 8, 0, mojo.internal.InterfaceProxy(payments.mojom.PaymentHandlerResponseCallbackRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ResponseParamsSpec, 'blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, blink.mojom.ServiceWorkerEventStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ParamsSpec, 'blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_Params', [
+      mojo.internal.StructField('event', 0, 0, blink.mojom.ExtendableMessageEventSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ResponseParamsSpec, 'blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, blink.mojom.ServiceWorkerEventStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ParamsSpec, 'blink.mojom.ServiceWorker_DispatchContentDeleteEvent_Params', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ResponseParamsSpec, 'blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, blink.mojom.ServiceWorkerEventStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_Ping_ParamsSpec, 'blink.mojom.ServiceWorker_Ping_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_Ping_ResponseParamsSpec, 'blink.mojom.ServiceWorker_Ping_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_SetIdleDelay_ParamsSpec, 'blink.mojom.ServiceWorker_SetIdleDelay_Params', [
+      mojo.internal.StructField('delay', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_AddKeepAlive_ParamsSpec, 'blink.mojom.ServiceWorker_AddKeepAlive_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_ClearKeepAlive_ParamsSpec, 'blink.mojom.ServiceWorker_ClearKeepAlive_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_AddMessageToConsole_ParamsSpec, 'blink.mojom.ServiceWorker_AddMessageToConsole_Params', [
+      mojo.internal.StructField('level', 8, 0, blink.mojom.ConsoleMessageLevelSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_ExecuteScriptForTest_ParamsSpec, 'blink.mojom.ServiceWorker_ExecuteScriptForTest_Params', [
+      mojo.internal.StructField('javascript', 0, 0, mojo_base.mojom.BigString16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('wants_result', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    blink.mojom.ServiceWorker_ExecuteScriptForTest_ResponseParamsSpec, 'blink.mojom.ServiceWorker_ExecuteScriptForTest_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 16, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 blink.mojom.ServiceWorkerPendingReceiver = class {
   constructor(handle) {
@@ -1285,7 +981,7 @@ blink.mojom.ServiceWorkerRemoteCallHandler = class {
     return this.proxy.sendMessage(
       21,  // ordinal
       blink.mojom.ServiceWorker_Ping_ParamsSpec,
-      null,
+      blink.mojom.ServiceWorker_Ping_ResponseParamsSpec,
       []);
   }
 
@@ -1346,676 +1042,6 @@ blink.mojom.ServiceWorker.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for InitializeGlobalScope
-blink.mojom.ServiceWorker_InitializeGlobalScope_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.InitializeGlobalScope_Params',
-      packedSize: 64,
-      fields: [
-        { name: 'service_worker_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(blink.mojom.ServiceWorkerHostRemote), nullable: false, minVersion: 0 },
-        { name: 'associated_interfaces_to_browser', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(blink.mojom.AssociatedInterfaceProviderRemote), nullable: false, minVersion: 0 },
-        { name: 'associated_interfaces_from_browser', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(blink.mojom.AssociatedInterfaceProviderRemote), nullable: false, minVersion: 0 },
-        { name: 'registration_info', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRegistrationObjectInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'service_worker_info', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.ServiceWorkerObjectInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'fetch_handler_existence', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.FetchHandlerExistenceSpec, nullable: false, minVersion: 0 },
-        { name: 'ancestor_frame_type', packedOffset: 52, packedBitOffset: 0, type: blink.mojom.AncestorFrameTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'storage_key', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
-
-// ParamsSpec for DispatchInstallEvent
-blink.mojom.ServiceWorker_DispatchInstallEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.DispatchInstallEvent_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.ServiceWorker_DispatchInstallEvent_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.DispatchInstallEvent_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'fetch_count', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DispatchActivateEvent
-blink.mojom.ServiceWorker_DispatchActivateEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.DispatchActivateEvent_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.ServiceWorker_DispatchActivateEvent_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.DispatchActivateEvent_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DispatchBackgroundFetchAbortEvent
-blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.DispatchBackgroundFetchAbortEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BackgroundFetchRegistrationSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.DispatchBackgroundFetchAbortEvent_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DispatchBackgroundFetchClickEvent
-blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.DispatchBackgroundFetchClickEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BackgroundFetchRegistrationSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.DispatchBackgroundFetchClickEvent_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DispatchBackgroundFetchFailEvent
-blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.DispatchBackgroundFetchFailEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BackgroundFetchRegistrationSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.DispatchBackgroundFetchFailEvent_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DispatchBackgroundFetchSuccessEvent
-blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.DispatchBackgroundFetchSuccessEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BackgroundFetchRegistrationSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.DispatchBackgroundFetchSuccessEvent_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DispatchCookieChangeEvent
-blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.DispatchCookieChangeEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'change', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CookieChangeInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.DispatchCookieChangeEvent_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DispatchFetchEventForMainResource
-blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.DispatchFetchEventForMainResource_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DispatchFetchEventParamsSpec, nullable: false, minVersion: 0 },
-        { name: 'response_callback', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.ServiceWorkerFetchResponseCallbackRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.DispatchFetchEventForMainResource_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DispatchNotificationClickEvent
-blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.DispatchNotificationClickEvent_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'notification_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'notification_data', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.NotificationDataSpec, nullable: false, minVersion: 0 },
-        { name: 'action_index', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'reply', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.DispatchNotificationClickEvent_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DispatchNotificationCloseEvent
-blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.DispatchNotificationCloseEvent_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'notification_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'notification_data', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.NotificationDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.DispatchNotificationCloseEvent_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DispatchPushEvent
-blink.mojom.ServiceWorker_DispatchPushEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.DispatchPushEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'payload', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.ServiceWorker_DispatchPushEvent_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.DispatchPushEvent_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DispatchPushEventRecordingNetworkRequests
-blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.DispatchPushEventRecordingNetworkRequests_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'payload', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.DispatchPushEventRecordingNetworkRequests_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'requested_urls', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for DispatchPushSubscriptionChangeEvent
-blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.DispatchPushSubscriptionChangeEvent_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'old_subscription', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PushSubscriptionSpec, nullable: true, minVersion: 0 },
-        { name: 'new_subscription', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PushSubscriptionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.DispatchPushSubscriptionChangeEvent_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DispatchSyncEvent
-blink.mojom.ServiceWorker_DispatchSyncEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.DispatchSyncEvent_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'tag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'last_chance', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'timeout', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-blink.mojom.ServiceWorker_DispatchSyncEvent_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.DispatchSyncEvent_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DispatchPeriodicSyncEvent
-blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.DispatchPeriodicSyncEvent_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'tag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'timeout', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.DispatchPeriodicSyncEvent_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DispatchAbortPaymentEvent
-blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.DispatchAbortPaymentEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'result_of_abort_payment', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(payments.mojom.PaymentHandlerResponseCallbackRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.DispatchAbortPaymentEvent_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DispatchCanMakePaymentEvent
-blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.DispatchCanMakePaymentEvent_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'event_data', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.CanMakePaymentEventDataSpec, nullable: false, minVersion: 0 },
-        { name: 'result_of_can_make_payment', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(payments.mojom.PaymentHandlerResponseCallbackRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.DispatchCanMakePaymentEvent_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DispatchPaymentRequestEvent
-blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.DispatchPaymentRequestEvent_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'request_data', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PaymentRequestEventDataSpec, nullable: false, minVersion: 0 },
-        { name: 'response_callback', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(payments.mojom.PaymentHandlerResponseCallbackRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.DispatchPaymentRequestEvent_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DispatchExtendableMessageEvent
-blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.DispatchExtendableMessageEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ExtendableMessageEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.DispatchExtendableMessageEvent_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DispatchContentDeleteEvent
-blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.DispatchContentDeleteEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.DispatchContentDeleteEvent_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Ping
-blink.mojom.ServiceWorker_Ping_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.Ping_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetIdleDelay
-blink.mojom.ServiceWorker_SetIdleDelay_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.SetIdleDelay_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'delay', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AddKeepAlive
-blink.mojom.ServiceWorker_AddKeepAlive_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.AddKeepAlive_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for ClearKeepAlive
-blink.mojom.ServiceWorker_ClearKeepAlive_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.ClearKeepAlive_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for AddMessageToConsole
-blink.mojom.ServiceWorker_AddMessageToConsole_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.AddMessageToConsole_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'level', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ConsoleMessageLevelSpec, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ExecuteScriptForTest
-blink.mojom.ServiceWorker_ExecuteScriptForTest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.ExecuteScriptForTest_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'javascript', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigString16Spec, nullable: false, minVersion: 0 },
-        { name: 'wants_result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.ServiceWorker_ExecuteScriptForTest_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorker.ExecuteScriptForTest_ResponseParams',
-      packedSize: 32,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },
-        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.ServiceWorkerPtr = blink.mojom.ServiceWorkerRemote;
 blink.mojom.ServiceWorkerRequest = blink.mojom.ServiceWorkerPendingReceiver;
 

@@ -8,32 +8,26 @@
 var gpu = gpu || {};
 gpu.mojom = gpu.mojom || {};
 
+gpu.mojom.CommandBufferNamespaceSpec = { $: mojo.internal.Enum() };
+gpu.mojom.SyncTokenSpec = { $: {} };
 
 // Enum: CommandBufferNamespace
 gpu.mojom.CommandBufferNamespace = {
-  INVALID: 0,
-  GPU_IO: 1,
-  IN_PROCESS: 2,
-  VIZ_SKIA_OUTPUT_SURFACE: 3,
-  VIZ_SKIA_OUTPUT_SURFACE_NON_DDL: 4,
-  GPU_CHANNEL_SHARED_IMAGE_INTERFACE: 5,
-  WEBNN_CONTEXT_INTERFACE: 6,
+  INVALID: -1,
+  GPU_IO: 0,
+  IN_PROCESS: 1,
+  VIZ_SKIA_OUTPUT_SURFACE: 2,
+  VIZ_SKIA_OUTPUT_SURFACE_NON_DDL: 3,
+  GPU_CHANNEL_SHARED_IMAGE_INTERFACE: 4,
+  WEBNN_CONTEXT_INTERFACE: 5,
 };
-gpu.mojom.CommandBufferNamespaceSpec = { $: mojo.internal.Enum() };
 
 // Struct: SyncToken
-gpu.mojom.SyncTokenSpec = {
-  $: {
-    structSpec: {
-      name: 'gpu.mojom.SyncToken',
-      packedSize: 32,
-      fields: [
-        { name: 'verified_flush', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'namespace_id', packedOffset: 16, packedBitOffset: 0, type: gpu.mojom.CommandBufferNamespaceSpec, nullable: false, minVersion: 0 },
-        { name: 'command_buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'release_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gpu.mojom.SyncTokenSpec, 'gpu.mojom.SyncToken', [
+      mojo.internal.StructField('verified_flush', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('namespace_id', 16, 0, gpu.mojom.CommandBufferNamespaceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('command_buffer_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('release_count', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);

@@ -7,25 +7,31 @@
 // Module namespace
 var omnibox_popup_aim = omnibox_popup_aim || {};
 omnibox_popup_aim.mojom = omnibox_popup_aim.mojom || {};
+var components = components || {};
 var url = url || {};
 
+omnibox_popup_aim.mojom.PageHandlerFactory = {};
+omnibox_popup_aim.mojom.PageHandlerFactory.$interfaceName = 'omnibox_popup_aim.mojom.PageHandlerFactory';
+omnibox_popup_aim.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+omnibox_popup_aim.mojom.PageHandler = {};
+omnibox_popup_aim.mojom.PageHandler.$interfaceName = 'omnibox_popup_aim.mojom.PageHandler';
+omnibox_popup_aim.mojom.PageHandler_RequestClose_ParamsSpec = { $: {} };
+omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec = { $: {} };
+omnibox_popup_aim.mojom.Page = {};
+omnibox_popup_aim.mojom.Page.$interfaceName = 'omnibox_popup_aim.mojom.Page';
+omnibox_popup_aim.mojom.Page_OnPopupShown_ParamsSpec = { $: {} };
+omnibox_popup_aim.mojom.Page_AddContext_ParamsSpec = { $: {} };
+omnibox_popup_aim.mojom.Page_OnPopupHidden_ParamsSpec = { $: {} };
+omnibox_popup_aim.mojom.Page_OnPopupHidden_ResponseParamsSpec = { $: {} };
+omnibox_popup_aim.mojom.Page_SetPreserveContextOnClose_ParamsSpec = { $: {} };
 
 // Interface: PageHandlerFactory
-omnibox_popup_aim.mojom.PageHandlerFactory = {};
-
-omnibox_popup_aim.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'omnibox_popup_aim.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(omnibox_popup_aim.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(omnibox_popup_aim.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    omnibox_popup_aim.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'omnibox_popup_aim.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(omnibox_popup_aim.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(omnibox_popup_aim.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 omnibox_popup_aim.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -80,53 +86,21 @@ omnibox_popup_aim.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-omnibox_popup_aim.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'omnibox_popup_aim.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(omnibox_popup_aim.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(omnibox_popup_aim.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 omnibox_popup_aim.mojom.PageHandlerFactoryPtr = omnibox_popup_aim.mojom.PageHandlerFactoryRemote;
 omnibox_popup_aim.mojom.PageHandlerFactoryRequest = omnibox_popup_aim.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-omnibox_popup_aim.mojom.PageHandler = {};
+mojo.internal.Struct(
+    omnibox_popup_aim.mojom.PageHandler_RequestClose_ParamsSpec, 'omnibox_popup_aim.mojom.PageHandler_RequestClose_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-omnibox_popup_aim.mojom.PageHandler_RequestClose_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'omnibox_popup_aim.mojom.PageHandler_RequestClose_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec, 'omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 omnibox_popup_aim.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -190,91 +164,39 @@ omnibox_popup_aim.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RequestClose
-omnibox_popup_aim.mojom.PageHandler_RequestClose_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'omnibox_popup_aim.mojom.PageHandler.RequestClose_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for NavigateCurrentTab
-omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'omnibox_popup_aim.mojom.PageHandler.NavigateCurrentTab_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 omnibox_popup_aim.mojom.PageHandlerPtr = omnibox_popup_aim.mojom.PageHandlerRemote;
 omnibox_popup_aim.mojom.PageHandlerRequest = omnibox_popup_aim.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-omnibox_popup_aim.mojom.Page = {};
+mojo.internal.Struct(
+    omnibox_popup_aim.mojom.Page_OnPopupShown_ParamsSpec, 'omnibox_popup_aim.mojom.Page_OnPopupShown_Params', [
+      mojo.internal.StructField('context', 0, 0, searchbox.mojom.SearchContextSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-omnibox_popup_aim.mojom.Page_OnPopupShown_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'omnibox_popup_aim.mojom.Page_OnPopupShown_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'context', packedOffset: 0, packedBitOffset: 0, type: searchbox.mojom.SearchContextSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    omnibox_popup_aim.mojom.Page_AddContext_ParamsSpec, 'omnibox_popup_aim.mojom.Page_AddContext_Params', [
+      mojo.internal.StructField('context', 0, 0, searchbox.mojom.SearchContextSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-omnibox_popup_aim.mojom.Page_AddContext_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'omnibox_popup_aim.mojom.Page_AddContext_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'context', packedOffset: 0, packedBitOffset: 0, type: searchbox.mojom.SearchContextSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    omnibox_popup_aim.mojom.Page_OnPopupHidden_ParamsSpec, 'omnibox_popup_aim.mojom.Page_OnPopupHidden_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-omnibox_popup_aim.mojom.Page_OnPopupHidden_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'omnibox_popup_aim.mojom.Page_OnPopupHidden_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    omnibox_popup_aim.mojom.Page_OnPopupHidden_ResponseParamsSpec, 'omnibox_popup_aim.mojom.Page_OnPopupHidden_ResponseParams', [
+      mojo.internal.StructField('input', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-omnibox_popup_aim.mojom.Page_SetPreserveContextOnClose_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'omnibox_popup_aim.mojom.Page_SetPreserveContextOnClose_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'preserve_context_on_close', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    omnibox_popup_aim.mojom.Page_SetPreserveContextOnClose_ParamsSpec, 'omnibox_popup_aim.mojom.Page_SetPreserveContextOnClose_Params', [
+      mojo.internal.StructField('preserve_context_on_close', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 omnibox_popup_aim.mojom.PagePendingReceiver = class {
   constructor(handle) {
@@ -356,75 +278,6 @@ omnibox_popup_aim.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnPopupShown
-omnibox_popup_aim.mojom.Page_OnPopupShown_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'omnibox_popup_aim.mojom.Page.OnPopupShown_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'context', packedOffset: 0, packedBitOffset: 0, type: searchbox.mojom.SearchContextSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AddContext
-omnibox_popup_aim.mojom.Page_AddContext_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'omnibox_popup_aim.mojom.Page.AddContext_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'context', packedOffset: 0, packedBitOffset: 0, type: searchbox.mojom.SearchContextSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnPopupHidden
-omnibox_popup_aim.mojom.Page_OnPopupHidden_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'omnibox_popup_aim.mojom.Page.OnPopupHidden_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-omnibox_popup_aim.mojom.Page_OnPopupHidden_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'omnibox_popup_aim.mojom.Page.OnPopupHidden_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetPreserveContextOnClose
-omnibox_popup_aim.mojom.Page_SetPreserveContextOnClose_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'omnibox_popup_aim.mojom.Page.SetPreserveContextOnClose_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'preserve_context_on_close', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 omnibox_popup_aim.mojom.PagePtr = omnibox_popup_aim.mojom.PageRemote;
 omnibox_popup_aim.mojom.PageRequest = omnibox_popup_aim.mojom.PagePendingReceiver;
 

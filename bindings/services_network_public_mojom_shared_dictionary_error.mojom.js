@@ -8,6 +8,7 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+network.mojom.SharedDictionaryErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: SharedDictionaryError
 network.mojom.SharedDictionaryError = {
@@ -38,4 +39,3 @@ network.mojom.SharedDictionaryError = {
   kWriteErrorTooLongIdField: 24,
   kWriteErrorUnsupportedType: 25,
 };
-network.mojom.SharedDictionaryErrorSpec = { $: mojo.internal.Enum() };

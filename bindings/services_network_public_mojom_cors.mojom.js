@@ -7,14 +7,17 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
 
+network.mojom.CorsPreflightPolicySpec = { $: mojo.internal.Enum() };
+network.mojom.CorsErrorSpec = { $: mojo.internal.Enum() };
+network.mojom.CorsErrorStatusSpec = { $: {} };
 
 // Enum: CorsPreflightPolicy
 network.mojom.CorsPreflightPolicy = {
   kConsiderPreflight: 0,
   kPreventPreflight: 1,
 };
-network.mojom.CorsPreflightPolicySpec = { $: mojo.internal.Enum() };
 
 // Enum: CorsError
 network.mojom.CorsError = {
@@ -44,23 +47,15 @@ network.mojom.CorsError = {
   kInvalidPrivateNetworkAccess: 23,
   kLocalNetworkAccessPermissionDenied: 24,
 };
-network.mojom.CorsErrorSpec = { $: mojo.internal.Enum() };
 
 // Struct: CorsErrorStatus
-network.mojom.CorsErrorStatusSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.CorsErrorStatus',
-      packedSize: 40,
-      fields: [
-        { name: 'cors_error', packedOffset: 16, packedBitOffset: 0, type: network.mojom.CorsErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'failed_parameter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'resource_address_space', packedOffset: 20, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false, minVersion: 0 },
-        { name: 'inconsistent_address_space', packedOffset: 24, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false, minVersion: 0 },
-        { name: 'has_authorization_covered_by_wildcard_on_preflight', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'issue_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.CorsErrorStatusSpec, 'network.mojom.CorsErrorStatus', [
+      mojo.internal.StructField('cors_error', 16, 0, network.mojom.CorsErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('failed_parameter', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('resource_address_space', 20, 0, network.mojom.IPAddressSpaceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('inconsistent_address_space', 24, 0, network.mojom.IPAddressSpaceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('has_authorization_covered_by_wildcard_on_preflight', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('issue_id', 8, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);

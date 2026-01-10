@@ -8,96 +8,79 @@
 var heap_profiling = heap_profiling || {};
 heap_profiling.mojom = heap_profiling.mojom || {};
 
+heap_profiling.mojom.StackModeSpec = { $: mojo.internal.Enum() };
+heap_profiling.mojom.AllocatorTypeSpec = { $: mojo.internal.Enum() };
+heap_profiling.mojom.ProfilingParamsSpec = { $: {} };
+heap_profiling.mojom.HeapProfileSampleSpec = { $: {} };
+heap_profiling.mojom.HeapProfileSpec = { $: {} };
+heap_profiling.mojom.ProfilingClient = {};
+heap_profiling.mojom.ProfilingClient.$interfaceName = 'heap_profiling.mojom.ProfilingClient';
+heap_profiling.mojom.ProfilingClient_StartProfiling_ParamsSpec = { $: {} };
+heap_profiling.mojom.ProfilingClient_StartProfiling_ResponseParamsSpec = { $: {} };
+heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ParamsSpec = { $: {} };
+heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParamsSpec = { $: {} };
 
 // Enum: StackMode
 heap_profiling.mojom.StackMode = {
   NATIVE_WITH_THREAD_NAMES: 0,
   NATIVE_WITHOUT_THREAD_NAMES: 1,
 };
-heap_profiling.mojom.StackModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AllocatorType
 heap_profiling.mojom.AllocatorType = {
   kMalloc: 0,
   kPartitionAlloc: 1,
 };
-heap_profiling.mojom.AllocatorTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: ProfilingParams
-heap_profiling.mojom.ProfilingParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'heap_profiling.mojom.ProfilingParams',
-      packedSize: 16,
-      fields: [
-        { name: 'stack_mode', packedOffset: 0, packedBitOffset: 0, type: heap_profiling.mojom.StackModeSpec, nullable: false, minVersion: 0 },
-        { name: 'sampling_rate', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    heap_profiling.mojom.ProfilingParamsSpec, 'heap_profiling.mojom.ProfilingParams', [
+      mojo.internal.StructField('stack_mode', 0, 0, heap_profiling.mojom.StackModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('sampling_rate', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: HeapProfileSample
-heap_profiling.mojom.HeapProfileSampleSpec = {
-  $: {
-    structSpec: {
-      name: 'heap_profiling.mojom.HeapProfileSample',
-      packedSize: 48,
-      fields: [
-        { name: 'allocator', packedOffset: 32, packedBitOffset: 0, type: heap_profiling.mojom.AllocatorTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'total', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'context_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'stack', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint64, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    heap_profiling.mojom.HeapProfileSampleSpec, 'heap_profiling.mojom.HeapProfileSample', [
+      mojo.internal.StructField('allocator', 32, 0, heap_profiling.mojom.AllocatorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('size', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('total', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('context_id', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('stack', 24, 0, mojo.internal.Array(mojo.internal.Uint64, false), null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: HeapProfile
-heap_profiling.mojom.HeapProfileSpec = {
-  $: {
-    structSpec: {
-      name: 'heap_profiling.mojom.HeapProfile',
-      packedSize: 24,
-      fields: [
-        { name: 'samples', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(heap_profiling.mojom.HeapProfileSampleSpec, false), nullable: false, minVersion: 0 },
-        { name: 'strings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Uint64, mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    heap_profiling.mojom.HeapProfileSpec, 'heap_profiling.mojom.HeapProfile', [
+      mojo.internal.StructField('samples', 0, 0, mojo.internal.Array(heap_profiling.mojom.HeapProfileSampleSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('strings', 8, 0, mojo.internal.Map(mojo.internal.Uint64, mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: ProfilingClient
-heap_profiling.mojom.ProfilingClient = {};
+mojo.internal.Struct(
+    heap_profiling.mojom.ProfilingClient_StartProfiling_ParamsSpec, 'heap_profiling.mojom.ProfilingClient_StartProfiling_Params', [
+      mojo.internal.StructField('params', 0, 0, heap_profiling.mojom.ProfilingParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-heap_profiling.mojom.ProfilingClient_StartProfiling_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'heap_profiling.mojom.ProfilingClient_StartProfiling_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: heap_profiling.mojom.ProfilingParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    heap_profiling.mojom.ProfilingClient_StartProfiling_ResponseParamsSpec, 'heap_profiling.mojom.ProfilingClient_StartProfiling_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ParamsSpec, 'heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParamsSpec, 'heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParams', [
+      mojo.internal.StructField('profile', 0, 0, heap_profiling.mojom.HeapProfileSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 heap_profiling.mojom.ProfilingClientPendingReceiver = class {
   constructor(handle) {
@@ -136,7 +119,7 @@ heap_profiling.mojom.ProfilingClientRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       heap_profiling.mojom.ProfilingClient_StartProfiling_ParamsSpec,
-      null,
+      heap_profiling.mojom.ProfilingClient_StartProfiling_ResponseParamsSpec,
       [params]);
   }
 
@@ -161,47 +144,6 @@ heap_profiling.mojom.ProfilingClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for StartProfiling
-heap_profiling.mojom.ProfilingClient_StartProfiling_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'heap_profiling.mojom.ProfilingClient.StartProfiling_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: heap_profiling.mojom.ProfilingParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RetrieveHeapProfile
-heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'heap_profiling.mojom.ProfilingClient.RetrieveHeapProfile_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'heap_profiling.mojom.ProfilingClient.RetrieveHeapProfile_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: heap_profiling.mojom.HeapProfileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 heap_profiling.mojom.ProfilingClientPtr = heap_profiling.mojom.ProfilingClientRemote;
 heap_profiling.mojom.ProfilingClientRequest = heap_profiling.mojom.ProfilingClientPendingReceiver;
 

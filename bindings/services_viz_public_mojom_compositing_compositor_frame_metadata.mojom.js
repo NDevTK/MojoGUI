@@ -7,8 +7,18 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
+var services = services || {};
+var services = services || {};
 var ui = ui || {};
 var gfx = gfx || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 var skia = skia || {};
 var blink = blink || {};
 var ui = ui || {};
@@ -19,49 +29,43 @@ var ui = ui || {};
 var gfx = gfx || {};
 var ui = ui || {};
 
+viz.mojom.CompositorFrameMetadataSpec = { $: {} };
 
 // Struct: CompositorFrameMetadata
-viz.mojom.CompositorFrameMetadataSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.CompositorFrameMetadata',
-      packedSize: 176,
-      fields: [
-        { name: 'device_scale_factor', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'root_scroll_offset', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'page_scale_factor', packedOffset: 140, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'scrollable_viewport_size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeFSpec, nullable: false, minVersion: 0 },
-        { name: 'visible_viewport_size', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'content_color_usage', packedOffset: 144, packedBitOffset: 0, type: gfx.mojom.ContentColorUsageSpec, nullable: false, minVersion: 0 },
-        { name: 'may_contain_video', packedOffset: 164, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'may_throttle_if_undrawn_frames', packedOffset: 164, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_handling_interaction', packedOffset: 164, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_handling_animation', packedOffset: 164, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'root_background_color', packedOffset: 24, packedBitOffset: 0, type: skia.mojom.SkColor4fSpec, nullable: false, minVersion: 0 },
-        { name: 'latency_info', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(ui.mojom.LatencyInfoSpec, false), nullable: false, minVersion: 0 },
-        { name: 'referenced_surfaces', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.SurfaceRangeSpec, false), nullable: false, minVersion: 0 },
-        { name: 'deadline', packedOffset: 48, packedBitOffset: 0, type: viz.mojom.FrameDeadlineSpec, nullable: false, minVersion: 0 },
-        { name: 'activation_dependencies', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.SurfaceIdSpec, false), nullable: false, minVersion: 0 },
-        { name: 'begin_frame_ack', packedOffset: 64, packedBitOffset: 0, type: viz.mojom.BeginFrameAckSpec, nullable: false, minVersion: 0 },
-        { name: 'frame_token', packedOffset: 148, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'send_frame_token_to_embedder', packedOffset: 164, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'top_controls_visible_height_set', packedOffset: 164, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'top_controls_visible_height', packedOffset: 152, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'min_page_scale_factor', packedOffset: 156, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'display_transform_hint', packedOffset: 160, packedBitOffset: 0, type: gfx.mojom.OverlayTransformSpec, nullable: false, minVersion: 0 },
-        { name: 'is_mobile_optimized', packedOffset: 164, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'delegated_ink_metadata', packedOffset: 72, packedBitOffset: 0, type: gfx.mojom.DelegatedInkMetadataSpec, nullable: true, minVersion: 0 },
-        { name: 'transition_directives', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.CompositorFrameTransitionDirectiveSpec, false), nullable: false, minVersion: 0 },
-        { name: 'capture_bounds', packedOffset: 88, packedBitOffset: 0, type: viz.mojom.RegionCaptureBoundsSpec, nullable: false, minVersion: 0 },
-        { name: 'has_shared_element_resources', packedOffset: 164, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'screenshot_destination', packedOffset: 96, packedBitOffset: 0, type: blink.mojom.SameDocNavigationScreenshotDestinationTokenSpec, nullable: true, minVersion: 0 },
-        { name: 'is_software', packedOffset: 165, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'offset_tag_definitions', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.OffsetTagDefinitionSpec, false), nullable: false, minVersion: 0 },
-        { name: 'offset_tag_values', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.OffsetTagValueSpec, false), nullable: false, minVersion: 0 },
-        { name: 'frame_interval_inputs', packedOffset: 120, packedBitOffset: 0, type: viz.mojom.FrameIntervalInputsSpec, nullable: false, minVersion: 0 },
-        { name: 'trees_in_viz_timing', packedOffset: 128, packedBitOffset: 0, type: viz.mojom.TreesInVizTimingSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 176}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.CompositorFrameMetadataSpec, 'viz.mojom.CompositorFrameMetadata', [
+      mojo.internal.StructField('device_scale_factor', 136, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('root_scroll_offset', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('page_scale_factor', 140, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('scrollable_viewport_size', 8, 0, gfx.mojom.SizeFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('visible_viewport_size', 16, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('content_color_usage', 144, 0, gfx.mojom.ContentColorUsageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('may_contain_video', 164, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('may_throttle_if_undrawn_frames', 164, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_handling_interaction', 164, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_handling_animation', 164, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('root_background_color', 24, 0, skia.mojom.SkColor4fSpec, null, false, 0, undefined),
+      mojo.internal.StructField('latency_info', 32, 0, mojo.internal.Array(ui.mojom.LatencyInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('referenced_surfaces', 40, 0, mojo.internal.Array(viz.mojom.SurfaceRangeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('deadline', 48, 0, viz.mojom.FrameDeadlineSpec, null, false, 0, undefined),
+      mojo.internal.StructField('activation_dependencies', 56, 0, mojo.internal.Array(viz.mojom.SurfaceIdSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('begin_frame_ack', 64, 0, viz.mojom.BeginFrameAckSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame_token', 148, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('send_frame_token_to_embedder', 164, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('top_controls_visible_height_set', 164, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('top_controls_visible_height', 152, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('min_page_scale_factor', 156, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('display_transform_hint', 160, 0, gfx.mojom.OverlayTransformSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_mobile_optimized', 164, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('delegated_ink_metadata', 72, 0, gfx.mojom.DelegatedInkMetadataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('transition_directives', 80, 0, mojo.internal.Array(viz.mojom.CompositorFrameTransitionDirectiveSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('capture_bounds', 88, 0, viz.mojom.RegionCaptureBoundsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('has_shared_element_resources', 164, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('screenshot_destination', 96, 0, blink.mojom.SameDocNavigationScreenshotDestinationTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('is_software', 165, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('offset_tag_definitions', 104, 0, mojo.internal.Array(viz.mojom.OffsetTagDefinitionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('offset_tag_values', 112, 0, mojo.internal.Array(viz.mojom.OffsetTagValueSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('frame_interval_inputs', 120, 0, viz.mojom.FrameIntervalInputsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('trees_in_viz_timing', 128, 0, viz.mojom.TreesInVizTimingSpec, null, false, 0, undefined),
+    ],
+    [[0, 176]]);

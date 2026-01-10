@@ -8,23 +8,17 @@
 var content = content || {};
 content.mojom = content.mojom || {};
 
+content.mojom.ThreadTypeSwitcher = {};
+content.mojom.ThreadTypeSwitcher.$interfaceName = 'content.mojom.ThreadTypeSwitcher';
+content.mojom.ThreadTypeSwitcher_SetThreadType_ParamsSpec = { $: {} };
 
 // Interface: ThreadTypeSwitcher
-content.mojom.ThreadTypeSwitcher = {};
-
-content.mojom.ThreadTypeSwitcher_SetThreadType_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ThreadTypeSwitcher_SetThreadType_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'platform_thread_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'thread_type', packedOffset: 4, packedBitOffset: 0, type: mojo_base.mojom.ThreadTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.ThreadTypeSwitcher_SetThreadType_ParamsSpec, 'content.mojom.ThreadTypeSwitcher_SetThreadType_Params', [
+      mojo.internal.StructField('platform_thread_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('thread_type', 4, 0, mojo_base.mojom.ThreadTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 content.mojom.ThreadTypeSwitcherPendingReceiver = class {
   constructor(handle) {
@@ -79,22 +73,6 @@ content.mojom.ThreadTypeSwitcher.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetThreadType
-content.mojom.ThreadTypeSwitcher_SetThreadType_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ThreadTypeSwitcher.SetThreadType_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'platform_thread_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'thread_type', packedOffset: 4, packedBitOffset: 0, type: mojo_base.mojom.ThreadTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 content.mojom.ThreadTypeSwitcherPtr = content.mojom.ThreadTypeSwitcherRemote;
 content.mojom.ThreadTypeSwitcherRequest = content.mojom.ThreadTypeSwitcherPendingReceiver;
 

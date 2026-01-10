@@ -8,6 +8,14 @@
 var subresource_filter = subresource_filter || {};
 subresource_filter.mojom = subresource_filter.mojom || {};
 
+subresource_filter.mojom.ActivationLevelSpec = { $: mojo.internal.Enum() };
+subresource_filter.mojom.AdsViolationSpec = { $: mojo.internal.Enum() };
+subresource_filter.mojom.SubresourceFilterDisabledReasonSpec = { $: mojo.internal.Enum() };
+subresource_filter.mojom.ActivationStateSpec = { $: {} };
+subresource_filter.mojom.DocumentLoadStatisticsSpec = { $: {} };
+subresource_filter.mojom.SubresourceFilterRulesetObserver = {};
+subresource_filter.mojom.SubresourceFilterRulesetObserver.$interfaceName = 'subresource_filter.mojom.SubresourceFilterRulesetObserver';
+subresource_filter.mojom.SubresourceFilterRulesetObserver_SetRulesetForProcess_ParamsSpec = { $: {} };
 
 // Enum: ActivationLevel
 subresource_filter.mojom.ActivationLevel = {
@@ -15,7 +23,6 @@ subresource_filter.mojom.ActivationLevel = {
   kDryRun: 1,
   kEnabled: 2,
 };
-subresource_filter.mojom.ActivationLevelSpec = { $: mojo.internal.Enum() };
 
 // Enum: AdsViolation
 subresource_filter.mojom.AdsViolation = {
@@ -24,7 +31,6 @@ subresource_filter.mojom.AdsViolation = {
   kLargeStickyAd: 2,
   kOverlayPopupAd: 3,
 };
-subresource_filter.mojom.AdsViolationSpec = { $: mojo.internal.Enum() };
 
 // Enum: SubresourceFilterDisabledReason
 subresource_filter.mojom.SubresourceFilterDisabledReason = {
@@ -38,61 +44,37 @@ subresource_filter.mojom.SubresourceFilterDisabledReason = {
   kRulesetUnavailableOrCorrupt: 7,
   kUrlNotHandledByNetworkStack: 8,
 };
-subresource_filter.mojom.SubresourceFilterDisabledReasonSpec = { $: mojo.internal.Enum() };
 
 // Struct: ActivationState
-subresource_filter.mojom.ActivationStateSpec = {
-  $: {
-    structSpec: {
-      name: 'subresource_filter.mojom.ActivationState',
-      packedSize: 24,
-      fields: [
-        { name: 'activation_level', packedOffset: 0, packedBitOffset: 0, type: subresource_filter.mojom.ActivationLevelSpec, nullable: false, minVersion: 0 },
-        { name: 'disabled_reason', packedOffset: 4, packedBitOffset: 0, type: subresource_filter.mojom.SubresourceFilterDisabledReasonSpec, nullable: false, minVersion: 0 },
-        { name: 'filtering_disabled_for_document', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'generic_blocking_rules_disabled', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'measure_performance', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'enable_logging', packedOffset: 8, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    subresource_filter.mojom.ActivationStateSpec, 'subresource_filter.mojom.ActivationState', [
+      mojo.internal.StructField('activation_level', 0, 0, subresource_filter.mojom.ActivationLevelSpec, null, false, 0, undefined),
+      mojo.internal.StructField('disabled_reason', 4, 0, subresource_filter.mojom.SubresourceFilterDisabledReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('filtering_disabled_for_document', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('generic_blocking_rules_disabled', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('measure_performance', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable_logging', 8, 3, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: DocumentLoadStatistics
-subresource_filter.mojom.DocumentLoadStatisticsSpec = {
-  $: {
-    structSpec: {
-      name: 'subresource_filter.mojom.DocumentLoadStatistics',
-      packedSize: 40,
-      fields: [
-        { name: 'num_loads_total', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'num_loads_evaluated', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'num_loads_matching_rules', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'num_loads_disallowed', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'evaluation_total_wall_duration', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'evaluation_total_cpu_duration', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    subresource_filter.mojom.DocumentLoadStatisticsSpec, 'subresource_filter.mojom.DocumentLoadStatistics', [
+      mojo.internal.StructField('num_loads_total', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('num_loads_evaluated', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('num_loads_matching_rules', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('num_loads_disallowed', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('evaluation_total_wall_duration', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('evaluation_total_cpu_duration', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Interface: SubresourceFilterRulesetObserver
-subresource_filter.mojom.SubresourceFilterRulesetObserver = {};
-
-subresource_filter.mojom.SubresourceFilterRulesetObserver_SetRulesetForProcess_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'subresource_filter.mojom.SubresourceFilterRulesetObserver_SetRulesetForProcess_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'ruleset_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    subresource_filter.mojom.SubresourceFilterRulesetObserver_SetRulesetForProcess_ParamsSpec, 'subresource_filter.mojom.SubresourceFilterRulesetObserver_SetRulesetForProcess_Params', [
+      mojo.internal.StructField('ruleset_file', 0, 0, mojo_base.mojom.FileSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 subresource_filter.mojom.SubresourceFilterRulesetObserverPendingReceiver = class {
   constructor(handle) {
@@ -147,21 +129,6 @@ subresource_filter.mojom.SubresourceFilterRulesetObserver.getRemote = function()
   return remote.$;
 };
 
-// ParamsSpec for SetRulesetForProcess
-subresource_filter.mojom.SubresourceFilterRulesetObserver_SetRulesetForProcess_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'subresource_filter.mojom.SubresourceFilterRulesetObserver.SetRulesetForProcess_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'ruleset_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 subresource_filter.mojom.SubresourceFilterRulesetObserverPtr = subresource_filter.mojom.SubresourceFilterRulesetObserverRemote;
 subresource_filter.mojom.SubresourceFilterRulesetObserverRequest = subresource_filter.mojom.SubresourceFilterRulesetObserverPendingReceiver;
 

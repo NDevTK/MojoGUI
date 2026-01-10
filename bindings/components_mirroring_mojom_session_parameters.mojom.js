@@ -7,7 +7,10 @@
 // Module namespace
 var mirroring = mirroring || {};
 mirroring.mojom = mirroring.mojom || {};
+var services = services || {};
 
+mirroring.mojom.SessionTypeSpec = { $: mojo.internal.Enum() };
+mirroring.mojom.SessionParametersSpec = { $: {} };
 
 // Enum: SessionType
 mirroring.mojom.SessionType = {
@@ -15,26 +18,18 @@ mirroring.mojom.SessionType = {
   VIDEO_ONLY: 1,
   AUDIO_AND_VIDEO: 2,
 };
-mirroring.mojom.SessionTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: SessionParameters
-mirroring.mojom.SessionParametersSpec = {
-  $: {
-    structSpec: {
-      name: 'mirroring.mojom.SessionParameters',
-      packedSize: 56,
-      fields: [
-        { name: 'type', packedOffset: 40, packedBitOffset: 0, type: mirroring.mojom.SessionTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'receiver_address', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false, minVersion: 0 },
-        { name: 'receiver_friendly_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'source_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'destination_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'target_playout_delay', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true, minVersion: 0 },
-        { name: 'is_remote_playback', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'force_letterboxing', packedOffset: 44, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'enable_rtcp_reporting', packedOffset: 44, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mirroring.mojom.SessionParametersSpec, 'mirroring.mojom.SessionParameters', [
+      mojo.internal.StructField('type', 40, 0, mirroring.mojom.SessionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('receiver_address', 0, 0, network.mojom.IPAddressSpec, null, false, 0, undefined),
+      mojo.internal.StructField('receiver_friendly_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('source_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('destination_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('target_playout_delay', 32, 0, mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('is_remote_playback', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('force_letterboxing', 44, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable_rtcp_reporting', 44, 2, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 56]]);

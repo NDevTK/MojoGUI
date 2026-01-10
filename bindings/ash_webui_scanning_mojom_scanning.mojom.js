@@ -9,6 +9,41 @@ var ash = ash || {};
 ash.scanning = ash.scanning || {};
 ash.scanning.mojom = ash.scanning.mojom || {};
 
+ash.scanning.mojom.ColorModeSpec = { $: mojo.internal.Enum() };
+ash.scanning.mojom.FileTypeSpec = { $: mojo.internal.Enum() };
+ash.scanning.mojom.SourceTypeSpec = { $: mojo.internal.Enum() };
+ash.scanning.mojom.PageSizeSpec = { $: mojo.internal.Enum() };
+ash.scanning.mojom.ScanResultSpec = { $: mojo.internal.Enum() };
+ash.scanning.mojom.ScanSourceSpec = { $: {} };
+ash.scanning.mojom.ScannerCapabilitiesSpec = { $: {} };
+ash.scanning.mojom.ScanSettingsSpec = { $: {} };
+ash.scanning.mojom.ScannerSpec = { $: {} };
+ash.scanning.mojom.ScanJobObserver = {};
+ash.scanning.mojom.ScanJobObserver.$interfaceName = 'ash.scanning.mojom.ScanJobObserver';
+ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec = { $: {} };
+ash.scanning.mojom.ScanJobObserver_OnPageComplete_ParamsSpec = { $: {} };
+ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec = { $: {} };
+ash.scanning.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec = { $: {} };
+ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec = { $: {} };
+ash.scanning.mojom.ScanService = {};
+ash.scanning.mojom.ScanService.$interfaceName = 'ash.scanning.mojom.ScanService';
+ash.scanning.mojom.ScanService_GetScanners_ParamsSpec = { $: {} };
+ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec = { $: {} };
+ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec = { $: {} };
+ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec = { $: {} };
+ash.scanning.mojom.ScanService_StartScan_ParamsSpec = { $: {} };
+ash.scanning.mojom.ScanService_StartScan_ResponseParamsSpec = { $: {} };
+ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec = { $: {} };
+ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec = { $: {} };
+ash.scanning.mojom.ScanService_CancelScan_ParamsSpec = { $: {} };
+ash.scanning.mojom.MultiPageScanController = {};
+ash.scanning.mojom.MultiPageScanController.$interfaceName = 'ash.scanning.mojom.MultiPageScanController';
+ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec = { $: {} };
+ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec = { $: {} };
+ash.scanning.mojom.MultiPageScanController_RemovePage_ParamsSpec = { $: {} };
+ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec = { $: {} };
+ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec = { $: {} };
+ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec = { $: {} };
 
 // Enum: ColorMode
 ash.scanning.mojom.ColorMode = {
@@ -16,7 +51,6 @@ ash.scanning.mojom.ColorMode = {
   kGrayscale: 1,
   kColor: 2,
 };
-ash.scanning.mojom.ColorModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: FileType
 ash.scanning.mojom.FileType = {
@@ -24,7 +58,6 @@ ash.scanning.mojom.FileType = {
   kPdf: 1,
   kPng: 2,
 };
-ash.scanning.mojom.FileTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SourceType
 ash.scanning.mojom.SourceType = {
@@ -34,7 +67,6 @@ ash.scanning.mojom.SourceType = {
   kAdfDuplex: 3,
   kDefault: 4,
 };
-ash.scanning.mojom.SourceTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PageSize
 ash.scanning.mojom.PageSize = {
@@ -46,7 +78,6 @@ ash.scanning.mojom.PageSize = {
   kTabloid: 5,
   kMax: 6,
 };
-ash.scanning.mojom.PageSizeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ScanResult
 ash.scanning.mojom.ScanResult = {
@@ -58,144 +89,78 @@ ash.scanning.mojom.ScanResult = {
   kFlatbedOpen: 5,
   kIoError: 6,
 };
-ash.scanning.mojom.ScanResultSpec = { $: mojo.internal.Enum() };
 
 // Struct: ScanSource
-ash.scanning.mojom.ScanSourceSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.scanning.mojom.ScanSource',
-      packedSize: 48,
-      fields: [
-        { name: 'type', packedOffset: 32, packedBitOffset: 0, type: ash.scanning.mojom.SourceTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'page_sizes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ash.scanning.mojom.PageSizeSpec, false), nullable: false, minVersion: 0 },
-        { name: 'color_modes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(ash.scanning.mojom.ColorModeSpec, false), nullable: false, minVersion: 0 },
-        { name: 'resolutions', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.scanning.mojom.ScanSourceSpec, 'ash.scanning.mojom.ScanSource', [
+      mojo.internal.StructField('type', 32, 0, ash.scanning.mojom.SourceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('page_sizes', 8, 0, mojo.internal.Array(ash.scanning.mojom.PageSizeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('color_modes', 16, 0, mojo.internal.Array(ash.scanning.mojom.ColorModeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('resolutions', 24, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: ScannerCapabilities
-ash.scanning.mojom.ScannerCapabilitiesSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.scanning.mojom.ScannerCapabilities',
-      packedSize: 16,
-      fields: [
-        { name: 'sources', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.scanning.mojom.ScanSourceSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.scanning.mojom.ScannerCapabilitiesSpec, 'ash.scanning.mojom.ScannerCapabilities', [
+      mojo.internal.StructField('sources', 0, 0, mojo.internal.Array(ash.scanning.mojom.ScanSourceSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: ScanSettings
-ash.scanning.mojom.ScanSettingsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.scanning.mojom.ScanSettings',
-      packedSize: 40,
-      fields: [
-        { name: 'source_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'scan_to_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'file_type', packedOffset: 16, packedBitOffset: 0, type: ash.scanning.mojom.FileTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'color_mode', packedOffset: 20, packedBitOffset: 0, type: ash.scanning.mojom.ColorModeSpec, nullable: false, minVersion: 0 },
-        { name: 'page_size', packedOffset: 24, packedBitOffset: 0, type: ash.scanning.mojom.PageSizeSpec, nullable: false, minVersion: 0 },
-        { name: 'resolution_dpi', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.scanning.mojom.ScanSettingsSpec, 'ash.scanning.mojom.ScanSettings', [
+      mojo.internal.StructField('source_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('scan_to_path', 8, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('file_type', 16, 0, ash.scanning.mojom.FileTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('color_mode', 20, 0, ash.scanning.mojom.ColorModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('page_size', 24, 0, ash.scanning.mojom.PageSizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('resolution_dpi', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: Scanner
-ash.scanning.mojom.ScannerSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.scanning.mojom.Scanner',
-      packedSize: 24,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'display_name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.scanning.mojom.ScannerSpec, 'ash.scanning.mojom.Scanner', [
+      mojo.internal.StructField('id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('display_name', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: ScanJobObserver
-ash.scanning.mojom.ScanJobObserver = {};
+mojo.internal.Struct(
+    ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec, 'ash.scanning.mojom.ScanJobObserver_OnPageProgress_Params', [
+      mojo.internal.StructField('page_number', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('progress_percent', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.scanning.mojom.ScanJobObserver_OnPageProgress_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'progress_percent', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.scanning.mojom.ScanJobObserver_OnPageComplete_ParamsSpec, 'ash.scanning.mojom.ScanJobObserver_OnPageComplete_Params', [
+      mojo.internal.StructField('page_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('new_page_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.scanning.mojom.ScanJobObserver_OnPageComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.scanning.mojom.ScanJobObserver_OnPageComplete_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'new_page_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec, 'ash.scanning.mojom.ScanJobObserver_OnScanComplete_Params', [
+      mojo.internal.StructField('result', 8, 0, ash.scanning.mojom.ScanResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scanned_file_paths', 0, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.scanning.mojom.ScanJobObserver_OnScanComplete_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: ash.scanning.mojom.ScanResultSpec, nullable: false, minVersion: 0 },
-        { name: 'scanned_file_paths', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.scanning.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec, 'ash.scanning.mojom.ScanJobObserver_OnCancelComplete_Params', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.scanning.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.scanning.mojom.ScanJobObserver_OnCancelComplete_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.scanning.mojom.ScanResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec, 'ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_Params', [
+      mojo.internal.StructField('result', 0, 0, ash.scanning.mojom.ScanResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.scanning.mojom.ScanJobObserverPendingReceiver = class {
   constructor(handle) {
@@ -286,153 +251,66 @@ ash.scanning.mojom.ScanJobObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnPageProgress
-ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.scanning.mojom.ScanJobObserver.OnPageProgress_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'progress_percent', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnPageComplete
-ash.scanning.mojom.ScanJobObserver_OnPageComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.scanning.mojom.ScanJobObserver.OnPageComplete_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'new_page_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnScanComplete
-ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.scanning.mojom.ScanJobObserver.OnScanComplete_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: ash.scanning.mojom.ScanResultSpec, nullable: false, minVersion: 0 },
-        { name: 'scanned_file_paths', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnCancelComplete
-ash.scanning.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.scanning.mojom.ScanJobObserver.OnCancelComplete_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnMultiPageScanFail
-ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.scanning.mojom.ScanJobObserver.OnMultiPageScanFail_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.scanning.mojom.ScanResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.scanning.mojom.ScanJobObserverPtr = ash.scanning.mojom.ScanJobObserverRemote;
 ash.scanning.mojom.ScanJobObserverRequest = ash.scanning.mojom.ScanJobObserverPendingReceiver;
 
 
 // Interface: ScanService
-ash.scanning.mojom.ScanService = {};
+mojo.internal.Struct(
+    ash.scanning.mojom.ScanService_GetScanners_ParamsSpec, 'ash.scanning.mojom.ScanService_GetScanners_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.scanning.mojom.ScanService_GetScanners_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.scanning.mojom.ScanService_GetScanners_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec, 'ash.scanning.mojom.ScanService_GetScanners_ResponseParams', [
+      mojo.internal.StructField('scanners', 0, 0, mojo.internal.Array(ash.scanning.mojom.ScannerSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.scanning.mojom.ScanService_GetScannerCapabilities_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'scanner_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec, 'ash.scanning.mojom.ScanService_GetScannerCapabilities_Params', [
+      mojo.internal.StructField('scanner_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.scanning.mojom.ScanService_StartScan_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.scanning.mojom.ScanService_StartScan_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'scanner_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: ash.scanning.mojom.ScanSettingsSpec, nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.scanning.mojom.ScanJobObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec, 'ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParams', [
+      mojo.internal.StructField('capabilities', 0, 0, ash.scanning.mojom.ScannerCapabilitiesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.scanning.mojom.ScanService_StartMultiPageScan_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'scanner_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: ash.scanning.mojom.ScanSettingsSpec, nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.scanning.mojom.ScanJobObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.scanning.mojom.ScanService_StartScan_ParamsSpec, 'ash.scanning.mojom.ScanService_StartScan_Params', [
+      mojo.internal.StructField('scanner_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('settings', 8, 0, ash.scanning.mojom.ScanSettingsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('observer', 16, 0, mojo.internal.InterfaceProxy(ash.scanning.mojom.ScanJobObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-ash.scanning.mojom.ScanService_CancelScan_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.scanning.mojom.ScanService_CancelScan_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.scanning.mojom.ScanService_StartScan_ResponseParamsSpec, 'ash.scanning.mojom.ScanService_StartScan_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec, 'ash.scanning.mojom.ScanService_StartMultiPageScan_Params', [
+      mojo.internal.StructField('scanner_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('settings', 8, 0, ash.scanning.mojom.ScanSettingsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('observer', 16, 0, mojo.internal.InterfaceProxy(ash.scanning.mojom.ScanJobObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec, 'ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParams', [
+      mojo.internal.StructField('controller', 0, 0, mojo.internal.InterfaceProxy(ash.scanning.mojom.MultiPageScanControllerRemote), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.scanning.mojom.ScanService_CancelScan_ParamsSpec, 'ash.scanning.mojom.ScanService_CancelScan_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 ash.scanning.mojom.ScanServicePendingReceiver = class {
   constructor(handle) {
@@ -523,191 +401,48 @@ ash.scanning.mojom.ScanService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetScanners
-ash.scanning.mojom.ScanService_GetScanners_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.scanning.mojom.ScanService.GetScanners_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.scanning.mojom.ScanService.GetScanners_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'scanners', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.scanning.mojom.ScannerSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetScannerCapabilities
-ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.scanning.mojom.ScanService.GetScannerCapabilities_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'scanner_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.scanning.mojom.ScanService.GetScannerCapabilities_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: ash.scanning.mojom.ScannerCapabilitiesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StartScan
-ash.scanning.mojom.ScanService_StartScan_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.scanning.mojom.ScanService.StartScan_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'scanner_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: ash.scanning.mojom.ScanSettingsSpec, nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.scanning.mojom.ScanJobObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-ash.scanning.mojom.ScanService_StartScan_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.scanning.mojom.ScanService.StartScan_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StartMultiPageScan
-ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.scanning.mojom.ScanService.StartMultiPageScan_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'scanner_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: ash.scanning.mojom.ScanSettingsSpec, nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.scanning.mojom.ScanJobObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.scanning.mojom.ScanService.StartMultiPageScan_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'controller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.scanning.mojom.MultiPageScanControllerRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CancelScan
-ash.scanning.mojom.ScanService_CancelScan_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.scanning.mojom.ScanService.CancelScan_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.scanning.mojom.ScanServicePtr = ash.scanning.mojom.ScanServiceRemote;
 ash.scanning.mojom.ScanServiceRequest = ash.scanning.mojom.ScanServicePendingReceiver;
 
 
 // Interface: MultiPageScanController
-ash.scanning.mojom.MultiPageScanController = {};
+mojo.internal.Struct(
+    ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec, 'ash.scanning.mojom.MultiPageScanController_ScanNextPage_Params', [
+      mojo.internal.StructField('scanner_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('settings', 8, 0, ash.scanning.mojom.ScanSettingsSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.scanning.mojom.MultiPageScanController_ScanNextPage_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'scanner_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: ash.scanning.mojom.ScanSettingsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec, 'ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.scanning.mojom.MultiPageScanController_RemovePage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.scanning.mojom.MultiPageScanController_RemovePage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.scanning.mojom.MultiPageScanController_RemovePage_ParamsSpec, 'ash.scanning.mojom.MultiPageScanController_RemovePage_Params', [
+      mojo.internal.StructField('page_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.scanning.mojom.MultiPageScanController_RescanPage_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'scanner_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: ash.scanning.mojom.ScanSettingsSpec, nullable: false, minVersion: 0 },
-        { name: 'page_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec, 'ash.scanning.mojom.MultiPageScanController_RescanPage_Params', [
+      mojo.internal.StructField('scanner_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('settings', 8, 0, ash.scanning.mojom.ScanSettingsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('page_index', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec, 'ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec, 'ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 ash.scanning.mojom.MultiPageScanControllerPendingReceiver = class {
   constructor(handle) {
@@ -789,91 +524,6 @@ ash.scanning.mojom.MultiPageScanController.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ScanNextPage
-ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.scanning.mojom.MultiPageScanController.ScanNextPage_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'scanner_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: ash.scanning.mojom.ScanSettingsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.scanning.mojom.MultiPageScanController.ScanNextPage_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RemovePage
-ash.scanning.mojom.MultiPageScanController_RemovePage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.scanning.mojom.MultiPageScanController.RemovePage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RescanPage
-ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.scanning.mojom.MultiPageScanController.RescanPage_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'scanner_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: ash.scanning.mojom.ScanSettingsSpec, nullable: false, minVersion: 0 },
-        { name: 'page_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.scanning.mojom.MultiPageScanController.RescanPage_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CompleteMultiPageScan
-ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.scanning.mojom.MultiPageScanController.CompleteMultiPageScan_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.scanning.mojom.MultiPageScanControllerPtr = ash.scanning.mojom.MultiPageScanControllerRemote;
 ash.scanning.mojom.MultiPageScanControllerRequest = ash.scanning.mojom.MultiPageScanControllerPendingReceiver;
 

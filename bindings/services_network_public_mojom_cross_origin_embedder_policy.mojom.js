@@ -8,7 +8,14 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 var url = url || {};
+var services = services || {};
 
+network.mojom.CrossOriginEmbedderPolicyValueSpec = { $: mojo.internal.Enum() };
+network.mojom.CrossOriginEmbedderPolicySpec = { $: {} };
+network.mojom.CrossOriginEmbedderPolicyReporter = {};
+network.mojom.CrossOriginEmbedderPolicyReporter.$interfaceName = 'network.mojom.CrossOriginEmbedderPolicyReporter';
+network.mojom.CrossOriginEmbedderPolicyReporter_QueueCorpViolationReport_ParamsSpec = { $: {} };
+network.mojom.CrossOriginEmbedderPolicyReporter_Clone_ParamsSpec = { $: {} };
 
 // Enum: CrossOriginEmbedderPolicyValue
 network.mojom.CrossOriginEmbedderPolicyValue = {
@@ -16,54 +23,30 @@ network.mojom.CrossOriginEmbedderPolicyValue = {
   kRequireCorp: 1,
   kCredentialless: 2,
 };
-network.mojom.CrossOriginEmbedderPolicyValueSpec = { $: mojo.internal.Enum() };
 
 // Struct: CrossOriginEmbedderPolicy
-network.mojom.CrossOriginEmbedderPolicySpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.CrossOriginEmbedderPolicy',
-      packedSize: 32,
-      fields: [
-        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: network.mojom.CrossOriginEmbedderPolicyValueSpec, nullable: false, minVersion: 0 },
-        { name: 'reporting_endpoint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'report_only_reporting_endpoint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.CrossOriginEmbedderPolicySpec, 'network.mojom.CrossOriginEmbedderPolicy', [
+      mojo.internal.StructField('value', 16, 0, network.mojom.CrossOriginEmbedderPolicyValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reporting_endpoint', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('report_only_reporting_endpoint', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: CrossOriginEmbedderPolicyReporter
-network.mojom.CrossOriginEmbedderPolicyReporter = {};
+mojo.internal.Struct(
+    network.mojom.CrossOriginEmbedderPolicyReporter_QueueCorpViolationReport_ParamsSpec, 'network.mojom.CrossOriginEmbedderPolicyReporter_QueueCorpViolationReport_Params', [
+      mojo.internal.StructField('blocked_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('destination', 8, 0, network.mojom.RequestDestinationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('report_only', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-network.mojom.CrossOriginEmbedderPolicyReporter_QueueCorpViolationReport_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.CrossOriginEmbedderPolicyReporter_QueueCorpViolationReport_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'blocked_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'destination', packedOffset: 8, packedBitOffset: 0, type: network.mojom.RequestDestinationSpec, nullable: false, minVersion: 0 },
-        { name: 'report_only', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-network.mojom.CrossOriginEmbedderPolicyReporter_Clone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.CrossOriginEmbedderPolicyReporter_Clone_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.CrossOriginEmbedderPolicyReporterRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.CrossOriginEmbedderPolicyReporter_Clone_ParamsSpec, 'network.mojom.CrossOriginEmbedderPolicyReporter_Clone_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(network.mojom.CrossOriginEmbedderPolicyReporterRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 network.mojom.CrossOriginEmbedderPolicyReporterPendingReceiver = class {
   constructor(handle) {
@@ -127,37 +110,6 @@ network.mojom.CrossOriginEmbedderPolicyReporter.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for QueueCorpViolationReport
-network.mojom.CrossOriginEmbedderPolicyReporter_QueueCorpViolationReport_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.CrossOriginEmbedderPolicyReporter.QueueCorpViolationReport_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'blocked_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'destination', packedOffset: 8, packedBitOffset: 0, type: network.mojom.RequestDestinationSpec, nullable: false, minVersion: 0 },
-        { name: 'report_only', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for Clone
-network.mojom.CrossOriginEmbedderPolicyReporter_Clone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.CrossOriginEmbedderPolicyReporter.Clone_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.CrossOriginEmbedderPolicyReporterRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.CrossOriginEmbedderPolicyReporterPtr = network.mojom.CrossOriginEmbedderPolicyReporterRemote;
 network.mojom.CrossOriginEmbedderPolicyReporterRequest = network.mojom.CrossOriginEmbedderPolicyReporterPendingReceiver;
 

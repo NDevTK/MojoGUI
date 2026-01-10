@@ -8,6 +8,10 @@
 var remote_cocoa = remote_cocoa || {};
 remote_cocoa.mojom = remote_cocoa.mojom || {};
 
+remote_cocoa.mojom.SystemFontSpec = { $: mojo.internal.Enum() };
+remote_cocoa.mojom.FontWeightSpec = { $: mojo.internal.Enum() };
+remote_cocoa.mojom.FontNameSpec = { $: {} };
+remote_cocoa.mojom.FontSpec = { $: {} };
 
 // Enum: SystemFont
 remote_cocoa.mojom.SystemFont = {
@@ -15,49 +19,41 @@ remote_cocoa.mojom.SystemFont = {
   kMenu: 1,
   kToolTip: 2,
 };
-remote_cocoa.mojom.SystemFontSpec = { $: mojo.internal.Enum() };
 
 // Enum: FontWeight
 remote_cocoa.mojom.FontWeight = {
-  kThin: 0,
-  kExtraLight: 1,
-  kLight: 2,
-  kNormal: 3,
-  kMedium: 4,
-  kSemibold: 5,
-  kBold: 6,
-  kExtraBold: 7,
-  kBlack: 8,
+  kThin: 100,
+  kExtraLight: 200,
+  kLight: 300,
+  kNormal: 400,
+  kMedium: 500,
+  kSemibold: 600,
+  kBold: 700,
+  kExtraBold: 800,
+  kBlack: 900,
 };
-remote_cocoa.mojom.FontWeightSpec = { $: mojo.internal.Enum() };
 
 // Union: FontName
-remote_cocoa.mojom.FontNameSpec = { $: mojo.internal.Union(
-    'remote_cocoa.mojom.FontName', {
+mojo.internal.Union(
+    remote_cocoa.mojom.FontNameSpec, 'remote_cocoa.mojom.FontName', {
       'system_font': {
         'ordinal': 0,
         'type': remote_cocoa.mojom.SystemFontSpec,
-      }},
+        'nullable': false,
+      },
       'regular_font': {
         'ordinal': 1,
         'type': mojo.internal.String,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: Font
-remote_cocoa.mojom.FontSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.Font',
-      packedSize: 40,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.FontNameSpec, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'style', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'weight', packedOffset: 24, packedBitOffset: 0, type: remote_cocoa.mojom.FontWeightSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remote_cocoa.mojom.FontSpec, 'remote_cocoa.mojom.Font', [
+      mojo.internal.StructField('name', 0, 0, remote_cocoa.mojom.FontNameSpec, null, false, 0, undefined),
+      mojo.internal.StructField('size', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('style', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('weight', 24, 0, remote_cocoa.mojom.FontWeightSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);

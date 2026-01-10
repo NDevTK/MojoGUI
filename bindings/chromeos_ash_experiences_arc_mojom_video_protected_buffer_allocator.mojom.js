@@ -7,52 +7,52 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
 
+arc.mojom.VideoProtectedBufferAllocator = {};
+arc.mojom.VideoProtectedBufferAllocator.$interfaceName = 'arc.mojom.VideoProtectedBufferAllocator';
+arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedSharedMemory_ParamsSpec = { $: {} };
+arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedSharedMemory_ResponseParamsSpec = { $: {} };
+arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedNativePixmap_ParamsSpec = { $: {} };
+arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedNativePixmap_ResponseParamsSpec = { $: {} };
+arc.mojom.VideoProtectedBufferAllocator_ReleaseProtectedBuffer_ParamsSpec = { $: {} };
 
 // Interface: VideoProtectedBufferAllocator
-arc.mojom.VideoProtectedBufferAllocator = {};
+mojo.internal.Struct(
+    arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedSharedMemory_ParamsSpec, 'arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedSharedMemory_Params', [
+      mojo.internal.StructField('handle_fd', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('size', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedSharedMemory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedSharedMemory_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'handle_fd', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedSharedMemory_ResponseParamsSpec, 'arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedSharedMemory_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedNativePixmap_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedNativePixmap_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'handle_fd', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-        { name: 'pixel_format', packedOffset: 12, packedBitOffset: 0, type: arc.mojom.HalPixelFormatSpec, nullable: false, minVersion: 0 },
-        { name: 'picture_size', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.SizeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedNativePixmap_ParamsSpec, 'arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedNativePixmap_Params', [
+      mojo.internal.StructField('handle_fd', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('pixel_format', 12, 0, arc.mojom.HalPixelFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('picture_size', 0, 0, arc.mojom.SizeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.VideoProtectedBufferAllocator_ReleaseProtectedBuffer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.VideoProtectedBufferAllocator_ReleaseProtectedBuffer_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handle_fd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedNativePixmap_ResponseParamsSpec, 'arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedNativePixmap_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.VideoProtectedBufferAllocator_ReleaseProtectedBuffer_ParamsSpec, 'arc.mojom.VideoProtectedBufferAllocator_ReleaseProtectedBuffer_Params', [
+      mojo.internal.StructField('handle_fd', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.VideoProtectedBufferAllocatorPendingReceiver = class {
   constructor(handle) {
@@ -125,78 +125,6 @@ arc.mojom.VideoProtectedBufferAllocator.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AllocateProtectedSharedMemory
-arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedSharedMemory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.VideoProtectedBufferAllocator.AllocateProtectedSharedMemory_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'handle_fd', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedSharedMemory_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.VideoProtectedBufferAllocator.AllocateProtectedSharedMemory_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AllocateProtectedNativePixmap
-arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedNativePixmap_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.VideoProtectedBufferAllocator.AllocateProtectedNativePixmap_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'handle_fd', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-        { name: 'pixel_format', packedOffset: 12, packedBitOffset: 0, type: arc.mojom.HalPixelFormatSpec, nullable: false, minVersion: 0 },
-        { name: 'picture_size', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.SizeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedNativePixmap_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.VideoProtectedBufferAllocator.AllocateProtectedNativePixmap_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReleaseProtectedBuffer
-arc.mojom.VideoProtectedBufferAllocator_ReleaseProtectedBuffer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.VideoProtectedBufferAllocator.ReleaseProtectedBuffer_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handle_fd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.VideoProtectedBufferAllocatorPtr = arc.mojom.VideoProtectedBufferAllocatorRemote;
 arc.mojom.VideoProtectedBufferAllocatorRequest = arc.mojom.VideoProtectedBufferAllocatorPendingReceiver;
 

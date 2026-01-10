@@ -10,37 +10,28 @@ ash.color_internals = ash.color_internals || {};
 ash.color_internals.mojom = ash.color_internals.mojom || {};
 var skia = skia || {};
 
+ash.color_internals.mojom.WallpaperCalculatedColorsSpec = { $: {} };
+ash.color_internals.mojom.WallpaperColorsObserver = {};
+ash.color_internals.mojom.WallpaperColorsObserver.$interfaceName = 'ash.color_internals.mojom.WallpaperColorsObserver';
+ash.color_internals.mojom.WallpaperColorsObserver_OnWallpaperColorsChanged_ParamsSpec = { $: {} };
+ash.color_internals.mojom.WallpaperColorsHandler = {};
+ash.color_internals.mojom.WallpaperColorsHandler.$interfaceName = 'ash.color_internals.mojom.WallpaperColorsHandler';
+ash.color_internals.mojom.WallpaperColorsHandler_SetWallpaperColorsObserver_ParamsSpec = { $: {} };
 
 // Struct: WallpaperCalculatedColors
-ash.color_internals.mojom.WallpaperCalculatedColorsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.color_internals.mojom.WallpaperCalculatedColors',
-      packedSize: 24,
-      fields: [
-        { name: 'k_mean_color', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
-        { name: 'celebi_color', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.color_internals.mojom.WallpaperCalculatedColorsSpec, 'ash.color_internals.mojom.WallpaperCalculatedColors', [
+      mojo.internal.StructField('k_mean_color', 0, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('celebi_color', 8, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: WallpaperColorsObserver
-ash.color_internals.mojom.WallpaperColorsObserver = {};
-
-ash.color_internals.mojom.WallpaperColorsObserver_OnWallpaperColorsChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.color_internals.mojom.WallpaperColorsObserver_OnWallpaperColorsChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'colors', packedOffset: 0, packedBitOffset: 0, type: ash.color_internals.mojom.WallpaperCalculatedColorsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.color_internals.mojom.WallpaperColorsObserver_OnWallpaperColorsChanged_ParamsSpec, 'ash.color_internals.mojom.WallpaperColorsObserver_OnWallpaperColorsChanged_Params', [
+      mojo.internal.StructField('colors', 0, 0, ash.color_internals.mojom.WallpaperCalculatedColorsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.color_internals.mojom.WallpaperColorsObserverPendingReceiver = class {
   constructor(handle) {
@@ -95,40 +86,16 @@ ash.color_internals.mojom.WallpaperColorsObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnWallpaperColorsChanged
-ash.color_internals.mojom.WallpaperColorsObserver_OnWallpaperColorsChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.color_internals.mojom.WallpaperColorsObserver.OnWallpaperColorsChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'colors', packedOffset: 0, packedBitOffset: 0, type: ash.color_internals.mojom.WallpaperCalculatedColorsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.color_internals.mojom.WallpaperColorsObserverPtr = ash.color_internals.mojom.WallpaperColorsObserverRemote;
 ash.color_internals.mojom.WallpaperColorsObserverRequest = ash.color_internals.mojom.WallpaperColorsObserverPendingReceiver;
 
 
 // Interface: WallpaperColorsHandler
-ash.color_internals.mojom.WallpaperColorsHandler = {};
-
-ash.color_internals.mojom.WallpaperColorsHandler_SetWallpaperColorsObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.color_internals.mojom.WallpaperColorsHandler_SetWallpaperColorsObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.color_internals.mojom.WallpaperColorsObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.color_internals.mojom.WallpaperColorsHandler_SetWallpaperColorsObserver_ParamsSpec, 'ash.color_internals.mojom.WallpaperColorsHandler_SetWallpaperColorsObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.color_internals.mojom.WallpaperColorsObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.color_internals.mojom.WallpaperColorsHandlerPendingReceiver = class {
   constructor(handle) {
@@ -183,21 +150,6 @@ ash.color_internals.mojom.WallpaperColorsHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetWallpaperColorsObserver
-ash.color_internals.mojom.WallpaperColorsHandler_SetWallpaperColorsObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.color_internals.mojom.WallpaperColorsHandler.SetWallpaperColorsObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.color_internals.mojom.WallpaperColorsObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.color_internals.mojom.WallpaperColorsHandlerPtr = ash.color_internals.mojom.WallpaperColorsHandlerRemote;
 ash.color_internals.mojom.WallpaperColorsHandlerRequest = ash.color_internals.mojom.WallpaperColorsHandlerPendingReceiver;
 

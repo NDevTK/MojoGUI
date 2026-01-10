@@ -10,56 +10,38 @@ blink.mojom = blink.mojom || {};
 var blink = blink || {};
 var blink = blink || {};
 
+blink.mojom.AIProofreaderCreateOptionsSpec = { $: {} };
+blink.mojom.AIProofreader = {};
+blink.mojom.AIProofreader.$interfaceName = 'blink.mojom.AIProofreader';
+blink.mojom.AIProofreader_Proofread_ParamsSpec = { $: {} };
+blink.mojom.AIProofreader_GetCorrectionType_ParamsSpec = { $: {} };
 
 // Struct: AIProofreaderCreateOptions
-blink.mojom.AIProofreaderCreateOptionsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AIProofreaderCreateOptions',
-      packedSize: 32,
-      fields: [
-        { name: 'include_correction_types', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'include_correction_explanations', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'correction_explanation_language', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AILanguageCodeSpec, nullable: false, minVersion: 0 },
-        { name: 'expected_input_languages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.AILanguageCodeSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.AIProofreaderCreateOptionsSpec, 'blink.mojom.AIProofreaderCreateOptions', [
+      mojo.internal.StructField('include_correction_types', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('include_correction_explanations', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('correction_explanation_language', 0, 0, blink.mojom.AILanguageCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('expected_input_languages', 8, 0, mojo.internal.Array(blink.mojom.AILanguageCodeSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: AIProofreader
-blink.mojom.AIProofreader = {};
+mojo.internal.Struct(
+    blink.mojom.AIProofreader_Proofread_ParamsSpec, 'blink.mojom.AIProofreader_Proofread_Params', [
+      mojo.internal.StructField('input', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('pending_responder', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.ModelStreamingResponderRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.AIProofreader_Proofread_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AIProofreader_Proofread_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pending_responder', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.ModelStreamingResponderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.AIProofreader_GetCorrectionType_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AIProofreader_GetCorrectionType_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'corrected_input', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'correction_instruction', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pending_responder', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.ModelStreamingResponderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.AIProofreader_GetCorrectionType_ParamsSpec, 'blink.mojom.AIProofreader_GetCorrectionType_Params', [
+      mojo.internal.StructField('input', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('corrected_input', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('correction_instruction', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('pending_responder', 24, 0, mojo.internal.InterfaceProxy(blink.mojom.ModelStreamingResponderRemote), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 blink.mojom.AIProofreaderPendingReceiver = class {
   constructor(handle) {
@@ -123,39 +105,6 @@ blink.mojom.AIProofreader.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Proofread
-blink.mojom.AIProofreader_Proofread_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AIProofreader.Proofread_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pending_responder', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.ModelStreamingResponderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for GetCorrectionType
-blink.mojom.AIProofreader_GetCorrectionType_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AIProofreader.GetCorrectionType_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'corrected_input', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'correction_instruction', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pending_responder', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.ModelStreamingResponderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.AIProofreaderPtr = blink.mojom.AIProofreaderRemote;
 blink.mojom.AIProofreaderRequest = blink.mojom.AIProofreaderPendingReceiver;
 

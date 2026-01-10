@@ -8,35 +8,40 @@
 var chromeos = chromeos || {};
 chromeos.cfm = chromeos.cfm || {};
 chromeos.cfm.mojom = chromeos.cfm.mojom || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var services = services || {};
 
+chromeos.cfm.mojom.MeetDevicesDiagnostics = {};
+chromeos.cfm.mojom.MeetDevicesDiagnostics.$interfaceName = 'chromeos.cfm.mojom.MeetDevicesDiagnostics';
+chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ParamsSpec = { $: {} };
+chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ResponseParamsSpec = { $: {} };
+chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ParamsSpec = { $: {} };
+chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ResponseParamsSpec = { $: {} };
 
 // Interface: MeetDevicesDiagnostics
-chromeos.cfm.mojom.MeetDevicesDiagnostics = {};
+mojo.internal.Struct(
+    chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ParamsSpec, 'chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ResponseParamsSpec, 'chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ResponseParams', [
+      mojo.internal.StructField('telemetry', 0, 0, ash.cros_healthd.mojom.TelemetryInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ParamsSpec, 'chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_Params', [
+      mojo.internal.StructField('pid', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ResponseParamsSpec, 'chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ResponseParams', [
+      mojo.internal.StructField('process_info', 0, 0, ash.cros_healthd.mojom.ProcessResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 chromeos.cfm.mojom.MeetDevicesDiagnosticsPendingReceiver = class {
   constructor(handle) {
@@ -100,60 +105,6 @@ chromeos.cfm.mojom.MeetDevicesDiagnostics.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetCrosHealthdTelemetry
-chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.MeetDevicesDiagnostics.GetCrosHealthdTelemetry_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.MeetDevicesDiagnostics.GetCrosHealthdTelemetry_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'telemetry', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.TelemetryInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetCrosHealthdProcessInfo
-chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.MeetDevicesDiagnostics.GetCrosHealthdProcessInfo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.MeetDevicesDiagnostics.GetCrosHealthdProcessInfo_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'process_info', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.ProcessResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromeos.cfm.mojom.MeetDevicesDiagnosticsPtr = chromeos.cfm.mojom.MeetDevicesDiagnosticsRemote;
 chromeos.cfm.mojom.MeetDevicesDiagnosticsRequest = chromeos.cfm.mojom.MeetDevicesDiagnosticsPendingReceiver;
 

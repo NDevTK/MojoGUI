@@ -8,21 +8,30 @@
 var test = test || {};
 test.mojom = test.mojom || {};
 
+test.mojom.Foo = {};
+test.mojom.Foo.$interfaceName = 'test.mojom.Foo';
+test.mojom.Foo_GetFoo_ParamsSpec = { $: {} };
+test.mojom.Foo_GetFoo_ResponseParamsSpec = { $: {} };
+test.mojom.Bar = {};
+test.mojom.Bar.$interfaceName = 'test.mojom.Bar';
+test.mojom.Bar_GetBar_ParamsSpec = { $: {} };
+test.mojom.Bar_GetBar_ResponseParamsSpec = { $: {} };
+test.mojom.Baz = {};
+test.mojom.Baz.$interfaceName = 'test.mojom.Baz';
+test.mojom.Baz_GetBaz_ParamsSpec = { $: {} };
+test.mojom.Baz_GetBaz_ResponseParamsSpec = { $: {} };
 
 // Interface: Foo
-test.mojom.Foo = {};
+mojo.internal.Struct(
+    test.mojom.Foo_GetFoo_ParamsSpec, 'test.mojom.Foo_GetFoo_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-test.mojom.Foo_GetFoo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'test.mojom.Foo_GetFoo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    test.mojom.Foo_GetFoo_ResponseParamsSpec, 'test.mojom.Foo_GetFoo_ResponseParams', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 test.mojom.FooPendingReceiver = class {
   constructor(handle) {
@@ -77,51 +86,21 @@ test.mojom.Foo.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetFoo
-test.mojom.Foo_GetFoo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'test.mojom.Foo.GetFoo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-test.mojom.Foo_GetFoo_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'test.mojom.Foo.GetFoo_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 test.mojom.FooPtr = test.mojom.FooRemote;
 test.mojom.FooRequest = test.mojom.FooPendingReceiver;
 
 
 // Interface: Bar
-test.mojom.Bar = {};
+mojo.internal.Struct(
+    test.mojom.Bar_GetBar_ParamsSpec, 'test.mojom.Bar_GetBar_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-test.mojom.Bar_GetBar_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'test.mojom.Bar_GetBar_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    test.mojom.Bar_GetBar_ResponseParamsSpec, 'test.mojom.Bar_GetBar_ResponseParams', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 test.mojom.BarPendingReceiver = class {
   constructor(handle) {
@@ -176,51 +155,21 @@ test.mojom.Bar.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetBar
-test.mojom.Bar_GetBar_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'test.mojom.Bar.GetBar_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-test.mojom.Bar_GetBar_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'test.mojom.Bar.GetBar_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 test.mojom.BarPtr = test.mojom.BarRemote;
 test.mojom.BarRequest = test.mojom.BarPendingReceiver;
 
 
 // Interface: Baz
-test.mojom.Baz = {};
+mojo.internal.Struct(
+    test.mojom.Baz_GetBaz_ParamsSpec, 'test.mojom.Baz_GetBaz_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-test.mojom.Baz_GetBaz_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'test.mojom.Baz_GetBaz_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    test.mojom.Baz_GetBaz_ResponseParamsSpec, 'test.mojom.Baz_GetBaz_ResponseParams', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 test.mojom.BazPendingReceiver = class {
   constructor(handle) {
@@ -275,33 +224,6 @@ test.mojom.Baz.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetBaz
-test.mojom.Baz_GetBaz_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'test.mojom.Baz.GetBaz_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-test.mojom.Baz_GetBaz_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'test.mojom.Baz.GetBaz_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 test.mojom.BazPtr = test.mojom.BazRemote;
 test.mojom.BazRequest = test.mojom.BazPendingReceiver;
 

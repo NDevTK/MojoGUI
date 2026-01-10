@@ -7,6 +7,8 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var services = services || {};
+var services = services || {};
 var blink = blink || {};
 var blink = blink || {};
 var blink = blink || {};
@@ -32,95 +34,83 @@ var blink = blink || {};
 var blink = blink || {};
 var url = url || {};
 
+blink.mojom.EmbeddedWorkerStartParamsSpec = { $: {} };
+blink.mojom.EmbeddedWorkerStartTimingSpec = { $: {} };
+blink.mojom.EmbeddedWorkerInstanceClient = {};
+blink.mojom.EmbeddedWorkerInstanceClient.$interfaceName = 'blink.mojom.EmbeddedWorkerInstanceClient';
+blink.mojom.EmbeddedWorkerInstanceClient_StartWorker_ParamsSpec = { $: {} };
+blink.mojom.EmbeddedWorkerInstanceClient_StopWorker_ParamsSpec = { $: {} };
+blink.mojom.EmbeddedWorkerInstanceHost = {};
+blink.mojom.EmbeddedWorkerInstanceHost.$interfaceName = 'blink.mojom.EmbeddedWorkerInstanceHost';
+blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ParamsSpec = { $: {} };
+blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ResponseParamsSpec = { $: {} };
+blink.mojom.EmbeddedWorkerInstanceHost_CountFeature_ParamsSpec = { $: {} };
+blink.mojom.EmbeddedWorkerInstanceHost_OnReadyForInspection_ParamsSpec = { $: {} };
+blink.mojom.EmbeddedWorkerInstanceHost_OnScriptLoaded_ParamsSpec = { $: {} };
+blink.mojom.EmbeddedWorkerInstanceHost_OnScriptEvaluationStart_ParamsSpec = { $: {} };
+blink.mojom.EmbeddedWorkerInstanceHost_OnStarted_ParamsSpec = { $: {} };
+blink.mojom.EmbeddedWorkerInstanceHost_OnReportException_ParamsSpec = { $: {} };
+blink.mojom.EmbeddedWorkerInstanceHost_OnReportConsoleMessage_ParamsSpec = { $: {} };
+blink.mojom.EmbeddedWorkerInstanceHost_OnStopped_ParamsSpec = { $: {} };
 
 // Struct: EmbeddedWorkerStartParams
-blink.mojom.EmbeddedWorkerStartParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.EmbeddedWorkerStartParams',
-      packedSize: 248,
-      fields: [
-        { name: 'service_worker_version_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'scope', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'script_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'script_type', packedOffset: 224, packedBitOffset: 0, type: blink.mojom.ScriptTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'outside_fetch_client_settings_object', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.FetchClientSettingsObjectSpec, nullable: false, minVersion: 0 },
-        { name: 'user_agent', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'ua_metadata', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.UserAgentMetadataSpec, nullable: false, minVersion: 0 },
-        { name: 'service_worker_route_id', packedOffset: 228, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'devtools_worker_token', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'script_url_to_skip_throttling', packedOffset: 56, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'wait_for_debugger', packedOffset: 232, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_installed', packedOffset: 232, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'renderer_preferences', packedOffset: 64, packedBitOffset: 0, type: blink.mojom.RendererPreferencesSpec, nullable: false, minVersion: 0 },
-        { name: 'forced_enabled_runtime_features', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'service_worker_receiver', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.ServiceWorkerRemote), nullable: false, minVersion: 0 },
-        { name: 'interface_provider', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(service_manager.mojom.InterfaceProviderRemote), nullable: false, minVersion: 0 },
-        { name: 'controller_receiver', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.ControllerServiceWorkerRemote), nullable: false, minVersion: 0 },
-        { name: 'installed_scripts_info', packedOffset: 104, packedBitOffset: 0, type: blink.mojom.ServiceWorkerInstalledScriptsInfoSpec, nullable: true, minVersion: 0 },
-        { name: 'instance_host', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(blink.mojom.EmbeddedWorkerInstanceHostRemote), nullable: false, minVersion: 0 },
-        { name: 'provider_info', packedOffset: 120, packedBitOffset: 0, type: blink.mojom.ServiceWorkerProviderInfoForStartWorkerSpec, nullable: false, minVersion: 0 },
-        { name: 'content_settings_proxy', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.WorkerContentSettingsProxyRemote), nullable: false, minVersion: 0 },
-        { name: 'preference_watcher_receiver', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.RendererPreferenceWatcherRemote), nullable: false, minVersion: 0 },
-        { name: 'subresource_loader_factories', packedOffset: 144, packedBitOffset: 0, type: blink.mojom.URLLoaderFactoryBundleSpec, nullable: false, minVersion: 0 },
-        { name: 'subresource_loader_updater', packedOffset: 152, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.SubresourceLoaderUpdaterRemote), nullable: false, minVersion: 0 },
-        { name: 'service_worker_token', packedOffset: 160, packedBitOffset: 0, type: blink.mojom.ServiceWorkerTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'ukm_source_id', packedOffset: 168, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'main_script_load_params', packedOffset: 176, packedBitOffset: 0, type: blink.mojom.WorkerMainScriptLoadParamsSpec, nullable: true, minVersion: 0 },
-        { name: 'policy_container', packedOffset: 184, packedBitOffset: 0, type: blink.mojom.PolicyContainerSpec, nullable: true, minVersion: 0 },
-        { name: 'storage_key', packedOffset: 192, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
-        { name: 'cors_exempt_header_list', packedOffset: 200, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'coep_reporting_observer', packedOffset: 208, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.ReportingObserverRemote), nullable: true, minVersion: 0 },
-        { name: 'dip_reporting_observer', packedOffset: 216, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.ReportingObserverRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 248}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.EmbeddedWorkerStartParamsSpec, 'blink.mojom.EmbeddedWorkerStartParams', [
+      mojo.internal.StructField('service_worker_version_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('scope', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('script_url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('script_type', 224, 0, blink.mojom.ScriptTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('outside_fetch_client_settings_object', 24, 0, blink.mojom.FetchClientSettingsObjectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('user_agent', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('ua_metadata', 40, 0, blink.mojom.UserAgentMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('service_worker_route_id', 228, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('devtools_worker_token', 48, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('script_url_to_skip_throttling', 56, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('wait_for_debugger', 232, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_installed', 232, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('renderer_preferences', 64, 0, blink.mojom.RendererPreferencesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('forced_enabled_runtime_features', 72, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('service_worker_receiver', 80, 0, mojo.internal.InterfaceRequest(blink.mojom.ServiceWorkerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('interface_provider', 88, 0, mojo.internal.InterfaceRequest(service_manager.mojom.InterfaceProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('controller_receiver', 96, 0, mojo.internal.InterfaceRequest(blink.mojom.ControllerServiceWorkerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('installed_scripts_info', 104, 0, blink.mojom.ServiceWorkerInstalledScriptsInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('instance_host', 112, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.EmbeddedWorkerInstanceHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('provider_info', 120, 0, blink.mojom.ServiceWorkerProviderInfoForStartWorkerSpec, null, false, 0, undefined),
+      mojo.internal.StructField('content_settings_proxy', 128, 0, mojo.internal.InterfaceProxy(blink.mojom.WorkerContentSettingsProxyRemote), null, false, 0, undefined),
+      mojo.internal.StructField('preference_watcher_receiver', 136, 0, mojo.internal.InterfaceRequest(blink.mojom.RendererPreferenceWatcherRemote), null, false, 0, undefined),
+      mojo.internal.StructField('subresource_loader_factories', 144, 0, blink.mojom.URLLoaderFactoryBundleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('subresource_loader_updater', 152, 0, mojo.internal.InterfaceRequest(blink.mojom.SubresourceLoaderUpdaterRemote), null, false, 0, undefined),
+      mojo.internal.StructField('service_worker_token', 160, 0, blink.mojom.ServiceWorkerTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('ukm_source_id', 168, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('main_script_load_params', 176, 0, blink.mojom.WorkerMainScriptLoadParamsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('policy_container', 184, 0, blink.mojom.PolicyContainerSpec, null, true, 0, undefined),
+      mojo.internal.StructField('storage_key', 192, 0, blink.mojom.StorageKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('cors_exempt_header_list', 200, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('coep_reporting_observer', 208, 0, mojo.internal.InterfaceRequest(blink.mojom.ReportingObserverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('dip_reporting_observer', 216, 0, mojo.internal.InterfaceRequest(blink.mojom.ReportingObserverRemote), null, true, 0, undefined),
+    ],
+    [[0, 248]]);
 
 // Struct: EmbeddedWorkerStartTiming
-blink.mojom.EmbeddedWorkerStartTimingSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.EmbeddedWorkerStartTiming',
-      packedSize: 32,
-      fields: [
-        { name: 'start_worker_received_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'script_evaluation_start_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'script_evaluation_end_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.EmbeddedWorkerStartTimingSpec, 'blink.mojom.EmbeddedWorkerStartTiming', [
+      mojo.internal.StructField('start_worker_received_time', 0, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('script_evaluation_start_time', 8, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('script_evaluation_end_time', 16, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: EmbeddedWorkerInstanceClient
-blink.mojom.EmbeddedWorkerInstanceClient = {};
+mojo.internal.Struct(
+    blink.mojom.EmbeddedWorkerInstanceClient_StartWorker_ParamsSpec, 'blink.mojom.EmbeddedWorkerInstanceClient_StartWorker_Params', [
+      mojo.internal.StructField('params', 0, 0, blink.mojom.EmbeddedWorkerStartParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.EmbeddedWorkerInstanceClient_StartWorker_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.EmbeddedWorkerInstanceClient_StartWorker_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.EmbeddedWorkerStartParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.EmbeddedWorkerInstanceClient_StopWorker_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.EmbeddedWorkerInstanceClient_StopWorker_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.EmbeddedWorkerInstanceClient_StopWorker_ParamsSpec, 'blink.mojom.EmbeddedWorkerInstanceClient_StopWorker_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 blink.mojom.EmbeddedWorkerInstanceClientPendingReceiver = class {
   constructor(handle) {
@@ -184,166 +174,79 @@ blink.mojom.EmbeddedWorkerInstanceClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for StartWorker
-blink.mojom.EmbeddedWorkerInstanceClient_StartWorker_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.EmbeddedWorkerInstanceClient.StartWorker_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.EmbeddedWorkerStartParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StopWorker
-blink.mojom.EmbeddedWorkerInstanceClient_StopWorker_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.EmbeddedWorkerInstanceClient.StopWorker_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.EmbeddedWorkerInstanceClientPtr = blink.mojom.EmbeddedWorkerInstanceClientRemote;
 blink.mojom.EmbeddedWorkerInstanceClientRequest = blink.mojom.EmbeddedWorkerInstanceClientPendingReceiver;
 
 
 // Interface: EmbeddedWorkerInstanceHost
-blink.mojom.EmbeddedWorkerInstanceHost = {};
+mojo.internal.Struct(
+    blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ParamsSpec, 'blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ResponseParamsSpec, 'blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ResponseParams', [
+      mojo.internal.StructField('will_be_terminated', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.EmbeddedWorkerInstanceHost_CountFeature_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.EmbeddedWorkerInstanceHost_CountFeature_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebFeatureSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.EmbeddedWorkerInstanceHost_CountFeature_ParamsSpec, 'blink.mojom.EmbeddedWorkerInstanceHost_CountFeature_Params', [
+      mojo.internal.StructField('feature', 0, 0, blink.mojom.WebFeatureSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.EmbeddedWorkerInstanceHost_OnReadyForInspection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.EmbeddedWorkerInstanceHost_OnReadyForInspection_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.DevToolsAgentRemote), nullable: false, minVersion: 0 },
-        { name: 'agent_host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.DevToolsAgentHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.EmbeddedWorkerInstanceHost_OnReadyForInspection_ParamsSpec, 'blink.mojom.EmbeddedWorkerInstanceHost_OnReadyForInspection_Params', [
+      mojo.internal.StructField('agent', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.DevToolsAgentRemote), null, false, 0, undefined),
+      mojo.internal.StructField('agent_host', 8, 0, mojo.internal.InterfaceRequest(blink.mojom.DevToolsAgentHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.EmbeddedWorkerInstanceHost_OnScriptLoaded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.EmbeddedWorkerInstanceHost_OnScriptLoaded_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.EmbeddedWorkerInstanceHost_OnScriptLoaded_ParamsSpec, 'blink.mojom.EmbeddedWorkerInstanceHost_OnScriptLoaded_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.EmbeddedWorkerInstanceHost_OnScriptEvaluationStart_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.EmbeddedWorkerInstanceHost_OnScriptEvaluationStart_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.EmbeddedWorkerInstanceHost_OnScriptEvaluationStart_ParamsSpec, 'blink.mojom.EmbeddedWorkerInstanceHost_OnScriptEvaluationStart_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.EmbeddedWorkerInstanceHost_OnStarted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.EmbeddedWorkerInstanceHost_OnStarted_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerStartStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'fetch_handler_type', packedOffset: 12, packedBitOffset: 0, type: blink.mojom.ServiceWorkerFetchHandlerTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'has_hid_event_handlers', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_usb_event_handlers', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'thread_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'start_timing', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.EmbeddedWorkerStartTimingSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.EmbeddedWorkerInstanceHost_OnStarted_ParamsSpec, 'blink.mojom.EmbeddedWorkerInstanceHost_OnStarted_Params', [
+      mojo.internal.StructField('status', 8, 0, blink.mojom.ServiceWorkerStartStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('fetch_handler_type', 12, 0, blink.mojom.ServiceWorkerFetchHandlerTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('has_hid_event_handlers', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_usb_event_handlers', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('thread_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('start_timing', 0, 0, blink.mojom.EmbeddedWorkerStartTimingSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-blink.mojom.EmbeddedWorkerInstanceHost_OnReportException_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.EmbeddedWorkerInstanceHost_OnReportException_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'line_number', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'column_number', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'source_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.EmbeddedWorkerInstanceHost_OnReportException_ParamsSpec, 'blink.mojom.EmbeddedWorkerInstanceHost_OnReportException_Params', [
+      mojo.internal.StructField('error_message', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('line_number', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('column_number', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('source_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-blink.mojom.EmbeddedWorkerInstanceHost_OnReportConsoleMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.EmbeddedWorkerInstanceHost_OnReportConsoleMessage_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'source', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ConsoleMessageSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'message_level', packedOffset: 20, packedBitOffset: 0, type: blink.mojom.ConsoleMessageLevelSpec, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'line_number', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'source_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.EmbeddedWorkerInstanceHost_OnReportConsoleMessage_ParamsSpec, 'blink.mojom.EmbeddedWorkerInstanceHost_OnReportConsoleMessage_Params', [
+      mojo.internal.StructField('source', 16, 0, blink.mojom.ConsoleMessageSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message_level', 20, 0, blink.mojom.ConsoleMessageLevelSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('line_number', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('source_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-blink.mojom.EmbeddedWorkerInstanceHost_OnStopped_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.EmbeddedWorkerInstanceHost_OnStopped_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.EmbeddedWorkerInstanceHost_OnStopped_ParamsSpec, 'blink.mojom.EmbeddedWorkerInstanceHost_OnStopped_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 blink.mojom.EmbeddedWorkerInstanceHostPendingReceiver = class {
   constructor(handle) {
@@ -470,155 +373,6 @@ blink.mojom.EmbeddedWorkerInstanceHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RequestTermination
-blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.EmbeddedWorkerInstanceHost.RequestTermination_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.EmbeddedWorkerInstanceHost.RequestTermination_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'will_be_terminated', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CountFeature
-blink.mojom.EmbeddedWorkerInstanceHost_CountFeature_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.EmbeddedWorkerInstanceHost.CountFeature_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebFeatureSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnReadyForInspection
-blink.mojom.EmbeddedWorkerInstanceHost_OnReadyForInspection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.EmbeddedWorkerInstanceHost.OnReadyForInspection_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.DevToolsAgentRemote), nullable: false, minVersion: 0 },
-        { name: 'agent_host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.DevToolsAgentHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnScriptLoaded
-blink.mojom.EmbeddedWorkerInstanceHost_OnScriptLoaded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.EmbeddedWorkerInstanceHost.OnScriptLoaded_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnScriptEvaluationStart
-blink.mojom.EmbeddedWorkerInstanceHost_OnScriptEvaluationStart_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.EmbeddedWorkerInstanceHost.OnScriptEvaluationStart_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnStarted
-blink.mojom.EmbeddedWorkerInstanceHost_OnStarted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.EmbeddedWorkerInstanceHost.OnStarted_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerStartStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'fetch_handler_type', packedOffset: 12, packedBitOffset: 0, type: blink.mojom.ServiceWorkerFetchHandlerTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'has_hid_event_handlers', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_usb_event_handlers', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'thread_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'start_timing', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.EmbeddedWorkerStartTimingSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for OnReportException
-blink.mojom.EmbeddedWorkerInstanceHost_OnReportException_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.EmbeddedWorkerInstanceHost.OnReportException_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'line_number', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'column_number', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'source_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for OnReportConsoleMessage
-blink.mojom.EmbeddedWorkerInstanceHost_OnReportConsoleMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.EmbeddedWorkerInstanceHost.OnReportConsoleMessage_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'source', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ConsoleMessageSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'message_level', packedOffset: 20, packedBitOffset: 0, type: blink.mojom.ConsoleMessageLevelSpec, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'line_number', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'source_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for OnStopped
-blink.mojom.EmbeddedWorkerInstanceHost_OnStopped_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.EmbeddedWorkerInstanceHost.OnStopped_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.EmbeddedWorkerInstanceHostPtr = blink.mojom.EmbeddedWorkerInstanceHostRemote;
 blink.mojom.EmbeddedWorkerInstanceHostRequest = blink.mojom.EmbeddedWorkerInstanceHostPendingReceiver;
 

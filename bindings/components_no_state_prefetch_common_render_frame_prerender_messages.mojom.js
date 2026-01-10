@@ -8,22 +8,16 @@
 var prerender = prerender || {};
 prerender.mojom = prerender.mojom || {};
 
+prerender.mojom.NoStatePrefetchMessages = {};
+prerender.mojom.NoStatePrefetchMessages.$interfaceName = 'prerender.mojom.NoStatePrefetchMessages';
+prerender.mojom.NoStatePrefetchMessages_SetIsNoStatePrefetching_ParamsSpec = { $: {} };
 
 // Interface: NoStatePrefetchMessages
-prerender.mojom.NoStatePrefetchMessages = {};
-
-prerender.mojom.NoStatePrefetchMessages_SetIsNoStatePrefetching_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'prerender.mojom.NoStatePrefetchMessages_SetIsNoStatePrefetching_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'histogram_prefix', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    prerender.mojom.NoStatePrefetchMessages_SetIsNoStatePrefetching_ParamsSpec, 'prerender.mojom.NoStatePrefetchMessages_SetIsNoStatePrefetching_Params', [
+      mojo.internal.StructField('histogram_prefix', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 prerender.mojom.NoStatePrefetchMessagesPendingReceiver = class {
   constructor(handle) {
@@ -78,21 +72,6 @@ prerender.mojom.NoStatePrefetchMessages.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetIsNoStatePrefetching
-prerender.mojom.NoStatePrefetchMessages_SetIsNoStatePrefetching_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'prerender.mojom.NoStatePrefetchMessages.SetIsNoStatePrefetching_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'histogram_prefix', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 prerender.mojom.NoStatePrefetchMessagesPtr = prerender.mojom.NoStatePrefetchMessagesRemote;
 prerender.mojom.NoStatePrefetchMessagesRequest = prerender.mojom.NoStatePrefetchMessagesPendingReceiver;
 

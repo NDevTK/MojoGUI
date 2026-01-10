@@ -8,6 +8,7 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.WebRtcIpHandlingPolicySpec = { $: mojo.internal.Enum() };
 
 // Enum: WebRtcIpHandlingPolicy
 blink.mojom.WebRtcIpHandlingPolicy = {
@@ -16,4 +17,3 @@ blink.mojom.WebRtcIpHandlingPolicy = {
   kDefaultPublicInterfaceOnly: 2,
   kDisableNonProxiedUdp: 3,
 };
-blink.mojom.WebRtcIpHandlingPolicySpec = { $: mojo.internal.Enum() };

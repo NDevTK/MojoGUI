@@ -7,43 +7,32 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
 
+network.mojom.AncestorChainBitSpec = { $: mojo.internal.Enum() };
+network.mojom.CookiePartitionKeySpec = { $: {} };
+network.mojom.CookiePartitionKeyCollectionSpec = { $: {} };
 
 // Enum: AncestorChainBit
 network.mojom.AncestorChainBit = {
   kSameSite: 0,
   kCrossSite: 1,
 };
-network.mojom.AncestorChainBitSpec = { $: mojo.internal.Enum() };
 
 // Struct: CookiePartitionKey
-network.mojom.CookiePartitionKeySpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.CookiePartitionKey',
-      packedSize: 32,
-      fields: [
-        { name: 'site', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SchemefulSiteSpec, nullable: false, minVersion: 0 },
-        { name: 'from_script', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'nonce', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
-        { name: 'ancestor_chain_bit', packedOffset: 16, packedBitOffset: 0, type: network.mojom.AncestorChainBitSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.CookiePartitionKeySpec, 'network.mojom.CookiePartitionKey', [
+      mojo.internal.StructField('site', 0, 0, network.mojom.SchemefulSiteSpec, null, false, 0, undefined),
+      mojo.internal.StructField('from_script', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('nonce', 8, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('ancestor_chain_bit', 16, 0, network.mojom.AncestorChainBitSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: CookiePartitionKeyCollection
-network.mojom.CookiePartitionKeyCollectionSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.CookiePartitionKeyCollection',
-      packedSize: 24,
-      fields: [
-        { name: 'contains_all_partitions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.CookiePartitionKeySpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.CookiePartitionKeyCollectionSpec, 'network.mojom.CookiePartitionKeyCollection', [
+      mojo.internal.StructField('contains_all_partitions', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('keys', 0, 0, mojo.internal.Array(network.mojom.CookiePartitionKeySpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);

@@ -9,47 +9,29 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 var url = url || {};
 
+blink.mojom.ContentSecurityNotifier = {};
+blink.mojom.ContentSecurityNotifier.$interfaceName = 'blink.mojom.ContentSecurityNotifier';
+blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsRan_ParamsSpec = { $: {} };
+blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsDisplayed_ParamsSpec = { $: {} };
+blink.mojom.ContentSecurityNotifier_NotifyInsecureContentRan_ParamsSpec = { $: {} };
 
 // Interface: ContentSecurityNotifier
-blink.mojom.ContentSecurityNotifier = {};
+mojo.internal.Struct(
+    blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsRan_ParamsSpec, 'blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsRan_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsRan_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsRan_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsDisplayed_ParamsSpec, 'blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsDisplayed_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsDisplayed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsDisplayed_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.ContentSecurityNotifier_NotifyInsecureContentRan_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ContentSecurityNotifier_NotifyInsecureContentRan_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'insecure_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ContentSecurityNotifier_NotifyInsecureContentRan_ParamsSpec, 'blink.mojom.ContentSecurityNotifier_NotifyInsecureContentRan_Params', [
+      mojo.internal.StructField('origin', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('insecure_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 blink.mojom.ContentSecurityNotifierPendingReceiver = class {
   constructor(handle) {
@@ -122,48 +104,6 @@ blink.mojom.ContentSecurityNotifier.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for NotifyContentWithCertificateErrorsRan
-blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsRan_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ContentSecurityNotifier.NotifyContentWithCertificateErrorsRan_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for NotifyContentWithCertificateErrorsDisplayed
-blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsDisplayed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ContentSecurityNotifier.NotifyContentWithCertificateErrorsDisplayed_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for NotifyInsecureContentRan
-blink.mojom.ContentSecurityNotifier_NotifyInsecureContentRan_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ContentSecurityNotifier.NotifyInsecureContentRan_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'insecure_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.ContentSecurityNotifierPtr = blink.mojom.ContentSecurityNotifierRemote;
 blink.mojom.ContentSecurityNotifierRequest = blink.mojom.ContentSecurityNotifierPendingReceiver;
 

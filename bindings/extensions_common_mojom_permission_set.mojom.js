@@ -8,78 +8,48 @@
 var extensions = extensions || {};
 extensions.mojom = extensions.mojom || {};
 
+extensions.mojom.APIPermissionSpec = { $: {} };
+extensions.mojom.APIPermissionSetSpec = { $: {} };
+extensions.mojom.ManifestPermissionSpec = { $: {} };
+extensions.mojom.ManifestPermissionSetSpec = { $: {} };
+extensions.mojom.PermissionSetSpec = { $: {} };
 
 // Struct: APIPermission
-extensions.mojom.APIPermissionSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.APIPermission',
-      packedSize: 32,
-      fields: [
-        { name: 'id', packedOffset: 16, packedBitOffset: 0, type: extensions.mojom.APIPermissionIDSpec, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions.mojom.APIPermissionSpec, 'extensions.mojom.APIPermission', [
+      mojo.internal.StructField('id', 16, 0, extensions.mojom.APIPermissionIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.ValueSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: APIPermissionSet
-extensions.mojom.APIPermissionSetSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.APIPermissionSet',
-      packedSize: 16,
-      fields: [
-        { name: 'permission_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(extensions.mojom.APIPermissionIDSpec, extensions.mojom.APIPermissionSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions.mojom.APIPermissionSetSpec, 'extensions.mojom.APIPermissionSet', [
+      mojo.internal.StructField('permission_map', 0, 0, mojo.internal.Map(extensions.mojom.APIPermissionIDSpec, extensions.mojom.APIPermissionSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: ManifestPermission
-extensions.mojom.ManifestPermissionSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.ManifestPermission',
-      packedSize: 32,
-      fields: [
-        { name: 'id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions.mojom.ManifestPermissionSpec, 'extensions.mojom.ManifestPermission', [
+      mojo.internal.StructField('id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.ValueSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: ManifestPermissionSet
-extensions.mojom.ManifestPermissionSetSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.ManifestPermissionSet',
-      packedSize: 16,
-      fields: [
-        { name: 'permission_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, extensions.mojom.ManifestPermissionSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions.mojom.ManifestPermissionSetSpec, 'extensions.mojom.ManifestPermissionSet', [
+      mojo.internal.StructField('permission_map', 0, 0, mojo.internal.Map(mojo.internal.String, extensions.mojom.ManifestPermissionSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: PermissionSet
-extensions.mojom.PermissionSetSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.PermissionSet',
-      packedSize: 40,
-      fields: [
-        { name: 'apis', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.APIPermissionSetSpec, nullable: false, minVersion: 0 },
-        { name: 'manifest_permissions', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.ManifestPermissionSetSpec, nullable: false, minVersion: 0 },
-        { name: 'hosts', packedOffset: 16, packedBitOffset: 0, type: extensions.mojom.URLPatternSetSpec, nullable: false, minVersion: 0 },
-        { name: 'user_script_hosts', packedOffset: 24, packedBitOffset: 0, type: extensions.mojom.URLPatternSetSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions.mojom.PermissionSetSpec, 'extensions.mojom.PermissionSet', [
+      mojo.internal.StructField('apis', 0, 0, extensions.mojom.APIPermissionSetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('manifest_permissions', 8, 0, extensions.mojom.ManifestPermissionSetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('hosts', 16, 0, extensions.mojom.URLPatternSetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('user_script_hosts', 24, 0, extensions.mojom.URLPatternSetSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);

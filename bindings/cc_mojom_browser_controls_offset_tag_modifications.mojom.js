@@ -8,19 +8,13 @@
 var cc = cc || {};
 cc.mojom = cc.mojom || {};
 
+cc.mojom.BrowserControlsOffsetTagModificationsSpec = { $: {} };
 
 // Struct: BrowserControlsOffsetTagModifications
-cc.mojom.BrowserControlsOffsetTagModificationsSpec = {
-  $: {
-    structSpec: {
-      name: 'cc.mojom.BrowserControlsOffsetTagModifications',
-      packedSize: 24,
-      fields: [
-        { name: 'tags', packedOffset: 0, packedBitOffset: 0, type: cc.mojom.BrowserControlsOffsetTagsSpec, nullable: false, minVersion: 0 },
-        { name: 'top_controls_additional_height', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'bottom_controls_additional_height', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cc.mojom.BrowserControlsOffsetTagModificationsSpec, 'cc.mojom.BrowserControlsOffsetTagModifications', [
+      mojo.internal.StructField('tags', 0, 0, cc.mojom.BrowserControlsOffsetTagsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('top_controls_additional_height', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('bottom_controls_additional_height', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);

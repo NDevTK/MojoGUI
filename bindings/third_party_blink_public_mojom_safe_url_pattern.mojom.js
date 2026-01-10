@@ -8,6 +8,13 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.ModifierSpec = { $: mojo.internal.Enum() };
+blink.mojom.PatternTemplateSpec = { $: {} };
+blink.mojom.SafeUrlPatternSpec = { $: {} };
+blink.mojom.FixedPatternSpec = { $: {} };
+blink.mojom.WildcardPatternSpec = { $: {} };
+blink.mojom.SafeUrlPatternPartSpec = { $: {} };
+blink.mojom.SafeUrlPatternOptionsSpec = { $: {} };
 
 // Enum: Modifier
 blink.mojom.Modifier = {
@@ -16,104 +23,70 @@ blink.mojom.Modifier = {
   kOneOrMore: 2,
   kNone: 3,
 };
-blink.mojom.ModifierSpec = { $: mojo.internal.Enum() };
 
 // Union: PatternTemplate
-blink.mojom.PatternTemplateSpec = { $: mojo.internal.Union(
-    'blink.mojom.PatternTemplate', {
+mojo.internal.Union(
+    blink.mojom.PatternTemplateSpec, 'blink.mojom.PatternTemplate', {
       'fixed': {
         'ordinal': 0,
         'type': blink.mojom.FixedPatternSpec,
-      }},
+        'nullable': false,
+      },
       'full_wildcard': {
         'ordinal': 1,
         'type': blink.mojom.WildcardPatternSpec,
-      }},
+        'nullable': false,
+      },
       'segment_wildcard': {
         'ordinal': 2,
         'type': blink.mojom.WildcardPatternSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: SafeUrlPattern
-blink.mojom.SafeUrlPatternSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SafeUrlPattern',
-      packedSize: 80,
-      fields: [
-        { name: 'protocol', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SafeUrlPatternPartSpec, false), nullable: false, minVersion: 0 },
-        { name: 'username', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SafeUrlPatternPartSpec, false), nullable: false, minVersion: 0 },
-        { name: 'password', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SafeUrlPatternPartSpec, false), nullable: false, minVersion: 0 },
-        { name: 'hostname', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SafeUrlPatternPartSpec, false), nullable: false, minVersion: 0 },
-        { name: 'port', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SafeUrlPatternPartSpec, false), nullable: false, minVersion: 0 },
-        { name: 'pathname', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SafeUrlPatternPartSpec, false), nullable: false, minVersion: 0 },
-        { name: 'search', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SafeUrlPatternPartSpec, false), nullable: false, minVersion: 0 },
-        { name: 'hash', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SafeUrlPatternPartSpec, false), nullable: false, minVersion: 0 },
-        { name: 'options', packedOffset: 64, packedBitOffset: 0, type: blink.mojom.SafeUrlPatternOptionsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 80}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SafeUrlPatternSpec, 'blink.mojom.SafeUrlPattern', [
+      mojo.internal.StructField('protocol', 0, 0, mojo.internal.Array(blink.mojom.SafeUrlPatternPartSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('username', 8, 0, mojo.internal.Array(blink.mojom.SafeUrlPatternPartSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('password', 16, 0, mojo.internal.Array(blink.mojom.SafeUrlPatternPartSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('hostname', 24, 0, mojo.internal.Array(blink.mojom.SafeUrlPatternPartSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('port', 32, 0, mojo.internal.Array(blink.mojom.SafeUrlPatternPartSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('pathname', 40, 0, mojo.internal.Array(blink.mojom.SafeUrlPatternPartSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('search', 48, 0, mojo.internal.Array(blink.mojom.SafeUrlPatternPartSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('hash', 56, 0, mojo.internal.Array(blink.mojom.SafeUrlPatternPartSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('options', 64, 0, blink.mojom.SafeUrlPatternOptionsSpec, null, false, 0, undefined),
+    ],
+    [[0, 80]]);
 
 // Struct: FixedPattern
-blink.mojom.FixedPatternSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FixedPattern',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FixedPatternSpec, 'blink.mojom.FixedPattern', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: WildcardPattern
-blink.mojom.WildcardPatternSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WildcardPattern',
-      packedSize: 40,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'prefix', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'suffix', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WildcardPatternSpec, 'blink.mojom.WildcardPattern', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('prefix', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('value', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('suffix', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: SafeUrlPatternPart
-blink.mojom.SafeUrlPatternPartSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SafeUrlPatternPart',
-      packedSize: 32,
-      fields: [
-        { name: 'pattern', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PatternTemplateSpec, nullable: false, minVersion: 0 },
-        { name: 'modifier', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ModifierSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SafeUrlPatternPartSpec, 'blink.mojom.SafeUrlPatternPart', [
+      mojo.internal.StructField('pattern', 0, 0, blink.mojom.PatternTemplateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('modifier', 16, 0, blink.mojom.ModifierSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: SafeUrlPatternOptions
-blink.mojom.SafeUrlPatternOptionsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SafeUrlPatternOptions',
-      packedSize: 16,
-      fields: [
-        { name: 'ignore_case', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SafeUrlPatternOptionsSpec, 'blink.mojom.SafeUrlPatternOptions', [
+      mojo.internal.StructField('ignore_case', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);

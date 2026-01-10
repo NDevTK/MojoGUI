@@ -21,245 +21,156 @@ var gfx = gfx || {};
 var ui = ui || {};
 var gfx = gfx || {};
 var ui = ui || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 
+viz.mojom.DisplayPrivate = {};
+viz.mojom.DisplayPrivate.$interfaceName = 'viz.mojom.DisplayPrivate';
+viz.mojom.DisplayPrivate_SetDisplayVisible_ParamsSpec = { $: {} };
+viz.mojom.DisplayPrivate_DisableSwapUntilResize_ParamsSpec = { $: {} };
+viz.mojom.DisplayPrivate_DisableSwapUntilResize_ResponseParamsSpec = { $: {} };
+viz.mojom.DisplayPrivate_Resize_ParamsSpec = { $: {} };
+viz.mojom.DisplayPrivate_SetDisplayColorMatrix_ParamsSpec = { $: {} };
+viz.mojom.DisplayPrivate_SetDisplayColorSpaces_ParamsSpec = { $: {} };
+viz.mojom.DisplayPrivate_SetOutputIsSecure_ParamsSpec = { $: {} };
+viz.mojom.DisplayPrivate_SetVSyncDisplayID_ParamsSpec = { $: {} };
+viz.mojom.DisplayPrivate_SetDisplayVSyncParameters_ParamsSpec = { $: {} };
+viz.mojom.DisplayPrivate_ForceImmediateDrawAndSwapIfPossible_ParamsSpec = { $: {} };
+viz.mojom.DisplayPrivate_UpdateRefreshRate_ParamsSpec = { $: {} };
+viz.mojom.DisplayPrivate_SetAdaptiveRefreshRateInfo_ParamsSpec = { $: {} };
+viz.mojom.DisplayPrivate_SetSupportedRefreshRates_ParamsSpec = { $: {} };
+viz.mojom.DisplayPrivate_PreserveChildSurfaceControls_ParamsSpec = { $: {} };
+viz.mojom.DisplayPrivate_SetSwapCompletionCallbackEnabled_ParamsSpec = { $: {} };
+viz.mojom.DisplayPrivate_AddVSyncParameterObserver_ParamsSpec = { $: {} };
+viz.mojom.DisplayPrivate_SetDelegatedInkPointRenderer_ParamsSpec = { $: {} };
+viz.mojom.DisplayPrivate_SetStandaloneBeginFrameObserver_ParamsSpec = { $: {} };
+viz.mojom.DisplayPrivate_SetMaxVSyncAndVrr_ParamsSpec = { $: {} };
+viz.mojom.DisplayClient = {};
+viz.mojom.DisplayClient.$interfaceName = 'viz.mojom.DisplayClient';
+viz.mojom.DisplayClient_OnDisplayReceivedCALayerParams_ParamsSpec = { $: {} };
+viz.mojom.DisplayClient_CreateLayeredWindowUpdater_ParamsSpec = { $: {} };
+viz.mojom.DisplayClient_AddChildWindowToBrowser_ParamsSpec = { $: {} };
+viz.mojom.DisplayClient_DidCompleteSwapWithSize_ParamsSpec = { $: {} };
+viz.mojom.DisplayClient_DidCompleteSwapWithNewSize_ParamsSpec = { $: {} };
+viz.mojom.DisplayClient_OnContextCreationResult_ParamsSpec = { $: {} };
+viz.mojom.DisplayClient_SetWideColorEnabled_ParamsSpec = { $: {} };
+viz.mojom.DisplayClient_SetPreferredRefreshRate_ParamsSpec = { $: {} };
 
 // Interface: DisplayPrivate
-viz.mojom.DisplayPrivate = {};
+mojo.internal.Struct(
+    viz.mojom.DisplayPrivate_SetDisplayVisible_ParamsSpec, 'viz.mojom.DisplayPrivate_SetDisplayVisible_Params', [
+      mojo.internal.StructField('visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-viz.mojom.DisplayPrivate_SetDisplayVisible_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayPrivate_SetDisplayVisible_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.DisplayPrivate_DisableSwapUntilResize_ParamsSpec, 'viz.mojom.DisplayPrivate_DisableSwapUntilResize_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-viz.mojom.DisplayPrivate_DisableSwapUntilResize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayPrivate_DisableSwapUntilResize_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.DisplayPrivate_DisableSwapUntilResize_ResponseParamsSpec, 'viz.mojom.DisplayPrivate_DisableSwapUntilResize_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-viz.mojom.DisplayPrivate_Resize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayPrivate_Resize_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.DisplayPrivate_Resize_ParamsSpec, 'viz.mojom.DisplayPrivate_Resize_Params', [
+      mojo.internal.StructField('size', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-viz.mojom.DisplayPrivate_SetDisplayColorMatrix_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayPrivate_SetDisplayColorMatrix_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'color_matrix', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.DisplayPrivate_SetDisplayColorMatrix_ParamsSpec, 'viz.mojom.DisplayPrivate_SetDisplayColorMatrix_Params', [
+      mojo.internal.StructField('color_matrix', 0, 0, gfx.mojom.TransformSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-viz.mojom.DisplayPrivate_SetDisplayColorSpaces_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayPrivate_SetDisplayColorSpaces_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'display_color_spaces', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.DisplayColorSpacesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.DisplayPrivate_SetDisplayColorSpaces_ParamsSpec, 'viz.mojom.DisplayPrivate_SetDisplayColorSpaces_Params', [
+      mojo.internal.StructField('display_color_spaces', 0, 0, gfx.mojom.DisplayColorSpacesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-viz.mojom.DisplayPrivate_SetOutputIsSecure_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayPrivate_SetOutputIsSecure_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'secure', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.DisplayPrivate_SetOutputIsSecure_ParamsSpec, 'viz.mojom.DisplayPrivate_SetOutputIsSecure_Params', [
+      mojo.internal.StructField('secure', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-viz.mojom.DisplayPrivate_SetVSyncDisplayID_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayPrivate_SetVSyncDisplayID_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.DisplayPrivate_SetVSyncDisplayID_ParamsSpec, 'viz.mojom.DisplayPrivate_SetVSyncDisplayID_Params', [
+      mojo.internal.StructField('display_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-viz.mojom.DisplayPrivate_SetDisplayVSyncParameters_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayPrivate_SetDisplayVSyncParameters_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'timebase', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'interval', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.DisplayPrivate_SetDisplayVSyncParameters_ParamsSpec, 'viz.mojom.DisplayPrivate_SetDisplayVSyncParameters_Params', [
+      mojo.internal.StructField('timebase', 0, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('interval', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-viz.mojom.DisplayPrivate_ForceImmediateDrawAndSwapIfPossible_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayPrivate_ForceImmediateDrawAndSwapIfPossible_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.DisplayPrivate_ForceImmediateDrawAndSwapIfPossible_ParamsSpec, 'viz.mojom.DisplayPrivate_ForceImmediateDrawAndSwapIfPossible_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-viz.mojom.DisplayPrivate_UpdateRefreshRate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayPrivate_UpdateRefreshRate_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'refresh_rate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.DisplayPrivate_UpdateRefreshRate_ParamsSpec, 'viz.mojom.DisplayPrivate_UpdateRefreshRate_Params', [
+      mojo.internal.StructField('refresh_rate', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-viz.mojom.DisplayPrivate_SetAdaptiveRefreshRateInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayPrivate_SetAdaptiveRefreshRateInfo_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'has_support', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'suggested_high', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'device_scale_factor', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.DisplayPrivate_SetAdaptiveRefreshRateInfo_ParamsSpec, 'viz.mojom.DisplayPrivate_SetAdaptiveRefreshRateInfo_Params', [
+      mojo.internal.StructField('has_support', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('suggested_high', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('device_scale_factor', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-viz.mojom.DisplayPrivate_SetSupportedRefreshRates_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayPrivate_SetSupportedRefreshRates_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'refresh_rates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Float, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.DisplayPrivate_SetSupportedRefreshRates_ParamsSpec, 'viz.mojom.DisplayPrivate_SetSupportedRefreshRates_Params', [
+      mojo.internal.StructField('refresh_rates', 0, 0, mojo.internal.Array(mojo.internal.Float, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-viz.mojom.DisplayPrivate_PreserveChildSurfaceControls_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayPrivate_PreserveChildSurfaceControls_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.DisplayPrivate_PreserveChildSurfaceControls_ParamsSpec, 'viz.mojom.DisplayPrivate_PreserveChildSurfaceControls_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-viz.mojom.DisplayPrivate_SetSwapCompletionCallbackEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayPrivate_SetSwapCompletionCallbackEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.DisplayPrivate_SetSwapCompletionCallbackEnabled_ParamsSpec, 'viz.mojom.DisplayPrivate_SetSwapCompletionCallbackEnabled_Params', [
+      mojo.internal.StructField('enable', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-viz.mojom.DisplayPrivate_AddVSyncParameterObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayPrivate_AddVSyncParameterObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(viz.mojom.VSyncParameterObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.DisplayPrivate_AddVSyncParameterObserver_ParamsSpec, 'viz.mojom.DisplayPrivate_AddVSyncParameterObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(viz.mojom.VSyncParameterObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-viz.mojom.DisplayPrivate_SetDelegatedInkPointRenderer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayPrivate_SetDelegatedInkPointRenderer_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(gfx.mojom.DelegatedInkPointRendererRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.DisplayPrivate_SetDelegatedInkPointRenderer_ParamsSpec, 'viz.mojom.DisplayPrivate_SetDelegatedInkPointRenderer_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(gfx.mojom.DelegatedInkPointRendererRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-viz.mojom.DisplayPrivate_SetStandaloneBeginFrameObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayPrivate_SetStandaloneBeginFrameObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(viz.mojom.BeginFrameObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.DisplayPrivate_SetStandaloneBeginFrameObserver_ParamsSpec, 'viz.mojom.DisplayPrivate_SetStandaloneBeginFrameObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(viz.mojom.BeginFrameObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-viz.mojom.DisplayPrivate_SetMaxVSyncAndVrr_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayPrivate_SetMaxVSyncAndVrr_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'max_vsync_interval', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true, minVersion: 0 },
-        { name: 'vrr_state', packedOffset: 8, packedBitOffset: 0, type: display.mojom.VariableRefreshRateStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.DisplayPrivate_SetMaxVSyncAndVrr_ParamsSpec, 'viz.mojom.DisplayPrivate_SetMaxVSyncAndVrr_Params', [
+      mojo.internal.StructField('max_vsync_interval', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('vrr_state', 8, 0, display.mojom.VariableRefreshRateStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 viz.mojom.DisplayPrivatePendingReceiver = class {
   constructor(handle) {
@@ -307,7 +218,7 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       viz.mojom.DisplayPrivate_DisableSwapUntilResize_ParamsSpec,
-      null,
+      viz.mojom.DisplayPrivate_DisableSwapUntilResize_ResponseParamsSpec,
       []);
   }
 
@@ -467,370 +378,58 @@ viz.mojom.DisplayPrivate.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetDisplayVisible
-viz.mojom.DisplayPrivate_SetDisplayVisible_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayPrivate.SetDisplayVisible_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DisableSwapUntilResize
-viz.mojom.DisplayPrivate_DisableSwapUntilResize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayPrivate.DisableSwapUntilResize_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for Resize
-viz.mojom.DisplayPrivate_Resize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayPrivate.Resize_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetDisplayColorMatrix
-viz.mojom.DisplayPrivate_SetDisplayColorMatrix_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayPrivate.SetDisplayColorMatrix_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'color_matrix', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetDisplayColorSpaces
-viz.mojom.DisplayPrivate_SetDisplayColorSpaces_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayPrivate.SetDisplayColorSpaces_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'display_color_spaces', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.DisplayColorSpacesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetOutputIsSecure
-viz.mojom.DisplayPrivate_SetOutputIsSecure_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayPrivate.SetOutputIsSecure_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'secure', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetVSyncDisplayID
-viz.mojom.DisplayPrivate_SetVSyncDisplayID_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayPrivate.SetVSyncDisplayID_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetDisplayVSyncParameters
-viz.mojom.DisplayPrivate_SetDisplayVSyncParameters_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayPrivate.SetDisplayVSyncParameters_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'timebase', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'interval', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ForceImmediateDrawAndSwapIfPossible
-viz.mojom.DisplayPrivate_ForceImmediateDrawAndSwapIfPossible_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayPrivate.ForceImmediateDrawAndSwapIfPossible_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateRefreshRate
-viz.mojom.DisplayPrivate_UpdateRefreshRate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayPrivate.UpdateRefreshRate_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'refresh_rate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetAdaptiveRefreshRateInfo
-viz.mojom.DisplayPrivate_SetAdaptiveRefreshRateInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayPrivate.SetAdaptiveRefreshRateInfo_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'has_support', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'suggested_high', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'device_scale_factor', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SetSupportedRefreshRates
-viz.mojom.DisplayPrivate_SetSupportedRefreshRates_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayPrivate.SetSupportedRefreshRates_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'refresh_rates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Float, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for PreserveChildSurfaceControls
-viz.mojom.DisplayPrivate_PreserveChildSurfaceControls_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayPrivate.PreserveChildSurfaceControls_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetSwapCompletionCallbackEnabled
-viz.mojom.DisplayPrivate_SetSwapCompletionCallbackEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayPrivate.SetSwapCompletionCallbackEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AddVSyncParameterObserver
-viz.mojom.DisplayPrivate_AddVSyncParameterObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayPrivate.AddVSyncParameterObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(viz.mojom.VSyncParameterObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetDelegatedInkPointRenderer
-viz.mojom.DisplayPrivate_SetDelegatedInkPointRenderer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayPrivate.SetDelegatedInkPointRenderer_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(gfx.mojom.DelegatedInkPointRendererRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetStandaloneBeginFrameObserver
-viz.mojom.DisplayPrivate_SetStandaloneBeginFrameObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayPrivate.SetStandaloneBeginFrameObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(viz.mojom.BeginFrameObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetMaxVSyncAndVrr
-viz.mojom.DisplayPrivate_SetMaxVSyncAndVrr_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayPrivate.SetMaxVSyncAndVrr_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'max_vsync_interval', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true, minVersion: 0 },
-        { name: 'vrr_state', packedOffset: 8, packedBitOffset: 0, type: display.mojom.VariableRefreshRateStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 viz.mojom.DisplayPrivatePtr = viz.mojom.DisplayPrivateRemote;
 viz.mojom.DisplayPrivateRequest = viz.mojom.DisplayPrivatePendingReceiver;
 
 
 // Interface: DisplayClient
-viz.mojom.DisplayClient = {};
+mojo.internal.Struct(
+    viz.mojom.DisplayClient_OnDisplayReceivedCALayerParams_ParamsSpec, 'viz.mojom.DisplayClient_OnDisplayReceivedCALayerParams_Params', [
+      mojo.internal.StructField('ca_layer_params', 0, 0, gfx.mojom.CALayerParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-viz.mojom.DisplayClient_OnDisplayReceivedCALayerParams_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayClient_OnDisplayReceivedCALayerParams_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'ca_layer_params', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.CALayerParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.DisplayClient_CreateLayeredWindowUpdater_ParamsSpec, 'viz.mojom.DisplayClient_CreateLayeredWindowUpdater_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(viz.mojom.LayeredWindowUpdaterRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-viz.mojom.DisplayClient_CreateLayeredWindowUpdater_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayClient_CreateLayeredWindowUpdater_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(viz.mojom.LayeredWindowUpdaterRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.DisplayClient_AddChildWindowToBrowser_ParamsSpec, 'viz.mojom.DisplayClient_AddChildWindowToBrowser_Params', [
+      mojo.internal.StructField('child_window', 0, 0, gpu.mojom.SurfaceHandleSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-viz.mojom.DisplayClient_AddChildWindowToBrowser_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayClient_AddChildWindowToBrowser_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'child_window', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.SurfaceHandleSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.DisplayClient_DidCompleteSwapWithSize_ParamsSpec, 'viz.mojom.DisplayClient_DidCompleteSwapWithSize_Params', [
+      mojo.internal.StructField('size', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-viz.mojom.DisplayClient_DidCompleteSwapWithSize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayClient_DidCompleteSwapWithSize_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.DisplayClient_DidCompleteSwapWithNewSize_ParamsSpec, 'viz.mojom.DisplayClient_DidCompleteSwapWithNewSize_Params', [
+      mojo.internal.StructField('size', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-viz.mojom.DisplayClient_DidCompleteSwapWithNewSize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayClient_DidCompleteSwapWithNewSize_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.DisplayClient_OnContextCreationResult_ParamsSpec, 'viz.mojom.DisplayClient_OnContextCreationResult_Params', [
+      mojo.internal.StructField('result', 0, 0, gpu.mojom.ContextResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-viz.mojom.DisplayClient_OnContextCreationResult_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayClient_OnContextCreationResult_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.ContextResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.DisplayClient_SetWideColorEnabled_ParamsSpec, 'viz.mojom.DisplayClient_SetWideColorEnabled_Params', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-viz.mojom.DisplayClient_SetWideColorEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayClient_SetWideColorEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-viz.mojom.DisplayClient_SetPreferredRefreshRate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayClient_SetPreferredRefreshRate_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'refresh_rate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.DisplayClient_SetPreferredRefreshRate_ParamsSpec, 'viz.mojom.DisplayClient_SetPreferredRefreshRate_Params', [
+      mojo.internal.StructField('refresh_rate', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 viz.mojom.DisplayClientPendingReceiver = class {
   constructor(handle) {
@@ -948,119 +547,6 @@ viz.mojom.DisplayClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnDisplayReceivedCALayerParams
-viz.mojom.DisplayClient_OnDisplayReceivedCALayerParams_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayClient.OnDisplayReceivedCALayerParams_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'ca_layer_params', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.CALayerParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CreateLayeredWindowUpdater
-viz.mojom.DisplayClient_CreateLayeredWindowUpdater_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayClient.CreateLayeredWindowUpdater_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(viz.mojom.LayeredWindowUpdaterRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AddChildWindowToBrowser
-viz.mojom.DisplayClient_AddChildWindowToBrowser_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayClient.AddChildWindowToBrowser_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'child_window', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.SurfaceHandleSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DidCompleteSwapWithSize
-viz.mojom.DisplayClient_DidCompleteSwapWithSize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayClient.DidCompleteSwapWithSize_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DidCompleteSwapWithNewSize
-viz.mojom.DisplayClient_DidCompleteSwapWithNewSize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayClient.DidCompleteSwapWithNewSize_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnContextCreationResult
-viz.mojom.DisplayClient_OnContextCreationResult_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayClient.OnContextCreationResult_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.ContextResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetWideColorEnabled
-viz.mojom.DisplayClient_SetWideColorEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayClient.SetWideColorEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetPreferredRefreshRate
-viz.mojom.DisplayClient_SetPreferredRefreshRate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.DisplayClient.SetPreferredRefreshRate_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'refresh_rate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 viz.mojom.DisplayClientPtr = viz.mojom.DisplayClientRemote;
 viz.mojom.DisplayClientRequest = viz.mojom.DisplayClientPendingReceiver;
 

@@ -9,21 +9,22 @@ var wallet = wallet || {};
 wallet.mojom = wallet.mojom || {};
 var skia = skia || {};
 
+wallet.mojom.ImageExtractor = {};
+wallet.mojom.ImageExtractor.$interfaceName = 'wallet.mojom.ImageExtractor';
+wallet.mojom.ImageExtractor_ExtractImages_ParamsSpec = { $: {} };
+wallet.mojom.ImageExtractor_ExtractImages_ResponseParamsSpec = { $: {} };
 
 // Interface: ImageExtractor
-wallet.mojom.ImageExtractor = {};
+mojo.internal.Struct(
+    wallet.mojom.ImageExtractor_ExtractImages_ParamsSpec, 'wallet.mojom.ImageExtractor_ExtractImages_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-wallet.mojom.ImageExtractor_ExtractImages_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'wallet.mojom.ImageExtractor_ExtractImages_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    wallet.mojom.ImageExtractor_ExtractImages_ResponseParamsSpec, 'wallet.mojom.ImageExtractor_ExtractImages_ResponseParams', [
+      mojo.internal.StructField('images', 0, 0, mojo.internal.Array(skia.mojom.BitmapWithArbitraryBppSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 wallet.mojom.ImageExtractorPendingReceiver = class {
   constructor(handle) {
@@ -78,33 +79,6 @@ wallet.mojom.ImageExtractor.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ExtractImages
-wallet.mojom.ImageExtractor_ExtractImages_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'wallet.mojom.ImageExtractor.ExtractImages_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-wallet.mojom.ImageExtractor_ExtractImages_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'wallet.mojom.ImageExtractor.ExtractImages_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'images', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(skia.mojom.BitmapWithArbitraryBppSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 wallet.mojom.ImageExtractorPtr = wallet.mojom.ImageExtractorRemote;
 wallet.mojom.ImageExtractorRequest = wallet.mojom.ImageExtractorPendingReceiver;
 

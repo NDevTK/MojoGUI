@@ -8,48 +8,30 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.ServiceWorkerStreamHandleSpec = { $: {} };
+blink.mojom.ServiceWorkerStreamCallback = {};
+blink.mojom.ServiceWorkerStreamCallback.$interfaceName = 'blink.mojom.ServiceWorkerStreamCallback';
+blink.mojom.ServiceWorkerStreamCallback_OnCompleted_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorkerStreamCallback_OnAborted_ParamsSpec = { $: {} };
 
 // Struct: ServiceWorkerStreamHandle
-blink.mojom.ServiceWorkerStreamHandleSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerStreamHandle',
-      packedSize: 24,
-      fields: [
-        { name: 'stream', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'callback_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.ServiceWorkerStreamCallbackRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerStreamHandleSpec, 'blink.mojom.ServiceWorkerStreamHandle', [
+      mojo.internal.StructField('stream', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('callback_receiver', 8, 0, mojo.internal.InterfaceRequest(blink.mojom.ServiceWorkerStreamCallbackRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: ServiceWorkerStreamCallback
-blink.mojom.ServiceWorkerStreamCallback = {};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerStreamCallback_OnCompleted_ParamsSpec, 'blink.mojom.ServiceWorkerStreamCallback_OnCompleted_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.ServiceWorkerStreamCallback_OnCompleted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerStreamCallback_OnCompleted_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.ServiceWorkerStreamCallback_OnAborted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerStreamCallback_OnAborted_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerStreamCallback_OnAborted_ParamsSpec, 'blink.mojom.ServiceWorkerStreamCallback_OnAborted_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 blink.mojom.ServiceWorkerStreamCallbackPendingReceiver = class {
   constructor(handle) {
@@ -113,33 +95,6 @@ blink.mojom.ServiceWorkerStreamCallback.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnCompleted
-blink.mojom.ServiceWorkerStreamCallback_OnCompleted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerStreamCallback.OnCompleted_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnAborted
-blink.mojom.ServiceWorkerStreamCallback_OnAborted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerStreamCallback.OnAborted_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.ServiceWorkerStreamCallbackPtr = blink.mojom.ServiceWorkerStreamCallbackRemote;
 blink.mojom.ServiceWorkerStreamCallbackRequest = blink.mojom.ServiceWorkerStreamCallbackPendingReceiver;
 

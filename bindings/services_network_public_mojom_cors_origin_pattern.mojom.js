@@ -9,13 +9,17 @@ var network = network || {};
 network.mojom = network.mojom || {};
 var url = url || {};
 
+network.mojom.CorsPortMatchModeSpec = { $: mojo.internal.Enum() };
+network.mojom.CorsDomainMatchModeSpec = { $: mojo.internal.Enum() };
+network.mojom.CorsOriginAccessMatchPrioritySpec = { $: mojo.internal.Enum() };
+network.mojom.CorsOriginPatternSpec = { $: {} };
+network.mojom.CorsOriginAccessPatternsSpec = { $: {} };
 
 // Enum: CorsPortMatchMode
 network.mojom.CorsPortMatchMode = {
   kAllowAnyPort: 0,
   kAllowOnlySpecifiedPort: 1,
 };
-network.mojom.CorsPortMatchModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CorsDomainMatchMode
 network.mojom.CorsDomainMatchMode = {
@@ -23,7 +27,6 @@ network.mojom.CorsDomainMatchMode = {
   kAllowRegistrableDomains: 1,
   kDisallowSubdomains: 2,
 };
-network.mojom.CorsDomainMatchModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CorsOriginAccessMatchPriority
 network.mojom.CorsOriginAccessMatchPriority = {
@@ -34,39 +37,24 @@ network.mojom.CorsOriginAccessMatchPriority = {
   kHighPriority: 4,
   kMaxPriority: 5,
 };
-network.mojom.CorsOriginAccessMatchPrioritySpec = { $: mojo.internal.Enum() };
 
 // Struct: CorsOriginPattern
-network.mojom.CorsOriginPatternSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.CorsOriginPattern',
-      packedSize: 40,
-      fields: [
-        { name: 'protocol', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'domain', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'port', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'domain_match_mode', packedOffset: 16, packedBitOffset: 0, type: network.mojom.CorsDomainMatchModeSpec, nullable: false, minVersion: 0 },
-        { name: 'port_match_mode', packedOffset: 20, packedBitOffset: 0, type: network.mojom.CorsPortMatchModeSpec, nullable: false, minVersion: 0 },
-        { name: 'priority', packedOffset: 24, packedBitOffset: 0, type: network.mojom.CorsOriginAccessMatchPrioritySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.CorsOriginPatternSpec, 'network.mojom.CorsOriginPattern', [
+      mojo.internal.StructField('protocol', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('domain', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('port', 28, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('domain_match_mode', 16, 0, network.mojom.CorsDomainMatchModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('port_match_mode', 20, 0, network.mojom.CorsPortMatchModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('priority', 24, 0, network.mojom.CorsOriginAccessMatchPrioritySpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: CorsOriginAccessPatterns
-network.mojom.CorsOriginAccessPatternsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.CorsOriginAccessPatterns',
-      packedSize: 32,
-      fields: [
-        { name: 'source_origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-        { name: 'allow_patterns', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.CorsOriginPatternSpec, false), nullable: false, minVersion: 0 },
-        { name: 'block_patterns', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.CorsOriginPatternSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.CorsOriginAccessPatternsSpec, 'network.mojom.CorsOriginAccessPatterns', [
+      mojo.internal.StructField('source_origin', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('allow_patterns', 8, 0, mojo.internal.Array(network.mojom.CorsOriginPatternSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('block_patterns', 16, 0, mojo.internal.Array(network.mojom.CorsOriginPatternSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);

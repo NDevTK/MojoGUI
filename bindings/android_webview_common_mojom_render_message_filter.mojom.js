@@ -9,23 +9,17 @@ var android_webview = android_webview || {};
 android_webview.mojom = android_webview.mojom || {};
 var blink = blink || {};
 
+android_webview.mojom.RenderMessageFilter = {};
+android_webview.mojom.RenderMessageFilter.$interfaceName = 'android_webview.mojom.RenderMessageFilter';
+android_webview.mojom.RenderMessageFilter_SubFrameCreated_ParamsSpec = { $: {} };
 
 // Interface: RenderMessageFilter
-android_webview.mojom.RenderMessageFilter = {};
-
-android_webview.mojom.RenderMessageFilter_SubFrameCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'android_webview.mojom.RenderMessageFilter_SubFrameCreated_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'parent_frame_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'child_frame_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    android_webview.mojom.RenderMessageFilter_SubFrameCreated_ParamsSpec, 'android_webview.mojom.RenderMessageFilter_SubFrameCreated_Params', [
+      mojo.internal.StructField('parent_frame_token', 0, 0, blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('child_frame_token', 8, 0, blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 android_webview.mojom.RenderMessageFilterPendingReceiver = class {
   constructor(handle) {
@@ -80,22 +74,6 @@ android_webview.mojom.RenderMessageFilter.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SubFrameCreated
-android_webview.mojom.RenderMessageFilter_SubFrameCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'android_webview.mojom.RenderMessageFilter.SubFrameCreated_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'parent_frame_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'child_frame_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 android_webview.mojom.RenderMessageFilterPtr = android_webview.mojom.RenderMessageFilterRemote;
 android_webview.mojom.RenderMessageFilterRequest = android_webview.mojom.RenderMessageFilterPendingReceiver;
 

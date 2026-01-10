@@ -8,31 +8,39 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.AppBannerPromptReplySpec = { $: mojo.internal.Enum() };
+blink.mojom.AppBannerController = {};
+blink.mojom.AppBannerController.$interfaceName = 'blink.mojom.AppBannerController';
+blink.mojom.AppBannerController_BannerPromptRequest_ParamsSpec = { $: {} };
+blink.mojom.AppBannerController_BannerPromptRequest_ResponseParamsSpec = { $: {} };
+blink.mojom.AppBannerEvent = {};
+blink.mojom.AppBannerEvent.$interfaceName = 'blink.mojom.AppBannerEvent';
+blink.mojom.AppBannerEvent_BannerAccepted_ParamsSpec = { $: {} };
+blink.mojom.AppBannerEvent_BannerDismissed_ParamsSpec = { $: {} };
+blink.mojom.AppBannerService = {};
+blink.mojom.AppBannerService.$interfaceName = 'blink.mojom.AppBannerService';
+blink.mojom.AppBannerService_DisplayAppBanner_ParamsSpec = { $: {} };
 
 // Enum: AppBannerPromptReply
 blink.mojom.AppBannerPromptReply = {
   NONE: 0,
   CANCEL: 1,
 };
-blink.mojom.AppBannerPromptReplySpec = { $: mojo.internal.Enum() };
 
 // Interface: AppBannerController
-blink.mojom.AppBannerController = {};
+mojo.internal.Struct(
+    blink.mojom.AppBannerController_BannerPromptRequest_ParamsSpec, 'blink.mojom.AppBannerController_BannerPromptRequest_Params', [
+      mojo.internal.StructField('service', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.AppBannerServiceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('event_receiver', 8, 0, mojo.internal.InterfaceRequest(blink.mojom.AppBannerEventRemote), null, false, 0, undefined),
+      mojo.internal.StructField('platform', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-blink.mojom.AppBannerController_BannerPromptRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AppBannerController_BannerPromptRequest_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.AppBannerServiceRemote), nullable: false, minVersion: 0 },
-        { name: 'event_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.AppBannerEventRemote), nullable: false, minVersion: 0 },
-        { name: 'platform', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.AppBannerController_BannerPromptRequest_ResponseParamsSpec, 'blink.mojom.AppBannerController_BannerPromptRequest_ResponseParams', [
+      mojo.internal.StructField('reply', 0, 0, blink.mojom.AppBannerPromptReplySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.AppBannerControllerPendingReceiver = class {
   constructor(handle) {
@@ -87,67 +95,21 @@ blink.mojom.AppBannerController.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for BannerPromptRequest
-blink.mojom.AppBannerController_BannerPromptRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AppBannerController.BannerPromptRequest_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.AppBannerServiceRemote), nullable: false, minVersion: 0 },
-        { name: 'event_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.AppBannerEventRemote), nullable: false, minVersion: 0 },
-        { name: 'platform', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-blink.mojom.AppBannerController_BannerPromptRequest_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AppBannerController.BannerPromptRequest_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'reply', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AppBannerPromptReplySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.AppBannerControllerPtr = blink.mojom.AppBannerControllerRemote;
 blink.mojom.AppBannerControllerRequest = blink.mojom.AppBannerControllerPendingReceiver;
 
 
 // Interface: AppBannerEvent
-blink.mojom.AppBannerEvent = {};
+mojo.internal.Struct(
+    blink.mojom.AppBannerEvent_BannerAccepted_ParamsSpec, 'blink.mojom.AppBannerEvent_BannerAccepted_Params', [
+      mojo.internal.StructField('platform', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.AppBannerEvent_BannerAccepted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AppBannerEvent_BannerAccepted_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'platform', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.AppBannerEvent_BannerDismissed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AppBannerEvent_BannerDismissed_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.AppBannerEvent_BannerDismissed_ParamsSpec, 'blink.mojom.AppBannerEvent_BannerDismissed_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 blink.mojom.AppBannerEventPendingReceiver = class {
   constructor(handle) {
@@ -211,52 +173,15 @@ blink.mojom.AppBannerEvent.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for BannerAccepted
-blink.mojom.AppBannerEvent_BannerAccepted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AppBannerEvent.BannerAccepted_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'platform', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BannerDismissed
-blink.mojom.AppBannerEvent_BannerDismissed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AppBannerEvent.BannerDismissed_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.AppBannerEventPtr = blink.mojom.AppBannerEventRemote;
 blink.mojom.AppBannerEventRequest = blink.mojom.AppBannerEventPendingReceiver;
 
 
 // Interface: AppBannerService
-blink.mojom.AppBannerService = {};
-
-blink.mojom.AppBannerService_DisplayAppBanner_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AppBannerService_DisplayAppBanner_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.AppBannerService_DisplayAppBanner_ParamsSpec, 'blink.mojom.AppBannerService_DisplayAppBanner_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 blink.mojom.AppBannerServicePendingReceiver = class {
   constructor(handle) {
@@ -311,20 +236,6 @@ blink.mojom.AppBannerService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for DisplayAppBanner
-blink.mojom.AppBannerService_DisplayAppBanner_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AppBannerService.DisplayAppBanner_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.AppBannerServicePtr = blink.mojom.AppBannerServiceRemote;
 blink.mojom.AppBannerServiceRequest = blink.mojom.AppBannerServicePendingReceiver;
 

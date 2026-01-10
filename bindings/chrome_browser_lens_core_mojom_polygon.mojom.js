@@ -8,6 +8,10 @@
 var lens = lens || {};
 lens.mojom = lens.mojom || {};
 
+lens.mojom.VertexOrderingSpec = { $: mojo.internal.Enum() };
+lens.mojom.CoordinateTypeSpec = { $: mojo.internal.Enum() };
+lens.mojom.PolygonSpec = { $: {} };
+lens.mojom.VertexSpec = { $: {} };
 
 // Enum: VertexOrdering
 lens.mojom.VertexOrdering = {
@@ -15,7 +19,6 @@ lens.mojom.VertexOrdering = {
   kClockwise: 1,
   kCounterClockwise: 2,
 };
-lens.mojom.VertexOrderingSpec = { $: mojo.internal.Enum() };
 
 // Enum: CoordinateType
 lens.mojom.CoordinateType = {
@@ -23,34 +26,19 @@ lens.mojom.CoordinateType = {
   kNormalized: 1,
   kImage: 2,
 };
-lens.mojom.CoordinateTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: Polygon
-lens.mojom.PolygonSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.Polygon',
-      packedSize: 24,
-      fields: [
-        { name: 'vertex', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(lens.mojom.VertexSpec, false), nullable: false, minVersion: 0 },
-        { name: 'kUnspecified', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.PolygonSpec, 'lens.mojom.Polygon', [
+      mojo.internal.StructField('vertex', 0, 0, mojo.internal.Array(lens.mojom.VertexSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('kUnspecified', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: Vertex
-lens.mojom.VertexSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.Vertex',
-      packedSize: 16,
-      fields: [
-        { name: 'x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'y', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.VertexSpec, 'lens.mojom.Vertex', [
+      mojo.internal.StructField('x', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('y', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);

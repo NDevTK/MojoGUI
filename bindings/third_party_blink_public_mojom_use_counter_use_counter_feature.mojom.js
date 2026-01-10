@@ -8,6 +8,8 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.UseCounterFeatureTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.UseCounterFeatureSpec = { $: {} };
 
 // Enum: UseCounterFeatureType
 blink.mojom.UseCounterFeatureType = {
@@ -20,19 +22,11 @@ blink.mojom.UseCounterFeatureType = {
   kWebDXFeature: 6,
   kPermissionsPolicyEnabledPrivacySensitive: 7,
 };
-blink.mojom.UseCounterFeatureTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: UseCounterFeature
-blink.mojom.UseCounterFeatureSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.UseCounterFeature',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.UseCounterFeatureTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.UseCounterFeatureSpec, 'blink.mojom.UseCounterFeature', [
+      mojo.internal.StructField('type', 0, 0, blink.mojom.UseCounterFeatureTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('value', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);

@@ -8,85 +8,74 @@
 var crosapi = crosapi || {};
 crosapi.mojom = crosapi.mojom || {};
 
+crosapi.mojom.ReasonSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.TelemetryExtensionSupportStatusSpec = { $: {} };
+crosapi.mojom.TelemetryExtensionUnsupportedReasonSpec = { $: {} };
+crosapi.mojom.TelemetryExtensionExceptionSpec = { $: {} };
+crosapi.mojom.TelemetryExtensionSupportedSpec = { $: {} };
+crosapi.mojom.TelemetryExtensionUnsupportedSpec = { $: {} };
 
 // Enum: Reason
 crosapi.mojom.Reason = {
+  kUnmappedEnumField: 1,
   kMojoDisconnectWithoutReason: 0,
-  kUnexpected: 1,
-  kUnsupported: 2,
+  kUnexpected: 2,
+  kUnsupported: 3,
+  MinVersion: 3,
 };
-crosapi.mojom.ReasonSpec = { $: mojo.internal.Enum() };
 
 // Union: TelemetryExtensionSupportStatus
-crosapi.mojom.TelemetryExtensionSupportStatusSpec = { $: mojo.internal.Union(
-    'crosapi.mojom.TelemetryExtensionSupportStatus', {
+mojo.internal.Union(
+    crosapi.mojom.TelemetryExtensionSupportStatusSpec, 'crosapi.mojom.TelemetryExtensionSupportStatus', {
       'unmapped_union_field': {
         'ordinal': 0,
         'type': mojo.internal.Int8,
-      }},
+        'nullable': false,
+      },
       'exception': {
         'ordinal': 1,
         'type': crosapi.mojom.TelemetryExtensionExceptionSpec,
-      }},
+        'nullable': false,
+      },
       'supported': {
         'ordinal': 2,
         'type': crosapi.mojom.TelemetryExtensionSupportedSpec,
-      }},
+        'nullable': false,
+      },
       'unsupported': {
         'ordinal': 3,
         'type': crosapi.mojom.TelemetryExtensionUnsupportedSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Union: TelemetryExtensionUnsupportedReason
-crosapi.mojom.TelemetryExtensionUnsupportedReasonSpec = { $: mojo.internal.Union(
-    'crosapi.mojom.TelemetryExtensionUnsupportedReason', {
+mojo.internal.Union(
+    crosapi.mojom.TelemetryExtensionUnsupportedReasonSpec, 'crosapi.mojom.TelemetryExtensionUnsupportedReason', {
       'unmapped_union_field': {
         'ordinal': 0,
         'type': mojo.internal.Int8,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: TelemetryExtensionException
-crosapi.mojom.TelemetryExtensionExceptionSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.TelemetryExtensionException',
-      packedSize: 16,
-      fields: [
-        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.TelemetryExtensionExceptionSpec, 'crosapi.mojom.TelemetryExtensionException', [
+      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: TelemetryExtensionSupported
-crosapi.mojom.TelemetryExtensionSupportedSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.TelemetryExtensionSupported',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.TelemetryExtensionSupportedSpec, 'crosapi.mojom.TelemetryExtensionSupported', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 // Struct: TelemetryExtensionUnsupported
-crosapi.mojom.TelemetryExtensionUnsupportedSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.TelemetryExtensionUnsupported',
-      packedSize: 32,
-      fields: [
-        { name: 'debug_message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.TelemetryExtensionUnsupportedReasonSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.TelemetryExtensionUnsupportedSpec, 'crosapi.mojom.TelemetryExtensionUnsupported', [
+      mojo.internal.StructField('debug_message', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 0, 0, crosapi.mojom.TelemetryExtensionUnsupportedReasonSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);

@@ -7,7 +7,21 @@
 // Module namespace
 var service_manager = service_manager || {};
 service_manager.mojom = service_manager.mojom || {};
+var services = services || {};
 
+service_manager.mojom.InstanceStateSpec = { $: mojo.internal.Enum() };
+service_manager.mojom.RunningServiceInfoSpec = { $: {} };
+service_manager.mojom.ServiceManagerListener = {};
+service_manager.mojom.ServiceManagerListener.$interfaceName = 'service_manager.mojom.ServiceManagerListener';
+service_manager.mojom.ServiceManagerListener_OnInit_ParamsSpec = { $: {} };
+service_manager.mojom.ServiceManagerListener_OnServiceCreated_ParamsSpec = { $: {} };
+service_manager.mojom.ServiceManagerListener_OnServiceStarted_ParamsSpec = { $: {} };
+service_manager.mojom.ServiceManagerListener_OnServicePIDReceived_ParamsSpec = { $: {} };
+service_manager.mojom.ServiceManagerListener_OnServiceFailedToStart_ParamsSpec = { $: {} };
+service_manager.mojom.ServiceManagerListener_OnServiceStopped_ParamsSpec = { $: {} };
+service_manager.mojom.ServiceManager = {};
+service_manager.mojom.ServiceManager.$interfaceName = 'service_manager.mojom.ServiceManager';
+service_manager.mojom.ServiceManager_AddListener_ParamsSpec = { $: {} };
 
 // Enum: InstanceState
 service_manager.mojom.InstanceState = {
@@ -15,106 +29,54 @@ service_manager.mojom.InstanceState = {
   kStarted: 1,
   kUnreachable: 2,
 };
-service_manager.mojom.InstanceStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: RunningServiceInfo
-service_manager.mojom.RunningServiceInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.RunningServiceInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: false, minVersion: 0 },
-        { name: 'pid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'state', packedOffset: 12, packedBitOffset: 0, type: service_manager.mojom.InstanceStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    service_manager.mojom.RunningServiceInfoSpec, 'service_manager.mojom.RunningServiceInfo', [
+      mojo.internal.StructField('identity', 0, 0, service_manager.mojom.IdentitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('pid', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('state', 12, 0, service_manager.mojom.InstanceStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: ServiceManagerListener
-service_manager.mojom.ServiceManagerListener = {};
+mojo.internal.Struct(
+    service_manager.mojom.ServiceManagerListener_OnInit_ParamsSpec, 'service_manager.mojom.ServiceManagerListener_OnInit_Params', [
+      mojo.internal.StructField('running_services', 0, 0, mojo.internal.Array(service_manager.mojom.RunningServiceInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-service_manager.mojom.ServiceManagerListener_OnInit_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.ServiceManagerListener_OnInit_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'running_services', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(service_manager.mojom.RunningServiceInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    service_manager.mojom.ServiceManagerListener_OnServiceCreated_ParamsSpec, 'service_manager.mojom.ServiceManagerListener_OnServiceCreated_Params', [
+      mojo.internal.StructField('service', 0, 0, service_manager.mojom.RunningServiceInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-service_manager.mojom.ServiceManagerListener_OnServiceCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.ServiceManagerListener_OnServiceCreated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'service', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.RunningServiceInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    service_manager.mojom.ServiceManagerListener_OnServiceStarted_ParamsSpec, 'service_manager.mojom.ServiceManagerListener_OnServiceStarted_Params', [
+      mojo.internal.StructField('identity', 0, 0, service_manager.mojom.IdentitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('pid_deprecated', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-service_manager.mojom.ServiceManagerListener_OnServiceStarted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.ServiceManagerListener_OnServiceStarted_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: false, minVersion: 0 },
-        { name: 'pid_deprecated', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    service_manager.mojom.ServiceManagerListener_OnServicePIDReceived_ParamsSpec, 'service_manager.mojom.ServiceManagerListener_OnServicePIDReceived_Params', [
+      mojo.internal.StructField('identity', 0, 0, service_manager.mojom.IdentitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('pid', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-service_manager.mojom.ServiceManagerListener_OnServicePIDReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.ServiceManagerListener_OnServicePIDReceived_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: false, minVersion: 0 },
-        { name: 'pid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    service_manager.mojom.ServiceManagerListener_OnServiceFailedToStart_ParamsSpec, 'service_manager.mojom.ServiceManagerListener_OnServiceFailedToStart_Params', [
+      mojo.internal.StructField('identity', 0, 0, service_manager.mojom.IdentitySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-service_manager.mojom.ServiceManagerListener_OnServiceFailedToStart_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.ServiceManagerListener_OnServiceFailedToStart_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-service_manager.mojom.ServiceManagerListener_OnServiceStopped_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.ServiceManagerListener_OnServiceStopped_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    service_manager.mojom.ServiceManagerListener_OnServiceStopped_ParamsSpec, 'service_manager.mojom.ServiceManagerListener_OnServiceStopped_Params', [
+      mojo.internal.StructField('identity', 0, 0, service_manager.mojom.IdentitySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 service_manager.mojom.ServiceManagerListenerPendingReceiver = class {
   constructor(handle) {
@@ -214,112 +176,16 @@ service_manager.mojom.ServiceManagerListener.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnInit
-service_manager.mojom.ServiceManagerListener_OnInit_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.ServiceManagerListener.OnInit_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'running_services', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(service_manager.mojom.RunningServiceInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnServiceCreated
-service_manager.mojom.ServiceManagerListener_OnServiceCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.ServiceManagerListener.OnServiceCreated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'service', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.RunningServiceInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnServiceStarted
-service_manager.mojom.ServiceManagerListener_OnServiceStarted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.ServiceManagerListener.OnServiceStarted_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: false, minVersion: 0 },
-        { name: 'pid_deprecated', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnServicePIDReceived
-service_manager.mojom.ServiceManagerListener_OnServicePIDReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.ServiceManagerListener.OnServicePIDReceived_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: false, minVersion: 0 },
-        { name: 'pid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnServiceFailedToStart
-service_manager.mojom.ServiceManagerListener_OnServiceFailedToStart_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.ServiceManagerListener.OnServiceFailedToStart_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnServiceStopped
-service_manager.mojom.ServiceManagerListener_OnServiceStopped_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.ServiceManagerListener.OnServiceStopped_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 service_manager.mojom.ServiceManagerListenerPtr = service_manager.mojom.ServiceManagerListenerRemote;
 service_manager.mojom.ServiceManagerListenerRequest = service_manager.mojom.ServiceManagerListenerPendingReceiver;
 
 
 // Interface: ServiceManager
-service_manager.mojom.ServiceManager = {};
-
-service_manager.mojom.ServiceManager_AddListener_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.ServiceManager_AddListener_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(service_manager.mojom.ServiceManagerListenerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    service_manager.mojom.ServiceManager_AddListener_ParamsSpec, 'service_manager.mojom.ServiceManager_AddListener_Params', [
+      mojo.internal.StructField('listener', 0, 0, mojo.internal.InterfaceProxy(service_manager.mojom.ServiceManagerListenerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 service_manager.mojom.ServiceManagerPendingReceiver = class {
   constructor(handle) {
@@ -374,21 +240,6 @@ service_manager.mojom.ServiceManager.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddListener
-service_manager.mojom.ServiceManager_AddListener_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.ServiceManager.AddListener_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(service_manager.mojom.ServiceManagerListenerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 service_manager.mojom.ServiceManagerPtr = service_manager.mojom.ServiceManagerRemote;
 service_manager.mojom.ServiceManagerRequest = service_manager.mojom.ServiceManagerPendingReceiver;
 

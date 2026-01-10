@@ -8,6 +8,16 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.WebViewMediaIntegrityErrorCodeSpec = { $: mojo.internal.Enum() };
+blink.mojom.WebViewMediaIntegrityTokenResponseSpec = { $: {} };
+blink.mojom.WebViewMediaIntegrityService = {};
+blink.mojom.WebViewMediaIntegrityService.$interfaceName = 'blink.mojom.WebViewMediaIntegrityService';
+blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ParamsSpec = { $: {} };
+blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ResponseParamsSpec = { $: {} };
+blink.mojom.WebViewMediaIntegrityProvider = {};
+blink.mojom.WebViewMediaIntegrityProvider.$interfaceName = 'blink.mojom.WebViewMediaIntegrityProvider';
+blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ParamsSpec = { $: {} };
+blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ResponseParamsSpec = { $: {} };
 
 blink.mojom.kMaxCloudProjectNumber = 9007199254740991;
 
@@ -19,38 +29,35 @@ blink.mojom.WebViewMediaIntegrityErrorCode = {
   kInvalidArgument: 3,
   kTokenProviderInvalid: 4,
 };
-blink.mojom.WebViewMediaIntegrityErrorCodeSpec = { $: mojo.internal.Enum() };
 
 // Union: WebViewMediaIntegrityTokenResponse
-blink.mojom.WebViewMediaIntegrityTokenResponseSpec = { $: mojo.internal.Union(
-    'blink.mojom.WebViewMediaIntegrityTokenResponse', {
+mojo.internal.Union(
+    blink.mojom.WebViewMediaIntegrityTokenResponseSpec, 'blink.mojom.WebViewMediaIntegrityTokenResponse', {
       'error_code': {
         'ordinal': 0,
         'type': blink.mojom.WebViewMediaIntegrityErrorCodeSpec,
-      }},
+        'nullable': false,
+      },
       'token': {
         'ordinal': 1,
         'type': mojo.internal.String,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Interface: WebViewMediaIntegrityService
-blink.mojom.WebViewMediaIntegrityService = {};
+mojo.internal.Struct(
+    blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ParamsSpec, 'blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_Params', [
+      mojo.internal.StructField('provider_receiver', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.WebViewMediaIntegrityProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('cloud_project_number', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'provider_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.WebViewMediaIntegrityProviderRemote), nullable: false, minVersion: 0 },
-        { name: 'cloud_project_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ResponseParamsSpec, 'blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ResponseParams', [
+      mojo.internal.StructField('error', 0, 0, blink.mojom.WebViewMediaIntegrityErrorCodeSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.WebViewMediaIntegrityServicePendingReceiver = class {
   constructor(handle) {
@@ -105,54 +112,22 @@ blink.mojom.WebViewMediaIntegrityService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetIntegrityProvider
-blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebViewMediaIntegrityService.GetIntegrityProvider_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'provider_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.WebViewMediaIntegrityProviderRemote), nullable: false, minVersion: 0 },
-        { name: 'cloud_project_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebViewMediaIntegrityService.GetIntegrityProvider_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebViewMediaIntegrityErrorCodeSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.WebViewMediaIntegrityServicePtr = blink.mojom.WebViewMediaIntegrityServiceRemote;
 blink.mojom.WebViewMediaIntegrityServiceRequest = blink.mojom.WebViewMediaIntegrityServicePendingReceiver;
 
 
 // Interface: WebViewMediaIntegrityProvider
-blink.mojom.WebViewMediaIntegrityProvider = {};
+mojo.internal.Struct(
+    blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ParamsSpec, 'blink.mojom.WebViewMediaIntegrityProvider_RequestToken_Params', [
+      mojo.internal.StructField('content_binding', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebViewMediaIntegrityProvider_RequestToken_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'content_binding', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ResponseParamsSpec, 'blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ResponseParams', [
+      mojo.internal.StructField('response', 0, 0, blink.mojom.WebViewMediaIntegrityTokenResponseSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 blink.mojom.WebViewMediaIntegrityProviderPendingReceiver = class {
   constructor(handle) {
@@ -207,34 +182,6 @@ blink.mojom.WebViewMediaIntegrityProvider.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RequestToken
-blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebViewMediaIntegrityProvider.RequestToken_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'content_binding', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebViewMediaIntegrityProvider.RequestToken_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebViewMediaIntegrityTokenResponseSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.WebViewMediaIntegrityProviderPtr = blink.mojom.WebViewMediaIntegrityProviderRemote;
 blink.mojom.WebViewMediaIntegrityProviderRequest = blink.mojom.WebViewMediaIntegrityProviderPendingReceiver;
 

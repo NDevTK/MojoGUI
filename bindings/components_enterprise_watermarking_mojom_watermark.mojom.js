@@ -8,19 +8,13 @@
 var watermark = watermark || {};
 watermark.mojom = watermark.mojom || {};
 
+watermark.mojom.WatermarkBlockSpec = { $: {} };
 
 // Struct: WatermarkBlock
-watermark.mojom.WatermarkBlockSpec = {
-  $: {
-    structSpec: {
-      name: 'watermark.mojom.WatermarkBlock',
-      packedSize: 24,
-      fields: [
-        { name: 'serialized_skpicture', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
-        { name: 'width', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'height', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    watermark.mojom.WatermarkBlockSpec, 'watermark.mojom.WatermarkBlock', [
+      mojo.internal.StructField('serialized_skpicture', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('width', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('height', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);

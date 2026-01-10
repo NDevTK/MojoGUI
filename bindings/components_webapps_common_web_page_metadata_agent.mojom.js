@@ -7,22 +7,24 @@
 // Module namespace
 var webapps = webapps || {};
 webapps.mojom = webapps.mojom || {};
+var components = components || {};
 
+webapps.mojom.WebPageMetadataAgent = {};
+webapps.mojom.WebPageMetadataAgent.$interfaceName = 'webapps.mojom.WebPageMetadataAgent';
+webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ParamsSpec = { $: {} };
+webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParamsSpec = { $: {} };
 
 // Interface: WebPageMetadataAgent
-webapps.mojom.WebPageMetadataAgent = {};
+mojo.internal.Struct(
+    webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ParamsSpec, 'webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParamsSpec, 'webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParams', [
+      mojo.internal.StructField('web_page_metadata', 0, 0, webapps.mojom.WebPageMetadataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 webapps.mojom.WebPageMetadataAgentPendingReceiver = class {
   constructor(handle) {
@@ -77,33 +79,6 @@ webapps.mojom.WebPageMetadataAgent.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetWebPageMetadata
-webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'webapps.mojom.WebPageMetadataAgent.GetWebPageMetadata_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'webapps.mojom.WebPageMetadataAgent.GetWebPageMetadata_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'web_page_metadata', packedOffset: 0, packedBitOffset: 0, type: webapps.mojom.WebPageMetadataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 webapps.mojom.WebPageMetadataAgentPtr = webapps.mojom.WebPageMetadataAgentRemote;
 webapps.mojom.WebPageMetadataAgentRequest = webapps.mojom.WebPageMetadataAgentPendingReceiver;
 

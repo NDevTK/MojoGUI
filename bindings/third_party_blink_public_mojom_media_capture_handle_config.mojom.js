@@ -9,20 +9,14 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 var url = url || {};
 
+blink.mojom.CaptureHandleConfigSpec = { $: {} };
 
 // Struct: CaptureHandleConfig
-blink.mojom.CaptureHandleConfigSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CaptureHandleConfig',
-      packedSize: 32,
-      fields: [
-        { name: 'expose_origin', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'capture_handle', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'all_origins_permitted', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'permitted_origins', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.OriginSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.CaptureHandleConfigSpec, 'blink.mojom.CaptureHandleConfig', [
+      mojo.internal.StructField('expose_origin', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('capture_handle', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('all_origins_permitted', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('permitted_origins', 8, 0, mojo.internal.Array(url.mojom.OriginSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);

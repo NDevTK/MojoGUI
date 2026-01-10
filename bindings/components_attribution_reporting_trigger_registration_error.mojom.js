@@ -8,6 +8,7 @@
 var attribution_reporting = attribution_reporting || {};
 attribution_reporting.mojom = attribution_reporting.mojom || {};
 
+attribution_reporting.mojom.TriggerRegistrationErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: TriggerRegistrationError
 attribution_reporting.mojom.TriggerRegistrationError = {
@@ -40,11 +41,10 @@ attribution_reporting.mojom.TriggerRegistrationError = {
   kAggregatableSourceRegistrationTimeValueInvalid: 26,
   kTriggerContextIdInvalidValue: 27,
   kTriggerContextIdInvalidSourceRegistrationTimeConfig: 28,
-  kAggregatableFilteringIdMaxBytesInvalidValue: 29,
-  kAggregatableFilteringIdsMaxBytesInvalidSourceRegistrationTimeConfig: 30,
-  kAttributionScopesInvalid: 31,
-  kAttributionScopesValueInvalid: 32,
-  kAggregatableNamedBudgetWrongType: 33,
-  kAggregatableNamedBudgetNameInvalid: 34,
+  kAggregatableFilteringIdMaxBytesInvalidValue: 30,
+  kAggregatableFilteringIdsMaxBytesInvalidSourceRegistrationTimeConfig: 31,
+  kAttributionScopesInvalid: 32,
+  kAttributionScopesValueInvalid: 33,
+  kAggregatableNamedBudgetWrongType: 34,
+  kAggregatableNamedBudgetNameInvalid: 35,
 };
-attribution_reporting.mojom.TriggerRegistrationErrorSpec = { $: mojo.internal.Enum() };

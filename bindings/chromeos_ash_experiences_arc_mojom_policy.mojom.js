@@ -8,6 +8,23 @@
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
+arc.mojom.InstallErrorReasonSpec = { $: mojo.internal.Enum() };
+arc.mojom.CommandResultTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.PolicyHost = {};
+arc.mojom.PolicyHost.$interfaceName = 'arc.mojom.PolicyHost';
+arc.mojom.PolicyHost_GetPolicies_ParamsSpec = { $: {} };
+arc.mojom.PolicyHost_GetPolicies_ResponseParamsSpec = { $: {} };
+arc.mojom.PolicyHost_ReportCompliance_ParamsSpec = { $: {} };
+arc.mojom.PolicyHost_ReportCompliance_ResponseParamsSpec = { $: {} };
+arc.mojom.PolicyHost_ReportDPCVersion_ParamsSpec = { $: {} };
+arc.mojom.PolicyHost_ReportPlayStoreLocalPolicySet_ParamsSpec = { $: {} };
+arc.mojom.PolicyInstance = {};
+arc.mojom.PolicyInstance.$interfaceName = 'arc.mojom.PolicyInstance';
+arc.mojom.PolicyInstance_Init_ParamsSpec = { $: {} };
+arc.mojom.PolicyInstance_Init_ResponseParamsSpec = { $: {} };
+arc.mojom.PolicyInstance_OnPolicyUpdated_ParamsSpec = { $: {} };
+arc.mojom.PolicyInstance_OnCommandReceived_ParamsSpec = { $: {} };
+arc.mojom.PolicyInstance_OnCommandReceived_ResponseParamsSpec = { $: {} };
 
 // Enum: InstallErrorReason
 arc.mojom.InstallErrorReason = {
@@ -23,7 +40,6 @@ arc.mojom.InstallErrorReason = {
   NOT_ENROLLED: 9,
   USER_INVALID: 10,
 };
-arc.mojom.InstallErrorReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: CommandResultType
 arc.mojom.CommandResultType = {
@@ -31,62 +47,43 @@ arc.mojom.CommandResultType = {
   FAILURE: 1,
   SUCCESS: 2,
 };
-arc.mojom.CommandResultTypeSpec = { $: mojo.internal.Enum() };
 
 // Interface: PolicyHost
-arc.mojom.PolicyHost = {};
+mojo.internal.Struct(
+    arc.mojom.PolicyHost_GetPolicies_ParamsSpec, 'arc.mojom.PolicyHost_GetPolicies_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.PolicyHost_GetPolicies_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PolicyHost_GetPolicies_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PolicyHost_GetPolicies_ResponseParamsSpec, 'arc.mojom.PolicyHost_GetPolicies_ResponseParams', [
+      mojo.internal.StructField('policies', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.PolicyHost_ReportCompliance_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PolicyHost_ReportCompliance_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PolicyHost_ReportCompliance_ParamsSpec, 'arc.mojom.PolicyHost_ReportCompliance_Params', [
+      mojo.internal.StructField('request', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.PolicyHost_ReportDPCVersion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PolicyHost_ReportDPCVersion_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PolicyHost_ReportCompliance_ResponseParamsSpec, 'arc.mojom.PolicyHost_ReportCompliance_ResponseParams', [
+      mojo.internal.StructField('response', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.PolicyHost_ReportPlayStoreLocalPolicySet_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PolicyHost_ReportPlayStoreLocalPolicySet_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'package_names', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PolicyHost_ReportDPCVersion_ParamsSpec, 'arc.mojom.PolicyHost_ReportDPCVersion_Params', [
+      mojo.internal.StructField('version', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.PolicyHost_ReportPlayStoreLocalPolicySet_ParamsSpec, 'arc.mojom.PolicyHost_ReportPlayStoreLocalPolicySet_Params', [
+      mojo.internal.StructField('time', 0, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('package_names', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 arc.mojom.PolicyHostPendingReceiver = class {
   constructor(handle) {
@@ -168,133 +165,38 @@ arc.mojom.PolicyHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetPolicies
-arc.mojom.PolicyHost_GetPolicies_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PolicyHost.GetPolicies_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-arc.mojom.PolicyHost_GetPolicies_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PolicyHost.GetPolicies_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'policies', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReportCompliance
-arc.mojom.PolicyHost_ReportCompliance_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PolicyHost.ReportCompliance_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.PolicyHost_ReportCompliance_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PolicyHost.ReportCompliance_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReportDPCVersion
-arc.mojom.PolicyHost_ReportDPCVersion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PolicyHost.ReportDPCVersion_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReportPlayStoreLocalPolicySet
-arc.mojom.PolicyHost_ReportPlayStoreLocalPolicySet_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PolicyHost.ReportPlayStoreLocalPolicySet_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'package_names', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.PolicyHostPtr = arc.mojom.PolicyHostRemote;
 arc.mojom.PolicyHostRequest = arc.mojom.PolicyHostPendingReceiver;
 
 
 // Interface: PolicyInstance
-arc.mojom.PolicyInstance = {};
+mojo.internal.Struct(
+    arc.mojom.PolicyInstance_Init_ParamsSpec, 'arc.mojom.PolicyInstance_Init_Params', [
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.PolicyHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.PolicyInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PolicyInstance_Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.PolicyHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PolicyInstance_Init_ResponseParamsSpec, 'arc.mojom.PolicyInstance_Init_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.PolicyInstance_OnPolicyUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PolicyInstance_OnPolicyUpdated_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PolicyInstance_OnPolicyUpdated_ParamsSpec, 'arc.mojom.PolicyInstance_OnPolicyUpdated_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.PolicyInstance_OnCommandReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PolicyInstance_OnCommandReceived_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'command', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PolicyInstance_OnCommandReceived_ParamsSpec, 'arc.mojom.PolicyInstance_OnCommandReceived_Params', [
+      mojo.internal.StructField('command', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.PolicyInstance_OnCommandReceived_ResponseParamsSpec, 'arc.mojom.PolicyInstance_OnCommandReceived_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, arc.mojom.CommandResultTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.PolicyInstancePendingReceiver = class {
   constructor(handle) {
@@ -333,7 +235,7 @@ arc.mojom.PolicyInstanceRemoteCallHandler = class {
     return this.proxy.sendMessage(
       2,  // ordinal
       arc.mojom.PolicyInstance_Init_ParamsSpec,
-      null,
+      arc.mojom.PolicyInstance_Init_ResponseParamsSpec,
       [host_remote]);
   }
 
@@ -367,61 +269,6 @@ arc.mojom.PolicyInstance.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Init
-arc.mojom.PolicyInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PolicyInstance.Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.PolicyHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnPolicyUpdated
-arc.mojom.PolicyInstance_OnPolicyUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PolicyInstance.OnPolicyUpdated_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnCommandReceived
-arc.mojom.PolicyInstance_OnCommandReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PolicyInstance.OnCommandReceived_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'command', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.PolicyInstance_OnCommandReceived_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PolicyInstance.OnCommandReceived_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.CommandResultTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.PolicyInstancePtr = arc.mojom.PolicyInstanceRemote;
 arc.mojom.PolicyInstanceRequest = arc.mojom.PolicyInstancePendingReceiver;
 

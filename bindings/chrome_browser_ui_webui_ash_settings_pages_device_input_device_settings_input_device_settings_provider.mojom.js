@@ -8,66 +8,117 @@
 var ash = ash || {};
 ash.settings = ash.settings || {};
 ash.settings.mojom = ash.settings.mojom || {};
+var ash = ash || {};
+var ash = ash || {};
 var ui = ui || {};
+var ash = ash || {};
 
+ash.settings.mojom.ActionTypeSpec = { $: {} };
+ash.settings.mojom.ActionChoiceSpec = { $: {} };
+ash.settings.mojom.KeyboardSettingsObserver = {};
+ash.settings.mojom.KeyboardSettingsObserver.$interfaceName = 'ash.settings.mojom.KeyboardSettingsObserver';
+ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardListUpdated_ParamsSpec = { $: {} };
+ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardPoliciesUpdated_ParamsSpec = { $: {} };
+ash.settings.mojom.TouchpadSettingsObserver = {};
+ash.settings.mojom.TouchpadSettingsObserver.$interfaceName = 'ash.settings.mojom.TouchpadSettingsObserver';
+ash.settings.mojom.TouchpadSettingsObserver_OnTouchpadListUpdated_ParamsSpec = { $: {} };
+ash.settings.mojom.PointingStickSettingsObserver = {};
+ash.settings.mojom.PointingStickSettingsObserver.$interfaceName = 'ash.settings.mojom.PointingStickSettingsObserver';
+ash.settings.mojom.PointingStickSettingsObserver_OnPointingStickListUpdated_ParamsSpec = { $: {} };
+ash.settings.mojom.MouseSettingsObserver = {};
+ash.settings.mojom.MouseSettingsObserver.$interfaceName = 'ash.settings.mojom.MouseSettingsObserver';
+ash.settings.mojom.MouseSettingsObserver_OnMouseListUpdated_ParamsSpec = { $: {} };
+ash.settings.mojom.MouseSettingsObserver_OnMousePoliciesUpdated_ParamsSpec = { $: {} };
+ash.settings.mojom.ButtonPressObserver = {};
+ash.settings.mojom.ButtonPressObserver.$interfaceName = 'ash.settings.mojom.ButtonPressObserver';
+ash.settings.mojom.ButtonPressObserver_OnButtonPressed_ParamsSpec = { $: {} };
+ash.settings.mojom.GraphicsTabletSettingsObserver = {};
+ash.settings.mojom.GraphicsTabletSettingsObserver.$interfaceName = 'ash.settings.mojom.GraphicsTabletSettingsObserver';
+ash.settings.mojom.GraphicsTabletSettingsObserver_OnGraphicsTabletListUpdated_ParamsSpec = { $: {} };
+ash.settings.mojom.KeyboardBrightnessObserver = {};
+ash.settings.mojom.KeyboardBrightnessObserver.$interfaceName = 'ash.settings.mojom.KeyboardBrightnessObserver';
+ash.settings.mojom.KeyboardBrightnessObserver_OnKeyboardBrightnessChanged_ParamsSpec = { $: {} };
+ash.settings.mojom.KeyboardAmbientLightSensorObserver = {};
+ash.settings.mojom.KeyboardAmbientLightSensorObserver.$interfaceName = 'ash.settings.mojom.KeyboardAmbientLightSensorObserver';
+ash.settings.mojom.KeyboardAmbientLightSensorObserver_OnKeyboardAmbientLightSensorEnabledChanged_ParamsSpec = { $: {} };
+ash.settings.mojom.LidStateObserver = {};
+ash.settings.mojom.LidStateObserver.$interfaceName = 'ash.settings.mojom.LidStateObserver';
+ash.settings.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec = { $: {} };
+ash.settings.mojom.InputDeviceSettingsProvider = {};
+ash.settings.mojom.InputDeviceSettingsProvider.$interfaceName = 'ash.settings.mojom.InputDeviceSettingsProvider';
+ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardSettings_ParamsSpec = { $: {} };
+ash.settings.mojom.InputDeviceSettingsProvider_ObserveTouchpadSettings_ParamsSpec = { $: {} };
+ash.settings.mojom.InputDeviceSettingsProvider_ObservePointingStickSettings_ParamsSpec = { $: {} };
+ash.settings.mojom.InputDeviceSettingsProvider_ObserveMouseSettings_ParamsSpec = { $: {} };
+ash.settings.mojom.InputDeviceSettingsProvider_ObserveGraphicsTabletSettings_ParamsSpec = { $: {} };
+ash.settings.mojom.InputDeviceSettingsProvider_ObserveButtonPresses_ParamsSpec = { $: {} };
+ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardBrightness_ParamsSpec = { $: {} };
+ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardAmbientLightSensor_ParamsSpec = { $: {} };
+ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_ParamsSpec = { $: {} };
+ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_ResponseParamsSpec = { $: {} };
+ash.settings.mojom.InputDeviceSettingsProvider_RestoreDefaultKeyboardRemappings_ParamsSpec = { $: {} };
+ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardSettings_ParamsSpec = { $: {} };
+ash.settings.mojom.InputDeviceSettingsProvider_SetPointingStickSettings_ParamsSpec = { $: {} };
+ash.settings.mojom.InputDeviceSettingsProvider_SetMouseSettings_ParamsSpec = { $: {} };
+ash.settings.mojom.InputDeviceSettingsProvider_SetTouchpadSettings_ParamsSpec = { $: {} };
+ash.settings.mojom.InputDeviceSettingsProvider_SetGraphicsTabletSettings_ParamsSpec = { $: {} };
+ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardBrightness_ParamsSpec = { $: {} };
+ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardAmbientLightSensorEnabled_ParamsSpec = { $: {} };
+ash.settings.mojom.InputDeviceSettingsProvider_StartObserving_ParamsSpec = { $: {} };
+ash.settings.mojom.InputDeviceSettingsProvider_StopObserving_ParamsSpec = { $: {} };
+ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomization_ParamsSpec = { $: {} };
+ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomization_ResponseParamsSpec = { $: {} };
+ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButtonCustomization_ParamsSpec = { $: {} };
+ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButtonCustomization_ResponseParamsSpec = { $: {} };
+ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ParamsSpec = { $: {} };
+ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ResponseParamsSpec = { $: {} };
+ash.settings.mojom.InputDeviceSettingsProvider_HasKeyboardBacklight_ParamsSpec = { $: {} };
+ash.settings.mojom.InputDeviceSettingsProvider_HasKeyboardBacklight_ResponseParamsSpec = { $: {} };
+ash.settings.mojom.InputDeviceSettingsProvider_HasAmbientLightSensor_ParamsSpec = { $: {} };
+ash.settings.mojom.InputDeviceSettingsProvider_HasAmbientLightSensor_ResponseParamsSpec = { $: {} };
+ash.settings.mojom.InputDeviceSettingsProvider_IsRgbKeyboardSupported_ParamsSpec = { $: {} };
+ash.settings.mojom.InputDeviceSettingsProvider_IsRgbKeyboardSupported_ResponseParamsSpec = { $: {} };
+ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardColorLinkClicked_ParamsSpec = { $: {} };
+ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardBrightnessChangeFromSlider_ParamsSpec = { $: {} };
+ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_ParamsSpec = { $: {} };
+ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_ResponseParamsSpec = { $: {} };
+ash.settings.mojom.InputDeviceSettingsProvider_LaunchCompanionApp_ParamsSpec = { $: {} };
 
 // Union: ActionType
-ash.settings.mojom.ActionTypeSpec = { $: mojo.internal.Union(
-    'ash.settings.mojom.ActionType', {
+mojo.internal.Union(
+    ash.settings.mojom.ActionTypeSpec, 'ash.settings.mojom.ActionType', {
       'accelerator_action': {
         'ordinal': 0,
         'type': ash.mojom.AcceleratorActionSpec,
-      }},
+        'nullable': false,
+      },
       'static_shortcut_action': {
         'ordinal': 1,
         'type': ash.mojom.StaticShortcutActionSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: ActionChoice
-ash.settings.mojom.ActionChoiceSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.ActionChoice',
-      packedSize: 32,
-      fields: [
-        { name: 'action_type', packedOffset: 0, packedBitOffset: 0, type: ash.settings.mojom.ActionTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.ActionChoiceSpec, 'ash.settings.mojom.ActionChoice', [
+      mojo.internal.StructField('action_type', 0, 0, ash.settings.mojom.ActionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: KeyboardSettingsObserver
-ash.settings.mojom.KeyboardSettingsObserver = {};
+mojo.internal.Struct(
+    ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardListUpdated_ParamsSpec, 'ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardListUpdated_Params', [
+      mojo.internal.StructField('keyboards', 0, 0, mojo.internal.Array(ash.mojom.KeyboardSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardListUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardListUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'keyboards', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.mojom.KeyboardSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardPoliciesUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardPoliciesUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'policies', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.KeyboardPoliciesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardPoliciesUpdated_ParamsSpec, 'ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardPoliciesUpdated_Params', [
+      mojo.internal.StructField('policies', 0, 0, ash.mojom.KeyboardPoliciesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.settings.mojom.KeyboardSettingsObserverPendingReceiver = class {
   constructor(handle) {
@@ -131,54 +182,16 @@ ash.settings.mojom.KeyboardSettingsObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnKeyboardListUpdated
-ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardListUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.KeyboardSettingsObserver.OnKeyboardListUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'keyboards', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.mojom.KeyboardSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnKeyboardPoliciesUpdated
-ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardPoliciesUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.KeyboardSettingsObserver.OnKeyboardPoliciesUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'policies', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.KeyboardPoliciesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.settings.mojom.KeyboardSettingsObserverPtr = ash.settings.mojom.KeyboardSettingsObserverRemote;
 ash.settings.mojom.KeyboardSettingsObserverRequest = ash.settings.mojom.KeyboardSettingsObserverPendingReceiver;
 
 
 // Interface: TouchpadSettingsObserver
-ash.settings.mojom.TouchpadSettingsObserver = {};
-
-ash.settings.mojom.TouchpadSettingsObserver_OnTouchpadListUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.TouchpadSettingsObserver_OnTouchpadListUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'touchpads', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.mojom.TouchpadSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.TouchpadSettingsObserver_OnTouchpadListUpdated_ParamsSpec, 'ash.settings.mojom.TouchpadSettingsObserver_OnTouchpadListUpdated_Params', [
+      mojo.internal.StructField('touchpads', 0, 0, mojo.internal.Array(ash.mojom.TouchpadSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.settings.mojom.TouchpadSettingsObserverPendingReceiver = class {
   constructor(handle) {
@@ -233,40 +246,16 @@ ash.settings.mojom.TouchpadSettingsObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnTouchpadListUpdated
-ash.settings.mojom.TouchpadSettingsObserver_OnTouchpadListUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.TouchpadSettingsObserver.OnTouchpadListUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'touchpads', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.mojom.TouchpadSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.settings.mojom.TouchpadSettingsObserverPtr = ash.settings.mojom.TouchpadSettingsObserverRemote;
 ash.settings.mojom.TouchpadSettingsObserverRequest = ash.settings.mojom.TouchpadSettingsObserverPendingReceiver;
 
 
 // Interface: PointingStickSettingsObserver
-ash.settings.mojom.PointingStickSettingsObserver = {};
-
-ash.settings.mojom.PointingStickSettingsObserver_OnPointingStickListUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.PointingStickSettingsObserver_OnPointingStickListUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pointSticks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.mojom.PointingStickSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.PointingStickSettingsObserver_OnPointingStickListUpdated_ParamsSpec, 'ash.settings.mojom.PointingStickSettingsObserver_OnPointingStickListUpdated_Params', [
+      mojo.internal.StructField('pointSticks', 0, 0, mojo.internal.Array(ash.mojom.PointingStickSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.settings.mojom.PointingStickSettingsObserverPendingReceiver = class {
   constructor(handle) {
@@ -321,53 +310,22 @@ ash.settings.mojom.PointingStickSettingsObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnPointingStickListUpdated
-ash.settings.mojom.PointingStickSettingsObserver_OnPointingStickListUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.PointingStickSettingsObserver.OnPointingStickListUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pointSticks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.mojom.PointingStickSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.settings.mojom.PointingStickSettingsObserverPtr = ash.settings.mojom.PointingStickSettingsObserverRemote;
 ash.settings.mojom.PointingStickSettingsObserverRequest = ash.settings.mojom.PointingStickSettingsObserverPendingReceiver;
 
 
 // Interface: MouseSettingsObserver
-ash.settings.mojom.MouseSettingsObserver = {};
+mojo.internal.Struct(
+    ash.settings.mojom.MouseSettingsObserver_OnMouseListUpdated_ParamsSpec, 'ash.settings.mojom.MouseSettingsObserver_OnMouseListUpdated_Params', [
+      mojo.internal.StructField('mice', 0, 0, mojo.internal.Array(ash.mojom.MouseSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.settings.mojom.MouseSettingsObserver_OnMouseListUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.MouseSettingsObserver_OnMouseListUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'mice', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.mojom.MouseSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.settings.mojom.MouseSettingsObserver_OnMousePoliciesUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.MouseSettingsObserver_OnMousePoliciesUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'policies', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.MousePoliciesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.MouseSettingsObserver_OnMousePoliciesUpdated_ParamsSpec, 'ash.settings.mojom.MouseSettingsObserver_OnMousePoliciesUpdated_Params', [
+      mojo.internal.StructField('policies', 0, 0, ash.mojom.MousePoliciesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.settings.mojom.MouseSettingsObserverPendingReceiver = class {
   constructor(handle) {
@@ -431,54 +389,16 @@ ash.settings.mojom.MouseSettingsObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnMouseListUpdated
-ash.settings.mojom.MouseSettingsObserver_OnMouseListUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.MouseSettingsObserver.OnMouseListUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'mice', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.mojom.MouseSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnMousePoliciesUpdated
-ash.settings.mojom.MouseSettingsObserver_OnMousePoliciesUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.MouseSettingsObserver.OnMousePoliciesUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'policies', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.MousePoliciesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.settings.mojom.MouseSettingsObserverPtr = ash.settings.mojom.MouseSettingsObserverRemote;
 ash.settings.mojom.MouseSettingsObserverRequest = ash.settings.mojom.MouseSettingsObserverPendingReceiver;
 
 
 // Interface: ButtonPressObserver
-ash.settings.mojom.ButtonPressObserver = {};
-
-ash.settings.mojom.ButtonPressObserver_OnButtonPressed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.ButtonPressObserver_OnButtonPressed_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'button', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.ButtonSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.ButtonPressObserver_OnButtonPressed_ParamsSpec, 'ash.settings.mojom.ButtonPressObserver_OnButtonPressed_Params', [
+      mojo.internal.StructField('button', 0, 0, ash.mojom.ButtonSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 ash.settings.mojom.ButtonPressObserverPendingReceiver = class {
   constructor(handle) {
@@ -533,40 +453,16 @@ ash.settings.mojom.ButtonPressObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnButtonPressed
-ash.settings.mojom.ButtonPressObserver_OnButtonPressed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.ButtonPressObserver.OnButtonPressed_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'button', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.ButtonSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.settings.mojom.ButtonPressObserverPtr = ash.settings.mojom.ButtonPressObserverRemote;
 ash.settings.mojom.ButtonPressObserverRequest = ash.settings.mojom.ButtonPressObserverPendingReceiver;
 
 
 // Interface: GraphicsTabletSettingsObserver
-ash.settings.mojom.GraphicsTabletSettingsObserver = {};
-
-ash.settings.mojom.GraphicsTabletSettingsObserver_OnGraphicsTabletListUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.GraphicsTabletSettingsObserver_OnGraphicsTabletListUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'graphics_tablets', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.mojom.GraphicsTabletSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.GraphicsTabletSettingsObserver_OnGraphicsTabletListUpdated_ParamsSpec, 'ash.settings.mojom.GraphicsTabletSettingsObserver_OnGraphicsTabletListUpdated_Params', [
+      mojo.internal.StructField('graphics_tablets', 0, 0, mojo.internal.Array(ash.mojom.GraphicsTabletSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.settings.mojom.GraphicsTabletSettingsObserverPendingReceiver = class {
   constructor(handle) {
@@ -621,40 +517,16 @@ ash.settings.mojom.GraphicsTabletSettingsObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnGraphicsTabletListUpdated
-ash.settings.mojom.GraphicsTabletSettingsObserver_OnGraphicsTabletListUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.GraphicsTabletSettingsObserver.OnGraphicsTabletListUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'graphics_tablets', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.mojom.GraphicsTabletSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.settings.mojom.GraphicsTabletSettingsObserverPtr = ash.settings.mojom.GraphicsTabletSettingsObserverRemote;
 ash.settings.mojom.GraphicsTabletSettingsObserverRequest = ash.settings.mojom.GraphicsTabletSettingsObserverPendingReceiver;
 
 
 // Interface: KeyboardBrightnessObserver
-ash.settings.mojom.KeyboardBrightnessObserver = {};
-
-ash.settings.mojom.KeyboardBrightnessObserver_OnKeyboardBrightnessChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.KeyboardBrightnessObserver_OnKeyboardBrightnessChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'brightness_percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.KeyboardBrightnessObserver_OnKeyboardBrightnessChanged_ParamsSpec, 'ash.settings.mojom.KeyboardBrightnessObserver_OnKeyboardBrightnessChanged_Params', [
+      mojo.internal.StructField('brightness_percent', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.settings.mojom.KeyboardBrightnessObserverPendingReceiver = class {
   constructor(handle) {
@@ -709,40 +581,16 @@ ash.settings.mojom.KeyboardBrightnessObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnKeyboardBrightnessChanged
-ash.settings.mojom.KeyboardBrightnessObserver_OnKeyboardBrightnessChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.KeyboardBrightnessObserver.OnKeyboardBrightnessChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'brightness_percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.settings.mojom.KeyboardBrightnessObserverPtr = ash.settings.mojom.KeyboardBrightnessObserverRemote;
 ash.settings.mojom.KeyboardBrightnessObserverRequest = ash.settings.mojom.KeyboardBrightnessObserverPendingReceiver;
 
 
 // Interface: KeyboardAmbientLightSensorObserver
-ash.settings.mojom.KeyboardAmbientLightSensorObserver = {};
-
-ash.settings.mojom.KeyboardAmbientLightSensorObserver_OnKeyboardAmbientLightSensorEnabledChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.KeyboardAmbientLightSensorObserver_OnKeyboardAmbientLightSensorEnabledChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'keyboard_ambient_light_sensor_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.KeyboardAmbientLightSensorObserver_OnKeyboardAmbientLightSensorEnabledChanged_ParamsSpec, 'ash.settings.mojom.KeyboardAmbientLightSensorObserver_OnKeyboardAmbientLightSensorEnabledChanged_Params', [
+      mojo.internal.StructField('keyboard_ambient_light_sensor_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.settings.mojom.KeyboardAmbientLightSensorObserverPendingReceiver = class {
   constructor(handle) {
@@ -797,40 +645,16 @@ ash.settings.mojom.KeyboardAmbientLightSensorObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnKeyboardAmbientLightSensorEnabledChanged
-ash.settings.mojom.KeyboardAmbientLightSensorObserver_OnKeyboardAmbientLightSensorEnabledChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.KeyboardAmbientLightSensorObserver.OnKeyboardAmbientLightSensorEnabledChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'keyboard_ambient_light_sensor_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.settings.mojom.KeyboardAmbientLightSensorObserverPtr = ash.settings.mojom.KeyboardAmbientLightSensorObserverRemote;
 ash.settings.mojom.KeyboardAmbientLightSensorObserverRequest = ash.settings.mojom.KeyboardAmbientLightSensorObserverPendingReceiver;
 
 
 // Interface: LidStateObserver
-ash.settings.mojom.LidStateObserver = {};
-
-ash.settings.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.LidStateObserver_OnLidStateChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_lid_open', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec, 'ash.settings.mojom.LidStateObserver_OnLidStateChanged_Params', [
+      mojo.internal.StructField('is_lid_open', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.settings.mojom.LidStateObserverPendingReceiver = class {
   constructor(handle) {
@@ -885,401 +709,229 @@ ash.settings.mojom.LidStateObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnLidStateChanged
-ash.settings.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.LidStateObserver.OnLidStateChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_lid_open', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.settings.mojom.LidStateObserverPtr = ash.settings.mojom.LidStateObserverRemote;
 ash.settings.mojom.LidStateObserverRequest = ash.settings.mojom.LidStateObserverPendingReceiver;
 
 
 // Interface: InputDeviceSettingsProvider
-ash.settings.mojom.InputDeviceSettingsProvider = {};
+mojo.internal.Struct(
+    ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardSettings_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardSettings_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.settings.mojom.KeyboardSettingsObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardSettings_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.mojom.KeyboardSettingsObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.InputDeviceSettingsProvider_ObserveTouchpadSettings_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_ObserveTouchpadSettings_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.settings.mojom.TouchpadSettingsObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.settings.mojom.InputDeviceSettingsProvider_ObserveTouchpadSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider_ObserveTouchpadSettings_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.mojom.TouchpadSettingsObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.InputDeviceSettingsProvider_ObservePointingStickSettings_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_ObservePointingStickSettings_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.settings.mojom.PointingStickSettingsObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.settings.mojom.InputDeviceSettingsProvider_ObservePointingStickSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider_ObservePointingStickSettings_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.mojom.PointingStickSettingsObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.InputDeviceSettingsProvider_ObserveMouseSettings_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_ObserveMouseSettings_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.settings.mojom.MouseSettingsObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.settings.mojom.InputDeviceSettingsProvider_ObserveMouseSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider_ObserveMouseSettings_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.mojom.MouseSettingsObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.InputDeviceSettingsProvider_ObserveGraphicsTabletSettings_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_ObserveGraphicsTabletSettings_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.settings.mojom.GraphicsTabletSettingsObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.settings.mojom.InputDeviceSettingsProvider_ObserveGraphicsTabletSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider_ObserveGraphicsTabletSettings_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.mojom.GraphicsTabletSettingsObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.InputDeviceSettingsProvider_ObserveButtonPresses_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_ObserveButtonPresses_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.settings.mojom.ButtonPressObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.settings.mojom.InputDeviceSettingsProvider_ObserveButtonPresses_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider_ObserveButtonPresses_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.mojom.ButtonPressObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardBrightness_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardBrightness_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.settings.mojom.KeyboardBrightnessObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardBrightness_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardBrightness_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.mojom.KeyboardBrightnessObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardAmbientLightSensor_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardAmbientLightSensor_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.settings.mojom.KeyboardAmbientLightSensorObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardAmbientLightSensor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardAmbientLightSensor_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.mojom.KeyboardAmbientLightSensorObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.settings.mojom.LidStateObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.mojom.LidStateObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_ResponseParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_ResponseParams', [
+      mojo.internal.StructField('is_lid_open', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.settings.mojom.InputDeviceSettingsProvider_RestoreDefaultKeyboardRemappings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider_RestoreDefaultKeyboardRemappings_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.InputDeviceSettingsProvider_RestoreDefaultKeyboardRemappings_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_RestoreDefaultKeyboardRemappings_Params', [
+      mojo.internal.StructField('device_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardSettings_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.KeyboardSettingsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardSettings_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardSettings_Params', [
+      mojo.internal.StructField('device_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('settings', 0, 0, ash.mojom.KeyboardSettingsSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.settings.mojom.InputDeviceSettingsProvider_SetPointingStickSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider_SetPointingStickSettings_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.PointingStickSettingsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.InputDeviceSettingsProvider_SetPointingStickSettings_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_SetPointingStickSettings_Params', [
+      mojo.internal.StructField('device_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('settings', 0, 0, ash.mojom.PointingStickSettingsSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.settings.mojom.InputDeviceSettingsProvider_SetMouseSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider_SetMouseSettings_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.MouseSettingsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.InputDeviceSettingsProvider_SetMouseSettings_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_SetMouseSettings_Params', [
+      mojo.internal.StructField('device_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('settings', 0, 0, ash.mojom.MouseSettingsSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.settings.mojom.InputDeviceSettingsProvider_SetTouchpadSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider_SetTouchpadSettings_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.TouchpadSettingsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.InputDeviceSettingsProvider_SetTouchpadSettings_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_SetTouchpadSettings_Params', [
+      mojo.internal.StructField('device_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('settings', 0, 0, ash.mojom.TouchpadSettingsSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.settings.mojom.InputDeviceSettingsProvider_SetGraphicsTabletSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider_SetGraphicsTabletSettings_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.GraphicsTabletSettingsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.InputDeviceSettingsProvider_SetGraphicsTabletSettings_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_SetGraphicsTabletSettings_Params', [
+      mojo.internal.StructField('device_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('settings', 0, 0, ash.mojom.GraphicsTabletSettingsSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardBrightness_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardBrightness_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardBrightness_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardBrightness_Params', [
+      mojo.internal.StructField('percent', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardAmbientLightSensorEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardAmbientLightSensorEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardAmbientLightSensorEnabled_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardAmbientLightSensorEnabled_Params', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.settings.mojom.InputDeviceSettingsProvider_StartObserving_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider_StartObserving_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.InputDeviceSettingsProvider_StartObserving_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_StartObserving_Params', [
+      mojo.internal.StructField('device_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.settings.mojom.InputDeviceSettingsProvider_StopObserving_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider_StopObserving_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.InputDeviceSettingsProvider_StopObserving_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_StopObserving_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomization_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomization_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomization_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomization_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButtonCustomization_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButtonCustomization_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomization_ResponseParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomization_ResponseParams', [
+      mojo.internal.StructField('options', 0, 0, mojo.internal.Array(ash.settings.mojom.ActionChoiceSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButtonCustomization_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButtonCustomization_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.settings.mojom.InputDeviceSettingsProvider_HasKeyboardBacklight_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider_HasKeyboardBacklight_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButtonCustomization_ResponseParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButtonCustomization_ResponseParams', [
+      mojo.internal.StructField('options', 0, 0, mojo.internal.Array(ash.settings.mojom.ActionChoiceSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.settings.mojom.InputDeviceSettingsProvider_HasAmbientLightSensor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider_HasAmbientLightSensor_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.settings.mojom.InputDeviceSettingsProvider_IsRgbKeyboardSupported_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider_IsRgbKeyboardSupported_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ResponseParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ResponseParams', [
+      mojo.internal.StructField('meta_key', 0, 0, ui.mojom.MetaKeySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardColorLinkClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardColorLinkClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.InputDeviceSettingsProvider_HasKeyboardBacklight_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_HasKeyboardBacklight_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardBrightnessChangeFromSlider_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardBrightnessChangeFromSlider_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.InputDeviceSettingsProvider_HasKeyboardBacklight_ResponseParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_HasKeyboardBacklight_ResponseParams', [
+      mojo.internal.StructField('has_keyboard_backlight', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'device_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.InputDeviceSettingsProvider_HasAmbientLightSensor_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_HasAmbientLightSensor_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.settings.mojom.InputDeviceSettingsProvider_LaunchCompanionApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider_LaunchCompanionApp_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'package_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.InputDeviceSettingsProvider_HasAmbientLightSensor_ResponseParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_HasAmbientLightSensor_ResponseParams', [
+      mojo.internal.StructField('has_ambient_light_sensor', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.settings.mojom.InputDeviceSettingsProvider_IsRgbKeyboardSupported_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_IsRgbKeyboardSupported_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    ash.settings.mojom.InputDeviceSettingsProvider_IsRgbKeyboardSupported_ResponseParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_IsRgbKeyboardSupported_ResponseParams', [
+      mojo.internal.StructField('is_rgb_keyboard_supported', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardColorLinkClicked_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardColorLinkClicked_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardBrightnessChangeFromSlider_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardBrightnessChangeFromSlider_Params', [
+      mojo.internal.StructField('percent', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_Params', [
+      mojo.internal.StructField('device_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_ResponseParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_ResponseParams', [
+      mojo.internal.StructField('data_url', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.settings.mojom.InputDeviceSettingsProvider_LaunchCompanionApp_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_LaunchCompanionApp_Params', [
+      mojo.internal.StructField('package_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.settings.mojom.InputDeviceSettingsProviderPendingReceiver = class {
   constructor(handle) {
@@ -1586,514 +1238,6 @@ ash.settings.mojom.InputDeviceSettingsProvider.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ObserveKeyboardSettings
-ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider.ObserveKeyboardSettings_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.mojom.KeyboardSettingsObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ObserveTouchpadSettings
-ash.settings.mojom.InputDeviceSettingsProvider_ObserveTouchpadSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider.ObserveTouchpadSettings_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.mojom.TouchpadSettingsObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ObservePointingStickSettings
-ash.settings.mojom.InputDeviceSettingsProvider_ObservePointingStickSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider.ObservePointingStickSettings_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.mojom.PointingStickSettingsObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ObserveMouseSettings
-ash.settings.mojom.InputDeviceSettingsProvider_ObserveMouseSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider.ObserveMouseSettings_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.mojom.MouseSettingsObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ObserveGraphicsTabletSettings
-ash.settings.mojom.InputDeviceSettingsProvider_ObserveGraphicsTabletSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider.ObserveGraphicsTabletSettings_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.mojom.GraphicsTabletSettingsObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ObserveButtonPresses
-ash.settings.mojom.InputDeviceSettingsProvider_ObserveButtonPresses_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider.ObserveButtonPresses_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.mojom.ButtonPressObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ObserveKeyboardBrightness
-ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardBrightness_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider.ObserveKeyboardBrightness_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.mojom.KeyboardBrightnessObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ObserveKeyboardAmbientLightSensor
-ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardAmbientLightSensor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider.ObserveKeyboardAmbientLightSensor_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.mojom.KeyboardAmbientLightSensorObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ObserveLidState
-ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider.ObserveLidState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.mojom.LidStateObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider.ObserveLidState_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'is_lid_open', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RestoreDefaultKeyboardRemappings
-ash.settings.mojom.InputDeviceSettingsProvider_RestoreDefaultKeyboardRemappings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider.RestoreDefaultKeyboardRemappings_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetKeyboardSettings
-ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider.SetKeyboardSettings_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.KeyboardSettingsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SetPointingStickSettings
-ash.settings.mojom.InputDeviceSettingsProvider_SetPointingStickSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider.SetPointingStickSettings_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.PointingStickSettingsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SetMouseSettings
-ash.settings.mojom.InputDeviceSettingsProvider_SetMouseSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider.SetMouseSettings_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.MouseSettingsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SetTouchpadSettings
-ash.settings.mojom.InputDeviceSettingsProvider_SetTouchpadSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider.SetTouchpadSettings_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.TouchpadSettingsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SetGraphicsTabletSettings
-ash.settings.mojom.InputDeviceSettingsProvider_SetGraphicsTabletSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider.SetGraphicsTabletSettings_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.GraphicsTabletSettingsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SetKeyboardBrightness
-ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardBrightness_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider.SetKeyboardBrightness_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetKeyboardAmbientLightSensorEnabled
-ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardAmbientLightSensorEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider.SetKeyboardAmbientLightSensorEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StartObserving
-ash.settings.mojom.InputDeviceSettingsProvider_StartObserving_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider.StartObserving_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StopObserving
-ash.settings.mojom.InputDeviceSettingsProvider_StopObserving_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider.StopObserving_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for GetActionsForMouseButtonCustomization
-ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomization_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider.GetActionsForMouseButtonCustomization_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomization_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider.GetActionsForMouseButtonCustomization_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.settings.mojom.ActionChoiceSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetActionsForGraphicsTabletButtonCustomization
-ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButtonCustomization_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider.GetActionsForGraphicsTabletButtonCustomization_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButtonCustomization_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider.GetActionsForGraphicsTabletButtonCustomization_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.settings.mojom.ActionChoiceSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetMetaKeyToDisplay
-ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider.GetMetaKeyToDisplay_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider.GetMetaKeyToDisplay_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'meta_key', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.MetaKeySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for HasKeyboardBacklight
-ash.settings.mojom.InputDeviceSettingsProvider_HasKeyboardBacklight_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider.HasKeyboardBacklight_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.settings.mojom.InputDeviceSettingsProvider_HasKeyboardBacklight_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider.HasKeyboardBacklight_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'has_keyboard_backlight', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for HasAmbientLightSensor
-ash.settings.mojom.InputDeviceSettingsProvider_HasAmbientLightSensor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider.HasAmbientLightSensor_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.settings.mojom.InputDeviceSettingsProvider_HasAmbientLightSensor_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider.HasAmbientLightSensor_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'has_ambient_light_sensor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for IsRgbKeyboardSupported
-ash.settings.mojom.InputDeviceSettingsProvider_IsRgbKeyboardSupported_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider.IsRgbKeyboardSupported_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.settings.mojom.InputDeviceSettingsProvider_IsRgbKeyboardSupported_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider.IsRgbKeyboardSupported_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'is_rgb_keyboard_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RecordKeyboardColorLinkClicked
-ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardColorLinkClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider.RecordKeyboardColorLinkClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for RecordKeyboardBrightnessChangeFromSlider
-ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardBrightnessChangeFromSlider_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider.RecordKeyboardBrightnessChangeFromSlider_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetDeviceIconImage
-ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider.GetDeviceIconImage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'device_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider.GetDeviceIconImage_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'data_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for LaunchCompanionApp
-ash.settings.mojom.InputDeviceSettingsProvider_LaunchCompanionApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.InputDeviceSettingsProvider.LaunchCompanionApp_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'package_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.settings.mojom.InputDeviceSettingsProviderPtr = ash.settings.mojom.InputDeviceSettingsProviderRemote;
 ash.settings.mojom.InputDeviceSettingsProviderRequest = ash.settings.mojom.InputDeviceSettingsProviderPendingReceiver;
 

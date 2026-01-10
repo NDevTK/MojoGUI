@@ -8,6 +8,17 @@
 var search_engine_choice = search_engine_choice || {};
 search_engine_choice.mojom = search_engine_choice.mojom || {};
 
+search_engine_choice.mojom.ScrollStateSpec = { $: mojo.internal.Enum() };
+search_engine_choice.mojom.PageHandlerFactory = {};
+search_engine_choice.mojom.PageHandlerFactory.$interfaceName = 'search_engine_choice.mojom.PageHandlerFactory';
+search_engine_choice.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+search_engine_choice.mojom.PageHandler = {};
+search_engine_choice.mojom.PageHandler.$interfaceName = 'search_engine_choice.mojom.PageHandler';
+search_engine_choice.mojom.PageHandler_DisplayDialog_ParamsSpec = { $: {} };
+search_engine_choice.mojom.PageHandler_HandleSearchEngineChoiceSelected_ParamsSpec = { $: {} };
+search_engine_choice.mojom.PageHandler_HandleLearnMoreLinkClicked_ParamsSpec = { $: {} };
+search_engine_choice.mojom.PageHandler_HandleMoreButtonClicked_ParamsSpec = { $: {} };
+search_engine_choice.mojom.PageHandler_RecordScrollState_ParamsSpec = { $: {} };
 
 // Enum: ScrollState
 search_engine_choice.mojom.ScrollState = {
@@ -15,23 +26,13 @@ search_engine_choice.mojom.ScrollState = {
   kAtTheBottomWithErrorMargin: 1,
   kNotAtTheBottom: 2,
 };
-search_engine_choice.mojom.ScrollStateSpec = { $: mojo.internal.Enum() };
 
 // Interface: PageHandlerFactory
-search_engine_choice.mojom.PageHandlerFactory = {};
-
-search_engine_choice.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'search_engine_choice.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(search_engine_choice.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    search_engine_choice.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'search_engine_choice.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(search_engine_choice.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 search_engine_choice.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -86,90 +87,38 @@ search_engine_choice.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-search_engine_choice.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'search_engine_choice.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(search_engine_choice.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 search_engine_choice.mojom.PageHandlerFactoryPtr = search_engine_choice.mojom.PageHandlerFactoryRemote;
 search_engine_choice.mojom.PageHandlerFactoryRequest = search_engine_choice.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-search_engine_choice.mojom.PageHandler = {};
+mojo.internal.Struct(
+    search_engine_choice.mojom.PageHandler_DisplayDialog_ParamsSpec, 'search_engine_choice.mojom.PageHandler_DisplayDialog_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-search_engine_choice.mojom.PageHandler_DisplayDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'search_engine_choice.mojom.PageHandler_DisplayDialog_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    search_engine_choice.mojom.PageHandler_HandleSearchEngineChoiceSelected_ParamsSpec, 'search_engine_choice.mojom.PageHandler_HandleSearchEngineChoiceSelected_Params', [
+      mojo.internal.StructField('prepopulate_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('save_guest_mode_selection', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-search_engine_choice.mojom.PageHandler_HandleSearchEngineChoiceSelected_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'search_engine_choice.mojom.PageHandler_HandleSearchEngineChoiceSelected_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'prepopulate_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'save_guest_mode_selection', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    search_engine_choice.mojom.PageHandler_HandleLearnMoreLinkClicked_ParamsSpec, 'search_engine_choice.mojom.PageHandler_HandleLearnMoreLinkClicked_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-search_engine_choice.mojom.PageHandler_HandleLearnMoreLinkClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'search_engine_choice.mojom.PageHandler_HandleLearnMoreLinkClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    search_engine_choice.mojom.PageHandler_HandleMoreButtonClicked_ParamsSpec, 'search_engine_choice.mojom.PageHandler_HandleMoreButtonClicked_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-search_engine_choice.mojom.PageHandler_HandleMoreButtonClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'search_engine_choice.mojom.PageHandler_HandleMoreButtonClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-search_engine_choice.mojom.PageHandler_RecordScrollState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'search_engine_choice.mojom.PageHandler_RecordScrollState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'scroll_state', packedOffset: 0, packedBitOffset: 0, type: search_engine_choice.mojom.ScrollStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    search_engine_choice.mojom.PageHandler_RecordScrollState_ParamsSpec, 'search_engine_choice.mojom.PageHandler_RecordScrollState_Params', [
+      mojo.internal.StructField('scroll_state', 0, 0, search_engine_choice.mojom.ScrollStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 search_engine_choice.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -260,75 +209,6 @@ search_engine_choice.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for DisplayDialog
-search_engine_choice.mojom.PageHandler_DisplayDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'search_engine_choice.mojom.PageHandler.DisplayDialog_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for HandleSearchEngineChoiceSelected
-search_engine_choice.mojom.PageHandler_HandleSearchEngineChoiceSelected_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'search_engine_choice.mojom.PageHandler.HandleSearchEngineChoiceSelected_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'prepopulate_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'save_guest_mode_selection', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for HandleLearnMoreLinkClicked
-search_engine_choice.mojom.PageHandler_HandleLearnMoreLinkClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'search_engine_choice.mojom.PageHandler.HandleLearnMoreLinkClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for HandleMoreButtonClicked
-search_engine_choice.mojom.PageHandler_HandleMoreButtonClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'search_engine_choice.mojom.PageHandler.HandleMoreButtonClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for RecordScrollState
-search_engine_choice.mojom.PageHandler_RecordScrollState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'search_engine_choice.mojom.PageHandler.RecordScrollState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'scroll_state', packedOffset: 0, packedBitOffset: 0, type: search_engine_choice.mojom.ScrollStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 search_engine_choice.mojom.PageHandlerPtr = search_engine_choice.mojom.PageHandlerRemote;
 search_engine_choice.mojom.PageHandlerRequest = search_engine_choice.mojom.PageHandlerPendingReceiver;
 

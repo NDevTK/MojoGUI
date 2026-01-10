@@ -8,22 +8,16 @@
 var media = media || {};
 media.mojom = media.mojom || {};
 
+media.mojom.MediaLog = {};
+media.mojom.MediaLog.$interfaceName = 'media.mojom.MediaLog';
+media.mojom.MediaLog_AddLogRecord_ParamsSpec = { $: {} };
 
 // Interface: MediaLog
-media.mojom.MediaLog = {};
-
-media.mojom.MediaLog_AddLogRecord_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaLog_AddLogRecord_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: media.mojom.MediaLogRecordSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaLog_AddLogRecord_ParamsSpec, 'media.mojom.MediaLog_AddLogRecord_Params', [
+      mojo.internal.StructField('event', 0, 0, media.mojom.MediaLogRecordSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media.mojom.MediaLogPendingReceiver = class {
   constructor(handle) {
@@ -78,21 +72,6 @@ media.mojom.MediaLog.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddLogRecord
-media.mojom.MediaLog_AddLogRecord_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaLog.AddLogRecord_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: media.mojom.MediaLogRecordSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.MediaLogPtr = media.mojom.MediaLogRemote;
 media.mojom.MediaLogRequest = media.mojom.MediaLogPendingReceiver;
 

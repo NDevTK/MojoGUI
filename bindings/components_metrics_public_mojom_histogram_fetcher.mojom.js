@@ -8,6 +8,17 @@
 var metrics = metrics || {};
 metrics.mojom = metrics.mojom || {};
 
+metrics.mojom.UmaChildPingStatusSpec = { $: mojo.internal.Enum() };
+metrics.mojom.UmaPingCallSourceSpec = { $: mojo.internal.Enum() };
+metrics.mojom.ChildHistogramFetcherFactory = {};
+metrics.mojom.ChildHistogramFetcherFactory.$interfaceName = 'metrics.mojom.ChildHistogramFetcherFactory';
+metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_ParamsSpec = { $: {} };
+metrics.mojom.ChildHistogramFetcher = {};
+metrics.mojom.ChildHistogramFetcher.$interfaceName = 'metrics.mojom.ChildHistogramFetcher';
+metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ParamsSpec = { $: {} };
+metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ResponseParamsSpec = { $: {} };
+metrics.mojom.ChildHistogramFetcher_Ping_ParamsSpec = { $: {} };
+metrics.mojom.ChildHistogramFetcher_Ping_ResponseParamsSpec = { $: {} };
 
 // Enum: UmaChildPingStatus
 metrics.mojom.UmaChildPingStatus = {
@@ -15,31 +26,20 @@ metrics.mojom.UmaChildPingStatus = {
   CHILD_RECEIVED_IPC: 1,
   BROWSER_REPLY_CALLBACK: 2,
 };
-metrics.mojom.UmaChildPingStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: UmaPingCallSource
 metrics.mojom.UmaPingCallSource = {
   PERIODIC: 0,
   SHARED_MEMORY_SET_UP: 1,
 };
-metrics.mojom.UmaPingCallSourceSpec = { $: mojo.internal.Enum() };
 
 // Interface: ChildHistogramFetcherFactory
-metrics.mojom.ChildHistogramFetcherFactory = {};
-
-metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'shared_memory', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: true, minVersion: 0 },
-        { name: 'child_histogram_fetcher', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(metrics.mojom.ChildHistogramFetcherRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_ParamsSpec, 'metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_Params', [
+      mojo.internal.StructField('shared_memory', 0, 0, mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('child_histogram_fetcher', 8, 0, mojo.internal.InterfaceRequest(metrics.mojom.ChildHistogramFetcherRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 metrics.mojom.ChildHistogramFetcherFactoryPendingReceiver = class {
   constructor(handle) {
@@ -94,53 +94,32 @@ metrics.mojom.ChildHistogramFetcherFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateFetcher
-metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'metrics.mojom.ChildHistogramFetcherFactory.CreateFetcher_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'shared_memory', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: true, minVersion: 0 },
-        { name: 'child_histogram_fetcher', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(metrics.mojom.ChildHistogramFetcherRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 metrics.mojom.ChildHistogramFetcherFactoryPtr = metrics.mojom.ChildHistogramFetcherFactoryRemote;
 metrics.mojom.ChildHistogramFetcherFactoryRequest = metrics.mojom.ChildHistogramFetcherFactoryPendingReceiver;
 
 
 // Interface: ChildHistogramFetcher
-metrics.mojom.ChildHistogramFetcher = {};
+mojo.internal.Struct(
+    metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ParamsSpec, 'metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ResponseParamsSpec, 'metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ResponseParams', [
+      mojo.internal.StructField('deltas', 0, 0, mojo.internal.Array(mojo_base.mojom.ByteStringSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-metrics.mojom.ChildHistogramFetcher_Ping_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'metrics.mojom.ChildHistogramFetcher_Ping_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'call_source', packedOffset: 0, packedBitOffset: 0, type: metrics.mojom.UmaPingCallSourceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    metrics.mojom.ChildHistogramFetcher_Ping_ParamsSpec, 'metrics.mojom.ChildHistogramFetcher_Ping_Params', [
+      mojo.internal.StructField('call_source', 0, 0, metrics.mojom.UmaPingCallSourceSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    metrics.mojom.ChildHistogramFetcher_Ping_ResponseParamsSpec, 'metrics.mojom.ChildHistogramFetcher_Ping_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 metrics.mojom.ChildHistogramFetcherPendingReceiver = class {
   constructor(handle) {
@@ -188,7 +167,7 @@ metrics.mojom.ChildHistogramFetcherRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       metrics.mojom.ChildHistogramFetcher_Ping_ParamsSpec,
-      null,
+      metrics.mojom.ChildHistogramFetcher_Ping_ResponseParamsSpec,
       [call_source]);
   }
 
@@ -204,47 +183,6 @@ metrics.mojom.ChildHistogramFetcher.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetChildNonPersistentHistogramData
-metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'metrics.mojom.ChildHistogramFetcher.GetChildNonPersistentHistogramData_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'metrics.mojom.ChildHistogramFetcher.GetChildNonPersistentHistogramData_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'deltas', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.ByteStringSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Ping
-metrics.mojom.ChildHistogramFetcher_Ping_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'metrics.mojom.ChildHistogramFetcher.Ping_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'call_source', packedOffset: 0, packedBitOffset: 0, type: metrics.mojom.UmaPingCallSourceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 metrics.mojom.ChildHistogramFetcherPtr = metrics.mojom.ChildHistogramFetcherRemote;
 metrics.mojom.ChildHistogramFetcherRequest = metrics.mojom.ChildHistogramFetcherPendingReceiver;
 

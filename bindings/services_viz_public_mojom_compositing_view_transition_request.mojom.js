@@ -7,23 +7,19 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
+var services = services || {};
+var services = services || {};
 var blink = blink || {};
 
+viz.mojom.ViewTransitionRequestSpec = { $: {} };
 
 // Struct: ViewTransitionRequest
-viz.mojom.ViewTransitionRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.ViewTransitionRequest',
-      packedSize: 40,
-      fields: [
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.CompositorFrameTransitionDirectiveTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'transition_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ViewTransitionTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'maybe_cross_frame_sink', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'sequence_id', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'capture_resource_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.ViewTransitionElementResourceIdSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.ViewTransitionRequestSpec, 'viz.mojom.ViewTransitionRequest', [
+      mojo.internal.StructField('type', 16, 0, viz.mojom.CompositorFrameTransitionDirectiveTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('transition_token', 0, 0, blink.mojom.ViewTransitionTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('maybe_cross_frame_sink', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('sequence_id', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('capture_resource_ids', 8, 0, mojo.internal.Array(viz.mojom.ViewTransitionElementResourceIdSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);

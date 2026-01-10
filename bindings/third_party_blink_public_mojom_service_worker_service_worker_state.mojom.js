@@ -8,6 +8,7 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.ServiceWorkerStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: ServiceWorkerState
 blink.mojom.ServiceWorkerState = {
@@ -18,4 +19,3 @@ blink.mojom.ServiceWorkerState = {
   kActivated: 4,
   kRedundant: 5,
 };
-blink.mojom.ServiceWorkerStateSpec = { $: mojo.internal.Enum() };

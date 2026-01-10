@@ -7,38 +7,35 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
+var services = services || {};
 var url = url || {};
 
+network.mojom.AcceptCHFrameObserver = {};
+network.mojom.AcceptCHFrameObserver.$interfaceName = 'network.mojom.AcceptCHFrameObserver';
+network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ParamsSpec = { $: {} };
+network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ResponseParamsSpec = { $: {} };
+network.mojom.AcceptCHFrameObserver_Clone_ParamsSpec = { $: {} };
 
 // Interface: AcceptCHFrameObserver
-network.mojom.AcceptCHFrameObserver = {};
+mojo.internal.Struct(
+    network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ParamsSpec, 'network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_Params', [
+      mojo.internal.StructField('origin', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('accept_ch_frame', 8, 0, mojo.internal.Array(network.mojom.WebClientHintsTypeSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-        { name: 'accept_ch_frame', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.WebClientHintsTypeSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ResponseParamsSpec, 'network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.AcceptCHFrameObserver_Clone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.AcceptCHFrameObserver_Clone_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.AcceptCHFrameObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.AcceptCHFrameObserver_Clone_ParamsSpec, 'network.mojom.AcceptCHFrameObserver_Clone_Params', [
+      mojo.internal.StructField('listener', 0, 0, mojo.internal.InterfaceRequest(network.mojom.AcceptCHFrameObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 network.mojom.AcceptCHFrameObserverPendingReceiver = class {
   constructor(handle) {
@@ -102,49 +99,6 @@ network.mojom.AcceptCHFrameObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnAcceptCHFrameReceived
-network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.AcceptCHFrameObserver.OnAcceptCHFrameReceived_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-        { name: 'accept_ch_frame', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.WebClientHintsTypeSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.AcceptCHFrameObserver.OnAcceptCHFrameReceived_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Clone
-network.mojom.AcceptCHFrameObserver_Clone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.AcceptCHFrameObserver.Clone_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.AcceptCHFrameObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.AcceptCHFrameObserverPtr = network.mojom.AcceptCHFrameObserverRemote;
 network.mojom.AcceptCHFrameObserverRequest = network.mojom.AcceptCHFrameObserverPendingReceiver;
 

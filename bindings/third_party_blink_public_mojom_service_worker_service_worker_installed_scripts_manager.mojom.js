@@ -9,58 +9,43 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 var url = url || {};
 
+blink.mojom.ServiceWorkerInstalledScriptsInfoSpec = { $: {} };
+blink.mojom.ServiceWorkerScriptInfoSpec = { $: {} };
+blink.mojom.ServiceWorkerInstalledScriptsManagerHost = {};
+blink.mojom.ServiceWorkerInstalledScriptsManagerHost.$interfaceName = 'blink.mojom.ServiceWorkerInstalledScriptsManagerHost';
+blink.mojom.ServiceWorkerInstalledScriptsManagerHost_RequestInstalledScript_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorkerInstalledScriptsManager = {};
+blink.mojom.ServiceWorkerInstalledScriptsManager.$interfaceName = 'blink.mojom.ServiceWorkerInstalledScriptsManager';
+blink.mojom.ServiceWorkerInstalledScriptsManager_TransferInstalledScript_ParamsSpec = { $: {} };
 
 // Struct: ServiceWorkerInstalledScriptsInfo
-blink.mojom.ServiceWorkerInstalledScriptsInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerInstalledScriptsInfo',
-      packedSize: 32,
-      fields: [
-        { name: 'manager_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.ServiceWorkerInstalledScriptsManagerRemote), nullable: false, minVersion: 0 },
-        { name: 'manager_host_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.ServiceWorkerInstalledScriptsManagerHostRemote), nullable: false, minVersion: 0 },
-        { name: 'installed_urls', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerInstalledScriptsInfoSpec, 'blink.mojom.ServiceWorkerInstalledScriptsInfo', [
+      mojo.internal.StructField('manager_receiver', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.ServiceWorkerInstalledScriptsManagerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('manager_host_remote', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.ServiceWorkerInstalledScriptsManagerHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('installed_urls', 16, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: ServiceWorkerScriptInfo
-blink.mojom.ServiceWorkerScriptInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerScriptInfo',
-      packedSize: 64,
-      fields: [
-        { name: 'script_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'encoding', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'headers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'body', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'body_size', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'meta_data', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
-        { name: 'meta_data_size', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerScriptInfoSpec, 'blink.mojom.ServiceWorkerScriptInfo', [
+      mojo.internal.StructField('script_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('encoding', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('headers', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('body', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('body_size', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('meta_data', 40, 0, mojo.internal.Pointer, null, true, 0, undefined),
+      mojo.internal.StructField('meta_data_size', 48, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 64]]);
 
 // Interface: ServiceWorkerInstalledScriptsManagerHost
-blink.mojom.ServiceWorkerInstalledScriptsManagerHost = {};
-
-blink.mojom.ServiceWorkerInstalledScriptsManagerHost_RequestInstalledScript_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerInstalledScriptsManagerHost_RequestInstalledScript_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'script_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerInstalledScriptsManagerHost_RequestInstalledScript_ParamsSpec, 'blink.mojom.ServiceWorkerInstalledScriptsManagerHost_RequestInstalledScript_Params', [
+      mojo.internal.StructField('script_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.ServiceWorkerInstalledScriptsManagerHostPendingReceiver = class {
   constructor(handle) {
@@ -115,40 +100,16 @@ blink.mojom.ServiceWorkerInstalledScriptsManagerHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RequestInstalledScript
-blink.mojom.ServiceWorkerInstalledScriptsManagerHost_RequestInstalledScript_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerInstalledScriptsManagerHost.RequestInstalledScript_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'script_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.ServiceWorkerInstalledScriptsManagerHostPtr = blink.mojom.ServiceWorkerInstalledScriptsManagerHostRemote;
 blink.mojom.ServiceWorkerInstalledScriptsManagerHostRequest = blink.mojom.ServiceWorkerInstalledScriptsManagerHostPendingReceiver;
 
 
 // Interface: ServiceWorkerInstalledScriptsManager
-blink.mojom.ServiceWorkerInstalledScriptsManager = {};
-
-blink.mojom.ServiceWorkerInstalledScriptsManager_TransferInstalledScript_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerInstalledScriptsManager_TransferInstalledScript_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'script_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerScriptInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerInstalledScriptsManager_TransferInstalledScript_ParamsSpec, 'blink.mojom.ServiceWorkerInstalledScriptsManager_TransferInstalledScript_Params', [
+      mojo.internal.StructField('script_info', 0, 0, blink.mojom.ServiceWorkerScriptInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.ServiceWorkerInstalledScriptsManagerPendingReceiver = class {
   constructor(handle) {
@@ -203,21 +164,6 @@ blink.mojom.ServiceWorkerInstalledScriptsManager.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for TransferInstalledScript
-blink.mojom.ServiceWorkerInstalledScriptsManager_TransferInstalledScript_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerInstalledScriptsManager.TransferInstalledScript_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'script_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerScriptInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.ServiceWorkerInstalledScriptsManagerPtr = blink.mojom.ServiceWorkerInstalledScriptsManagerRemote;
 blink.mojom.ServiceWorkerInstalledScriptsManagerRequest = blink.mojom.ServiceWorkerInstalledScriptsManagerPendingReceiver;
 

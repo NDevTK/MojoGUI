@@ -9,6 +9,12 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 var blink = blink || {};
 
+blink.mojom.FontEnumerationStatusSpec = { $: mojo.internal.Enum() };
+blink.mojom.FontDataSpec = { $: {} };
+blink.mojom.FontAccessManager = {};
+blink.mojom.FontAccessManager.$interfaceName = 'blink.mojom.FontAccessManager';
+blink.mojom.FontAccessManager_EnumerateLocalFonts_ParamsSpec = { $: {} };
+blink.mojom.FontAccessManager_EnumerateLocalFonts_ResponseParamsSpec = { $: {} };
 
 // Enum: FontEnumerationStatus
 blink.mojom.FontEnumerationStatus = {
@@ -19,39 +25,29 @@ blink.mojom.FontEnumerationStatus = {
   kNotVisible: 4,
   kPermissionDenied: 5,
 };
-blink.mojom.FontEnumerationStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: FontData
-blink.mojom.FontDataSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FontData',
-      packedSize: 40,
-      fields: [
-        { name: 'postscript_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'full_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'family', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'style', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FontDataSpec, 'blink.mojom.FontData', [
+      mojo.internal.StructField('postscript_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('full_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('family', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('style', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Interface: FontAccessManager
-blink.mojom.FontAccessManager = {};
+mojo.internal.Struct(
+    blink.mojom.FontAccessManager_EnumerateLocalFonts_ParamsSpec, 'blink.mojom.FontAccessManager_EnumerateLocalFonts_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.FontAccessManager_EnumerateLocalFonts_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FontAccessManager_EnumerateLocalFonts_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FontAccessManager_EnumerateLocalFonts_ResponseParamsSpec, 'blink.mojom.FontAccessManager_EnumerateLocalFonts_ResponseParams', [
+      mojo.internal.StructField('enumeration_status', 8, 0, blink.mojom.FontEnumerationStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('enumeration_table', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 blink.mojom.FontAccessManagerPendingReceiver = class {
   constructor(handle) {
@@ -106,34 +102,6 @@ blink.mojom.FontAccessManager.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for EnumerateLocalFonts
-blink.mojom.FontAccessManager_EnumerateLocalFonts_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FontAccessManager.EnumerateLocalFonts_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.FontAccessManager_EnumerateLocalFonts_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FontAccessManager.EnumerateLocalFonts_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'enumeration_status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FontEnumerationStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'enumeration_table', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.FontAccessManagerPtr = blink.mojom.FontAccessManagerRemote;
 blink.mojom.FontAccessManagerRequest = blink.mojom.FontAccessManagerPendingReceiver;
 

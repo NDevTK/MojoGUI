@@ -7,7 +7,21 @@
 // Module namespace
 var echo = echo || {};
 echo.mojom = echo.mojom || {};
+var components = components || {};
 
+echo.mojom.LoadStatusSpec = { $: mojo.internal.Enum() };
+echo.mojom.EchoService = {};
+echo.mojom.EchoService.$interfaceName = 'echo.mojom.EchoService';
+echo.mojom.EchoService_EchoString_ParamsSpec = { $: {} };
+echo.mojom.EchoService_EchoString_ResponseParamsSpec = { $: {} };
+echo.mojom.EchoService_EchoStringToSharedMemory_ParamsSpec = { $: {} };
+echo.mojom.EchoService_Quit_ParamsSpec = { $: {} };
+echo.mojom.EchoService_Crash_ParamsSpec = { $: {} };
+echo.mojom.EchoService_DelayLoad_ParamsSpec = { $: {} };
+echo.mojom.EchoService_LoadNativeLibrary_ParamsSpec = { $: {} };
+echo.mojom.EchoService_LoadNativeLibrary_ResponseParamsSpec = { $: {} };
+echo.mojom.EchoService_DecryptEncrypt_ParamsSpec = { $: {} };
+echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec = { $: {} };
 
 // Enum: LoadStatus
 echo.mojom.LoadStatus = {
@@ -16,101 +30,68 @@ echo.mojom.LoadStatus = {
   kFailedGetProcAddress: 2,
   kFailedCallingDelayLoad: 3,
 };
-echo.mojom.LoadStatusSpec = { $: mojo.internal.Enum() };
 
 // Interface: EchoService
-echo.mojom.EchoService = {};
+mojo.internal.Struct(
+    echo.mojom.EchoService_EchoString_ParamsSpec, 'echo.mojom.EchoService_EchoString_Params', [
+      mojo.internal.StructField('input', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-echo.mojom.EchoService_EchoString_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'echo.mojom.EchoService_EchoString_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    echo.mojom.EchoService_EchoString_ResponseParamsSpec, 'echo.mojom.EchoService_EchoString_ResponseParams', [
+      mojo.internal.StructField('echoed_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-echo.mojom.EchoService_EchoStringToSharedMemory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'echo.mojom.EchoService_EchoStringToSharedMemory_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    echo.mojom.EchoService_EchoStringToSharedMemory_ParamsSpec, 'echo.mojom.EchoService_EchoStringToSharedMemory_Params', [
+      mojo.internal.StructField('input', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('region', 8, 0, mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-echo.mojom.EchoService_Quit_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'echo.mojom.EchoService_Quit_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    echo.mojom.EchoService_Quit_ParamsSpec, 'echo.mojom.EchoService_Quit_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-echo.mojom.EchoService_Crash_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'echo.mojom.EchoService_Crash_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    echo.mojom.EchoService_Crash_ParamsSpec, 'echo.mojom.EchoService_Crash_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-echo.mojom.EchoService_DelayLoad_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'echo.mojom.EchoService_DelayLoad_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    echo.mojom.EchoService_DelayLoad_ParamsSpec, 'echo.mojom.EchoService_DelayLoad_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-echo.mojom.EchoService_LoadNativeLibrary_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'echo.mojom.EchoService_LoadNativeLibrary_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'library', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'call_winmm_delayload', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    echo.mojom.EchoService_LoadNativeLibrary_ParamsSpec, 'echo.mojom.EchoService_LoadNativeLibrary_Params', [
+      mojo.internal.StructField('library', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('call_winmm_delayload', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-echo.mojom.EchoService_DecryptEncrypt_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'echo.mojom.EchoService_DecryptEncrypt_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'encryptor', packedOffset: 0, packedBitOffset: 0, type: os_crypt_async.mojom.EncryptorSpec, nullable: false, minVersion: 0 },
-        { name: 'input', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    echo.mojom.EchoService_LoadNativeLibrary_ResponseParamsSpec, 'echo.mojom.EchoService_LoadNativeLibrary_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, echo.mojom.LoadStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error_code', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    echo.mojom.EchoService_DecryptEncrypt_ParamsSpec, 'echo.mojom.EchoService_DecryptEncrypt_Params', [
+      mojo.internal.StructField('encryptor', 0, 0, os_crypt_async.mojom.EncryptorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('input', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec, 'echo.mojom.EchoService_DecryptEncrypt_ResponseParams', [
+      mojo.internal.StructField('output', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 echo.mojom.EchoServicePendingReceiver = class {
   constructor(handle) {
@@ -219,145 +200,6 @@ echo.mojom.EchoService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for EchoString
-echo.mojom.EchoService_EchoString_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'echo.mojom.EchoService.EchoString_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-echo.mojom.EchoService_EchoString_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'echo.mojom.EchoService.EchoString_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'echoed_input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EchoStringToSharedMemory
-echo.mojom.EchoService_EchoStringToSharedMemory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'echo.mojom.EchoService.EchoStringToSharedMemory_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for Quit
-echo.mojom.EchoService_Quit_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'echo.mojom.EchoService.Quit_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for Crash
-echo.mojom.EchoService_Crash_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'echo.mojom.EchoService.Crash_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for DelayLoad
-echo.mojom.EchoService_DelayLoad_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'echo.mojom.EchoService.DelayLoad_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for LoadNativeLibrary
-echo.mojom.EchoService_LoadNativeLibrary_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'echo.mojom.EchoService.LoadNativeLibrary_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'library', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'call_winmm_delayload', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-echo.mojom.EchoService_LoadNativeLibrary_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'echo.mojom.EchoService.LoadNativeLibrary_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: echo.mojom.LoadStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'error_code', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DecryptEncrypt
-echo.mojom.EchoService_DecryptEncrypt_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'echo.mojom.EchoService.DecryptEncrypt_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'encryptor', packedOffset: 0, packedBitOffset: 0, type: os_crypt_async.mojom.EncryptorSpec, nullable: false, minVersion: 0 },
-        { name: 'input', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'echo.mojom.EchoService.DecryptEncrypt_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'output', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 echo.mojom.EchoServicePtr = echo.mojom.EchoServiceRemote;
 echo.mojom.EchoServiceRequest = echo.mojom.EchoServicePendingReceiver;
 

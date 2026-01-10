@@ -9,6 +9,9 @@ var webapps = webapps || {};
 webapps.mojom = webapps.mojom || {};
 var url = url || {};
 
+webapps.mojom.WebPageMobileCapableSpec = { $: mojo.internal.Enum() };
+webapps.mojom.WebPageIconInfoSpec = { $: {} };
+webapps.mojom.WebPageMetadataSpec = { $: {} };
 
 // Enum: WebPageMobileCapable
 webapps.mojom.WebPageMobileCapable = {
@@ -16,38 +19,23 @@ webapps.mojom.WebPageMobileCapable = {
   ENABLED: 1,
   ENABLED_APPLE: 2,
 };
-webapps.mojom.WebPageMobileCapableSpec = { $: mojo.internal.Enum() };
 
 // Struct: WebPageIconInfo
-webapps.mojom.WebPageIconInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'webapps.mojom.WebPageIconInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'square_size_px', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    webapps.mojom.WebPageIconInfoSpec, 'webapps.mojom.WebPageIconInfo', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('square_size_px', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: WebPageMetadata
-webapps.mojom.WebPageMetadataSpec = {
-  $: {
-    structSpec: {
-      name: 'webapps.mojom.WebPageMetadata',
-      packedSize: 56,
-      fields: [
-        { name: 'application_name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'description', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'application_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'title', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'icons', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(webapps.mojom.WebPageIconInfoSpec, false), nullable: false, minVersion: 0 },
-        { name: 'mobile_capable', packedOffset: 40, packedBitOffset: 0, type: webapps.mojom.WebPageMobileCapableSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    webapps.mojom.WebPageMetadataSpec, 'webapps.mojom.WebPageMetadata', [
+      mojo.internal.StructField('application_name', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('description', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('application_url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('title', 24, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('icons', 32, 0, mojo.internal.Array(webapps.mojom.WebPageIconInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('mobile_capable', 40, 0, webapps.mojom.WebPageMobileCapableSpec, null, false, 0, undefined),
+    ],
+    [[0, 56]]);

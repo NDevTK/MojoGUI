@@ -9,21 +9,25 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 var blink = blink || {};
 
+blink.mojom.QuotaManagerHost = {};
+blink.mojom.QuotaManagerHost.$interfaceName = 'blink.mojom.QuotaManagerHost';
+blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ParamsSpec = { $: {} };
+blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ResponseParamsSpec = { $: {} };
 
 // Interface: QuotaManagerHost
-blink.mojom.QuotaManagerHost = {};
+mojo.internal.Struct(
+    blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ParamsSpec, 'blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ResponseParamsSpec, 'blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ResponseParams', [
+      mojo.internal.StructField('error', 24, 0, blink.mojom.QuotaStatusCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('current_usage', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('current_quota', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('usage_breakdown', 16, 0, blink.mojom.UsageBreakdownSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 blink.mojom.QuotaManagerHostPendingReceiver = class {
   constructor(handle) {
@@ -78,36 +82,6 @@ blink.mojom.QuotaManagerHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for QueryStorageUsageAndQuota
-blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.QuotaManagerHost.QueryStorageUsageAndQuota_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.QuotaManagerHost.QueryStorageUsageAndQuota_ResponseParams',
-      packedSize: 40,
-      fields: [
-        { name: 'error', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.QuotaStatusCodeSpec, nullable: false, minVersion: 0 },
-        { name: 'current_usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'current_quota', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'usage_breakdown', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.UsageBreakdownSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.QuotaManagerHostPtr = blink.mojom.QuotaManagerHostRemote;
 blink.mojom.QuotaManagerHostRequest = blink.mojom.QuotaManagerHostPendingReceiver;
 

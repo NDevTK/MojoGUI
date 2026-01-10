@@ -8,20 +8,14 @@
 var auction_worklet = auction_worklet || {};
 auction_worklet.mojom = auction_worklet.mojom || {};
 
+auction_worklet.mojom.RealTimeReportingContributionSpec = { $: {} };
 
 // Struct: RealTimeReportingContribution
-auction_worklet.mojom.RealTimeReportingContributionSpec = {
-  $: {
-    structSpec: {
-      name: 'auction_worklet.mojom.RealTimeReportingContribution',
-      packedSize: 32,
-      fields: [
-        { name: 'bucket', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'priority_weight', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'latency_threshold_$flag', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'latency_threshold_$value', originalFieldName: 'latency_threshold' } },
-        { name: 'latency_threshold_$value', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'latency_threshold_$flag', originalFieldName: 'latency_threshold' } },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    auction_worklet.mojom.RealTimeReportingContributionSpec, 'auction_worklet.mojom.RealTimeReportingContribution', [
+      mojo.internal.StructField('bucket', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('priority_weight', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('latency_threshold_$flag', 16, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'latency_threshold_$value', originalFieldName: 'latency_threshold' }),
+      mojo.internal.StructField('latency_threshold_$value', 12, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'latency_threshold_$flag', originalFieldName: 'latency_threshold' }),
+    ],
+    [[0, 32]]);

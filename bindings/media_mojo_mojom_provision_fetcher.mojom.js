@@ -9,23 +9,25 @@ var media = media || {};
 media.mojom = media.mojom || {};
 var url = url || {};
 
+media.mojom.ProvisionFetcher = {};
+media.mojom.ProvisionFetcher.$interfaceName = 'media.mojom.ProvisionFetcher';
+media.mojom.ProvisionFetcher_Retrieve_ParamsSpec = { $: {} };
+media.mojom.ProvisionFetcher_Retrieve_ResponseParamsSpec = { $: {} };
 
 // Interface: ProvisionFetcher
-media.mojom.ProvisionFetcher = {};
+mojo.internal.Struct(
+    media.mojom.ProvisionFetcher_Retrieve_ParamsSpec, 'media.mojom.ProvisionFetcher_Retrieve_Params', [
+      mojo.internal.StructField('default_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request_data', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-media.mojom.ProvisionFetcher_Retrieve_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.ProvisionFetcher_Retrieve_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'default_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'request_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.ProvisionFetcher_Retrieve_ResponseParamsSpec, 'media.mojom.ProvisionFetcher_Retrieve_ResponseParams', [
+      mojo.internal.StructField('result', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 media.mojom.ProvisionFetcherPendingReceiver = class {
   constructor(handle) {
@@ -80,36 +82,6 @@ media.mojom.ProvisionFetcher.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Retrieve
-media.mojom.ProvisionFetcher_Retrieve_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.ProvisionFetcher.Retrieve_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'default_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'request_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-media.mojom.ProvisionFetcher_Retrieve_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.ProvisionFetcher.Retrieve_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.ProvisionFetcherPtr = media.mojom.ProvisionFetcherRemote;
 media.mojom.ProvisionFetcherRequest = media.mojom.ProvisionFetcherPendingReceiver;
 

@@ -7,22 +7,17 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
+var services = services || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+viz.mojom.SurfaceInfoSpec = { $: {} };
 
 // Struct: SurfaceInfo
-viz.mojom.SurfaceInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.SurfaceInfo',
-      packedSize: 32,
-      fields: [
-        { name: 'surface_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.SurfaceIdSpec, nullable: false, minVersion: 0 },
-        { name: 'device_scale_factor', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'size_in_pixels', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.SurfaceInfoSpec, 'viz.mojom.SurfaceInfo', [
+      mojo.internal.StructField('surface_id', 0, 0, viz.mojom.SurfaceIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('device_scale_factor', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('size_in_pixels', 8, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);

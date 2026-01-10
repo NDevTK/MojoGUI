@@ -16,61 +16,65 @@ var gfx = gfx || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+gfx.mojom.TraitsTestService = {};
+gfx.mojom.TraitsTestService.$interfaceName = 'gfx.mojom.TraitsTestService';
+gfx.mojom.TraitsTestService_EchoSelectionBound_ParamsSpec = { $: {} };
+gfx.mojom.TraitsTestService_EchoSelectionBound_ResponseParamsSpec = { $: {} };
+gfx.mojom.TraitsTestService_EchoTransform_ParamsSpec = { $: {} };
+gfx.mojom.TraitsTestService_EchoTransform_ResponseParamsSpec = { $: {} };
+gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ParamsSpec = { $: {} };
+gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ResponseParamsSpec = { $: {} };
+gfx.mojom.TraitsTestService_EchoRRectF_ParamsSpec = { $: {} };
+gfx.mojom.TraitsTestService_EchoRRectF_ResponseParamsSpec = { $: {} };
 
 // Interface: TraitsTestService
-gfx.mojom.TraitsTestService = {};
+mojo.internal.Struct(
+    gfx.mojom.TraitsTestService_EchoSelectionBound_ParamsSpec, 'gfx.mojom.TraitsTestService_EchoSelectionBound_Params', [
+      mojo.internal.StructField('s', 0, 0, gfx.mojom.SelectionBoundSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-gfx.mojom.TraitsTestService_EchoSelectionBound_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.TraitsTestService_EchoSelectionBound_Params',
-      packedSize: 16,
-      fields: [
-        { name: 's', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SelectionBoundSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.TraitsTestService_EchoSelectionBound_ResponseParamsSpec, 'gfx.mojom.TraitsTestService_EchoSelectionBound_ResponseParams', [
+      mojo.internal.StructField('pass', 0, 0, gfx.mojom.SelectionBoundSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-gfx.mojom.TraitsTestService_EchoTransform_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.TraitsTestService_EchoTransform_Params',
-      packedSize: 16,
-      fields: [
-        { name: 't', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.TraitsTestService_EchoTransform_ParamsSpec, 'gfx.mojom.TraitsTestService_EchoTransform_Params', [
+      mojo.internal.StructField('t', 0, 0, gfx.mojom.TransformSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'g', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.GpuMemoryBufferHandleSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.TraitsTestService_EchoTransform_ResponseParamsSpec, 'gfx.mojom.TraitsTestService_EchoTransform_ResponseParams', [
+      mojo.internal.StructField('pass', 0, 0, gfx.mojom.TransformSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-gfx.mojom.TraitsTestService_EchoRRectF_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.TraitsTestService_EchoRRectF_Params',
-      packedSize: 16,
-      fields: [
-        { name: 't', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RRectFSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ParamsSpec, 'gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_Params', [
+      mojo.internal.StructField('g', 0, 0, gfx.mojom.GpuMemoryBufferHandleSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ResponseParamsSpec, 'gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ResponseParams', [
+      mojo.internal.StructField('pass', 0, 0, gfx.mojom.GpuMemoryBufferHandleSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    gfx.mojom.TraitsTestService_EchoRRectF_ParamsSpec, 'gfx.mojom.TraitsTestService_EchoRRectF_Params', [
+      mojo.internal.StructField('t', 0, 0, gfx.mojom.RRectFSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    gfx.mojom.TraitsTestService_EchoRRectF_ResponseParamsSpec, 'gfx.mojom.TraitsTestService_EchoRRectF_ResponseParams', [
+      mojo.internal.StructField('pass', 0, 0, gfx.mojom.RRectFSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 gfx.mojom.TraitsTestServicePendingReceiver = class {
   constructor(handle) {
@@ -152,115 +156,6 @@ gfx.mojom.TraitsTestService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for EchoSelectionBound
-gfx.mojom.TraitsTestService_EchoSelectionBound_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.TraitsTestService.EchoSelectionBound_Params',
-      packedSize: 16,
-      fields: [
-        { name: 's', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SelectionBoundSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-gfx.mojom.TraitsTestService_EchoSelectionBound_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.TraitsTestService.EchoSelectionBound_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SelectionBoundSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EchoTransform
-gfx.mojom.TraitsTestService_EchoTransform_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.TraitsTestService.EchoTransform_Params',
-      packedSize: 16,
-      fields: [
-        { name: 't', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-gfx.mojom.TraitsTestService_EchoTransform_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.TraitsTestService.EchoTransform_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EchoGpuMemoryBufferHandle
-gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.TraitsTestService.EchoGpuMemoryBufferHandle_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'g', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.GpuMemoryBufferHandleSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.TraitsTestService.EchoGpuMemoryBufferHandle_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.GpuMemoryBufferHandleSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EchoRRectF
-gfx.mojom.TraitsTestService_EchoRRectF_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.TraitsTestService.EchoRRectF_Params',
-      packedSize: 16,
-      fields: [
-        { name: 't', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RRectFSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-gfx.mojom.TraitsTestService_EchoRRectF_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.TraitsTestService.EchoRRectF_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RRectFSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 gfx.mojom.TraitsTestServicePtr = gfx.mojom.TraitsTestServiceRemote;
 gfx.mojom.TraitsTestServiceRequest = gfx.mojom.TraitsTestServicePendingReceiver;
 

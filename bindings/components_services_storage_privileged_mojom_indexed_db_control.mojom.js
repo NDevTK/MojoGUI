@@ -7,9 +7,47 @@
 // Module namespace
 var storage = storage || {};
 storage.mojom = storage.mojom || {};
+var components = components || {};
+var services = services || {};
+var components = components || {};
+var services = services || {};
+var components = components || {};
+var services = services || {};
+var components = components || {};
+var services = services || {};
+var components = components || {};
+var services = services || {};
+var components = components || {};
+var services = services || {};
+var components = components || {};
+var services = services || {};
+var components = components || {};
+var services = services || {};
 var blink = blink || {};
 var blink = blink || {};
 
+storage.mojom.ForceCloseReasonSpec = { $: mojo.internal.Enum() };
+storage.mojom.IndexedDBObserver = {};
+storage.mojom.IndexedDBObserver.$interfaceName = 'storage.mojom.IndexedDBObserver';
+storage.mojom.IndexedDBObserver_OnIndexedDBListChanged_ParamsSpec = { $: {} };
+storage.mojom.IndexedDBObserver_OnIndexedDBContentChanged_ParamsSpec = { $: {} };
+storage.mojom.IndexedDBControl = {};
+storage.mojom.IndexedDBControl.$interfaceName = 'storage.mojom.IndexedDBControl';
+storage.mojom.IndexedDBControl_BindIndexedDB_ParamsSpec = { $: {} };
+storage.mojom.IndexedDBControl_ForceClose_ParamsSpec = { $: {} };
+storage.mojom.IndexedDBControl_ForceClose_ResponseParamsSpec = { $: {} };
+storage.mojom.IndexedDBControl_DownloadBucketData_ParamsSpec = { $: {} };
+storage.mojom.IndexedDBControl_DownloadBucketData_ResponseParamsSpec = { $: {} };
+storage.mojom.IndexedDBControl_GetAllBucketsDetails_ParamsSpec = { $: {} };
+storage.mojom.IndexedDBControl_GetAllBucketsDetails_ResponseParamsSpec = { $: {} };
+storage.mojom.IndexedDBControl_StartMetadataRecording_ParamsSpec = { $: {} };
+storage.mojom.IndexedDBControl_StartMetadataRecording_ResponseParamsSpec = { $: {} };
+storage.mojom.IndexedDBControl_StopMetadataRecording_ParamsSpec = { $: {} };
+storage.mojom.IndexedDBControl_StopMetadataRecording_ResponseParamsSpec = { $: {} };
+storage.mojom.IndexedDBControl_SetForceKeepSessionState_ParamsSpec = { $: {} };
+storage.mojom.IndexedDBControl_AddObserver_ParamsSpec = { $: {} };
+storage.mojom.IndexedDBControl_ApplyPolicyUpdates_ParamsSpec = { $: {} };
+storage.mojom.IndexedDBControl_BindTestInterfaceForTesting_ParamsSpec = { $: {} };
 
 // Enum: ForceCloseReason
 storage.mojom.ForceCloseReason = {
@@ -17,38 +55,21 @@ storage.mojom.ForceCloseReason = {
   FORCE_CLOSE_BACKING_STORE_FAILURE: 1,
   FORCE_CLOSE_INTERNALS_PAGE: 2,
 };
-storage.mojom.ForceCloseReasonSpec = { $: mojo.internal.Enum() };
 
 // Interface: IndexedDBObserver
-storage.mojom.IndexedDBObserver = {};
+mojo.internal.Struct(
+    storage.mojom.IndexedDBObserver_OnIndexedDBListChanged_ParamsSpec, 'storage.mojom.IndexedDBObserver_OnIndexedDBListChanged_Params', [
+      mojo.internal.StructField('bucket_locator', 0, 0, storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-storage.mojom.IndexedDBObserver_OnIndexedDBListChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBObserver_OnIndexedDBListChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-storage.mojom.IndexedDBObserver_OnIndexedDBContentChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBObserver_OnIndexedDBContentChanged_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false, minVersion: 0 },
-        { name: 'database_name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'object_store_name', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.IndexedDBObserver_OnIndexedDBContentChanged_ParamsSpec, 'storage.mojom.IndexedDBObserver_OnIndexedDBContentChanged_Params', [
+      mojo.internal.StructField('bucket_locator', 0, 0, storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('database_name', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('object_store_name', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 storage.mojom.IndexedDBObserverPendingReceiver = class {
   constructor(handle) {
@@ -112,175 +133,103 @@ storage.mojom.IndexedDBObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnIndexedDBListChanged
-storage.mojom.IndexedDBObserver_OnIndexedDBListChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBObserver.OnIndexedDBListChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnIndexedDBContentChanged
-storage.mojom.IndexedDBObserver_OnIndexedDBContentChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBObserver.OnIndexedDBContentChanged_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false, minVersion: 0 },
-        { name: 'database_name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'object_store_name', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 storage.mojom.IndexedDBObserverPtr = storage.mojom.IndexedDBObserverRemote;
 storage.mojom.IndexedDBObserverRequest = storage.mojom.IndexedDBObserverPendingReceiver;
 
 
 // Interface: IndexedDBControl
-storage.mojom.IndexedDBControl = {};
+mojo.internal.Struct(
+    storage.mojom.IndexedDBControl_BindIndexedDB_ParamsSpec, 'storage.mojom.IndexedDBControl_BindIndexedDB_Params', [
+      mojo.internal.StructField('bucket_locator', 0, 0, storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('client_info', 8, 0, storage.mojom.BucketClientInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('client_state_checker_remote', 16, 0, mojo.internal.InterfaceProxy(storage.mojom.IndexedDBClientStateCheckerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 24, 0, mojo.internal.InterfaceRequest(blink.mojom.IDBFactoryRemote), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-storage.mojom.IndexedDBControl_BindIndexedDB_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControl_BindIndexedDB_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false, minVersion: 0 },
-        { name: 'client_info', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.BucketClientInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'client_state_checker_remote', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(storage.mojom.IndexedDBClientStateCheckerRemote), nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.IDBFactoryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.IndexedDBControl_ForceClose_ParamsSpec, 'storage.mojom.IndexedDBControl_ForceClose_Params', [
+      mojo.internal.StructField('bucket_id', 0, 0, storage.mojom.BucketIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 8, 0, storage.mojom.ForceCloseReasonSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-storage.mojom.IndexedDBControl_ForceClose_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControl_ForceClose_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'bucket_id', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketIdSpec, nullable: false, minVersion: 0 },
-        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ForceCloseReasonSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.IndexedDBControl_ForceClose_ResponseParamsSpec, 'storage.mojom.IndexedDBControl_ForceClose_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-storage.mojom.IndexedDBControl_DownloadBucketData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControl_DownloadBucketData_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'bucket_id', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.IndexedDBControl_DownloadBucketData_ParamsSpec, 'storage.mojom.IndexedDBControl_DownloadBucketData_Params', [
+      mojo.internal.StructField('bucket_id', 0, 0, storage.mojom.BucketIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-storage.mojom.IndexedDBControl_GetAllBucketsDetails_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControl_GetAllBucketsDetails_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.IndexedDBControl_DownloadBucketData_ResponseParamsSpec, 'storage.mojom.IndexedDBControl_DownloadBucketData_ResponseParams', [
+      mojo.internal.StructField('success', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('temp_path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('zip_path', 8, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-storage.mojom.IndexedDBControl_StartMetadataRecording_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControl_StartMetadataRecording_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'bucket_id', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.IndexedDBControl_GetAllBucketsDetails_ParamsSpec, 'storage.mojom.IndexedDBControl_GetAllBucketsDetails_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-storage.mojom.IndexedDBControl_StopMetadataRecording_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControl_StopMetadataRecording_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'bucket_id', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.IndexedDBControl_GetAllBucketsDetails_ResponseParamsSpec, 'storage.mojom.IndexedDBControl_GetAllBucketsDetails_ResponseParams', [
+      mojo.internal.StructField('incognito', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('details', 0, 0, mojo.internal.Array(storage.mojom.IdbOriginMetadataSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-storage.mojom.IndexedDBControl_SetForceKeepSessionState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControl_SetForceKeepSessionState_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.IndexedDBControl_StartMetadataRecording_ParamsSpec, 'storage.mojom.IndexedDBControl_StartMetadataRecording_Params', [
+      mojo.internal.StructField('bucket_id', 0, 0, storage.mojom.BucketIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-storage.mojom.IndexedDBControl_AddObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControl_AddObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(storage.mojom.IndexedDBObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.IndexedDBControl_StartMetadataRecording_ResponseParamsSpec, 'storage.mojom.IndexedDBControl_StartMetadataRecording_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-storage.mojom.IndexedDBControl_ApplyPolicyUpdates_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControl_ApplyPolicyUpdates_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'policy_updates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(storage.mojom.StoragePolicyUpdateSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.IndexedDBControl_StopMetadataRecording_ParamsSpec, 'storage.mojom.IndexedDBControl_StopMetadataRecording_Params', [
+      mojo.internal.StructField('bucket_id', 0, 0, storage.mojom.BucketIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-storage.mojom.IndexedDBControl_BindTestInterfaceForTesting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControl_BindTestInterfaceForTesting_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(storage.mojom.IndexedDBControlTestRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.IndexedDBControl_StopMetadataRecording_ResponseParamsSpec, 'storage.mojom.IndexedDBControl_StopMetadataRecording_ResponseParams', [
+      mojo.internal.StructField('metadata', 0, 0, mojo.internal.Array(storage.mojom.IdbBucketMetadataSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    storage.mojom.IndexedDBControl_SetForceKeepSessionState_ParamsSpec, 'storage.mojom.IndexedDBControl_SetForceKeepSessionState_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    storage.mojom.IndexedDBControl_AddObserver_ParamsSpec, 'storage.mojom.IndexedDBControl_AddObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(storage.mojom.IndexedDBObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    storage.mojom.IndexedDBControl_ApplyPolicyUpdates_ParamsSpec, 'storage.mojom.IndexedDBControl_ApplyPolicyUpdates_Params', [
+      mojo.internal.StructField('policy_updates', 0, 0, mojo.internal.Array(storage.mojom.StoragePolicyUpdateSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    storage.mojom.IndexedDBControl_BindTestInterfaceForTesting_ParamsSpec, 'storage.mojom.IndexedDBControl_BindTestInterfaceForTesting_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(storage.mojom.IndexedDBControlTestRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 storage.mojom.IndexedDBControlPendingReceiver = class {
   constructor(handle) {
@@ -328,7 +277,7 @@ storage.mojom.IndexedDBControlRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       storage.mojom.IndexedDBControl_ForceClose_ParamsSpec,
-      null,
+      storage.mojom.IndexedDBControl_ForceClose_ResponseParamsSpec,
       [bucket_id, reason]);
   }
 
@@ -355,7 +304,7 @@ storage.mojom.IndexedDBControlRemoteCallHandler = class {
     return this.proxy.sendMessage(
       4,  // ordinal
       storage.mojom.IndexedDBControl_StartMetadataRecording_ParamsSpec,
-      null,
+      storage.mojom.IndexedDBControl_StartMetadataRecording_ResponseParamsSpec,
       [bucket_id]);
   }
 
@@ -416,191 +365,6 @@ storage.mojom.IndexedDBControl.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for BindIndexedDB
-storage.mojom.IndexedDBControl_BindIndexedDB_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControl.BindIndexedDB_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false, minVersion: 0 },
-        { name: 'client_info', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.BucketClientInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'client_state_checker_remote', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(storage.mojom.IndexedDBClientStateCheckerRemote), nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.IDBFactoryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for ForceClose
-storage.mojom.IndexedDBControl_ForceClose_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControl.ForceClose_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'bucket_id', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketIdSpec, nullable: false, minVersion: 0 },
-        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ForceCloseReasonSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for DownloadBucketData
-storage.mojom.IndexedDBControl_DownloadBucketData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControl.DownloadBucketData_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'bucket_id', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-storage.mojom.IndexedDBControl_DownloadBucketData_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControl.DownloadBucketData_ResponseParams',
-      packedSize: 32,
-      fields: [
-        { name: 'success', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'temp_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'zip_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for GetAllBucketsDetails
-storage.mojom.IndexedDBControl_GetAllBucketsDetails_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControl.GetAllBucketsDetails_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-storage.mojom.IndexedDBControl_GetAllBucketsDetails_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControl.GetAllBucketsDetails_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'incognito', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(storage.mojom.IdbOriginMetadataSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for StartMetadataRecording
-storage.mojom.IndexedDBControl_StartMetadataRecording_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControl.StartMetadataRecording_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'bucket_id', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StopMetadataRecording
-storage.mojom.IndexedDBControl_StopMetadataRecording_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControl.StopMetadataRecording_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'bucket_id', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-storage.mojom.IndexedDBControl_StopMetadataRecording_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControl.StopMetadataRecording_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(storage.mojom.IdbBucketMetadataSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetForceKeepSessionState
-storage.mojom.IndexedDBControl_SetForceKeepSessionState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControl.SetForceKeepSessionState_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for AddObserver
-storage.mojom.IndexedDBControl_AddObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControl.AddObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(storage.mojom.IndexedDBObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ApplyPolicyUpdates
-storage.mojom.IndexedDBControl_ApplyPolicyUpdates_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControl.ApplyPolicyUpdates_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'policy_updates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(storage.mojom.StoragePolicyUpdateSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindTestInterfaceForTesting
-storage.mojom.IndexedDBControl_BindTestInterfaceForTesting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControl.BindTestInterfaceForTesting_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(storage.mojom.IndexedDBControlTestRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 storage.mojom.IndexedDBControlPtr = storage.mojom.IndexedDBControlRemote;
 storage.mojom.IndexedDBControlRequest = storage.mojom.IndexedDBControlPendingReceiver;
 

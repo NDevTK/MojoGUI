@@ -8,6 +8,13 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.LockScreenServiceStatusSpec = { $: mojo.internal.Enum() };
+blink.mojom.LockScreenService = {};
+blink.mojom.LockScreenService.$interfaceName = 'blink.mojom.LockScreenService';
+blink.mojom.LockScreenService_GetKeys_ParamsSpec = { $: {} };
+blink.mojom.LockScreenService_GetKeys_ResponseParamsSpec = { $: {} };
+blink.mojom.LockScreenService_SetData_ParamsSpec = { $: {} };
+blink.mojom.LockScreenService_SetData_ResponseParamsSpec = { $: {} };
 
 // Enum: LockScreenServiceStatus
 blink.mojom.LockScreenServiceStatus = {
@@ -15,36 +22,31 @@ blink.mojom.LockScreenServiceStatus = {
   kNotAllowedFromContext: 1,
   kWriteError: 2,
 };
-blink.mojom.LockScreenServiceStatusSpec = { $: mojo.internal.Enum() };
 
 // Interface: LockScreenService
-blink.mojom.LockScreenService = {};
+mojo.internal.Struct(
+    blink.mojom.LockScreenService_GetKeys_ParamsSpec, 'blink.mojom.LockScreenService_GetKeys_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.LockScreenService_GetKeys_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.LockScreenService_GetKeys_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.LockScreenService_GetKeys_ResponseParamsSpec, 'blink.mojom.LockScreenService_GetKeys_ResponseParams', [
+      mojo.internal.StructField('keys', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.LockScreenService_SetData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.LockScreenService_SetData_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.LockScreenService_SetData_ParamsSpec, 'blink.mojom.LockScreenService_SetData_Params', [
+      mojo.internal.StructField('key', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('data', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    blink.mojom.LockScreenService_SetData_ResponseParamsSpec, 'blink.mojom.LockScreenService_SetData_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, blink.mojom.LockScreenServiceStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.LockScreenServicePendingReceiver = class {
   constructor(handle) {
@@ -108,61 +110,6 @@ blink.mojom.LockScreenService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetKeys
-blink.mojom.LockScreenService_GetKeys_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.LockScreenService.GetKeys_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.LockScreenService_GetKeys_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.LockScreenService.GetKeys_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetData
-blink.mojom.LockScreenService_SetData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.LockScreenService.SetData_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.LockScreenService_SetData_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.LockScreenService.SetData_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LockScreenServiceStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.LockScreenServicePtr = blink.mojom.LockScreenServiceRemote;
 blink.mojom.LockScreenServiceRequest = blink.mojom.LockScreenServicePendingReceiver;
 

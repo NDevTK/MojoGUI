@@ -8,47 +8,41 @@
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
+arc.mojom.WallpaperHost = {};
+arc.mojom.WallpaperHost.$interfaceName = 'arc.mojom.WallpaperHost';
+arc.mojom.WallpaperHost_GetWallpaper_ParamsSpec = { $: {} };
+arc.mojom.WallpaperHost_GetWallpaper_ResponseParamsSpec = { $: {} };
+arc.mojom.WallpaperHost_SetWallpaper_ParamsSpec = { $: {} };
+arc.mojom.WallpaperHost_SetDefaultWallpaper_ParamsSpec = { $: {} };
+arc.mojom.WallpaperInstance = {};
+arc.mojom.WallpaperInstance.$interfaceName = 'arc.mojom.WallpaperInstance';
+arc.mojom.WallpaperInstance_Init_ParamsSpec = { $: {} };
+arc.mojom.WallpaperInstance_Init_ResponseParamsSpec = { $: {} };
+arc.mojom.WallpaperInstance_OnWallpaperChanged_ParamsSpec = { $: {} };
 
 // Interface: WallpaperHost
-arc.mojom.WallpaperHost = {};
+mojo.internal.Struct(
+    arc.mojom.WallpaperHost_GetWallpaper_ParamsSpec, 'arc.mojom.WallpaperHost_GetWallpaper_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.WallpaperHost_GetWallpaper_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.WallpaperHost_GetWallpaper_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.WallpaperHost_GetWallpaper_ResponseParamsSpec, 'arc.mojom.WallpaperHost_GetWallpaper_ResponseParams', [
+      mojo.internal.StructField('wallpaper', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.WallpaperHost_SetWallpaper_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.WallpaperHost_SetWallpaper_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'wallpaper_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 2 },
-      ],
-      versions: [{version: 0, packedSize: 16}, {version: 2, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.WallpaperHost_SetWallpaper_ParamsSpec, 'arc.mojom.WallpaperHost_SetWallpaper_Params', [
+      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('wallpaper_id', 8, 0, mojo.internal.Int32, 0, false, 2, undefined),
+    ],
+    [[0, 16], [2, 24]]);
 
-arc.mojom.WallpaperHost_SetDefaultWallpaper_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.WallpaperHost_SetDefaultWallpaper_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.WallpaperHost_SetDefaultWallpaper_ParamsSpec, 'arc.mojom.WallpaperHost_SetDefaultWallpaper_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 arc.mojom.WallpaperHostPendingReceiver = class {
   constructor(handle) {
@@ -121,93 +115,27 @@ arc.mojom.WallpaperHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetWallpaper
-arc.mojom.WallpaperHost_GetWallpaper_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.WallpaperHost.GetWallpaper_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-arc.mojom.WallpaperHost_GetWallpaper_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.WallpaperHost.GetWallpaper_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'wallpaper', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetWallpaper
-arc.mojom.WallpaperHost_SetWallpaper_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.WallpaperHost.SetWallpaper_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'wallpaper_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 2 },
-      ],
-      versions: [{version: 0, packedSize: 16}, {version: 2, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SetDefaultWallpaper
-arc.mojom.WallpaperHost_SetDefaultWallpaper_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.WallpaperHost.SetDefaultWallpaper_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.WallpaperHostPtr = arc.mojom.WallpaperHostRemote;
 arc.mojom.WallpaperHostRequest = arc.mojom.WallpaperHostPendingReceiver;
 
 
 // Interface: WallpaperInstance
-arc.mojom.WallpaperInstance = {};
+mojo.internal.Struct(
+    arc.mojom.WallpaperInstance_Init_ParamsSpec, 'arc.mojom.WallpaperInstance_Init_Params', [
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.WallpaperHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.WallpaperInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.WallpaperInstance_Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.WallpaperHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.WallpaperInstance_Init_ResponseParamsSpec, 'arc.mojom.WallpaperInstance_Init_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.WallpaperInstance_OnWallpaperChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.WallpaperInstance_OnWallpaperChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'wallpaper_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 2 },
-      ],
-      versions: [{version: 2, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.WallpaperInstance_OnWallpaperChanged_ParamsSpec, 'arc.mojom.WallpaperInstance_OnWallpaperChanged_Params', [
+      mojo.internal.StructField('wallpaper_id', 0, 0, mojo.internal.Int32, 0, false, 2, undefined),
+    ],
+    [[0, 8], [2, 16]]);
 
 arc.mojom.WallpaperInstancePendingReceiver = class {
   constructor(handle) {
@@ -246,7 +174,7 @@ arc.mojom.WallpaperInstanceRemoteCallHandler = class {
     return this.proxy.sendMessage(
       3,  // ordinal
       arc.mojom.WallpaperInstance_Init_ParamsSpec,
-      null,
+      arc.mojom.WallpaperInstance_Init_ResponseParamsSpec,
       [host_remote]);
   }
 
@@ -271,35 +199,6 @@ arc.mojom.WallpaperInstance.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Init
-arc.mojom.WallpaperInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.WallpaperInstance.Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.WallpaperHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnWallpaperChanged
-arc.mojom.WallpaperInstance_OnWallpaperChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.WallpaperInstance.OnWallpaperChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'wallpaper_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 2 },
-      ],
-      versions: [{version: 2, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.WallpaperInstancePtr = arc.mojom.WallpaperInstanceRemote;
 arc.mojom.WallpaperInstanceRequest = arc.mojom.WallpaperInstancePendingReceiver;
 

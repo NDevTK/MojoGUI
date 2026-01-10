@@ -8,17 +8,20 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.ObservedFeatureTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.ObservedFeature = {};
+blink.mojom.ObservedFeature.$interfaceName = 'blink.mojom.ObservedFeature';
+blink.mojom.FeatureObserver = {};
+blink.mojom.FeatureObserver.$interfaceName = 'blink.mojom.FeatureObserver';
+blink.mojom.FeatureObserver_Register_ParamsSpec = { $: {} };
 
 // Enum: ObservedFeatureType
 blink.mojom.ObservedFeatureType = {
   kWebLock: 0,
   kBlockingIndexedDBLock: 1,
 };
-blink.mojom.ObservedFeatureTypeSpec = { $: mojo.internal.Enum() };
 
 // Interface: ObservedFeature
-blink.mojom.ObservedFeature = {};
-
 blink.mojom.ObservedFeaturePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -63,27 +66,17 @@ blink.mojom.ObservedFeature.getRemote = function() {
   return remote.$;
 };
 
-// Legacy compatibility
 blink.mojom.ObservedFeaturePtr = blink.mojom.ObservedFeatureRemote;
 blink.mojom.ObservedFeatureRequest = blink.mojom.ObservedFeaturePendingReceiver;
 
 
 // Interface: FeatureObserver
-blink.mojom.FeatureObserver = {};
-
-blink.mojom.FeatureObserver_Register_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FeatureObserver_Register_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.ObservedFeatureRemote), nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ObservedFeatureTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FeatureObserver_Register_ParamsSpec, 'blink.mojom.FeatureObserver_Register_Params', [
+      mojo.internal.StructField('feature', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.ObservedFeatureRemote), null, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, blink.mojom.ObservedFeatureTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 blink.mojom.FeatureObserverPendingReceiver = class {
   constructor(handle) {
@@ -138,22 +131,6 @@ blink.mojom.FeatureObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Register
-blink.mojom.FeatureObserver_Register_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FeatureObserver.Register_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.ObservedFeatureRemote), nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ObservedFeatureTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.FeatureObserverPtr = blink.mojom.FeatureObserverRemote;
 blink.mojom.FeatureObserverRequest = blink.mojom.FeatureObserverPendingReceiver;
 

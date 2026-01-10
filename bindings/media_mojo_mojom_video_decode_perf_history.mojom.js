@@ -8,22 +8,24 @@
 var media = media || {};
 media.mojom = media.mojom || {};
 
+media.mojom.VideoDecodePerfHistory = {};
+media.mojom.VideoDecodePerfHistory.$interfaceName = 'media.mojom.VideoDecodePerfHistory';
+media.mojom.VideoDecodePerfHistory_GetPerfInfo_ParamsSpec = { $: {} };
+media.mojom.VideoDecodePerfHistory_GetPerfInfo_ResponseParamsSpec = { $: {} };
 
 // Interface: VideoDecodePerfHistory
-media.mojom.VideoDecodePerfHistory = {};
+mojo.internal.Struct(
+    media.mojom.VideoDecodePerfHistory_GetPerfInfo_ParamsSpec, 'media.mojom.VideoDecodePerfHistory_GetPerfInfo_Params', [
+      mojo.internal.StructField('features', 0, 0, media.mojom.PredictionFeaturesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.VideoDecodePerfHistory_GetPerfInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.VideoDecodePerfHistory_GetPerfInfo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'features', packedOffset: 0, packedBitOffset: 0, type: media.mojom.PredictionFeaturesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.VideoDecodePerfHistory_GetPerfInfo_ResponseParamsSpec, 'media.mojom.VideoDecodePerfHistory_GetPerfInfo_ResponseParams', [
+      mojo.internal.StructField('is_smooth', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_power_efficient', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media.mojom.VideoDecodePerfHistoryPendingReceiver = class {
   constructor(handle) {
@@ -78,35 +80,6 @@ media.mojom.VideoDecodePerfHistory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetPerfInfo
-media.mojom.VideoDecodePerfHistory_GetPerfInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.VideoDecodePerfHistory.GetPerfInfo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'features', packedOffset: 0, packedBitOffset: 0, type: media.mojom.PredictionFeaturesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-media.mojom.VideoDecodePerfHistory_GetPerfInfo_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.VideoDecodePerfHistory.GetPerfInfo_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'is_smooth', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_power_efficient', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.VideoDecodePerfHistoryPtr = media.mojom.VideoDecodePerfHistoryRemote;
 media.mojom.VideoDecodePerfHistoryRequest = media.mojom.VideoDecodePerfHistoryPendingReceiver;
 

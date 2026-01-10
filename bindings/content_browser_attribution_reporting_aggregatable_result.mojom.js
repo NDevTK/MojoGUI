@@ -8,6 +8,7 @@
 var attribution_reporting = attribution_reporting || {};
 attribution_reporting.mojom = attribution_reporting.mojom || {};
 
+attribution_reporting.mojom.AggregatableResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: AggregatableResult
 attribution_reporting.mojom.AggregatableResult = {
@@ -27,4 +28,3 @@ attribution_reporting.mojom.AggregatableResult = {
   kExcessiveReports: 13,
   kInsufficientNamedBudget: 14,
 };
-attribution_reporting.mojom.AggregatableResultSpec = { $: mojo.internal.Enum() };

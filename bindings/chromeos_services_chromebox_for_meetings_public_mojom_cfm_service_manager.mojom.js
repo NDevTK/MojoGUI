@@ -9,6 +9,17 @@ var chromeos = chromeos || {};
 chromeos.cfm = chromeos.cfm || {};
 chromeos.cfm.mojom = chromeos.cfm.mojom || {};
 
+chromeos.cfm.mojom.DisconnectReason = {};
+chromeos.cfm.mojom.DisconnectReason.$interfaceName = 'chromeos.cfm.mojom.DisconnectReason';
+chromeos.cfm.mojom.CfmServiceContext = {};
+chromeos.cfm.mojom.CfmServiceContext.$interfaceName = 'chromeos.cfm.mojom.CfmServiceContext';
+chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ParamsSpec = { $: {} };
+chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ResponseParamsSpec = { $: {} };
+chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ParamsSpec = { $: {} };
+chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ResponseParamsSpec = { $: {} };
+chromeos.cfm.mojom.CfmServiceAdaptor = {};
+chromeos.cfm.mojom.CfmServiceAdaptor.$interfaceName = 'chromeos.cfm.mojom.CfmServiceAdaptor';
+chromeos.cfm.mojom.CfmServiceAdaptor_OnBindService_ParamsSpec = { $: {} };
 
 chromeos.cfm.mojom.kUnknownCode = 0;
 
@@ -23,8 +34,6 @@ chromeos.cfm.mojom.kFinchDisabledCode = 2;
 chromeos.cfm.mojom.kFinchDisabledMessage = "Finch Disabled";
 
 // Interface: DisconnectReason
-chromeos.cfm.mojom.DisconnectReason = {};
-
 chromeos.cfm.mojom.DisconnectReasonPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -69,41 +78,36 @@ chromeos.cfm.mojom.DisconnectReason.getRemote = function() {
   return remote.$;
 };
 
-// Legacy compatibility
 chromeos.cfm.mojom.DisconnectReasonPtr = chromeos.cfm.mojom.DisconnectReasonRemote;
 chromeos.cfm.mojom.DisconnectReasonRequest = chromeos.cfm.mojom.DisconnectReasonPendingReceiver;
 
 
 // Interface: CfmServiceContext
-chromeos.cfm.mojom.CfmServiceContext = {};
+mojo.internal.Struct(
+    chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ParamsSpec, 'chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_Params', [
+      mojo.internal.StructField('interface_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('adaptor_remote', 8, 0, mojo.internal.InterfaceProxy(chromeos.cfm.mojom.CfmServiceAdaptorRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'interface_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'adaptor_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.cfm.mojom.CfmServiceAdaptorRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ResponseParamsSpec, 'chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.CfmServiceContext_RequestBindService_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'interface_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'receiver_pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ParamsSpec, 'chromeos.cfm.mojom.CfmServiceContext_RequestBindService_Params', [
+      mojo.internal.StructField('interface_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('receiver_pipe', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ResponseParamsSpec, 'chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromeos.cfm.mojom.CfmServiceContextPendingReceiver = class {
   constructor(handle) {
@@ -167,82 +171,16 @@ chromeos.cfm.mojom.CfmServiceContext.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ProvideAdaptor
-chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.CfmServiceContext.ProvideAdaptor_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'interface_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'adaptor_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.cfm.mojom.CfmServiceAdaptorRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.CfmServiceContext.ProvideAdaptor_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestBindService
-chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.CfmServiceContext.RequestBindService_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'interface_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'receiver_pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.CfmServiceContext.RequestBindService_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromeos.cfm.mojom.CfmServiceContextPtr = chromeos.cfm.mojom.CfmServiceContextRemote;
 chromeos.cfm.mojom.CfmServiceContextRequest = chromeos.cfm.mojom.CfmServiceContextPendingReceiver;
 
 
 // Interface: CfmServiceAdaptor
-chromeos.cfm.mojom.CfmServiceAdaptor = {};
-
-chromeos.cfm.mojom.CfmServiceAdaptor_OnBindService_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.CfmServiceAdaptor_OnBindService_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver_pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cfm.mojom.CfmServiceAdaptor_OnBindService_ParamsSpec, 'chromeos.cfm.mojom.CfmServiceAdaptor_OnBindService_Params', [
+      mojo.internal.StructField('receiver_pipe', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromeos.cfm.mojom.CfmServiceAdaptorPendingReceiver = class {
   constructor(handle) {
@@ -297,21 +235,6 @@ chromeos.cfm.mojom.CfmServiceAdaptor.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnBindService
-chromeos.cfm.mojom.CfmServiceAdaptor_OnBindService_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.CfmServiceAdaptor.OnBindService_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver_pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromeos.cfm.mojom.CfmServiceAdaptorPtr = chromeos.cfm.mojom.CfmServiceAdaptorRemote;
 chromeos.cfm.mojom.CfmServiceAdaptorRequest = chromeos.cfm.mojom.CfmServiceAdaptorPendingReceiver;
 

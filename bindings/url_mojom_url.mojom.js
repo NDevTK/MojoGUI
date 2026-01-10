@@ -8,19 +8,13 @@
 var url = url || {};
 url.mojom = url.mojom || {};
 
+url.mojom.UrlSpec = { $: {} };
 
 url.mojom.kMaxURLChars = 2097152;
 
 // Struct: Url
-url.mojom.UrlSpec = {
-  $: {
-    structSpec: {
-      name: 'url.mojom.Url',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    url.mojom.UrlSpec, 'url.mojom.Url', [
+      mojo.internal.StructField('url', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);

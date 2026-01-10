@@ -8,17 +8,11 @@
 var gpu = gpu || {};
 gpu.mojom = gpu.mojom || {};
 
+gpu.mojom.SharedImagePoolIdSpec = { $: {} };
 
 // Struct: SharedImagePoolId
-gpu.mojom.SharedImagePoolIdSpec = {
-  $: {
-    structSpec: {
-      name: 'gpu.mojom.SharedImagePoolId',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gpu.mojom.SharedImagePoolIdSpec, 'gpu.mojom.SharedImagePoolId', [
+      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);

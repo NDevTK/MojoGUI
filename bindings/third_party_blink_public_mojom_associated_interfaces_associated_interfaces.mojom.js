@@ -8,10 +8,13 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.AssociatedInterface = {};
+blink.mojom.AssociatedInterface.$interfaceName = 'blink.mojom.AssociatedInterface';
+blink.mojom.AssociatedInterfaceProvider = {};
+blink.mojom.AssociatedInterfaceProvider.$interfaceName = 'blink.mojom.AssociatedInterfaceProvider';
+blink.mojom.AssociatedInterfaceProvider_GetAssociatedInterface_ParamsSpec = { $: {} };
 
 // Interface: AssociatedInterface
-blink.mojom.AssociatedInterface = {};
-
 blink.mojom.AssociatedInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -56,27 +59,17 @@ blink.mojom.AssociatedInterface.getRemote = function() {
   return remote.$;
 };
 
-// Legacy compatibility
 blink.mojom.AssociatedInterfacePtr = blink.mojom.AssociatedInterfaceRemote;
 blink.mojom.AssociatedInterfaceRequest = blink.mojom.AssociatedInterfacePendingReceiver;
 
 
 // Interface: AssociatedInterfaceProvider
-blink.mojom.AssociatedInterfaceProvider = {};
-
-blink.mojom.AssociatedInterfaceProvider_GetAssociatedInterface_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AssociatedInterfaceProvider_GetAssociatedInterface_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(blink.mojom.AssociatedInterfaceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.AssociatedInterfaceProvider_GetAssociatedInterface_ParamsSpec, 'blink.mojom.AssociatedInterfaceProvider_GetAssociatedInterface_Params', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.AssociatedInterfaceRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 blink.mojom.AssociatedInterfaceProviderPendingReceiver = class {
   constructor(handle) {
@@ -131,22 +124,6 @@ blink.mojom.AssociatedInterfaceProvider.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetAssociatedInterface
-blink.mojom.AssociatedInterfaceProvider_GetAssociatedInterface_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AssociatedInterfaceProvider.GetAssociatedInterface_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(blink.mojom.AssociatedInterfaceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.AssociatedInterfaceProviderPtr = blink.mojom.AssociatedInterfaceProviderRemote;
 blink.mojom.AssociatedInterfaceProviderRequest = blink.mojom.AssociatedInterfaceProviderPendingReceiver;
 

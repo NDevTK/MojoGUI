@@ -9,60 +9,53 @@ var ash = ash || {};
 ash.personalization_app = ash.personalization_app || {};
 ash.personalization_app.mojom = ash.personalization_app.mojom || {};
 
+ash.personalization_app.mojom.SearchConceptIdSpec = { $: mojo.internal.Enum() };
+ash.personalization_app.mojom.SearchResultSpec = { $: {} };
+ash.personalization_app.mojom.SearchResultsObserver = {};
+ash.personalization_app.mojom.SearchResultsObserver.$interfaceName = 'ash.personalization_app.mojom.SearchResultsObserver';
+ash.personalization_app.mojom.SearchResultsObserver_OnSearchResultsChanged_ParamsSpec = { $: {} };
+ash.personalization_app.mojom.SearchHandler = {};
+ash.personalization_app.mojom.SearchHandler.$interfaceName = 'ash.personalization_app.mojom.SearchHandler';
+ash.personalization_app.mojom.SearchHandler_Search_ParamsSpec = { $: {} };
+ash.personalization_app.mojom.SearchHandler_Search_ResponseParamsSpec = { $: {} };
+ash.personalization_app.mojom.SearchHandler_AddObserver_ParamsSpec = { $: {} };
 
 // Enum: SearchConceptId
 ash.personalization_app.mojom.SearchConceptId = {
   kPersonalization: 0,
-  kChangeWallpaper: 1,
-  kTimeOfDayWallpaper: 2,
-  kChangeDeviceAccountImage: 3,
-  kAmbientMode: 4,
-  kAmbientModeChooseSource: 5,
-  kAmbientModeTurnOff: 6,
-  kAmbientModeGooglePhotos: 7,
-  kAmbientModeArtGallery: 8,
-  kAmbientModeTurnOn: 9,
-  kAmbientModeTimeOfDay: 10,
-  kDarkMode: 11,
-  kDarkModeSchedule: 12,
-  kDarkModeTurnOff: 13,
-  kDarkModeTurnOn: 14,
-  kDynamicColor: 15,
-  kKeyboardBacklight: 16,
+  kChangeWallpaper: 100,
+  kTimeOfDayWallpaper: 101,
+  kChangeDeviceAccountImage: 200,
+  kAmbientMode: 300,
+  kAmbientModeChooseSource: 301,
+  kAmbientModeTurnOff: 302,
+  kAmbientModeGooglePhotos: 303,
+  kAmbientModeArtGallery: 304,
+  kAmbientModeTurnOn: 305,
+  kAmbientModeTimeOfDay: 306,
+  kDarkMode: 400,
+  kDarkModeSchedule: 401,
+  kDarkModeTurnOff: 402,
+  kDarkModeTurnOn: 403,
+  kDynamicColor: 404,
+  kKeyboardBacklight: 500,
 };
-ash.personalization_app.mojom.SearchConceptIdSpec = { $: mojo.internal.Enum() };
 
 // Struct: SearchResult
-ash.personalization_app.mojom.SearchResultSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SearchResult',
-      packedSize: 40,
-      fields: [
-        { name: 'search_concept_id', packedOffset: 24, packedBitOffset: 0, type: ash.personalization_app.mojom.SearchConceptIdSpec, nullable: false, minVersion: 0 },
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'relative_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'relevance_score', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.personalization_app.mojom.SearchResultSpec, 'ash.personalization_app.mojom.SearchResult', [
+      mojo.internal.StructField('search_concept_id', 24, 0, ash.personalization_app.mojom.SearchConceptIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('text', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('relative_url', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('relevance_score', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Interface: SearchResultsObserver
-ash.personalization_app.mojom.SearchResultsObserver = {};
-
-ash.personalization_app.mojom.SearchResultsObserver_OnSearchResultsChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SearchResultsObserver_OnSearchResultsChanged_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.personalization_app.mojom.SearchResultsObserver_OnSearchResultsChanged_ParamsSpec, 'ash.personalization_app.mojom.SearchResultsObserver_OnSearchResultsChanged_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 ash.personalization_app.mojom.SearchResultsObserverPendingReceiver = class {
   constructor(handle) {
@@ -117,53 +110,29 @@ ash.personalization_app.mojom.SearchResultsObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnSearchResultsChanged
-ash.personalization_app.mojom.SearchResultsObserver_OnSearchResultsChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SearchResultsObserver.OnSearchResultsChanged_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.personalization_app.mojom.SearchResultsObserverPtr = ash.personalization_app.mojom.SearchResultsObserverRemote;
 ash.personalization_app.mojom.SearchResultsObserverRequest = ash.personalization_app.mojom.SearchResultsObserverPendingReceiver;
 
 
 // Interface: SearchHandler
-ash.personalization_app.mojom.SearchHandler = {};
+mojo.internal.Struct(
+    ash.personalization_app.mojom.SearchHandler_Search_ParamsSpec, 'ash.personalization_app.mojom.SearchHandler_Search_Params', [
+      mojo.internal.StructField('query', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('max_num_results', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.personalization_app.mojom.SearchHandler_Search_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SearchHandler_Search_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'max_num_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.personalization_app.mojom.SearchHandler_Search_ResponseParamsSpec, 'ash.personalization_app.mojom.SearchHandler_Search_ResponseParams', [
+      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(ash.personalization_app.mojom.SearchResultSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.personalization_app.mojom.SearchHandler_AddObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SearchHandler_AddObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.personalization_app.mojom.SearchResultsObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.personalization_app.mojom.SearchHandler_AddObserver_ParamsSpec, 'ash.personalization_app.mojom.SearchHandler_AddObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.personalization_app.mojom.SearchResultsObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.personalization_app.mojom.SearchHandlerPendingReceiver = class {
   constructor(handle) {
@@ -227,49 +196,6 @@ ash.personalization_app.mojom.SearchHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Search
-ash.personalization_app.mojom.SearchHandler_Search_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SearchHandler.Search_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'max_num_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-ash.personalization_app.mojom.SearchHandler_Search_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SearchHandler.Search_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.personalization_app.mojom.SearchResultSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AddObserver
-ash.personalization_app.mojom.SearchHandler_AddObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SearchHandler.AddObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.personalization_app.mojom.SearchResultsObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.personalization_app.mojom.SearchHandlerPtr = ash.personalization_app.mojom.SearchHandlerRemote;
 ash.personalization_app.mojom.SearchHandlerRequest = ash.personalization_app.mojom.SearchHandlerPendingReceiver;
 

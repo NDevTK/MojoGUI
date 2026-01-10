@@ -9,6 +9,22 @@ var glic = glic || {};
 glic.mojom = glic.mojom || {};
 var url = url || {};
 
+glic.mojom.FreWebUiStateSpec = { $: mojo.internal.Enum() };
+glic.mojom.FrePageHandlerFactory = {};
+glic.mojom.FrePageHandlerFactory.$interfaceName = 'glic.mojom.FrePageHandlerFactory';
+glic.mojom.FrePageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+glic.mojom.FrePageHandler = {};
+glic.mojom.FrePageHandler.$interfaceName = 'glic.mojom.FrePageHandler';
+glic.mojom.FrePageHandler_AcceptFre_ParamsSpec = { $: {} };
+glic.mojom.FrePageHandler_RejectFre_ParamsSpec = { $: {} };
+glic.mojom.FrePageHandler_DismissFre_ParamsSpec = { $: {} };
+glic.mojom.FrePageHandler_FreReloaded_ParamsSpec = { $: {} };
+glic.mojom.FrePageHandler_PrepareForClient_ParamsSpec = { $: {} };
+glic.mojom.FrePageHandler_PrepareForClient_ResponseParamsSpec = { $: {} };
+glic.mojom.FrePageHandler_ValidateAndOpenLinkInNewTab_ParamsSpec = { $: {} };
+glic.mojom.FrePageHandler_WebUiStateChanged_ParamsSpec = { $: {} };
+glic.mojom.FrePageHandler_ExceededTimeoutError_ParamsSpec = { $: {} };
+glic.mojom.FrePageHandler_LogWebUiLoadComplete_ParamsSpec = { $: {} };
 
 // Enum: FreWebUiState
 glic.mojom.FreWebUiState = {
@@ -22,23 +38,13 @@ glic.mojom.FreWebUiState = {
   kReady: 7,
   kDisabledByAdmin: 8,
 };
-glic.mojom.FreWebUiStateSpec = { $: mojo.internal.Enum() };
 
 // Interface: FrePageHandlerFactory
-glic.mojom.FrePageHandlerFactory = {};
-
-glic.mojom.FrePageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'glic.mojom.FrePageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(glic.mojom.FrePageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    glic.mojom.FrePageHandlerFactory_CreatePageHandler_ParamsSpec, 'glic.mojom.FrePageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(glic.mojom.FrePageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 glic.mojom.FrePageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -93,138 +99,64 @@ glic.mojom.FrePageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-glic.mojom.FrePageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'glic.mojom.FrePageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(glic.mojom.FrePageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 glic.mojom.FrePageHandlerFactoryPtr = glic.mojom.FrePageHandlerFactoryRemote;
 glic.mojom.FrePageHandlerFactoryRequest = glic.mojom.FrePageHandlerFactoryPendingReceiver;
 
 
 // Interface: FrePageHandler
-glic.mojom.FrePageHandler = {};
+mojo.internal.Struct(
+    glic.mojom.FrePageHandler_AcceptFre_ParamsSpec, 'glic.mojom.FrePageHandler_AcceptFre_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-glic.mojom.FrePageHandler_AcceptFre_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'glic.mojom.FrePageHandler_AcceptFre_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    glic.mojom.FrePageHandler_RejectFre_ParamsSpec, 'glic.mojom.FrePageHandler_RejectFre_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-glic.mojom.FrePageHandler_RejectFre_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'glic.mojom.FrePageHandler_RejectFre_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    glic.mojom.FrePageHandler_DismissFre_ParamsSpec, 'glic.mojom.FrePageHandler_DismissFre_Params', [
+      mojo.internal.StructField('panel', 0, 0, glic.mojom.FreWebUiStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-glic.mojom.FrePageHandler_DismissFre_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'glic.mojom.FrePageHandler_DismissFre_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'panel', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.FreWebUiStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    glic.mojom.FrePageHandler_FreReloaded_ParamsSpec, 'glic.mojom.FrePageHandler_FreReloaded_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-glic.mojom.FrePageHandler_FreReloaded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'glic.mojom.FrePageHandler_FreReloaded_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    glic.mojom.FrePageHandler_PrepareForClient_ParamsSpec, 'glic.mojom.FrePageHandler_PrepareForClient_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-glic.mojom.FrePageHandler_PrepareForClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'glic.mojom.FrePageHandler_PrepareForClient_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    glic.mojom.FrePageHandler_PrepareForClient_ResponseParamsSpec, 'glic.mojom.FrePageHandler_PrepareForClient_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-glic.mojom.FrePageHandler_ValidateAndOpenLinkInNewTab_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'glic.mojom.FrePageHandler_ValidateAndOpenLinkInNewTab_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    glic.mojom.FrePageHandler_ValidateAndOpenLinkInNewTab_ParamsSpec, 'glic.mojom.FrePageHandler_ValidateAndOpenLinkInNewTab_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-glic.mojom.FrePageHandler_WebUiStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'glic.mojom.FrePageHandler_WebUiStateChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'new_state', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.FreWebUiStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    glic.mojom.FrePageHandler_WebUiStateChanged_ParamsSpec, 'glic.mojom.FrePageHandler_WebUiStateChanged_Params', [
+      mojo.internal.StructField('new_state', 0, 0, glic.mojom.FreWebUiStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-glic.mojom.FrePageHandler_ExceededTimeoutError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'glic.mojom.FrePageHandler_ExceededTimeoutError_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    glic.mojom.FrePageHandler_ExceededTimeoutError_ParamsSpec, 'glic.mojom.FrePageHandler_ExceededTimeoutError_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-glic.mojom.FrePageHandler_LogWebUiLoadComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'glic.mojom.FrePageHandler_LogWebUiLoadComplete_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    glic.mojom.FrePageHandler_LogWebUiLoadComplete_ParamsSpec, 'glic.mojom.FrePageHandler_LogWebUiLoadComplete_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 glic.mojom.FrePageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -351,140 +283,6 @@ glic.mojom.FrePageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AcceptFre
-glic.mojom.FrePageHandler_AcceptFre_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'glic.mojom.FrePageHandler.AcceptFre_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for RejectFre
-glic.mojom.FrePageHandler_RejectFre_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'glic.mojom.FrePageHandler.RejectFre_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for DismissFre
-glic.mojom.FrePageHandler_DismissFre_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'glic.mojom.FrePageHandler.DismissFre_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'panel', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.FreWebUiStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for FreReloaded
-glic.mojom.FrePageHandler_FreReloaded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'glic.mojom.FrePageHandler.FreReloaded_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for PrepareForClient
-glic.mojom.FrePageHandler_PrepareForClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'glic.mojom.FrePageHandler.PrepareForClient_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-glic.mojom.FrePageHandler_PrepareForClient_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'glic.mojom.FrePageHandler.PrepareForClient_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ValidateAndOpenLinkInNewTab
-glic.mojom.FrePageHandler_ValidateAndOpenLinkInNewTab_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'glic.mojom.FrePageHandler.ValidateAndOpenLinkInNewTab_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for WebUiStateChanged
-glic.mojom.FrePageHandler_WebUiStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'glic.mojom.FrePageHandler.WebUiStateChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'new_state', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.FreWebUiStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ExceededTimeoutError
-glic.mojom.FrePageHandler_ExceededTimeoutError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'glic.mojom.FrePageHandler.ExceededTimeoutError_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for LogWebUiLoadComplete
-glic.mojom.FrePageHandler_LogWebUiLoadComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'glic.mojom.FrePageHandler.LogWebUiLoadComplete_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 glic.mojom.FrePageHandlerPtr = glic.mojom.FrePageHandlerRemote;
 glic.mojom.FrePageHandlerRequest = glic.mojom.FrePageHandlerPendingReceiver;
 

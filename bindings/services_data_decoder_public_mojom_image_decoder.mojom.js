@@ -11,63 +11,60 @@ var skia = skia || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+data_decoder.mojom.ImageCodecSpec = { $: mojo.internal.Enum() };
+data_decoder.mojom.AnimationFrameSpec = { $: {} };
+data_decoder.mojom.ImageDecoder = {};
+data_decoder.mojom.ImageDecoder.$interfaceName = 'data_decoder.mojom.ImageDecoder';
+data_decoder.mojom.ImageDecoder_DecodeImage_ParamsSpec = { $: {} };
+data_decoder.mojom.ImageDecoder_DecodeImage_ResponseParamsSpec = { $: {} };
+data_decoder.mojom.ImageDecoder_DecodeAnimation_ParamsSpec = { $: {} };
+data_decoder.mojom.ImageDecoder_DecodeAnimation_ResponseParamsSpec = { $: {} };
 
 // Enum: ImageCodec
 data_decoder.mojom.ImageCodec = {
   kDefault: 0,
   kPng: 1,
 };
-data_decoder.mojom.ImageCodecSpec = { $: mojo.internal.Enum() };
 
 // Struct: AnimationFrame
-data_decoder.mojom.AnimationFrameSpec = {
-  $: {
-    structSpec: {
-      name: 'data_decoder.mojom.AnimationFrame',
-      packedSize: 24,
-      fields: [
-        { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.InlineBitmapSpec, nullable: false, minVersion: 0 },
-        { name: 'duration', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_decoder.mojom.AnimationFrameSpec, 'data_decoder.mojom.AnimationFrame', [
+      mojo.internal.StructField('bitmap', 0, 0, skia.mojom.InlineBitmapSpec, null, false, 0, undefined),
+      mojo.internal.StructField('duration', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: ImageDecoder
-data_decoder.mojom.ImageDecoder = {};
+mojo.internal.Struct(
+    data_decoder.mojom.ImageDecoder_DecodeImage_ParamsSpec, 'data_decoder.mojom.ImageDecoder_DecodeImage_Params', [
+      mojo.internal.StructField('encoded_data', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('codec', 32, 0, data_decoder.mojom.ImageCodecSpec, null, false, 0, undefined),
+      mojo.internal.StructField('shrink_to_fit', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('max_size_in_bytes', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('desired_image_frame_size', 24, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
-data_decoder.mojom.ImageDecoder_DecodeImage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_decoder.mojom.ImageDecoder_DecodeImage_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'encoded_data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
-        { name: 'codec', packedOffset: 32, packedBitOffset: 0, type: data_decoder.mojom.ImageCodecSpec, nullable: false, minVersion: 0 },
-        { name: 'shrink_to_fit', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'max_size_in_bytes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'desired_image_frame_size', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_decoder.mojom.ImageDecoder_DecodeImage_ResponseParamsSpec, 'data_decoder.mojom.ImageDecoder_DecodeImage_ResponseParams', [
+      mojo.internal.StructField('decoding_duration', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('decoded_image', 8, 0, skia.mojom.BitmapN32Spec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-data_decoder.mojom.ImageDecoder_DecodeAnimation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_decoder.mojom.ImageDecoder_DecodeAnimation_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'encoded_data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
-        { name: 'shrink_to_fit', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'max_size_in_bytes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_decoder.mojom.ImageDecoder_DecodeAnimation_ParamsSpec, 'data_decoder.mojom.ImageDecoder_DecodeAnimation_Params', [
+      mojo.internal.StructField('encoded_data', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('shrink_to_fit', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('max_size_in_bytes', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    data_decoder.mojom.ImageDecoder_DecodeAnimation_ResponseParamsSpec, 'data_decoder.mojom.ImageDecoder_DecodeAnimation_ResponseParams', [
+      mojo.internal.StructField('decoded_image', 0, 0, mojo.internal.Array(data_decoder.mojom.AnimationFrameSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 data_decoder.mojom.ImageDecoderPendingReceiver = class {
   constructor(handle) {
@@ -131,68 +128,6 @@ data_decoder.mojom.ImageDecoder.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for DecodeImage
-data_decoder.mojom.ImageDecoder_DecodeImage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_decoder.mojom.ImageDecoder.DecodeImage_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'encoded_data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
-        { name: 'codec', packedOffset: 32, packedBitOffset: 0, type: data_decoder.mojom.ImageCodecSpec, nullable: false, minVersion: 0 },
-        { name: 'shrink_to_fit', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'max_size_in_bytes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'desired_image_frame_size', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
-
-data_decoder.mojom.ImageDecoder_DecodeImage_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_decoder.mojom.ImageDecoder.DecodeImage_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'decoding_duration', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'decoded_image', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for DecodeAnimation
-data_decoder.mojom.ImageDecoder_DecodeAnimation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_decoder.mojom.ImageDecoder.DecodeAnimation_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'encoded_data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
-        { name: 'shrink_to_fit', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'max_size_in_bytes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-data_decoder.mojom.ImageDecoder_DecodeAnimation_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_decoder.mojom.ImageDecoder.DecodeAnimation_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'decoded_image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(data_decoder.mojom.AnimationFrameSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 data_decoder.mojom.ImageDecoderPtr = data_decoder.mojom.ImageDecoderRemote;
 data_decoder.mojom.ImageDecoderRequest = data_decoder.mojom.ImageDecoderPendingReceiver;
 

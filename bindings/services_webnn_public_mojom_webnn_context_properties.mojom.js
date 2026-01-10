@@ -8,13 +8,20 @@
 var webnn = webnn || {};
 webnn.mojom = webnn.mojom || {};
 
+webnn.mojom.InputOperandLayoutSpec = { $: mojo.internal.Enum() };
+webnn.mojom.Resample2DAxesSpec = { $: mojo.internal.Enum() };
+webnn.mojom.BatchNormalizationAxisSpec = { $: mojo.internal.Enum() };
+webnn.mojom.SupportedDataTypesSpec = { $: {} };
+webnn.mojom.SupportedRanksSpec = { $: {} };
+webnn.mojom.SupportedTensorsSpec = { $: {} };
+webnn.mojom.DataTypeLimitsSpec = { $: {} };
+webnn.mojom.ContextPropertiesSpec = { $: {} };
 
 // Enum: InputOperandLayout
 webnn.mojom.InputOperandLayout = {
   kChannelsFirst: 0,
   kChannelsLast: 1,
 };
-webnn.mojom.InputOperandLayoutSpec = { $: mojo.internal.Enum() };
 
 // Enum: Resample2DAxes
 webnn.mojom.Resample2DAxes = {
@@ -22,214 +29,177 @@ webnn.mojom.Resample2DAxes = {
   kChannelsFirst: 1,
   kChannelsLast: 2,
 };
-webnn.mojom.Resample2DAxesSpec = { $: mojo.internal.Enum() };
 
 // Enum: BatchNormalizationAxis
 webnn.mojom.BatchNormalizationAxis = {
   kAny: 0,
   kChannelsFirst: 1,
 };
-webnn.mojom.BatchNormalizationAxisSpec = { $: mojo.internal.Enum() };
 
 // Struct: SupportedDataTypes
-webnn.mojom.SupportedDataTypesSpec = {
-  $: {
-    structSpec: {
-      name: 'webnn.mojom.SupportedDataTypes',
-      packedSize: 16,
-      fields: [
-        { name: 'float32', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'float16', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'int32', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'uint32', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'int64', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'uint64', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'int8', packedOffset: 0, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'uint8', packedOffset: 0, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'int4', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'uint4', packedOffset: 1, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    webnn.mojom.SupportedDataTypesSpec, 'webnn.mojom.SupportedDataTypes', [
+      mojo.internal.StructField('float32', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('float16', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('int32', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('uint32', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('int64', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('uint64', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('int8', 0, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('uint8', 0, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('int4', 1, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('uint4', 1, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: SupportedRanks
-webnn.mojom.SupportedRanksSpec = {
-  $: {
-    structSpec: {
-      name: 'webnn.mojom.SupportedRanks',
-      packedSize: 16,
-      fields: [
-        { name: 'min', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'max', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    webnn.mojom.SupportedRanksSpec, 'webnn.mojom.SupportedRanks', [
+      mojo.internal.StructField('min', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('max', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: SupportedTensors
-webnn.mojom.SupportedTensorsSpec = {
-  $: {
-    structSpec: {
-      name: 'webnn.mojom.SupportedTensors',
-      packedSize: 24,
-      fields: [
-        { name: 'data_types', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.SupportedDataTypesSpec, nullable: false, minVersion: 0 },
-        { name: 'ranks', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.SupportedRanksSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    webnn.mojom.SupportedTensorsSpec, 'webnn.mojom.SupportedTensors', [
+      mojo.internal.StructField('data_types', 0, 0, webnn.mojom.SupportedDataTypesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('ranks', 8, 0, webnn.mojom.SupportedRanksSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: DataTypeLimits
-webnn.mojom.DataTypeLimitsSpec = {
-  $: {
-    structSpec: {
-      name: 'webnn.mojom.DataTypeLimits',
-      packedSize: 960,
-      fields: [
-        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'constant', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'arg_min_max_input', packedOffset: 16, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'arg_min_max_output', packedOffset: 24, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'batch_normalization_input', packedOffset: 32, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'batch_normalization_mean', packedOffset: 40, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'cast_input', packedOffset: 48, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'clamp_input', packedOffset: 56, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'concat_inputs', packedOffset: 64, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'conv2d_input', packedOffset: 72, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'conv2d_bias', packedOffset: 80, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'conv_transpose2d_input', packedOffset: 88, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'conv_transpose2d_bias', packedOffset: 96, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'cumulative_sum_input', packedOffset: 104, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'dequantize_linear_input', packedOffset: 112, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'dequantize_linear_scale', packedOffset: 120, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'dequantize_linear_zero_point', packedOffset: 128, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'add_input', packedOffset: 136, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'sub_input', packedOffset: 144, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'mul_input', packedOffset: 152, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'div_input', packedOffset: 160, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'max_input', packedOffset: 168, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'min_input', packedOffset: 176, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'pow_input', packedOffset: 184, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'equal_input', packedOffset: 192, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'greater_input', packedOffset: 200, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'greater_or_equal_input', packedOffset: 208, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'lesser_input', packedOffset: 216, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'lesser_or_equal_input', packedOffset: 224, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'not_equal_input', packedOffset: 232, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'logical_and_input', packedOffset: 240, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'logical_or_input', packedOffset: 248, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'logical_xor_input', packedOffset: 256, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'logical_not_input', packedOffset: 264, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'is_nan_input', packedOffset: 272, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'is_infinite_input', packedOffset: 280, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'logical_output', packedOffset: 288, packedBitOffset: 0, type: webnn.mojom.SupportedDataTypesSpec, nullable: false, minVersion: 0 },
-        { name: 'abs_input', packedOffset: 296, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'ceil_input', packedOffset: 304, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'cos_input', packedOffset: 312, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'erf_input', packedOffset: 320, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'exp_input', packedOffset: 328, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'floor_input', packedOffset: 336, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'identity_input', packedOffset: 344, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'log_input', packedOffset: 352, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'neg_input', packedOffset: 360, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'reciprocal_input', packedOffset: 368, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'round_even_input', packedOffset: 376, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'sign_input', packedOffset: 384, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'sin_input', packedOffset: 392, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'sqrt_input', packedOffset: 400, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'tan_input', packedOffset: 408, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'elu_input', packedOffset: 416, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'expand_input', packedOffset: 424, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'gather_input', packedOffset: 432, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'gather_indices', packedOffset: 440, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'gather_elements_input', packedOffset: 448, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'gather_elements_indices', packedOffset: 456, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'gather_nd_input', packedOffset: 464, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'gather_nd_indices', packedOffset: 472, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'gelu_input', packedOffset: 480, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'gemm_a', packedOffset: 488, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'gemm_c', packedOffset: 496, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'gru_input', packedOffset: 504, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'gru_bias', packedOffset: 512, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'gru_output_sequence', packedOffset: 520, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'gru_cell_input', packedOffset: 528, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'gru_cell_bias', packedOffset: 536, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'hard_sigmoid_input', packedOffset: 544, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'hard_swish_input', packedOffset: 552, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'instance_normalization_input', packedOffset: 560, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'instance_normalization_scale', packedOffset: 568, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'layer_normalization_input', packedOffset: 576, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'leaky_relu_input', packedOffset: 584, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'linear_input', packedOffset: 592, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'lstm_input', packedOffset: 600, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'lstm_bias', packedOffset: 608, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'lstm_output_sequence', packedOffset: 616, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'lstm_cell_input', packedOffset: 624, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'lstm_cell_bias', packedOffset: 632, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'matmul_input', packedOffset: 640, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'pad_input', packedOffset: 648, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'average_pool2d_input', packedOffset: 656, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'l2_pool2d_input', packedOffset: 664, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'max_pool2d_input', packedOffset: 672, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'prelu_input', packedOffset: 680, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'quantize_linear_input', packedOffset: 688, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'quantize_linear_zero_point', packedOffset: 696, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'reduce_l1_input', packedOffset: 704, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'reduce_l2_input', packedOffset: 712, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'reduce_log_sum_input', packedOffset: 720, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'reduce_log_sum_exp_input', packedOffset: 728, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'reduce_max_input', packedOffset: 736, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'reduce_mean_input', packedOffset: 744, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'reduce_min_input', packedOffset: 752, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'reduce_product_input', packedOffset: 760, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'reduce_sum_input', packedOffset: 768, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'reduce_sum_square_input', packedOffset: 776, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'relu_input', packedOffset: 784, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'resample2d_input', packedOffset: 792, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'reshape_input', packedOffset: 800, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'reverse_input', packedOffset: 808, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'scatter_elements_input', packedOffset: 816, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'scatter_elements_indices', packedOffset: 824, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'scatter_nd_input', packedOffset: 832, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'scatter_nd_indices', packedOffset: 840, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'scatter_nd_updates', packedOffset: 848, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'sigmoid_input', packedOffset: 856, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'slice_input', packedOffset: 864, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'softmax_input', packedOffset: 872, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'softplus_input', packedOffset: 880, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'softsign_input', packedOffset: 888, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'split_input', packedOffset: 896, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'tanh_input', packedOffset: 904, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'tile_input', packedOffset: 912, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'transpose_input', packedOffset: 920, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'triangular_input', packedOffset: 928, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'where_condition', packedOffset: 936, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-        { name: 'where_value', packedOffset: 944, packedBitOffset: 0, type: webnn.mojom.SupportedTensorsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 960}]
-    }
-  }
-};
+mojo.internal.Struct(
+    webnn.mojom.DataTypeLimitsSpec, 'webnn.mojom.DataTypeLimits', [
+      mojo.internal.StructField('input', 0, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('constant', 8, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_min_max_input', 16, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_min_max_output', 24, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('batch_normalization_input', 32, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('batch_normalization_mean', 40, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cast_input', 48, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('clamp_input', 56, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('concat_inputs', 64, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('conv2d_input', 72, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('conv2d_bias', 80, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('conv_transpose2d_input', 88, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('conv_transpose2d_bias', 96, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cumulative_sum_input', 104, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('dequantize_linear_input', 112, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('dequantize_linear_scale', 120, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('dequantize_linear_zero_point', 128, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('add_input', 136, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('sub_input', 144, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mul_input', 152, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('div_input', 160, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('max_input', 168, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('min_input', 176, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pow_input', 184, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('equal_input', 192, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('greater_input', 200, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('greater_or_equal_input', 208, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('lesser_input', 216, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('lesser_or_equal_input', 224, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('not_equal_input', 232, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('logical_and_input', 240, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('logical_or_input', 248, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('logical_xor_input', 256, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('logical_not_input', 264, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_nan_input', 272, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_infinite_input', 280, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('logical_output', 288, 0, webnn.mojom.SupportedDataTypesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('abs_input', 296, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('ceil_input', 304, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cos_input', 312, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('erf_input', 320, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('exp_input', 328, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('floor_input', 336, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('identity_input', 344, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('log_input', 352, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('neg_input', 360, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reciprocal_input', 368, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('round_even_input', 376, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('sign_input', 384, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('sin_input', 392, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('sqrt_input', 400, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tan_input', 408, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('elu_input', 416, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('expand_input', 424, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('gather_input', 432, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('gather_indices', 440, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('gather_elements_input', 448, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('gather_elements_indices', 456, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('gather_nd_input', 464, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('gather_nd_indices', 472, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('gelu_input', 480, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('gemm_a', 488, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('gemm_c', 496, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('gru_input', 504, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('gru_bias', 512, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('gru_output_sequence', 520, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('gru_cell_input', 528, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('gru_cell_bias', 536, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('hard_sigmoid_input', 544, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('hard_swish_input', 552, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('instance_normalization_input', 560, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('instance_normalization_scale', 568, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('layer_normalization_input', 576, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('leaky_relu_input', 584, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('linear_input', 592, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('lstm_input', 600, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('lstm_bias', 608, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('lstm_output_sequence', 616, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('lstm_cell_input', 624, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('lstm_cell_bias', 632, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('matmul_input', 640, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pad_input', 648, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('average_pool2d_input', 656, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('l2_pool2d_input', 664, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('max_pool2d_input', 672, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('prelu_input', 680, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('quantize_linear_input', 688, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('quantize_linear_zero_point', 696, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reduce_l1_input', 704, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reduce_l2_input', 712, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reduce_log_sum_input', 720, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reduce_log_sum_exp_input', 728, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reduce_max_input', 736, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reduce_mean_input', 744, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reduce_min_input', 752, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reduce_product_input', 760, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reduce_sum_input', 768, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reduce_sum_square_input', 776, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('relu_input', 784, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('resample2d_input', 792, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reshape_input', 800, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reverse_input', 808, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scatter_elements_input', 816, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scatter_elements_indices', 824, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scatter_nd_input', 832, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scatter_nd_indices', 840, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scatter_nd_updates', 848, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('sigmoid_input', 856, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('slice_input', 864, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('softmax_input', 872, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('softplus_input', 880, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('softsign_input', 888, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('split_input', 896, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tanh_input', 904, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tile_input', 912, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('transpose_input', 920, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('triangular_input', 928, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('where_condition', 936, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('where_value', 944, 0, webnn.mojom.SupportedTensorsSpec, null, false, 0, undefined),
+    ],
+    [[0, 960]]);
 
 // Struct: ContextProperties
-webnn.mojom.ContextPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'webnn.mojom.ContextProperties',
-      packedSize: 40,
-      fields: [
-        { name: 'input_operand_layout', packedOffset: 16, packedBitOffset: 0, type: webnn.mojom.InputOperandLayoutSpec, nullable: false, minVersion: 0 },
-        { name: 'resample_2d_axes', packedOffset: 20, packedBitOffset: 0, type: webnn.mojom.Resample2DAxesSpec, nullable: false, minVersion: 0 },
-        { name: 'batch_normalization_axis', packedOffset: 24, packedBitOffset: 0, type: webnn.mojom.BatchNormalizationAxisSpec, nullable: false, minVersion: 0 },
-        { name: 'tensor_byte_length_limit', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'data_type_limits', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.DataTypeLimitsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    webnn.mojom.ContextPropertiesSpec, 'webnn.mojom.ContextProperties', [
+      mojo.internal.StructField('input_operand_layout', 16, 0, webnn.mojom.InputOperandLayoutSpec, null, false, 0, undefined),
+      mojo.internal.StructField('resample_2d_axes', 20, 0, webnn.mojom.Resample2DAxesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('batch_normalization_axis', 24, 0, webnn.mojom.BatchNormalizationAxisSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tensor_byte_length_limit', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('data_type_limits', 8, 0, webnn.mojom.DataTypeLimitsSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);

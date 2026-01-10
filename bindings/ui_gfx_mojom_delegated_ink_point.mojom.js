@@ -10,19 +10,13 @@ gfx.mojom = gfx.mojom || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+gfx.mojom.DelegatedInkPointSpec = { $: {} };
 
 // Struct: DelegatedInkPoint
-gfx.mojom.DelegatedInkPointSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.DelegatedInkPoint',
-      packedSize: 32,
-      fields: [
-        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'pointer_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.DelegatedInkPointSpec, 'gfx.mojom.DelegatedInkPoint', [
+      mojo.internal.StructField('point', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 8, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pointer_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);

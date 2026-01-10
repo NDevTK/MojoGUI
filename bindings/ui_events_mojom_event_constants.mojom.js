@@ -8,6 +8,11 @@
 var ui = ui || {};
 ui.mojom = ui.mojom || {};
 
+ui.mojom.AcceleratorPhaseSpec = { $: mojo.internal.Enum() };
+ui.mojom.EventTypeSpec = { $: mojo.internal.Enum() };
+ui.mojom.ScrollEventPhaseSpec = { $: mojo.internal.Enum() };
+ui.mojom.EventMomentumPhaseSpec = { $: mojo.internal.Enum() };
+ui.mojom.GestureDeviceTypeSpec = { $: mojo.internal.Enum() };
 
 ui.mojom.kEventFlagNone = 0x00000;
 
@@ -58,7 +63,6 @@ ui.mojom.AcceleratorPhase = {
   PRE_TARGET: 0,
   POST_TARGET: 1,
 };
-ui.mojom.AcceleratorPhaseSpec = { $: mojo.internal.Enum() };
 
 // Enum: EventType
 ui.mojom.EventType = {
@@ -87,7 +91,6 @@ ui.mojom.EventType = {
   TOUCH_MOVED: 22,
   TOUCH_CANCELLED: 23,
 };
-ui.mojom.EventTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ScrollEventPhase
 ui.mojom.ScrollEventPhase = {
@@ -96,7 +99,6 @@ ui.mojom.ScrollEventPhase = {
   kUpdate: 2,
   kEnd: 3,
 };
-ui.mojom.ScrollEventPhaseSpec = { $: mojo.internal.Enum() };
 
 // Enum: EventMomentumPhase
 ui.mojom.EventMomentumPhase = {
@@ -107,7 +109,6 @@ ui.mojom.EventMomentumPhase = {
   END: 4,
   BLOCKED: 5,
 };
-ui.mojom.EventMomentumPhaseSpec = { $: mojo.internal.Enum() };
 
 // Enum: GestureDeviceType
 ui.mojom.GestureDeviceType = {
@@ -115,4 +116,3 @@ ui.mojom.GestureDeviceType = {
   DEVICE_TOUCHPAD: 1,
   DEVICE_TOUCHSCREEN: 2,
 };
-ui.mojom.GestureDeviceTypeSpec = { $: mojo.internal.Enum() };

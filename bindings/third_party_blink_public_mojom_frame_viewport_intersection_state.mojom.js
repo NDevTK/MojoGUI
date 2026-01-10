@@ -12,6 +12,8 @@ var gfx = gfx || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+blink.mojom.FrameOcclusionStateSpec = { $: mojo.internal.Enum() };
+blink.mojom.ViewportIntersectionStateSpec = { $: {} };
 
 // Enum: FrameOcclusionState
 blink.mojom.FrameOcclusionState = {
@@ -19,24 +21,16 @@ blink.mojom.FrameOcclusionState = {
   kPossiblyOccluded: 1,
   kGuaranteedNotOccluded: 2,
 };
-blink.mojom.FrameOcclusionStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: ViewportIntersectionState
-blink.mojom.ViewportIntersectionStateSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ViewportIntersectionState',
-      packedSize: 64,
-      fields: [
-        { name: 'viewport_intersection', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'main_frame_intersection', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'compositor_visible_rect', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'occlusion_state', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.FrameOcclusionStateSpec, nullable: false, minVersion: 0 },
-        { name: 'outermost_main_frame_size', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'outermost_main_frame_scroll_position', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
-        { name: 'main_frame_transform', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ViewportIntersectionStateSpec, 'blink.mojom.ViewportIntersectionState', [
+      mojo.internal.StructField('viewport_intersection', 0, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('main_frame_intersection', 8, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('compositor_visible_rect', 16, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('occlusion_state', 48, 0, blink.mojom.FrameOcclusionStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('outermost_main_frame_size', 24, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('outermost_main_frame_scroll_position', 32, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('main_frame_transform', 40, 0, gfx.mojom.TransformSpec, null, false, 0, undefined),
+    ],
+    [[0, 64]]);

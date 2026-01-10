@@ -9,6 +9,18 @@ var chromeos = chromeos || {};
 chromeos.cfm = chromeos.cfm || {};
 chromeos.cfm.mojom = chromeos.cfm.mojom || {};
 
+chromeos.cfm.mojom.EnqueuePrioritySpec = { $: mojo.internal.Enum() };
+chromeos.cfm.mojom.LoggerErrorCodeSpec = { $: mojo.internal.Enum() };
+chromeos.cfm.mojom.LoggerStateSpec = { $: mojo.internal.Enum() };
+chromeos.cfm.mojom.LoggerStatusSpec = { $: {} };
+chromeos.cfm.mojom.LoggerStateObserver = {};
+chromeos.cfm.mojom.LoggerStateObserver.$interfaceName = 'chromeos.cfm.mojom.LoggerStateObserver';
+chromeos.cfm.mojom.LoggerStateObserver_OnNotifyState_ParamsSpec = { $: {} };
+chromeos.cfm.mojom.MeetDevicesLogger = {};
+chromeos.cfm.mojom.MeetDevicesLogger.$interfaceName = 'chromeos.cfm.mojom.MeetDevicesLogger';
+chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ParamsSpec = { $: {} };
+chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ResponseParamsSpec = { $: {} };
+chromeos.cfm.mojom.MeetDevicesLogger_AddStateObserver_ParamsSpec = { $: {} };
 
 // Enum: EnqueuePriority
 chromeos.cfm.mojom.EnqueuePriority = {
@@ -16,7 +28,6 @@ chromeos.cfm.mojom.EnqueuePriority = {
   kMedium: 1,
   kLow: 2,
 };
-chromeos.cfm.mojom.EnqueuePrioritySpec = { $: mojo.internal.Enum() };
 
 // Enum: LoggerErrorCode
 chromeos.cfm.mojom.LoggerErrorCode = {
@@ -28,17 +39,16 @@ chromeos.cfm.mojom.LoggerErrorCode = {
   kNotFound: 5,
   kAlreadyExists: 6,
   kPermissionDenied: 7,
-  kUnauthenticated: 8,
-  kResourceExhausted: 9,
-  kFailedPrecondition: 10,
-  kAborted: 11,
-  kOutOfRange: 12,
-  kUnimplemented: 13,
-  kInternal: 14,
-  kUnavailable: 15,
-  kDataloss: 16,
+  kUnauthenticated: 16,
+  kResourceExhausted: 8,
+  kFailedPrecondition: 9,
+  kAborted: 10,
+  kOutOfRange: 11,
+  kUnimplemented: 12,
+  kInternal: 13,
+  kUnavailable: 14,
+  kDataloss: 15,
 };
-chromeos.cfm.mojom.LoggerErrorCodeSpec = { $: mojo.internal.Enum() };
 
 // Enum: LoggerState
 chromeos.cfm.mojom.LoggerState = {
@@ -46,38 +56,21 @@ chromeos.cfm.mojom.LoggerState = {
   kReadyForRequests: 1,
   kUninitialized: 2,
 };
-chromeos.cfm.mojom.LoggerStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: LoggerStatus
-chromeos.cfm.mojom.LoggerStatusSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.LoggerStatus',
-      packedSize: 24,
-      fields: [
-        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: chromeos.cfm.mojom.LoggerErrorCodeSpec, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cfm.mojom.LoggerStatusSpec, 'chromeos.cfm.mojom.LoggerStatus', [
+      mojo.internal.StructField('code', 8, 0, chromeos.cfm.mojom.LoggerErrorCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: LoggerStateObserver
-chromeos.cfm.mojom.LoggerStateObserver = {};
-
-chromeos.cfm.mojom.LoggerStateObserver_OnNotifyState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.LoggerStateObserver_OnNotifyState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: chromeos.cfm.mojom.LoggerStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cfm.mojom.LoggerStateObserver_OnNotifyState_ParamsSpec, 'chromeos.cfm.mojom.LoggerStateObserver_OnNotifyState_Params', [
+      mojo.internal.StructField('state', 0, 0, chromeos.cfm.mojom.LoggerStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromeos.cfm.mojom.LoggerStateObserverPendingReceiver = class {
   constructor(handle) {
@@ -132,54 +125,29 @@ chromeos.cfm.mojom.LoggerStateObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnNotifyState
-chromeos.cfm.mojom.LoggerStateObserver_OnNotifyState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.LoggerStateObserver.OnNotifyState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: chromeos.cfm.mojom.LoggerStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromeos.cfm.mojom.LoggerStateObserverPtr = chromeos.cfm.mojom.LoggerStateObserverRemote;
 chromeos.cfm.mojom.LoggerStateObserverRequest = chromeos.cfm.mojom.LoggerStateObserverPendingReceiver;
 
 
 // Interface: MeetDevicesLogger
-chromeos.cfm.mojom.MeetDevicesLogger = {};
+mojo.internal.Struct(
+    chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ParamsSpec, 'chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_Params', [
+      mojo.internal.StructField('record', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('priority', 8, 0, chromeos.cfm.mojom.EnqueuePrioritySpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'record', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'priority', packedOffset: 8, packedBitOffset: 0, type: chromeos.cfm.mojom.EnqueuePrioritySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ResponseParamsSpec, 'chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, chromeos.cfm.mojom.LoggerStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.cfm.mojom.MeetDevicesLogger_AddStateObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.MeetDevicesLogger_AddStateObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pending_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.cfm.mojom.LoggerStateObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cfm.mojom.MeetDevicesLogger_AddStateObserver_ParamsSpec, 'chromeos.cfm.mojom.MeetDevicesLogger_AddStateObserver_Params', [
+      mojo.internal.StructField('pending_observer', 0, 0, mojo.internal.InterfaceProxy(chromeos.cfm.mojom.LoggerStateObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromeos.cfm.mojom.MeetDevicesLoggerPendingReceiver = class {
   constructor(handle) {
@@ -243,49 +211,6 @@ chromeos.cfm.mojom.MeetDevicesLogger.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Enqueue
-chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.MeetDevicesLogger.Enqueue_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'record', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'priority', packedOffset: 8, packedBitOffset: 0, type: chromeos.cfm.mojom.EnqueuePrioritySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.MeetDevicesLogger.Enqueue_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: chromeos.cfm.mojom.LoggerStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AddStateObserver
-chromeos.cfm.mojom.MeetDevicesLogger_AddStateObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.MeetDevicesLogger.AddStateObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pending_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.cfm.mojom.LoggerStateObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromeos.cfm.mojom.MeetDevicesLoggerPtr = chromeos.cfm.mojom.MeetDevicesLoggerRemote;
 chromeos.cfm.mojom.MeetDevicesLoggerRequest = chromeos.cfm.mojom.MeetDevicesLoggerPendingReceiver;
 

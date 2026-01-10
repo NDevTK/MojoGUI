@@ -8,20 +8,14 @@
 var media = media || {};
 media.mojom = media.mojom || {};
 
+media.mojom.AudioDataS16Spec = { $: {} };
 
 // Struct: AudioDataS16
-media.mojom.AudioDataS16Spec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AudioDataS16',
-      packedSize: 32,
-      fields: [
-        { name: 'channel_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'sample_rate', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'frame_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int16, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.AudioDataS16Spec, 'media.mojom.AudioDataS16', [
+      mojo.internal.StructField('channel_count', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('sample_rate', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('frame_count', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(mojo.internal.Int16, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);

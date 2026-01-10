@@ -8,15 +8,15 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.DocumentPolicyFeatureSpec = { $: mojo.internal.Enum() };
 
 // Enum: DocumentPolicyFeature
 blink.mojom.DocumentPolicyFeature = {
   kDefault: 0,
-  kForceLoadAtTop: 1,
-  kJSProfiling: 2,
-  kSyncXHR: 3,
-  kIncludeJSCallStacksInCrashReports: 4,
-  kExpectNoLinkedResources: 5,
-  kNetworkEfficiencyGuardrails: 6,
+  kForceLoadAtTop: 3,
+  kJSProfiling: 11,
+  kSyncXHR: 12,
+  kIncludeJSCallStacksInCrashReports: 14,
+  kExpectNoLinkedResources: 15,
+  kNetworkEfficiencyGuardrails: 16,
 };
-blink.mojom.DocumentPolicyFeatureSpec = { $: mojo.internal.Enum() };

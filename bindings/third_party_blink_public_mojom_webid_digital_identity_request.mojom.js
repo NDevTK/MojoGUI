@@ -8,6 +8,16 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.RequestDigitalIdentityStatusSpec = { $: mojo.internal.Enum() };
+blink.mojom.DigitalCredentialGetRequestSpec = { $: {} };
+blink.mojom.DigitalCredentialCreateRequestSpec = { $: {} };
+blink.mojom.DigitalIdentityRequest = {};
+blink.mojom.DigitalIdentityRequest.$interfaceName = 'blink.mojom.DigitalIdentityRequest';
+blink.mojom.DigitalIdentityRequest_Get_ParamsSpec = { $: {} };
+blink.mojom.DigitalIdentityRequest_Get_ResponseParamsSpec = { $: {} };
+blink.mojom.DigitalIdentityRequest_Create_ParamsSpec = { $: {} };
+blink.mojom.DigitalIdentityRequest_Create_ResponseParamsSpec = { $: {} };
+blink.mojom.DigitalIdentityRequest_Abort_ParamsSpec = { $: {} };
 
 // Enum: RequestDigitalIdentityStatus
 blink.mojom.RequestDigitalIdentityStatus = {
@@ -19,78 +29,56 @@ blink.mojom.RequestDigitalIdentityStatus = {
   kErrorNoTransientUserActivation: 5,
   kErrorInvalidJson: 6,
 };
-blink.mojom.RequestDigitalIdentityStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: DigitalCredentialGetRequest
-blink.mojom.DigitalCredentialGetRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DigitalCredentialGetRequest',
-      packedSize: 32,
-      fields: [
-        { name: 'protocol', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.DigitalCredentialGetRequestSpec, 'blink.mojom.DigitalCredentialGetRequest', [
+      mojo.internal.StructField('protocol', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: DigitalCredentialCreateRequest
-blink.mojom.DigitalCredentialCreateRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DigitalCredentialCreateRequest',
-      packedSize: 32,
-      fields: [
-        { name: 'protocol', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.DigitalCredentialCreateRequestSpec, 'blink.mojom.DigitalCredentialCreateRequest', [
+      mojo.internal.StructField('protocol', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: DigitalIdentityRequest
-blink.mojom.DigitalIdentityRequest = {};
+mojo.internal.Struct(
+    blink.mojom.DigitalIdentityRequest_Get_ParamsSpec, 'blink.mojom.DigitalIdentityRequest_Get_Params', [
+      mojo.internal.StructField('digital_credential_requests', 0, 0, mojo.internal.Array(blink.mojom.DigitalCredentialGetRequestSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.DigitalIdentityRequest_Get_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DigitalIdentityRequest_Get_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'digital_credential_requests', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.DigitalCredentialGetRequestSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.DigitalIdentityRequest_Get_ResponseParamsSpec, 'blink.mojom.DigitalIdentityRequest_Get_ResponseParams', [
+      mojo.internal.StructField('status', 24, 0, blink.mojom.RequestDigitalIdentityStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('protocol', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('token', 0, 0, mojo_base.mojom.ValueSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
 
-blink.mojom.DigitalIdentityRequest_Create_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DigitalIdentityRequest_Create_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'digital_credential_requests', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.DigitalCredentialCreateRequestSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.DigitalIdentityRequest_Create_ParamsSpec, 'blink.mojom.DigitalIdentityRequest_Create_Params', [
+      mojo.internal.StructField('digital_credential_requests', 0, 0, mojo.internal.Array(blink.mojom.DigitalCredentialCreateRequestSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.DigitalIdentityRequest_Abort_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DigitalIdentityRequest_Abort_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.DigitalIdentityRequest_Create_ResponseParamsSpec, 'blink.mojom.DigitalIdentityRequest_Create_ResponseParams', [
+      mojo.internal.StructField('status', 24, 0, blink.mojom.RequestDigitalIdentityStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('protocol', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('token', 0, 0, mojo_base.mojom.ValueSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    blink.mojom.DigitalIdentityRequest_Abort_ParamsSpec, 'blink.mojom.DigitalIdentityRequest_Abort_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 blink.mojom.DigitalIdentityRequestPendingReceiver = class {
   constructor(handle) {
@@ -163,78 +151,6 @@ blink.mojom.DigitalIdentityRequest.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Get
-blink.mojom.DigitalIdentityRequest_Get_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DigitalIdentityRequest.Get_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'digital_credential_requests', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.DigitalCredentialGetRequestSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.DigitalIdentityRequest_Get_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DigitalIdentityRequest.Get_ResponseParams',
-      packedSize: 40,
-      fields: [
-        { name: 'status', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.RequestDigitalIdentityStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'protocol', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for Create
-blink.mojom.DigitalIdentityRequest_Create_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DigitalIdentityRequest.Create_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'digital_credential_requests', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.DigitalCredentialCreateRequestSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.DigitalIdentityRequest_Create_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DigitalIdentityRequest.Create_ResponseParams',
-      packedSize: 40,
-      fields: [
-        { name: 'status', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.RequestDigitalIdentityStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'protocol', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for Abort
-blink.mojom.DigitalIdentityRequest_Abort_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DigitalIdentityRequest.Abort_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.DigitalIdentityRequestPtr = blink.mojom.DigitalIdentityRequestRemote;
 blink.mojom.DigitalIdentityRequestRequest = blink.mojom.DigitalIdentityRequestPendingReceiver;
 

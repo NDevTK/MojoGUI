@@ -8,22 +8,16 @@
 var media = media || {};
 media.mojom = media.mojom || {};
 
+media.mojom.SpeechRecognitionAudioForwarder = {};
+media.mojom.SpeechRecognitionAudioForwarder.$interfaceName = 'media.mojom.SpeechRecognitionAudioForwarder';
+media.mojom.SpeechRecognitionAudioForwarder_AddAudioFromRenderer_ParamsSpec = { $: {} };
 
 // Interface: SpeechRecognitionAudioForwarder
-media.mojom.SpeechRecognitionAudioForwarder = {};
-
-media.mojom.SpeechRecognitionAudioForwarder_AddAudioFromRenderer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.SpeechRecognitionAudioForwarder_AddAudioFromRenderer_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AudioDataS16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.SpeechRecognitionAudioForwarder_AddAudioFromRenderer_ParamsSpec, 'media.mojom.SpeechRecognitionAudioForwarder_AddAudioFromRenderer_Params', [
+      mojo.internal.StructField('buffer', 0, 0, media.mojom.AudioDataS16Spec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media.mojom.SpeechRecognitionAudioForwarderPendingReceiver = class {
   constructor(handle) {
@@ -78,21 +72,6 @@ media.mojom.SpeechRecognitionAudioForwarder.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddAudioFromRenderer
-media.mojom.SpeechRecognitionAudioForwarder_AddAudioFromRenderer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.SpeechRecognitionAudioForwarder.AddAudioFromRenderer_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AudioDataS16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.SpeechRecognitionAudioForwarderPtr = media.mojom.SpeechRecognitionAudioForwarderRemote;
 media.mojom.SpeechRecognitionAudioForwarderRequest = media.mojom.SpeechRecognitionAudioForwarderPendingReceiver;
 

@@ -7,20 +7,15 @@
 // Module namespace
 var cc = cc || {};
 cc.mojom = cc.mojom || {};
+var services = services || {};
 
+cc.mojom.BrowserControlsOffsetTagsSpec = { $: {} };
 
 // Struct: BrowserControlsOffsetTags
-cc.mojom.BrowserControlsOffsetTagsSpec = {
-  $: {
-    structSpec: {
-      name: 'cc.mojom.BrowserControlsOffsetTags',
-      packedSize: 32,
-      fields: [
-        { name: 'top_controls_offset_tag', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.OffsetTagSpec, nullable: false, minVersion: 0 },
-        { name: 'content_offset_tag', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.OffsetTagSpec, nullable: false, minVersion: 0 },
-        { name: 'bottom_controls_offset_tag', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.OffsetTagSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cc.mojom.BrowserControlsOffsetTagsSpec, 'cc.mojom.BrowserControlsOffsetTags', [
+      mojo.internal.StructField('top_controls_offset_tag', 0, 0, viz.mojom.OffsetTagSpec, null, false, 0, undefined),
+      mojo.internal.StructField('content_offset_tag', 8, 0, viz.mojom.OffsetTagSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bottom_controls_offset_tag', 16, 0, viz.mojom.OffsetTagSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);

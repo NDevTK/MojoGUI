@@ -15,6 +15,38 @@ var blink = blink || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+blink.mojom.BackgroundFetchErrorSpec = { $: mojo.internal.Enum() };
+blink.mojom.BackgroundFetchResultSpec = { $: mojo.internal.Enum() };
+blink.mojom.BackgroundFetchFailureReasonSpec = { $: mojo.internal.Enum() };
+blink.mojom.BackgroundFetchSettledFetchSpec = { $: {} };
+blink.mojom.BackgroundFetchOptionsSpec = { $: {} };
+blink.mojom.BackgroundFetchRegistrationDataSpec = { $: {} };
+blink.mojom.BackgroundFetchRegistrationSpec = { $: {} };
+blink.mojom.BackgroundFetchUkmDataSpec = { $: {} };
+blink.mojom.BackgroundFetchRegistrationObserver = {};
+blink.mojom.BackgroundFetchRegistrationObserver.$interfaceName = 'blink.mojom.BackgroundFetchRegistrationObserver';
+blink.mojom.BackgroundFetchRegistrationObserver_OnProgress_ParamsSpec = { $: {} };
+blink.mojom.BackgroundFetchRegistrationObserver_OnRecordsUnavailable_ParamsSpec = { $: {} };
+blink.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_ParamsSpec = { $: {} };
+blink.mojom.BackgroundFetchService = {};
+blink.mojom.BackgroundFetchService.$interfaceName = 'blink.mojom.BackgroundFetchService';
+blink.mojom.BackgroundFetchService_Fetch_ParamsSpec = { $: {} };
+blink.mojom.BackgroundFetchService_Fetch_ResponseParamsSpec = { $: {} };
+blink.mojom.BackgroundFetchService_GetRegistration_ParamsSpec = { $: {} };
+blink.mojom.BackgroundFetchService_GetRegistration_ResponseParamsSpec = { $: {} };
+blink.mojom.BackgroundFetchService_GetDeveloperIds_ParamsSpec = { $: {} };
+blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParamsSpec = { $: {} };
+blink.mojom.BackgroundFetchService_GetIconDisplaySize_ParamsSpec = { $: {} };
+blink.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParamsSpec = { $: {} };
+blink.mojom.BackgroundFetchRegistrationService = {};
+blink.mojom.BackgroundFetchRegistrationService.$interfaceName = 'blink.mojom.BackgroundFetchRegistrationService';
+blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ParamsSpec = { $: {} };
+blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParamsSpec = { $: {} };
+blink.mojom.BackgroundFetchRegistrationService_Abort_ParamsSpec = { $: {} };
+blink.mojom.BackgroundFetchRegistrationService_Abort_ResponseParamsSpec = { $: {} };
+blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ParamsSpec = { $: {} };
+blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParamsSpec = { $: {} };
+blink.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_ParamsSpec = { $: {} };
 
 // Enum: BackgroundFetchError
 blink.mojom.BackgroundFetchError = {
@@ -28,7 +60,6 @@ blink.mojom.BackgroundFetchError = {
   PERMISSION_DENIED: 7,
   REGISTRATION_LIMIT_EXCEEDED: 8,
 };
-blink.mojom.BackgroundFetchErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: BackgroundFetchResult
 blink.mojom.BackgroundFetchResult = {
@@ -36,7 +67,6 @@ blink.mojom.BackgroundFetchResult = {
   FAILURE: 1,
   SUCCESS: 2,
 };
-blink.mojom.BackgroundFetchResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: BackgroundFetchFailureReason
 blink.mojom.BackgroundFetchFailureReason = {
@@ -49,133 +79,74 @@ blink.mojom.BackgroundFetchFailureReason = {
   QUOTA_EXCEEDED: 6,
   DOWNLOAD_TOTAL_EXCEEDED: 7,
 };
-blink.mojom.BackgroundFetchFailureReasonSpec = { $: mojo.internal.Enum() };
 
 // Struct: BackgroundFetchSettledFetch
-blink.mojom.BackgroundFetchSettledFetchSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BackgroundFetchSettledFetch',
-      packedSize: 24,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FetchAPIRequestSpec, nullable: false, minVersion: 0 },
-        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FetchAPIResponseSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.BackgroundFetchSettledFetchSpec, 'blink.mojom.BackgroundFetchSettledFetch', [
+      mojo.internal.StructField('request', 0, 0, blink.mojom.FetchAPIRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 8, 0, blink.mojom.FetchAPIResponseSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: BackgroundFetchOptions
-blink.mojom.BackgroundFetchOptionsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BackgroundFetchOptions',
-      packedSize: 32,
-      fields: [
-        { name: 'icons', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.ManifestImageResourceSpec, false), nullable: false, minVersion: 0 },
-        { name: 'download_total', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.BackgroundFetchOptionsSpec, 'blink.mojom.BackgroundFetchOptions', [
+      mojo.internal.StructField('icons', 0, 0, mojo.internal.Array(blink.mojom.ManifestImageResourceSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('download_total', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('title', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: BackgroundFetchRegistrationData
-blink.mojom.BackgroundFetchRegistrationDataSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BackgroundFetchRegistrationData',
-      packedSize: 56,
-      fields: [
-        { name: 'developer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'upload_total', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'uploaded', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'download_total', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'downloaded', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'result', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.BackgroundFetchResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.BackgroundFetchRegistrationDataSpec, 'blink.mojom.BackgroundFetchRegistrationData', [
+      mojo.internal.StructField('developer_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('upload_total', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('uploaded', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('download_total', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('downloaded', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('result', 40, 0, blink.mojom.BackgroundFetchResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Struct: BackgroundFetchRegistration
-blink.mojom.BackgroundFetchRegistrationSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BackgroundFetchRegistration',
-      packedSize: 24,
-      fields: [
-        { name: 'registration_data', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BackgroundFetchRegistrationDataSpec, nullable: false, minVersion: 0 },
-        { name: 'registration_interface', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.BackgroundFetchRegistrationServiceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.BackgroundFetchRegistrationSpec, 'blink.mojom.BackgroundFetchRegistration', [
+      mojo.internal.StructField('registration_data', 0, 0, blink.mojom.BackgroundFetchRegistrationDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('registration_interface', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.BackgroundFetchRegistrationServiceRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: BackgroundFetchUkmData
-blink.mojom.BackgroundFetchUkmDataSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BackgroundFetchUkmData',
-      packedSize: 16,
-      fields: [
-        { name: 'ideal_to_chosen_icon_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.BackgroundFetchUkmDataSpec, 'blink.mojom.BackgroundFetchUkmData', [
+      mojo.internal.StructField('ideal_to_chosen_icon_size', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: BackgroundFetchRegistrationObserver
-blink.mojom.BackgroundFetchRegistrationObserver = {};
+mojo.internal.Struct(
+    blink.mojom.BackgroundFetchRegistrationObserver_OnProgress_ParamsSpec, 'blink.mojom.BackgroundFetchRegistrationObserver_OnProgress_Params', [
+      mojo.internal.StructField('upload_total', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('uploaded', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('download_total', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('downloaded', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('result', 32, 0, blink.mojom.BackgroundFetchResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('failure_reason', 36, 0, blink.mojom.BackgroundFetchFailureReasonSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
-blink.mojom.BackgroundFetchRegistrationObserver_OnProgress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BackgroundFetchRegistrationObserver_OnProgress_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'upload_total', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'uploaded', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'download_total', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'downloaded', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'result', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.BackgroundFetchResultSpec, nullable: false, minVersion: 0 },
-        { name: 'failure_reason', packedOffset: 36, packedBitOffset: 0, type: blink.mojom.BackgroundFetchFailureReasonSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.BackgroundFetchRegistrationObserver_OnRecordsUnavailable_ParamsSpec, 'blink.mojom.BackgroundFetchRegistrationObserver_OnRecordsUnavailable_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.BackgroundFetchRegistrationObserver_OnRecordsUnavailable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BackgroundFetchRegistrationObserver_OnRecordsUnavailable_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FetchAPIRequestSpec, nullable: false, minVersion: 0 },
-        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FetchAPIResponseSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_ParamsSpec, 'blink.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_Params', [
+      mojo.internal.StructField('request', 0, 0, blink.mojom.FetchAPIRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 8, 0, blink.mojom.FetchAPIResponseSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 blink.mojom.BackgroundFetchRegistrationObserverPendingReceiver = class {
   constructor(handle) {
@@ -248,117 +219,66 @@ blink.mojom.BackgroundFetchRegistrationObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnProgress
-blink.mojom.BackgroundFetchRegistrationObserver_OnProgress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BackgroundFetchRegistrationObserver.OnProgress_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'upload_total', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'uploaded', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'download_total', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'downloaded', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'result', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.BackgroundFetchResultSpec, nullable: false, minVersion: 0 },
-        { name: 'failure_reason', packedOffset: 36, packedBitOffset: 0, type: blink.mojom.BackgroundFetchFailureReasonSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
-
-// ParamsSpec for OnRecordsUnavailable
-blink.mojom.BackgroundFetchRegistrationObserver_OnRecordsUnavailable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BackgroundFetchRegistrationObserver.OnRecordsUnavailable_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnRequestCompleted
-blink.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BackgroundFetchRegistrationObserver.OnRequestCompleted_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FetchAPIRequestSpec, nullable: false, minVersion: 0 },
-        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FetchAPIResponseSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.BackgroundFetchRegistrationObserverPtr = blink.mojom.BackgroundFetchRegistrationObserverRemote;
 blink.mojom.BackgroundFetchRegistrationObserverRequest = blink.mojom.BackgroundFetchRegistrationObserverPendingReceiver;
 
 
 // Interface: BackgroundFetchService
-blink.mojom.BackgroundFetchService = {};
+mojo.internal.Struct(
+    blink.mojom.BackgroundFetchService_Fetch_ParamsSpec, 'blink.mojom.BackgroundFetchService_Fetch_Params', [
+      mojo.internal.StructField('service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('developer_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('requests', 16, 0, mojo.internal.Array(blink.mojom.FetchAPIRequestSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('options', 24, 0, blink.mojom.BackgroundFetchOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('icon', 32, 0, skia.mojom.BitmapN32Spec, null, true, 0, undefined),
+      mojo.internal.StructField('ukm_data', 40, 0, blink.mojom.BackgroundFetchUkmDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
-blink.mojom.BackgroundFetchService_Fetch_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BackgroundFetchService_Fetch_Params',
-      packedSize: 56,
-      fields: [
-        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'developer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'requests', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.FetchAPIRequestSpec, false), nullable: false, minVersion: 0 },
-        { name: 'options', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.BackgroundFetchOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'icon', packedOffset: 32, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true, minVersion: 0 },
-        { name: 'ukm_data', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.BackgroundFetchUkmDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.BackgroundFetchService_Fetch_ResponseParamsSpec, 'blink.mojom.BackgroundFetchService_Fetch_ResponseParams', [
+      mojo.internal.StructField('error', 8, 0, blink.mojom.BackgroundFetchErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('registration', 0, 0, blink.mojom.BackgroundFetchRegistrationSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.BackgroundFetchService_GetRegistration_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BackgroundFetchService_GetRegistration_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'developer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.BackgroundFetchService_GetRegistration_ParamsSpec, 'blink.mojom.BackgroundFetchService_GetRegistration_Params', [
+      mojo.internal.StructField('service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('developer_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.BackgroundFetchService_GetDeveloperIds_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BackgroundFetchService_GetDeveloperIds_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.BackgroundFetchService_GetRegistration_ResponseParamsSpec, 'blink.mojom.BackgroundFetchService_GetRegistration_ResponseParams', [
+      mojo.internal.StructField('error', 8, 0, blink.mojom.BackgroundFetchErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('registration', 0, 0, blink.mojom.BackgroundFetchRegistrationSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.BackgroundFetchService_GetIconDisplaySize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BackgroundFetchService_GetIconDisplaySize_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.BackgroundFetchService_GetDeveloperIds_ParamsSpec, 'blink.mojom.BackgroundFetchService_GetDeveloperIds_Params', [
+      mojo.internal.StructField('service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParamsSpec, 'blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParams', [
+      mojo.internal.StructField('error', 8, 0, blink.mojom.BackgroundFetchErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('developer_ids', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    blink.mojom.BackgroundFetchService_GetIconDisplaySize_ParamsSpec, 'blink.mojom.BackgroundFetchService_GetIconDisplaySize_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    blink.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParamsSpec, 'blink.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParams', [
+      mojo.internal.StructField('icon_size_pixels', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.BackgroundFetchServicePendingReceiver = class {
   constructor(handle) {
@@ -440,183 +360,54 @@ blink.mojom.BackgroundFetchService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Fetch
-blink.mojom.BackgroundFetchService_Fetch_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BackgroundFetchService.Fetch_Params',
-      packedSize: 56,
-      fields: [
-        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'developer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'requests', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.FetchAPIRequestSpec, false), nullable: false, minVersion: 0 },
-        { name: 'options', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.BackgroundFetchOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'icon', packedOffset: 32, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true, minVersion: 0 },
-        { name: 'ukm_data', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.BackgroundFetchUkmDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
-
-blink.mojom.BackgroundFetchService_Fetch_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BackgroundFetchService.Fetch_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.BackgroundFetchErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BackgroundFetchRegistrationSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for GetRegistration
-blink.mojom.BackgroundFetchService_GetRegistration_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BackgroundFetchService.GetRegistration_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'developer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.BackgroundFetchService_GetRegistration_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BackgroundFetchService.GetRegistration_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.BackgroundFetchErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BackgroundFetchRegistrationSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for GetDeveloperIds
-blink.mojom.BackgroundFetchService_GetDeveloperIds_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BackgroundFetchService.GetDeveloperIds_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BackgroundFetchService.GetDeveloperIds_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.BackgroundFetchErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'developer_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for GetIconDisplaySize
-blink.mojom.BackgroundFetchService_GetIconDisplaySize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BackgroundFetchService.GetIconDisplaySize_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BackgroundFetchService.GetIconDisplaySize_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'icon_size_pixels', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.BackgroundFetchServicePtr = blink.mojom.BackgroundFetchServiceRemote;
 blink.mojom.BackgroundFetchServiceRequest = blink.mojom.BackgroundFetchServicePendingReceiver;
 
 
 // Interface: BackgroundFetchRegistrationService
-blink.mojom.BackgroundFetchRegistrationService = {};
+mojo.internal.Struct(
+    blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ParamsSpec, 'blink.mojom.BackgroundFetchRegistrationService_UpdateUI_Params', [
+      mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('icon', 8, 0, skia.mojom.BitmapN32Spec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BackgroundFetchRegistrationService_UpdateUI_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'icon', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParamsSpec, 'blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParams', [
+      mojo.internal.StructField('error', 0, 0, blink.mojom.BackgroundFetchErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.BackgroundFetchRegistrationService_Abort_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BackgroundFetchRegistrationService_Abort_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.BackgroundFetchRegistrationService_Abort_ParamsSpec, 'blink.mojom.BackgroundFetchRegistrationService_Abort_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BackgroundFetchRegistrationService_MatchRequests_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'request_to_match', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FetchAPIRequestSpec, nullable: true, minVersion: 0 },
-        { name: 'cache_query_options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CacheQueryOptionsSpec, nullable: true, minVersion: 0 },
-        { name: 'match_all', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.BackgroundFetchRegistrationService_Abort_ResponseParamsSpec, 'blink.mojom.BackgroundFetchRegistrationService_Abort_ResponseParams', [
+      mojo.internal.StructField('error', 0, 0, blink.mojom.BackgroundFetchErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.BackgroundFetchRegistrationObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ParamsSpec, 'blink.mojom.BackgroundFetchRegistrationService_MatchRequests_Params', [
+      mojo.internal.StructField('request_to_match', 0, 0, blink.mojom.FetchAPIRequestSpec, null, true, 0, undefined),
+      mojo.internal.StructField('cache_query_options', 8, 0, blink.mojom.CacheQueryOptionsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('match_all', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParamsSpec, 'blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParams', [
+      mojo.internal.StructField('fetches', 0, 0, mojo.internal.Array(blink.mojom.BackgroundFetchSettledFetchSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_ParamsSpec, 'blink.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.BackgroundFetchRegistrationObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.BackgroundFetchRegistrationServicePendingReceiver = class {
   constructor(handle) {
@@ -698,104 +489,6 @@ blink.mojom.BackgroundFetchRegistrationService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for UpdateUI
-blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BackgroundFetchRegistrationService.UpdateUI_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'icon', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BackgroundFetchRegistrationService.UpdateUI_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BackgroundFetchErrorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Abort
-blink.mojom.BackgroundFetchRegistrationService_Abort_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BackgroundFetchRegistrationService.Abort_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.BackgroundFetchRegistrationService_Abort_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BackgroundFetchRegistrationService.Abort_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BackgroundFetchErrorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for MatchRequests
-blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BackgroundFetchRegistrationService.MatchRequests_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'request_to_match', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FetchAPIRequestSpec, nullable: true, minVersion: 0 },
-        { name: 'cache_query_options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CacheQueryOptionsSpec, nullable: true, minVersion: 0 },
-        { name: 'match_all', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BackgroundFetchRegistrationService.MatchRequests_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'fetches', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.BackgroundFetchSettledFetchSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AddRegistrationObserver
-blink.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BackgroundFetchRegistrationService.AddRegistrationObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.BackgroundFetchRegistrationObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.BackgroundFetchRegistrationServicePtr = blink.mojom.BackgroundFetchRegistrationServiceRemote;
 blink.mojom.BackgroundFetchRegistrationServiceRequest = blink.mojom.BackgroundFetchRegistrationServicePendingReceiver;
 

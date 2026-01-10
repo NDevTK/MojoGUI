@@ -8,6 +8,7 @@
 var mojo_base = mojo_base || {};
 mojo_base.mojom = mojo_base.mojom || {};
 
+mojo_base.mojom.ApplicationStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: ApplicationState
 mojo_base.mojom.ApplicationState = {
@@ -17,4 +18,3 @@ mojo_base.mojom.ApplicationState = {
   HAS_STOPPED_ACTIVITIES: 3,
   HAS_DESTROYED_ACTIVITIES: 4,
 };
-mojo_base.mojom.ApplicationStateSpec = { $: mojo.internal.Enum() };

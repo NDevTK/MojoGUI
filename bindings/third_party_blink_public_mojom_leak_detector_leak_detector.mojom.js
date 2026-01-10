@@ -8,45 +8,40 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.LeakDetectionResultSpec = { $: {} };
+blink.mojom.LeakDetector = {};
+blink.mojom.LeakDetector.$interfaceName = 'blink.mojom.LeakDetector';
+blink.mojom.LeakDetector_PerformLeakDetection_ParamsSpec = { $: {} };
+blink.mojom.LeakDetector_PerformLeakDetection_ResponseParamsSpec = { $: {} };
 
 // Struct: LeakDetectionResult
-blink.mojom.LeakDetectionResultSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.LeakDetectionResult',
-      packedSize: 56,
-      fields: [
-        { name: 'number_of_live_audio_nodes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'number_of_live_documents', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'number_of_live_nodes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'number_of_live_layout_objects', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'number_of_live_resources', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'number_of_live_context_lifecycle_state_observers', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'number_of_live_frames', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'number_of_live_v8_per_context_data', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'number_of_worker_global_scopes', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'number_of_live_ua_css_resources', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'number_of_live_resource_fetchers', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.LeakDetectionResultSpec, 'blink.mojom.LeakDetectionResult', [
+      mojo.internal.StructField('number_of_live_audio_nodes', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('number_of_live_documents', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('number_of_live_nodes', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('number_of_live_layout_objects', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('number_of_live_resources', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('number_of_live_context_lifecycle_state_observers', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('number_of_live_frames', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('number_of_live_v8_per_context_data', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('number_of_worker_global_scopes', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('number_of_live_ua_css_resources', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('number_of_live_resource_fetchers', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Interface: LeakDetector
-blink.mojom.LeakDetector = {};
+mojo.internal.Struct(
+    blink.mojom.LeakDetector_PerformLeakDetection_ParamsSpec, 'blink.mojom.LeakDetector_PerformLeakDetection_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.LeakDetector_PerformLeakDetection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.LeakDetector_PerformLeakDetection_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.LeakDetector_PerformLeakDetection_ResponseParamsSpec, 'blink.mojom.LeakDetector_PerformLeakDetection_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, blink.mojom.LeakDetectionResultSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.LeakDetectorPendingReceiver = class {
   constructor(handle) {
@@ -101,33 +96,6 @@ blink.mojom.LeakDetector.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for PerformLeakDetection
-blink.mojom.LeakDetector_PerformLeakDetection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.LeakDetector.PerformLeakDetection_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.LeakDetector_PerformLeakDetection_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.LeakDetector.PerformLeakDetection_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LeakDetectionResultSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.LeakDetectorPtr = blink.mojom.LeakDetectorRemote;
 blink.mojom.LeakDetectorRequest = blink.mojom.LeakDetectorPendingReceiver;
 

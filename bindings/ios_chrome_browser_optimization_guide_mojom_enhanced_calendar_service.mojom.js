@@ -8,52 +8,49 @@
 var ai = ai || {};
 ai.mojom = ai.mojom || {};
 
+ai.mojom.EnhancedCalendarResponseResultSpec = { $: {} };
+ai.mojom.EnhancedCalendarServiceRequestParamsSpec = { $: {} };
+ai.mojom.EnhancedCalendarService = {};
+ai.mojom.EnhancedCalendarService.$interfaceName = 'ai.mojom.EnhancedCalendarService';
+ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ParamsSpec = { $: {} };
+ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ResponseParamsSpec = { $: {} };
 
 // Union: EnhancedCalendarResponseResult
-ai.mojom.EnhancedCalendarResponseResultSpec = { $: mojo.internal.Union(
-    'ai.mojom.EnhancedCalendarResponseResult', {
+mojo.internal.Union(
+    ai.mojom.EnhancedCalendarResponseResultSpec, 'ai.mojom.EnhancedCalendarResponseResult', {
       'response': {
         'ordinal': 0,
         'type': mojo_base.mojom.ProtoWrapperSpec,
-      }},
+        'nullable': false,
+      },
       'error': {
         'ordinal': 1,
         'type': mojo.internal.String,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: EnhancedCalendarServiceRequestParams
-ai.mojom.EnhancedCalendarServiceRequestParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ai.mojom.EnhancedCalendarServiceRequestParams',
-      packedSize: 32,
-      fields: [
-        { name: 'selected_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'surrounding_text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'optional_prompt', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ai.mojom.EnhancedCalendarServiceRequestParamsSpec, 'ai.mojom.EnhancedCalendarServiceRequestParams', [
+      mojo.internal.StructField('selected_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('surrounding_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('optional_prompt', 16, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: EnhancedCalendarService
-ai.mojom.EnhancedCalendarService = {};
+mojo.internal.Struct(
+    ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ParamsSpec, 'ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_Params', [
+      mojo.internal.StructField('request_params', 0, 0, ai.mojom.EnhancedCalendarServiceRequestParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request_params', packedOffset: 0, packedBitOffset: 0, type: ai.mojom.EnhancedCalendarServiceRequestParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ResponseParamsSpec, 'ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, ai.mojom.EnhancedCalendarResponseResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 ai.mojom.EnhancedCalendarServicePendingReceiver = class {
   constructor(handle) {
@@ -108,34 +105,6 @@ ai.mojom.EnhancedCalendarService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ExecuteEnhancedCalendarRequest
-ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ai.mojom.EnhancedCalendarService.ExecuteEnhancedCalendarRequest_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request_params', packedOffset: 0, packedBitOffset: 0, type: ai.mojom.EnhancedCalendarServiceRequestParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ai.mojom.EnhancedCalendarService.ExecuteEnhancedCalendarRequest_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ai.mojom.EnhancedCalendarResponseResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 ai.mojom.EnhancedCalendarServicePtr = ai.mojom.EnhancedCalendarServiceRemote;
 ai.mojom.EnhancedCalendarServiceRequest = ai.mojom.EnhancedCalendarServicePendingReceiver;
 

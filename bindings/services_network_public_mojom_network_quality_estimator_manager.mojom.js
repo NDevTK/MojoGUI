@@ -7,26 +7,24 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
 
+network.mojom.NetworkQualityEstimatorManagerClient = {};
+network.mojom.NetworkQualityEstimatorManagerClient.$interfaceName = 'network.mojom.NetworkQualityEstimatorManagerClient';
+network.mojom.NetworkQualityEstimatorManagerClient_OnNetworkQualityChanged_ParamsSpec = { $: {} };
+network.mojom.NetworkQualityEstimatorManager = {};
+network.mojom.NetworkQualityEstimatorManager.$interfaceName = 'network.mojom.NetworkQualityEstimatorManager';
+network.mojom.NetworkQualityEstimatorManager_RequestNotifications_ParamsSpec = { $: {} };
 
 // Interface: NetworkQualityEstimatorManagerClient
-network.mojom.NetworkQualityEstimatorManagerClient = {};
-
-network.mojom.NetworkQualityEstimatorManagerClient_OnNetworkQualityChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.NetworkQualityEstimatorManagerClient_OnNetworkQualityChanged_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.EffectiveConnectionTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'http_rtt', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'transport_rtt', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'downlink_bandwidth_kbps', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.NetworkQualityEstimatorManagerClient_OnNetworkQualityChanged_ParamsSpec, 'network.mojom.NetworkQualityEstimatorManagerClient_OnNetworkQualityChanged_Params', [
+      mojo.internal.StructField('type', 0, 0, network.mojom.EffectiveConnectionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('http_rtt', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('transport_rtt', 16, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('downlink_bandwidth_kbps', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 network.mojom.NetworkQualityEstimatorManagerClientPendingReceiver = class {
   constructor(handle) {
@@ -81,43 +79,16 @@ network.mojom.NetworkQualityEstimatorManagerClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnNetworkQualityChanged
-network.mojom.NetworkQualityEstimatorManagerClient_OnNetworkQualityChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.NetworkQualityEstimatorManagerClient.OnNetworkQualityChanged_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.EffectiveConnectionTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'http_rtt', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'transport_rtt', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'downlink_bandwidth_kbps', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.NetworkQualityEstimatorManagerClientPtr = network.mojom.NetworkQualityEstimatorManagerClientRemote;
 network.mojom.NetworkQualityEstimatorManagerClientRequest = network.mojom.NetworkQualityEstimatorManagerClientPendingReceiver;
 
 
 // Interface: NetworkQualityEstimatorManager
-network.mojom.NetworkQualityEstimatorManager = {};
-
-network.mojom.NetworkQualityEstimatorManager_RequestNotifications_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.NetworkQualityEstimatorManager_RequestNotifications_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.NetworkQualityEstimatorManagerClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.NetworkQualityEstimatorManager_RequestNotifications_ParamsSpec, 'network.mojom.NetworkQualityEstimatorManager_RequestNotifications_Params', [
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(network.mojom.NetworkQualityEstimatorManagerClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 network.mojom.NetworkQualityEstimatorManagerPendingReceiver = class {
   constructor(handle) {
@@ -172,21 +143,6 @@ network.mojom.NetworkQualityEstimatorManager.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RequestNotifications
-network.mojom.NetworkQualityEstimatorManager_RequestNotifications_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.NetworkQualityEstimatorManager.RequestNotifications_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.NetworkQualityEstimatorManagerClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.NetworkQualityEstimatorManagerPtr = network.mojom.NetworkQualityEstimatorManagerRemote;
 network.mojom.NetworkQualityEstimatorManagerRequest = network.mojom.NetworkQualityEstimatorManagerPendingReceiver;
 

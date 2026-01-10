@@ -7,27 +7,32 @@
 // Module namespace
 var composebox = composebox || {};
 composebox.mojom = composebox.mojom || {};
+var components = components || {};
 var url = url || {};
 
+composebox.mojom.PageHandlerFactory = {};
+composebox.mojom.PageHandlerFactory.$interfaceName = 'composebox.mojom.PageHandlerFactory';
+composebox.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+composebox.mojom.PageHandler = {};
+composebox.mojom.PageHandler.$interfaceName = 'composebox.mojom.PageHandler';
+composebox.mojom.PageHandler_FocusChanged_ParamsSpec = { $: {} };
+composebox.mojom.PageHandler_SetDeepSearchMode_ParamsSpec = { $: {} };
+composebox.mojom.PageHandler_SetCreateImageMode_ParamsSpec = { $: {} };
+composebox.mojom.PageHandler_HandleLensButtonClick_ParamsSpec = { $: {} };
+composebox.mojom.PageHandler_HandleFileUpload_ParamsSpec = { $: {} };
+composebox.mojom.PageHandler_NavigateUrl_ParamsSpec = { $: {} };
+composebox.mojom.Page = {};
+composebox.mojom.Page.$interfaceName = 'composebox.mojom.Page';
 
 // Interface: PageHandlerFactory
-composebox.mojom.PageHandlerFactory = {};
-
-composebox.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'composebox.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(composebox.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(composebox.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-        { name: 'searchbox_page', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(searchbox.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'searchbox_handler', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(searchbox.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    composebox.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'composebox.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(composebox.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(composebox.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('searchbox_page', 16, 0, mojo.internal.InterfaceProxy(searchbox.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('searchbox_handler', 24, 0, mojo.internal.InterfaceRequest(searchbox.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 composebox.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -82,108 +87,46 @@ composebox.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-composebox.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'composebox.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(composebox.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(composebox.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-        { name: 'searchbox_page', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(searchbox.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'searchbox_handler', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(searchbox.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// Legacy compatibility
 composebox.mojom.PageHandlerFactoryPtr = composebox.mojom.PageHandlerFactoryRemote;
 composebox.mojom.PageHandlerFactoryRequest = composebox.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-composebox.mojom.PageHandler = {};
+mojo.internal.Struct(
+    composebox.mojom.PageHandler_FocusChanged_ParamsSpec, 'composebox.mojom.PageHandler_FocusChanged_Params', [
+      mojo.internal.StructField('focused', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-composebox.mojom.PageHandler_FocusChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'composebox.mojom.PageHandler_FocusChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'focused', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    composebox.mojom.PageHandler_SetDeepSearchMode_ParamsSpec, 'composebox.mojom.PageHandler_SetDeepSearchMode_Params', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-composebox.mojom.PageHandler_SetDeepSearchMode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'composebox.mojom.PageHandler_SetDeepSearchMode_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    composebox.mojom.PageHandler_SetCreateImageMode_ParamsSpec, 'composebox.mojom.PageHandler_SetCreateImageMode_Params', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('image_present', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-composebox.mojom.PageHandler_SetCreateImageMode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'composebox.mojom.PageHandler_SetCreateImageMode_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'image_present', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    composebox.mojom.PageHandler_HandleLensButtonClick_ParamsSpec, 'composebox.mojom.PageHandler_HandleLensButtonClick_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-composebox.mojom.PageHandler_HandleLensButtonClick_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'composebox.mojom.PageHandler_HandleLensButtonClick_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    composebox.mojom.PageHandler_HandleFileUpload_ParamsSpec, 'composebox.mojom.PageHandler_HandleFileUpload_Params', [
+      mojo.internal.StructField('is_image', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-composebox.mojom.PageHandler_HandleFileUpload_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'composebox.mojom.PageHandler_HandleFileUpload_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-composebox.mojom.PageHandler_NavigateUrl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'composebox.mojom.PageHandler_NavigateUrl_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    composebox.mojom.PageHandler_NavigateUrl_ParamsSpec, 'composebox.mojom.PageHandler_NavigateUrl_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 composebox.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -283,98 +226,11 @@ composebox.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for FocusChanged
-composebox.mojom.PageHandler_FocusChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'composebox.mojom.PageHandler.FocusChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'focused', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetDeepSearchMode
-composebox.mojom.PageHandler_SetDeepSearchMode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'composebox.mojom.PageHandler.SetDeepSearchMode_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetCreateImageMode
-composebox.mojom.PageHandler_SetCreateImageMode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'composebox.mojom.PageHandler.SetCreateImageMode_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'image_present', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for HandleLensButtonClick
-composebox.mojom.PageHandler_HandleLensButtonClick_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'composebox.mojom.PageHandler.HandleLensButtonClick_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for HandleFileUpload
-composebox.mojom.PageHandler_HandleFileUpload_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'composebox.mojom.PageHandler.HandleFileUpload_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for NavigateUrl
-composebox.mojom.PageHandler_NavigateUrl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'composebox.mojom.PageHandler.NavigateUrl_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 composebox.mojom.PageHandlerPtr = composebox.mojom.PageHandlerRemote;
 composebox.mojom.PageHandlerRequest = composebox.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-composebox.mojom.Page = {};
-
 composebox.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -419,7 +275,6 @@ composebox.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// Legacy compatibility
 composebox.mojom.PagePtr = composebox.mojom.PageRemote;
 composebox.mojom.PageRequest = composebox.mojom.PagePendingReceiver;
 

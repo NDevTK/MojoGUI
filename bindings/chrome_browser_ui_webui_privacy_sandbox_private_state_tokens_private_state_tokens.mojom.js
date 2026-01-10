@@ -8,36 +8,31 @@
 var private_state_tokens = private_state_tokens || {};
 private_state_tokens.mojom = private_state_tokens.mojom || {};
 
+private_state_tokens.mojom.IssuerTokenCountSpec = { $: {} };
+private_state_tokens.mojom.PrivateStateTokensPageHandler = {};
+private_state_tokens.mojom.PrivateStateTokensPageHandler.$interfaceName = 'private_state_tokens.mojom.PrivateStateTokensPageHandler';
+private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ParamsSpec = { $: {} };
+private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ResponseParamsSpec = { $: {} };
 
 // Struct: IssuerTokenCount
-private_state_tokens.mojom.IssuerTokenCountSpec = {
-  $: {
-    structSpec: {
-      name: 'private_state_tokens.mojom.IssuerTokenCount',
-      packedSize: 24,
-      fields: [
-        { name: 'issuer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    private_state_tokens.mojom.IssuerTokenCountSpec, 'private_state_tokens.mojom.IssuerTokenCount', [
+      mojo.internal.StructField('issuer', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('count', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: PrivateStateTokensPageHandler
-private_state_tokens.mojom.PrivateStateTokensPageHandler = {};
+mojo.internal.Struct(
+    private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ParamsSpec, 'private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ResponseParamsSpec, 'private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ResponseParams', [
+      mojo.internal.StructField('private_state_tokens_count', 0, 0, mojo.internal.Array(private_state_tokens.mojom.IssuerTokenCountSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 private_state_tokens.mojom.PrivateStateTokensPageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -92,33 +87,6 @@ private_state_tokens.mojom.PrivateStateTokensPageHandler.getRemote = function() 
   return remote.$;
 };
 
-// ParamsSpec for GetIssuerTokenCounts
-private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'private_state_tokens.mojom.PrivateStateTokensPageHandler.GetIssuerTokenCounts_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'private_state_tokens.mojom.PrivateStateTokensPageHandler.GetIssuerTokenCounts_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'private_state_tokens_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(private_state_tokens.mojom.IssuerTokenCountSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 private_state_tokens.mojom.PrivateStateTokensPageHandlerPtr = private_state_tokens.mojom.PrivateStateTokensPageHandlerRemote;
 private_state_tokens.mojom.PrivateStateTokensPageHandlerRequest = private_state_tokens.mojom.PrivateStateTokensPageHandlerPendingReceiver;
 

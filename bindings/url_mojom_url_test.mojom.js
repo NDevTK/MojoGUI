@@ -10,35 +10,37 @@ url.mojom = url.mojom || {};
 var url = url || {};
 var url = url || {};
 
+url.mojom.UrlTest = {};
+url.mojom.UrlTest.$interfaceName = 'url.mojom.UrlTest';
+url.mojom.UrlTest_BounceUrl_ParamsSpec = { $: {} };
+url.mojom.UrlTest_BounceUrl_ResponseParamsSpec = { $: {} };
+url.mojom.UrlTest_BounceOrigin_ParamsSpec = { $: {} };
+url.mojom.UrlTest_BounceOrigin_ResponseParamsSpec = { $: {} };
 
 // Interface: UrlTest
-url.mojom.UrlTest = {};
+mojo.internal.Struct(
+    url.mojom.UrlTest_BounceUrl_ParamsSpec, 'url.mojom.UrlTest_BounceUrl_Params', [
+      mojo.internal.StructField('in', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-url.mojom.UrlTest_BounceUrl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'url.mojom.UrlTest_BounceUrl_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'in', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    url.mojom.UrlTest_BounceUrl_ResponseParamsSpec, 'url.mojom.UrlTest_BounceUrl_ResponseParams', [
+      mojo.internal.StructField('out', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-url.mojom.UrlTest_BounceOrigin_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'url.mojom.UrlTest_BounceOrigin_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'in', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    url.mojom.UrlTest_BounceOrigin_ParamsSpec, 'url.mojom.UrlTest_BounceOrigin_Params', [
+      mojo.internal.StructField('in', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    url.mojom.UrlTest_BounceOrigin_ResponseParamsSpec, 'url.mojom.UrlTest_BounceOrigin_ResponseParams', [
+      mojo.internal.StructField('out', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 url.mojom.UrlTestPendingReceiver = class {
   constructor(handle) {
@@ -102,61 +104,6 @@ url.mojom.UrlTest.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for BounceUrl
-url.mojom.UrlTest_BounceUrl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'url.mojom.UrlTest.BounceUrl_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'in', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-url.mojom.UrlTest_BounceUrl_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'url.mojom.UrlTest.BounceUrl_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'out', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BounceOrigin
-url.mojom.UrlTest_BounceOrigin_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'url.mojom.UrlTest.BounceOrigin_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'in', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-url.mojom.UrlTest_BounceOrigin_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'url.mojom.UrlTest.BounceOrigin_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'out', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 url.mojom.UrlTestPtr = url.mojom.UrlTestRemote;
 url.mojom.UrlTestRequest = url.mojom.UrlTestPendingReceiver;
 

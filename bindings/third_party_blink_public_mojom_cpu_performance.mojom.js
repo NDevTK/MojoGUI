@@ -8,6 +8,7 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.PerformanceTierSpec = { $: mojo.internal.Enum() };
 
 // Enum: PerformanceTier
 blink.mojom.PerformanceTier = {
@@ -17,4 +18,3 @@ blink.mojom.PerformanceTier = {
   kHigh: 3,
   kUltra: 4,
 };
-blink.mojom.PerformanceTierSpec = { $: mojo.internal.Enum() };

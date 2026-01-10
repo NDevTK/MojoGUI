@@ -8,6 +8,7 @@
 var attribution_reporting = attribution_reporting || {};
 attribution_reporting.mojom = attribution_reporting.mojom || {};
 
+attribution_reporting.mojom.ProcessAggregatableDebugReportResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: ProcessAggregatableDebugReportResult
 attribution_reporting.mojom.ProcessAggregatableDebugReportResult = {
@@ -20,4 +21,3 @@ attribution_reporting.mojom.ProcessAggregatableDebugReportResult = {
   kBothRateLimitsReached: 6,
   kInternalError: 7,
 };
-attribution_reporting.mojom.ProcessAggregatableDebugReportResultSpec = { $: mojo.internal.Enum() };

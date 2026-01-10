@@ -10,18 +10,12 @@ viz.mojom = viz.mojom || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+viz.mojom.SelectionSpec = { $: {} };
 
 // Struct: Selection
-viz.mojom.SelectionSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.Selection',
-      packedSize: 24,
-      fields: [
-        { name: 'start', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SelectionBoundSpec, nullable: false, minVersion: 0 },
-        { name: 'end', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SelectionBoundSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.SelectionSpec, 'viz.mojom.Selection', [
+      mojo.internal.StructField('start', 0, 0, gfx.mojom.SelectionBoundSpec, null, false, 0, undefined),
+      mojo.internal.StructField('end', 8, 0, gfx.mojom.SelectionBoundSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);

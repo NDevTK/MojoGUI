@@ -8,6 +8,28 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.SpeechSynthesisErrorCodeSpec = { $: mojo.internal.Enum() };
+blink.mojom.SpeechSynthesisUtteranceSpec = { $: {} };
+blink.mojom.SpeechSynthesisVoiceSpec = { $: {} };
+blink.mojom.SpeechSynthesisVoiceListObserver = {};
+blink.mojom.SpeechSynthesisVoiceListObserver.$interfaceName = 'blink.mojom.SpeechSynthesisVoiceListObserver';
+blink.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_ParamsSpec = { $: {} };
+blink.mojom.SpeechSynthesisClient = {};
+blink.mojom.SpeechSynthesisClient.$interfaceName = 'blink.mojom.SpeechSynthesisClient';
+blink.mojom.SpeechSynthesisClient_OnStartedSpeaking_ParamsSpec = { $: {} };
+blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_ParamsSpec = { $: {} };
+blink.mojom.SpeechSynthesisClient_OnPausedSpeaking_ParamsSpec = { $: {} };
+blink.mojom.SpeechSynthesisClient_OnResumedSpeaking_ParamsSpec = { $: {} };
+blink.mojom.SpeechSynthesisClient_OnEncounteredWordBoundary_ParamsSpec = { $: {} };
+blink.mojom.SpeechSynthesisClient_OnEncounteredSentenceBoundary_ParamsSpec = { $: {} };
+blink.mojom.SpeechSynthesisClient_OnEncounteredSpeakingError_ParamsSpec = { $: {} };
+blink.mojom.SpeechSynthesis = {};
+blink.mojom.SpeechSynthesis.$interfaceName = 'blink.mojom.SpeechSynthesis';
+blink.mojom.SpeechSynthesis_AddVoiceListObserver_ParamsSpec = { $: {} };
+blink.mojom.SpeechSynthesis_Speak_ParamsSpec = { $: {} };
+blink.mojom.SpeechSynthesis_Pause_ParamsSpec = { $: {} };
+blink.mojom.SpeechSynthesis_Resume_ParamsSpec = { $: {} };
+blink.mojom.SpeechSynthesis_Cancel_ParamsSpec = { $: {} };
 
 blink.mojom.kSpeechSynthesisDefaultRate = 1.0;
 
@@ -24,60 +46,36 @@ blink.mojom.SpeechSynthesisErrorCode = {
   kErrorOccurred: 2,
   kNoError: 3,
 };
-blink.mojom.SpeechSynthesisErrorCodeSpec = { $: mojo.internal.Enum() };
 
 // Struct: SpeechSynthesisUtterance
-blink.mojom.SpeechSynthesisUtteranceSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SpeechSynthesisUtterance',
-      packedSize: 56,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'lang', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'voice', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'volume', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'rate', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'pitch', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SpeechSynthesisUtteranceSpec, 'blink.mojom.SpeechSynthesisUtterance', [
+      mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('lang', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('voice', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('volume', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('rate', 32, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('pitch', 40, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Struct: SpeechSynthesisVoice
-blink.mojom.SpeechSynthesisVoiceSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SpeechSynthesisVoice',
-      packedSize: 40,
-      fields: [
-        { name: 'voice_uri', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'lang', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_local_service', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_default', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SpeechSynthesisVoiceSpec, 'blink.mojom.SpeechSynthesisVoice', [
+      mojo.internal.StructField('voice_uri', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('lang', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('is_local_service', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_default', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Interface: SpeechSynthesisVoiceListObserver
-blink.mojom.SpeechSynthesisVoiceListObserver = {};
-
-blink.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'voice_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SpeechSynthesisVoiceSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_ParamsSpec, 'blink.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_Params', [
+      mojo.internal.StructField('voice_list', 0, 0, mojo.internal.Array(blink.mojom.SpeechSynthesisVoiceSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.SpeechSynthesisVoiceListObserverPendingReceiver = class {
   constructor(handle) {
@@ -132,116 +130,50 @@ blink.mojom.SpeechSynthesisVoiceListObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnSetVoiceList
-blink.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SpeechSynthesisVoiceListObserver.OnSetVoiceList_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'voice_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SpeechSynthesisVoiceSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.SpeechSynthesisVoiceListObserverPtr = blink.mojom.SpeechSynthesisVoiceListObserverRemote;
 blink.mojom.SpeechSynthesisVoiceListObserverRequest = blink.mojom.SpeechSynthesisVoiceListObserverPendingReceiver;
 
 
 // Interface: SpeechSynthesisClient
-blink.mojom.SpeechSynthesisClient = {};
+mojo.internal.Struct(
+    blink.mojom.SpeechSynthesisClient_OnStartedSpeaking_ParamsSpec, 'blink.mojom.SpeechSynthesisClient_OnStartedSpeaking_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.SpeechSynthesisClient_OnStartedSpeaking_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SpeechSynthesisClient_OnStartedSpeaking_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_ParamsSpec, 'blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_Params', [
+      mojo.internal.StructField('error_code', 0, 0, blink.mojom.SpeechSynthesisErrorCodeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SpeechSynthesisErrorCodeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SpeechSynthesisClient_OnPausedSpeaking_ParamsSpec, 'blink.mojom.SpeechSynthesisClient_OnPausedSpeaking_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.SpeechSynthesisClient_OnPausedSpeaking_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SpeechSynthesisClient_OnPausedSpeaking_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SpeechSynthesisClient_OnResumedSpeaking_ParamsSpec, 'blink.mojom.SpeechSynthesisClient_OnResumedSpeaking_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.SpeechSynthesisClient_OnResumedSpeaking_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SpeechSynthesisClient_OnResumedSpeaking_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SpeechSynthesisClient_OnEncounteredWordBoundary_ParamsSpec, 'blink.mojom.SpeechSynthesisClient_OnEncounteredWordBoundary_Params', [
+      mojo.internal.StructField('char_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('char_length', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.SpeechSynthesisClient_OnEncounteredWordBoundary_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SpeechSynthesisClient_OnEncounteredWordBoundary_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'char_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'char_length', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SpeechSynthesisClient_OnEncounteredSentenceBoundary_ParamsSpec, 'blink.mojom.SpeechSynthesisClient_OnEncounteredSentenceBoundary_Params', [
+      mojo.internal.StructField('char_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('char_length', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.SpeechSynthesisClient_OnEncounteredSentenceBoundary_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SpeechSynthesisClient_OnEncounteredSentenceBoundary_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'char_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'char_length', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.SpeechSynthesisClient_OnEncounteredSpeakingError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SpeechSynthesisClient_OnEncounteredSpeakingError_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SpeechSynthesisClient_OnEncounteredSpeakingError_ParamsSpec, 'blink.mojom.SpeechSynthesisClient_OnEncounteredSpeakingError_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 blink.mojom.SpeechSynthesisClientPendingReceiver = class {
   constructor(handle) {
@@ -350,172 +282,38 @@ blink.mojom.SpeechSynthesisClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnStartedSpeaking
-blink.mojom.SpeechSynthesisClient_OnStartedSpeaking_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SpeechSynthesisClient.OnStartedSpeaking_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnFinishedSpeaking
-blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SpeechSynthesisClient.OnFinishedSpeaking_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SpeechSynthesisErrorCodeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnPausedSpeaking
-blink.mojom.SpeechSynthesisClient_OnPausedSpeaking_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SpeechSynthesisClient.OnPausedSpeaking_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnResumedSpeaking
-blink.mojom.SpeechSynthesisClient_OnResumedSpeaking_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SpeechSynthesisClient.OnResumedSpeaking_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnEncounteredWordBoundary
-blink.mojom.SpeechSynthesisClient_OnEncounteredWordBoundary_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SpeechSynthesisClient.OnEncounteredWordBoundary_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'char_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'char_length', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnEncounteredSentenceBoundary
-blink.mojom.SpeechSynthesisClient_OnEncounteredSentenceBoundary_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SpeechSynthesisClient.OnEncounteredSentenceBoundary_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'char_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'char_length', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnEncounteredSpeakingError
-blink.mojom.SpeechSynthesisClient_OnEncounteredSpeakingError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SpeechSynthesisClient.OnEncounteredSpeakingError_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.SpeechSynthesisClientPtr = blink.mojom.SpeechSynthesisClientRemote;
 blink.mojom.SpeechSynthesisClientRequest = blink.mojom.SpeechSynthesisClientPendingReceiver;
 
 
 // Interface: SpeechSynthesis
-blink.mojom.SpeechSynthesis = {};
+mojo.internal.Struct(
+    blink.mojom.SpeechSynthesis_AddVoiceListObserver_ParamsSpec, 'blink.mojom.SpeechSynthesis_AddVoiceListObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.SpeechSynthesisVoiceListObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.SpeechSynthesis_AddVoiceListObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SpeechSynthesis_AddVoiceListObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.SpeechSynthesisVoiceListObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SpeechSynthesis_Speak_ParamsSpec, 'blink.mojom.SpeechSynthesis_Speak_Params', [
+      mojo.internal.StructField('utterance', 0, 0, blink.mojom.SpeechSynthesisUtteranceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.SpeechSynthesisClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.SpeechSynthesis_Speak_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SpeechSynthesis_Speak_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'utterance', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SpeechSynthesisUtteranceSpec, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.SpeechSynthesisClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SpeechSynthesis_Pause_ParamsSpec, 'blink.mojom.SpeechSynthesis_Pause_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.SpeechSynthesis_Pause_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SpeechSynthesis_Pause_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SpeechSynthesis_Resume_ParamsSpec, 'blink.mojom.SpeechSynthesis_Resume_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.SpeechSynthesis_Resume_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SpeechSynthesis_Resume_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.SpeechSynthesis_Cancel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SpeechSynthesis_Cancel_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SpeechSynthesis_Cancel_ParamsSpec, 'blink.mojom.SpeechSynthesis_Cancel_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 blink.mojom.SpeechSynthesisPendingReceiver = class {
   constructor(handle) {
@@ -606,75 +404,6 @@ blink.mojom.SpeechSynthesis.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddVoiceListObserver
-blink.mojom.SpeechSynthesis_AddVoiceListObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SpeechSynthesis.AddVoiceListObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.SpeechSynthesisVoiceListObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Speak
-blink.mojom.SpeechSynthesis_Speak_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SpeechSynthesis.Speak_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'utterance', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SpeechSynthesisUtteranceSpec, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.SpeechSynthesisClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for Pause
-blink.mojom.SpeechSynthesis_Pause_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SpeechSynthesis.Pause_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for Resume
-blink.mojom.SpeechSynthesis_Resume_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SpeechSynthesis.Resume_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for Cancel
-blink.mojom.SpeechSynthesis_Cancel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SpeechSynthesis.Cancel_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.SpeechSynthesisPtr = blink.mojom.SpeechSynthesisRemote;
 blink.mojom.SpeechSynthesisRequest = blink.mojom.SpeechSynthesisPendingReceiver;
 

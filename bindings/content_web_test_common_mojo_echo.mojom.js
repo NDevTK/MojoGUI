@@ -8,416 +8,448 @@
 var content = content || {};
 content.mojom = content.mojom || {};
 
+content.mojom.TestUnionSpec = { $: {} };
+content.mojom.NestedUnionSpec = { $: {} };
+content.mojom.MojoEcho = {};
+content.mojom.MojoEcho.$interfaceName = 'content.mojom.MojoEcho';
+content.mojom.MojoEcho_EchoBoolFromUnion_ParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoBoolFromUnion_ResponseParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoInt32FromUnion_ParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoInt32FromUnion_ResponseParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoStringFromUnion_ParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoStringFromUnion_ResponseParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoBoolAsUnion_ParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoBoolAsUnion_ResponseParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoInt32AsUnion_ParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoInt32AsUnion_ResponseParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoStringAsUnion_ParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoStringAsUnion_ResponseParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoNullFromOptionalUnion_ParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoNullFromOptionalUnion_ResponseParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ResponseParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ResponseParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoStringFromOptionalUnion_ParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoStringFromOptionalUnion_ResponseParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoNullAsOptionalUnion_ParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoNullAsOptionalUnion_ResponseParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ResponseParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ResponseParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoStringAsOptionalUnion_ParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoStringAsOptionalUnion_ResponseParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoInt8FromNestedUnion_ParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoInt8FromNestedUnion_ResponseParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoBoolFromNestedUnion_ParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoBoolFromNestedUnion_ResponseParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoStringFromNestedUnion_ParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoStringFromNestedUnion_ResponseParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoInt8AsNestedUnion_ParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoInt8AsNestedUnion_ResponseParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoBoolAsNestedUnion_ParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoBoolAsNestedUnion_ResponseParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoStringAsNestedUnion_ParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoStringAsNestedUnion_ResponseParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ResponseParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ResponseParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ResponseParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ResponseParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ResponseParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ResponseParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ResponseParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ResponseParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoBoolArray_ParamsSpec = { $: {} };
+content.mojom.MojoEcho_EchoBoolArray_ResponseParamsSpec = { $: {} };
 
 // Union: TestUnion
-content.mojom.TestUnionSpec = { $: mojo.internal.Union(
-    'content.mojom.TestUnion', {
+mojo.internal.Union(
+    content.mojom.TestUnionSpec, 'content.mojom.TestUnion', {
       'bool_value': {
         'ordinal': 0,
         'type': mojo.internal.Bool,
-      }},
+        'nullable': false,
+      },
       'int32_value': {
         'ordinal': 1,
         'type': mojo.internal.Int32,
-      }},
+        'nullable': false,
+      },
       'string_value': {
         'ordinal': 2,
         'type': mojo.internal.String,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Union: NestedUnion
-content.mojom.NestedUnionSpec = { $: mojo.internal.Union(
-    'content.mojom.NestedUnion', {
+mojo.internal.Union(
+    content.mojom.NestedUnionSpec, 'content.mojom.NestedUnion', {
       'int8_value': {
         'ordinal': 0,
         'type': mojo.internal.Int8,
-      }},
+        'nullable': false,
+      },
       'union_value': {
         'ordinal': 1,
         'type': content.mojom.TestUnionSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Interface: MojoEcho
-content.mojom.MojoEcho = {};
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoBoolFromUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoBoolFromUnion_Params', [
+      mojo.internal.StructField('test_union', 0, 0, content.mojom.TestUnionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-content.mojom.MojoEcho_EchoBoolFromUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho_EchoBoolFromUnion_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.TestUnionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoBoolFromUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoBoolFromUnion_ResponseParams', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.MojoEcho_EchoInt32FromUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho_EchoInt32FromUnion_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.TestUnionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoInt32FromUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoInt32FromUnion_Params', [
+      mojo.internal.StructField('test_union', 0, 0, content.mojom.TestUnionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-content.mojom.MojoEcho_EchoStringFromUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho_EchoStringFromUnion_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.TestUnionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoInt32FromUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoInt32FromUnion_ResponseParams', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.MojoEcho_EchoBoolAsUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho_EchoBoolAsUnion_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoStringFromUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoStringFromUnion_Params', [
+      mojo.internal.StructField('test_union', 0, 0, content.mojom.TestUnionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-content.mojom.MojoEcho_EchoInt32AsUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho_EchoInt32AsUnion_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoStringFromUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoStringFromUnion_ResponseParams', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.MojoEcho_EchoStringAsUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho_EchoStringAsUnion_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoBoolAsUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoBoolAsUnion_Params', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.MojoEcho_EchoNullFromOptionalUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho_EchoNullFromOptionalUnion_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.TestUnionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoBoolAsUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoBoolAsUnion_ResponseParams', [
+      mojo.internal.StructField('test_union', 0, 0, content.mojom.TestUnionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho_EchoBoolFromOptionalUnion_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.TestUnionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoInt32AsUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoInt32AsUnion_Params', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho_EchoInt32FromOptionalUnion_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.TestUnionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoInt32AsUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoInt32AsUnion_ResponseParams', [
+      mojo.internal.StructField('test_union', 0, 0, content.mojom.TestUnionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-content.mojom.MojoEcho_EchoStringFromOptionalUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho_EchoStringFromOptionalUnion_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.TestUnionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoStringAsUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoStringAsUnion_Params', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.MojoEcho_EchoNullAsOptionalUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho_EchoNullAsOptionalUnion_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoStringAsUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoStringAsUnion_ResponseParams', [
+      mojo.internal.StructField('test_union', 0, 0, content.mojom.TestUnionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho_EchoBoolAsOptionalUnion_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoNullFromOptionalUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoNullFromOptionalUnion_Params', [
+      mojo.internal.StructField('test_union', 0, 0, content.mojom.TestUnionSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho_EchoInt32AsOptionalUnion_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoNullFromOptionalUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoNullFromOptionalUnion_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.MojoEcho_EchoStringAsOptionalUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho_EchoStringAsOptionalUnion_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoBoolFromOptionalUnion_Params', [
+      mojo.internal.StructField('test_union', 0, 0, content.mojom.TestUnionSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-content.mojom.MojoEcho_EchoInt8FromNestedUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho_EchoInt8FromNestedUnion_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.NestedUnionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ResponseParams', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.MojoEcho_EchoBoolFromNestedUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho_EchoBoolFromNestedUnion_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.NestedUnionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoInt32FromOptionalUnion_Params', [
+      mojo.internal.StructField('test_union', 0, 0, content.mojom.TestUnionSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-content.mojom.MojoEcho_EchoStringFromNestedUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho_EchoStringFromNestedUnion_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.NestedUnionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ResponseParams', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.MojoEcho_EchoInt8AsNestedUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho_EchoInt8AsNestedUnion_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoStringFromOptionalUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoStringFromOptionalUnion_Params', [
+      mojo.internal.StructField('test_union', 0, 0, content.mojom.TestUnionSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-content.mojom.MojoEcho_EchoBoolAsNestedUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho_EchoBoolAsNestedUnion_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoStringFromOptionalUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoStringFromOptionalUnion_ResponseParams', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.MojoEcho_EchoStringAsNestedUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho_EchoStringAsNestedUnion_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoNullAsOptionalUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoNullAsOptionalUnion_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.NestedUnionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoNullAsOptionalUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoNullAsOptionalUnion_ResponseParams', [
+      mojo.internal.StructField('test_union', 0, 0, content.mojom.TestUnionSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.NestedUnionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoBoolAsOptionalUnion_Params', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.NestedUnionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ResponseParams', [
+      mojo.internal.StructField('test_union', 0, 0, content.mojom.TestUnionSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.NestedUnionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoInt32AsOptionalUnion_Params', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ResponseParams', [
+      mojo.internal.StructField('test_union', 0, 0, content.mojom.TestUnionSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoStringAsOptionalUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoStringAsOptionalUnion_Params', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoStringAsOptionalUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoStringAsOptionalUnion_ResponseParams', [
+      mojo.internal.StructField('test_union', 0, 0, content.mojom.TestUnionSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoInt8FromNestedUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoInt8FromNestedUnion_Params', [
+      mojo.internal.StructField('test_union', 0, 0, content.mojom.NestedUnionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-content.mojom.MojoEcho_EchoBoolArray_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho_EchoBoolArray_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Bool, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoInt8FromNestedUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoInt8FromNestedUnion_ResponseParams', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Int8, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoBoolFromNestedUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoBoolFromNestedUnion_Params', [
+      mojo.internal.StructField('test_union', 0, 0, content.mojom.NestedUnionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoBoolFromNestedUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoBoolFromNestedUnion_ResponseParams', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoStringFromNestedUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoStringFromNestedUnion_Params', [
+      mojo.internal.StructField('test_union', 0, 0, content.mojom.NestedUnionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoStringFromNestedUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoStringFromNestedUnion_ResponseParams', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoInt8AsNestedUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoInt8AsNestedUnion_Params', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Int8, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoInt8AsNestedUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoInt8AsNestedUnion_ResponseParams', [
+      mojo.internal.StructField('test_union', 0, 0, content.mojom.NestedUnionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoBoolAsNestedUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoBoolAsNestedUnion_Params', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoBoolAsNestedUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoBoolAsNestedUnion_ResponseParams', [
+      mojo.internal.StructField('test_union', 0, 0, content.mojom.NestedUnionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoStringAsNestedUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoStringAsNestedUnion_Params', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoStringAsNestedUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoStringAsNestedUnion_ResponseParams', [
+      mojo.internal.StructField('test_union', 0, 0, content.mojom.NestedUnionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_Params', [
+      mojo.internal.StructField('test_union', 0, 0, content.mojom.NestedUnionSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_Params', [
+      mojo.internal.StructField('test_union', 0, 0, content.mojom.NestedUnionSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ResponseParams', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Int8, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_Params', [
+      mojo.internal.StructField('test_union', 0, 0, content.mojom.NestedUnionSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ResponseParams', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_Params', [
+      mojo.internal.StructField('test_union', 0, 0, content.mojom.NestedUnionSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ResponseParams', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ResponseParams', [
+      mojo.internal.StructField('test_union', 0, 0, content.mojom.NestedUnionSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_Params', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Int8, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ResponseParams', [
+      mojo.internal.StructField('test_union', 0, 0, content.mojom.NestedUnionSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_Params', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ResponseParams', [
+      mojo.internal.StructField('test_union', 0, 0, content.mojom.NestedUnionSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_Params', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ResponseParams', [
+      mojo.internal.StructField('test_union', 0, 0, content.mojom.NestedUnionSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoBoolArray_ParamsSpec, 'content.mojom.MojoEcho_EchoBoolArray_Params', [
+      mojo.internal.StructField('values', 0, 0, mojo.internal.Array(mojo.internal.Bool, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    content.mojom.MojoEcho_EchoBoolArray_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoBoolArray_ResponseParams', [
+      mojo.internal.StructField('values', 0, 0, mojo.internal.Array(mojo.internal.Bool, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 content.mojom.MojoEchoPendingReceiver = class {
   constructor(handle) {
@@ -510,7 +542,7 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     return this.proxy.sendMessage(
       6,  // ordinal
       content.mojom.MojoEcho_EchoNullFromOptionalUnion_ParamsSpec,
-      null,
+      content.mojom.MojoEcho_EchoNullFromOptionalUnion_ResponseParamsSpec,
       [test_union]);
   }
 
@@ -636,7 +668,7 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     return this.proxy.sendMessage(
       20,  // ordinal
       content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ParamsSpec,
-      null,
+      content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ResponseParamsSpec,
       [test_union]);
   }
 
@@ -724,762 +756,6 @@ content.mojom.MojoEcho.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for EchoBoolFromUnion
-content.mojom.MojoEcho_EchoBoolFromUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoBoolFromUnion_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.TestUnionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-content.mojom.MojoEcho_EchoBoolFromUnion_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoBoolFromUnion_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EchoInt32FromUnion
-content.mojom.MojoEcho_EchoInt32FromUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoInt32FromUnion_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.TestUnionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-content.mojom.MojoEcho_EchoInt32FromUnion_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoInt32FromUnion_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EchoStringFromUnion
-content.mojom.MojoEcho_EchoStringFromUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoStringFromUnion_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.TestUnionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-content.mojom.MojoEcho_EchoStringFromUnion_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoStringFromUnion_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EchoBoolAsUnion
-content.mojom.MojoEcho_EchoBoolAsUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoBoolAsUnion_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-content.mojom.MojoEcho_EchoBoolAsUnion_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoBoolAsUnion_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.TestUnionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for EchoInt32AsUnion
-content.mojom.MojoEcho_EchoInt32AsUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoInt32AsUnion_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-content.mojom.MojoEcho_EchoInt32AsUnion_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoInt32AsUnion_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.TestUnionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for EchoStringAsUnion
-content.mojom.MojoEcho_EchoStringAsUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoStringAsUnion_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-content.mojom.MojoEcho_EchoStringAsUnion_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoStringAsUnion_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.TestUnionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for EchoNullFromOptionalUnion
-content.mojom.MojoEcho_EchoNullFromOptionalUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoNullFromOptionalUnion_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.TestUnionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for EchoBoolFromOptionalUnion
-content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoBoolFromOptionalUnion_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.TestUnionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoBoolFromOptionalUnion_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EchoInt32FromOptionalUnion
-content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoInt32FromOptionalUnion_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.TestUnionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoInt32FromOptionalUnion_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EchoStringFromOptionalUnion
-content.mojom.MojoEcho_EchoStringFromOptionalUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoStringFromOptionalUnion_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.TestUnionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-content.mojom.MojoEcho_EchoStringFromOptionalUnion_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoStringFromOptionalUnion_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EchoNullAsOptionalUnion
-content.mojom.MojoEcho_EchoNullAsOptionalUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoNullAsOptionalUnion_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-content.mojom.MojoEcho_EchoNullAsOptionalUnion_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoNullAsOptionalUnion_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.TestUnionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for EchoBoolAsOptionalUnion
-content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoBoolAsOptionalUnion_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoBoolAsOptionalUnion_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.TestUnionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for EchoInt32AsOptionalUnion
-content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoInt32AsOptionalUnion_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoInt32AsOptionalUnion_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.TestUnionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for EchoStringAsOptionalUnion
-content.mojom.MojoEcho_EchoStringAsOptionalUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoStringAsOptionalUnion_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-content.mojom.MojoEcho_EchoStringAsOptionalUnion_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoStringAsOptionalUnion_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.TestUnionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for EchoInt8FromNestedUnion
-content.mojom.MojoEcho_EchoInt8FromNestedUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoInt8FromNestedUnion_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.NestedUnionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-content.mojom.MojoEcho_EchoInt8FromNestedUnion_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoInt8FromNestedUnion_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EchoBoolFromNestedUnion
-content.mojom.MojoEcho_EchoBoolFromNestedUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoBoolFromNestedUnion_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.NestedUnionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-content.mojom.MojoEcho_EchoBoolFromNestedUnion_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoBoolFromNestedUnion_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EchoStringFromNestedUnion
-content.mojom.MojoEcho_EchoStringFromNestedUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoStringFromNestedUnion_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.NestedUnionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-content.mojom.MojoEcho_EchoStringFromNestedUnion_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoStringFromNestedUnion_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EchoInt8AsNestedUnion
-content.mojom.MojoEcho_EchoInt8AsNestedUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoInt8AsNestedUnion_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-content.mojom.MojoEcho_EchoInt8AsNestedUnion_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoInt8AsNestedUnion_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.NestedUnionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for EchoBoolAsNestedUnion
-content.mojom.MojoEcho_EchoBoolAsNestedUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoBoolAsNestedUnion_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-content.mojom.MojoEcho_EchoBoolAsNestedUnion_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoBoolAsNestedUnion_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.NestedUnionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for EchoStringAsNestedUnion
-content.mojom.MojoEcho_EchoStringAsNestedUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoStringAsNestedUnion_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-content.mojom.MojoEcho_EchoStringAsNestedUnion_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoStringAsNestedUnion_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.NestedUnionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for EchoNullFromOptionalNestedUnion
-content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoNullFromOptionalNestedUnion_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.NestedUnionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for EchoInt8FromOptionalNestedUnion
-content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoInt8FromOptionalNestedUnion_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.NestedUnionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoInt8FromOptionalNestedUnion_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EchoBoolFromOptionalNestedUnion
-content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoBoolFromOptionalNestedUnion_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.NestedUnionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoBoolFromOptionalNestedUnion_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EchoStringFromOptionalNestedUnion
-content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoStringFromOptionalNestedUnion_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.NestedUnionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoStringFromOptionalNestedUnion_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EchoNullAsOptionalNestedUnion
-content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoNullAsOptionalNestedUnion_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoNullAsOptionalNestedUnion_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.NestedUnionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for EchoInt8AsOptionalNestedUnion
-content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoInt8AsOptionalNestedUnion_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoInt8AsOptionalNestedUnion_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.NestedUnionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for EchoBoolAsOptionalNestedUnion
-content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoBoolAsOptionalNestedUnion_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoBoolAsOptionalNestedUnion_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.NestedUnionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for EchoStringAsOptionalNestedUnion
-content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoStringAsOptionalNestedUnion_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoStringAsOptionalNestedUnion_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'test_union', packedOffset: 0, packedBitOffset: 0, type: content.mojom.NestedUnionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for EchoBoolArray
-content.mojom.MojoEcho_EchoBoolArray_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoBoolArray_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Bool, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-content.mojom.MojoEcho_EchoBoolArray_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoEcho.EchoBoolArray_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Bool, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 content.mojom.MojoEchoPtr = content.mojom.MojoEchoRemote;
 content.mojom.MojoEchoRequest = content.mojom.MojoEchoPendingReceiver;
 

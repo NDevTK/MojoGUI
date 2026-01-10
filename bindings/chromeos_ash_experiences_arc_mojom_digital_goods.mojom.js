@@ -7,7 +7,24 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
+var components = components || {};
 
+arc.mojom.PurchaseStateSpec = { $: mojo.internal.Enum() };
+arc.mojom.PurchaseDetailsSpec = { $: {} };
+arc.mojom.DigitalGoodsInstance = {};
+arc.mojom.DigitalGoodsInstance.$interfaceName = 'arc.mojom.DigitalGoodsInstance';
+arc.mojom.DigitalGoodsInstance_GetDetails_ParamsSpec = { $: {} };
+arc.mojom.DigitalGoodsInstance_GetDetails_ResponseParamsSpec = { $: {} };
+arc.mojom.DigitalGoodsInstance_Acknowledge_ParamsSpec = { $: {} };
+arc.mojom.DigitalGoodsInstance_Acknowledge_ResponseParamsSpec = { $: {} };
+arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ParamsSpec = { $: {} };
+arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ResponseParamsSpec = { $: {} };
+arc.mojom.DigitalGoodsInstance_ListPurchases_ParamsSpec = { $: {} };
+arc.mojom.DigitalGoodsInstance_ListPurchases_ResponseParamsSpec = { $: {} };
+arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ParamsSpec = { $: {} };
+arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ResponseParamsSpec = { $: {} };
+arc.mojom.DigitalGoodsInstance_Consume_ParamsSpec = { $: {} };
+arc.mojom.DigitalGoodsInstance_Consume_ResponseParamsSpec = { $: {} };
 
 // Enum: PurchaseState
 arc.mojom.PurchaseState = {
@@ -15,117 +32,105 @@ arc.mojom.PurchaseState = {
   kPurchased: 1,
   kPending: 2,
 };
-arc.mojom.PurchaseStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: PurchaseDetails
-arc.mojom.PurchaseDetailsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PurchaseDetails',
-      packedSize: 40,
-      fields: [
-        { name: 'item_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'purchase_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'acknowledged', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'purchase_state', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.PurchaseStateSpec, nullable: false, minVersion: 0 },
-        { name: 'purchase_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'will_auto_renew', packedOffset: 28, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PurchaseDetailsSpec, 'arc.mojom.PurchaseDetails', [
+      mojo.internal.StructField('item_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('purchase_token', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('acknowledged', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('purchase_state', 24, 0, arc.mojom.PurchaseStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('purchase_time', 16, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('will_auto_renew', 28, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Interface: DigitalGoodsInstance
-arc.mojom.DigitalGoodsInstance = {};
+mojo.internal.Struct(
+    arc.mojom.DigitalGoodsInstance_GetDetails_ParamsSpec, 'arc.mojom.DigitalGoodsInstance_GetDetails_Params', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('scope', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('item_ids', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-arc.mojom.DigitalGoodsInstance_GetDetails_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.DigitalGoodsInstance_GetDetails_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'scope', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'item_ids', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.DigitalGoodsInstance_GetDetails_ResponseParamsSpec, 'arc.mojom.DigitalGoodsInstance_GetDetails_ResponseParams', [
+      mojo.internal.StructField('code', 8, 0, payments.mojom.BillingResponseCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('item_details_list', 0, 0, mojo.internal.Array(payments.mojom.ItemDetailsSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.DigitalGoodsInstance_Acknowledge_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.DigitalGoodsInstance_Acknowledge_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'scope', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'purchase_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'make_available_again', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.DigitalGoodsInstance_Acknowledge_ParamsSpec, 'arc.mojom.DigitalGoodsInstance_Acknowledge_Params', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('scope', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('purchase_token', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('make_available_again', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'scope', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.DigitalGoodsInstance_Acknowledge_ResponseParamsSpec, 'arc.mojom.DigitalGoodsInstance_Acknowledge_ResponseParams', [
+      mojo.internal.StructField('code', 0, 0, payments.mojom.BillingResponseCodeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.DigitalGoodsInstance_ListPurchases_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.DigitalGoodsInstance_ListPurchases_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'scope', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ParamsSpec, 'arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_Params', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('scope', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'scope', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ResponseParamsSpec, 'arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ResponseParams', [
+      mojo.internal.StructField('code', 8, 0, payments.mojom.BillingResponseCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('purchase_details_list', 0, 0, mojo.internal.Array(arc.mojom.PurchaseDetailsSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.DigitalGoodsInstance_Consume_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.DigitalGoodsInstance_Consume_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'scope', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'purchase_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.DigitalGoodsInstance_ListPurchases_ParamsSpec, 'arc.mojom.DigitalGoodsInstance_ListPurchases_Params', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('scope', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    arc.mojom.DigitalGoodsInstance_ListPurchases_ResponseParamsSpec, 'arc.mojom.DigitalGoodsInstance_ListPurchases_ResponseParams', [
+      mojo.internal.StructField('code', 8, 0, payments.mojom.BillingResponseCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('purchase_reference_list', 0, 0, mojo.internal.Array(payments.mojom.PurchaseReferenceSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ParamsSpec, 'arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_Params', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('scope', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ResponseParamsSpec, 'arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ResponseParams', [
+      mojo.internal.StructField('code', 8, 0, payments.mojom.BillingResponseCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('purchase_reference_list', 0, 0, mojo.internal.Array(payments.mojom.PurchaseReferenceSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    arc.mojom.DigitalGoodsInstance_Consume_ParamsSpec, 'arc.mojom.DigitalGoodsInstance_Consume_Params', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('scope', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('purchase_token', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    arc.mojom.DigitalGoodsInstance_Consume_ResponseParamsSpec, 'arc.mojom.DigitalGoodsInstance_Consume_ResponseParams', [
+      mojo.internal.StructField('code', 0, 0, payments.mojom.BillingResponseCodeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.DigitalGoodsInstancePendingReceiver = class {
   constructor(handle) {
@@ -225,183 +230,6 @@ arc.mojom.DigitalGoodsInstance.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetDetails
-arc.mojom.DigitalGoodsInstance_GetDetails_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.DigitalGoodsInstance.GetDetails_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'scope', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'item_ids', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-arc.mojom.DigitalGoodsInstance_GetDetails_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.DigitalGoodsInstance.GetDetails_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: payments.mojom.BillingResponseCodeSpec, nullable: false, minVersion: 0 },
-        { name: 'item_details_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(payments.mojom.ItemDetailsSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for Acknowledge
-arc.mojom.DigitalGoodsInstance_Acknowledge_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.DigitalGoodsInstance.Acknowledge_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'scope', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'purchase_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'make_available_again', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-arc.mojom.DigitalGoodsInstance_Acknowledge_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.DigitalGoodsInstance.Acknowledge_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.BillingResponseCodeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DeprecatedListPurchases
-arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.DigitalGoodsInstance.DeprecatedListPurchases_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'scope', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.DigitalGoodsInstance.DeprecatedListPurchases_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: payments.mojom.BillingResponseCodeSpec, nullable: false, minVersion: 0 },
-        { name: 'purchase_details_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.PurchaseDetailsSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ListPurchases
-arc.mojom.DigitalGoodsInstance_ListPurchases_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.DigitalGoodsInstance.ListPurchases_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'scope', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-arc.mojom.DigitalGoodsInstance_ListPurchases_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.DigitalGoodsInstance.ListPurchases_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: payments.mojom.BillingResponseCodeSpec, nullable: false, minVersion: 0 },
-        { name: 'purchase_reference_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(payments.mojom.PurchaseReferenceSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ListPurchaseHistory
-arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.DigitalGoodsInstance.ListPurchaseHistory_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'scope', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.DigitalGoodsInstance.ListPurchaseHistory_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: payments.mojom.BillingResponseCodeSpec, nullable: false, minVersion: 0 },
-        { name: 'purchase_reference_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(payments.mojom.PurchaseReferenceSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for Consume
-arc.mojom.DigitalGoodsInstance_Consume_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.DigitalGoodsInstance.Consume_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'scope', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'purchase_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-arc.mojom.DigitalGoodsInstance_Consume_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.DigitalGoodsInstance.Consume_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.BillingResponseCodeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.DigitalGoodsInstancePtr = arc.mojom.DigitalGoodsInstanceRemote;
 arc.mojom.DigitalGoodsInstanceRequest = arc.mojom.DigitalGoodsInstancePendingReceiver;
 

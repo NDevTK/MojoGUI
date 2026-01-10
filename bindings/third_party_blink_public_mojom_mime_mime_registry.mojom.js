@@ -8,22 +8,23 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.MimeRegistry = {};
+blink.mojom.MimeRegistry.$interfaceName = 'blink.mojom.MimeRegistry';
+blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ParamsSpec = { $: {} };
+blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ResponseParamsSpec = { $: {} };
 
 // Interface: MimeRegistry
-blink.mojom.MimeRegistry = {};
+mojo.internal.Struct(
+    blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ParamsSpec, 'blink.mojom.MimeRegistry_GetMimeTypeFromExtension_Params', [
+      mojo.internal.StructField('extension', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MimeRegistry_GetMimeTypeFromExtension_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'extension', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ResponseParamsSpec, 'blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ResponseParams', [
+      mojo.internal.StructField('mime_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.MimeRegistryPendingReceiver = class {
   constructor(handle) {
@@ -78,34 +79,6 @@ blink.mojom.MimeRegistry.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetMimeTypeFromExtension
-blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MimeRegistry.GetMimeTypeFromExtension_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'extension', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MimeRegistry.GetMimeTypeFromExtension_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'mime_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.MimeRegistryPtr = blink.mojom.MimeRegistryRemote;
 blink.mojom.MimeRegistryRequest = blink.mojom.MimeRegistryPendingReceiver;
 

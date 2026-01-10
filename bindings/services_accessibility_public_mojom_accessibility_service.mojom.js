@@ -7,24 +7,42 @@
 // Module namespace
 var ax = ax || {};
 ax.mojom = ax.mojom || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 var blink = blink || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 
+ax.mojom.AssistiveTechnologyController = {};
+ax.mojom.AssistiveTechnologyController.$interfaceName = 'ax.mojom.AssistiveTechnologyController';
+ax.mojom.AssistiveTechnologyController_EnableAssistiveTechnology_ParamsSpec = { $: {} };
+ax.mojom.AccessibilityService = {};
+ax.mojom.AccessibilityService.$interfaceName = 'ax.mojom.AccessibilityService';
+ax.mojom.AccessibilityService_BindAccessibilityServiceClient_ParamsSpec = { $: {} };
+ax.mojom.AccessibilityService_BindAssistiveTechnologyController_ParamsSpec = { $: {} };
+ax.mojom.AccessibilityService_ConnectDevToolsAgent_ParamsSpec = { $: {} };
+ax.mojom.AccessibilityServiceClient = {};
+ax.mojom.AccessibilityServiceClient.$interfaceName = 'ax.mojom.AccessibilityServiceClient';
+ax.mojom.AccessibilityServiceClient_BindAutomation_ParamsSpec = { $: {} };
+ax.mojom.AccessibilityServiceClient_BindAutomationClient_ParamsSpec = { $: {} };
+ax.mojom.AccessibilityServiceClient_BindAutoclickClient_ParamsSpec = { $: {} };
+ax.mojom.AccessibilityServiceClient_BindSpeechRecognition_ParamsSpec = { $: {} };
+ax.mojom.AccessibilityServiceClient_BindTts_ParamsSpec = { $: {} };
+ax.mojom.AccessibilityServiceClient_BindUserInput_ParamsSpec = { $: {} };
+ax.mojom.AccessibilityServiceClient_BindUserInterface_ParamsSpec = { $: {} };
+ax.mojom.AccessibilityServiceClient_BindAccessibilityFileLoader_ParamsSpec = { $: {} };
 
 // Interface: AssistiveTechnologyController
-ax.mojom.AssistiveTechnologyController = {};
-
-ax.mojom.AssistiveTechnologyController_EnableAssistiveTechnology_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AssistiveTechnologyController_EnableAssistiveTechnology_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled_features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ax.mojom.AssistiveTechnologyTypeSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.AssistiveTechnologyController_EnableAssistiveTechnology_ParamsSpec, 'ax.mojom.AssistiveTechnologyController_EnableAssistiveTechnology_Params', [
+      mojo.internal.StructField('enabled_features', 0, 0, mojo.internal.Array(ax.mojom.AssistiveTechnologyTypeSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ax.mojom.AssistiveTechnologyControllerPendingReceiver = class {
   constructor(handle) {
@@ -79,68 +97,30 @@ ax.mojom.AssistiveTechnologyController.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for EnableAssistiveTechnology
-ax.mojom.AssistiveTechnologyController_EnableAssistiveTechnology_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AssistiveTechnologyController.EnableAssistiveTechnology_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled_features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ax.mojom.AssistiveTechnologyTypeSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ax.mojom.AssistiveTechnologyControllerPtr = ax.mojom.AssistiveTechnologyControllerRemote;
 ax.mojom.AssistiveTechnologyControllerRequest = ax.mojom.AssistiveTechnologyControllerPendingReceiver;
 
 
 // Interface: AccessibilityService
-ax.mojom.AccessibilityService = {};
+mojo.internal.Struct(
+    ax.mojom.AccessibilityService_BindAccessibilityServiceClient_ParamsSpec, 'ax.mojom.AccessibilityService_BindAccessibilityServiceClient_Params', [
+      mojo.internal.StructField('accessibility_service_client', 0, 0, mojo.internal.InterfaceProxy(ax.mojom.AccessibilityServiceClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ax.mojom.AccessibilityService_BindAccessibilityServiceClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AccessibilityService_BindAccessibilityServiceClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'accessibility_service_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ax.mojom.AccessibilityServiceClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.AccessibilityService_BindAssistiveTechnologyController_ParamsSpec, 'ax.mojom.AccessibilityService_BindAssistiveTechnologyController_Params', [
+      mojo.internal.StructField('at_controller', 0, 0, mojo.internal.InterfaceRequest(ax.mojom.AssistiveTechnologyControllerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('enabled_features', 8, 0, mojo.internal.Array(ax.mojom.AssistiveTechnologyTypeSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ax.mojom.AccessibilityService_BindAssistiveTechnologyController_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AccessibilityService_BindAssistiveTechnologyController_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'at_controller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ax.mojom.AssistiveTechnologyControllerRemote), nullable: false, minVersion: 0 },
-        { name: 'enabled_features', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ax.mojom.AssistiveTechnologyTypeSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-ax.mojom.AccessibilityService_ConnectDevToolsAgent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AccessibilityService_ConnectDevToolsAgent_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(blink.mojom.DevToolsAgentRemote), nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.AssistiveTechnologyTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.AccessibilityService_ConnectDevToolsAgent_ParamsSpec, 'ax.mojom.AccessibilityService_ConnectDevToolsAgent_Params', [
+      mojo.internal.StructField('agent', 0, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.DevToolsAgentRemote), null, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, ax.mojom.AssistiveTechnologyTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 ax.mojom.AccessibilityServicePendingReceiver = class {
   constructor(handle) {
@@ -213,161 +193,58 @@ ax.mojom.AccessibilityService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for BindAccessibilityServiceClient
-ax.mojom.AccessibilityService_BindAccessibilityServiceClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AccessibilityService.BindAccessibilityServiceClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'accessibility_service_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ax.mojom.AccessibilityServiceClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindAssistiveTechnologyController
-ax.mojom.AccessibilityService_BindAssistiveTechnologyController_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AccessibilityService.BindAssistiveTechnologyController_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'at_controller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ax.mojom.AssistiveTechnologyControllerRemote), nullable: false, minVersion: 0 },
-        { name: 'enabled_features', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ax.mojom.AssistiveTechnologyTypeSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ConnectDevToolsAgent
-ax.mojom.AccessibilityService_ConnectDevToolsAgent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AccessibilityService.ConnectDevToolsAgent_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(blink.mojom.DevToolsAgentRemote), nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.AssistiveTechnologyTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 ax.mojom.AccessibilityServicePtr = ax.mojom.AccessibilityServiceRemote;
 ax.mojom.AccessibilityServiceRequest = ax.mojom.AccessibilityServicePendingReceiver;
 
 
 // Interface: AccessibilityServiceClient
-ax.mojom.AccessibilityServiceClient = {};
+mojo.internal.Struct(
+    ax.mojom.AccessibilityServiceClient_BindAutomation_ParamsSpec, 'ax.mojom.AccessibilityServiceClient_BindAutomation_Params', [
+      mojo.internal.StructField('automation', 0, 0, mojo.internal.AssociatedInterfaceProxy(ax.mojom.AutomationRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ax.mojom.AccessibilityServiceClient_BindAutomation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AccessibilityServiceClient_BindAutomation_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'automation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(ax.mojom.AutomationRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.AccessibilityServiceClient_BindAutomationClient_ParamsSpec, 'ax.mojom.AccessibilityServiceClient_BindAutomationClient_Params', [
+      mojo.internal.StructField('automation_client', 0, 0, mojo.internal.InterfaceRequest(ax.mojom.AutomationClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ax.mojom.AccessibilityServiceClient_BindAutomationClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AccessibilityServiceClient_BindAutomationClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'automation_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ax.mojom.AutomationClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.AccessibilityServiceClient_BindAutoclickClient_ParamsSpec, 'ax.mojom.AccessibilityServiceClient_BindAutoclickClient_Params', [
+      mojo.internal.StructField('autoclick_client', 0, 0, mojo.internal.InterfaceRequest(ax.mojom.AutoclickClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ax.mojom.AccessibilityServiceClient_BindAutoclickClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AccessibilityServiceClient_BindAutoclickClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'autoclick_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ax.mojom.AutoclickClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.AccessibilityServiceClient_BindSpeechRecognition_ParamsSpec, 'ax.mojom.AccessibilityServiceClient_BindSpeechRecognition_Params', [
+      mojo.internal.StructField('sr_receiver', 0, 0, mojo.internal.InterfaceRequest(ax.mojom.SpeechRecognitionRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ax.mojom.AccessibilityServiceClient_BindSpeechRecognition_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AccessibilityServiceClient_BindSpeechRecognition_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'sr_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ax.mojom.SpeechRecognitionRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.AccessibilityServiceClient_BindTts_ParamsSpec, 'ax.mojom.AccessibilityServiceClient_BindTts_Params', [
+      mojo.internal.StructField('tts_receiver', 0, 0, mojo.internal.InterfaceRequest(ax.mojom.TtsRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ax.mojom.AccessibilityServiceClient_BindTts_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AccessibilityServiceClient_BindTts_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'tts_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ax.mojom.TtsRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.AccessibilityServiceClient_BindUserInput_ParamsSpec, 'ax.mojom.AccessibilityServiceClient_BindUserInput_Params', [
+      mojo.internal.StructField('user_input_receiver', 0, 0, mojo.internal.InterfaceRequest(ax.mojom.UserInputRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ax.mojom.AccessibilityServiceClient_BindUserInput_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AccessibilityServiceClient_BindUserInput_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'user_input_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ax.mojom.UserInputRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.AccessibilityServiceClient_BindUserInterface_ParamsSpec, 'ax.mojom.AccessibilityServiceClient_BindUserInterface_Params', [
+      mojo.internal.StructField('user_interface_receiver', 0, 0, mojo.internal.InterfaceRequest(ax.mojom.UserInterfaceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ax.mojom.AccessibilityServiceClient_BindUserInterface_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AccessibilityServiceClient_BindUserInterface_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'user_interface_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ax.mojom.UserInterfaceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ax.mojom.AccessibilityServiceClient_BindAccessibilityFileLoader_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AccessibilityServiceClient_BindAccessibilityFileLoader_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'file_loader_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ax.mojom.AccessibilityFileLoaderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.AccessibilityServiceClient_BindAccessibilityFileLoader_ParamsSpec, 'ax.mojom.AccessibilityServiceClient_BindAccessibilityFileLoader_Params', [
+      mojo.internal.StructField('file_loader_receiver', 0, 0, mojo.internal.InterfaceRequest(ax.mojom.AccessibilityFileLoaderRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ax.mojom.AccessibilityServiceClientPendingReceiver = class {
   constructor(handle) {
@@ -485,119 +362,6 @@ ax.mojom.AccessibilityServiceClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for BindAutomation
-ax.mojom.AccessibilityServiceClient_BindAutomation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AccessibilityServiceClient.BindAutomation_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'automation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(ax.mojom.AutomationRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindAutomationClient
-ax.mojom.AccessibilityServiceClient_BindAutomationClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AccessibilityServiceClient.BindAutomationClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'automation_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ax.mojom.AutomationClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindAutoclickClient
-ax.mojom.AccessibilityServiceClient_BindAutoclickClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AccessibilityServiceClient.BindAutoclickClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'autoclick_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ax.mojom.AutoclickClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindSpeechRecognition
-ax.mojom.AccessibilityServiceClient_BindSpeechRecognition_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AccessibilityServiceClient.BindSpeechRecognition_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'sr_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ax.mojom.SpeechRecognitionRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindTts
-ax.mojom.AccessibilityServiceClient_BindTts_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AccessibilityServiceClient.BindTts_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'tts_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ax.mojom.TtsRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindUserInput
-ax.mojom.AccessibilityServiceClient_BindUserInput_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AccessibilityServiceClient.BindUserInput_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'user_input_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ax.mojom.UserInputRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindUserInterface
-ax.mojom.AccessibilityServiceClient_BindUserInterface_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AccessibilityServiceClient.BindUserInterface_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'user_interface_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ax.mojom.UserInterfaceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindAccessibilityFileLoader
-ax.mojom.AccessibilityServiceClient_BindAccessibilityFileLoader_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AccessibilityServiceClient.BindAccessibilityFileLoader_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'file_loader_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ax.mojom.AccessibilityFileLoaderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ax.mojom.AccessibilityServiceClientPtr = ax.mojom.AccessibilityServiceClientRemote;
 ax.mojom.AccessibilityServiceClientRequest = ax.mojom.AccessibilityServiceClientPendingReceiver;
 

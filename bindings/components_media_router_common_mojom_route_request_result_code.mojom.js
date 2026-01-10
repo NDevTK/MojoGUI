@@ -8,6 +8,7 @@
 var media_router = media_router || {};
 media_router.mojom = media_router.mojom || {};
 
+media_router.mojom.RouteRequestResultCodeSpec = { $: mojo.internal.Enum() };
 
 // Enum: RouteRequestResultCode
 media_router.mojom.RouteRequestResultCode = {
@@ -27,4 +28,3 @@ media_router.mojom.RouteRequestResultCode = {
   USER_NOT_ALLOWED: 13,
   NOTIFICATION_DISABLED: 14,
 };
-media_router.mojom.RouteRequestResultCodeSpec = { $: mojo.internal.Enum() };

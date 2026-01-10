@@ -8,7 +8,30 @@
 var ash = ash || {};
 ash.secure_channel = ash.secure_channel || {};
 ash.secure_channel.mojom = ash.secure_channel.mojom || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var services = services || {};
 
+ash.secure_channel.mojom.NearbyConnectionStepSpec = { $: mojo.internal.Enum() };
+ash.secure_channel.mojom.NearbyConnectionStepResultSpec = { $: mojo.internal.Enum() };
+ash.secure_channel.mojom.NearbyConnectionStateListener = {};
+ash.secure_channel.mojom.NearbyConnectionStateListener.$interfaceName = 'ash.secure_channel.mojom.NearbyConnectionStateListener';
+ash.secure_channel.mojom.NearbyConnectionStateListener_OnNearbyConnectionStateChanged_ParamsSpec = { $: {} };
+ash.secure_channel.mojom.NearbyMessageSender = {};
+ash.secure_channel.mojom.NearbyMessageSender.$interfaceName = 'ash.secure_channel.mojom.NearbyMessageSender';
+ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ParamsSpec = { $: {} };
+ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ResponseParamsSpec = { $: {} };
+ash.secure_channel.mojom.NearbyMessageReceiver = {};
+ash.secure_channel.mojom.NearbyMessageReceiver.$interfaceName = 'ash.secure_channel.mojom.NearbyMessageReceiver';
+ash.secure_channel.mojom.NearbyMessageReceiver_OnMessageReceived_ParamsSpec = { $: {} };
+ash.secure_channel.mojom.NearbyFilePayloadHandler = {};
+ash.secure_channel.mojom.NearbyFilePayloadHandler.$interfaceName = 'ash.secure_channel.mojom.NearbyFilePayloadHandler';
+ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ParamsSpec = { $: {} };
+ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ResponseParamsSpec = { $: {} };
+ash.secure_channel.mojom.NearbyConnector = {};
+ash.secure_channel.mojom.NearbyConnector.$interfaceName = 'ash.secure_channel.mojom.NearbyConnector';
+ash.secure_channel.mojom.NearbyConnector_Connect_ParamsSpec = { $: {} };
+ash.secure_channel.mojom.NearbyConnector_Connect_ResponseParamsSpec = { $: {} };
 
 ash.secure_channel.mojom.kServiceId = "secure_channel";
 
@@ -27,7 +50,6 @@ ash.secure_channel.mojom.NearbyConnectionStep = {
   kDisconnectionStarted: 10,
   kDisconnectionFinished: 11,
 };
-ash.secure_channel.mojom.NearbyConnectionStepSpec = { $: mojo.internal.Enum() };
 
 // Enum: NearbyConnectionStepResult
 ash.secure_channel.mojom.NearbyConnectionStepResult = {
@@ -52,24 +74,14 @@ ash.secure_channel.mojom.NearbyConnectionStepResult = {
   kTimeout: 18,
   kUnknown: 19,
 };
-ash.secure_channel.mojom.NearbyConnectionStepResultSpec = { $: mojo.internal.Enum() };
 
 // Interface: NearbyConnectionStateListener
-ash.secure_channel.mojom.NearbyConnectionStateListener = {};
-
-ash.secure_channel.mojom.NearbyConnectionStateListener_OnNearbyConnectionStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.secure_channel.mojom.NearbyConnectionStateListener_OnNearbyConnectionStateChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'step', packedOffset: 0, packedBitOffset: 0, type: ash.secure_channel.mojom.NearbyConnectionStepSpec, nullable: false, minVersion: 0 },
-        { name: 'result', packedOffset: 4, packedBitOffset: 0, type: ash.secure_channel.mojom.NearbyConnectionStepResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.secure_channel.mojom.NearbyConnectionStateListener_OnNearbyConnectionStateChanged_ParamsSpec, 'ash.secure_channel.mojom.NearbyConnectionStateListener_OnNearbyConnectionStateChanged_Params', [
+      mojo.internal.StructField('step', 0, 0, ash.secure_channel.mojom.NearbyConnectionStepSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 4, 0, ash.secure_channel.mojom.NearbyConnectionStepResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.secure_channel.mojom.NearbyConnectionStateListenerPendingReceiver = class {
   constructor(handle) {
@@ -124,41 +136,22 @@ ash.secure_channel.mojom.NearbyConnectionStateListener.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnNearbyConnectionStateChanged
-ash.secure_channel.mojom.NearbyConnectionStateListener_OnNearbyConnectionStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.secure_channel.mojom.NearbyConnectionStateListener.OnNearbyConnectionStateChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'step', packedOffset: 0, packedBitOffset: 0, type: ash.secure_channel.mojom.NearbyConnectionStepSpec, nullable: false, minVersion: 0 },
-        { name: 'result', packedOffset: 4, packedBitOffset: 0, type: ash.secure_channel.mojom.NearbyConnectionStepResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.secure_channel.mojom.NearbyConnectionStateListenerPtr = ash.secure_channel.mojom.NearbyConnectionStateListenerRemote;
 ash.secure_channel.mojom.NearbyConnectionStateListenerRequest = ash.secure_channel.mojom.NearbyConnectionStateListenerPendingReceiver;
 
 
 // Interface: NearbyMessageSender
-ash.secure_channel.mojom.NearbyMessageSender = {};
+mojo.internal.Struct(
+    ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ParamsSpec, 'ash.secure_channel.mojom.NearbyMessageSender_SendMessage_Params', [
+      mojo.internal.StructField('message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.secure_channel.mojom.NearbyMessageSender_SendMessage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ResponseParamsSpec, 'ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.secure_channel.mojom.NearbyMessageSenderPendingReceiver = class {
   constructor(handle) {
@@ -213,53 +206,16 @@ ash.secure_channel.mojom.NearbyMessageSender.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SendMessage
-ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.secure_channel.mojom.NearbyMessageSender.SendMessage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.secure_channel.mojom.NearbyMessageSender.SendMessage_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.secure_channel.mojom.NearbyMessageSenderPtr = ash.secure_channel.mojom.NearbyMessageSenderRemote;
 ash.secure_channel.mojom.NearbyMessageSenderRequest = ash.secure_channel.mojom.NearbyMessageSenderPendingReceiver;
 
 
 // Interface: NearbyMessageReceiver
-ash.secure_channel.mojom.NearbyMessageReceiver = {};
-
-ash.secure_channel.mojom.NearbyMessageReceiver_OnMessageReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.secure_channel.mojom.NearbyMessageReceiver_OnMessageReceived_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.secure_channel.mojom.NearbyMessageReceiver_OnMessageReceived_ParamsSpec, 'ash.secure_channel.mojom.NearbyMessageReceiver_OnMessageReceived_Params', [
+      mojo.internal.StructField('message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.secure_channel.mojom.NearbyMessageReceiverPendingReceiver = class {
   constructor(handle) {
@@ -314,42 +270,24 @@ ash.secure_channel.mojom.NearbyMessageReceiver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnMessageReceived
-ash.secure_channel.mojom.NearbyMessageReceiver_OnMessageReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.secure_channel.mojom.NearbyMessageReceiver.OnMessageReceived_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.secure_channel.mojom.NearbyMessageReceiverPtr = ash.secure_channel.mojom.NearbyMessageReceiverRemote;
 ash.secure_channel.mojom.NearbyMessageReceiverRequest = ash.secure_channel.mojom.NearbyMessageReceiverPendingReceiver;
 
 
 // Interface: NearbyFilePayloadHandler
-ash.secure_channel.mojom.NearbyFilePayloadHandler = {};
+mojo.internal.Struct(
+    ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ParamsSpec, 'ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_Params', [
+      mojo.internal.StructField('payload_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('payload_files', 8, 0, ash.secure_channel.mojom.PayloadFilesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('listener', 16, 0, mojo.internal.InterfaceProxy(ash.secure_channel.mojom.FilePayloadListenerRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'payload_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'payload_files', packedOffset: 8, packedBitOffset: 0, type: ash.secure_channel.mojom.PayloadFilesSpec, nullable: false, minVersion: 0 },
-        { name: 'listener', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.secure_channel.mojom.FilePayloadListenerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ResponseParamsSpec, 'ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.secure_channel.mojom.NearbyFilePayloadHandlerPendingReceiver = class {
   constructor(handle) {
@@ -404,58 +342,26 @@ ash.secure_channel.mojom.NearbyFilePayloadHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RegisterPayloadFile
-ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.secure_channel.mojom.NearbyFilePayloadHandler.RegisterPayloadFile_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'payload_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'payload_files', packedOffset: 8, packedBitOffset: 0, type: ash.secure_channel.mojom.PayloadFilesSpec, nullable: false, minVersion: 0 },
-        { name: 'listener', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.secure_channel.mojom.FilePayloadListenerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.secure_channel.mojom.NearbyFilePayloadHandler.RegisterPayloadFile_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.secure_channel.mojom.NearbyFilePayloadHandlerPtr = ash.secure_channel.mojom.NearbyFilePayloadHandlerRemote;
 ash.secure_channel.mojom.NearbyFilePayloadHandlerRequest = ash.secure_channel.mojom.NearbyFilePayloadHandlerPendingReceiver;
 
 
 // Interface: NearbyConnector
-ash.secure_channel.mojom.NearbyConnector = {};
+mojo.internal.Struct(
+    ash.secure_channel.mojom.NearbyConnector_Connect_ParamsSpec, 'ash.secure_channel.mojom.NearbyConnector_Connect_Params', [
+      mojo.internal.StructField('bluetooth_public_address', 0, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('eid', 8, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('message_receiver', 16, 0, mojo.internal.InterfaceProxy(ash.secure_channel.mojom.NearbyMessageReceiverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('nearby_connection_state_listener', 24, 0, mojo.internal.InterfaceProxy(ash.secure_channel.mojom.NearbyConnectionStateListenerRemote), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-ash.secure_channel.mojom.NearbyConnector_Connect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.secure_channel.mojom.NearbyConnector_Connect_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'bluetooth_public_address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
-        { name: 'eid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
-        { name: 'message_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.secure_channel.mojom.NearbyMessageReceiverRemote), nullable: false, minVersion: 0 },
-        { name: 'nearby_connection_state_listener', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.secure_channel.mojom.NearbyConnectionStateListenerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.secure_channel.mojom.NearbyConnector_Connect_ResponseParamsSpec, 'ash.secure_channel.mojom.NearbyConnector_Connect_ResponseParams', [
+      mojo.internal.StructField('message_sender', 0, 0, mojo.internal.InterfaceProxy(ash.secure_channel.mojom.NearbyMessageSenderRemote), null, true, 0, undefined),
+      mojo.internal.StructField('file_payload_handler', 8, 0, mojo.internal.InterfaceProxy(ash.secure_channel.mojom.NearbyFilePayloadHandlerRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 ash.secure_channel.mojom.NearbyConnectorPendingReceiver = class {
   constructor(handle) {
@@ -510,38 +416,6 @@ ash.secure_channel.mojom.NearbyConnector.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Connect
-ash.secure_channel.mojom.NearbyConnector_Connect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.secure_channel.mojom.NearbyConnector.Connect_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'bluetooth_public_address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
-        { name: 'eid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
-        { name: 'message_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.secure_channel.mojom.NearbyMessageReceiverRemote), nullable: false, minVersion: 0 },
-        { name: 'nearby_connection_state_listener', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.secure_channel.mojom.NearbyConnectionStateListenerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-ash.secure_channel.mojom.NearbyConnector_Connect_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.secure_channel.mojom.NearbyConnector.Connect_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'message_sender', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.secure_channel.mojom.NearbyMessageSenderRemote), nullable: true, minVersion: 0 },
-        { name: 'file_payload_handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.secure_channel.mojom.NearbyFilePayloadHandlerRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.secure_channel.mojom.NearbyConnectorPtr = ash.secure_channel.mojom.NearbyConnectorRemote;
 ash.secure_channel.mojom.NearbyConnectorRequest = ash.secure_channel.mojom.NearbyConnectorPendingReceiver;
 

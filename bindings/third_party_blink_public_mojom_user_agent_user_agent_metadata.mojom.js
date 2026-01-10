@@ -8,57 +8,39 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.UserAgentBrandVersionSpec = { $: {} };
+blink.mojom.UserAgentMetadataSpec = { $: {} };
+blink.mojom.UserAgentOverrideSpec = { $: {} };
 
 // Struct: UserAgentBrandVersion
-blink.mojom.UserAgentBrandVersionSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.UserAgentBrandVersion',
-      packedSize: 24,
-      fields: [
-        { name: 'brand', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.UserAgentBrandVersionSpec, 'blink.mojom.UserAgentBrandVersion', [
+      mojo.internal.StructField('brand', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('version', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: UserAgentMetadata
-blink.mojom.UserAgentMetadataSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.UserAgentMetadata',
-      packedSize: 88,
-      fields: [
-        { name: 'brand_version_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.UserAgentBrandVersionSpec, false), nullable: false, minVersion: 0 },
-        { name: 'brand_full_version_list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.UserAgentBrandVersionSpec, false), nullable: false, minVersion: 0 },
-        { name: 'full_version', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'platform', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'platform_version', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'architecture', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'model', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'mobile', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'bitness', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'wow64', packedOffset: 72, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'form_factors', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 88}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.UserAgentMetadataSpec, 'blink.mojom.UserAgentMetadata', [
+      mojo.internal.StructField('brand_version_list', 0, 0, mojo.internal.Array(blink.mojom.UserAgentBrandVersionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('brand_full_version_list', 8, 0, mojo.internal.Array(blink.mojom.UserAgentBrandVersionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('full_version', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('platform', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('platform_version', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('architecture', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('model', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('mobile', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('bitness', 56, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('wow64', 72, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('form_factors', 64, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 88]]);
 
 // Struct: UserAgentOverride
-blink.mojom.UserAgentOverrideSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.UserAgentOverride',
-      packedSize: 24,
-      fields: [
-        { name: 'ua_string_override', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'ua_metadata_override', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.UserAgentMetadataSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.UserAgentOverrideSpec, 'blink.mojom.UserAgentOverride', [
+      mojo.internal.StructField('ua_string_override', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('ua_metadata_override', 8, 0, blink.mojom.UserAgentMetadataSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);

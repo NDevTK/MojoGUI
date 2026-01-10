@@ -10,6 +10,13 @@ media.mojom = media.mojom || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+media.mojom.VideoEncoderUseCaseSpec = { $: mojo.internal.Enum() };
+media.mojom.VideoEncoderMetricsProvider = {};
+media.mojom.VideoEncoderMetricsProvider.$interfaceName = 'media.mojom.VideoEncoderMetricsProvider';
+media.mojom.VideoEncoderMetricsProvider_Initialize_ParamsSpec = { $: {} };
+media.mojom.VideoEncoderMetricsProvider_SetEncodedFrameCount_ParamsSpec = { $: {} };
+media.mojom.VideoEncoderMetricsProvider_SetError_ParamsSpec = { $: {} };
+media.mojom.VideoEncoderMetricsProvider_Complete_ParamsSpec = { $: {} };
 
 // Enum: VideoEncoderUseCase
 media.mojom.VideoEncoderUseCase = {
@@ -18,69 +25,38 @@ media.mojom.VideoEncoderUseCase = {
   kWebCodecs: 2,
   kWebRTC: 3,
 };
-media.mojom.VideoEncoderUseCaseSpec = { $: mojo.internal.Enum() };
 
 // Interface: VideoEncoderMetricsProvider
-media.mojom.VideoEncoderMetricsProvider = {};
+mojo.internal.Struct(
+    media.mojom.VideoEncoderMetricsProvider_Initialize_ParamsSpec, 'media.mojom.VideoEncoderMetricsProvider_Initialize_Params', [
+      mojo.internal.StructField('encoder_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('encoder_use_case', 24, 0, media.mojom.VideoEncoderUseCaseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('profile', 8, 0, media.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('encode_size', 16, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_hardware_encoder', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('svc_mode', 28, 0, media.mojom.SVCScalabilityModeSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
-media.mojom.VideoEncoderMetricsProvider_Initialize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.VideoEncoderMetricsProvider_Initialize_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'encoder_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'encoder_use_case', packedOffset: 24, packedBitOffset: 0, type: media.mojom.VideoEncoderUseCaseSpec, nullable: false, minVersion: 0 },
-        { name: 'profile', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoCodecProfileSpec, nullable: false, minVersion: 0 },
-        { name: 'encode_size', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'is_hardware_encoder', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'svc_mode', packedOffset: 28, packedBitOffset: 0, type: media.mojom.SVCScalabilityModeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.VideoEncoderMetricsProvider_SetEncodedFrameCount_ParamsSpec, 'media.mojom.VideoEncoderMetricsProvider_SetEncodedFrameCount_Params', [
+      mojo.internal.StructField('encoder_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('num_encoded_frames', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-media.mojom.VideoEncoderMetricsProvider_SetEncodedFrameCount_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.VideoEncoderMetricsProvider_SetEncodedFrameCount_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'encoder_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'num_encoded_frames', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.VideoEncoderMetricsProvider_SetError_ParamsSpec, 'media.mojom.VideoEncoderMetricsProvider_SetError_Params', [
+      mojo.internal.StructField('encoder_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('status', 8, 0, media.mojom.EncoderStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-media.mojom.VideoEncoderMetricsProvider_SetError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.VideoEncoderMetricsProvider_SetError_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'encoder_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: media.mojom.EncoderStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-media.mojom.VideoEncoderMetricsProvider_Complete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.VideoEncoderMetricsProvider_Complete_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'encoder_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.VideoEncoderMetricsProvider_Complete_ParamsSpec, 'media.mojom.VideoEncoderMetricsProvider_Complete_Params', [
+      mojo.internal.StructField('encoder_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media.mojom.VideoEncoderMetricsProviderPendingReceiver = class {
   constructor(handle) {
@@ -162,70 +138,6 @@ media.mojom.VideoEncoderMetricsProvider.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Initialize
-media.mojom.VideoEncoderMetricsProvider_Initialize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.VideoEncoderMetricsProvider.Initialize_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'encoder_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'encoder_use_case', packedOffset: 24, packedBitOffset: 0, type: media.mojom.VideoEncoderUseCaseSpec, nullable: false, minVersion: 0 },
-        { name: 'profile', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoCodecProfileSpec, nullable: false, minVersion: 0 },
-        { name: 'encode_size', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'is_hardware_encoder', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'svc_mode', packedOffset: 28, packedBitOffset: 0, type: media.mojom.SVCScalabilityModeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
-
-// ParamsSpec for SetEncodedFrameCount
-media.mojom.VideoEncoderMetricsProvider_SetEncodedFrameCount_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.VideoEncoderMetricsProvider.SetEncodedFrameCount_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'encoder_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'num_encoded_frames', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SetError
-media.mojom.VideoEncoderMetricsProvider_SetError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.VideoEncoderMetricsProvider.SetError_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'encoder_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: media.mojom.EncoderStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for Complete
-media.mojom.VideoEncoderMetricsProvider_Complete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.VideoEncoderMetricsProvider.Complete_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'encoder_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.VideoEncoderMetricsProviderPtr = media.mojom.VideoEncoderMetricsProviderRemote;
 media.mojom.VideoEncoderMetricsProviderRequest = media.mojom.VideoEncoderMetricsProviderPendingReceiver;
 

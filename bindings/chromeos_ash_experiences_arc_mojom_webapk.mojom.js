@@ -8,6 +8,15 @@
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
+arc.mojom.WebApkInstallResultSpec = { $: mojo.internal.Enum() };
+arc.mojom.WebShareTargetInfoSpec = { $: {} };
+arc.mojom.WebApkInfoSpec = { $: {} };
+arc.mojom.WebApkInstance = {};
+arc.mojom.WebApkInstance.$interfaceName = 'arc.mojom.WebApkInstance';
+arc.mojom.WebApkInstance_InstallWebApk_ParamsSpec = { $: {} };
+arc.mojom.WebApkInstance_InstallWebApk_ResponseParamsSpec = { $: {} };
+arc.mojom.WebApkInstance_GetWebApkInfo_ParamsSpec = { $: {} };
+arc.mojom.WebApkInstance_GetWebApkInfo_ResponseParamsSpec = { $: {} };
 
 // Enum: WebApkInstallResult
 arc.mojom.WebApkInstallResult = {
@@ -22,83 +31,67 @@ arc.mojom.WebApkInstallResult = {
   kErrorResolveNetworkError: 8,
   kErrorResolveError: 9,
   kErrorNotGoogleSigned: 10,
+  MinVersion: 10,
+  MinVersion: 10,
+  MinVersion: 10,
 };
-arc.mojom.WebApkInstallResultSpec = { $: mojo.internal.Enum() };
 
 // Struct: WebShareTargetInfo
-arc.mojom.WebShareTargetInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.WebShareTargetInfo',
-      packedSize: 72,
-      fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'method', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'enctype', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'param_title', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'param_text', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'param_url', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'file_names', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'file_accepts', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Array(mojo.internal.String, false), false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 72}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.WebShareTargetInfoSpec, 'arc.mojom.WebShareTargetInfo', [
+      mojo.internal.StructField('action', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('method', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('enctype', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('param_title', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('param_text', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('param_url', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('file_names', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('file_accepts', 56, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.String, false), false), null, false, 0, undefined),
+    ],
+    [[0, 72]]);
 
 // Struct: WebApkInfo
-arc.mojom.WebApkInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.WebApkInfo',
-      packedSize: 80,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'apk_version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'shell_apk_version', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'manifest_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'start_url', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'scope', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'icon_hash', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'share_info', packedOffset: 64, packedBitOffset: 0, type: arc.mojom.WebShareTargetInfoSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 80}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.WebApkInfoSpec, 'arc.mojom.WebApkInfo', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('apk_version', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('shell_apk_version', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('manifest_url', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('name', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('start_url', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('scope', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('icon_hash', 56, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('share_info', 64, 0, arc.mojom.WebShareTargetInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 80]]);
 
 // Interface: WebApkInstance
-arc.mojom.WebApkInstance = {};
+mojo.internal.Struct(
+    arc.mojom.WebApkInstance_InstallWebApk_ParamsSpec, 'arc.mojom.WebApkInstance_InstallWebApk_Params', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('version', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('app_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('token', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-arc.mojom.WebApkInstance_InstallWebApk_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.WebApkInstance_InstallWebApk_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'version', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'app_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.WebApkInstance_InstallWebApk_ResponseParamsSpec, 'arc.mojom.WebApkInstance_InstallWebApk_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, arc.mojom.WebApkInstallResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.WebApkInstance_GetWebApkInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.WebApkInstance_GetWebApkInfo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.WebApkInstance_GetWebApkInfo_ParamsSpec, 'arc.mojom.WebApkInstance_GetWebApkInfo_Params', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.WebApkInstance_GetWebApkInfo_ResponseParamsSpec, 'arc.mojom.WebApkInstance_GetWebApkInfo_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, arc.mojom.WebApkInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.WebApkInstancePendingReceiver = class {
   constructor(handle) {
@@ -162,64 +155,6 @@ arc.mojom.WebApkInstance.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for InstallWebApk
-arc.mojom.WebApkInstance_InstallWebApk_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.WebApkInstance.InstallWebApk_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'version', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'app_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-arc.mojom.WebApkInstance_InstallWebApk_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.WebApkInstance.InstallWebApk_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.WebApkInstallResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetWebApkInfo
-arc.mojom.WebApkInstance_GetWebApkInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.WebApkInstance.GetWebApkInfo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.WebApkInstance_GetWebApkInfo_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.WebApkInstance.GetWebApkInfo_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.WebApkInfoSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.WebApkInstancePtr = arc.mojom.WebApkInstanceRemote;
 arc.mojom.WebApkInstanceRequest = arc.mojom.WebApkInstancePendingReceiver;
 

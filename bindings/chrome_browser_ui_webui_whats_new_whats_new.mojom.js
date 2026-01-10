@@ -9,49 +9,70 @@ var whats_new = whats_new || {};
 whats_new.mojom = whats_new.mojom || {};
 var url = url || {};
 
+whats_new.mojom.ScrollDepthSpec = { $: mojo.internal.Enum() };
+whats_new.mojom.ModulePositionSpec = { $: mojo.internal.Enum() };
+whats_new.mojom.PageHandlerFactory = {};
+whats_new.mojom.PageHandlerFactory.$interfaceName = 'whats_new.mojom.PageHandlerFactory';
+whats_new.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+whats_new.mojom.PageHandler = {};
+whats_new.mojom.PageHandler.$interfaceName = 'whats_new.mojom.PageHandler';
+whats_new.mojom.PageHandler_GetServerUrl_ParamsSpec = { $: {} };
+whats_new.mojom.PageHandler_GetServerUrl_ResponseParamsSpec = { $: {} };
+whats_new.mojom.PageHandler_RecordTimeToLoadContent_ParamsSpec = { $: {} };
+whats_new.mojom.PageHandler_RecordVersionPageLoaded_ParamsSpec = { $: {} };
+whats_new.mojom.PageHandler_RecordEditionPageLoaded_ParamsSpec = { $: {} };
+whats_new.mojom.PageHandler_RecordModuleImpression_ParamsSpec = { $: {} };
+whats_new.mojom.PageHandler_RecordExploreMoreToggled_ParamsSpec = { $: {} };
+whats_new.mojom.PageHandler_RecordScrollDepth_ParamsSpec = { $: {} };
+whats_new.mojom.PageHandler_RecordTimeOnPage_ParamsSpec = { $: {} };
+whats_new.mojom.PageHandler_RecordModuleLinkClicked_ParamsSpec = { $: {} };
+whats_new.mojom.PageHandler_RecordModuleVideoStarted_ParamsSpec = { $: {} };
+whats_new.mojom.PageHandler_RecordModuleVideoEnded_ParamsSpec = { $: {} };
+whats_new.mojom.PageHandler_RecordModulePlayClicked_ParamsSpec = { $: {} };
+whats_new.mojom.PageHandler_RecordModulePauseClicked_ParamsSpec = { $: {} };
+whats_new.mojom.PageHandler_RecordModuleRestartClicked_ParamsSpec = { $: {} };
+whats_new.mojom.PageHandler_RecordBrowserCommandExecuted_ParamsSpec = { $: {} };
+whats_new.mojom.PageHandler_RecordQrCodeToggled_ParamsSpec = { $: {} };
+whats_new.mojom.PageHandler_RecordNavClick_ParamsSpec = { $: {} };
+whats_new.mojom.PageHandler_RecordFeatureTileNavigation_ParamsSpec = { $: {} };
+whats_new.mojom.PageHandler_RecordCarouselScrollButtonClick_ParamsSpec = { $: {} };
+whats_new.mojom.PageHandler_RecordExpandMediaToggled_ParamsSpec = { $: {} };
+whats_new.mojom.PageHandler_RecordCtaClick_ParamsSpec = { $: {} };
+whats_new.mojom.PageHandler_RecordNextButtonClick_ParamsSpec = { $: {} };
+whats_new.mojom.Page = {};
+whats_new.mojom.Page.$interfaceName = 'whats_new.mojom.Page';
 
 // Enum: ScrollDepth
 whats_new.mojom.ScrollDepth = {
   k0: 0,
-  k25: 1,
-  k50: 2,
-  k75: 3,
-  k100: 4,
+  k25: 25,
+  k50: 50,
+  k75: 75,
+  k100: 100,
 };
-whats_new.mojom.ScrollDepthSpec = { $: mojo.internal.Enum() };
 
 // Enum: ModulePosition
 whats_new.mojom.ModulePosition = {
-  kSpotlight1: 0,
-  kSpotlight2: 1,
-  kSpotlight3: 2,
-  kSpotlight4: 3,
-  kExploreMore1: 4,
-  kExploreMore2: 5,
-  kExploreMore3: 6,
-  kExploreMore4: 7,
-  kExploreMore5: 8,
-  kExploreMore6: 9,
-  kUndefined: 10,
+  kSpotlight1: 1,
+  kSpotlight2: 2,
+  kSpotlight3: 3,
+  kSpotlight4: 4,
+  kExploreMore1: 5,
+  kExploreMore2: 6,
+  kExploreMore3: 7,
+  kExploreMore4: 8,
+  kExploreMore5: 9,
+  kExploreMore6: 10,
+  kUndefined: 11,
 };
-whats_new.mojom.ModulePositionSpec = { $: mojo.internal.Enum() };
 
 // Interface: PageHandlerFactory
-whats_new.mojom.PageHandlerFactory = {};
-
-whats_new.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(whats_new.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(whats_new.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    whats_new.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'whats_new.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(whats_new.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(whats_new.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 whats_new.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -106,317 +127,151 @@ whats_new.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-whats_new.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(whats_new.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(whats_new.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 whats_new.mojom.PageHandlerFactoryPtr = whats_new.mojom.PageHandlerFactoryRemote;
 whats_new.mojom.PageHandlerFactoryRequest = whats_new.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-whats_new.mojom.PageHandler = {};
+mojo.internal.Struct(
+    whats_new.mojom.PageHandler_GetServerUrl_ParamsSpec, 'whats_new.mojom.PageHandler_GetServerUrl_Params', [
+      mojo.internal.StructField('is_staging', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-whats_new.mojom.PageHandler_GetServerUrl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler_GetServerUrl_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_staging', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    whats_new.mojom.PageHandler_GetServerUrl_ResponseParamsSpec, 'whats_new.mojom.PageHandler_GetServerUrl_ResponseParams', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-whats_new.mojom.PageHandler_RecordTimeToLoadContent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler_RecordTimeToLoadContent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.JSTimeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    whats_new.mojom.PageHandler_RecordTimeToLoadContent_ParamsSpec, 'whats_new.mojom.PageHandler_RecordTimeToLoadContent_Params', [
+      mojo.internal.StructField('time', 0, 0, mojo_base.mojom.JSTimeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-whats_new.mojom.PageHandler_RecordVersionPageLoaded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler_RecordVersionPageLoaded_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_auto_open', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    whats_new.mojom.PageHandler_RecordVersionPageLoaded_ParamsSpec, 'whats_new.mojom.PageHandler_RecordVersionPageLoaded_Params', [
+      mojo.internal.StructField('is_auto_open', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-whats_new.mojom.PageHandler_RecordEditionPageLoaded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler_RecordEditionPageLoaded_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page_uid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_auto_open', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    whats_new.mojom.PageHandler_RecordEditionPageLoaded_ParamsSpec, 'whats_new.mojom.PageHandler_RecordEditionPageLoaded_Params', [
+      mojo.internal.StructField('page_uid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('is_auto_open', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-whats_new.mojom.PageHandler_RecordModuleImpression_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler_RecordModuleImpression_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    whats_new.mojom.PageHandler_RecordModuleImpression_ParamsSpec, 'whats_new.mojom.PageHandler_RecordModuleImpression_Params', [
+      mojo.internal.StructField('module_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('position', 8, 0, whats_new.mojom.ModulePositionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-whats_new.mojom.PageHandler_RecordExploreMoreToggled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler_RecordExploreMoreToggled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'expanded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    whats_new.mojom.PageHandler_RecordExploreMoreToggled_ParamsSpec, 'whats_new.mojom.PageHandler_RecordExploreMoreToggled_Params', [
+      mojo.internal.StructField('expanded', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-whats_new.mojom.PageHandler_RecordScrollDepth_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler_RecordScrollDepth_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'depth', packedOffset: 0, packedBitOffset: 0, type: whats_new.mojom.ScrollDepthSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    whats_new.mojom.PageHandler_RecordScrollDepth_ParamsSpec, 'whats_new.mojom.PageHandler_RecordScrollDepth_Params', [
+      mojo.internal.StructField('depth', 0, 0, whats_new.mojom.ScrollDepthSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-whats_new.mojom.PageHandler_RecordTimeOnPage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler_RecordTimeOnPage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    whats_new.mojom.PageHandler_RecordTimeOnPage_ParamsSpec, 'whats_new.mojom.PageHandler_RecordTimeOnPage_Params', [
+      mojo.internal.StructField('time', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-whats_new.mojom.PageHandler_RecordModuleLinkClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler_RecordModuleLinkClicked_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    whats_new.mojom.PageHandler_RecordModuleLinkClicked_ParamsSpec, 'whats_new.mojom.PageHandler_RecordModuleLinkClicked_Params', [
+      mojo.internal.StructField('module_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('position', 8, 0, whats_new.mojom.ModulePositionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-whats_new.mojom.PageHandler_RecordModuleVideoStarted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler_RecordModuleVideoStarted_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    whats_new.mojom.PageHandler_RecordModuleVideoStarted_ParamsSpec, 'whats_new.mojom.PageHandler_RecordModuleVideoStarted_Params', [
+      mojo.internal.StructField('module_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('position', 8, 0, whats_new.mojom.ModulePositionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-whats_new.mojom.PageHandler_RecordModuleVideoEnded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler_RecordModuleVideoEnded_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    whats_new.mojom.PageHandler_RecordModuleVideoEnded_ParamsSpec, 'whats_new.mojom.PageHandler_RecordModuleVideoEnded_Params', [
+      mojo.internal.StructField('module_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('position', 8, 0, whats_new.mojom.ModulePositionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-whats_new.mojom.PageHandler_RecordModulePlayClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler_RecordModulePlayClicked_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    whats_new.mojom.PageHandler_RecordModulePlayClicked_ParamsSpec, 'whats_new.mojom.PageHandler_RecordModulePlayClicked_Params', [
+      mojo.internal.StructField('module_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('position', 8, 0, whats_new.mojom.ModulePositionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-whats_new.mojom.PageHandler_RecordModulePauseClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler_RecordModulePauseClicked_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    whats_new.mojom.PageHandler_RecordModulePauseClicked_ParamsSpec, 'whats_new.mojom.PageHandler_RecordModulePauseClicked_Params', [
+      mojo.internal.StructField('module_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('position', 8, 0, whats_new.mojom.ModulePositionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-whats_new.mojom.PageHandler_RecordModuleRestartClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler_RecordModuleRestartClicked_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    whats_new.mojom.PageHandler_RecordModuleRestartClicked_ParamsSpec, 'whats_new.mojom.PageHandler_RecordModuleRestartClicked_Params', [
+      mojo.internal.StructField('module_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('position', 8, 0, whats_new.mojom.ModulePositionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-whats_new.mojom.PageHandler_RecordBrowserCommandExecuted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler_RecordBrowserCommandExecuted_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    whats_new.mojom.PageHandler_RecordBrowserCommandExecuted_ParamsSpec, 'whats_new.mojom.PageHandler_RecordBrowserCommandExecuted_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-whats_new.mojom.PageHandler_RecordQrCodeToggled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler_RecordQrCodeToggled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'expanded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    whats_new.mojom.PageHandler_RecordQrCodeToggled_ParamsSpec, 'whats_new.mojom.PageHandler_RecordQrCodeToggled_Params', [
+      mojo.internal.StructField('expanded', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-whats_new.mojom.PageHandler_RecordNavClick_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler_RecordNavClick_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    whats_new.mojom.PageHandler_RecordNavClick_ParamsSpec, 'whats_new.mojom.PageHandler_RecordNavClick_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-whats_new.mojom.PageHandler_RecordFeatureTileNavigation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler_RecordFeatureTileNavigation_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    whats_new.mojom.PageHandler_RecordFeatureTileNavigation_ParamsSpec, 'whats_new.mojom.PageHandler_RecordFeatureTileNavigation_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-whats_new.mojom.PageHandler_RecordCarouselScrollButtonClick_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler_RecordCarouselScrollButtonClick_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    whats_new.mojom.PageHandler_RecordCarouselScrollButtonClick_ParamsSpec, 'whats_new.mojom.PageHandler_RecordCarouselScrollButtonClick_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-whats_new.mojom.PageHandler_RecordExpandMediaToggled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler_RecordExpandMediaToggled_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'expanded', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    whats_new.mojom.PageHandler_RecordExpandMediaToggled_ParamsSpec, 'whats_new.mojom.PageHandler_RecordExpandMediaToggled_Params', [
+      mojo.internal.StructField('module_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('expanded', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-whats_new.mojom.PageHandler_RecordCtaClick_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler_RecordCtaClick_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    whats_new.mojom.PageHandler_RecordCtaClick_ParamsSpec, 'whats_new.mojom.PageHandler_RecordCtaClick_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-whats_new.mojom.PageHandler_RecordNextButtonClick_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler_RecordNextButtonClick_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    whats_new.mojom.PageHandler_RecordNextButtonClick_ParamsSpec, 'whats_new.mojom.PageHandler_RecordNextButtonClick_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 whats_new.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -660,338 +515,11 @@ whats_new.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetServerUrl
-whats_new.mojom.PageHandler_GetServerUrl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler.GetServerUrl_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_staging', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-whats_new.mojom.PageHandler_GetServerUrl_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler.GetServerUrl_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RecordTimeToLoadContent
-whats_new.mojom.PageHandler_RecordTimeToLoadContent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler.RecordTimeToLoadContent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.JSTimeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RecordVersionPageLoaded
-whats_new.mojom.PageHandler_RecordVersionPageLoaded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler.RecordVersionPageLoaded_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_auto_open', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RecordEditionPageLoaded
-whats_new.mojom.PageHandler_RecordEditionPageLoaded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler.RecordEditionPageLoaded_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page_uid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_auto_open', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for RecordModuleImpression
-whats_new.mojom.PageHandler_RecordModuleImpression_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler.RecordModuleImpression_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for RecordExploreMoreToggled
-whats_new.mojom.PageHandler_RecordExploreMoreToggled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler.RecordExploreMoreToggled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'expanded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RecordScrollDepth
-whats_new.mojom.PageHandler_RecordScrollDepth_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler.RecordScrollDepth_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'depth', packedOffset: 0, packedBitOffset: 0, type: whats_new.mojom.ScrollDepthSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RecordTimeOnPage
-whats_new.mojom.PageHandler_RecordTimeOnPage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler.RecordTimeOnPage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RecordModuleLinkClicked
-whats_new.mojom.PageHandler_RecordModuleLinkClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler.RecordModuleLinkClicked_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for RecordModuleVideoStarted
-whats_new.mojom.PageHandler_RecordModuleVideoStarted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler.RecordModuleVideoStarted_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for RecordModuleVideoEnded
-whats_new.mojom.PageHandler_RecordModuleVideoEnded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler.RecordModuleVideoEnded_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for RecordModulePlayClicked
-whats_new.mojom.PageHandler_RecordModulePlayClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler.RecordModulePlayClicked_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for RecordModulePauseClicked
-whats_new.mojom.PageHandler_RecordModulePauseClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler.RecordModulePauseClicked_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for RecordModuleRestartClicked
-whats_new.mojom.PageHandler_RecordModuleRestartClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler.RecordModuleRestartClicked_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for RecordBrowserCommandExecuted
-whats_new.mojom.PageHandler_RecordBrowserCommandExecuted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler.RecordBrowserCommandExecuted_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for RecordQrCodeToggled
-whats_new.mojom.PageHandler_RecordQrCodeToggled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler.RecordQrCodeToggled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'expanded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RecordNavClick
-whats_new.mojom.PageHandler_RecordNavClick_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler.RecordNavClick_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for RecordFeatureTileNavigation
-whats_new.mojom.PageHandler_RecordFeatureTileNavigation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler.RecordFeatureTileNavigation_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for RecordCarouselScrollButtonClick
-whats_new.mojom.PageHandler_RecordCarouselScrollButtonClick_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler.RecordCarouselScrollButtonClick_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for RecordExpandMediaToggled
-whats_new.mojom.PageHandler_RecordExpandMediaToggled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler.RecordExpandMediaToggled_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'expanded', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for RecordCtaClick
-whats_new.mojom.PageHandler_RecordCtaClick_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler.RecordCtaClick_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for RecordNextButtonClick
-whats_new.mojom.PageHandler_RecordNextButtonClick_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'whats_new.mojom.PageHandler.RecordNextButtonClick_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 whats_new.mojom.PageHandlerPtr = whats_new.mojom.PageHandlerRemote;
 whats_new.mojom.PageHandlerRequest = whats_new.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-whats_new.mojom.Page = {};
-
 whats_new.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1036,7 +564,6 @@ whats_new.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// Legacy compatibility
 whats_new.mojom.PagePtr = whats_new.mojom.PageRemote;
 whats_new.mojom.PageRequest = whats_new.mojom.PagePendingReceiver;
 

@@ -7,7 +7,35 @@
 // Module namespace
 var smbfs = smbfs || {};
 smbfs.mojom = smbfs.mojom || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var components = components || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var components = components || {};
 
+smbfs.mojom.MountErrorSpec = { $: mojo.internal.Enum() };
+smbfs.mojom.DeleteRecursivelyErrorSpec = { $: mojo.internal.Enum() };
+smbfs.mojom.SourceSpec = { $: mojo.internal.Enum() };
+smbfs.mojom.PasswordSpec = { $: {} };
+smbfs.mojom.KerberosConfigSpec = { $: {} };
+smbfs.mojom.CredentialStorageOptionsSpec = { $: {} };
+smbfs.mojom.MountOptionsSpec = { $: {} };
+smbfs.mojom.CredentialsSpec = { $: {} };
+smbfs.mojom.SmbFsBootstrap = {};
+smbfs.mojom.SmbFsBootstrap.$interfaceName = 'smbfs.mojom.SmbFsBootstrap';
+smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec = { $: {} };
+smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec = { $: {} };
+smbfs.mojom.SmbFs = {};
+smbfs.mojom.SmbFs.$interfaceName = 'smbfs.mojom.SmbFs';
+smbfs.mojom.SmbFs_RemoveSavedCredentials_ParamsSpec = { $: {} };
+smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec = { $: {} };
+smbfs.mojom.SmbFs_DeleteRecursively_ParamsSpec = { $: {} };
+smbfs.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec = { $: {} };
+smbfs.mojom.SmbFsDelegate = {};
+smbfs.mojom.SmbFsDelegate.$interfaceName = 'smbfs.mojom.SmbFsDelegate';
+smbfs.mojom.SmbFsDelegate_RequestCredentials_ParamsSpec = { $: {} };
+smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec = { $: {} };
 
 smbfs.mojom.kBootstrapPipeName = "smbfs-bootstrap";
 
@@ -26,7 +54,6 @@ smbfs.mojom.MountError = {
   kAccessDenied: 6,
   kInvalidProtocol: 7,
 };
-smbfs.mojom.MountErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: DeleteRecursivelyError
 smbfs.mojom.DeleteRecursivelyError = {
@@ -37,115 +64,76 @@ smbfs.mojom.DeleteRecursivelyError = {
   kFailedToListDirectory: 4,
   kOperationInProgress: 5,
 };
-smbfs.mojom.DeleteRecursivelyErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: Source
 smbfs.mojom.Source = {
   kActiveDirectory: 0,
   kKerberos: 1,
 };
-smbfs.mojom.SourceSpec = { $: mojo.internal.Enum() };
 
 // Struct: Password
-smbfs.mojom.PasswordSpec = {
-  $: {
-    structSpec: {
-      name: 'smbfs.mojom.Password',
-      packedSize: 24,
-      fields: [
-        { name: 'kMaxLength', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'fd', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-        { name: 'length', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    smbfs.mojom.PasswordSpec, 'smbfs.mojom.Password', [
+      mojo.internal.StructField('kMaxLength', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('fd', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('length', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: KerberosConfig
-smbfs.mojom.KerberosConfigSpec = {
-  $: {
-    structSpec: {
-      name: 'smbfs.mojom.KerberosConfig',
-      packedSize: 16,
-      fields: [
-        { name: 'kActiveDirectory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    smbfs.mojom.KerberosConfigSpec, 'smbfs.mojom.KerberosConfig', [
+      mojo.internal.StructField('kActiveDirectory', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: CredentialStorageOptions
-smbfs.mojom.CredentialStorageOptionsSpec = {
-  $: {
-    structSpec: {
-      name: 'smbfs.mojom.CredentialStorageOptions',
-      packedSize: 32,
-      fields: [
-        { name: 'kMinSaltLength', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'account_hash', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'salt', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    smbfs.mojom.CredentialStorageOptionsSpec, 'smbfs.mojom.CredentialStorageOptions', [
+      mojo.internal.StructField('kMinSaltLength', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('account_hash', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('salt', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: MountOptions
-smbfs.mojom.MountOptionsSpec = {
-  $: {
-    structSpec: {
-      name: 'smbfs.mojom.MountOptions',
-      packedSize: 72,
-      fields: [
-        { name: 'share_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'resolved_host', packedOffset: 8, packedBitOffset: 0, type: smbfs.mojom.IPAddressSpec, nullable: true, minVersion: 0 },
-        { name: 'username', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'workgroup', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'password', packedOffset: 32, packedBitOffset: 0, type: smbfs.mojom.PasswordSpec, nullable: true, minVersion: 0 },
-        { name: 'kerberos_config', packedOffset: 40, packedBitOffset: 0, type: smbfs.mojom.KerberosConfigSpec, nullable: true, minVersion: 0 },
-        { name: 'allow_ntlm', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'skip_connect', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'credential_storage_options', packedOffset: 56, packedBitOffset: 0, type: smbfs.mojom.CredentialStorageOptionsSpec, nullable: true, minVersion: 1 },
-      ],
-      versions: [{version: 0, packedSize: 64}, {version: 1, packedSize: 72}]
-    }
-  }
-};
+mojo.internal.Struct(
+    smbfs.mojom.MountOptionsSpec, 'smbfs.mojom.MountOptions', [
+      mojo.internal.StructField('share_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('resolved_host', 8, 0, smbfs.mojom.IPAddressSpec, null, true, 0, undefined),
+      mojo.internal.StructField('username', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('workgroup', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('password', 32, 0, smbfs.mojom.PasswordSpec, null, true, 0, undefined),
+      mojo.internal.StructField('kerberos_config', 40, 0, smbfs.mojom.KerberosConfigSpec, null, true, 0, undefined),
+      mojo.internal.StructField('allow_ntlm', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('skip_connect', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('credential_storage_options', 56, 0, smbfs.mojom.CredentialStorageOptionsSpec, null, true, 1, undefined),
+    ],
+    [[0, 64], [1, 72]]);
 
 // Struct: Credentials
-smbfs.mojom.CredentialsSpec = {
-  $: {
-    structSpec: {
-      name: 'smbfs.mojom.Credentials',
-      packedSize: 32,
-      fields: [
-        { name: 'username', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'workgroup', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'password', packedOffset: 16, packedBitOffset: 0, type: smbfs.mojom.PasswordSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    smbfs.mojom.CredentialsSpec, 'smbfs.mojom.Credentials', [
+      mojo.internal.StructField('username', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('workgroup', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('password', 16, 0, smbfs.mojom.PasswordSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: SmbFsBootstrap
-smbfs.mojom.SmbFsBootstrap = {};
+mojo.internal.Struct(
+    smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec, 'smbfs.mojom.SmbFsBootstrap_MountShare_Params', [
+      mojo.internal.StructField('options', 0, 0, smbfs.mojom.MountOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('delegate', 8, 0, mojo.internal.InterfaceProxy(smbfs.mojom.SmbFsDelegateRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'smbfs.mojom.SmbFsBootstrap_MountShare_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: smbfs.mojom.MountOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'delegate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(smbfs.mojom.SmbFsDelegateRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec, 'smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParams', [
+      mojo.internal.StructField('error', 8, 0, smbfs.mojom.MountErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('smbfs', 0, 0, mojo.internal.InterfaceProxy(smbfs.mojom.SmbFsRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 smbfs.mojom.SmbFsBootstrapPendingReceiver = class {
   constructor(handle) {
@@ -200,67 +188,33 @@ smbfs.mojom.SmbFsBootstrap.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for MountShare
-smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'smbfs.mojom.SmbFsBootstrap.MountShare_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: smbfs.mojom.MountOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'delegate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(smbfs.mojom.SmbFsDelegateRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'smbfs.mojom.SmbFsBootstrap.MountShare_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: smbfs.mojom.MountErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'smbfs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(smbfs.mojom.SmbFsRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 smbfs.mojom.SmbFsBootstrapPtr = smbfs.mojom.SmbFsBootstrapRemote;
 smbfs.mojom.SmbFsBootstrapRequest = smbfs.mojom.SmbFsBootstrapPendingReceiver;
 
 
 // Interface: SmbFs
-smbfs.mojom.SmbFs = {};
+mojo.internal.Struct(
+    smbfs.mojom.SmbFs_RemoveSavedCredentials_ParamsSpec, 'smbfs.mojom.SmbFs_RemoveSavedCredentials_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-smbfs.mojom.SmbFs_RemoveSavedCredentials_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'smbfs.mojom.SmbFs_RemoveSavedCredentials_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec, 'smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-smbfs.mojom.SmbFs_DeleteRecursively_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'smbfs.mojom.SmbFs_DeleteRecursively_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: smbfs.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    smbfs.mojom.SmbFs_DeleteRecursively_ParamsSpec, 'smbfs.mojom.SmbFs_DeleteRecursively_Params', [
+      mojo.internal.StructField('path', 0, 0, smbfs.mojom.FilePathSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    smbfs.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec, 'smbfs.mojom.SmbFs_DeleteRecursively_ResponseParams', [
+      mojo.internal.StructField('error', 0, 0, smbfs.mojom.DeleteRecursivelyErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 smbfs.mojom.SmbFsPendingReceiver = class {
   constructor(handle) {
@@ -324,78 +278,21 @@ smbfs.mojom.SmbFs.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RemoveSavedCredentials
-smbfs.mojom.SmbFs_RemoveSavedCredentials_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'smbfs.mojom.SmbFs.RemoveSavedCredentials_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'smbfs.mojom.SmbFs.RemoveSavedCredentials_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DeleteRecursively
-smbfs.mojom.SmbFs_DeleteRecursively_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'smbfs.mojom.SmbFs.DeleteRecursively_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: smbfs.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-smbfs.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'smbfs.mojom.SmbFs.DeleteRecursively_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: smbfs.mojom.DeleteRecursivelyErrorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 smbfs.mojom.SmbFsPtr = smbfs.mojom.SmbFsRemote;
 smbfs.mojom.SmbFsRequest = smbfs.mojom.SmbFsPendingReceiver;
 
 
 // Interface: SmbFsDelegate
-smbfs.mojom.SmbFsDelegate = {};
+mojo.internal.Struct(
+    smbfs.mojom.SmbFsDelegate_RequestCredentials_ParamsSpec, 'smbfs.mojom.SmbFsDelegate_RequestCredentials_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-smbfs.mojom.SmbFsDelegate_RequestCredentials_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'smbfs.mojom.SmbFsDelegate_RequestCredentials_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec, 'smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParams', [
+      mojo.internal.StructField('credentials', 0, 0, smbfs.mojom.CredentialsSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 smbfs.mojom.SmbFsDelegatePendingReceiver = class {
   constructor(handle) {
@@ -450,33 +347,6 @@ smbfs.mojom.SmbFsDelegate.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RequestCredentials
-smbfs.mojom.SmbFsDelegate_RequestCredentials_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'smbfs.mojom.SmbFsDelegate.RequestCredentials_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'smbfs.mojom.SmbFsDelegate.RequestCredentials_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'credentials', packedOffset: 0, packedBitOffset: 0, type: smbfs.mojom.CredentialsSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 smbfs.mojom.SmbFsDelegatePtr = smbfs.mojom.SmbFsDelegateRemote;
 smbfs.mojom.SmbFsDelegateRequest = smbfs.mojom.SmbFsDelegatePendingReceiver;
 

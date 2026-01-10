@@ -8,6 +8,8 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.ScrollTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.ScrollBehaviorSpec = { $: mojo.internal.Enum() };
 
 // Enum: ScrollType
 blink.mojom.ScrollType = {
@@ -18,7 +20,6 @@ blink.mojom.ScrollType = {
   kAnchoring: 4,
   kScrollStart: 5,
 };
-blink.mojom.ScrollTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ScrollBehavior
 blink.mojom.ScrollBehavior = {
@@ -26,4 +27,3 @@ blink.mojom.ScrollBehavior = {
   kInstant: 1,
   kSmooth: 2,
 };
-blink.mojom.ScrollBehaviorSpec = { $: mojo.internal.Enum() };

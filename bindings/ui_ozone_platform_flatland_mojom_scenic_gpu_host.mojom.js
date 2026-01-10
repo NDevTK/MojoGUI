@@ -8,23 +8,17 @@
 var ui = ui || {};
 ui.mojom = ui.mojom || {};
 
+ui.mojom.ScenicGpuHost = {};
+ui.mojom.ScenicGpuHost.$interfaceName = 'ui.mojom.ScenicGpuHost';
+ui.mojom.ScenicGpuHost_AttachSurfaceToWindow_ParamsSpec = { $: {} };
 
 // Interface: ScenicGpuHost
-ui.mojom.ScenicGpuHost = {};
-
-ui.mojom.ScenicGpuHost_AttachSurfaceToWindow_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.mojom.ScenicGpuHost_AttachSurfaceToWindow_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'window_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'view_holder_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ui.mojom.ScenicGpuHost_AttachSurfaceToWindow_ParamsSpec, 'ui.mojom.ScenicGpuHost_AttachSurfaceToWindow_Params', [
+      mojo.internal.StructField('window_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('view_holder_token', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 ui.mojom.ScenicGpuHostPendingReceiver = class {
   constructor(handle) {
@@ -79,22 +73,6 @@ ui.mojom.ScenicGpuHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AttachSurfaceToWindow
-ui.mojom.ScenicGpuHost_AttachSurfaceToWindow_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.mojom.ScenicGpuHost.AttachSurfaceToWindow_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'window_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'view_holder_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 ui.mojom.ScenicGpuHostPtr = ui.mojom.ScenicGpuHostRemote;
 ui.mojom.ScenicGpuHostRequest = ui.mojom.ScenicGpuHostPendingReceiver;
 

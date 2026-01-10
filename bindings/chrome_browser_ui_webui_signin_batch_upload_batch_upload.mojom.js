@@ -8,87 +8,65 @@
 var batch_upload = batch_upload || {};
 batch_upload.mojom = batch_upload.mojom || {};
 
+batch_upload.mojom.DataItemSpec = { $: {} };
+batch_upload.mojom.DataContainerSpec = { $: {} };
+batch_upload.mojom.BatchUploadAccountInfoSpec = { $: {} };
+batch_upload.mojom.BatchUploadDataSpec = { $: {} };
+batch_upload.mojom.PageHandlerFactory = {};
+batch_upload.mojom.PageHandlerFactory.$interfaceName = 'batch_upload.mojom.PageHandlerFactory';
+batch_upload.mojom.PageHandlerFactory_CreateBatchUploadHandler_ParamsSpec = { $: {} };
+batch_upload.mojom.PageHandler = {};
+batch_upload.mojom.PageHandler.$interfaceName = 'batch_upload.mojom.PageHandler';
+batch_upload.mojom.PageHandler_UpdateViewHeight_ParamsSpec = { $: {} };
+batch_upload.mojom.PageHandler_SaveToAccount_ParamsSpec = { $: {} };
+batch_upload.mojom.PageHandler_Close_ParamsSpec = { $: {} };
+batch_upload.mojom.Page = {};
+batch_upload.mojom.Page.$interfaceName = 'batch_upload.mojom.Page';
+batch_upload.mojom.Page_SendBatchUploadData_ParamsSpec = { $: {} };
 
 // Struct: DataItem
-batch_upload.mojom.DataItemSpec = {
-  $: {
-    structSpec: {
-      name: 'batch_upload.mojom.DataItem',
-      packedSize: 40,
-      fields: [
-        { name: 'id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'icon_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'subtitle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    batch_upload.mojom.DataItemSpec, 'batch_upload.mojom.DataItem', [
+      mojo.internal.StructField('id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('icon_url', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('subtitle', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: DataContainer
-batch_upload.mojom.DataContainerSpec = {
-  $: {
-    structSpec: {
-      name: 'batch_upload.mojom.DataContainer',
-      packedSize: 32,
-      fields: [
-        { name: 'section_title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'data_items', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(batch_upload.mojom.DataItemSpec, false), nullable: false, minVersion: 0 },
-        { name: 'is_theme', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    batch_upload.mojom.DataContainerSpec, 'batch_upload.mojom.DataContainer', [
+      mojo.internal.StructField('section_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('data_items', 8, 0, mojo.internal.Array(batch_upload.mojom.DataItemSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('is_theme', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: BatchUploadAccountInfo
-batch_upload.mojom.BatchUploadAccountInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'batch_upload.mojom.BatchUploadAccountInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'email', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'data_picture_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    batch_upload.mojom.BatchUploadAccountInfoSpec, 'batch_upload.mojom.BatchUploadAccountInfo', [
+      mojo.internal.StructField('email', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('data_picture_url', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: BatchUploadData
-batch_upload.mojom.BatchUploadDataSpec = {
-  $: {
-    structSpec: {
-      name: 'batch_upload.mojom.BatchUploadData',
-      packedSize: 32,
-      fields: [
-        { name: 'account_info', packedOffset: 0, packedBitOffset: 0, type: batch_upload.mojom.BatchUploadAccountInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'dialog_subtitle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'data_containers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(batch_upload.mojom.DataContainerSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    batch_upload.mojom.BatchUploadDataSpec, 'batch_upload.mojom.BatchUploadData', [
+      mojo.internal.StructField('account_info', 0, 0, batch_upload.mojom.BatchUploadAccountInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('dialog_subtitle', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('data_containers', 16, 0, mojo.internal.Array(batch_upload.mojom.DataContainerSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: PageHandlerFactory
-batch_upload.mojom.PageHandlerFactory = {};
-
-batch_upload.mojom.PageHandlerFactory_CreateBatchUploadHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'batch_upload.mojom.PageHandlerFactory_CreateBatchUploadHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(batch_upload.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(batch_upload.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    batch_upload.mojom.PageHandlerFactory_CreateBatchUploadHandler_ParamsSpec, 'batch_upload.mojom.PageHandlerFactory_CreateBatchUploadHandler_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(batch_upload.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(batch_upload.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 batch_upload.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -143,66 +121,27 @@ batch_upload.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateBatchUploadHandler
-batch_upload.mojom.PageHandlerFactory_CreateBatchUploadHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'batch_upload.mojom.PageHandlerFactory.CreateBatchUploadHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(batch_upload.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(batch_upload.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 batch_upload.mojom.PageHandlerFactoryPtr = batch_upload.mojom.PageHandlerFactoryRemote;
 batch_upload.mojom.PageHandlerFactoryRequest = batch_upload.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-batch_upload.mojom.PageHandler = {};
+mojo.internal.Struct(
+    batch_upload.mojom.PageHandler_UpdateViewHeight_ParamsSpec, 'batch_upload.mojom.PageHandler_UpdateViewHeight_Params', [
+      mojo.internal.StructField('height', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-batch_upload.mojom.PageHandler_UpdateViewHeight_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'batch_upload.mojom.PageHandler_UpdateViewHeight_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'height', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    batch_upload.mojom.PageHandler_SaveToAccount_ParamsSpec, 'batch_upload.mojom.PageHandler_SaveToAccount_Params', [
+      mojo.internal.StructField('idsToMove', 0, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.Int32, false), false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-batch_upload.mojom.PageHandler_SaveToAccount_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'batch_upload.mojom.PageHandler_SaveToAccount_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'idsToMove', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Array(mojo.internal.Int32, false), false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-batch_upload.mojom.PageHandler_Close_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'batch_upload.mojom.PageHandler_Close_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    batch_upload.mojom.PageHandler_Close_ParamsSpec, 'batch_upload.mojom.PageHandler_Close_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 batch_upload.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -275,67 +214,16 @@ batch_upload.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for UpdateViewHeight
-batch_upload.mojom.PageHandler_UpdateViewHeight_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'batch_upload.mojom.PageHandler.UpdateViewHeight_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'height', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SaveToAccount
-batch_upload.mojom.PageHandler_SaveToAccount_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'batch_upload.mojom.PageHandler.SaveToAccount_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'idsToMove', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Array(mojo.internal.Int32, false), false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Close
-batch_upload.mojom.PageHandler_Close_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'batch_upload.mojom.PageHandler.Close_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 batch_upload.mojom.PageHandlerPtr = batch_upload.mojom.PageHandlerRemote;
 batch_upload.mojom.PageHandlerRequest = batch_upload.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-batch_upload.mojom.Page = {};
-
-batch_upload.mojom.Page_SendBatchUploadData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'batch_upload.mojom.Page_SendBatchUploadData_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: batch_upload.mojom.BatchUploadDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    batch_upload.mojom.Page_SendBatchUploadData_ParamsSpec, 'batch_upload.mojom.Page_SendBatchUploadData_Params', [
+      mojo.internal.StructField('data', 0, 0, batch_upload.mojom.BatchUploadDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 batch_upload.mojom.PagePendingReceiver = class {
   constructor(handle) {
@@ -390,21 +278,6 @@ batch_upload.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SendBatchUploadData
-batch_upload.mojom.Page_SendBatchUploadData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'batch_upload.mojom.Page.SendBatchUploadData_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: batch_upload.mojom.BatchUploadDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 batch_upload.mojom.PagePtr = batch_upload.mojom.PageRemote;
 batch_upload.mojom.PageRequest = batch_upload.mojom.PagePendingReceiver;
 

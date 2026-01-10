@@ -8,6 +8,7 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+network.mojom.WebClientHintsTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: WebClientHintsType
 network.mojom.WebClientHintsType = {
@@ -18,25 +19,24 @@ network.mojom.WebClientHintsType = {
   kRtt_DEPRECATED: 4,
   kDownlink_DEPRECATED: 5,
   kEct_DEPRECATED: 6,
-  kUA: 7,
-  kUAArch: 8,
-  kUAPlatform: 9,
-  kUAModel: 10,
-  kUAMobile: 11,
-  kUAFullVersion: 12,
-  kUAPlatformVersion: 13,
-  kPrefersColorScheme: 14,
-  kUABitness: 15,
-  kViewportHeight: 16,
-  kDeviceMemory: 17,
-  kDpr: 18,
-  kResourceWidth: 19,
-  kViewportWidth: 20,
-  kUAFullVersionList: 21,
-  kUAWoW64: 22,
-  kSaveData: 23,
-  kPrefersReducedMotion: 24,
-  kUAFormFactors: 25,
-  kPrefersReducedTransparency: 26,
+  kUA: 8,
+  kUAArch: 9,
+  kUAPlatform: 10,
+  kUAModel: 11,
+  kUAMobile: 12,
+  kUAFullVersion: 13,
+  kUAPlatformVersion: 14,
+  kPrefersColorScheme: 15,
+  kUABitness: 16,
+  kViewportHeight: 18,
+  kDeviceMemory: 19,
+  kDpr: 20,
+  kResourceWidth: 21,
+  kViewportWidth: 22,
+  kUAFullVersionList: 23,
+  kUAWoW64: 25,
+  kSaveData: 27,
+  kPrefersReducedMotion: 28,
+  kUAFormFactors: 29,
+  kPrefersReducedTransparency: 30,
 };
-network.mojom.WebClientHintsTypeSpec = { $: mojo.internal.Enum() };

@@ -7,7 +7,22 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
 
+network.mojom.NetLogCaptureModeSpec = { $: mojo.internal.Enum() };
+network.mojom.NetLogEventPhaseSpec = { $: mojo.internal.Enum() };
+network.mojom.NetLogExporter = {};
+network.mojom.NetLogExporter.$interfaceName = 'network.mojom.NetLogExporter';
+network.mojom.NetLogExporter_Start_ParamsSpec = { $: {} };
+network.mojom.NetLogExporter_Start_ResponseParamsSpec = { $: {} };
+network.mojom.NetLogExporter_Stop_ParamsSpec = { $: {} };
+network.mojom.NetLogExporter_Stop_ResponseParamsSpec = { $: {} };
+network.mojom.NetLogProxySource = {};
+network.mojom.NetLogProxySource.$interfaceName = 'network.mojom.NetLogProxySource';
+network.mojom.NetLogProxySource_UpdateCaptureModes_ParamsSpec = { $: {} };
+network.mojom.NetLogProxySink = {};
+network.mojom.NetLogProxySink.$interfaceName = 'network.mojom.NetLogProxySink';
+network.mojom.NetLogProxySink_AddEntry_ParamsSpec = { $: {} };
 
 network.mojom.kUnlimitedFileSize = 0xFFFFFFFFFFFFFFFF;
 
@@ -18,7 +33,6 @@ network.mojom.NetLogCaptureMode = {
   INCLUDE_PRIVACY_INFO: 2,
   EVERYTHING: 3,
 };
-network.mojom.NetLogCaptureModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: NetLogEventPhase
 network.mojom.NetLogEventPhase = {
@@ -26,39 +40,34 @@ network.mojom.NetLogEventPhase = {
   END: 1,
   NONE: 2,
 };
-network.mojom.NetLogEventPhaseSpec = { $: mojo.internal.Enum() };
 
 // Interface: NetLogExporter
-network.mojom.NetLogExporter = {};
+mojo.internal.Struct(
+    network.mojom.NetLogExporter_Start_ParamsSpec, 'network.mojom.NetLogExporter_Start_Params', [
+      mojo.internal.StructField('destination', 0, 0, mojo_base.mojom.FileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('extra_constants', 8, 0, mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('capture_mode', 24, 0, network.mojom.NetLogCaptureModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('max_file_size', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-network.mojom.NetLogExporter_Start_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.NetLogExporter_Start_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'destination', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
-        { name: 'extra_constants', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
-        { name: 'capture_mode', packedOffset: 24, packedBitOffset: 0, type: network.mojom.NetLogCaptureModeSpec, nullable: false, minVersion: 0 },
-        { name: 'max_file_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.NetLogExporter_Start_ResponseParamsSpec, 'network.mojom.NetLogExporter_Start_ResponseParams', [
+      mojo.internal.StructField('net_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.NetLogExporter_Stop_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.NetLogExporter_Stop_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'polled_values', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.NetLogExporter_Stop_ParamsSpec, 'network.mojom.NetLogExporter_Stop_Params', [
+      mojo.internal.StructField('polled_values', 0, 0, mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    network.mojom.NetLogExporter_Stop_ResponseParamsSpec, 'network.mojom.NetLogExporter_Stop_ResponseParams', [
+      mojo.internal.StructField('net_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 network.mojom.NetLogExporterPendingReceiver = class {
   constructor(handle) {
@@ -122,83 +131,16 @@ network.mojom.NetLogExporter.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Start
-network.mojom.NetLogExporter_Start_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.NetLogExporter.Start_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'destination', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
-        { name: 'extra_constants', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
-        { name: 'capture_mode', packedOffset: 24, packedBitOffset: 0, type: network.mojom.NetLogCaptureModeSpec, nullable: false, minVersion: 0 },
-        { name: 'max_file_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-network.mojom.NetLogExporter_Start_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.NetLogExporter.Start_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Stop
-network.mojom.NetLogExporter_Stop_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.NetLogExporter.Stop_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'polled_values', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-network.mojom.NetLogExporter_Stop_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.NetLogExporter.Stop_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.NetLogExporterPtr = network.mojom.NetLogExporterRemote;
 network.mojom.NetLogExporterRequest = network.mojom.NetLogExporterPendingReceiver;
 
 
 // Interface: NetLogProxySource
-network.mojom.NetLogProxySource = {};
-
-network.mojom.NetLogProxySource_UpdateCaptureModes_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.NetLogProxySource_UpdateCaptureModes_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'modes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.NetLogProxySource_UpdateCaptureModes_ParamsSpec, 'network.mojom.NetLogProxySource_UpdateCaptureModes_Params', [
+      mojo.internal.StructField('modes', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 network.mojom.NetLogProxySourcePendingReceiver = class {
   constructor(handle) {
@@ -253,44 +195,20 @@ network.mojom.NetLogProxySource.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for UpdateCaptureModes
-network.mojom.NetLogProxySource_UpdateCaptureModes_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.NetLogProxySource.UpdateCaptureModes_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'modes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.NetLogProxySourcePtr = network.mojom.NetLogProxySourceRemote;
 network.mojom.NetLogProxySourceRequest = network.mojom.NetLogProxySourcePendingReceiver;
 
 
 // Interface: NetLogProxySink
-network.mojom.NetLogProxySink = {};
-
-network.mojom.NetLogProxySink_AddEntry_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.NetLogProxySink_AddEntry_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'net_log_source', packedOffset: 0, packedBitOffset: 0, type: network.mojom.NetLogSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'phase', packedOffset: 28, packedBitOffset: 0, type: network.mojom.NetLogEventPhaseSpec, nullable: false, minVersion: 0 },
-        { name: 'time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'params', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.NetLogProxySink_AddEntry_ParamsSpec, 'network.mojom.NetLogProxySink_AddEntry_Params', [
+      mojo.internal.StructField('type', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('net_log_source', 0, 0, network.mojom.NetLogSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('phase', 28, 0, network.mojom.NetLogEventPhaseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('time', 8, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('params', 16, 0, mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 network.mojom.NetLogProxySinkPendingReceiver = class {
   constructor(handle) {
@@ -345,25 +263,6 @@ network.mojom.NetLogProxySink.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddEntry
-network.mojom.NetLogProxySink_AddEntry_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.NetLogProxySink.AddEntry_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'net_log_source', packedOffset: 0, packedBitOffset: 0, type: network.mojom.NetLogSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'phase', packedOffset: 28, packedBitOffset: 0, type: network.mojom.NetLogEventPhaseSpec, nullable: false, minVersion: 0 },
-        { name: 'time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'params', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.NetLogProxySinkPtr = network.mojom.NetLogProxySinkRemote;
 network.mojom.NetLogProxySinkRequest = network.mojom.NetLogProxySinkPendingReceiver;
 

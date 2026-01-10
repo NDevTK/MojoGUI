@@ -7,52 +7,46 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
+var components = components || {};
 var ui = ui || {};
 var gfx = gfx || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+viz.mojom.Gpu = {};
+viz.mojom.Gpu.$interfaceName = 'viz.mojom.Gpu';
+viz.mojom.Gpu_EstablishGpuChannel_ParamsSpec = { $: {} };
+viz.mojom.Gpu_EstablishGpuChannel_ResponseParamsSpec = { $: {} };
+viz.mojom.Gpu_CreateJpegDecodeAccelerator_ParamsSpec = { $: {} };
+viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_ParamsSpec = { $: {} };
 
 // Interface: Gpu
-viz.mojom.Gpu = {};
+mojo.internal.Struct(
+    viz.mojom.Gpu_EstablishGpuChannel_ParamsSpec, 'viz.mojom.Gpu_EstablishGpuChannel_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-viz.mojom.Gpu_EstablishGpuChannel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.Gpu_EstablishGpuChannel_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.Gpu_EstablishGpuChannel_ResponseParamsSpec, 'viz.mojom.Gpu_EstablishGpuChannel_ResponseParams', [
+      mojo.internal.StructField('client_id', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('channel_handle', 0, 0, mojo.internal.Pointer, null, true, 0, undefined),
+      mojo.internal.StructField('gpu_info', 8, 0, gpu.mojom.GpuInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('gpu_feature_info', 16, 0, gpu.mojom.GpuFeatureInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('shared_image_capabilities', 24, 0, gpu.mojom.SharedImageCapabilitiesSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
-viz.mojom.Gpu_CreateJpegDecodeAccelerator_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.Gpu_CreateJpegDecodeAccelerator_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'jda', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos_camera.mojom.MjpegDecodeAcceleratorRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.Gpu_CreateJpegDecodeAccelerator_ParamsSpec, 'viz.mojom.Gpu_CreateJpegDecodeAccelerator_Params', [
+      mojo.internal.StructField('jda', 0, 0, mojo.internal.InterfaceRequest(chromeos_camera.mojom.MjpegDecodeAcceleratorRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'vea_provider', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.VideoEncodeAcceleratorProviderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_ParamsSpec, 'viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_Params', [
+      mojo.internal.StructField('vea_provider', 0, 0, mojo.internal.InterfaceRequest(media.mojom.VideoEncodeAcceleratorProviderRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 viz.mojom.GpuPendingReceiver = class {
   constructor(handle) {
@@ -125,65 +119,6 @@ viz.mojom.Gpu.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for EstablishGpuChannel
-viz.mojom.Gpu_EstablishGpuChannel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.Gpu.EstablishGpuChannel_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-viz.mojom.Gpu_EstablishGpuChannel_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.Gpu.EstablishGpuChannel_ResponseParams',
-      packedSize: 48,
-      fields: [
-        { name: 'client_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'channel_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
-        { name: 'gpu_info', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.GpuInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'gpu_feature_info', packedOffset: 16, packedBitOffset: 0, type: gpu.mojom.GpuFeatureInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'shared_image_capabilities', packedOffset: 24, packedBitOffset: 0, type: gpu.mojom.SharedImageCapabilitiesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
-
-// ParamsSpec for CreateJpegDecodeAccelerator
-viz.mojom.Gpu_CreateJpegDecodeAccelerator_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.Gpu.CreateJpegDecodeAccelerator_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'jda', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos_camera.mojom.MjpegDecodeAcceleratorRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CreateVideoEncodeAcceleratorProvider
-viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.Gpu.CreateVideoEncodeAcceleratorProvider_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'vea_provider', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.VideoEncodeAcceleratorProviderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 viz.mojom.GpuPtr = viz.mojom.GpuRemote;
 viz.mojom.GpuRequest = viz.mojom.GpuPendingReceiver;
 

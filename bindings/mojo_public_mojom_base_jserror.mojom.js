@@ -8,19 +8,13 @@
 var mojo_base = mojo_base || {};
 mojo_base.mojom = mojo_base.mojom || {};
 
+mojo_base.mojom.JsErrorSpec = { $: {} };
 
 // Struct: JsError
-mojo_base.mojom.JsErrorSpec = {
-  $: {
-    structSpec: {
-      name: 'mojo_base.mojom.JsError',
-      packedSize: 32,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'cause', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojo_base.mojom.JsErrorSpec, 'mojo_base.mojom.JsError', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('cause', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('message', 16, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 32]]);

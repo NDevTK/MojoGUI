@@ -8,23 +8,17 @@
 var chromecast = chromecast || {};
 chromecast.mojom = chromecast.mojom || {};
 
+chromecast.mojom.ServiceConnector = {};
+chromecast.mojom.ServiceConnector.$interfaceName = 'chromecast.mojom.ServiceConnector';
+chromecast.mojom.ServiceConnector_Connect_ParamsSpec = { $: {} };
 
 // Interface: ServiceConnector
-chromecast.mojom.ServiceConnector = {};
-
-chromecast.mojom.ServiceConnector_Connect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.ServiceConnector_Connect_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'service_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.GenericPendingReceiverSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.ServiceConnector_Connect_ParamsSpec, 'chromecast.mojom.ServiceConnector_Connect_Params', [
+      mojo.internal.StructField('service_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 8, 0, mojo_base.mojom.GenericPendingReceiverSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 chromecast.mojom.ServiceConnectorPendingReceiver = class {
   constructor(handle) {
@@ -79,22 +73,6 @@ chromecast.mojom.ServiceConnector.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Connect
-chromecast.mojom.ServiceConnector_Connect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.ServiceConnector.Connect_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'service_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.GenericPendingReceiverSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromecast.mojom.ServiceConnectorPtr = chromecast.mojom.ServiceConnectorRemote;
 chromecast.mojom.ServiceConnectorRequest = chromecast.mojom.ServiceConnectorPendingReceiver;
 

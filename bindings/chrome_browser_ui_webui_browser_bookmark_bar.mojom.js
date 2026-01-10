@@ -9,6 +9,22 @@ var bookmark_bar = bookmark_bar || {};
 bookmark_bar.mojom = bookmark_bar.mojom || {};
 var url = url || {};
 
+bookmark_bar.mojom.BookmarkTypeSpec = { $: mojo.internal.Enum() };
+bookmark_bar.mojom.BookmarkDataSpec = { $: {} };
+bookmark_bar.mojom.PageHandlerFactory = {};
+bookmark_bar.mojom.PageHandlerFactory.$interfaceName = 'bookmark_bar.mojom.PageHandlerFactory';
+bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+bookmark_bar.mojom.PageHandler = {};
+bookmark_bar.mojom.PageHandler.$interfaceName = 'bookmark_bar.mojom.PageHandler';
+bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec = { $: {} };
+bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParamsSpec = { $: {} };
+bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec = { $: {} };
+bookmark_bar.mojom.Page = {};
+bookmark_bar.mojom.Page.$interfaceName = 'bookmark_bar.mojom.Page';
+bookmark_bar.mojom.Page_BookmarkLoaded_ParamsSpec = { $: {} };
+bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec = { $: {} };
+bookmark_bar.mojom.Page_Show_ParamsSpec = { $: {} };
+bookmark_bar.mojom.Page_Hide_ParamsSpec = { $: {} };
 
 // Enum: BookmarkType
 bookmark_bar.mojom.BookmarkType = {
@@ -18,41 +34,24 @@ bookmark_bar.mojom.BookmarkType = {
   OTHER_NODE: 3,
   MOBILE: 4,
 };
-bookmark_bar.mojom.BookmarkTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: BookmarkData
-bookmark_bar.mojom.BookmarkDataSpec = {
-  $: {
-    structSpec: {
-      name: 'bookmark_bar.mojom.BookmarkData',
-      packedSize: 40,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: bookmark_bar.mojom.BookmarkTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'page_url_for_favicon', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    bookmark_bar.mojom.BookmarkDataSpec, 'bookmark_bar.mojom.BookmarkData', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('type', 24, 0, bookmark_bar.mojom.BookmarkTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('page_url_for_favicon', 16, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Interface: PageHandlerFactory
-bookmark_bar.mojom.PageHandlerFactory = {};
-
-bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(bookmark_bar.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(bookmark_bar.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(bookmark_bar.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(bookmark_bar.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 bookmark_bar.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -107,53 +106,27 @@ bookmark_bar.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'bookmark_bar.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(bookmark_bar.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(bookmark_bar.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 bookmark_bar.mojom.PageHandlerFactoryPtr = bookmark_bar.mojom.PageHandlerFactoryRemote;
 bookmark_bar.mojom.PageHandlerFactoryRequest = bookmark_bar.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-bookmark_bar.mojom.PageHandler = {};
+mojo.internal.Struct(
+    bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec, 'bookmark_bar.mojom.PageHandler_GetBookmarkBar_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'bookmark_bar.mojom.PageHandler_GetBookmarkBar_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParamsSpec, 'bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParams', [
+      mojo.internal.StructField('bookmarks', 0, 0, mojo.internal.Array(bookmark_bar.mojom.BookmarkDataSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'bookmark_bar.mojom.PageHandler_OpenInNewTab_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec, 'bookmark_bar.mojom.PageHandler_OpenInNewTab_Params', [
+      mojo.internal.StructField('node_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 bookmark_bar.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -217,102 +190,31 @@ bookmark_bar.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetBookmarkBar
-bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'bookmark_bar.mojom.PageHandler.GetBookmarkBar_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'bookmark_bar.mojom.PageHandler.GetBookmarkBar_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'bookmarks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(bookmark_bar.mojom.BookmarkDataSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OpenInNewTab
-bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'bookmark_bar.mojom.PageHandler.OpenInNewTab_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 bookmark_bar.mojom.PageHandlerPtr = bookmark_bar.mojom.PageHandlerRemote;
 bookmark_bar.mojom.PageHandlerRequest = bookmark_bar.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-bookmark_bar.mojom.Page = {};
+mojo.internal.Struct(
+    bookmark_bar.mojom.Page_BookmarkLoaded_ParamsSpec, 'bookmark_bar.mojom.Page_BookmarkLoaded_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-bookmark_bar.mojom.Page_BookmarkLoaded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'bookmark_bar.mojom.Page_BookmarkLoaded_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec, 'bookmark_bar.mojom.Page_FavIconChanged_Params', [
+      mojo.internal.StructField('bookmark_data', 0, 0, bookmark_bar.mojom.BookmarkDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'bookmark_bar.mojom.Page_FavIconChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'bookmark_data', packedOffset: 0, packedBitOffset: 0, type: bookmark_bar.mojom.BookmarkDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    bookmark_bar.mojom.Page_Show_ParamsSpec, 'bookmark_bar.mojom.Page_Show_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-bookmark_bar.mojom.Page_Show_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'bookmark_bar.mojom.Page_Show_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-bookmark_bar.mojom.Page_Hide_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'bookmark_bar.mojom.Page_Hide_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    bookmark_bar.mojom.Page_Hide_ParamsSpec, 'bookmark_bar.mojom.Page_Hide_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 bookmark_bar.mojom.PagePendingReceiver = class {
   constructor(handle) {
@@ -394,60 +296,6 @@ bookmark_bar.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for BookmarkLoaded
-bookmark_bar.mojom.Page_BookmarkLoaded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'bookmark_bar.mojom.Page.BookmarkLoaded_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for FavIconChanged
-bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'bookmark_bar.mojom.Page.FavIconChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'bookmark_data', packedOffset: 0, packedBitOffset: 0, type: bookmark_bar.mojom.BookmarkDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Show
-bookmark_bar.mojom.Page_Show_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'bookmark_bar.mojom.Page.Show_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for Hide
-bookmark_bar.mojom.Page_Hide_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'bookmark_bar.mojom.Page.Hide_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 bookmark_bar.mojom.PagePtr = bookmark_bar.mojom.PageRemote;
 bookmark_bar.mojom.PageRequest = bookmark_bar.mojom.PagePendingReceiver;
 

@@ -8,18 +8,19 @@
 var ui = ui || {};
 ui.mojom = ui.mojom || {};
 
+ui.mojom.MenuSourceTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: MenuSourceType
 ui.mojom.MenuSourceType = {
-  kMouse: 0,
-  kKeyboard: 1,
-  kTouch: 2,
-  kTouchEditMenu: 3,
-  kLongPress: 4,
-  kLongTap: 5,
-  kTouchHandle: 6,
-  kStylus: 7,
-  kAdjustSelection: 8,
-  kAdjustSelectionReset: 9,
+  kNone: 0,
+  kMouse: 1,
+  kKeyboard: 2,
+  kTouch: 3,
+  kTouchEditMenu: 4,
+  kLongPress: 5,
+  kLongTap: 6,
+  kTouchHandle: 7,
+  kStylus: 8,
+  kAdjustSelection: 9,
+  kAdjustSelectionReset: 10,
 };
-ui.mojom.MenuSourceTypeSpec = { $: mojo.internal.Enum() };

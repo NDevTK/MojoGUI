@@ -7,8 +7,39 @@
 // Module namespace
 var performance_manager = performance_manager || {};
 performance_manager.mojom = performance_manager.mojom || {};
+var components = components || {};
+var components = components || {};
+var components = components || {};
 var blink = blink || {};
 
+performance_manager.mojom.CoordinationUnitTypeSpec = { $: mojo.internal.Enum() };
+performance_manager.mojom.DocumentCoordinationUnit = {};
+performance_manager.mojom.DocumentCoordinationUnit.$interfaceName = 'performance_manager.mojom.DocumentCoordinationUnit';
+performance_manager.mojom.DocumentCoordinationUnit_SetNetworkAlmostIdle_ParamsSpec = { $: {} };
+performance_manager.mojom.DocumentCoordinationUnit_SetLifecycleState_ParamsSpec = { $: {} };
+performance_manager.mojom.DocumentCoordinationUnit_SetHasNonEmptyBeforeUnload_ParamsSpec = { $: {} };
+performance_manager.mojom.DocumentCoordinationUnit_SetHadFormInteraction_ParamsSpec = { $: {} };
+performance_manager.mojom.DocumentCoordinationUnit_SetHadUserEdits_ParamsSpec = { $: {} };
+performance_manager.mojom.DocumentCoordinationUnit_OnStartedUsingWebRTC_ParamsSpec = { $: {} };
+performance_manager.mojom.DocumentCoordinationUnit_OnStoppedUsingWebRTC_ParamsSpec = { $: {} };
+performance_manager.mojom.DocumentCoordinationUnit_SetIsAdFrame_ParamsSpec = { $: {} };
+performance_manager.mojom.DocumentCoordinationUnit_OnNonPersistentNotificationCreated_ParamsSpec = { $: {} };
+performance_manager.mojom.DocumentCoordinationUnit_OnFirstContentfulPaint_ParamsSpec = { $: {} };
+performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ParamsSpec = { $: {} };
+performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ResponseParamsSpec = { $: {} };
+performance_manager.mojom.DocumentCoordinationUnit_OnFreezingOriginTrialOptOut_ParamsSpec = { $: {} };
+performance_manager.mojom.ProcessCoordinationUnit = {};
+performance_manager.mojom.ProcessCoordinationUnit.$interfaceName = 'performance_manager.mojom.ProcessCoordinationUnit';
+performance_manager.mojom.ProcessCoordinationUnit_SetMainThreadTaskLoadIsLow_ParamsSpec = { $: {} };
+performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextCreated_ParamsSpec = { $: {} };
+performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDetached_ParamsSpec = { $: {} };
+performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDestroyed_ParamsSpec = { $: {} };
+performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeAttached_ParamsSpec = { $: {} };
+performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeDetached_ParamsSpec = { $: {} };
+performance_manager.mojom.ChildProcessCoordinationUnit = {};
+performance_manager.mojom.ChildProcessCoordinationUnit.$interfaceName = 'performance_manager.mojom.ChildProcessCoordinationUnit';
+performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ParamsSpec = { $: {} };
+performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ResponseParamsSpec = { $: {} };
 
 // Enum: CoordinationUnitType
 performance_manager.mojom.CoordinationUnitType = {
@@ -17,159 +48,78 @@ performance_manager.mojom.CoordinationUnitType = {
   kProcess: 2,
   kSystem: 3,
 };
-performance_manager.mojom.CoordinationUnitTypeSpec = { $: mojo.internal.Enum() };
 
 // Interface: DocumentCoordinationUnit
-performance_manager.mojom.DocumentCoordinationUnit = {};
+mojo.internal.Struct(
+    performance_manager.mojom.DocumentCoordinationUnit_SetNetworkAlmostIdle_ParamsSpec, 'performance_manager.mojom.DocumentCoordinationUnit_SetNetworkAlmostIdle_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-performance_manager.mojom.DocumentCoordinationUnit_SetNetworkAlmostIdle_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.DocumentCoordinationUnit_SetNetworkAlmostIdle_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    performance_manager.mojom.DocumentCoordinationUnit_SetLifecycleState_ParamsSpec, 'performance_manager.mojom.DocumentCoordinationUnit_SetLifecycleState_Params', [
+      mojo.internal.StructField('state', 0, 0, performance_manager.mojom.LifecycleStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-performance_manager.mojom.DocumentCoordinationUnit_SetLifecycleState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.DocumentCoordinationUnit_SetLifecycleState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: performance_manager.mojom.LifecycleStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    performance_manager.mojom.DocumentCoordinationUnit_SetHasNonEmptyBeforeUnload_ParamsSpec, 'performance_manager.mojom.DocumentCoordinationUnit_SetHasNonEmptyBeforeUnload_Params', [
+      mojo.internal.StructField('has_nonempty_beforeunload', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-performance_manager.mojom.DocumentCoordinationUnit_SetHasNonEmptyBeforeUnload_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.DocumentCoordinationUnit_SetHasNonEmptyBeforeUnload_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'has_nonempty_beforeunload', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    performance_manager.mojom.DocumentCoordinationUnit_SetHadFormInteraction_ParamsSpec, 'performance_manager.mojom.DocumentCoordinationUnit_SetHadFormInteraction_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-performance_manager.mojom.DocumentCoordinationUnit_SetHadFormInteraction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.DocumentCoordinationUnit_SetHadFormInteraction_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    performance_manager.mojom.DocumentCoordinationUnit_SetHadUserEdits_ParamsSpec, 'performance_manager.mojom.DocumentCoordinationUnit_SetHadUserEdits_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-performance_manager.mojom.DocumentCoordinationUnit_SetHadUserEdits_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.DocumentCoordinationUnit_SetHadUserEdits_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    performance_manager.mojom.DocumentCoordinationUnit_OnStartedUsingWebRTC_ParamsSpec, 'performance_manager.mojom.DocumentCoordinationUnit_OnStartedUsingWebRTC_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-performance_manager.mojom.DocumentCoordinationUnit_OnStartedUsingWebRTC_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.DocumentCoordinationUnit_OnStartedUsingWebRTC_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    performance_manager.mojom.DocumentCoordinationUnit_OnStoppedUsingWebRTC_ParamsSpec, 'performance_manager.mojom.DocumentCoordinationUnit_OnStoppedUsingWebRTC_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-performance_manager.mojom.DocumentCoordinationUnit_OnStoppedUsingWebRTC_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.DocumentCoordinationUnit_OnStoppedUsingWebRTC_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    performance_manager.mojom.DocumentCoordinationUnit_SetIsAdFrame_ParamsSpec, 'performance_manager.mojom.DocumentCoordinationUnit_SetIsAdFrame_Params', [
+      mojo.internal.StructField('is_ad_frame', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-performance_manager.mojom.DocumentCoordinationUnit_SetIsAdFrame_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.DocumentCoordinationUnit_SetIsAdFrame_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_ad_frame', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    performance_manager.mojom.DocumentCoordinationUnit_OnNonPersistentNotificationCreated_ParamsSpec, 'performance_manager.mojom.DocumentCoordinationUnit_OnNonPersistentNotificationCreated_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-performance_manager.mojom.DocumentCoordinationUnit_OnNonPersistentNotificationCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.DocumentCoordinationUnit_OnNonPersistentNotificationCreated_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    performance_manager.mojom.DocumentCoordinationUnit_OnFirstContentfulPaint_ParamsSpec, 'performance_manager.mojom.DocumentCoordinationUnit_OnFirstContentfulPaint_Params', [
+      mojo.internal.StructField('time_since_navigation_start', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-performance_manager.mojom.DocumentCoordinationUnit_OnFirstContentfulPaint_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.DocumentCoordinationUnit_OnFirstContentfulPaint_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'time_since_navigation_start', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ParamsSpec, 'performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_Params', [
+      mojo.internal.StructField('mode', 0, 0, WebMemoryMeasurement.ModeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: WebMemoryMeasurement.ModeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ResponseParamsSpec, 'performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ResponseParams', [
+      mojo.internal.StructField('measurement', 0, 0, performance_manager.mojom.WebMemoryMeasurementSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-performance_manager.mojom.DocumentCoordinationUnit_OnFreezingOriginTrialOptOut_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.DocumentCoordinationUnit_OnFreezingOriginTrialOptOut_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    performance_manager.mojom.DocumentCoordinationUnit_OnFreezingOriginTrialOptOut_ParamsSpec, 'performance_manager.mojom.DocumentCoordinationUnit_OnFreezingOriginTrialOptOut_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 performance_manager.mojom.DocumentCoordinationUnitPendingReceiver = class {
   constructor(handle) {
@@ -323,269 +273,50 @@ performance_manager.mojom.DocumentCoordinationUnit.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetNetworkAlmostIdle
-performance_manager.mojom.DocumentCoordinationUnit_SetNetworkAlmostIdle_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.DocumentCoordinationUnit.SetNetworkAlmostIdle_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetLifecycleState
-performance_manager.mojom.DocumentCoordinationUnit_SetLifecycleState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.DocumentCoordinationUnit.SetLifecycleState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: performance_manager.mojom.LifecycleStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetHasNonEmptyBeforeUnload
-performance_manager.mojom.DocumentCoordinationUnit_SetHasNonEmptyBeforeUnload_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.DocumentCoordinationUnit.SetHasNonEmptyBeforeUnload_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'has_nonempty_beforeunload', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetHadFormInteraction
-performance_manager.mojom.DocumentCoordinationUnit_SetHadFormInteraction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.DocumentCoordinationUnit.SetHadFormInteraction_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetHadUserEdits
-performance_manager.mojom.DocumentCoordinationUnit_SetHadUserEdits_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.DocumentCoordinationUnit.SetHadUserEdits_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnStartedUsingWebRTC
-performance_manager.mojom.DocumentCoordinationUnit_OnStartedUsingWebRTC_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.DocumentCoordinationUnit.OnStartedUsingWebRTC_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnStoppedUsingWebRTC
-performance_manager.mojom.DocumentCoordinationUnit_OnStoppedUsingWebRTC_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.DocumentCoordinationUnit.OnStoppedUsingWebRTC_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetIsAdFrame
-performance_manager.mojom.DocumentCoordinationUnit_SetIsAdFrame_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.DocumentCoordinationUnit.SetIsAdFrame_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_ad_frame', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnNonPersistentNotificationCreated
-performance_manager.mojom.DocumentCoordinationUnit_OnNonPersistentNotificationCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.DocumentCoordinationUnit.OnNonPersistentNotificationCreated_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnFirstContentfulPaint
-performance_manager.mojom.DocumentCoordinationUnit_OnFirstContentfulPaint_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.DocumentCoordinationUnit.OnFirstContentfulPaint_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'time_since_navigation_start', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnWebMemoryMeasurementRequested
-performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.DocumentCoordinationUnit.OnWebMemoryMeasurementRequested_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: WebMemoryMeasurement.ModeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.DocumentCoordinationUnit.OnWebMemoryMeasurementRequested_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'measurement', packedOffset: 0, packedBitOffset: 0, type: performance_manager.mojom.WebMemoryMeasurementSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnFreezingOriginTrialOptOut
-performance_manager.mojom.DocumentCoordinationUnit_OnFreezingOriginTrialOptOut_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.DocumentCoordinationUnit.OnFreezingOriginTrialOptOut_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 performance_manager.mojom.DocumentCoordinationUnitPtr = performance_manager.mojom.DocumentCoordinationUnitRemote;
 performance_manager.mojom.DocumentCoordinationUnitRequest = performance_manager.mojom.DocumentCoordinationUnitPendingReceiver;
 
 
 // Interface: ProcessCoordinationUnit
-performance_manager.mojom.ProcessCoordinationUnit = {};
+mojo.internal.Struct(
+    performance_manager.mojom.ProcessCoordinationUnit_SetMainThreadTaskLoadIsLow_ParamsSpec, 'performance_manager.mojom.ProcessCoordinationUnit_SetMainThreadTaskLoadIsLow_Params', [
+      mojo.internal.StructField('main_thread_task_load_is_low', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-performance_manager.mojom.ProcessCoordinationUnit_SetMainThreadTaskLoadIsLow_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.ProcessCoordinationUnit_SetMainThreadTaskLoadIsLow_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'main_thread_task_load_is_low', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextCreated_ParamsSpec, 'performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextCreated_Params', [
+      mojo.internal.StructField('description', 0, 0, performance_manager.mojom.V8ContextDescriptionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('iframe_attribution_data', 8, 0, performance_manager.mojom.IframeAttributionDataSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextCreated_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'description', packedOffset: 0, packedBitOffset: 0, type: performance_manager.mojom.V8ContextDescriptionSpec, nullable: false, minVersion: 0 },
-        { name: 'iframe_attribution_data', packedOffset: 8, packedBitOffset: 0, type: performance_manager.mojom.IframeAttributionDataSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDetached_ParamsSpec, 'performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDetached_Params', [
+      mojo.internal.StructField('v8_context_token', 0, 0, blink.mojom.V8ContextTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDetached_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDetached_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'v8_context_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.V8ContextTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDestroyed_ParamsSpec, 'performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDestroyed_Params', [
+      mojo.internal.StructField('v8_context_token', 0, 0, blink.mojom.V8ContextTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDestroyed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDestroyed_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'v8_context_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.V8ContextTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeAttached_ParamsSpec, 'performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeAttached_Params', [
+      mojo.internal.StructField('parent_frame_token', 0, 0, blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('remote_frame_token', 8, 0, blink.mojom.RemoteFrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('iframe_attribution_data', 16, 0, performance_manager.mojom.IframeAttributionDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeAttached_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeAttached_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'parent_frame_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'remote_frame_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.RemoteFrameTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'iframe_attribution_data', packedOffset: 16, packedBitOffset: 0, type: performance_manager.mojom.IframeAttributionDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeDetached_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeDetached_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'parent_frame_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'remote_frame_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.RemoteFrameTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeDetached_ParamsSpec, 'performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeDetached_Params', [
+      mojo.internal.StructField('parent_frame_token', 0, 0, blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('remote_frame_token', 8, 0, blink.mojom.RemoteFrameTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 performance_manager.mojom.ProcessCoordinationUnitPendingReceiver = class {
   constructor(handle) {
@@ -685,113 +416,22 @@ performance_manager.mojom.ProcessCoordinationUnit.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetMainThreadTaskLoadIsLow
-performance_manager.mojom.ProcessCoordinationUnit_SetMainThreadTaskLoadIsLow_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.ProcessCoordinationUnit.SetMainThreadTaskLoadIsLow_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'main_thread_task_load_is_low', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnV8ContextCreated
-performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.ProcessCoordinationUnit.OnV8ContextCreated_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'description', packedOffset: 0, packedBitOffset: 0, type: performance_manager.mojom.V8ContextDescriptionSpec, nullable: false, minVersion: 0 },
-        { name: 'iframe_attribution_data', packedOffset: 8, packedBitOffset: 0, type: performance_manager.mojom.IframeAttributionDataSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnV8ContextDetached
-performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDetached_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.ProcessCoordinationUnit.OnV8ContextDetached_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'v8_context_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.V8ContextTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnV8ContextDestroyed
-performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDestroyed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.ProcessCoordinationUnit.OnV8ContextDestroyed_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'v8_context_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.V8ContextTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnRemoteIframeAttached
-performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeAttached_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.ProcessCoordinationUnit.OnRemoteIframeAttached_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'parent_frame_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'remote_frame_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.RemoteFrameTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'iframe_attribution_data', packedOffset: 16, packedBitOffset: 0, type: performance_manager.mojom.IframeAttributionDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for OnRemoteIframeDetached
-performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeDetached_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.ProcessCoordinationUnit.OnRemoteIframeDetached_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'parent_frame_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'remote_frame_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.RemoteFrameTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 performance_manager.mojom.ProcessCoordinationUnitPtr = performance_manager.mojom.ProcessCoordinationUnitRemote;
 performance_manager.mojom.ProcessCoordinationUnitRequest = performance_manager.mojom.ProcessCoordinationUnitPendingReceiver;
 
 
 // Interface: ChildProcessCoordinationUnit
-performance_manager.mojom.ChildProcessCoordinationUnit = {};
+mojo.internal.Struct(
+    performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ParamsSpec, 'performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ResponseParamsSpec, 'performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ResponseParams', [
+      mojo.internal.StructField('global_region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('process_region', 8, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 performance_manager.mojom.ChildProcessCoordinationUnitPendingReceiver = class {
   constructor(handle) {
@@ -846,34 +486,6 @@ performance_manager.mojom.ChildProcessCoordinationUnit.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for InitializeChildProcessCoordination
-performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.ChildProcessCoordinationUnit.InitializeChildProcessCoordination_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'performance_manager.mojom.ChildProcessCoordinationUnit.InitializeChildProcessCoordination_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'global_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true, minVersion: 0 },
-        { name: 'process_region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 performance_manager.mojom.ChildProcessCoordinationUnitPtr = performance_manager.mojom.ChildProcessCoordinationUnitRemote;
 performance_manager.mojom.ChildProcessCoordinationUnitRequest = performance_manager.mojom.ChildProcessCoordinationUnitPendingReceiver;
 

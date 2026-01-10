@@ -10,22 +10,23 @@ blink.mojom = blink.mojom || {};
 var blink = blink || {};
 var url = url || {};
 
+blink.mojom.PaidContentMetadataObserver = {};
+blink.mojom.PaidContentMetadataObserver.$interfaceName = 'blink.mojom.PaidContentMetadataObserver';
+blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_ParamsSpec = { $: {} };
+blink.mojom.MetaTagsObserver = {};
+blink.mojom.MetaTagsObserver.$interfaceName = 'blink.mojom.MetaTagsObserver';
+blink.mojom.MetaTagsObserver_OnMetaTagsChanged_ParamsSpec = { $: {} };
+blink.mojom.FrameMetadataObserverRegistry = {};
+blink.mojom.FrameMetadataObserverRegistry.$interfaceName = 'blink.mojom.FrameMetadataObserverRegistry';
+blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_ParamsSpec = { $: {} };
+blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_ParamsSpec = { $: {} };
 
 // Interface: PaidContentMetadataObserver
-blink.mojom.PaidContentMetadataObserver = {};
-
-blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'has_paid_content', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_ParamsSpec, 'blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_Params', [
+      mojo.internal.StructField('has_paid_content', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.PaidContentMetadataObserverPendingReceiver = class {
   constructor(handle) {
@@ -80,40 +81,16 @@ blink.mojom.PaidContentMetadataObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnPaidContentMetadataChanged
-blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PaidContentMetadataObserver.OnPaidContentMetadataChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'has_paid_content', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.PaidContentMetadataObserverPtr = blink.mojom.PaidContentMetadataObserverRemote;
 blink.mojom.PaidContentMetadataObserverRequest = blink.mojom.PaidContentMetadataObserverPendingReceiver;
 
 
 // Interface: MetaTagsObserver
-blink.mojom.MetaTagsObserver = {};
-
-blink.mojom.MetaTagsObserver_OnMetaTagsChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MetaTagsObserver_OnMetaTagsChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'meta_tags', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.MetaTagSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.MetaTagsObserver_OnMetaTagsChanged_ParamsSpec, 'blink.mojom.MetaTagsObserver_OnMetaTagsChanged_Params', [
+      mojo.internal.StructField('meta_tags', 0, 0, mojo.internal.Array(blink.mojom.MetaTagSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.MetaTagsObserverPendingReceiver = class {
   constructor(handle) {
@@ -168,54 +145,23 @@ blink.mojom.MetaTagsObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnMetaTagsChanged
-blink.mojom.MetaTagsObserver_OnMetaTagsChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MetaTagsObserver.OnMetaTagsChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'meta_tags', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.MetaTagSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.MetaTagsObserverPtr = blink.mojom.MetaTagsObserverRemote;
 blink.mojom.MetaTagsObserverRequest = blink.mojom.MetaTagsObserverPendingReceiver;
 
 
 // Interface: FrameMetadataObserverRegistry
-blink.mojom.FrameMetadataObserverRegistry = {};
+mojo.internal.Struct(
+    blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_ParamsSpec, 'blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.PaidContentMetadataObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.PaidContentMetadataObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.MetaTagsObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_ParamsSpec, 'blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_Params', [
+      mojo.internal.StructField('names', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.MetaTagsObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 blink.mojom.FrameMetadataObserverRegistryPendingReceiver = class {
   constructor(handle) {
@@ -279,36 +225,6 @@ blink.mojom.FrameMetadataObserverRegistry.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddPaidContentMetadataObserver
-blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameMetadataObserverRegistry.AddPaidContentMetadataObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.PaidContentMetadataObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AddMetaTagsObserver
-blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameMetadataObserverRegistry.AddMetaTagsObserver_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.MetaTagsObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.FrameMetadataObserverRegistryPtr = blink.mojom.FrameMetadataObserverRegistryRemote;
 blink.mojom.FrameMetadataObserverRegistryRequest = blink.mojom.FrameMetadataObserverRegistryPendingReceiver;
 

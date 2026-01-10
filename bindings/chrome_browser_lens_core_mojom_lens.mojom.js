@@ -13,6 +13,65 @@ var ui = ui || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+lens.mojom.UserActionSpec = { $: mojo.internal.Enum() };
+lens.mojom.SemanticEventSpec = { $: mojo.internal.Enum() };
+lens.mojom.OverlayThemeSpec = { $: {} };
+lens.mojom.LensPageHandlerFactory = {};
+lens.mojom.LensPageHandlerFactory.$interfaceName = 'lens.mojom.LensPageHandlerFactory';
+lens.mojom.LensPageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+lens.mojom.LensPageHandler = {};
+lens.mojom.LensPageHandler.$interfaceName = 'lens.mojom.LensPageHandler';
+lens.mojom.LensPageHandler_ActivityRequestedByOverlay_ParamsSpec = { $: {} };
+lens.mojom.LensPageHandler_CloseRequestedByOverlayCloseButton_ParamsSpec = { $: {} };
+lens.mojom.LensPageHandler_CloseRequestedByOverlayBackgroundClick_ParamsSpec = { $: {} };
+lens.mojom.LensPageHandler_NotifyOverlayInitialized_ParamsSpec = { $: {} };
+lens.mojom.LensPageHandler_AddBackgroundBlur_ParamsSpec = { $: {} };
+lens.mojom.LensPageHandler_SetLiveBlur_ParamsSpec = { $: {} };
+lens.mojom.LensPageHandler_FeedbackRequestedByOverlay_ParamsSpec = { $: {} };
+lens.mojom.LensPageHandler_GetOverlayInvocationSource_ParamsSpec = { $: {} };
+lens.mojom.LensPageHandler_GetOverlayInvocationSource_ResponseParamsSpec = { $: {} };
+lens.mojom.LensPageHandler_InfoRequestedByOverlay_ParamsSpec = { $: {} };
+lens.mojom.LensPageHandler_IssueLensRegionRequest_ParamsSpec = { $: {} };
+lens.mojom.LensPageHandler_IssueLensObjectRequest_ParamsSpec = { $: {} };
+lens.mojom.LensPageHandler_IssueTextSelectionRequest_ParamsSpec = { $: {} };
+lens.mojom.LensPageHandler_IssueTranslateSelectionRequest_ParamsSpec = { $: {} };
+lens.mojom.LensPageHandler_IssueMathSelectionRequest_ParamsSpec = { $: {} };
+lens.mojom.LensPageHandler_IssueTranslateFullPageRequest_ParamsSpec = { $: {} };
+lens.mojom.LensPageHandler_IssueEndTranslateModeRequest_ParamsSpec = { $: {} };
+lens.mojom.LensPageHandler_CopyText_ParamsSpec = { $: {} };
+lens.mojom.LensPageHandler_CopyImage_ParamsSpec = { $: {} };
+lens.mojom.LensPageHandler_SaveAsImage_ParamsSpec = { $: {} };
+lens.mojom.LensPageHandler_ClosePreselectionBubble_ParamsSpec = { $: {} };
+lens.mojom.LensPageHandler_RecordUkmAndTaskCompletionForLensOverlayInteraction_ParamsSpec = { $: {} };
+lens.mojom.LensPageHandler_RecordLensOverlaySemanticEvent_ParamsSpec = { $: {} };
+lens.mojom.LensPageHandler_MaybeShowTranslateFeaturePromo_ParamsSpec = { $: {} };
+lens.mojom.LensPageHandler_MaybeCloseTranslateFeaturePromo_ParamsSpec = { $: {} };
+lens.mojom.LensPageHandler_FetchSupportedLanguages_ParamsSpec = { $: {} };
+lens.mojom.LensPageHandler_FetchSupportedLanguages_ResponseParamsSpec = { $: {} };
+lens.mojom.LensPageHandler_FinishReshowOverlay_ParamsSpec = { $: {} };
+lens.mojom.LensPageHandler_AcceptPrivacyNotice_ParamsSpec = { $: {} };
+lens.mojom.LensPageHandler_DismissPrivacyNotice_ParamsSpec = { $: {} };
+lens.mojom.LensPage = {};
+lens.mojom.LensPage.$interfaceName = 'lens.mojom.LensPage';
+lens.mojom.LensPage_ScreenshotDataReceived_ParamsSpec = { $: {} };
+lens.mojom.LensPage_NotifyHandshakeComplete_ParamsSpec = { $: {} };
+lens.mojom.LensPage_NotifyResultsPanelOpened_ParamsSpec = { $: {} };
+lens.mojom.LensPage_NotifyOverlayClosing_ParamsSpec = { $: {} };
+lens.mojom.LensPage_ObjectsReceived_ParamsSpec = { $: {} };
+lens.mojom.LensPage_TextReceived_ParamsSpec = { $: {} };
+lens.mojom.LensPage_RegionTextReceived_ParamsSpec = { $: {} };
+lens.mojom.LensPage_ThemeReceived_ParamsSpec = { $: {} };
+lens.mojom.LensPage_ShouldShowContextualSearchBox_ParamsSpec = { $: {} };
+lens.mojom.LensPage_PageContentTypeChanged_ParamsSpec = { $: {} };
+lens.mojom.LensPage_SetPostRegionSelection_ParamsSpec = { $: {} };
+lens.mojom.LensPage_SetTextSelection_ParamsSpec = { $: {} };
+lens.mojom.LensPage_SetTranslateMode_ParamsSpec = { $: {} };
+lens.mojom.LensPage_ClearRegionSelection_ParamsSpec = { $: {} };
+lens.mojom.LensPage_ClearTextSelection_ParamsSpec = { $: {} };
+lens.mojom.LensPage_ClearAllSelections_ParamsSpec = { $: {} };
+lens.mojom.LensPage_OnCopyCommand_ParamsSpec = { $: {} };
+lens.mojom.LensPage_SuppressGhostLoader_ParamsSpec = { $: {} };
+lens.mojom.LensPage_OnOverlayReshown_ParamsSpec = { $: {} };
 
 // Enum: UserAction
 lens.mojom.UserAction = {
@@ -36,54 +95,36 @@ lens.mojom.UserAction = {
   kMathSelection: 17,
   kFullScreenshotRegionSelection: 18,
 };
-lens.mojom.UserActionSpec = { $: mojo.internal.Enum() };
 
 // Enum: SemanticEvent
 lens.mojom.SemanticEvent = {
   kTextGleamsViewStart: 0,
   kTextGleamsViewEnd: 1,
 };
-lens.mojom.SemanticEventSpec = { $: mojo.internal.Enum() };
 
 // Struct: OverlayTheme
-lens.mojom.OverlayThemeSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.OverlayTheme',
-      packedSize: 88,
-      fields: [
-        { name: 'primary', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
-        { name: 'shader_layer_1', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
-        { name: 'shader_layer_2', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
-        { name: 'shader_layer_3', packedOffset: 24, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
-        { name: 'shader_layer_4', packedOffset: 32, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
-        { name: 'shader_layer_5', packedOffset: 40, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
-        { name: 'scrim', packedOffset: 48, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
-        { name: 'surface_container_highest_light', packedOffset: 56, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
-        { name: 'surface_container_highest_dark', packedOffset: 64, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
-        { name: 'selection_element', packedOffset: 72, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 88}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.OverlayThemeSpec, 'lens.mojom.OverlayTheme', [
+      mojo.internal.StructField('primary', 0, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('shader_layer_1', 8, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('shader_layer_2', 16, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('shader_layer_3', 24, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('shader_layer_4', 32, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('shader_layer_5', 40, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scrim', 48, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('surface_container_highest_light', 56, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('surface_container_highest_dark', 64, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('selection_element', 72, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
+    ],
+    [[0, 88]]);
 
 // Interface: LensPageHandlerFactory
-lens.mojom.LensPageHandlerFactory = {};
-
-lens.mojom.LensPageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(lens.mojom.LensPageHandlerRemote), nullable: false, minVersion: 0 },
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(lens.mojom.LensPageRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPageHandlerFactory_CreatePageHandler_ParamsSpec, 'lens.mojom.LensPageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(lens.mojom.LensPageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page', 8, 0, mojo.internal.InterfaceProxy(lens.mojom.LensPageRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 lens.mojom.LensPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -138,391 +179,191 @@ lens.mojom.LensPageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-lens.mojom.LensPageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(lens.mojom.LensPageHandlerRemote), nullable: false, minVersion: 0 },
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(lens.mojom.LensPageRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 lens.mojom.LensPageHandlerFactoryPtr = lens.mojom.LensPageHandlerFactoryRemote;
 lens.mojom.LensPageHandlerFactoryRequest = lens.mojom.LensPageHandlerFactoryPendingReceiver;
 
 
 // Interface: LensPageHandler
-lens.mojom.LensPageHandler = {};
+mojo.internal.Struct(
+    lens.mojom.LensPageHandler_ActivityRequestedByOverlay_ParamsSpec, 'lens.mojom.LensPageHandler_ActivityRequestedByOverlay_Params', [
+      mojo.internal.StructField('click_modifiers', 0, 0, ui.mojom.ClickModifiersSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-lens.mojom.LensPageHandler_ActivityRequestedByOverlay_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler_ActivityRequestedByOverlay_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'click_modifiers', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.ClickModifiersSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPageHandler_CloseRequestedByOverlayCloseButton_ParamsSpec, 'lens.mojom.LensPageHandler_CloseRequestedByOverlayCloseButton_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-lens.mojom.LensPageHandler_CloseRequestedByOverlayCloseButton_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler_CloseRequestedByOverlayCloseButton_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPageHandler_CloseRequestedByOverlayBackgroundClick_ParamsSpec, 'lens.mojom.LensPageHandler_CloseRequestedByOverlayBackgroundClick_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-lens.mojom.LensPageHandler_CloseRequestedByOverlayBackgroundClick_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler_CloseRequestedByOverlayBackgroundClick_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPageHandler_NotifyOverlayInitialized_ParamsSpec, 'lens.mojom.LensPageHandler_NotifyOverlayInitialized_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-lens.mojom.LensPageHandler_NotifyOverlayInitialized_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler_NotifyOverlayInitialized_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPageHandler_AddBackgroundBlur_ParamsSpec, 'lens.mojom.LensPageHandler_AddBackgroundBlur_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-lens.mojom.LensPageHandler_AddBackgroundBlur_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler_AddBackgroundBlur_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPageHandler_SetLiveBlur_ParamsSpec, 'lens.mojom.LensPageHandler_SetLiveBlur_Params', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-lens.mojom.LensPageHandler_SetLiveBlur_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler_SetLiveBlur_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPageHandler_FeedbackRequestedByOverlay_ParamsSpec, 'lens.mojom.LensPageHandler_FeedbackRequestedByOverlay_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-lens.mojom.LensPageHandler_FeedbackRequestedByOverlay_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler_FeedbackRequestedByOverlay_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPageHandler_GetOverlayInvocationSource_ParamsSpec, 'lens.mojom.LensPageHandler_GetOverlayInvocationSource_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-lens.mojom.LensPageHandler_GetOverlayInvocationSource_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler_GetOverlayInvocationSource_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPageHandler_GetOverlayInvocationSource_ResponseParamsSpec, 'lens.mojom.LensPageHandler_GetOverlayInvocationSource_ResponseParams', [
+      mojo.internal.StructField('invocation_source', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-lens.mojom.LensPageHandler_InfoRequestedByOverlay_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler_InfoRequestedByOverlay_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'click_modifiers', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.ClickModifiersSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPageHandler_InfoRequestedByOverlay_ParamsSpec, 'lens.mojom.LensPageHandler_InfoRequestedByOverlay_Params', [
+      mojo.internal.StructField('click_modifiers', 0, 0, ui.mojom.ClickModifiersSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-lens.mojom.LensPageHandler_IssueLensRegionRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler_IssueLensRegionRequest_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: lens.mojom.CenterRotatedBoxSpec, nullable: false, minVersion: 0 },
-        { name: 'is_click', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPageHandler_IssueLensRegionRequest_ParamsSpec, 'lens.mojom.LensPageHandler_IssueLensRegionRequest_Params', [
+      mojo.internal.StructField('region', 0, 0, lens.mojom.CenterRotatedBoxSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_click', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-lens.mojom.LensPageHandler_IssueLensObjectRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler_IssueLensObjectRequest_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: lens.mojom.CenterRotatedBoxSpec, nullable: false, minVersion: 0 },
-        { name: 'is_mask_click', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPageHandler_IssueLensObjectRequest_ParamsSpec, 'lens.mojom.LensPageHandler_IssueLensObjectRequest_Params', [
+      mojo.internal.StructField('region', 0, 0, lens.mojom.CenterRotatedBoxSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_mask_click', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-lens.mojom.LensPageHandler_IssueTextSelectionRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler_IssueTextSelectionRequest_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'selection_start_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'selection_end_index', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'is_translate', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPageHandler_IssueTextSelectionRequest_ParamsSpec, 'lens.mojom.LensPageHandler_IssueTextSelectionRequest_Params', [
+      mojo.internal.StructField('query', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('selection_start_index', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('selection_end_index', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_translate', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-lens.mojom.LensPageHandler_IssueTranslateSelectionRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler_IssueTranslateSelectionRequest_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'content_language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'selection_start_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'selection_end_index', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPageHandler_IssueTranslateSelectionRequest_ParamsSpec, 'lens.mojom.LensPageHandler_IssueTranslateSelectionRequest_Params', [
+      mojo.internal.StructField('query', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('content_language', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('selection_start_index', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('selection_end_index', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-lens.mojom.LensPageHandler_IssueMathSelectionRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler_IssueMathSelectionRequest_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'formula', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'selection_start_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'selection_end_index', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPageHandler_IssueMathSelectionRequest_ParamsSpec, 'lens.mojom.LensPageHandler_IssueMathSelectionRequest_Params', [
+      mojo.internal.StructField('query', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('formula', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('selection_start_index', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('selection_end_index', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-lens.mojom.LensPageHandler_IssueTranslateFullPageRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler_IssueTranslateFullPageRequest_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'source_language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'target_language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPageHandler_IssueTranslateFullPageRequest_ParamsSpec, 'lens.mojom.LensPageHandler_IssueTranslateFullPageRequest_Params', [
+      mojo.internal.StructField('source_language', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('target_language', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-lens.mojom.LensPageHandler_IssueEndTranslateModeRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler_IssueEndTranslateModeRequest_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPageHandler_IssueEndTranslateModeRequest_ParamsSpec, 'lens.mojom.LensPageHandler_IssueEndTranslateModeRequest_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-lens.mojom.LensPageHandler_CopyText_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler_CopyText_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPageHandler_CopyText_ParamsSpec, 'lens.mojom.LensPageHandler_CopyText_Params', [
+      mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-lens.mojom.LensPageHandler_CopyImage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler_CopyImage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: lens.mojom.CenterRotatedBoxSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPageHandler_CopyImage_ParamsSpec, 'lens.mojom.LensPageHandler_CopyImage_Params', [
+      mojo.internal.StructField('region', 0, 0, lens.mojom.CenterRotatedBoxSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-lens.mojom.LensPageHandler_SaveAsImage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler_SaveAsImage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: lens.mojom.CenterRotatedBoxSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPageHandler_SaveAsImage_ParamsSpec, 'lens.mojom.LensPageHandler_SaveAsImage_Params', [
+      mojo.internal.StructField('region', 0, 0, lens.mojom.CenterRotatedBoxSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-lens.mojom.LensPageHandler_ClosePreselectionBubble_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler_ClosePreselectionBubble_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPageHandler_ClosePreselectionBubble_ParamsSpec, 'lens.mojom.LensPageHandler_ClosePreselectionBubble_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-lens.mojom.LensPageHandler_RecordUkmAndTaskCompletionForLensOverlayInteraction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler_RecordUkmAndTaskCompletionForLensOverlayInteraction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'user_action', packedOffset: 0, packedBitOffset: 0, type: lens.mojom.UserActionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPageHandler_RecordUkmAndTaskCompletionForLensOverlayInteraction_ParamsSpec, 'lens.mojom.LensPageHandler_RecordUkmAndTaskCompletionForLensOverlayInteraction_Params', [
+      mojo.internal.StructField('user_action', 0, 0, lens.mojom.UserActionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-lens.mojom.LensPageHandler_RecordLensOverlaySemanticEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler_RecordLensOverlaySemanticEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: lens.mojom.SemanticEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPageHandler_RecordLensOverlaySemanticEvent_ParamsSpec, 'lens.mojom.LensPageHandler_RecordLensOverlaySemanticEvent_Params', [
+      mojo.internal.StructField('event', 0, 0, lens.mojom.SemanticEventSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-lens.mojom.LensPageHandler_MaybeShowTranslateFeaturePromo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler_MaybeShowTranslateFeaturePromo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPageHandler_MaybeShowTranslateFeaturePromo_ParamsSpec, 'lens.mojom.LensPageHandler_MaybeShowTranslateFeaturePromo_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-lens.mojom.LensPageHandler_MaybeCloseTranslateFeaturePromo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler_MaybeCloseTranslateFeaturePromo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'feature_engaged', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPageHandler_MaybeCloseTranslateFeaturePromo_ParamsSpec, 'lens.mojom.LensPageHandler_MaybeCloseTranslateFeaturePromo_Params', [
+      mojo.internal.StructField('feature_engaged', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-lens.mojom.LensPageHandler_FetchSupportedLanguages_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler_FetchSupportedLanguages_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPageHandler_FetchSupportedLanguages_ParamsSpec, 'lens.mojom.LensPageHandler_FetchSupportedLanguages_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-lens.mojom.LensPageHandler_FinishReshowOverlay_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler_FinishReshowOverlay_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPageHandler_FetchSupportedLanguages_ResponseParamsSpec, 'lens.mojom.LensPageHandler_FetchSupportedLanguages_ResponseParams', [
+      mojo.internal.StructField('browser_locale', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('source_languages', 8, 0, mojo.internal.Array(lens.mojom.LanguageSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('target_languages', 16, 0, mojo.internal.Array(lens.mojom.LanguageSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-lens.mojom.LensPageHandler_AcceptPrivacyNotice_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler_AcceptPrivacyNotice_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPageHandler_FinishReshowOverlay_ParamsSpec, 'lens.mojom.LensPageHandler_FinishReshowOverlay_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-lens.mojom.LensPageHandler_DismissPrivacyNotice_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler_DismissPrivacyNotice_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPageHandler_AcceptPrivacyNotice_ParamsSpec, 'lens.mojom.LensPageHandler_AcceptPrivacyNotice_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    lens.mojom.LensPageHandler_DismissPrivacyNotice_ParamsSpec, 'lens.mojom.LensPageHandler_DismissPrivacyNotice_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 lens.mojom.LensPageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -820,675 +661,120 @@ lens.mojom.LensPageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ActivityRequestedByOverlay
-lens.mojom.LensPageHandler_ActivityRequestedByOverlay_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler.ActivityRequestedByOverlay_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'click_modifiers', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.ClickModifiersSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CloseRequestedByOverlayCloseButton
-lens.mojom.LensPageHandler_CloseRequestedByOverlayCloseButton_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler.CloseRequestedByOverlayCloseButton_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for CloseRequestedByOverlayBackgroundClick
-lens.mojom.LensPageHandler_CloseRequestedByOverlayBackgroundClick_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler.CloseRequestedByOverlayBackgroundClick_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for NotifyOverlayInitialized
-lens.mojom.LensPageHandler_NotifyOverlayInitialized_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler.NotifyOverlayInitialized_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for AddBackgroundBlur
-lens.mojom.LensPageHandler_AddBackgroundBlur_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler.AddBackgroundBlur_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetLiveBlur
-lens.mojom.LensPageHandler_SetLiveBlur_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler.SetLiveBlur_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for FeedbackRequestedByOverlay
-lens.mojom.LensPageHandler_FeedbackRequestedByOverlay_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler.FeedbackRequestedByOverlay_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for GetOverlayInvocationSource
-lens.mojom.LensPageHandler_GetOverlayInvocationSource_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler.GetOverlayInvocationSource_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-lens.mojom.LensPageHandler_GetOverlayInvocationSource_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler.GetOverlayInvocationSource_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'invocation_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for InfoRequestedByOverlay
-lens.mojom.LensPageHandler_InfoRequestedByOverlay_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler.InfoRequestedByOverlay_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'click_modifiers', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.ClickModifiersSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for IssueLensRegionRequest
-lens.mojom.LensPageHandler_IssueLensRegionRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler.IssueLensRegionRequest_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: lens.mojom.CenterRotatedBoxSpec, nullable: false, minVersion: 0 },
-        { name: 'is_click', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for IssueLensObjectRequest
-lens.mojom.LensPageHandler_IssueLensObjectRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler.IssueLensObjectRequest_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: lens.mojom.CenterRotatedBoxSpec, nullable: false, minVersion: 0 },
-        { name: 'is_mask_click', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for IssueTextSelectionRequest
-lens.mojom.LensPageHandler_IssueTextSelectionRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler.IssueTextSelectionRequest_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'selection_start_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'selection_end_index', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'is_translate', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for IssueTranslateSelectionRequest
-lens.mojom.LensPageHandler_IssueTranslateSelectionRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler.IssueTranslateSelectionRequest_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'content_language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'selection_start_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'selection_end_index', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for IssueMathSelectionRequest
-lens.mojom.LensPageHandler_IssueMathSelectionRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler.IssueMathSelectionRequest_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'formula', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'selection_start_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'selection_end_index', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for IssueTranslateFullPageRequest
-lens.mojom.LensPageHandler_IssueTranslateFullPageRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler.IssueTranslateFullPageRequest_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'source_language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'target_language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for IssueEndTranslateModeRequest
-lens.mojom.LensPageHandler_IssueEndTranslateModeRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler.IssueEndTranslateModeRequest_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for CopyText
-lens.mojom.LensPageHandler_CopyText_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler.CopyText_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CopyImage
-lens.mojom.LensPageHandler_CopyImage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler.CopyImage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: lens.mojom.CenterRotatedBoxSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SaveAsImage
-lens.mojom.LensPageHandler_SaveAsImage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler.SaveAsImage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: lens.mojom.CenterRotatedBoxSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ClosePreselectionBubble
-lens.mojom.LensPageHandler_ClosePreselectionBubble_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler.ClosePreselectionBubble_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for RecordUkmAndTaskCompletionForLensOverlayInteraction
-lens.mojom.LensPageHandler_RecordUkmAndTaskCompletionForLensOverlayInteraction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler.RecordUkmAndTaskCompletionForLensOverlayInteraction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'user_action', packedOffset: 0, packedBitOffset: 0, type: lens.mojom.UserActionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RecordLensOverlaySemanticEvent
-lens.mojom.LensPageHandler_RecordLensOverlaySemanticEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler.RecordLensOverlaySemanticEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: lens.mojom.SemanticEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for MaybeShowTranslateFeaturePromo
-lens.mojom.LensPageHandler_MaybeShowTranslateFeaturePromo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler.MaybeShowTranslateFeaturePromo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for MaybeCloseTranslateFeaturePromo
-lens.mojom.LensPageHandler_MaybeCloseTranslateFeaturePromo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler.MaybeCloseTranslateFeaturePromo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'feature_engaged', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for FetchSupportedLanguages
-lens.mojom.LensPageHandler_FetchSupportedLanguages_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler.FetchSupportedLanguages_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-lens.mojom.LensPageHandler_FetchSupportedLanguages_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler.FetchSupportedLanguages_ResponseParams',
-      packedSize: 32,
-      fields: [
-        { name: 'browser_locale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'source_languages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(lens.mojom.LanguageSpec, false), nullable: false, minVersion: 0 },
-        { name: 'target_languages', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(lens.mojom.LanguageSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for FinishReshowOverlay
-lens.mojom.LensPageHandler_FinishReshowOverlay_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler.FinishReshowOverlay_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for AcceptPrivacyNotice
-lens.mojom.LensPageHandler_AcceptPrivacyNotice_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler.AcceptPrivacyNotice_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for DismissPrivacyNotice
-lens.mojom.LensPageHandler_DismissPrivacyNotice_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPageHandler.DismissPrivacyNotice_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 lens.mojom.LensPageHandlerPtr = lens.mojom.LensPageHandlerRemote;
 lens.mojom.LensPageHandlerRequest = lens.mojom.LensPageHandlerPendingReceiver;
 
 
 // Interface: LensPage
-lens.mojom.LensPage = {};
+mojo.internal.Struct(
+    lens.mojom.LensPage_ScreenshotDataReceived_ParamsSpec, 'lens.mojom.LensPage_ScreenshotDataReceived_Params', [
+      mojo.internal.StructField('screenshot_data', 0, 0, skia.mojom.BitmapMappedFromTrustedProcessSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_side_panel_open', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-lens.mojom.LensPage_ScreenshotDataReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPage_ScreenshotDataReceived_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'screenshot_data', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapMappedFromTrustedProcessSpec, nullable: false, minVersion: 0 },
-        { name: 'is_side_panel_open', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPage_NotifyHandshakeComplete_ParamsSpec, 'lens.mojom.LensPage_NotifyHandshakeComplete_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-lens.mojom.LensPage_NotifyHandshakeComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPage_NotifyHandshakeComplete_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPage_NotifyResultsPanelOpened_ParamsSpec, 'lens.mojom.LensPage_NotifyResultsPanelOpened_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-lens.mojom.LensPage_NotifyResultsPanelOpened_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPage_NotifyResultsPanelOpened_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPage_NotifyOverlayClosing_ParamsSpec, 'lens.mojom.LensPage_NotifyOverlayClosing_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-lens.mojom.LensPage_NotifyOverlayClosing_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPage_NotifyOverlayClosing_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPage_ObjectsReceived_ParamsSpec, 'lens.mojom.LensPage_ObjectsReceived_Params', [
+      mojo.internal.StructField('objects', 0, 0, mojo.internal.Array(lens.mojom.OverlayObjectSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-lens.mojom.LensPage_ObjectsReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPage_ObjectsReceived_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'objects', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(lens.mojom.OverlayObjectSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPage_TextReceived_ParamsSpec, 'lens.mojom.LensPage_TextReceived_Params', [
+      mojo.internal.StructField('text', 0, 0, lens.mojom.TextSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-lens.mojom.LensPage_TextReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPage_TextReceived_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: lens.mojom.TextSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPage_RegionTextReceived_ParamsSpec, 'lens.mojom.LensPage_RegionTextReceived_Params', [
+      mojo.internal.StructField('text', 0, 0, lens.mojom.TextSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_injected_image', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-lens.mojom.LensPage_RegionTextReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPage_RegionTextReceived_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: lens.mojom.TextSpec, nullable: false, minVersion: 0 },
-        { name: 'is_injected_image', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPage_ThemeReceived_ParamsSpec, 'lens.mojom.LensPage_ThemeReceived_Params', [
+      mojo.internal.StructField('theme', 0, 0, lens.mojom.OverlayThemeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-lens.mojom.LensPage_ThemeReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPage_ThemeReceived_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: lens.mojom.OverlayThemeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPage_ShouldShowContextualSearchBox_ParamsSpec, 'lens.mojom.LensPage_ShouldShowContextualSearchBox_Params', [
+      mojo.internal.StructField('should_show', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-lens.mojom.LensPage_ShouldShowContextualSearchBox_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPage_ShouldShowContextualSearchBox_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'should_show', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPage_PageContentTypeChanged_ParamsSpec, 'lens.mojom.LensPage_PageContentTypeChanged_Params', [
+      mojo.internal.StructField('new_page_content_type', 0, 0, lens.mojom.PageContentTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-lens.mojom.LensPage_PageContentTypeChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPage_PageContentTypeChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'new_page_content_type', packedOffset: 0, packedBitOffset: 0, type: lens.mojom.PageContentTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPage_SetPostRegionSelection_ParamsSpec, 'lens.mojom.LensPage_SetPostRegionSelection_Params', [
+      mojo.internal.StructField('region', 0, 0, lens.mojom.CenterRotatedBoxSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-lens.mojom.LensPage_SetPostRegionSelection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPage_SetPostRegionSelection_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: lens.mojom.CenterRotatedBoxSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPage_SetTextSelection_ParamsSpec, 'lens.mojom.LensPage_SetTextSelection_Params', [
+      mojo.internal.StructField('selection_start_index', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('selection_end_index', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-lens.mojom.LensPage_SetTextSelection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPage_SetTextSelection_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'selection_start_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'selection_end_index', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPage_SetTranslateMode_ParamsSpec, 'lens.mojom.LensPage_SetTranslateMode_Params', [
+      mojo.internal.StructField('source_language', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('target_language', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-lens.mojom.LensPage_SetTranslateMode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPage_SetTranslateMode_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'source_language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'target_language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPage_ClearRegionSelection_ParamsSpec, 'lens.mojom.LensPage_ClearRegionSelection_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-lens.mojom.LensPage_ClearRegionSelection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPage_ClearRegionSelection_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPage_ClearTextSelection_ParamsSpec, 'lens.mojom.LensPage_ClearTextSelection_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-lens.mojom.LensPage_ClearTextSelection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPage_ClearTextSelection_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPage_ClearAllSelections_ParamsSpec, 'lens.mojom.LensPage_ClearAllSelections_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-lens.mojom.LensPage_ClearAllSelections_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPage_ClearAllSelections_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPage_OnCopyCommand_ParamsSpec, 'lens.mojom.LensPage_OnCopyCommand_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-lens.mojom.LensPage_OnCopyCommand_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPage_OnCopyCommand_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPage_SuppressGhostLoader_ParamsSpec, 'lens.mojom.LensPage_SuppressGhostLoader_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-lens.mojom.LensPage_SuppressGhostLoader_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPage_SuppressGhostLoader_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-lens.mojom.LensPage_OnOverlayReshown_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPage_OnOverlayReshown_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'screenshot_data', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapMappedFromTrustedProcessSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensPage_OnOverlayReshown_ParamsSpec, 'lens.mojom.LensPage_OnOverlayReshown_Params', [
+      mojo.internal.StructField('screenshot_data', 0, 0, skia.mojom.BitmapMappedFromTrustedProcessSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 lens.mojom.LensPagePendingReceiver = class {
   constructor(handle) {
@@ -1705,269 +991,6 @@ lens.mojom.LensPage.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ScreenshotDataReceived
-lens.mojom.LensPage_ScreenshotDataReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPage.ScreenshotDataReceived_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'screenshot_data', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapMappedFromTrustedProcessSpec, nullable: false, minVersion: 0 },
-        { name: 'is_side_panel_open', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for NotifyHandshakeComplete
-lens.mojom.LensPage_NotifyHandshakeComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPage.NotifyHandshakeComplete_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for NotifyResultsPanelOpened
-lens.mojom.LensPage_NotifyResultsPanelOpened_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPage.NotifyResultsPanelOpened_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for NotifyOverlayClosing
-lens.mojom.LensPage_NotifyOverlayClosing_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPage.NotifyOverlayClosing_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for ObjectsReceived
-lens.mojom.LensPage_ObjectsReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPage.ObjectsReceived_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'objects', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(lens.mojom.OverlayObjectSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for TextReceived
-lens.mojom.LensPage_TextReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPage.TextReceived_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: lens.mojom.TextSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RegionTextReceived
-lens.mojom.LensPage_RegionTextReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPage.RegionTextReceived_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: lens.mojom.TextSpec, nullable: false, minVersion: 0 },
-        { name: 'is_injected_image', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ThemeReceived
-lens.mojom.LensPage_ThemeReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPage.ThemeReceived_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: lens.mojom.OverlayThemeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ShouldShowContextualSearchBox
-lens.mojom.LensPage_ShouldShowContextualSearchBox_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPage.ShouldShowContextualSearchBox_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'should_show', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for PageContentTypeChanged
-lens.mojom.LensPage_PageContentTypeChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPage.PageContentTypeChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'new_page_content_type', packedOffset: 0, packedBitOffset: 0, type: lens.mojom.PageContentTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetPostRegionSelection
-lens.mojom.LensPage_SetPostRegionSelection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPage.SetPostRegionSelection_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: lens.mojom.CenterRotatedBoxSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetTextSelection
-lens.mojom.LensPage_SetTextSelection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPage.SetTextSelection_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'selection_start_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'selection_end_index', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetTranslateMode
-lens.mojom.LensPage_SetTranslateMode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPage.SetTranslateMode_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'source_language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'target_language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ClearRegionSelection
-lens.mojom.LensPage_ClearRegionSelection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPage.ClearRegionSelection_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for ClearTextSelection
-lens.mojom.LensPage_ClearTextSelection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPage.ClearTextSelection_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for ClearAllSelections
-lens.mojom.LensPage_ClearAllSelections_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPage.ClearAllSelections_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnCopyCommand
-lens.mojom.LensPage_OnCopyCommand_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPage.OnCopyCommand_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SuppressGhostLoader
-lens.mojom.LensPage_SuppressGhostLoader_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPage.SuppressGhostLoader_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnOverlayReshown
-lens.mojom.LensPage_OnOverlayReshown_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensPage.OnOverlayReshown_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'screenshot_data', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapMappedFromTrustedProcessSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 lens.mojom.LensPagePtr = lens.mojom.LensPageRemote;
 lens.mojom.LensPageRequest = lens.mojom.LensPagePendingReceiver;
 

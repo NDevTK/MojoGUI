@@ -9,558 +9,450 @@ var viz = viz || {};
 viz.mojom = viz.mojom || {};
 var skia = skia || {};
 var skia = skia || {};
+var services = services || {};
 var ui = ui || {};
 var gfx = gfx || {};
 var ui = ui || {};
 var gfx = gfx || {};
 var ui = ui || {};
 var gfx = gfx || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 var ui = ui || {};
 var gfx = gfx || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+viz.mojom.LayerExtraSpec = { $: {} };
+viz.mojom.RarePropertiesSpec = { $: {} };
+viz.mojom.MirrorLayerExtraSpec = { $: {} };
+viz.mojom.SurfaceLayerExtraSpec = { $: {} };
+viz.mojom.TextureLayerExtraSpec = { $: {} };
+viz.mojom.UIResourceLayerExtraSpec = { $: {} };
+viz.mojom.TileDisplayLayerExtraSpec = { $: {} };
+viz.mojom.ScrollbarLayerBaseExtraSpec = { $: {} };
+viz.mojom.NinePatchThumbScrollbarLayerExtraSpec = { $: {} };
+viz.mojom.PaintedScrollbarLayerExtraSpec = { $: {} };
+viz.mojom.SolidColorScrollbarLayerExtraSpec = { $: {} };
+viz.mojom.ViewTransitionContentLayerExtraSpec = { $: {} };
+viz.mojom.NinePatchLayerExtraSpec = { $: {} };
+viz.mojom.LayerSpec = { $: {} };
+viz.mojom.AnchorPositionScrollDataSpec = { $: {} };
+viz.mojom.StickyPositionNodeDataSpec = { $: {} };
+viz.mojom.TransformTreeUpdateSpec = { $: {} };
+viz.mojom.TransformNodeSpec = { $: {} };
+viz.mojom.ClipNodeSpec = { $: {} };
+viz.mojom.EffectNodeSpec = { $: {} };
+viz.mojom.ScrollTreeUpdateSpec = { $: {} };
+viz.mojom.ScrollNodeSpec = { $: {} };
 
 // Union: LayerExtra
-viz.mojom.LayerExtraSpec = { $: mojo.internal.Union(
-    'viz.mojom.LayerExtra', {
+mojo.internal.Union(
+    viz.mojom.LayerExtraSpec, 'viz.mojom.LayerExtra', {
       'mirror_layer_extra': {
         'ordinal': 0,
         'type': viz.mojom.MirrorLayerExtraSpec,
-      }},
+        'nullable': false,
+      },
       'nine_patch_thumb_scrollbar_layer_extra': {
         'ordinal': 1,
         'type': viz.mojom.NinePatchThumbScrollbarLayerExtraSpec,
-      }},
+        'nullable': false,
+      },
       'painted_scrollbar_layer_extra': {
         'ordinal': 2,
         'type': viz.mojom.PaintedScrollbarLayerExtraSpec,
-      }},
+        'nullable': false,
+      },
       'solid_color_scrollbar_layer_extra': {
         'ordinal': 3,
         'type': viz.mojom.SolidColorScrollbarLayerExtraSpec,
-      }},
+        'nullable': false,
+      },
       'surface_layer_extra': {
         'ordinal': 4,
         'type': viz.mojom.SurfaceLayerExtraSpec,
-      }},
+        'nullable': false,
+      },
       'texture_layer_extra': {
         'ordinal': 5,
         'type': viz.mojom.TextureLayerExtraSpec,
-      }},
+        'nullable': false,
+      },
       'ui_resource_layer_extra': {
         'ordinal': 6,
         'type': viz.mojom.UIResourceLayerExtraSpec,
-      }},
+        'nullable': false,
+      },
       'tile_display_layer_extra': {
         'ordinal': 7,
         'type': viz.mojom.TileDisplayLayerExtraSpec,
-      }},
+        'nullable': false,
+      },
       'view_transition_content_layer_extra': {
         'ordinal': 8,
         'type': viz.mojom.ViewTransitionContentLayerExtraSpec,
-      }},
+        'nullable': false,
+      },
       'nine_patch_layer_extra': {
         'ordinal': 9,
         'type': viz.mojom.NinePatchLayerExtraSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: RareProperties
-viz.mojom.RarePropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.RareProperties',
-      packedSize: 32,
-      fields: [
-        { name: 'filter_quality', packedOffset: 16, packedBitOffset: 0, type: cc.mojom.FilterQualitySpec, nullable: false, minVersion: 0 },
-        { name: 'dynamic_range_limit', packedOffset: 0, packedBitOffset: 0, type: cc.mojom.DynamicRangeLimitSpec, nullable: false, minVersion: 0 },
-        { name: 'capture_bounds', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.RegionCaptureBoundsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.RarePropertiesSpec, 'viz.mojom.RareProperties', [
+      mojo.internal.StructField('filter_quality', 16, 0, cc.mojom.FilterQualitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('dynamic_range_limit', 0, 0, cc.mojom.DynamicRangeLimitSpec, null, false, 0, undefined),
+      mojo.internal.StructField('capture_bounds', 8, 0, viz.mojom.RegionCaptureBoundsSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: MirrorLayerExtra
-viz.mojom.MirrorLayerExtraSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.MirrorLayerExtra',
-      packedSize: 16,
-      fields: [
-        { name: 'mirrored_layer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.MirrorLayerExtraSpec, 'viz.mojom.MirrorLayerExtra', [
+      mojo.internal.StructField('mirrored_layer_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: SurfaceLayerExtra
-viz.mojom.SurfaceLayerExtraSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.SurfaceLayerExtra',
-      packedSize: 24,
-      fields: [
-        { name: 'surface_range', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.SurfaceRangeSpec, nullable: false, minVersion: 0 },
-        { name: 'deadline_in_frames_$flag', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'deadline_in_frames_$value', originalFieldName: 'deadline_in_frames' } },
-        { name: 'deadline_in_frames_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'deadline_in_frames_$flag', originalFieldName: 'deadline_in_frames' } },
-        { name: 'stretch_content_to_fill_bounds', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'surface_hit_testable', packedOffset: 12, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_pointer_events_none', packedOffset: 12, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_reflection', packedOffset: 12, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'will_draw_needs_reset', packedOffset: 12, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'override_child_paint_flags', packedOffset: 12, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.SurfaceLayerExtraSpec, 'viz.mojom.SurfaceLayerExtra', [
+      mojo.internal.StructField('surface_range', 0, 0, viz.mojom.SurfaceRangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('deadline_in_frames_$flag', 12, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'deadline_in_frames_$value', originalFieldName: 'deadline_in_frames' }),
+      mojo.internal.StructField('deadline_in_frames_$value', 8, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'deadline_in_frames_$flag', originalFieldName: 'deadline_in_frames' }),
+      mojo.internal.StructField('stretch_content_to_fill_bounds', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('surface_hit_testable', 12, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_pointer_events_none', 12, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_reflection', 12, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('will_draw_needs_reset', 12, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('override_child_paint_flags', 12, 6, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: TextureLayerExtra
-viz.mojom.TextureLayerExtraSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.TextureLayerExtra',
-      packedSize: 40,
-      fields: [
-        { name: 'blend_background_color', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'force_texture_to_opaque', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'uv_top_left', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'uv_bottom_right', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'update_transferable_resource', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'transferable_resource', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.TransferableResourceSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.TextureLayerExtraSpec, 'viz.mojom.TextureLayerExtra', [
+      mojo.internal.StructField('blend_background_color', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('force_texture_to_opaque', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('uv_top_left', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('uv_bottom_right', 8, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('update_transferable_resource', 24, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('transferable_resource', 16, 0, viz.mojom.TransferableResourceSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: UIResourceLayerExtra
-viz.mojom.UIResourceLayerExtraSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.UIResourceLayerExtra',
-      packedSize: 40,
-      fields: [
-        { name: 'ui_resource_id', packedOffset: 0, packedBitOffset: 0, type: cc.mojom.UIResourceIdSpec, nullable: false, minVersion: 0 },
-        { name: 'image_bounds', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'uv_top_left', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'uv_bottom_right', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.UIResourceLayerExtraSpec, 'viz.mojom.UIResourceLayerExtra', [
+      mojo.internal.StructField('ui_resource_id', 0, 0, cc.mojom.UIResourceIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('image_bounds', 8, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('uv_top_left', 16, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('uv_bottom_right', 24, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: TileDisplayLayerExtra
-viz.mojom.TileDisplayLayerExtraSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.TileDisplayLayerExtra',
-      packedSize: 40,
-      fields: [
-        { name: 'solid_color', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.SkColor4fSpec, nullable: true, minVersion: 0 },
-        { name: 'is_backdrop_filter_mask', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_directly_composited_image', packedOffset: 28, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'nearest_neighbor', packedOffset: 28, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'content_color_usage', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.ContentColorUsageSpec, nullable: false, minVersion: 0 },
-        { name: 'recorded_bounds', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'proposed_tiling_scales_for_deletion', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Float, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.TileDisplayLayerExtraSpec, 'viz.mojom.TileDisplayLayerExtra', [
+      mojo.internal.StructField('solid_color', 0, 0, skia.mojom.SkColor4fSpec, null, true, 0, undefined),
+      mojo.internal.StructField('is_backdrop_filter_mask', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_directly_composited_image', 28, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('nearest_neighbor', 28, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('content_color_usage', 24, 0, gfx.mojom.ContentColorUsageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('recorded_bounds', 8, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('proposed_tiling_scales_for_deletion', 16, 0, mojo.internal.Array(mojo.internal.Float, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: ScrollbarLayerBaseExtra
-viz.mojom.ScrollbarLayerBaseExtraSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.ScrollbarLayerBaseExtra',
-      packedSize: 40,
-      fields: [
-        { name: 'scroll_element_id', packedOffset: 0, packedBitOffset: 0, type: cc.mojom.ElementIdSpec, nullable: false, minVersion: 0 },
-        { name: 'is_overlay_scrollbar', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_web_test', packedOffset: 28, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'thumb_thickness_scale_factor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'current_pos', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'clip_layer_length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'scroll_layer_length', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'is_horizontal_orientation', packedOffset: 28, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_left_side_vertical_scrollbar', packedOffset: 28, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'vertical_adjust', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'has_find_in_page_tickmarks', packedOffset: 28, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.ScrollbarLayerBaseExtraSpec, 'viz.mojom.ScrollbarLayerBaseExtra', [
+      mojo.internal.StructField('scroll_element_id', 0, 0, cc.mojom.ElementIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_overlay_scrollbar', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_web_test', 28, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('thumb_thickness_scale_factor', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('current_pos', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('clip_layer_length', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('scroll_layer_length', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('is_horizontal_orientation', 28, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_left_side_vertical_scrollbar', 28, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('vertical_adjust', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('has_find_in_page_tickmarks', 28, 4, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: NinePatchThumbScrollbarLayerExtra
-viz.mojom.NinePatchThumbScrollbarLayerExtraSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.NinePatchThumbScrollbarLayerExtra',
-      packedSize: 64,
-      fields: [
-        { name: 'scrollbar_base_extra', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.ScrollbarLayerBaseExtraSpec, nullable: false, minVersion: 0 },
-        { name: 'thumb_thickness', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'minimum_thumb_length', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'track_start', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'track_length', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'image_bounds', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'aperture', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'thumb_ui_resource_id', packedOffset: 24, packedBitOffset: 0, type: cc.mojom.UIResourceIdSpec, nullable: false, minVersion: 0 },
-        { name: 'track_and_buttons_ui_resource_id', packedOffset: 32, packedBitOffset: 0, type: cc.mojom.UIResourceIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.NinePatchThumbScrollbarLayerExtraSpec, 'viz.mojom.NinePatchThumbScrollbarLayerExtra', [
+      mojo.internal.StructField('scrollbar_base_extra', 0, 0, viz.mojom.ScrollbarLayerBaseExtraSpec, null, false, 0, undefined),
+      mojo.internal.StructField('thumb_thickness', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('minimum_thumb_length', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('track_start', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('track_length', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('image_bounds', 8, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('aperture', 16, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('thumb_ui_resource_id', 24, 0, cc.mojom.UIResourceIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('track_and_buttons_ui_resource_id', 32, 0, cc.mojom.UIResourceIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 64]]);
 
 // Struct: PaintedScrollbarLayerExtra
-viz.mojom.PaintedScrollbarLayerExtraSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.PaintedScrollbarLayerExtra',
-      packedSize: 112,
-      fields: [
-        { name: 'scrollbar_base_extra', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.ScrollbarLayerBaseExtraSpec, nullable: false, minVersion: 0 },
-        { name: 'internal_contents_scale', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'internal_content_bounds', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'jump_on_track_click', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'supports_drag_snap_back', packedOffset: 96, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'thumb_thickness', packedOffset: 84, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'minimum_thumb_length', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'back_button_rect', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'forward_button_rect', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'track_rect', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'thumb_color', packedOffset: 40, packedBitOffset: 0, type: skia.mojom.SkColor4fSpec, nullable: true, minVersion: 0 },
-        { name: 'uses_nine_patch_track_and_buttons', packedOffset: 96, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'track_and_buttons_image_bounds', packedOffset: 48, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'track_and_buttons_aperture', packedOffset: 56, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'painted_opacity', packedOffset: 92, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'track_and_buttons_ui_resource_id', packedOffset: 64, packedBitOffset: 0, type: cc.mojom.UIResourceIdSpec, nullable: false, minVersion: 0 },
-        { name: 'thumb_ui_resource_id', packedOffset: 72, packedBitOffset: 0, type: cc.mojom.UIResourceIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 112}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.PaintedScrollbarLayerExtraSpec, 'viz.mojom.PaintedScrollbarLayerExtra', [
+      mojo.internal.StructField('scrollbar_base_extra', 0, 0, viz.mojom.ScrollbarLayerBaseExtraSpec, null, false, 0, undefined),
+      mojo.internal.StructField('internal_contents_scale', 80, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('internal_content_bounds', 8, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('jump_on_track_click', 96, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('supports_drag_snap_back', 96, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('thumb_thickness', 84, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('minimum_thumb_length', 88, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('back_button_rect', 16, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('forward_button_rect', 24, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('track_rect', 32, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('thumb_color', 40, 0, skia.mojom.SkColor4fSpec, null, true, 0, undefined),
+      mojo.internal.StructField('uses_nine_patch_track_and_buttons', 96, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('track_and_buttons_image_bounds', 48, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('track_and_buttons_aperture', 56, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('painted_opacity', 92, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('track_and_buttons_ui_resource_id', 64, 0, cc.mojom.UIResourceIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('thumb_ui_resource_id', 72, 0, cc.mojom.UIResourceIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 112]]);
 
 // Struct: SolidColorScrollbarLayerExtra
-viz.mojom.SolidColorScrollbarLayerExtraSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.SolidColorScrollbarLayerExtra',
-      packedSize: 32,
-      fields: [
-        { name: 'scrollbar_base_extra', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.ScrollbarLayerBaseExtraSpec, nullable: false, minVersion: 0 },
-        { name: 'thumb_thickness', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'track_start', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'color', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkColor4fSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.SolidColorScrollbarLayerExtraSpec, 'viz.mojom.SolidColorScrollbarLayerExtra', [
+      mojo.internal.StructField('scrollbar_base_extra', 0, 0, viz.mojom.ScrollbarLayerBaseExtraSpec, null, false, 0, undefined),
+      mojo.internal.StructField('thumb_thickness', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('track_start', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('color', 8, 0, skia.mojom.SkColor4fSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: ViewTransitionContentLayerExtra
-viz.mojom.ViewTransitionContentLayerExtraSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.ViewTransitionContentLayerExtra',
-      packedSize: 32,
-      fields: [
-        { name: 'resource_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.ViewTransitionElementResourceIdSpec, nullable: false, minVersion: 0 },
-        { name: 'is_live_content_layer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'max_extents_rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.ViewTransitionContentLayerExtraSpec, 'viz.mojom.ViewTransitionContentLayerExtra', [
+      mojo.internal.StructField('resource_id', 0, 0, viz.mojom.ViewTransitionElementResourceIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_live_content_layer', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('max_extents_rect', 8, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: NinePatchLayerExtra
-viz.mojom.NinePatchLayerExtraSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.NinePatchLayerExtra',
-      packedSize: 72,
-      fields: [
-        { name: 'image_aperture', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'border', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'layer_occlusion', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'fill_center', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'ui_resource_id', packedOffset: 24, packedBitOffset: 0, type: cc.mojom.UIResourceIdSpec, nullable: false, minVersion: 0 },
-        { name: 'image_bounds', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'uv_top_left', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'uv_bottom_right', packedOffset: 48, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 72}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.NinePatchLayerExtraSpec, 'viz.mojom.NinePatchLayerExtra', [
+      mojo.internal.StructField('image_aperture', 0, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('border', 8, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('layer_occlusion', 16, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('fill_center', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('ui_resource_id', 24, 0, cc.mojom.UIResourceIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('image_bounds', 32, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('uv_top_left', 40, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('uv_bottom_right', 48, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+    ],
+    [[0, 72]]);
 
 // Struct: Layer
-viz.mojom.LayerSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.Layer',
-      packedSize: 120,
-      fields: [
-        { name: 'id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 80, packedBitOffset: 0, type: cc.mojom.LayerTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'bounds', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'contents_opaque', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'contents_opaque_for_text', packedOffset: 104, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_drawable', packedOffset: 104, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'layer_property_changed_not_from_property_trees', packedOffset: 104, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'layer_property_changed_from_property_trees', packedOffset: 104, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'hit_test_opaqueness', packedOffset: 84, packedBitOffset: 0, type: cc.mojom.HitTestOpaquenessSpec, nullable: false, minVersion: 0 },
-        { name: 'background_color', packedOffset: 32, packedBitOffset: 0, type: skia.mojom.SkColor4fSpec, nullable: false, minVersion: 0 },
-        { name: 'safe_opaque_background_color', packedOffset: 40, packedBitOffset: 0, type: skia.mojom.SkColor4fSpec, nullable: false, minVersion: 0 },
-        { name: 'element_id', packedOffset: 48, packedBitOffset: 0, type: cc.mojom.ElementIdSpec, nullable: false, minVersion: 0 },
-        { name: 'update_rect', packedOffset: 56, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'offset_to_transform_parent', packedOffset: 64, packedBitOffset: 0, type: gfx.mojom.Vector2dFSpec, nullable: false, minVersion: 0 },
-        { name: 'transform_tree_index', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'clip_tree_index', packedOffset: 92, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'effect_tree_index', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'scroll_tree_index', packedOffset: 100, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'should_check_backface_visibility', packedOffset: 104, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'rare_properties', packedOffset: 72, packedBitOffset: 0, type: viz.mojom.RarePropertiesSpec, nullable: true, minVersion: 0 },
-        { name: 'layer_extra', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.LayerExtraSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 120}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.LayerSpec, 'viz.mojom.Layer', [
+      mojo.internal.StructField('id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('type', 80, 0, cc.mojom.LayerTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bounds', 24, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('contents_opaque', 104, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('contents_opaque_for_text', 104, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_drawable', 104, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('layer_property_changed_not_from_property_trees', 104, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('layer_property_changed_from_property_trees', 104, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('hit_test_opaqueness', 84, 0, cc.mojom.HitTestOpaquenessSpec, null, false, 0, undefined),
+      mojo.internal.StructField('background_color', 32, 0, skia.mojom.SkColor4fSpec, null, false, 0, undefined),
+      mojo.internal.StructField('safe_opaque_background_color', 40, 0, skia.mojom.SkColor4fSpec, null, false, 0, undefined),
+      mojo.internal.StructField('element_id', 48, 0, cc.mojom.ElementIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('update_rect', 56, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('offset_to_transform_parent', 64, 0, gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('transform_tree_index', 88, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('clip_tree_index', 92, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('effect_tree_index', 96, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('scroll_tree_index', 100, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('should_check_backface_visibility', 104, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('rare_properties', 72, 0, viz.mojom.RarePropertiesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('layer_extra', 0, 0, viz.mojom.LayerExtraSpec, null, true, 0, undefined),
+    ],
+    [[0, 120]]);
 
 // Struct: AnchorPositionScrollData
-viz.mojom.AnchorPositionScrollDataSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.AnchorPositionScrollData',
-      packedSize: 32,
-      fields: [
-        { name: 'adjustment_container_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(cc.mojom.ElementIdSpec, false), nullable: false, minVersion: 0 },
-        { name: 'accumulated_scroll_origin', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.Vector2dSpec, nullable: false, minVersion: 0 },
-        { name: 'needs_scroll_adjustment_in_x', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'needs_scroll_adjustment_in_y', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.AnchorPositionScrollDataSpec, 'viz.mojom.AnchorPositionScrollData', [
+      mojo.internal.StructField('adjustment_container_ids', 0, 0, mojo.internal.Array(cc.mojom.ElementIdSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('accumulated_scroll_origin', 8, 0, gfx.mojom.Vector2dSpec, null, false, 0, undefined),
+      mojo.internal.StructField('needs_scroll_adjustment_in_x', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('needs_scroll_adjustment_in_y', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: StickyPositionNodeData
-viz.mojom.StickyPositionNodeDataSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.StickyPositionNodeData',
-      packedSize: 88,
-      fields: [
-        { name: 'scroll_ancestor', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'is_anchored_left', packedOffset: 76, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_anchored_right', packedOffset: 76, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_anchored_top', packedOffset: 76, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_anchored_bottom', packedOffset: 76, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'left_offset', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'right_offset', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'top_offset', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'bottom_offset', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'constraint_box_rect', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
-        { name: 'scroll_container_relative_sticky_box_rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
-        { name: 'scroll_container_relative_containing_block_rect', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
-        { name: 'pixel_snap_offset', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.Vector2dFSpec, nullable: false, minVersion: 0 },
-        { name: 'nearest_node_shifting_sticky_box', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'nearest_node_shifting_containing_block', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'total_sticky_box_sticky_offset', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.Vector2dFSpec, nullable: false, minVersion: 0 },
-        { name: 'total_containing_block_sticky_offset', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.Vector2dFSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 88}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.StickyPositionNodeDataSpec, 'viz.mojom.StickyPositionNodeData', [
+      mojo.internal.StructField('scroll_ancestor', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_anchored_left', 76, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_anchored_right', 76, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_anchored_top', 76, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_anchored_bottom', 76, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('left_offset', 52, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('right_offset', 56, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('top_offset', 60, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('bottom_offset', 64, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('constraint_box_rect', 0, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scroll_container_relative_sticky_box_rect', 8, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scroll_container_relative_containing_block_rect', 16, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pixel_snap_offset', 24, 0, gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('nearest_node_shifting_sticky_box', 68, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('nearest_node_shifting_containing_block', 72, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('total_sticky_box_sticky_offset', 32, 0, gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('total_containing_block_sticky_offset', 40, 0, gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
+    ],
+    [[0, 88]]);
 
 // Struct: TransformTreeUpdate
-viz.mojom.TransformTreeUpdateSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.TransformTreeUpdate',
-      packedSize: 64,
-      fields: [
-        { name: 'page_scale_factor', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'device_scale_factor', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'device_transform_scale_factor', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'nodes_affected_by_outer_viewport_bounds_delta', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int32, false), nullable: false, minVersion: 0 },
-        { name: 'nodes_affected_by_safe_area_bottom', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int32, false), nullable: false, minVersion: 0 },
-        { name: 'sticky_position_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.StickyPositionNodeDataSpec, false), nullable: false, minVersion: 0 },
-        { name: 'anchor_position_scroll_data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.AnchorPositionScrollDataSpec, false), nullable: false, minVersion: 0 },
-        { name: 'drawn_elastic_overscroll', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Map(cc.mojom.ElementIdSpec, gfx.mojom.Vector2dFSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.TransformTreeUpdateSpec, 'viz.mojom.TransformTreeUpdate', [
+      mojo.internal.StructField('page_scale_factor', 40, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('device_scale_factor', 44, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('device_transform_scale_factor', 48, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('nodes_affected_by_outer_viewport_bounds_delta', 0, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
+      mojo.internal.StructField('nodes_affected_by_safe_area_bottom', 8, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
+      mojo.internal.StructField('sticky_position_data', 16, 0, mojo.internal.Array(viz.mojom.StickyPositionNodeDataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('anchor_position_scroll_data', 24, 0, mojo.internal.Array(viz.mojom.AnchorPositionScrollDataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('drawn_elastic_overscroll', 32, 0, mojo.internal.Map(cc.mojom.ElementIdSpec, gfx.mojom.Vector2dFSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 64]]);
 
 // Struct: TransformNode
-viz.mojom.TransformNodeSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.TransformNode',
-      packedSize: 112,
-      fields: [
-        { name: 'id', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'parent_id', packedOffset: 76, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'parent_frame_id', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'element_id', packedOffset: 0, packedBitOffset: 0, type: cc.mojom.ElementIdSpec, nullable: false, minVersion: 0 },
-        { name: 'local', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: false, minVersion: 0 },
-        { name: 'origin', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.Point3FSpec, nullable: false, minVersion: 0 },
-        { name: 'post_translation', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.Vector2dFSpec, nullable: false, minVersion: 0 },
-        { name: 'to_parent', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: false, minVersion: 0 },
-        { name: 'scroll_offset', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'snap_amount', packedOffset: 48, packedBitOffset: 0, type: gfx.mojom.Vector2dFSpec, nullable: false, minVersion: 0 },
-        { name: 'sticky_position_constraint_id_$flag', packedOffset: 100, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'sticky_position_constraint_id_$value', originalFieldName: 'sticky_position_constraint_id' } },
-        { name: 'sticky_position_constraint_id_$value', packedOffset: 84, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'sticky_position_constraint_id_$flag', originalFieldName: 'sticky_position_constraint_id' } },
-        { name: 'anchor_position_scroll_data_id_$flag', packedOffset: 100, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'anchor_position_scroll_data_id_$value', originalFieldName: 'anchor_position_scroll_data_id' } },
-        { name: 'anchor_position_scroll_data_id_$value', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'anchor_position_scroll_data_id_$flag', originalFieldName: 'anchor_position_scroll_data_id' } },
-        { name: 'sorting_context_id', packedOffset: 92, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'has_potential_animation', packedOffset: 100, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_currently_animating', packedOffset: 100, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'flattens_inherited_transform', packedOffset: 100, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'scrolls', packedOffset: 100, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'should_undo_overscroll', packedOffset: 100, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'should_be_snapped', packedOffset: 100, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'moved_by_outer_viewport_bounds_delta_y', packedOffset: 101, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'in_subtree_of_page_scale_layer', packedOffset: 101, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'transform_changed', packedOffset: 101, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'delegates_to_parent_for_backface', packedOffset: 101, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'will_change_transform', packedOffset: 101, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'maximum_animation_scale', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'node_and_ancestors_are_animated_or_invertible', packedOffset: 101, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_invertible', packedOffset: 101, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'ancestors_are_invertible', packedOffset: 101, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'node_and_ancestors_are_flat', packedOffset: 102, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'node_or_ancestors_will_change_transform', packedOffset: 102, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'visible_frame_element_id', packedOffset: 56, packedBitOffset: 0, type: cc.mojom.ElementIdSpec, nullable: false, minVersion: 0 },
-        { name: 'damage_reasons_bit_mask', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'moved_by_safe_area_bottom', packedOffset: 102, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 112}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.TransformNodeSpec, 'viz.mojom.TransformNode', [
+      mojo.internal.StructField('id', 72, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('parent_id', 76, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('parent_frame_id', 80, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('element_id', 0, 0, cc.mojom.ElementIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('local', 8, 0, gfx.mojom.TransformSpec, null, false, 0, undefined),
+      mojo.internal.StructField('origin', 16, 0, gfx.mojom.Point3FSpec, null, false, 0, undefined),
+      mojo.internal.StructField('post_translation', 24, 0, gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('to_parent', 32, 0, gfx.mojom.TransformSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scroll_offset', 40, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('snap_amount', 48, 0, gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('sticky_position_constraint_id_$flag', 100, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'sticky_position_constraint_id_$value', originalFieldName: 'sticky_position_constraint_id' }),
+      mojo.internal.StructField('sticky_position_constraint_id_$value', 84, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'sticky_position_constraint_id_$flag', originalFieldName: 'sticky_position_constraint_id' }),
+      mojo.internal.StructField('anchor_position_scroll_data_id_$flag', 100, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'anchor_position_scroll_data_id_$value', originalFieldName: 'anchor_position_scroll_data_id' }),
+      mojo.internal.StructField('anchor_position_scroll_data_id_$value', 88, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'anchor_position_scroll_data_id_$flag', originalFieldName: 'anchor_position_scroll_data_id' }),
+      mojo.internal.StructField('sorting_context_id', 92, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('has_potential_animation', 100, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_currently_animating', 100, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('flattens_inherited_transform', 100, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('scrolls', 100, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('should_undo_overscroll', 100, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('should_be_snapped', 100, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('moved_by_outer_viewport_bounds_delta_y', 101, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('in_subtree_of_page_scale_layer', 101, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('transform_changed', 101, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('delegates_to_parent_for_backface', 101, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('will_change_transform', 101, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('maximum_animation_scale', 96, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('node_and_ancestors_are_animated_or_invertible', 101, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_invertible', 101, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('ancestors_are_invertible', 101, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('node_and_ancestors_are_flat', 102, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('node_or_ancestors_will_change_transform', 102, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('visible_frame_element_id', 56, 0, cc.mojom.ElementIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('damage_reasons_bit_mask', 64, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('moved_by_safe_area_bottom', 102, 2, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 112]]);
 
 // Struct: ClipNode
-viz.mojom.ClipNodeSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.ClipNode',
-      packedSize: 32,
-      fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'parent_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'transform_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'clip', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
-        { name: 'pixel_moving_filter_id', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.ClipNodeSpec, 'viz.mojom.ClipNode', [
+      mojo.internal.StructField('id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('parent_id', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('transform_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('clip', 0, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pixel_moving_filter_id', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: EffectNode
-viz.mojom.EffectNodeSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.EffectNode',
-      packedSize: 160,
-      fields: [
-        { name: 'id', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'parent_id', packedOffset: 92, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'transform_id', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'clip_id', packedOffset: 100, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'element_id', packedOffset: 0, packedBitOffset: 0, type: cc.mojom.ElementIdSpec, nullable: false, minVersion: 0 },
-        { name: 'opacity', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'render_surface_reason', packedOffset: 108, packedBitOffset: 0, type: cc.mojom.RenderSurfaceReasonSpec, nullable: false, minVersion: 0 },
-        { name: 'surface_contents_scale', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.Vector2dFSpec, nullable: false, minVersion: 0 },
-        { name: 'subtree_capture_id', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.SubtreeCaptureIdSpec, nullable: false, minVersion: 0 },
-        { name: 'subtree_size', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'blend_mode', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'target_id', packedOffset: 116, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'view_transition_target_id', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'closest_ancestor_with_cached_render_surface_id', packedOffset: 124, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'closest_ancestor_with_copy_request_id', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'closest_ancestor_being_captured_id', packedOffset: 132, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'closest_ancestor_with_shared_element_id', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'view_transition_element_resource_id', packedOffset: 32, packedBitOffset: 0, type: viz.mojom.ViewTransitionElementResourceIdSpec, nullable: false, minVersion: 0 },
-        { name: 'filters', packedOffset: 40, packedBitOffset: 0, type: viz.mojom.FilterOperationsSpec, nullable: false, minVersion: 0 },
-        { name: 'backdrop_filters', packedOffset: 48, packedBitOffset: 0, type: viz.mojom.FilterOperationsSpec, nullable: false, minVersion: 0 },
-        { name: 'backdrop_filter_bounds', packedOffset: 56, packedBitOffset: 0, type: skia.mojom.SkPathSpec, nullable: true, minVersion: 0 },
-        { name: 'backdrop_filter_quality', packedOffset: 140, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'backdrop_mask_element_id', packedOffset: 64, packedBitOffset: 0, type: cc.mojom.ElementIdSpec, nullable: false, minVersion: 0 },
-        { name: 'mask_filter_info', packedOffset: 72, packedBitOffset: 0, type: gfx.mojom.MaskFilterInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'cache_render_surface', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'double_sided', packedOffset: 144, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'trilinear_filtering', packedOffset: 144, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'subtree_hidden', packedOffset: 144, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_potential_filter_animation', packedOffset: 144, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_potential_backdrop_filter_animation', packedOffset: 144, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_potential_opacity_animation', packedOffset: 144, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'effect_changed', packedOffset: 144, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'subtree_has_copy_request', packedOffset: 145, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_fast_rounded_corner', packedOffset: 145, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'may_have_backdrop_effect', packedOffset: 145, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'needs_effect_for_2d_scale_transform', packedOffset: 145, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'copy_output_requests', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.CopyOutputRequestSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 160}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.EffectNodeSpec, 'viz.mojom.EffectNode', [
+      mojo.internal.StructField('id', 88, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('parent_id', 92, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('transform_id', 96, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('clip_id', 100, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('element_id', 0, 0, cc.mojom.ElementIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('opacity', 104, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('render_surface_reason', 108, 0, cc.mojom.RenderSurfaceReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('surface_contents_scale', 8, 0, gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('subtree_capture_id', 16, 0, viz.mojom.SubtreeCaptureIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('subtree_size', 24, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('blend_mode', 112, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('target_id', 116, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('view_transition_target_id', 120, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('closest_ancestor_with_cached_render_surface_id', 124, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('closest_ancestor_with_copy_request_id', 128, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('closest_ancestor_being_captured_id', 132, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('closest_ancestor_with_shared_element_id', 136, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('view_transition_element_resource_id', 32, 0, viz.mojom.ViewTransitionElementResourceIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('filters', 40, 0, viz.mojom.FilterOperationsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('backdrop_filters', 48, 0, viz.mojom.FilterOperationsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('backdrop_filter_bounds', 56, 0, skia.mojom.SkPathSpec, null, true, 0, undefined),
+      mojo.internal.StructField('backdrop_filter_quality', 140, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('backdrop_mask_element_id', 64, 0, cc.mojom.ElementIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mask_filter_info', 72, 0, gfx.mojom.MaskFilterInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cache_render_surface', 144, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('double_sided', 144, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('trilinear_filtering', 144, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('subtree_hidden', 144, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_potential_filter_animation', 144, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_potential_backdrop_filter_animation', 144, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_potential_opacity_animation', 144, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('effect_changed', 144, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('subtree_has_copy_request', 145, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_fast_rounded_corner', 145, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('may_have_backdrop_effect', 145, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('needs_effect_for_2d_scale_transform', 145, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('copy_output_requests', 80, 0, mojo.internal.Array(viz.mojom.CopyOutputRequestSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 160]]);
 
 // Struct: ScrollTreeUpdate
-viz.mojom.ScrollTreeUpdateSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.ScrollTreeUpdate',
-      packedSize: 32,
-      fields: [
-        { name: 'synced_scroll_offsets', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(cc.mojom.ElementIdSpec, cc.mojom.SyncedScrollOffsetSpec, false), nullable: false, minVersion: 0 },
-        { name: 'scrolling_contents_cull_rects', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(cc.mojom.ElementIdSpec, gfx.mojom.RectSpec, false), nullable: false, minVersion: 0 },
-        { name: 'elastic_overscroll', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(cc.mojom.ElementIdSpec, gfx.mojom.Vector2dFSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.ScrollTreeUpdateSpec, 'viz.mojom.ScrollTreeUpdate', [
+      mojo.internal.StructField('synced_scroll_offsets', 0, 0, mojo.internal.Map(cc.mojom.ElementIdSpec, cc.mojom.SyncedScrollOffsetSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('scrolling_contents_cull_rects', 8, 0, mojo.internal.Map(cc.mojom.ElementIdSpec, gfx.mojom.RectSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('elastic_overscroll', 16, 0, mojo.internal.Map(cc.mojom.ElementIdSpec, gfx.mojom.Vector2dFSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: ScrollNode
-viz.mojom.ScrollNodeSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.ScrollNode',
-      packedSize: 48,
-      fields: [
-        { name: 'id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'parent_id', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'transform_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'container_bounds', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'bounds', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'element_id', packedOffset: 16, packedBitOffset: 0, type: cc.mojom.ElementIdSpec, nullable: false, minVersion: 0 },
-        { name: 'max_scroll_offset_affected_by_page_scale', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'scrolls_inner_viewport', packedOffset: 36, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'scrolls_outer_viewport', packedOffset: 36, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'prevent_viewport_scrolling_from_inner', packedOffset: 36, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'user_scrollable_horizontal', packedOffset: 36, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'user_scrollable_vertical', packedOffset: 36, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_composited', packedOffset: 36, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.ScrollNodeSpec, 'viz.mojom.ScrollNode', [
+      mojo.internal.StructField('id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('parent_id', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('transform_id', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('container_bounds', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bounds', 8, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('element_id', 16, 0, cc.mojom.ElementIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('max_scroll_offset_affected_by_page_scale', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('scrolls_inner_viewport', 36, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('scrolls_outer_viewport', 36, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('prevent_viewport_scrolling_from_inner', 36, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('user_scrollable_horizontal', 36, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('user_scrollable_vertical', 36, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_composited', 36, 6, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 48]]);

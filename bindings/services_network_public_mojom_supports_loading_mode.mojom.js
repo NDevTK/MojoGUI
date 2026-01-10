@@ -8,6 +8,8 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+network.mojom.LoadingModeSpec = { $: mojo.internal.Enum() };
+network.mojom.SupportsLoadingModeSpec = { $: {} };
 
 // Enum: LoadingMode
 network.mojom.LoadingMode = {
@@ -18,18 +20,10 @@ network.mojom.LoadingMode = {
   kFencedFrame: 4,
   kPrerenderCrossOriginFrames: 5,
 };
-network.mojom.LoadingModeSpec = { $: mojo.internal.Enum() };
 
 // Struct: SupportsLoadingMode
-network.mojom.SupportsLoadingModeSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.SupportsLoadingMode',
-      packedSize: 16,
-      fields: [
-        { name: 'supported_modes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.LoadingModeSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.SupportsLoadingModeSpec, 'network.mojom.SupportsLoadingMode', [
+      mojo.internal.StructField('supported_modes', 0, 0, mojo.internal.Array(network.mojom.LoadingModeSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);

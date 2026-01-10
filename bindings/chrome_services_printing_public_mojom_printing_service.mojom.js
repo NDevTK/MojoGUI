@@ -7,66 +7,46 @@
 // Module namespace
 var printing = printing || {};
 printing.mojom = printing.mojom || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 
+printing.mojom.PrintingService = {};
+printing.mojom.PrintingService.$interfaceName = 'printing.mojom.PrintingService';
+printing.mojom.PrintingService_BindPdfNupConverter_ParamsSpec = { $: {} };
+printing.mojom.PrintingService_BindPdfToPwgRasterConverter_ParamsSpec = { $: {} };
+printing.mojom.PrintingService_BindPdfFlattener_ParamsSpec = { $: {} };
+printing.mojom.PrintingService_BindPdfToEmfConverterFactory_ParamsSpec = { $: {} };
 
 printing.mojom.kPrintingServiceSandbox = sandbox.mojom.Sandbox.kPdfConversion;
 
 printing.mojom.kPrintingServiceSandbox = sandbox.mojom.Sandbox.kUtility;
 
 // Interface: PrintingService
-printing.mojom.PrintingService = {};
+mojo.internal.Struct(
+    printing.mojom.PrintingService_BindPdfNupConverter_ParamsSpec, 'printing.mojom.PrintingService_BindPdfNupConverter_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(printing.mojom.PdfNupConverterRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-printing.mojom.PrintingService_BindPdfNupConverter_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PrintingService_BindPdfNupConverter_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(printing.mojom.PdfNupConverterRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    printing.mojom.PrintingService_BindPdfToPwgRasterConverter_ParamsSpec, 'printing.mojom.PrintingService_BindPdfToPwgRasterConverter_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(printing.mojom.PdfToPwgRasterConverterRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-printing.mojom.PrintingService_BindPdfToPwgRasterConverter_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PrintingService_BindPdfToPwgRasterConverter_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(printing.mojom.PdfToPwgRasterConverterRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    printing.mojom.PrintingService_BindPdfFlattener_ParamsSpec, 'printing.mojom.PrintingService_BindPdfFlattener_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(printing.mojom.PdfFlattenerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-printing.mojom.PrintingService_BindPdfFlattener_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PrintingService_BindPdfFlattener_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(printing.mojom.PdfFlattenerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-printing.mojom.PrintingService_BindPdfToEmfConverterFactory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PrintingService_BindPdfToEmfConverterFactory_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(printing.mojom.PdfToEmfConverterFactoryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    printing.mojom.PrintingService_BindPdfToEmfConverterFactory_ParamsSpec, 'printing.mojom.PrintingService_BindPdfToEmfConverterFactory_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(printing.mojom.PdfToEmfConverterFactoryRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 printing.mojom.PrintingServicePendingReceiver = class {
   constructor(handle) {
@@ -148,63 +128,6 @@ printing.mojom.PrintingService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for BindPdfNupConverter
-printing.mojom.PrintingService_BindPdfNupConverter_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PrintingService.BindPdfNupConverter_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(printing.mojom.PdfNupConverterRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindPdfToPwgRasterConverter
-printing.mojom.PrintingService_BindPdfToPwgRasterConverter_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PrintingService.BindPdfToPwgRasterConverter_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(printing.mojom.PdfToPwgRasterConverterRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindPdfFlattener
-printing.mojom.PrintingService_BindPdfFlattener_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PrintingService.BindPdfFlattener_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(printing.mojom.PdfFlattenerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindPdfToEmfConverterFactory
-printing.mojom.PrintingService_BindPdfToEmfConverterFactory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PrintingService.BindPdfToEmfConverterFactory_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(printing.mojom.PdfToEmfConverterFactoryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 printing.mojom.PrintingServicePtr = printing.mojom.PrintingServiceRemote;
 printing.mojom.PrintingServiceRequest = printing.mojom.PrintingServicePendingReceiver;
 

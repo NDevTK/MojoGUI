@@ -9,22 +9,23 @@ var ui = ui || {};
 ui.mojom = ui.mojom || {};
 var ui = ui || {};
 
+ui.mojom.IMEStructTraitsTest = {};
+ui.mojom.IMEStructTraitsTest.$interfaceName = 'ui.mojom.IMEStructTraitsTest';
+ui.mojom.IMEStructTraitsTest_EchoTextInputType_ParamsSpec = { $: {} };
+ui.mojom.IMEStructTraitsTest_EchoTextInputType_ResponseParamsSpec = { $: {} };
 
 // Interface: IMEStructTraitsTest
-ui.mojom.IMEStructTraitsTest = {};
+mojo.internal.Struct(
+    ui.mojom.IMEStructTraitsTest_EchoTextInputType_ParamsSpec, 'ui.mojom.IMEStructTraitsTest_EchoTextInputType_Params', [
+      mojo.internal.StructField('in', 0, 0, ui.mojom.TextInputTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ui.mojom.IMEStructTraitsTest_EchoTextInputType_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.mojom.IMEStructTraitsTest_EchoTextInputType_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'in', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.TextInputTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ui.mojom.IMEStructTraitsTest_EchoTextInputType_ResponseParamsSpec, 'ui.mojom.IMEStructTraitsTest_EchoTextInputType_ResponseParams', [
+      mojo.internal.StructField('out', 0, 0, ui.mojom.TextInputTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ui.mojom.IMEStructTraitsTestPendingReceiver = class {
   constructor(handle) {
@@ -79,34 +80,6 @@ ui.mojom.IMEStructTraitsTest.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for EchoTextInputType
-ui.mojom.IMEStructTraitsTest_EchoTextInputType_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.mojom.IMEStructTraitsTest.EchoTextInputType_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'in', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.TextInputTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ui.mojom.IMEStructTraitsTest_EchoTextInputType_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.mojom.IMEStructTraitsTest.EchoTextInputType_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'out', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.TextInputTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ui.mojom.IMEStructTraitsTestPtr = ui.mojom.IMEStructTraitsTestRemote;
 ui.mojom.IMEStructTraitsTestRequest = ui.mojom.IMEStructTraitsTestPendingReceiver;
 

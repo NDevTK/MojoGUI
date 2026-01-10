@@ -8,38 +8,44 @@
 var crosapi = crosapi || {};
 crosapi.mojom = crosapi.mojom || {};
 
+crosapi.mojom.SamlUserSessionPropertiesSpec = { $: {} };
+crosapi.mojom.ExternalLogoutRequestObserver = {};
+crosapi.mojom.ExternalLogoutRequestObserver.$interfaceName = 'crosapi.mojom.ExternalLogoutRequestObserver';
+crosapi.mojom.ExternalLogoutRequestObserver_OnRequestExternalLogout_ParamsSpec = { $: {} };
+crosapi.mojom.Login = {};
+crosapi.mojom.Login.$interfaceName = 'crosapi.mojom.Login';
+crosapi.mojom.Login_AddExternalLogoutRequestObserver_ParamsSpec = { $: {} };
+crosapi.mojom.Login_NotifyOnExternalLogoutDone_ParamsSpec = { $: {} };
+crosapi.mojom.Login_REMOVED_0_ParamsSpec = { $: {} };
+crosapi.mojom.Login_REMOVED_0_ResponseParamsSpec = { $: {} };
+crosapi.mojom.Login_REMOVED_4_ParamsSpec = { $: {} };
+crosapi.mojom.Login_REMOVED_4_ResponseParamsSpec = { $: {} };
+crosapi.mojom.Login_REMOVED_5_ParamsSpec = { $: {} };
+crosapi.mojom.Login_REMOVED_5_ResponseParamsSpec = { $: {} };
+crosapi.mojom.Login_REMOVED_6_ParamsSpec = { $: {} };
+crosapi.mojom.Login_REMOVED_6_ResponseParamsSpec = { $: {} };
+crosapi.mojom.Login_REMOVED_7_ParamsSpec = { $: {} };
+crosapi.mojom.Login_REMOVED_7_ResponseParamsSpec = { $: {} };
+crosapi.mojom.Login_REMOVED_10_ParamsSpec = { $: {} };
+crosapi.mojom.Login_REMOVED_10_ResponseParamsSpec = { $: {} };
+crosapi.mojom.Login_REMOVED_12_ParamsSpec = { $: {} };
+crosapi.mojom.Login_REMOVED_12_ResponseParamsSpec = { $: {} };
 
 // Struct: SamlUserSessionProperties
-crosapi.mojom.SamlUserSessionPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.SamlUserSessionProperties',
-      packedSize: 40,
-      fields: [
-        { name: 'email', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'gaia_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'password', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'oauth_code', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.SamlUserSessionPropertiesSpec, 'crosapi.mojom.SamlUserSessionProperties', [
+      mojo.internal.StructField('email', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('gaia_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('password', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('oauth_code', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Interface: ExternalLogoutRequestObserver
-crosapi.mojom.ExternalLogoutRequestObserver = {};
-
-crosapi.mojom.ExternalLogoutRequestObserver_OnRequestExternalLogout_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.ExternalLogoutRequestObserver_OnRequestExternalLogout_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.ExternalLogoutRequestObserver_OnRequestExternalLogout_ParamsSpec, 'crosapi.mojom.ExternalLogoutRequestObserver_OnRequestExternalLogout_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 crosapi.mojom.ExternalLogoutRequestObserverPendingReceiver = class {
   constructor(handle) {
@@ -94,142 +100,105 @@ crosapi.mojom.ExternalLogoutRequestObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnRequestExternalLogout
-crosapi.mojom.ExternalLogoutRequestObserver_OnRequestExternalLogout_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.ExternalLogoutRequestObserver.OnRequestExternalLogout_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 crosapi.mojom.ExternalLogoutRequestObserverPtr = crosapi.mojom.ExternalLogoutRequestObserverRemote;
 crosapi.mojom.ExternalLogoutRequestObserverRequest = crosapi.mojom.ExternalLogoutRequestObserverPendingReceiver;
 
 
 // Interface: Login
-crosapi.mojom.Login = {};
+mojo.internal.Struct(
+    crosapi.mojom.Login_AddExternalLogoutRequestObserver_ParamsSpec, 'crosapi.mojom.Login_AddExternalLogoutRequestObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(crosapi.mojom.ExternalLogoutRequestObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-crosapi.mojom.Login_AddExternalLogoutRequestObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Login_AddExternalLogoutRequestObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(crosapi.mojom.ExternalLogoutRequestObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.Login_NotifyOnExternalLogoutDone_ParamsSpec, 'crosapi.mojom.Login_NotifyOnExternalLogoutDone_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-crosapi.mojom.Login_NotifyOnExternalLogoutDone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Login_NotifyOnExternalLogoutDone_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.Login_REMOVED_0_ParamsSpec, 'crosapi.mojom.Login_REMOVED_0_Params', [
+      mojo.internal.StructField('password', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-crosapi.mojom.Login_REMOVED_0_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Login_REMOVED_0_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'password', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.Login_REMOVED_0_ResponseParamsSpec, 'crosapi.mojom.Login_REMOVED_0_ResponseParams', [
+      mojo.internal.StructField('error', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-crosapi.mojom.Login_REMOVED_4_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Login_REMOVED_4_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'password', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.Login_REMOVED_4_ParamsSpec, 'crosapi.mojom.Login_REMOVED_4_Params', [
+      mojo.internal.StructField('password', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-crosapi.mojom.Login_REMOVED_5_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Login_REMOVED_5_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'password', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.Login_REMOVED_4_ResponseParamsSpec, 'crosapi.mojom.Login_REMOVED_4_ResponseParams', [
+      mojo.internal.StructField('error', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-crosapi.mojom.Login_REMOVED_6_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Login_REMOVED_6_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'password', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.Login_REMOVED_5_ParamsSpec, 'crosapi.mojom.Login_REMOVED_5_Params', [
+      mojo.internal.StructField('password', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-crosapi.mojom.Login_REMOVED_7_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Login_REMOVED_7_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'password', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.Login_REMOVED_5_ResponseParamsSpec, 'crosapi.mojom.Login_REMOVED_5_ResponseParams', [
+      mojo.internal.StructField('error', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-crosapi.mojom.Login_REMOVED_10_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Login_REMOVED_10_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.SamlUserSessionPropertiesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.Login_REMOVED_6_ParamsSpec, 'crosapi.mojom.Login_REMOVED_6_Params', [
+      mojo.internal.StructField('password', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-crosapi.mojom.Login_REMOVED_12_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Login_REMOVED_12_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'password', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.Login_REMOVED_6_ResponseParamsSpec, 'crosapi.mojom.Login_REMOVED_6_ResponseParams', [
+      mojo.internal.StructField('error', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    crosapi.mojom.Login_REMOVED_7_ParamsSpec, 'crosapi.mojom.Login_REMOVED_7_Params', [
+      mojo.internal.StructField('password', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    crosapi.mojom.Login_REMOVED_7_ResponseParamsSpec, 'crosapi.mojom.Login_REMOVED_7_ResponseParams', [
+      mojo.internal.StructField('error', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    crosapi.mojom.Login_REMOVED_10_ParamsSpec, 'crosapi.mojom.Login_REMOVED_10_Params', [
+      mojo.internal.StructField('properties', 0, 0, crosapi.mojom.SamlUserSessionPropertiesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    crosapi.mojom.Login_REMOVED_10_ResponseParamsSpec, 'crosapi.mojom.Login_REMOVED_10_ResponseParams', [
+      mojo.internal.StructField('error', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    crosapi.mojom.Login_REMOVED_12_ParamsSpec, 'crosapi.mojom.Login_REMOVED_12_Params', [
+      mojo.internal.StructField('password', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    crosapi.mojom.Login_REMOVED_12_ResponseParamsSpec, 'crosapi.mojom.Login_REMOVED_12_ResponseParams', [
+      mojo.internal.StructField('error', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 crosapi.mojom.LoginPendingReceiver = class {
   constructor(handle) {
@@ -356,223 +325,6 @@ crosapi.mojom.Login.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddExternalLogoutRequestObserver
-crosapi.mojom.Login_AddExternalLogoutRequestObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Login.AddExternalLogoutRequestObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(crosapi.mojom.ExternalLogoutRequestObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for NotifyOnExternalLogoutDone
-crosapi.mojom.Login_NotifyOnExternalLogoutDone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Login.NotifyOnExternalLogoutDone_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for REMOVED_0
-crosapi.mojom.Login_REMOVED_0_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Login.REMOVED_0_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'password', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-crosapi.mojom.Login_REMOVED_0_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Login.REMOVED_0_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for REMOVED_4
-crosapi.mojom.Login_REMOVED_4_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Login.REMOVED_4_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'password', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-crosapi.mojom.Login_REMOVED_4_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Login.REMOVED_4_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for REMOVED_5
-crosapi.mojom.Login_REMOVED_5_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Login.REMOVED_5_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'password', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-crosapi.mojom.Login_REMOVED_5_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Login.REMOVED_5_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for REMOVED_6
-crosapi.mojom.Login_REMOVED_6_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Login.REMOVED_6_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'password', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-crosapi.mojom.Login_REMOVED_6_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Login.REMOVED_6_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for REMOVED_7
-crosapi.mojom.Login_REMOVED_7_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Login.REMOVED_7_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'password', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-crosapi.mojom.Login_REMOVED_7_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Login.REMOVED_7_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for REMOVED_10
-crosapi.mojom.Login_REMOVED_10_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Login.REMOVED_10_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.SamlUserSessionPropertiesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-crosapi.mojom.Login_REMOVED_10_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Login.REMOVED_10_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for REMOVED_12
-crosapi.mojom.Login_REMOVED_12_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Login.REMOVED_12_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'password', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-crosapi.mojom.Login_REMOVED_12_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Login.REMOVED_12_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 crosapi.mojom.LoginPtr = crosapi.mojom.LoginRemote;
 crosapi.mojom.LoginRequest = crosapi.mojom.LoginPendingReceiver;
 

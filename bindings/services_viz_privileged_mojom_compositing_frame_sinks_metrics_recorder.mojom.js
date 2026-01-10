@@ -7,108 +7,82 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
+var services = services || {};
+var services = services || {};
 
+viz.mojom.FrameCountingPerSinkDataSpec = { $: {} };
+viz.mojom.FrameCountingDataSpec = { $: {} };
+viz.mojom.OverdrawDataSpec = { $: {} };
+viz.mojom.FrameSinksMetricsRecorder = {};
+viz.mojom.FrameSinksMetricsRecorder.$interfaceName = 'viz.mojom.FrameSinksMetricsRecorder';
+viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec = { $: {} };
+viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec = { $: {} };
+viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec = { $: {} };
+viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec = { $: {} };
+viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec = { $: {} };
+viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec = { $: {} };
 
 // Struct: FrameCountingPerSinkData
-viz.mojom.FrameCountingPerSinkDataSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.FrameCountingPerSinkData',
-      packedSize: 32,
-      fields: [
-        { name: 'is_root', packedOffset: 18, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'debug_label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'start_bucket', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'presented_frames', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint16, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.FrameCountingPerSinkDataSpec, 'viz.mojom.FrameCountingPerSinkData', [
+      mojo.internal.StructField('is_root', 18, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('debug_label', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('start_bucket', 16, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('presented_frames', 8, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: FrameCountingData
-viz.mojom.FrameCountingDataSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.FrameCountingData',
-      packedSize: 16,
-      fields: [
-        { name: 'per_sink_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.FrameCountingPerSinkDataSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.FrameCountingDataSpec, 'viz.mojom.FrameCountingData', [
+      mojo.internal.StructField('per_sink_data', 0, 0, mojo.internal.Array(viz.mojom.FrameCountingPerSinkDataSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: OverdrawData
-viz.mojom.OverdrawDataSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.OverdrawData',
-      packedSize: 16,
-      fields: [
-        { name: 'average_overdraws', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Float, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.OverdrawDataSpec, 'viz.mojom.OverdrawData', [
+      mojo.internal.StructField('average_overdraws', 0, 0, mojo.internal.Array(mojo.internal.Float, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: FrameSinksMetricsRecorder
-viz.mojom.FrameSinksMetricsRecorder = {};
+mojo.internal.Struct(
+    viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec, 'viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_Params', [
+      mojo.internal.StructField('start_time', 0, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bucket_size', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'start_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'bucket_size', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec, 'viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec, 'viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParams', [
+      mojo.internal.StructField('data', 0, 0, viz.mojom.FrameCountingDataSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'root_frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
-        { name: 'bucket_size', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec, 'viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_Params', [
+      mojo.internal.StructField('root_frame_sink_id', 0, 0, viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bucket_size', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'root_frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec, 'viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_Params', [
+      mojo.internal.StructField('root_frame_sink_id', 0, 0, viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec, 'viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParams', [
+      mojo.internal.StructField('data', 0, 0, viz.mojom.OverdrawDataSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 viz.mojom.FrameSinksMetricsRecorderPendingReceiver = class {
   constructor(handle) {
@@ -190,90 +164,6 @@ viz.mojom.FrameSinksMetricsRecorder.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for StartFrameCounting
-viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.FrameSinksMetricsRecorder.StartFrameCounting_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'start_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'bucket_size', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for StopFrameCounting
-viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.FrameSinksMetricsRecorder.StopFrameCounting_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.FrameSinksMetricsRecorder.StopFrameCounting_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameCountingDataSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StartOverdrawTracking
-viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.FrameSinksMetricsRecorder.StartOverdrawTracking_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'root_frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
-        { name: 'bucket_size', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for StopOverdrawTracking
-viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.FrameSinksMetricsRecorder.StopOverdrawTracking_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'root_frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.FrameSinksMetricsRecorder.StopOverdrawTracking_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.OverdrawDataSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 viz.mojom.FrameSinksMetricsRecorderPtr = viz.mojom.FrameSinksMetricsRecorderRemote;
 viz.mojom.FrameSinksMetricsRecorderRequest = viz.mojom.FrameSinksMetricsRecorderPendingReceiver;
 

@@ -9,156 +9,137 @@ var crosapi = crosapi || {};
 crosapi.mojom = crosapi.mojom || {};
 var url = url || {};
 
+crosapi.mojom.VideoConferenceAppUpdateSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.VideoConferenceMediaDeviceSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.VideoConferenceAppTypeSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.TitleChangeInfoSpec = { $: {} };
+crosapi.mojom.VideoConferenceClientUpdateSpec = { $: {} };
+crosapi.mojom.VideoConferenceMediaUsageStatusSpec = { $: {} };
+crosapi.mojom.VideoConferenceMediaAppInfoSpec = { $: {} };
+crosapi.mojom.VideoConferenceManagerClient = {};
+crosapi.mojom.VideoConferenceManagerClient.$interfaceName = 'crosapi.mojom.VideoConferenceManagerClient';
+crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ParamsSpec = { $: {} };
+crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ResponseParamsSpec = { $: {} };
+crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ParamsSpec = { $: {} };
+crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ResponseParamsSpec = { $: {} };
+crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ParamsSpec = { $: {} };
+crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ResponseParamsSpec = { $: {} };
+crosapi.mojom.VideoConferenceManagerClient_StopAllScreenShare_ParamsSpec = { $: {} };
 
 // Enum: VideoConferenceAppUpdate
 crosapi.mojom.VideoConferenceAppUpdate = {
-  kAppAdded: 0,
-  kAppRemoved: 1,
+  kNone: 0,
+  kAppAdded: 1,
+  kAppRemoved: 2,
 };
-crosapi.mojom.VideoConferenceAppUpdateSpec = { $: mojo.internal.Enum() };
 
 // Enum: VideoConferenceMediaDevice
 crosapi.mojom.VideoConferenceMediaDevice = {
-  kMicrophone: 0,
-  kCamera: 1,
+  kUnusedDefault: 0,
+  kMicrophone: 1,
+  kCamera: 2,
 };
-crosapi.mojom.VideoConferenceMediaDeviceSpec = { $: mojo.internal.Enum() };
 
 // Enum: VideoConferenceAppType
 crosapi.mojom.VideoConferenceAppType = {
-  kChromeTab: 0,
-  kChromeExtension: 1,
-  kChromeApp: 2,
-  kWebApp: 3,
-  kArcApp: 4,
-  kAppServiceUnknown: 5,
+  kBrowserUnknown: 0,
+  kChromeTab: 1,
+  kChromeExtension: 2,
+  kChromeApp: 3,
+  kWebApp: 4,
+  kArcApp: 5,
+  kAppServiceUnknown: 6,
+  MinVersion: 6,
+  MinVersion: 6,
+  MinVersion: 6,
+  MinVersion: 6,
+  MinVersion: 6,
 };
-crosapi.mojom.VideoConferenceAppTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: TitleChangeInfo
-crosapi.mojom.TitleChangeInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.TitleChangeInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'new_title', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.TitleChangeInfoSpec, 'crosapi.mojom.TitleChangeInfo', [
+      mojo.internal.StructField('id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('new_title', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: VideoConferenceClientUpdate
-crosapi.mojom.VideoConferenceClientUpdateSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.VideoConferenceClientUpdate',
-      packedSize: 24,
-      fields: [
-        { name: 'added_or_removed_app', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.VideoConferenceAppUpdateSpec, nullable: false, minVersion: 0 },
-        { name: 'title_change_info', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.TitleChangeInfoSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.VideoConferenceClientUpdateSpec, 'crosapi.mojom.VideoConferenceClientUpdate', [
+      mojo.internal.StructField('added_or_removed_app', 8, 0, crosapi.mojom.VideoConferenceAppUpdateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('title_change_info', 0, 0, crosapi.mojom.TitleChangeInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: VideoConferenceMediaUsageStatus
-crosapi.mojom.VideoConferenceMediaUsageStatusSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.VideoConferenceMediaUsageStatus',
-      packedSize: 24,
-      fields: [
-        { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'has_media_app', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_camera_permission', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_microphone_permission', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_capturing_camera', packedOffset: 8, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_capturing_microphone', packedOffset: 8, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_capturing_screen', packedOffset: 8, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.VideoConferenceMediaUsageStatusSpec, 'crosapi.mojom.VideoConferenceMediaUsageStatus', [
+      mojo.internal.StructField('client_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('has_media_app', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_camera_permission', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_microphone_permission', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_capturing_camera', 8, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_capturing_microphone', 8, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_capturing_screen', 8, 5, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: VideoConferenceMediaAppInfo
-crosapi.mojom.VideoConferenceMediaAppInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.VideoConferenceMediaAppInfo',
-      packedSize: 48,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'last_activity_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'is_capturing_camera', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_capturing_microphone', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_capturing_screen', packedOffset: 32, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
-        { name: 'app_type', packedOffset: 36, packedBitOffset: 0, type: crosapi.mojom.VideoConferenceAppTypeSpec, nullable: false, minVersion: 1 },
-      ],
-      versions: [{version: 0, packedSize: 48}, {version: 1, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.VideoConferenceMediaAppInfoSpec, 'crosapi.mojom.VideoConferenceMediaAppInfo', [
+      mojo.internal.StructField('id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('last_activity_time', 8, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_capturing_camera', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_capturing_microphone', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_capturing_screen', 32, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('title', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 24, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('app_type', 36, 0, crosapi.mojom.VideoConferenceAppTypeSpec, null, false, 1, undefined),
+    ],
+    [[0, 48], [1, 48]]);
 
 // Interface: VideoConferenceManagerClient
-crosapi.mojom.VideoConferenceManagerClient = {};
+mojo.internal.Struct(
+    crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ParamsSpec, 'crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ResponseParamsSpec, 'crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ResponseParams', [
+      mojo.internal.StructField('apps', 0, 0, mojo.internal.Array(crosapi.mojom.VideoConferenceMediaAppInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ParamsSpec, 'crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_Params', [
+      mojo.internal.StructField('id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'device', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.VideoConferenceMediaDeviceSpec, nullable: false, minVersion: 0 },
-        { name: 'enabled', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ResponseParamsSpec, 'crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-crosapi.mojom.VideoConferenceManagerClient_StopAllScreenShare_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.VideoConferenceManagerClient_StopAllScreenShare_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ParamsSpec, 'crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_Params', [
+      mojo.internal.StructField('device', 0, 0, crosapi.mojom.VideoConferenceMediaDeviceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('enabled', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ResponseParamsSpec, 'crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    crosapi.mojom.VideoConferenceManagerClient_StopAllScreenShare_ParamsSpec, 'crosapi.mojom.VideoConferenceManagerClient_StopAllScreenShare_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 crosapi.mojom.VideoConferenceManagerClientPendingReceiver = class {
   constructor(handle) {
@@ -240,101 +221,6 @@ crosapi.mojom.VideoConferenceManagerClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetMediaApps
-crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.VideoConferenceManagerClient.GetMediaApps_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.VideoConferenceManagerClient.GetMediaApps_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(crosapi.mojom.VideoConferenceMediaAppInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReturnToApp
-crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.VideoConferenceManagerClient.ReturnToApp_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.VideoConferenceManagerClient.ReturnToApp_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetSystemMediaDeviceStatus
-crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.VideoConferenceManagerClient.SetSystemMediaDeviceStatus_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'device', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.VideoConferenceMediaDeviceSpec, nullable: false, minVersion: 0 },
-        { name: 'enabled', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.VideoConferenceManagerClient.SetSystemMediaDeviceStatus_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StopAllScreenShare
-crosapi.mojom.VideoConferenceManagerClient_StopAllScreenShare_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.VideoConferenceManagerClient.StopAllScreenShare_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 crosapi.mojom.VideoConferenceManagerClientPtr = crosapi.mojom.VideoConferenceManagerClientRemote;
 crosapi.mojom.VideoConferenceManagerClientRequest = crosapi.mojom.VideoConferenceManagerClientPendingReceiver;
 

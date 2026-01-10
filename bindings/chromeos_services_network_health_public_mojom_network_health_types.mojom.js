@@ -8,85 +8,64 @@
 var chromeos = chromeos || {};
 chromeos.network_health = chromeos.network_health || {};
 chromeos.network_health.mojom = chromeos.network_health.mojom || {};
+var chromeos = chromeos || {};
+var services = services || {};
 var url = url || {};
 
+chromeos.network_health.mojom.NetworkStateSpec = { $: mojo.internal.Enum() };
+chromeos.network_health.mojom.UInt32ValueSpec = { $: {} };
+chromeos.network_health.mojom.SignalStrengthStatsSpec = { $: {} };
+chromeos.network_health.mojom.NetworkSpec = { $: {} };
+chromeos.network_health.mojom.NetworkHealthStateSpec = { $: {} };
 
 // Enum: NetworkState
 chromeos.network_health.mojom.NetworkState = {
-  kDisabled: 0,
-  kProhibited: 1,
-  kNotConnected: 2,
-  kConnecting: 3,
-  kPortal: 4,
-  kConnected: 5,
-  kOnline: 6,
+  kUninitialized: 0,
+  kDisabled: 1,
+  kProhibited: 2,
+  kNotConnected: 3,
+  kConnecting: 4,
+  kPortal: 5,
+  kConnected: 6,
+  kOnline: 7,
 };
-chromeos.network_health.mojom.NetworkStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: UInt32Value
-chromeos.network_health.mojom.UInt32ValueSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_health.mojom.UInt32Value',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_health.mojom.UInt32ValueSpec, 'chromeos.network_health.mojom.UInt32Value', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: SignalStrengthStats
-chromeos.network_health.mojom.SignalStrengthStatsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_health.mojom.SignalStrengthStats',
-      packedSize: 24,
-      fields: [
-        { name: 'average', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'deviation', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'samples', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_health.mojom.SignalStrengthStatsSpec, 'chromeos.network_health.mojom.SignalStrengthStats', [
+      mojo.internal.StructField('average', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('deviation', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('samples', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: Network
-chromeos.network_health.mojom.NetworkSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_health.mojom.Network',
-      packedSize: 88,
-      fields: [
-        { name: 'type', packedOffset: 48, packedBitOffset: 0, type: chromeos.network_config.mojom.NetworkTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'state', packedOffset: 52, packedBitOffset: 0, type: chromeos.network_health.mojom.NetworkStateSpec, nullable: false, minVersion: 0 },
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'mac_address', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'signal_strength', packedOffset: 24, packedBitOffset: 0, type: chromeos.network_health.mojom.UInt32ValueSpec, nullable: true, minVersion: 0 },
-        { name: 'ipv4_address', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'ipv6_addresses', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'portal_state', packedOffset: 56, packedBitOffset: 0, type: chromeos.network_config.mojom.PortalStateSpec, nullable: false, minVersion: 0 },
-        { name: 'signal_strength_stats', packedOffset: 64, packedBitOffset: 0, type: chromeos.network_health.mojom.SignalStrengthStatsSpec, nullable: true, minVersion: 1 },
-        { name: 'portal_probe_url', packedOffset: 72, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 3 },
-      ],
-      versions: [{version: 0, packedSize: 72}, {version: 1, packedSize: 80}, {version: 3, packedSize: 88}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_health.mojom.NetworkSpec, 'chromeos.network_health.mojom.Network', [
+      mojo.internal.StructField('type', 48, 0, chromeos.network_config.mojom.NetworkTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 52, 0, chromeos.network_health.mojom.NetworkStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('guid', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('mac_address', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('signal_strength', 24, 0, chromeos.network_health.mojom.UInt32ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('ipv4_address', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('ipv6_addresses', 40, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('portal_state', 56, 0, chromeos.network_config.mojom.PortalStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('signal_strength_stats', 64, 0, chromeos.network_health.mojom.SignalStrengthStatsSpec, null, true, 1, undefined),
+      mojo.internal.StructField('portal_probe_url', 72, 0, url.mojom.UrlSpec, null, true, 3, undefined),
+    ],
+    [[0, 72], [1, 80], [3, 88]]);
 
 // Struct: NetworkHealthState
-chromeos.network_health.mojom.NetworkHealthStateSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_health.mojom.NetworkHealthState',
-      packedSize: 16,
-      fields: [
-        { name: 'networks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromeos.network_health.mojom.NetworkSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_health.mojom.NetworkHealthStateSpec, 'chromeos.network_health.mojom.NetworkHealthState', [
+      mojo.internal.StructField('networks', 0, 0, mojo.internal.Array(chromeos.network_health.mojom.NetworkSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);

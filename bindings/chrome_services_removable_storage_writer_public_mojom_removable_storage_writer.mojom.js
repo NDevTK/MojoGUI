@@ -8,6 +8,14 @@
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
 
+chrome.mojom.RemovableStorageWriter = {};
+chrome.mojom.RemovableStorageWriter.$interfaceName = 'chrome.mojom.RemovableStorageWriter';
+chrome.mojom.RemovableStorageWriter_Write_ParamsSpec = { $: {} };
+chrome.mojom.RemovableStorageWriter_Verify_ParamsSpec = { $: {} };
+chrome.mojom.RemovableStorageWriterClient = {};
+chrome.mojom.RemovableStorageWriterClient.$interfaceName = 'chrome.mojom.RemovableStorageWriterClient';
+chrome.mojom.RemovableStorageWriterClient_Progress_ParamsSpec = { $: {} };
+chrome.mojom.RemovableStorageWriterClient_Complete_ParamsSpec = { $: {} };
 
 chrome.mojom.kRemovableStorageWriterSandbox = sandbox.mojom.Sandbox.kNoSandboxAndElevatedPrivileges;
 
@@ -22,37 +30,21 @@ chrome.mojom.kTestDevice = "chrome:
         pending_remote<RemovableStorageWriterClient> client);
 
 // Interface: RemovableStorageWriter
-chrome.mojom.RemovableStorageWriter = {};
+mojo.internal.Struct(
+    chrome.mojom.RemovableStorageWriter_Write_ParamsSpec, 'chrome.mojom.RemovableStorageWriter_Write_Params', [
+      mojo.internal.StructField('source', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('target', 8, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('client', 16, 0, mojo.internal.InterfaceProxy(chrome.mojom.RemovableStorageWriterClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-chrome.mojom.RemovableStorageWriter_Write_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.RemovableStorageWriter_Write_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'target', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chrome.mojom.RemovableStorageWriterClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-chrome.mojom.RemovableStorageWriter_Verify_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.RemovableStorageWriter_Verify_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'target', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chrome.mojom.RemovableStorageWriterClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.RemovableStorageWriter_Verify_ParamsSpec, 'chrome.mojom.RemovableStorageWriter_Verify_Params', [
+      mojo.internal.StructField('source', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('target', 8, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('client', 16, 0, mojo.internal.InterfaceProxy(chrome.mojom.RemovableStorageWriterClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 chrome.mojom.RemovableStorageWriterPendingReceiver = class {
   constructor(handle) {
@@ -116,71 +108,22 @@ chrome.mojom.RemovableStorageWriter.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Write
-chrome.mojom.RemovableStorageWriter_Write_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.RemovableStorageWriter.Write_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'target', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chrome.mojom.RemovableStorageWriterClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for Verify
-chrome.mojom.RemovableStorageWriter_Verify_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.RemovableStorageWriter.Verify_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'target', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chrome.mojom.RemovableStorageWriterClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 chrome.mojom.RemovableStorageWriterPtr = chrome.mojom.RemovableStorageWriterRemote;
 chrome.mojom.RemovableStorageWriterRequest = chrome.mojom.RemovableStorageWriterPendingReceiver;
 
 
 // Interface: RemovableStorageWriterClient
-chrome.mojom.RemovableStorageWriterClient = {};
+mojo.internal.Struct(
+    chrome.mojom.RemovableStorageWriterClient_Progress_ParamsSpec, 'chrome.mojom.RemovableStorageWriterClient_Progress_Params', [
+      mojo.internal.StructField('progress', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chrome.mojom.RemovableStorageWriterClient_Progress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.RemovableStorageWriterClient_Progress_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'progress', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chrome.mojom.RemovableStorageWriterClient_Complete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.RemovableStorageWriterClient_Complete_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.RemovableStorageWriterClient_Complete_ParamsSpec, 'chrome.mojom.RemovableStorageWriterClient_Complete_Params', [
+      mojo.internal.StructField('error', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chrome.mojom.RemovableStorageWriterClientPendingReceiver = class {
   constructor(handle) {
@@ -244,35 +187,6 @@ chrome.mojom.RemovableStorageWriterClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Progress
-chrome.mojom.RemovableStorageWriterClient_Progress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.RemovableStorageWriterClient.Progress_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'progress', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Complete
-chrome.mojom.RemovableStorageWriterClient_Complete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.RemovableStorageWriterClient.Complete_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chrome.mojom.RemovableStorageWriterClientPtr = chrome.mojom.RemovableStorageWriterClientRemote;
 chrome.mojom.RemovableStorageWriterClientRequest = chrome.mojom.RemovableStorageWriterClientPendingReceiver;
 

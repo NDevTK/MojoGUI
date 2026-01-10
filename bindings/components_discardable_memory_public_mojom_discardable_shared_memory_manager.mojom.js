@@ -8,36 +8,31 @@
 var discardable_memory = discardable_memory || {};
 discardable_memory.mojom = discardable_memory.mojom || {};
 
+discardable_memory.mojom.DiscardableSharedMemoryManager = {};
+discardable_memory.mojom.DiscardableSharedMemoryManager.$interfaceName = 'discardable_memory.mojom.DiscardableSharedMemoryManager';
+discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ParamsSpec = { $: {} };
+discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ResponseParamsSpec = { $: {} };
+discardable_memory.mojom.DiscardableSharedMemoryManager_DeletedDiscardableSharedMemory_ParamsSpec = { $: {} };
 
 // Interface: DiscardableSharedMemoryManager
-discardable_memory.mojom.DiscardableSharedMemoryManager = {};
+mojo.internal.Struct(
+    discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ParamsSpec, 'discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_Params', [
+      mojo.internal.StructField('size', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ResponseParamsSpec, 'discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ResponseParams', [
+      mojo.internal.StructField('region', 0, 0, mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-discardable_memory.mojom.DiscardableSharedMemoryManager_DeletedDiscardableSharedMemory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discardable_memory.mojom.DiscardableSharedMemoryManager_DeletedDiscardableSharedMemory_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    discardable_memory.mojom.DiscardableSharedMemoryManager_DeletedDiscardableSharedMemory_ParamsSpec, 'discardable_memory.mojom.DiscardableSharedMemoryManager_DeletedDiscardableSharedMemory_Params', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 discardable_memory.mojom.DiscardableSharedMemoryManagerPendingReceiver = class {
   constructor(handle) {
@@ -101,49 +96,6 @@ discardable_memory.mojom.DiscardableSharedMemoryManager.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AllocateLockedDiscardableSharedMemory
-discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discardable_memory.mojom.DiscardableSharedMemoryManager.AllocateLockedDiscardableSharedMemory_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discardable_memory.mojom.DiscardableSharedMemoryManager.AllocateLockedDiscardableSharedMemory_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DeletedDiscardableSharedMemory
-discardable_memory.mojom.DiscardableSharedMemoryManager_DeletedDiscardableSharedMemory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discardable_memory.mojom.DiscardableSharedMemoryManager.DeletedDiscardableSharedMemory_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 discardable_memory.mojom.DiscardableSharedMemoryManagerPtr = discardable_memory.mojom.DiscardableSharedMemoryManagerRemote;
 discardable_memory.mojom.DiscardableSharedMemoryManagerRequest = discardable_memory.mojom.DiscardableSharedMemoryManagerPendingReceiver;
 

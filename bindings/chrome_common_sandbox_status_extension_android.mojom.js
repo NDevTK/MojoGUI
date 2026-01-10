@@ -8,21 +8,15 @@
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
 
+chrome.mojom.SandboxStatusExtension = {};
+chrome.mojom.SandboxStatusExtension.$interfaceName = 'chrome.mojom.SandboxStatusExtension';
+chrome.mojom.SandboxStatusExtension_AddSandboxStatusExtension_ParamsSpec = { $: {} };
 
 // Interface: SandboxStatusExtension
-chrome.mojom.SandboxStatusExtension = {};
-
-chrome.mojom.SandboxStatusExtension_AddSandboxStatusExtension_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.SandboxStatusExtension_AddSandboxStatusExtension_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.SandboxStatusExtension_AddSandboxStatusExtension_ParamsSpec, 'chrome.mojom.SandboxStatusExtension_AddSandboxStatusExtension_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 chrome.mojom.SandboxStatusExtensionPendingReceiver = class {
   constructor(handle) {
@@ -77,20 +71,6 @@ chrome.mojom.SandboxStatusExtension.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddSandboxStatusExtension
-chrome.mojom.SandboxStatusExtension_AddSandboxStatusExtension_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.SandboxStatusExtension.AddSandboxStatusExtension_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 chrome.mojom.SandboxStatusExtensionPtr = chrome.mojom.SandboxStatusExtensionRemote;
 chrome.mojom.SandboxStatusExtensionRequest = chrome.mojom.SandboxStatusExtensionPendingReceiver;
 

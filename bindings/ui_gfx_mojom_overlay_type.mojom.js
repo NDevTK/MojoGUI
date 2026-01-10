@@ -8,6 +8,7 @@
 var gfx = gfx || {};
 gfx.mojom = gfx.mojom || {};
 
+gfx.mojom.OverlayTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: OverlayType
 gfx.mojom.OverlayType = {
@@ -16,4 +17,3 @@ gfx.mojom.OverlayType = {
   kSingleOnTop: 2,
   kFullScreen: 3,
 };
-gfx.mojom.OverlayTypeSpec = { $: mojo.internal.Enum() };

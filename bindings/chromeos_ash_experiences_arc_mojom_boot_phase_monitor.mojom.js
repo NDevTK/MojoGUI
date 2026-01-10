@@ -8,21 +8,19 @@
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
+arc.mojom.BootPhaseMonitorHost = {};
+arc.mojom.BootPhaseMonitorHost.$interfaceName = 'arc.mojom.BootPhaseMonitorHost';
+arc.mojom.BootPhaseMonitorHost_OnBootCompleted_ParamsSpec = { $: {} };
+arc.mojom.BootPhaseMonitorInstance = {};
+arc.mojom.BootPhaseMonitorInstance.$interfaceName = 'arc.mojom.BootPhaseMonitorInstance';
+arc.mojom.BootPhaseMonitorInstance_Init_ParamsSpec = { $: {} };
+arc.mojom.BootPhaseMonitorInstance_Init_ResponseParamsSpec = { $: {} };
 
 // Interface: BootPhaseMonitorHost
-arc.mojom.BootPhaseMonitorHost = {};
-
-arc.mojom.BootPhaseMonitorHost_OnBootCompleted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.BootPhaseMonitorHost_OnBootCompleted_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.BootPhaseMonitorHost_OnBootCompleted_ParamsSpec, 'arc.mojom.BootPhaseMonitorHost_OnBootCompleted_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 arc.mojom.BootPhaseMonitorHostPendingReceiver = class {
   constructor(handle) {
@@ -77,39 +75,21 @@ arc.mojom.BootPhaseMonitorHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnBootCompleted
-arc.mojom.BootPhaseMonitorHost_OnBootCompleted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.BootPhaseMonitorHost.OnBootCompleted_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.BootPhaseMonitorHostPtr = arc.mojom.BootPhaseMonitorHostRemote;
 arc.mojom.BootPhaseMonitorHostRequest = arc.mojom.BootPhaseMonitorHostPendingReceiver;
 
 
 // Interface: BootPhaseMonitorInstance
-arc.mojom.BootPhaseMonitorInstance = {};
+mojo.internal.Struct(
+    arc.mojom.BootPhaseMonitorInstance_Init_ParamsSpec, 'arc.mojom.BootPhaseMonitorInstance_Init_Params', [
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.BootPhaseMonitorHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.BootPhaseMonitorInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.BootPhaseMonitorInstance_Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.BootPhaseMonitorHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.BootPhaseMonitorInstance_Init_ResponseParamsSpec, 'arc.mojom.BootPhaseMonitorInstance_Init_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 arc.mojom.BootPhaseMonitorInstancePendingReceiver = class {
   constructor(handle) {
@@ -148,7 +128,7 @@ arc.mojom.BootPhaseMonitorInstanceRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       arc.mojom.BootPhaseMonitorInstance_Init_ParamsSpec,
-      null,
+      arc.mojom.BootPhaseMonitorInstance_Init_ResponseParamsSpec,
       [host_remote]);
   }
 
@@ -164,21 +144,6 @@ arc.mojom.BootPhaseMonitorInstance.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Init
-arc.mojom.BootPhaseMonitorInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.BootPhaseMonitorInstance.Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.BootPhaseMonitorHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.BootPhaseMonitorInstancePtr = arc.mojom.BootPhaseMonitorInstanceRemote;
 arc.mojom.BootPhaseMonitorInstanceRequest = arc.mojom.BootPhaseMonitorInstancePendingReceiver;
 

@@ -10,109 +10,103 @@ blink.mojom = blink.mojom || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+blink.mojom.LinkGenerationReadyStatusSpec = { $: mojo.internal.Enum() };
+blink.mojom.LinkGenerationErrorSpec = { $: mojo.internal.Enum() };
+blink.mojom.TextFragmentReceiver = {};
+blink.mojom.TextFragmentReceiver.$interfaceName = 'blink.mojom.TextFragmentReceiver';
+blink.mojom.TextFragmentReceiver_Cancel_ParamsSpec = { $: {} };
+blink.mojom.TextFragmentReceiver_RequestSelector_ParamsSpec = { $: {} };
+blink.mojom.TextFragmentReceiver_RequestSelector_ResponseParamsSpec = { $: {} };
+blink.mojom.TextFragmentReceiver_RemoveFragments_ParamsSpec = { $: {} };
+blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ParamsSpec = { $: {} };
+blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ResponseParamsSpec = { $: {} };
+blink.mojom.TextFragmentReceiver_GetExistingSelectors_ParamsSpec = { $: {} };
+blink.mojom.TextFragmentReceiver_GetExistingSelectors_ResponseParamsSpec = { $: {} };
+blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ParamsSpec = { $: {} };
+blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ResponseParamsSpec = { $: {} };
 
 // Enum: LinkGenerationReadyStatus
 blink.mojom.LinkGenerationReadyStatus = {
   kRequestedBeforeReady: 0,
   kRequestedAfterReady: 1,
 };
-blink.mojom.LinkGenerationReadyStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: LinkGenerationError
 blink.mojom.LinkGenerationError = {
-  kNone: 0,
-  kIncorrectSelector: 1,
-  kNoRange: 2,
-  kNoContext: 3,
-  kContextExhausted: 4,
-  kContextLimitReached: 5,
-  kEmptySelection: 6,
-  kTabHidden: 7,
-  kOmniboxNavigation: 8,
-  kTabCrash: 9,
-  kUnknown: 10,
-  kIFrame: 11,
-  kTimeout: 12,
-  kBlockList: 13,
-  kNoRemoteConnection: 14,
-  kNotGenerated: 15,
+  kNone: -1,
+  kIncorrectSelector: 0,
+  kNoRange: 1,
+  kNoContext: 2,
+  kContextExhausted: 3,
+  kContextLimitReached: 4,
+  kEmptySelection: 5,
+  kTabHidden: 6,
+  kOmniboxNavigation: 7,
+  kTabCrash: 8,
+  kUnknown: 9,
+  kIFrame: 10,
+  kTimeout: 11,
+  kBlockList: 12,
+  kNoRemoteConnection: 13,
+  kNotGenerated: 14,
 };
-blink.mojom.LinkGenerationErrorSpec = { $: mojo.internal.Enum() };
 
 // Interface: TextFragmentReceiver
-blink.mojom.TextFragmentReceiver = {};
+mojo.internal.Struct(
+    blink.mojom.TextFragmentReceiver_Cancel_ParamsSpec, 'blink.mojom.TextFragmentReceiver_Cancel_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.TextFragmentReceiver_Cancel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TextFragmentReceiver_Cancel_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.TextFragmentReceiver_RequestSelector_ParamsSpec, 'blink.mojom.TextFragmentReceiver_RequestSelector_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.TextFragmentReceiver_RequestSelector_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TextFragmentReceiver_RequestSelector_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.TextFragmentReceiver_RequestSelector_ResponseParamsSpec, 'blink.mojom.TextFragmentReceiver_RequestSelector_ResponseParams', [
+      mojo.internal.StructField('selector', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('error', 8, 0, blink.mojom.LinkGenerationErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('ready_status', 12, 0, blink.mojom.LinkGenerationReadyStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.TextFragmentReceiver_RemoveFragments_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TextFragmentReceiver_RemoveFragments_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.TextFragmentReceiver_RemoveFragments_ParamsSpec, 'blink.mojom.TextFragmentReceiver_RemoveFragments_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ParamsSpec, 'blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.TextFragmentReceiver_GetExistingSelectors_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TextFragmentReceiver_GetExistingSelectors_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ResponseParamsSpec, 'blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ResponseParams', [
+      mojo.internal.StructField('text', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.TextFragmentReceiver_GetExistingSelectors_ParamsSpec, 'blink.mojom.TextFragmentReceiver_GetExistingSelectors_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    blink.mojom.TextFragmentReceiver_GetExistingSelectors_ResponseParamsSpec, 'blink.mojom.TextFragmentReceiver_GetExistingSelectors_ResponseParams', [
+      mojo.internal.StructField('selectors', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ParamsSpec, 'blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ResponseParamsSpec, 'blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ResponseParams', [
+      mojo.internal.StructField('bounds', 0, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.TextFragmentReceiverPendingReceiver = class {
   constructor(handle) {
@@ -212,139 +206,6 @@ blink.mojom.TextFragmentReceiver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Cancel
-blink.mojom.TextFragmentReceiver_Cancel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TextFragmentReceiver.Cancel_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for RequestSelector
-blink.mojom.TextFragmentReceiver_RequestSelector_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TextFragmentReceiver.RequestSelector_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.TextFragmentReceiver_RequestSelector_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TextFragmentReceiver.RequestSelector_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'selector', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.LinkGenerationErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'ready_status', packedOffset: 12, packedBitOffset: 0, type: blink.mojom.LinkGenerationReadyStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for RemoveFragments
-blink.mojom.TextFragmentReceiver_RemoveFragments_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TextFragmentReceiver.RemoveFragments_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for ExtractTextFragmentsMatches
-blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TextFragmentReceiver.ExtractTextFragmentsMatches_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TextFragmentReceiver.ExtractTextFragmentsMatches_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetExistingSelectors
-blink.mojom.TextFragmentReceiver_GetExistingSelectors_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TextFragmentReceiver.GetExistingSelectors_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.TextFragmentReceiver_GetExistingSelectors_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TextFragmentReceiver.GetExistingSelectors_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'selectors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ExtractFirstFragmentRect
-blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TextFragmentReceiver.ExtractFirstFragmentRect_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TextFragmentReceiver.ExtractFirstFragmentRect_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.TextFragmentReceiverPtr = blink.mojom.TextFragmentReceiverRemote;
 blink.mojom.TextFragmentReceiverRequest = blink.mojom.TextFragmentReceiverPendingReceiver;
 

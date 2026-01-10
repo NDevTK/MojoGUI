@@ -7,52 +7,35 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
+var services = services || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+viz.mojom.OffsetTagSpec = { $: {} };
+viz.mojom.OffsetTagValueSpec = { $: {} };
+viz.mojom.OffsetTagDefinitionSpec = { $: {} };
 
 // Struct: OffsetTag
-viz.mojom.OffsetTagSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.OffsetTag',
-      packedSize: 16,
-      fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.OffsetTagSpec, 'viz.mojom.OffsetTag', [
+      mojo.internal.StructField('token', 0, 0, mojo_base.mojom.TokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: OffsetTagValue
-viz.mojom.OffsetTagValueSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.OffsetTagValue',
-      packedSize: 24,
-      fields: [
-        { name: 'tag', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.OffsetTagSpec, nullable: false, minVersion: 0 },
-        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.Vector2dFSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.OffsetTagValueSpec, 'viz.mojom.OffsetTagValue', [
+      mojo.internal.StructField('tag', 0, 0, viz.mojom.OffsetTagSpec, null, false, 0, undefined),
+      mojo.internal.StructField('offset', 8, 0, gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: OffsetTagDefinition
-viz.mojom.OffsetTagDefinitionSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.OffsetTagDefinition',
-      packedSize: 40,
-      fields: [
-        { name: 'tag', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.OffsetTagSpec, nullable: false, minVersion: 0 },
-        { name: 'provider', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.SurfaceRangeSpec, nullable: false, minVersion: 0 },
-        { name: 'min_offset', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.Vector2dFSpec, nullable: false, minVersion: 0 },
-        { name: 'max_offset', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.Vector2dFSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.OffsetTagDefinitionSpec, 'viz.mojom.OffsetTagDefinition', [
+      mojo.internal.StructField('tag', 0, 0, viz.mojom.OffsetTagSpec, null, false, 0, undefined),
+      mojo.internal.StructField('provider', 8, 0, viz.mojom.SurfaceRangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('min_offset', 16, 0, gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('max_offset', 24, 0, gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);

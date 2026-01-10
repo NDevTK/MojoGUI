@@ -11,176 +11,123 @@ var blink = blink || {};
 var blink = blink || {};
 var blink = blink || {};
 
+storage.mojom.SessionStorageCloneTypeSpec = { $: mojo.internal.Enum() };
+storage.mojom.SessionStorageUsageInfoSpec = { $: {} };
+storage.mojom.SessionStorageControl = {};
+storage.mojom.SessionStorageControl.$interfaceName = 'storage.mojom.SessionStorageControl';
+storage.mojom.SessionStorageControl_BindNamespace_ParamsSpec = { $: {} };
+storage.mojom.SessionStorageControl_BindStorageArea_ParamsSpec = { $: {} };
+storage.mojom.SessionStorageControl_GetUsage_ParamsSpec = { $: {} };
+storage.mojom.SessionStorageControl_GetUsage_ResponseParamsSpec = { $: {} };
+storage.mojom.SessionStorageControl_DeleteStorage_ParamsSpec = { $: {} };
+storage.mojom.SessionStorageControl_DeleteStorage_ResponseParamsSpec = { $: {} };
+storage.mojom.SessionStorageControl_CleanUpStorage_ParamsSpec = { $: {} };
+storage.mojom.SessionStorageControl_CleanUpStorage_ResponseParamsSpec = { $: {} };
+storage.mojom.SessionStorageControl_ScavengeUnusedNamespaces_ParamsSpec = { $: {} };
+storage.mojom.SessionStorageControl_Flush_ParamsSpec = { $: {} };
+storage.mojom.SessionStorageControl_PurgeMemory_ParamsSpec = { $: {} };
+storage.mojom.SessionStorageControl_CreateNamespace_ParamsSpec = { $: {} };
+storage.mojom.SessionStorageControl_CloneNamespace_ParamsSpec = { $: {} };
+storage.mojom.SessionStorageControl_DeleteNamespace_ParamsSpec = { $: {} };
 
 // Enum: SessionStorageCloneType
 storage.mojom.SessionStorageCloneType = {
   kImmediate: 0,
   kWaitForCloneOnNamespace: 1,
 };
-storage.mojom.SessionStorageCloneTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: SessionStorageUsageInfo
-storage.mojom.SessionStorageUsageInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.SessionStorageUsageInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'storage_key', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
-        { name: 'namespace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.SessionStorageUsageInfoSpec, 'storage.mojom.SessionStorageUsageInfo', [
+      mojo.internal.StructField('storage_key', 0, 0, blink.mojom.StorageKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('namespace_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: SessionStorageControl
-storage.mojom.SessionStorageControl = {};
+mojo.internal.Struct(
+    storage.mojom.SessionStorageControl_BindNamespace_ParamsSpec, 'storage.mojom.SessionStorageControl_BindNamespace_Params', [
+      mojo.internal.StructField('namespace_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 8, 0, mojo.internal.InterfaceRequest(blink.mojom.SessionStorageNamespaceRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-storage.mojom.SessionStorageControl_BindNamespace_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.SessionStorageControl_BindNamespace_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'namespace_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.SessionStorageNamespaceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.SessionStorageControl_BindStorageArea_ParamsSpec, 'storage.mojom.SessionStorageControl_BindStorageArea_Params', [
+      mojo.internal.StructField('storage_key', 0, 0, blink.mojom.StorageKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('namespace_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 16, 0, mojo.internal.InterfaceRequest(blink.mojom.StorageAreaRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-storage.mojom.SessionStorageControl_BindStorageArea_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.SessionStorageControl_BindStorageArea_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'storage_key', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
-        { name: 'namespace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.StorageAreaRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.SessionStorageControl_GetUsage_ParamsSpec, 'storage.mojom.SessionStorageControl_GetUsage_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-storage.mojom.SessionStorageControl_GetUsage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.SessionStorageControl_GetUsage_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.SessionStorageControl_GetUsage_ResponseParamsSpec, 'storage.mojom.SessionStorageControl_GetUsage_ResponseParams', [
+      mojo.internal.StructField('info', 0, 0, mojo.internal.Array(storage.mojom.SessionStorageUsageInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-storage.mojom.SessionStorageControl_DeleteStorage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.SessionStorageControl_DeleteStorage_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'storage_key', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
-        { name: 'namespace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.SessionStorageControl_DeleteStorage_ParamsSpec, 'storage.mojom.SessionStorageControl_DeleteStorage_Params', [
+      mojo.internal.StructField('storage_key', 0, 0, blink.mojom.StorageKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('namespace_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-storage.mojom.SessionStorageControl_CleanUpStorage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.SessionStorageControl_CleanUpStorage_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.SessionStorageControl_DeleteStorage_ResponseParamsSpec, 'storage.mojom.SessionStorageControl_DeleteStorage_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-storage.mojom.SessionStorageControl_ScavengeUnusedNamespaces_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.SessionStorageControl_ScavengeUnusedNamespaces_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.SessionStorageControl_CleanUpStorage_ParamsSpec, 'storage.mojom.SessionStorageControl_CleanUpStorage_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-storage.mojom.SessionStorageControl_Flush_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.SessionStorageControl_Flush_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.SessionStorageControl_CleanUpStorage_ResponseParamsSpec, 'storage.mojom.SessionStorageControl_CleanUpStorage_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-storage.mojom.SessionStorageControl_PurgeMemory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.SessionStorageControl_PurgeMemory_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.SessionStorageControl_ScavengeUnusedNamespaces_ParamsSpec, 'storage.mojom.SessionStorageControl_ScavengeUnusedNamespaces_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-storage.mojom.SessionStorageControl_CreateNamespace_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.SessionStorageControl_CreateNamespace_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'namespace_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.SessionStorageControl_Flush_ParamsSpec, 'storage.mojom.SessionStorageControl_Flush_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-storage.mojom.SessionStorageControl_CloneNamespace_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.SessionStorageControl_CloneNamespace_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'namespace_id_to_clone', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'clone_namespace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'clone_type', packedOffset: 16, packedBitOffset: 0, type: storage.mojom.SessionStorageCloneTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.SessionStorageControl_PurgeMemory_ParamsSpec, 'storage.mojom.SessionStorageControl_PurgeMemory_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-storage.mojom.SessionStorageControl_DeleteNamespace_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.SessionStorageControl_DeleteNamespace_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'namespace_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'should_persist', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.SessionStorageControl_CreateNamespace_ParamsSpec, 'storage.mojom.SessionStorageControl_CreateNamespace_Params', [
+      mojo.internal.StructField('namespace_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    storage.mojom.SessionStorageControl_CloneNamespace_ParamsSpec, 'storage.mojom.SessionStorageControl_CloneNamespace_Params', [
+      mojo.internal.StructField('namespace_id_to_clone', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('clone_namespace_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('clone_type', 16, 0, storage.mojom.SessionStorageCloneTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    storage.mojom.SessionStorageControl_DeleteNamespace_ParamsSpec, 'storage.mojom.SessionStorageControl_DeleteNamespace_Params', [
+      mojo.internal.StructField('namespace_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('should_persist', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 storage.mojom.SessionStorageControlPendingReceiver = class {
   constructor(handle) {
@@ -246,7 +193,7 @@ storage.mojom.SessionStorageControlRemoteCallHandler = class {
     return this.proxy.sendMessage(
       3,  // ordinal
       storage.mojom.SessionStorageControl_DeleteStorage_ParamsSpec,
-      null,
+      storage.mojom.SessionStorageControl_DeleteStorage_ResponseParamsSpec,
       [storage_key, namespace_id]);
   }
 
@@ -255,7 +202,7 @@ storage.mojom.SessionStorageControlRemoteCallHandler = class {
     return this.proxy.sendMessage(
       4,  // ordinal
       storage.mojom.SessionStorageControl_CleanUpStorage_ParamsSpec,
-      null,
+      storage.mojom.SessionStorageControl_CleanUpStorage_ResponseParamsSpec,
       []);
   }
 
@@ -325,176 +272,6 @@ storage.mojom.SessionStorageControl.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for BindNamespace
-storage.mojom.SessionStorageControl_BindNamespace_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.SessionStorageControl.BindNamespace_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'namespace_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.SessionStorageNamespaceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for BindStorageArea
-storage.mojom.SessionStorageControl_BindStorageArea_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.SessionStorageControl.BindStorageArea_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'storage_key', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
-        { name: 'namespace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.StorageAreaRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for GetUsage
-storage.mojom.SessionStorageControl_GetUsage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.SessionStorageControl.GetUsage_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-storage.mojom.SessionStorageControl_GetUsage_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.SessionStorageControl.GetUsage_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(storage.mojom.SessionStorageUsageInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DeleteStorage
-storage.mojom.SessionStorageControl_DeleteStorage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.SessionStorageControl.DeleteStorage_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'storage_key', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
-        { name: 'namespace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for CleanUpStorage
-storage.mojom.SessionStorageControl_CleanUpStorage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.SessionStorageControl.CleanUpStorage_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for ScavengeUnusedNamespaces
-storage.mojom.SessionStorageControl_ScavengeUnusedNamespaces_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.SessionStorageControl.ScavengeUnusedNamespaces_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for Flush
-storage.mojom.SessionStorageControl_Flush_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.SessionStorageControl.Flush_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for PurgeMemory
-storage.mojom.SessionStorageControl_PurgeMemory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.SessionStorageControl.PurgeMemory_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for CreateNamespace
-storage.mojom.SessionStorageControl_CreateNamespace_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.SessionStorageControl.CreateNamespace_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'namespace_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CloneNamespace
-storage.mojom.SessionStorageControl_CloneNamespace_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.SessionStorageControl.CloneNamespace_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'namespace_id_to_clone', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'clone_namespace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'clone_type', packedOffset: 16, packedBitOffset: 0, type: storage.mojom.SessionStorageCloneTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for DeleteNamespace
-storage.mojom.SessionStorageControl_DeleteNamespace_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.SessionStorageControl.DeleteNamespace_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'namespace_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'should_persist', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 storage.mojom.SessionStorageControlPtr = storage.mojom.SessionStorageControlRemote;
 storage.mojom.SessionStorageControlRequest = storage.mojom.SessionStorageControlPendingReceiver;
 

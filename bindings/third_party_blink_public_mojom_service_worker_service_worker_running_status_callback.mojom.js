@@ -9,22 +9,16 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 var blink = blink || {};
 
+blink.mojom.ServiceWorkerRunningStatusCallback = {};
+blink.mojom.ServiceWorkerRunningStatusCallback.$interfaceName = 'blink.mojom.ServiceWorkerRunningStatusCallback';
+blink.mojom.ServiceWorkerRunningStatusCallback_OnStatusChanged_ParamsSpec = { $: {} };
 
 // Interface: ServiceWorkerRunningStatusCallback
-blink.mojom.ServiceWorkerRunningStatusCallback = {};
-
-blink.mojom.ServiceWorkerRunningStatusCallback_OnStatusChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerRunningStatusCallback_OnStatusChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEmbeddedWorkerStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerRunningStatusCallback_OnStatusChanged_ParamsSpec, 'blink.mojom.ServiceWorkerRunningStatusCallback_OnStatusChanged_Params', [
+      mojo.internal.StructField('status', 0, 0, blink.mojom.ServiceWorkerEmbeddedWorkerStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.ServiceWorkerRunningStatusCallbackPendingReceiver = class {
   constructor(handle) {
@@ -79,21 +73,6 @@ blink.mojom.ServiceWorkerRunningStatusCallback.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnStatusChanged
-blink.mojom.ServiceWorkerRunningStatusCallback_OnStatusChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerRunningStatusCallback.OnStatusChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEmbeddedWorkerStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.ServiceWorkerRunningStatusCallbackPtr = blink.mojom.ServiceWorkerRunningStatusCallbackRemote;
 blink.mojom.ServiceWorkerRunningStatusCallbackRequest = blink.mojom.ServiceWorkerRunningStatusCallbackPendingReceiver;
 

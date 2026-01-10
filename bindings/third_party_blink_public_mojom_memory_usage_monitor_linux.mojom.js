@@ -8,23 +8,17 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.MemoryUsageMonitorLinux = {};
+blink.mojom.MemoryUsageMonitorLinux.$interfaceName = 'blink.mojom.MemoryUsageMonitorLinux';
+blink.mojom.MemoryUsageMonitorLinux_SetProcFiles_ParamsSpec = { $: {} };
 
 // Interface: MemoryUsageMonitorLinux
-blink.mojom.MemoryUsageMonitorLinux = {};
-
-blink.mojom.MemoryUsageMonitorLinux_SetProcFiles_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MemoryUsageMonitorLinux_SetProcFiles_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'statm_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-        { name: 'status_file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.MemoryUsageMonitorLinux_SetProcFiles_ParamsSpec, 'blink.mojom.MemoryUsageMonitorLinux_SetProcFiles_Params', [
+      mojo.internal.StructField('statm_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status_file', 8, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 blink.mojom.MemoryUsageMonitorLinuxPendingReceiver = class {
   constructor(handle) {
@@ -79,22 +73,6 @@ blink.mojom.MemoryUsageMonitorLinux.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetProcFiles
-blink.mojom.MemoryUsageMonitorLinux_SetProcFiles_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MemoryUsageMonitorLinux.SetProcFiles_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'statm_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-        { name: 'status_file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.MemoryUsageMonitorLinuxPtr = blink.mojom.MemoryUsageMonitorLinuxRemote;
 blink.mojom.MemoryUsageMonitorLinuxRequest = blink.mojom.MemoryUsageMonitorLinuxPendingReceiver;
 

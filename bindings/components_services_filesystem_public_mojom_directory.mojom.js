@@ -7,228 +7,231 @@
 // Module namespace
 var filesystem = filesystem || {};
 filesystem.mojom = filesystem.mojom || {};
+var components = components || {};
+var services = services || {};
 
+filesystem.mojom.FileOpenDetailsSpec = { $: {} };
+filesystem.mojom.FileOpenResultSpec = { $: {} };
+filesystem.mojom.Directory = {};
+filesystem.mojom.Directory.$interfaceName = 'filesystem.mojom.Directory';
+filesystem.mojom.Directory_Read_ParamsSpec = { $: {} };
+filesystem.mojom.Directory_Read_ResponseParamsSpec = { $: {} };
+filesystem.mojom.Directory_OpenFileHandle_ParamsSpec = { $: {} };
+filesystem.mojom.Directory_OpenFileHandle_ResponseParamsSpec = { $: {} };
+filesystem.mojom.Directory_OpenFileHandles_ParamsSpec = { $: {} };
+filesystem.mojom.Directory_OpenFileHandles_ResponseParamsSpec = { $: {} };
+filesystem.mojom.Directory_OpenDirectory_ParamsSpec = { $: {} };
+filesystem.mojom.Directory_OpenDirectory_ResponseParamsSpec = { $: {} };
+filesystem.mojom.Directory_Rename_ParamsSpec = { $: {} };
+filesystem.mojom.Directory_Rename_ResponseParamsSpec = { $: {} };
+filesystem.mojom.Directory_Replace_ParamsSpec = { $: {} };
+filesystem.mojom.Directory_Replace_ResponseParamsSpec = { $: {} };
+filesystem.mojom.Directory_Delete_ParamsSpec = { $: {} };
+filesystem.mojom.Directory_Delete_ResponseParamsSpec = { $: {} };
+filesystem.mojom.Directory_Exists_ParamsSpec = { $: {} };
+filesystem.mojom.Directory_Exists_ResponseParamsSpec = { $: {} };
+filesystem.mojom.Directory_IsWritable_ParamsSpec = { $: {} };
+filesystem.mojom.Directory_IsWritable_ResponseParamsSpec = { $: {} };
+filesystem.mojom.Directory_Flush_ParamsSpec = { $: {} };
+filesystem.mojom.Directory_Flush_ResponseParamsSpec = { $: {} };
+filesystem.mojom.Directory_StatFile_ParamsSpec = { $: {} };
+filesystem.mojom.Directory_StatFile_ResponseParamsSpec = { $: {} };
+filesystem.mojom.Directory_Clone_ParamsSpec = { $: {} };
+filesystem.mojom.Directory_ReadEntireFile_ParamsSpec = { $: {} };
+filesystem.mojom.Directory_ReadEntireFile_ResponseParamsSpec = { $: {} };
+filesystem.mojom.Directory_WriteFile_ParamsSpec = { $: {} };
+filesystem.mojom.Directory_WriteFile_ResponseParamsSpec = { $: {} };
 
 // Struct: FileOpenDetails
-filesystem.mojom.FileOpenDetailsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.FileOpenDetails',
-      packedSize: 24,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'open_flags', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    filesystem.mojom.FileOpenDetailsSpec, 'filesystem.mojom.FileOpenDetails', [
+      mojo.internal.StructField('path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('open_flags', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: FileOpenResult
-filesystem.mojom.FileOpenResultSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.FileOpenResult',
-      packedSize: 32,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'file_handle', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    filesystem.mojom.FileOpenResultSpec, 'filesystem.mojom.FileOpenResult', [
+      mojo.internal.StructField('path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('error', 16, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('file_handle', 8, 0, mojo_base.mojom.FileSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: Directory
-filesystem.mojom.Directory = {};
+mojo.internal.Struct(
+    filesystem.mojom.Directory_Read_ParamsSpec, 'filesystem.mojom.Directory_Read_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-filesystem.mojom.Directory_Read_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory_Read_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    filesystem.mojom.Directory_Read_ResponseParamsSpec, 'filesystem.mojom.Directory_Read_ResponseParams', [
+      mojo.internal.StructField('error', 8, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('directory_contents', 0, 0, mojo.internal.Array(filesystem.mojom.DirectoryEntrySpec, false), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-filesystem.mojom.Directory_OpenFileHandle_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory_OpenFileHandle_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'open_flags', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    filesystem.mojom.Directory_OpenFileHandle_ParamsSpec, 'filesystem.mojom.Directory_OpenFileHandle_Params', [
+      mojo.internal.StructField('path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('open_flags', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-filesystem.mojom.Directory_OpenFileHandles_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory_OpenFileHandles_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'files', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(filesystem.mojom.FileOpenDetailsSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    filesystem.mojom.Directory_OpenFileHandle_ResponseParamsSpec, 'filesystem.mojom.Directory_OpenFileHandle_ResponseParams', [
+      mojo.internal.StructField('error', 8, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('file_handle', 0, 0, mojo_base.mojom.FileSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-filesystem.mojom.Directory_OpenDirectory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory_OpenDirectory_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'directory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(filesystem.mojom.DirectoryRemote), nullable: true, minVersion: 0 },
-        { name: 'open_flags', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    filesystem.mojom.Directory_OpenFileHandles_ParamsSpec, 'filesystem.mojom.Directory_OpenFileHandles_Params', [
+      mojo.internal.StructField('files', 0, 0, mojo.internal.Array(filesystem.mojom.FileOpenDetailsSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-filesystem.mojom.Directory_Rename_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory_Rename_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'new_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    filesystem.mojom.Directory_OpenFileHandles_ResponseParamsSpec, 'filesystem.mojom.Directory_OpenFileHandles_ResponseParams', [
+      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(filesystem.mojom.FileOpenResultSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-filesystem.mojom.Directory_Replace_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory_Replace_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'new_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    filesystem.mojom.Directory_OpenDirectory_ParamsSpec, 'filesystem.mojom.Directory_OpenDirectory_Params', [
+      mojo.internal.StructField('path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('directory', 8, 0, mojo.internal.InterfaceRequest(filesystem.mojom.DirectoryRemote), null, true, 0, undefined),
+      mojo.internal.StructField('open_flags', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-filesystem.mojom.Directory_Delete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory_Delete_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'delete_flags', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    filesystem.mojom.Directory_OpenDirectory_ResponseParamsSpec, 'filesystem.mojom.Directory_OpenDirectory_ResponseParams', [
+      mojo.internal.StructField('error', 0, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-filesystem.mojom.Directory_Exists_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory_Exists_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    filesystem.mojom.Directory_Rename_ParamsSpec, 'filesystem.mojom.Directory_Rename_Params', [
+      mojo.internal.StructField('path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('new_path', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-filesystem.mojom.Directory_IsWritable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory_IsWritable_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    filesystem.mojom.Directory_Rename_ResponseParamsSpec, 'filesystem.mojom.Directory_Rename_ResponseParams', [
+      mojo.internal.StructField('error', 0, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-filesystem.mojom.Directory_Flush_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory_Flush_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    filesystem.mojom.Directory_Replace_ParamsSpec, 'filesystem.mojom.Directory_Replace_Params', [
+      mojo.internal.StructField('path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('new_path', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-filesystem.mojom.Directory_StatFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory_StatFile_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    filesystem.mojom.Directory_Replace_ResponseParamsSpec, 'filesystem.mojom.Directory_Replace_ResponseParams', [
+      mojo.internal.StructField('error', 0, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-filesystem.mojom.Directory_Clone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory_Clone_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'directory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(filesystem.mojom.DirectoryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    filesystem.mojom.Directory_Delete_ParamsSpec, 'filesystem.mojom.Directory_Delete_Params', [
+      mojo.internal.StructField('path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('delete_flags', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-filesystem.mojom.Directory_ReadEntireFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory_ReadEntireFile_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    filesystem.mojom.Directory_Delete_ResponseParamsSpec, 'filesystem.mojom.Directory_Delete_ResponseParams', [
+      mojo.internal.StructField('error', 0, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-filesystem.mojom.Directory_WriteFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory_WriteFile_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    filesystem.mojom.Directory_Exists_ParamsSpec, 'filesystem.mojom.Directory_Exists_Params', [
+      mojo.internal.StructField('path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    filesystem.mojom.Directory_Exists_ResponseParamsSpec, 'filesystem.mojom.Directory_Exists_ResponseParams', [
+      mojo.internal.StructField('error', 0, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('exists', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    filesystem.mojom.Directory_IsWritable_ParamsSpec, 'filesystem.mojom.Directory_IsWritable_Params', [
+      mojo.internal.StructField('path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    filesystem.mojom.Directory_IsWritable_ResponseParamsSpec, 'filesystem.mojom.Directory_IsWritable_ResponseParams', [
+      mojo.internal.StructField('error', 0, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_writable', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    filesystem.mojom.Directory_Flush_ParamsSpec, 'filesystem.mojom.Directory_Flush_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    filesystem.mojom.Directory_Flush_ResponseParamsSpec, 'filesystem.mojom.Directory_Flush_ResponseParams', [
+      mojo.internal.StructField('error', 0, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    filesystem.mojom.Directory_StatFile_ParamsSpec, 'filesystem.mojom.Directory_StatFile_Params', [
+      mojo.internal.StructField('path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    filesystem.mojom.Directory_StatFile_ResponseParamsSpec, 'filesystem.mojom.Directory_StatFile_ResponseParams', [
+      mojo.internal.StructField('error', 8, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('file_information', 0, 0, filesystem.mojom.FileInformationSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    filesystem.mojom.Directory_Clone_ParamsSpec, 'filesystem.mojom.Directory_Clone_Params', [
+      mojo.internal.StructField('directory', 0, 0, mojo.internal.InterfaceRequest(filesystem.mojom.DirectoryRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    filesystem.mojom.Directory_ReadEntireFile_ParamsSpec, 'filesystem.mojom.Directory_ReadEntireFile_Params', [
+      mojo.internal.StructField('path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    filesystem.mojom.Directory_ReadEntireFile_ResponseParamsSpec, 'filesystem.mojom.Directory_ReadEntireFile_ResponseParams', [
+      mojo.internal.StructField('error', 8, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    filesystem.mojom.Directory_WriteFile_ParamsSpec, 'filesystem.mojom.Directory_WriteFile_Params', [
+      mojo.internal.StructField('path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    filesystem.mojom.Directory_WriteFile_ResponseParamsSpec, 'filesystem.mojom.Directory_WriteFile_ResponseParams', [
+      mojo.internal.StructField('error', 0, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 filesystem.mojom.DirectoryPendingReceiver = class {
   constructor(handle) {
@@ -400,383 +403,6 @@ filesystem.mojom.Directory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Read
-filesystem.mojom.Directory_Read_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory.Read_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-filesystem.mojom.Directory_Read_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory.Read_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'directory_contents', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(filesystem.mojom.DirectoryEntrySpec, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OpenFileHandle
-filesystem.mojom.Directory_OpenFileHandle_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory.OpenFileHandle_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'open_flags', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-filesystem.mojom.Directory_OpenFileHandle_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory.OpenFileHandle_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'file_handle', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OpenFileHandles
-filesystem.mojom.Directory_OpenFileHandles_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory.OpenFileHandles_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'files', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(filesystem.mojom.FileOpenDetailsSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-filesystem.mojom.Directory_OpenFileHandles_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory.OpenFileHandles_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(filesystem.mojom.FileOpenResultSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OpenDirectory
-filesystem.mojom.Directory_OpenDirectory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory.OpenDirectory_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'directory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(filesystem.mojom.DirectoryRemote), nullable: true, minVersion: 0 },
-        { name: 'open_flags', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-filesystem.mojom.Directory_OpenDirectory_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory.OpenDirectory_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Rename
-filesystem.mojom.Directory_Rename_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory.Rename_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'new_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-filesystem.mojom.Directory_Rename_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory.Rename_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Replace
-filesystem.mojom.Directory_Replace_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory.Replace_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'new_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-filesystem.mojom.Directory_Replace_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory.Replace_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Delete
-filesystem.mojom.Directory_Delete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory.Delete_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'delete_flags', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-filesystem.mojom.Directory_Delete_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory.Delete_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Exists
-filesystem.mojom.Directory_Exists_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory.Exists_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-filesystem.mojom.Directory_Exists_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory.Exists_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'exists', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for IsWritable
-filesystem.mojom.Directory_IsWritable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory.IsWritable_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-filesystem.mojom.Directory_IsWritable_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory.IsWritable_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'is_writable', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Flush
-filesystem.mojom.Directory_Flush_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory.Flush_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-filesystem.mojom.Directory_Flush_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory.Flush_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StatFile
-filesystem.mojom.Directory_StatFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory.StatFile_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-filesystem.mojom.Directory_StatFile_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory.StatFile_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'file_information', packedOffset: 0, packedBitOffset: 0, type: filesystem.mojom.FileInformationSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for Clone
-filesystem.mojom.Directory_Clone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory.Clone_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'directory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(filesystem.mojom.DirectoryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReadEntireFile
-filesystem.mojom.Directory_ReadEntireFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory.ReadEntireFile_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-filesystem.mojom.Directory_ReadEntireFile_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory.ReadEntireFile_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for WriteFile
-filesystem.mojom.Directory_WriteFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory.WriteFile_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-filesystem.mojom.Directory_WriteFile_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.Directory.WriteFile_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 filesystem.mojom.DirectoryPtr = filesystem.mojom.DirectoryRemote;
 filesystem.mojom.DirectoryRequest = filesystem.mojom.DirectoryPendingReceiver;
 

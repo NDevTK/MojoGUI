@@ -7,77 +7,49 @@
 // Module namespace
 var tabs_api = tabs_api || {};
 tabs_api.mojom = tabs_api.mojom || {};
+var components = components || {};
+var components = components || {};
 
+tabs_api.mojom.OnTabsCreatedEventSpec = { $: {} };
+tabs_api.mojom.OnTabsClosedEventSpec = { $: {} };
+tabs_api.mojom.OnDataChangedEventSpec = { $: {} };
+tabs_api.mojom.OnCollectionCreatedEventSpec = { $: {} };
+tabs_api.mojom.OnNodeMovedEventSpec = { $: {} };
 
 // Struct: OnTabsCreatedEvent
-tabs_api.mojom.OnTabsCreatedEventSpec = {
-  $: {
-    structSpec: {
-      name: 'tabs_api.mojom.OnTabsCreatedEvent',
-      packedSize: 16,
-      fields: [
-        { name: 'tabs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(tabs_api.mojom.TabCreatedContainerSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tabs_api.mojom.OnTabsCreatedEventSpec, 'tabs_api.mojom.OnTabsCreatedEvent', [
+      mojo.internal.StructField('tabs', 0, 0, mojo.internal.Array(tabs_api.mojom.TabCreatedContainerSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: OnTabsClosedEvent
-tabs_api.mojom.OnTabsClosedEventSpec = {
-  $: {
-    structSpec: {
-      name: 'tabs_api.mojom.OnTabsClosedEvent',
-      packedSize: 16,
-      fields: [
-        { name: 'tabs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(tabs_api.mojom.NodeIdSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tabs_api.mojom.OnTabsClosedEventSpec, 'tabs_api.mojom.OnTabsClosedEvent', [
+      mojo.internal.StructField('tabs', 0, 0, mojo.internal.Array(tabs_api.mojom.NodeIdSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: OnDataChangedEvent
-tabs_api.mojom.OnDataChangedEventSpec = {
-  $: {
-    structSpec: {
-      name: 'tabs_api.mojom.OnDataChangedEvent',
-      packedSize: 24,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: tabs_api.mojom.DataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tabs_api.mojom.OnDataChangedEventSpec, 'tabs_api.mojom.OnDataChangedEvent', [
+      mojo.internal.StructField('data', 0, 0, tabs_api.mojom.DataSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: OnCollectionCreatedEvent
-tabs_api.mojom.OnCollectionCreatedEventSpec = {
-  $: {
-    structSpec: {
-      name: 'tabs_api.mojom.OnCollectionCreatedEvent',
-      packedSize: 24,
-      fields: [
-        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: tabs_api.mojom.PositionSpec, nullable: false, minVersion: 0 },
-        { name: 'collection', packedOffset: 8, packedBitOffset: 0, type: tabs_api.mojom.ContainerSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tabs_api.mojom.OnCollectionCreatedEventSpec, 'tabs_api.mojom.OnCollectionCreatedEvent', [
+      mojo.internal.StructField('position', 0, 0, tabs_api.mojom.PositionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('collection', 8, 0, tabs_api.mojom.ContainerSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: OnNodeMovedEvent
-tabs_api.mojom.OnNodeMovedEventSpec = {
-  $: {
-    structSpec: {
-      name: 'tabs_api.mojom.OnNodeMovedEvent',
-      packedSize: 32,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: false, minVersion: 0 },
-        { name: 'from', packedOffset: 8, packedBitOffset: 0, type: tabs_api.mojom.PositionSpec, nullable: false, minVersion: 0 },
-        { name: 'to', packedOffset: 16, packedBitOffset: 0, type: tabs_api.mojom.PositionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tabs_api.mojom.OnNodeMovedEventSpec, 'tabs_api.mojom.OnNodeMovedEvent', [
+      mojo.internal.StructField('id', 0, 0, tabs_api.mojom.NodeIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('from', 8, 0, tabs_api.mojom.PositionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('to', 16, 0, tabs_api.mojom.PositionSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);

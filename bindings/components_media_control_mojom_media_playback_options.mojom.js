@@ -10,48 +10,30 @@ components.media_control = components.media_control || {};
 components.media_control.mojom = components.media_control.mojom || {};
 var content = content || {};
 
+components.media_control.mojom.MediaPlaybackOptions = {};
+components.media_control.mojom.MediaPlaybackOptions.$interfaceName = 'components.media_control.mojom.MediaPlaybackOptions';
+components.media_control.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_ParamsSpec = { $: {} };
+components.media_control.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEnabled_ParamsSpec = { $: {} };
+components.media_control.mojom.MediaPlaybackOptions_SetRendererType_ParamsSpec = { $: {} };
 
 // Interface: MediaPlaybackOptions
-components.media_control.mojom.MediaPlaybackOptions = {};
+mojo.internal.Struct(
+    components.media_control.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_ParamsSpec, 'components.media_control.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_Params', [
+      mojo.internal.StructField('blocked', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-components.media_control.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'components.media_control.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'blocked', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    components.media_control.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEnabled_ParamsSpec, 'components.media_control.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEnabled_Params', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-components.media_control.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'components.media_control.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-components.media_control.mojom.MediaPlaybackOptions_SetRendererType_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'components.media_control.mojom.MediaPlaybackOptions_SetRendererType_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: content.mojom.RendererTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    components.media_control.mojom.MediaPlaybackOptions_SetRendererType_ParamsSpec, 'components.media_control.mojom.MediaPlaybackOptions_SetRendererType_Params', [
+      mojo.internal.StructField('type', 0, 0, content.mojom.RendererTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 components.media_control.mojom.MediaPlaybackOptionsPendingReceiver = class {
   constructor(handle) {
@@ -124,49 +106,6 @@ components.media_control.mojom.MediaPlaybackOptions.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetMediaLoadingBlocked
-components.media_control.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'components.media_control.mojom.MediaPlaybackOptions.SetMediaLoadingBlocked_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'blocked', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetBackgroundVideoPlaybackEnabled
-components.media_control.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'components.media_control.mojom.MediaPlaybackOptions.SetBackgroundVideoPlaybackEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetRendererType
-components.media_control.mojom.MediaPlaybackOptions_SetRendererType_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'components.media_control.mojom.MediaPlaybackOptions.SetRendererType_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: content.mojom.RendererTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 components.media_control.mojom.MediaPlaybackOptionsPtr = components.media_control.mojom.MediaPlaybackOptionsRemote;
 components.media_control.mojom.MediaPlaybackOptionsRequest = components.media_control.mojom.MediaPlaybackOptionsPendingReceiver;
 

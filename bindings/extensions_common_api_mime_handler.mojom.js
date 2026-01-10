@@ -8,68 +8,55 @@
 var extensions = extensions || {};
 extensions.mime_handler = extensions.mime_handler || {};
 
+extensions.mime_handler.StreamInfoSpec = { $: {} };
+extensions.mime_handler.PdfPluginAttributesSpec = { $: {} };
+extensions.mime_handler.MimeHandlerService = {};
+extensions.mime_handler.MimeHandlerService.$interfaceName = 'extensions.mime_handler.MimeHandlerService';
+extensions.mime_handler.MimeHandlerService_GetStreamInfo_ParamsSpec = { $: {} };
+extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParamsSpec = { $: {} };
+extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_ParamsSpec = { $: {} };
+extensions.mime_handler.BeforeUnloadControl = {};
+extensions.mime_handler.BeforeUnloadControl.$interfaceName = 'extensions.mime_handler.BeforeUnloadControl';
+extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ParamsSpec = { $: {} };
+extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ResponseParamsSpec = { $: {} };
 
 // Struct: StreamInfo
-extensions.mime_handler.StreamInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mime_handler.StreamInfo',
-      packedSize: 48,
-      fields: [
-        { name: 'mime_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'original_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'stream_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'tab_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'response_headers', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'embedded', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions.mime_handler.StreamInfoSpec, 'extensions.mime_handler.StreamInfo', [
+      mojo.internal.StructField('mime_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('original_url', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('stream_url', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('tab_id', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('response_headers', 24, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('embedded', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: PdfPluginAttributes
-extensions.mime_handler.PdfPluginAttributesSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mime_handler.PdfPluginAttributes',
-      packedSize: 24,
-      fields: [
-        { name: 'background_color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'allow_javascript', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions.mime_handler.PdfPluginAttributesSpec, 'extensions.mime_handler.PdfPluginAttributes', [
+      mojo.internal.StructField('background_color', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('allow_javascript', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: MimeHandlerService
-extensions.mime_handler.MimeHandlerService = {};
+mojo.internal.Struct(
+    extensions.mime_handler.MimeHandlerService_GetStreamInfo_ParamsSpec, 'extensions.mime_handler.MimeHandlerService_GetStreamInfo_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-extensions.mime_handler.MimeHandlerService_GetStreamInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mime_handler.MimeHandlerService_GetStreamInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParamsSpec, 'extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParams', [
+      mojo.internal.StructField('stream_info', 0, 0, extensions.mime_handler.StreamInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pdf_plugin_attributes', packedOffset: 0, packedBitOffset: 0, type: extensions.mime_handler.PdfPluginAttributesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_ParamsSpec, 'extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_Params', [
+      mojo.internal.StructField('pdf_plugin_attributes', 0, 0, extensions.mime_handler.PdfPluginAttributesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 extensions.mime_handler.MimeHandlerServicePendingReceiver = class {
   constructor(handle) {
@@ -133,66 +120,21 @@ extensions.mime_handler.MimeHandlerService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetStreamInfo
-extensions.mime_handler.MimeHandlerService_GetStreamInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mime_handler.MimeHandlerService.GetStreamInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mime_handler.MimeHandlerService.GetStreamInfo_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'stream_info', packedOffset: 0, packedBitOffset: 0, type: extensions.mime_handler.StreamInfoSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetPdfPluginAttributes
-extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mime_handler.MimeHandlerService.SetPdfPluginAttributes_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pdf_plugin_attributes', packedOffset: 0, packedBitOffset: 0, type: extensions.mime_handler.PdfPluginAttributesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 extensions.mime_handler.MimeHandlerServicePtr = extensions.mime_handler.MimeHandlerServiceRemote;
 extensions.mime_handler.MimeHandlerServiceRequest = extensions.mime_handler.MimeHandlerServicePendingReceiver;
 
 
 // Interface: BeforeUnloadControl
-extensions.mime_handler.BeforeUnloadControl = {};
+mojo.internal.Struct(
+    extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ParamsSpec, 'extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_Params', [
+      mojo.internal.StructField('show_dialog', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'show_dialog', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ResponseParamsSpec, 'extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 extensions.mime_handler.BeforeUnloadControlPendingReceiver = class {
   constructor(handle) {
@@ -231,7 +173,7 @@ extensions.mime_handler.BeforeUnloadControlRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ParamsSpec,
-      null,
+      extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ResponseParamsSpec,
       [show_dialog]);
   }
 
@@ -247,21 +189,6 @@ extensions.mime_handler.BeforeUnloadControl.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetShowBeforeUnloadDialog
-extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mime_handler.BeforeUnloadControl.SetShowBeforeUnloadDialog_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'show_dialog', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 extensions.mime_handler.BeforeUnloadControlPtr = extensions.mime_handler.BeforeUnloadControlRemote;
 extensions.mime_handler.BeforeUnloadControlRequest = extensions.mime_handler.BeforeUnloadControlPendingReceiver;
 

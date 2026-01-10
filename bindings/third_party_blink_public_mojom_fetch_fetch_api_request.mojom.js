@@ -7,12 +7,25 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 var blink = blink || {};
 var blink = blink || {};
 var blink = blink || {};
 var url = url || {};
 var url = url || {};
 
+blink.mojom.RequestContextTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.FetchCacheModeSpec = { $: mojo.internal.Enum() };
+blink.mojom.FetchPriorityHintSpec = { $: mojo.internal.Enum() };
+blink.mojom.FetchAPIRequestHeadersSpec = { $: {} };
+blink.mojom.FetchAPIRequestBodySpec = { $: {} };
+blink.mojom.FetchAPIRequestSpec = { $: {} };
 
 // Enum: RequestContextType
 blink.mojom.RequestContextType = {
@@ -54,7 +67,6 @@ blink.mojom.RequestContextType = {
   XML_HTTP_REQUEST: 35,
   XSLT: 36,
 };
-blink.mojom.RequestContextTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: FetchCacheMode
 blink.mojom.FetchCacheMode = {
@@ -67,7 +79,6 @@ blink.mojom.FetchCacheMode = {
   kUnspecifiedOnlyIfCachedStrict: 6,
   kUnspecifiedForceCacheMiss: 7,
 };
-blink.mojom.FetchCacheModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: FetchPriorityHint
 blink.mojom.FetchPriorityHint = {
@@ -75,70 +86,48 @@ blink.mojom.FetchPriorityHint = {
   kAuto: 1,
   kHigh: 2,
 };
-blink.mojom.FetchPriorityHintSpec = { $: mojo.internal.Enum() };
 
 // Struct: FetchAPIRequestHeaders
-blink.mojom.FetchAPIRequestHeadersSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FetchAPIRequestHeaders',
-      packedSize: 16,
-      fields: [
-        { name: 'headers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FetchAPIRequestHeadersSpec, 'blink.mojom.FetchAPIRequestHeaders', [
+      mojo.internal.StructField('headers', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: FetchAPIRequestBody
-blink.mojom.FetchAPIRequestBodySpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FetchAPIRequestBody',
-      packedSize: 32,
-      fields: [
-        { name: 'elements', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.DataElementSpec, false), nullable: false, minVersion: 0 },
-        { name: 'identifier', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'contains_sensitive_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FetchAPIRequestBodySpec, 'blink.mojom.FetchAPIRequestBody', [
+      mojo.internal.StructField('elements', 0, 0, mojo.internal.Array(network.mojom.DataElementSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('identifier', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('contains_sensitive_info', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: FetchAPIRequest
-blink.mojom.FetchAPIRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FetchAPIRequest',
-      packedSize: 144,
-      fields: [
-        { name: 'mode', packedOffset: 104, packedBitOffset: 0, type: network.mojom.RequestModeSpec, nullable: false, minVersion: 0 },
-        { name: 'is_main_resource_load', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'destination', packedOffset: 108, packedBitOffset: 0, type: network.mojom.RequestDestinationSpec, nullable: false, minVersion: 0 },
-        { name: 'frame_type', packedOffset: 112, packedBitOffset: 0, type: blink.mojom.RequestContextFrameTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'method', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'headers', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.FetchAPIRequestHeadersSpec, nullable: false, minVersion: 0 },
-        { name: 'blob', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.SerializedBlobSpec, nullable: true, minVersion: 0 },
-        { name: 'body', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.FetchAPIRequestBodySpec, nullable: true, minVersion: 0 },
-        { name: 'request_initiator', packedOffset: 40, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true, minVersion: 0 },
-        { name: 'navigation_redirect_chain', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
-        { name: 'referrer', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.ReferrerSpec, nullable: true, minVersion: 0 },
-        { name: 'cache_mode', packedOffset: 116, packedBitOffset: 0, type: blink.mojom.FetchCacheModeSpec, nullable: false, minVersion: 0 },
-        { name: 'integrity', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'priority', packedOffset: 120, packedBitOffset: 0, type: network.mojom.RequestPrioritySpec, nullable: false, minVersion: 0 },
-        { name: 'fetch_window_id', packedOffset: 72, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
-        { name: 'keepalive', packedOffset: 128, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_reload', packedOffset: 128, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_history_navigation', packedOffset: 128, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'devtools_stack_id', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'trust_token_params', packedOffset: 88, packedBitOffset: 0, type: network.mojom.TrustTokenParamsSpec, nullable: true, minVersion: 0 },
-        { name: 'target_address_space', packedOffset: 124, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false, minVersion: 0 },
-        { name: 'service_worker_race_network_request_token', packedOffset: 96, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 144}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FetchAPIRequestSpec, 'blink.mojom.FetchAPIRequest', [
+      mojo.internal.StructField('mode', 104, 0, network.mojom.RequestModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_main_resource_load', 128, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('destination', 108, 0, network.mojom.RequestDestinationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame_type', 112, 0, blink.mojom.RequestContextFrameTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('method', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('headers', 16, 0, blink.mojom.FetchAPIRequestHeadersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('blob', 24, 0, blink.mojom.SerializedBlobSpec, null, true, 0, undefined),
+      mojo.internal.StructField('body', 32, 0, blink.mojom.FetchAPIRequestBodySpec, null, true, 0, undefined),
+      mojo.internal.StructField('request_initiator', 40, 0, url.mojom.OriginSpec, null, true, 0, undefined),
+      mojo.internal.StructField('navigation_redirect_chain', 48, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('referrer', 56, 0, blink.mojom.ReferrerSpec, null, true, 0, undefined),
+      mojo.internal.StructField('cache_mode', 116, 0, blink.mojom.FetchCacheModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('integrity', 64, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('priority', 120, 0, network.mojom.RequestPrioritySpec, null, false, 0, undefined),
+      mojo.internal.StructField('fetch_window_id', 72, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('keepalive', 128, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_reload', 128, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_history_navigation', 128, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('devtools_stack_id', 80, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('trust_token_params', 88, 0, network.mojom.TrustTokenParamsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('target_address_space', 124, 0, network.mojom.IPAddressSpaceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('service_worker_race_network_request_token', 96, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+    ],
+    [[0, 144]]);

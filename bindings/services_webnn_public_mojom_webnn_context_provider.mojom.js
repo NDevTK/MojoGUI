@@ -7,8 +7,21 @@
 // Module namespace
 var webnn = webnn || {};
 webnn.mojom = webnn.mojom || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 var blink = blink || {};
 
+webnn.mojom.PowerPreferenceSpec = { $: mojo.internal.Enum() };
+webnn.mojom.CreateContextResultSpec = { $: {} };
+webnn.mojom.CreateContextOptionsSpec = { $: {} };
+webnn.mojom.CreateContextSuccessSpec = { $: {} };
+webnn.mojom.WebNNContextProvider = {};
+webnn.mojom.WebNNContextProvider.$interfaceName = 'webnn.mojom.WebNNContextProvider';
+webnn.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec = { $: {} };
+webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec = { $: {} };
 
 // Enum: PowerPreference
 webnn.mojom.PowerPreference = {
@@ -16,69 +29,52 @@ webnn.mojom.PowerPreference = {
   kHighPerformance: 1,
   kLowPower: 2,
 };
-webnn.mojom.PowerPreferenceSpec = { $: mojo.internal.Enum() };
 
 // Union: CreateContextResult
-webnn.mojom.CreateContextResultSpec = { $: mojo.internal.Union(
-    'webnn.mojom.CreateContextResult', {
+mojo.internal.Union(
+    webnn.mojom.CreateContextResultSpec, 'webnn.mojom.CreateContextResult', {
       'success': {
         'ordinal': 0,
         'type': webnn.mojom.CreateContextSuccessSpec,
-      }},
+        'nullable': false,
+      },
       'error': {
         'ordinal': 1,
         'type': webnn.mojom.ErrorSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: CreateContextOptions
-webnn.mojom.CreateContextOptionsSpec = {
-  $: {
-    structSpec: {
-      name: 'webnn.mojom.CreateContextOptions',
-      packedSize: 16,
-      fields: [
-        { name: 'kDefault', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    webnn.mojom.CreateContextOptionsSpec, 'webnn.mojom.CreateContextOptions', [
+      mojo.internal.StructField('kDefault', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: CreateContextSuccess
-webnn.mojom.CreateContextSuccessSpec = {
-  $: {
-    structSpec: {
-      name: 'webnn.mojom.CreateContextSuccess',
-      packedSize: 48,
-      fields: [
-        { name: 'context_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(webnn.mojom.WebNNContextRemote), nullable: true, minVersion: 0 },
-        { name: 'context_properties', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.ContextPropertiesSpec, nullable: false, minVersion: 0 },
-        { name: 'context_handle', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.WebNNContextTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'write_tensor_producer', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
-        { name: 'read_tensor_consumer', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    webnn.mojom.CreateContextSuccessSpec, 'webnn.mojom.CreateContextSuccess', [
+      mojo.internal.StructField('context_remote', 0, 0, mojo.internal.InterfaceProxy(webnn.mojom.WebNNContextRemote), null, true, 0, undefined),
+      mojo.internal.StructField('context_properties', 8, 0, webnn.mojom.ContextPropertiesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('context_handle', 16, 0, blink.mojom.WebNNContextTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('write_tensor_producer', 24, 0, mojo.internal.Pointer, null, true, 0, undefined),
+      mojo.internal.StructField('read_tensor_consumer', 32, 0, mojo.internal.Pointer, null, true, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Interface: WebNNContextProvider
-webnn.mojom.WebNNContextProvider = {};
+mojo.internal.Struct(
+    webnn.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec, 'webnn.mojom.WebNNContextProvider_CreateWebNNContext_Params', [
+      mojo.internal.StructField('options', 0, 0, webnn.mojom.CreateContextOptionsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-webnn.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'webnn.mojom.WebNNContextProvider_CreateWebNNContext_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.CreateContextOptionsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec, 'webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, webnn.mojom.CreateContextResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 webnn.mojom.WebNNContextProviderPendingReceiver = class {
   constructor(handle) {
@@ -133,34 +129,6 @@ webnn.mojom.WebNNContextProvider.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateWebNNContext
-webnn.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'webnn.mojom.WebNNContextProvider.CreateWebNNContext_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.CreateContextOptionsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'webnn.mojom.WebNNContextProvider.CreateWebNNContext_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.CreateContextResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 webnn.mojom.WebNNContextProviderPtr = webnn.mojom.WebNNContextProviderRemote;
 webnn.mojom.WebNNContextProviderRequest = webnn.mojom.WebNNContextProviderPendingReceiver;
 

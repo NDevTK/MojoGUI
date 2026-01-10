@@ -7,27 +7,22 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var services = services || {};
 
+blink.mojom.SharedWorkerErrorTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.SharedWorkerExceptionDetailsSpec = { $: {} };
 
 // Enum: SharedWorkerErrorType
 blink.mojom.SharedWorkerErrorType = {
   kParseError: 0,
   kRuntimeError: 1,
 };
-blink.mojom.SharedWorkerErrorTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: SharedWorkerExceptionDetails
-blink.mojom.SharedWorkerExceptionDetailsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedWorkerExceptionDetails',
-      packedSize: 32,
-      fields: [
-        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'source_location', packedOffset: 8, packedBitOffset: 0, type: network.mojom.SourceLocationSpec, nullable: false, minVersion: 0 },
-        { name: 'error_type', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.SharedWorkerErrorTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SharedWorkerExceptionDetailsSpec, 'blink.mojom.SharedWorkerExceptionDetails', [
+      mojo.internal.StructField('error_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('source_location', 8, 0, network.mojom.SourceLocationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error_type', 16, 0, blink.mojom.SharedWorkerErrorTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);

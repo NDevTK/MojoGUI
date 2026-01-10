@@ -8,6 +8,11 @@
 var gpu = gpu || {};
 gpu.mojom = gpu.mojom || {};
 
+gpu.mojom.GpuDiskCacheTypeSpec = { $: mojo.internal.Enum() };
+gpu.mojom.GpuDiskCacheHandleSpec = { $: {} };
+gpu.mojom.GpuDiskCacheGlShaderHandleSpec = { $: {} };
+gpu.mojom.GpuDiskCacheDawnWebGPUHandleSpec = { $: {} };
+gpu.mojom.GpuDiskCacheDawnGraphiteHandleSpec = { $: {} };
 
 // Enum: GpuDiskCacheType
 gpu.mojom.GpuDiskCacheType = {
@@ -15,64 +20,44 @@ gpu.mojom.GpuDiskCacheType = {
   kDawnWebGPU: 1,
   kDawnGraphite: 2,
 };
-gpu.mojom.GpuDiskCacheTypeSpec = { $: mojo.internal.Enum() };
 
 // Union: GpuDiskCacheHandle
-gpu.mojom.GpuDiskCacheHandleSpec = { $: mojo.internal.Union(
-    'gpu.mojom.GpuDiskCacheHandle', {
+mojo.internal.Union(
+    gpu.mojom.GpuDiskCacheHandleSpec, 'gpu.mojom.GpuDiskCacheHandle', {
       'gl_shader_handle': {
         'ordinal': 0,
         'type': gpu.mojom.GpuDiskCacheGlShaderHandleSpec,
-      }},
+        'nullable': false,
+      },
       'dawn_webgpu_handle': {
         'ordinal': 1,
         'type': gpu.mojom.GpuDiskCacheDawnWebGPUHandleSpec,
-      }},
+        'nullable': false,
+      },
       'dawn_graphite_handle': {
         'ordinal': 2,
         'type': gpu.mojom.GpuDiskCacheDawnGraphiteHandleSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: GpuDiskCacheGlShaderHandle
-gpu.mojom.GpuDiskCacheGlShaderHandleSpec = {
-  $: {
-    structSpec: {
-      name: 'gpu.mojom.GpuDiskCacheGlShaderHandle',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gpu.mojom.GpuDiskCacheGlShaderHandleSpec, 'gpu.mojom.GpuDiskCacheGlShaderHandle', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: GpuDiskCacheDawnWebGPUHandle
-gpu.mojom.GpuDiskCacheDawnWebGPUHandleSpec = {
-  $: {
-    structSpec: {
-      name: 'gpu.mojom.GpuDiskCacheDawnWebGPUHandle',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gpu.mojom.GpuDiskCacheDawnWebGPUHandleSpec, 'gpu.mojom.GpuDiskCacheDawnWebGPUHandle', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: GpuDiskCacheDawnGraphiteHandle
-gpu.mojom.GpuDiskCacheDawnGraphiteHandleSpec = {
-  $: {
-    structSpec: {
-      name: 'gpu.mojom.GpuDiskCacheDawnGraphiteHandle',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gpu.mojom.GpuDiskCacheDawnGraphiteHandleSpec, 'gpu.mojom.GpuDiskCacheDawnGraphiteHandle', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);

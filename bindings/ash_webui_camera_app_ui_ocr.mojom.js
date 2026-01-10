@@ -11,60 +11,42 @@ ash.camera_app.mojom = ash.camera_app.mojom || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+ash.camera_app.mojom.WordDirectionSpec = { $: mojo.internal.Enum() };
+ash.camera_app.mojom.OcrResultSpec = { $: {} };
+ash.camera_app.mojom.LineSpec = { $: {} };
+ash.camera_app.mojom.WordSpec = { $: {} };
 
 // Enum: WordDirection
 ash.camera_app.mojom.WordDirection = {
   kLeftToRight: 0,
   kRightToLeft: 1,
 };
-ash.camera_app.mojom.WordDirectionSpec = { $: mojo.internal.Enum() };
 
 // Struct: OcrResult
-ash.camera_app.mojom.OcrResultSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.OcrResult',
-      packedSize: 16,
-      fields: [
-        { name: 'lines', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.camera_app.mojom.LineSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.camera_app.mojom.OcrResultSpec, 'ash.camera_app.mojom.OcrResult', [
+      mojo.internal.StructField('lines', 0, 0, mojo.internal.Array(ash.camera_app.mojom.LineSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: Line
-ash.camera_app.mojom.LineSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.Line',
-      packedSize: 48,
-      fields: [
-        { name: 'words', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.camera_app.mojom.WordSpec, false), nullable: false, minVersion: 0 },
-        { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'bounding_box', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'bounding_box_angle', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'language', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'confidence', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.camera_app.mojom.LineSpec, 'ash.camera_app.mojom.Line', [
+      mojo.internal.StructField('words', 0, 0, mojo.internal.Array(ash.camera_app.mojom.WordSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('text', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('bounding_box', 16, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bounding_box_angle', 32, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('language', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('confidence', 36, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: Word
-ash.camera_app.mojom.WordSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.Word',
-      packedSize: 32,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'bounding_box', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'bounding_box_angle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'direction', packedOffset: 20, packedBitOffset: 0, type: ash.camera_app.mojom.WordDirectionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.camera_app.mojom.WordSpec, 'ash.camera_app.mojom.Word', [
+      mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('bounding_box', 8, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bounding_box_angle', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('direction', 20, 0, ash.camera_app.mojom.WordDirectionSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);

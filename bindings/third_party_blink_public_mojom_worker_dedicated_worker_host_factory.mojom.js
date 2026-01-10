@@ -7,6 +7,9 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 var blink = blink || {};
 var blink = blink || {};
 var blink = blink || {};
@@ -22,58 +25,43 @@ var blink = blink || {};
 var url = url || {};
 var url = url || {};
 
+blink.mojom.DedicatedWorkerHostFactoryClient = {};
+blink.mojom.DedicatedWorkerHostFactoryClient.$interfaceName = 'blink.mojom.DedicatedWorkerHostFactoryClient';
+blink.mojom.DedicatedWorkerHostFactoryClient_OnWorkerHostCreated_ParamsSpec = { $: {} };
+blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStarted_ParamsSpec = { $: {} };
+blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStartFailed_ParamsSpec = { $: {} };
+blink.mojom.DedicatedWorkerHostFactory = {};
+blink.mojom.DedicatedWorkerHostFactory.$interfaceName = 'blink.mojom.DedicatedWorkerHostFactory';
+blink.mojom.DedicatedWorkerHostFactory_CreateWorkerHostAndStartScriptLoad_ParamsSpec = { $: {} };
 
 blink.mojom.kNavigation_DedicatedWorkerSpec = "navigation:dedicated_worker";
 
 // Interface: DedicatedWorkerHostFactoryClient
-blink.mojom.DedicatedWorkerHostFactoryClient = {};
+mojo.internal.Struct(
+    blink.mojom.DedicatedWorkerHostFactoryClient_OnWorkerHostCreated_ParamsSpec, 'blink.mojom.DedicatedWorkerHostFactoryClient_OnWorkerHostCreated_Params', [
+      mojo.internal.StructField('browser_interface_broker', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.BrowserInterfaceBrokerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.DedicatedWorkerHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('origin', 16, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-blink.mojom.DedicatedWorkerHostFactoryClient_OnWorkerHostCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DedicatedWorkerHostFactoryClient_OnWorkerHostCreated_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'browser_interface_broker', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.BrowserInterfaceBrokerRemote), nullable: false, minVersion: 0 },
-        { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.DedicatedWorkerHostRemote), nullable: false, minVersion: 0 },
-        { name: 'origin', packedOffset: 16, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStarted_ParamsSpec, 'blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStarted_Params', [
+      mojo.internal.StructField('service_worker_container_info', 0, 0, blink.mojom.ServiceWorkerContainerInfoForClientSpec, null, true, 0, undefined),
+      mojo.internal.StructField('main_script_load_params', 8, 0, blink.mojom.WorkerMainScriptLoadParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('subresource_loader_factories', 16, 0, blink.mojom.URLLoaderFactoryBundleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('subresource_loader_updater', 24, 0, mojo.internal.InterfaceRequest(blink.mojom.SubresourceLoaderUpdaterRemote), null, false, 0, undefined),
+      mojo.internal.StructField('controller_info', 32, 0, blink.mojom.ControllerServiceWorkerInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('back_forward_cache_controller_host', 40, 0, mojo.internal.InterfaceProxy(blink.mojom.BackForwardCacheControllerHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('coep_reporting_observer_receiver', 48, 0, mojo.internal.InterfaceRequest(blink.mojom.ReportingObserverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('dip_reporting_observer_receiver', 56, 0, mojo.internal.InterfaceRequest(blink.mojom.ReportingObserverRemote), null, true, 0, undefined),
+    ],
+    [[0, 72]]);
 
-blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStarted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStarted_Params',
-      packedSize: 72,
-      fields: [
-        { name: 'service_worker_container_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerContainerInfoForClientSpec, nullable: true, minVersion: 0 },
-        { name: 'main_script_load_params', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WorkerMainScriptLoadParamsSpec, nullable: false, minVersion: 0 },
-        { name: 'subresource_loader_factories', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.URLLoaderFactoryBundleSpec, nullable: false, minVersion: 0 },
-        { name: 'subresource_loader_updater', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.SubresourceLoaderUpdaterRemote), nullable: false, minVersion: 0 },
-        { name: 'controller_info', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.ControllerServiceWorkerInfoSpec, nullable: true, minVersion: 0 },
-        { name: 'back_forward_cache_controller_host', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.BackForwardCacheControllerHostRemote), nullable: false, minVersion: 0 },
-        { name: 'coep_reporting_observer_receiver', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.ReportingObserverRemote), nullable: true, minVersion: 0 },
-        { name: 'dip_reporting_observer_receiver', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.ReportingObserverRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 72}]
-    }
-  }
-};
-
-blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStartFailed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStartFailed_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStartFailed_ParamsSpec, 'blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStartFailed_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 blink.mojom.DedicatedWorkerHostFactoryClientPendingReceiver = class {
   constructor(handle) {
@@ -146,82 +134,22 @@ blink.mojom.DedicatedWorkerHostFactoryClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnWorkerHostCreated
-blink.mojom.DedicatedWorkerHostFactoryClient_OnWorkerHostCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DedicatedWorkerHostFactoryClient.OnWorkerHostCreated_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'browser_interface_broker', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.BrowserInterfaceBrokerRemote), nullable: false, minVersion: 0 },
-        { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.DedicatedWorkerHostRemote), nullable: false, minVersion: 0 },
-        { name: 'origin', packedOffset: 16, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for OnScriptLoadStarted
-blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStarted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DedicatedWorkerHostFactoryClient.OnScriptLoadStarted_Params',
-      packedSize: 72,
-      fields: [
-        { name: 'service_worker_container_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerContainerInfoForClientSpec, nullable: true, minVersion: 0 },
-        { name: 'main_script_load_params', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WorkerMainScriptLoadParamsSpec, nullable: false, minVersion: 0 },
-        { name: 'subresource_loader_factories', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.URLLoaderFactoryBundleSpec, nullable: false, minVersion: 0 },
-        { name: 'subresource_loader_updater', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.SubresourceLoaderUpdaterRemote), nullable: false, minVersion: 0 },
-        { name: 'controller_info', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.ControllerServiceWorkerInfoSpec, nullable: true, minVersion: 0 },
-        { name: 'back_forward_cache_controller_host', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.BackForwardCacheControllerHostRemote), nullable: false, minVersion: 0 },
-        { name: 'coep_reporting_observer_receiver', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.ReportingObserverRemote), nullable: true, minVersion: 0 },
-        { name: 'dip_reporting_observer_receiver', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.ReportingObserverRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 72}]
-    }
-  }
-};
-
-// ParamsSpec for OnScriptLoadStartFailed
-blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStartFailed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DedicatedWorkerHostFactoryClient.OnScriptLoadStartFailed_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.DedicatedWorkerHostFactoryClientPtr = blink.mojom.DedicatedWorkerHostFactoryClientRemote;
 blink.mojom.DedicatedWorkerHostFactoryClientRequest = blink.mojom.DedicatedWorkerHostFactoryClientPendingReceiver;
 
 
 // Interface: DedicatedWorkerHostFactory
-blink.mojom.DedicatedWorkerHostFactory = {};
-
-blink.mojom.DedicatedWorkerHostFactory_CreateWorkerHostAndStartScriptLoad_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DedicatedWorkerHostFactory_CreateWorkerHostAndStartScriptLoad_Params',
-      packedSize: 56,
-      fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DedicatedWorkerTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'script_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'credentials_mode', packedOffset: 40, packedBitOffset: 0, type: network.mojom.CredentialsModeSpec, nullable: false, minVersion: 0 },
-        { name: 'outside_fetch_client_settings_object', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.FetchClientSettingsObjectSpec, nullable: false, minVersion: 0 },
-        { name: 'blob_url_token', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.BlobURLTokenRemote), nullable: true, minVersion: 0 },
-        { name: 'client', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.DedicatedWorkerHostFactoryClientRemote), nullable: false, minVersion: 0 },
-        { name: 'storage_access_api_status', packedOffset: 44, packedBitOffset: 0, type: network.mojom.StorageAccessApiStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.DedicatedWorkerHostFactory_CreateWorkerHostAndStartScriptLoad_ParamsSpec, 'blink.mojom.DedicatedWorkerHostFactory_CreateWorkerHostAndStartScriptLoad_Params', [
+      mojo.internal.StructField('token', 0, 0, blink.mojom.DedicatedWorkerTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('script_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('credentials_mode', 40, 0, network.mojom.CredentialsModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('outside_fetch_client_settings_object', 16, 0, blink.mojom.FetchClientSettingsObjectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('blob_url_token', 24, 0, mojo.internal.InterfaceProxy(blink.mojom.BlobURLTokenRemote), null, true, 0, undefined),
+      mojo.internal.StructField('client', 32, 0, mojo.internal.InterfaceProxy(blink.mojom.DedicatedWorkerHostFactoryClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('storage_access_api_status', 44, 0, network.mojom.StorageAccessApiStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
 blink.mojom.DedicatedWorkerHostFactoryPendingReceiver = class {
   constructor(handle) {
@@ -276,27 +204,6 @@ blink.mojom.DedicatedWorkerHostFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateWorkerHostAndStartScriptLoad
-blink.mojom.DedicatedWorkerHostFactory_CreateWorkerHostAndStartScriptLoad_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DedicatedWorkerHostFactory.CreateWorkerHostAndStartScriptLoad_Params',
-      packedSize: 56,
-      fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DedicatedWorkerTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'script_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'credentials_mode', packedOffset: 40, packedBitOffset: 0, type: network.mojom.CredentialsModeSpec, nullable: false, minVersion: 0 },
-        { name: 'outside_fetch_client_settings_object', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.FetchClientSettingsObjectSpec, nullable: false, minVersion: 0 },
-        { name: 'blob_url_token', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.BlobURLTokenRemote), nullable: true, minVersion: 0 },
-        { name: 'client', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.DedicatedWorkerHostFactoryClientRemote), nullable: false, minVersion: 0 },
-        { name: 'storage_access_api_status', packedOffset: 44, packedBitOffset: 0, type: network.mojom.StorageAccessApiStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.DedicatedWorkerHostFactoryPtr = blink.mojom.DedicatedWorkerHostFactoryRemote;
 blink.mojom.DedicatedWorkerHostFactoryRequest = blink.mojom.DedicatedWorkerHostFactoryPendingReceiver;
 

@@ -8,18 +8,12 @@
 var lens = lens || {};
 lens.mojom = lens.mojom || {};
 
+lens.mojom.OverlayObjectSpec = { $: {} };
 
 // Struct: OverlayObject
-lens.mojom.OverlayObjectSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.OverlayObject',
-      packedSize: 24,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'geometry', packedOffset: 8, packedBitOffset: 0, type: lens.mojom.GeometrySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.OverlayObjectSpec, 'lens.mojom.OverlayObject', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('geometry', 8, 0, lens.mojom.GeometrySpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);

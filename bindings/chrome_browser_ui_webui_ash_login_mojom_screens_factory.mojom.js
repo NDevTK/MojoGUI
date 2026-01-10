@@ -9,169 +9,143 @@ var ash = ash || {};
 ash.screens_factory = ash.screens_factory || {};
 ash.screens_factory.mojom = ash.screens_factory.mojom || {};
 var ui = ui || {};
+var ash = ash || {};
 var ui = ui || {};
+var ash = ash || {};
 var ui = ui || {};
+var ash = ash || {};
 var ui = ui || {};
+var ash = ash || {};
 
+ash.screens_factory.mojom.ScreensFactory = {};
+ash.screens_factory.mojom.ScreensFactory.$interfaceName = 'ash.screens_factory.mojom.ScreensFactory';
+ash.screens_factory.mojom.ScreensFactory_EstablishAiIntroScreenPipe_ParamsSpec = { $: {} };
+ash.screens_factory.mojom.ScreensFactory_EstablishAiIntroScreenPipe_ResponseParamsSpec = { $: {} };
+ash.screens_factory.mojom.ScreensFactory_EstablishAppDownloadingScreenPipe_ParamsSpec = { $: {} };
+ash.screens_factory.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_ParamsSpec = { $: {} };
+ash.screens_factory.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_ResponseParamsSpec = { $: {} };
+ash.screens_factory.mojom.ScreensFactory_EstablishFjordStationSetupScreenPipe_ParamsSpec = { $: {} };
+ash.screens_factory.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_ParamsSpec = { $: {} };
+ash.screens_factory.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_ResponseParamsSpec = { $: {} };
+ash.screens_factory.mojom.ScreensFactory_EstablishGestureNavigationScreenPipe_ParamsSpec = { $: {} };
+ash.screens_factory.mojom.ScreensFactory_EstablishGeminiIntroScreenPipe_ParamsSpec = { $: {} };
+ash.screens_factory.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_ParamsSpec = { $: {} };
+ash.screens_factory.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_ResponseParamsSpec = { $: {} };
+ash.screens_factory.mojom.ScreensFactory_EstablishPackagedLicenseScreenPipe_ParamsSpec = { $: {} };
+ash.screens_factory.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_ParamsSpec = { $: {} };
+ash.screens_factory.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_ResponseParamsSpec = { $: {} };
+ash.screens_factory.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_ParamsSpec = { $: {} };
+ash.screens_factory.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_ResponseParamsSpec = { $: {} };
+ash.screens_factory.mojom.ScreensFactory_EstablishLocalDataLossWarningScreenPipe_ParamsSpec = { $: {} };
 
 // Interface: ScreensFactory
-ash.screens_factory.mojom.ScreensFactory = {};
+mojo.internal.Struct(
+    ash.screens_factory.mojom.ScreensFactory_EstablishAiIntroScreenPipe_ParamsSpec, 'ash.screens_factory.mojom.ScreensFactory_EstablishAiIntroScreenPipe_Params', [
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(ash.screens_common.mojom.AiIntroPageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.screens_factory.mojom.ScreensFactory_EstablishAiIntroScreenPipe_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_factory.mojom.ScreensFactory_EstablishAiIntroScreenPipe_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_common.mojom.AiIntroPageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_factory.mojom.ScreensFactory_EstablishAiIntroScreenPipe_ResponseParamsSpec, 'ash.screens_factory.mojom.ScreensFactory_EstablishAiIntroScreenPipe_ResponseParams', [
+      mojo.internal.StructField('pending', 0, 0, mojo.internal.InterfaceRequest(ash.screens_common.mojom.AiIntroPageRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.screens_factory.mojom.ScreensFactory_EstablishAppDownloadingScreenPipe_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_factory.mojom.ScreensFactory_EstablishAppDownloadingScreenPipe_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_common.mojom.AppDownloadingPageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_factory.mojom.ScreensFactory_EstablishAppDownloadingScreenPipe_ParamsSpec, 'ash.screens_factory.mojom.ScreensFactory_EstablishAppDownloadingScreenPipe_Params', [
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(ash.screens_common.mojom.AppDownloadingPageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.screens_factory.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_factory.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_common.mojom.DrivePinningPageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_factory.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_ParamsSpec, 'ash.screens_factory.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_Params', [
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(ash.screens_common.mojom.DrivePinningPageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.screens_factory.mojom.ScreensFactory_EstablishFjordStationSetupScreenPipe_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_factory.mojom.ScreensFactory_EstablishFjordStationSetupScreenPipe_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_common.mojom.FjordStationSetupPageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_factory.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_ResponseParamsSpec, 'ash.screens_factory.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_ResponseParams', [
+      mojo.internal.StructField('pending', 0, 0, mojo.internal.InterfaceRequest(ash.screens_common.mojom.DrivePinningPageRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.screens_factory.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_factory.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_common.mojom.GaiaInfoPageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_factory.mojom.ScreensFactory_EstablishFjordStationSetupScreenPipe_ParamsSpec, 'ash.screens_factory.mojom.ScreensFactory_EstablishFjordStationSetupScreenPipe_Params', [
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(ash.screens_common.mojom.FjordStationSetupPageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.screens_factory.mojom.ScreensFactory_EstablishGestureNavigationScreenPipe_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_factory.mojom.ScreensFactory_EstablishGestureNavigationScreenPipe_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_common.mojom.GestureNavigationPageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_factory.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_ParamsSpec, 'ash.screens_factory.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_Params', [
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(ash.screens_common.mojom.GaiaInfoPageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.screens_factory.mojom.ScreensFactory_EstablishGeminiIntroScreenPipe_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_factory.mojom.ScreensFactory_EstablishGeminiIntroScreenPipe_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_common.mojom.GeminiIntroPageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_factory.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_ResponseParamsSpec, 'ash.screens_factory.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_ResponseParams', [
+      mojo.internal.StructField('pending', 0, 0, mojo.internal.InterfaceRequest(ash.screens_common.mojom.GaiaInfoPageRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.screens_factory.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_factory.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_oobe.mojom.ConsumerUpdatePageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_factory.mojom.ScreensFactory_EstablishGestureNavigationScreenPipe_ParamsSpec, 'ash.screens_factory.mojom.ScreensFactory_EstablishGestureNavigationScreenPipe_Params', [
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(ash.screens_common.mojom.GestureNavigationPageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.screens_factory.mojom.ScreensFactory_EstablishPackagedLicenseScreenPipe_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_factory.mojom.ScreensFactory_EstablishPackagedLicenseScreenPipe_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_oobe.mojom.PackagedLicensePageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_factory.mojom.ScreensFactory_EstablishGeminiIntroScreenPipe_ParamsSpec, 'ash.screens_factory.mojom.ScreensFactory_EstablishGeminiIntroScreenPipe_Params', [
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(ash.screens_common.mojom.GeminiIntroPageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.screens_factory.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_factory.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_factory.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_ParamsSpec, 'ash.screens_factory.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_Params', [
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(ash.screens_oobe.mojom.ConsumerUpdatePageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.screens_factory.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_factory.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_login.mojom.EncryptionMigrationPageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_factory.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_ResponseParamsSpec, 'ash.screens_factory.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_ResponseParams', [
+      mojo.internal.StructField('pending', 0, 0, mojo.internal.InterfaceRequest(ash.screens_oobe.mojom.ConsumerUpdatePageRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.screens_factory.mojom.ScreensFactory_EstablishLocalDataLossWarningScreenPipe_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_factory.mojom.ScreensFactory_EstablishLocalDataLossWarningScreenPipe_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_factory.mojom.ScreensFactory_EstablishPackagedLicenseScreenPipe_ParamsSpec, 'ash.screens_factory.mojom.ScreensFactory_EstablishPackagedLicenseScreenPipe_Params', [
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(ash.screens_oobe.mojom.PackagedLicensePageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.screens_factory.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_ParamsSpec, 'ash.screens_factory.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_Params', [
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.screens_factory.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_ResponseParamsSpec, 'ash.screens_factory.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_ResponseParams', [
+      mojo.internal.StructField('pending', 0, 0, mojo.internal.InterfaceRequest(ash.screens_login.mojom.ArcVmDataMigrationPageRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.screens_factory.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_ParamsSpec, 'ash.screens_factory.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_Params', [
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(ash.screens_login.mojom.EncryptionMigrationPageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.screens_factory.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_ResponseParamsSpec, 'ash.screens_factory.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_ResponseParams', [
+      mojo.internal.StructField('pending', 0, 0, mojo.internal.InterfaceRequest(ash.screens_login.mojom.EncryptionMigrationPageRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.screens_factory.mojom.ScreensFactory_EstablishLocalDataLossWarningScreenPipe_ParamsSpec, 'ash.screens_factory.mojom.ScreensFactory_EstablishLocalDataLossWarningScreenPipe_Params', [
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.screens_factory.mojom.ScreensFactoryPendingReceiver = class {
   constructor(handle) {
@@ -325,253 +299,6 @@ ash.screens_factory.mojom.ScreensFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for EstablishAiIntroScreenPipe
-ash.screens_factory.mojom.ScreensFactory_EstablishAiIntroScreenPipe_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_factory.mojom.ScreensFactory.EstablishAiIntroScreenPipe_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_common.mojom.AiIntroPageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.screens_factory.mojom.ScreensFactory_EstablishAiIntroScreenPipe_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_factory.mojom.ScreensFactory.EstablishAiIntroScreenPipe_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'pending', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_common.mojom.AiIntroPageRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EstablishAppDownloadingScreenPipe
-ash.screens_factory.mojom.ScreensFactory_EstablishAppDownloadingScreenPipe_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_factory.mojom.ScreensFactory.EstablishAppDownloadingScreenPipe_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_common.mojom.AppDownloadingPageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EstablishDrivePinningScreenPipe
-ash.screens_factory.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_factory.mojom.ScreensFactory.EstablishDrivePinningScreenPipe_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_common.mojom.DrivePinningPageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.screens_factory.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_factory.mojom.ScreensFactory.EstablishDrivePinningScreenPipe_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'pending', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_common.mojom.DrivePinningPageRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EstablishFjordStationSetupScreenPipe
-ash.screens_factory.mojom.ScreensFactory_EstablishFjordStationSetupScreenPipe_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_factory.mojom.ScreensFactory.EstablishFjordStationSetupScreenPipe_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_common.mojom.FjordStationSetupPageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EstablishGaiaInfoScreenPipe
-ash.screens_factory.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_factory.mojom.ScreensFactory.EstablishGaiaInfoScreenPipe_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_common.mojom.GaiaInfoPageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.screens_factory.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_factory.mojom.ScreensFactory.EstablishGaiaInfoScreenPipe_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'pending', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_common.mojom.GaiaInfoPageRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EstablishGestureNavigationScreenPipe
-ash.screens_factory.mojom.ScreensFactory_EstablishGestureNavigationScreenPipe_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_factory.mojom.ScreensFactory.EstablishGestureNavigationScreenPipe_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_common.mojom.GestureNavigationPageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EstablishGeminiIntroScreenPipe
-ash.screens_factory.mojom.ScreensFactory_EstablishGeminiIntroScreenPipe_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_factory.mojom.ScreensFactory.EstablishGeminiIntroScreenPipe_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_common.mojom.GeminiIntroPageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EstablishConsumerUpdateScreenPipe
-ash.screens_factory.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_factory.mojom.ScreensFactory.EstablishConsumerUpdateScreenPipe_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_oobe.mojom.ConsumerUpdatePageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.screens_factory.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_factory.mojom.ScreensFactory.EstablishConsumerUpdateScreenPipe_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'pending', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_oobe.mojom.ConsumerUpdatePageRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EstablishPackagedLicenseScreenPipe
-ash.screens_factory.mojom.ScreensFactory_EstablishPackagedLicenseScreenPipe_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_factory.mojom.ScreensFactory.EstablishPackagedLicenseScreenPipe_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_oobe.mojom.PackagedLicensePageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EstablishArcVmDataMigrationScreenPipe
-ash.screens_factory.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_factory.mojom.ScreensFactory.EstablishArcVmDataMigrationScreenPipe_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.screens_factory.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_factory.mojom.ScreensFactory.EstablishArcVmDataMigrationScreenPipe_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'pending', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_login.mojom.ArcVmDataMigrationPageRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EstablishEncryptionMigrationScreenPipe
-ash.screens_factory.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_factory.mojom.ScreensFactory.EstablishEncryptionMigrationScreenPipe_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_login.mojom.EncryptionMigrationPageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.screens_factory.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_factory.mojom.ScreensFactory.EstablishEncryptionMigrationScreenPipe_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'pending', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_login.mojom.EncryptionMigrationPageRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EstablishLocalDataLossWarningScreenPipe
-ash.screens_factory.mojom.ScreensFactory_EstablishLocalDataLossWarningScreenPipe_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_factory.mojom.ScreensFactory.EstablishLocalDataLossWarningScreenPipe_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.screens_factory.mojom.ScreensFactoryPtr = ash.screens_factory.mojom.ScreensFactoryRemote;
 ash.screens_factory.mojom.ScreensFactoryRequest = ash.screens_factory.mojom.ScreensFactoryPendingReceiver;
 

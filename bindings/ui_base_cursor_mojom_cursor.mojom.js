@@ -12,20 +12,14 @@ var ui = ui || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+ui.mojom.CursorSpec = { $: {} };
 
 // Struct: Cursor
-ui.mojom.CursorSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.mojom.Cursor',
-      packedSize: 32,
-      fields: [
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: ui.mojom.CursorTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'hotspot', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
-        { name: 'bitmap', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true, minVersion: 0 },
-        { name: 'image_scale_factor', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ui.mojom.CursorSpec, 'ui.mojom.Cursor', [
+      mojo.internal.StructField('type', 16, 0, ui.mojom.CursorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('hotspot', 0, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bitmap', 8, 0, skia.mojom.BitmapN32Spec, null, true, 0, undefined),
+      mojo.internal.StructField('image_scale_factor', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);

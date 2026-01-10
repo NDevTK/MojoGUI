@@ -8,23 +8,25 @@
 var history_clusters_internals = history_clusters_internals || {};
 history_clusters_internals.mojom = history_clusters_internals.mojom || {};
 
+history_clusters_internals.mojom.PageHandlerFactory = {};
+history_clusters_internals.mojom.PageHandlerFactory.$interfaceName = 'history_clusters_internals.mojom.PageHandlerFactory';
+history_clusters_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+history_clusters_internals.mojom.PageHandler = {};
+history_clusters_internals.mojom.PageHandler.$interfaceName = 'history_clusters_internals.mojom.PageHandler';
+history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ParamsSpec = { $: {} };
+history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ResponseParamsSpec = { $: {} };
+history_clusters_internals.mojom.PageHandler_PrintKeywordBagStateToLogMessages_ParamsSpec = { $: {} };
+history_clusters_internals.mojom.Page = {};
+history_clusters_internals.mojom.Page.$interfaceName = 'history_clusters_internals.mojom.Page';
+history_clusters_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = { $: {} };
 
 // Interface: PageHandlerFactory
-history_clusters_internals.mojom.PageHandlerFactory = {};
-
-history_clusters_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history_clusters_internals.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(history_clusters_internals.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'page_handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(history_clusters_internals.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    history_clusters_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'history_clusters_internals.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(history_clusters_internals.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page_handler', 8, 0, mojo.internal.InterfaceRequest(history_clusters_internals.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 history_clusters_internals.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -79,52 +81,26 @@ history_clusters_internals.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-history_clusters_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history_clusters_internals.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(history_clusters_internals.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'page_handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(history_clusters_internals.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 history_clusters_internals.mojom.PageHandlerFactoryPtr = history_clusters_internals.mojom.PageHandlerFactoryRemote;
 history_clusters_internals.mojom.PageHandlerFactoryRequest = history_clusters_internals.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-history_clusters_internals.mojom.PageHandler = {};
+mojo.internal.Struct(
+    history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ParamsSpec, 'history_clusters_internals.mojom.PageHandler_GetContextClustersJson_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history_clusters_internals.mojom.PageHandler_GetContextClustersJson_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ResponseParamsSpec, 'history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ResponseParams', [
+      mojo.internal.StructField('context_clusters_json', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-history_clusters_internals.mojom.PageHandler_PrintKeywordBagStateToLogMessages_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history_clusters_internals.mojom.PageHandler_PrintKeywordBagStateToLogMessages_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    history_clusters_internals.mojom.PageHandler_PrintKeywordBagStateToLogMessages_ParamsSpec, 'history_clusters_internals.mojom.PageHandler_PrintKeywordBagStateToLogMessages_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 history_clusters_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -188,65 +164,16 @@ history_clusters_internals.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetContextClustersJson
-history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history_clusters_internals.mojom.PageHandler.GetContextClustersJson_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history_clusters_internals.mojom.PageHandler.GetContextClustersJson_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'context_clusters_json', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for PrintKeywordBagStateToLogMessages
-history_clusters_internals.mojom.PageHandler_PrintKeywordBagStateToLogMessages_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history_clusters_internals.mojom.PageHandler.PrintKeywordBagStateToLogMessages_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 history_clusters_internals.mojom.PageHandlerPtr = history_clusters_internals.mojom.PageHandlerRemote;
 history_clusters_internals.mojom.PageHandlerRequest = history_clusters_internals.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-history_clusters_internals.mojom.Page = {};
-
-history_clusters_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history_clusters_internals.mojom.Page_OnLogMessageAdded_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    history_clusters_internals.mojom.Page_OnLogMessageAdded_ParamsSpec, 'history_clusters_internals.mojom.Page_OnLogMessageAdded_Params', [
+      mojo.internal.StructField('message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 history_clusters_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
@@ -301,21 +228,6 @@ history_clusters_internals.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnLogMessageAdded
-history_clusters_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history_clusters_internals.mojom.Page.OnLogMessageAdded_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 history_clusters_internals.mojom.PagePtr = history_clusters_internals.mojom.PageRemote;
 history_clusters_internals.mojom.PageRequest = history_clusters_internals.mojom.PagePendingReceiver;
 

@@ -7,7 +7,15 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
 
+network.mojom.CoopAccessReportTypeSpec = { $: mojo.internal.Enum() };
+network.mojom.CrossOriginOpenerPolicyValueSpec = { $: mojo.internal.Enum() };
+network.mojom.CrossOriginOpenerPolicyReporterParamsSpec = { $: {} };
+network.mojom.CrossOriginOpenerPolicySpec = { $: {} };
+network.mojom.CrossOriginOpenerPolicyReporter = {};
+network.mojom.CrossOriginOpenerPolicyReporter.$interfaceName = 'network.mojom.CrossOriginOpenerPolicyReporter';
+network.mojom.CrossOriginOpenerPolicyReporter_QueueAccessReport_ParamsSpec = { $: {} };
 
 // Enum: CoopAccessReportType
 network.mojom.CoopAccessReportType = {
@@ -18,7 +26,6 @@ network.mojom.CoopAccessReportType = {
   kAccessToCoopPageFromOpenee: 4,
   kAccessToCoopPageFromOther: 5,
 };
-network.mojom.CoopAccessReportTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CrossOriginOpenerPolicyValue
 network.mojom.CrossOriginOpenerPolicyValue = {
@@ -28,58 +35,34 @@ network.mojom.CrossOriginOpenerPolicyValue = {
   kSameOriginPlusCoep: 3,
   kNoopenerAllowPopups: 4,
 };
-network.mojom.CrossOriginOpenerPolicyValueSpec = { $: mojo.internal.Enum() };
 
 // Struct: CrossOriginOpenerPolicyReporterParams
-network.mojom.CrossOriginOpenerPolicyReporterParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.CrossOriginOpenerPolicyReporterParams',
-      packedSize: 32,
-      fields: [
-        { name: 'report_type', packedOffset: 16, packedBitOffset: 0, type: network.mojom.CoopAccessReportTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'reporter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.CrossOriginOpenerPolicyReporterRemote), nullable: false, minVersion: 0 },
-        { name: 'endpoint_defined', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'reported_window_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.CrossOriginOpenerPolicyReporterParamsSpec, 'network.mojom.CrossOriginOpenerPolicyReporterParams', [
+      mojo.internal.StructField('report_type', 16, 0, network.mojom.CoopAccessReportTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reporter', 0, 0, mojo.internal.InterfaceProxy(network.mojom.CrossOriginOpenerPolicyReporterRemote), null, false, 0, undefined),
+      mojo.internal.StructField('endpoint_defined', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('reported_window_url', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: CrossOriginOpenerPolicy
-network.mojom.CrossOriginOpenerPolicySpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.CrossOriginOpenerPolicy',
-      packedSize: 24,
-      fields: [
-        { name: 'reporting_endpoint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'report_only_reporting_endpoint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.CrossOriginOpenerPolicySpec, 'network.mojom.CrossOriginOpenerPolicy', [
+      mojo.internal.StructField('reporting_endpoint', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('report_only_reporting_endpoint', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: CrossOriginOpenerPolicyReporter
-network.mojom.CrossOriginOpenerPolicyReporter = {};
-
-network.mojom.CrossOriginOpenerPolicyReporter_QueueAccessReport_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.CrossOriginOpenerPolicyReporter_QueueAccessReport_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'report_type', packedOffset: 24, packedBitOffset: 0, type: network.mojom.CoopAccessReportTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'property', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'source_location', packedOffset: 8, packedBitOffset: 0, type: network.mojom.SourceLocationSpec, nullable: false, minVersion: 0 },
-        { name: 'reported_window_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.CrossOriginOpenerPolicyReporter_QueueAccessReport_ParamsSpec, 'network.mojom.CrossOriginOpenerPolicyReporter_QueueAccessReport_Params', [
+      mojo.internal.StructField('report_type', 24, 0, network.mojom.CoopAccessReportTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('property', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('source_location', 8, 0, network.mojom.SourceLocationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reported_window_url', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 network.mojom.CrossOriginOpenerPolicyReporterPendingReceiver = class {
   constructor(handle) {
@@ -134,24 +117,6 @@ network.mojom.CrossOriginOpenerPolicyReporter.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for QueueAccessReport
-network.mojom.CrossOriginOpenerPolicyReporter_QueueAccessReport_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.CrossOriginOpenerPolicyReporter.QueueAccessReport_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'report_type', packedOffset: 24, packedBitOffset: 0, type: network.mojom.CoopAccessReportTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'property', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'source_location', packedOffset: 8, packedBitOffset: 0, type: network.mojom.SourceLocationSpec, nullable: false, minVersion: 0 },
-        { name: 'reported_window_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.CrossOriginOpenerPolicyReporterPtr = network.mojom.CrossOriginOpenerPolicyReporterRemote;
 network.mojom.CrossOriginOpenerPolicyReporterRequest = network.mojom.CrossOriginOpenerPolicyReporterPendingReceiver;
 

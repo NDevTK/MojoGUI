@@ -8,6 +8,7 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.FormControlTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: FormControlType
 blink.mojom.FormControlType = {
@@ -43,4 +44,3 @@ blink.mojom.FormControlType = {
   kSelectMultiple: 29,
   kTextArea: 30,
 };
-blink.mojom.FormControlTypeSpec = { $: mojo.internal.Enum() };

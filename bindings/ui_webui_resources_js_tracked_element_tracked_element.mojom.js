@@ -10,51 +10,33 @@ tracked_element.mojom = tracked_element.mojom || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+tracked_element.mojom.TrackedElementHandler = {};
+tracked_element.mojom.TrackedElementHandler.$interfaceName = 'tracked_element.mojom.TrackedElementHandler';
+tracked_element.mojom.TrackedElementHandler_TrackedElementVisibilityChanged_ParamsSpec = { $: {} };
+tracked_element.mojom.TrackedElementHandler_TrackedElementActivated_ParamsSpec = { $: {} };
+tracked_element.mojom.TrackedElementHandler_TrackedElementCustomEvent_ParamsSpec = { $: {} };
 
 // Interface: TrackedElementHandler
-tracked_element.mojom.TrackedElementHandler = {};
+mojo.internal.Struct(
+    tracked_element.mojom.TrackedElementHandler_TrackedElementVisibilityChanged_ParamsSpec, 'tracked_element.mojom.TrackedElementHandler_TrackedElementVisibilityChanged_Params', [
+      mojo.internal.StructField('native_identifier', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('visible', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('rect', 8, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-tracked_element.mojom.TrackedElementHandler_TrackedElementVisibilityChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tracked_element.mojom.TrackedElementHandler_TrackedElementVisibilityChanged_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'native_identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'visible', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tracked_element.mojom.TrackedElementHandler_TrackedElementActivated_ParamsSpec, 'tracked_element.mojom.TrackedElementHandler_TrackedElementActivated_Params', [
+      mojo.internal.StructField('native_identifier', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-tracked_element.mojom.TrackedElementHandler_TrackedElementActivated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tracked_element.mojom.TrackedElementHandler_TrackedElementActivated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'native_identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-tracked_element.mojom.TrackedElementHandler_TrackedElementCustomEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tracked_element.mojom.TrackedElementHandler_TrackedElementCustomEvent_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'native_identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'custom_event_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tracked_element.mojom.TrackedElementHandler_TrackedElementCustomEvent_ParamsSpec, 'tracked_element.mojom.TrackedElementHandler_TrackedElementCustomEvent_Params', [
+      mojo.internal.StructField('native_identifier', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('custom_event_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 tracked_element.mojom.TrackedElementHandlerPendingReceiver = class {
   constructor(handle) {
@@ -127,52 +109,6 @@ tracked_element.mojom.TrackedElementHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for TrackedElementVisibilityChanged
-tracked_element.mojom.TrackedElementHandler_TrackedElementVisibilityChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tracked_element.mojom.TrackedElementHandler.TrackedElementVisibilityChanged_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'native_identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'visible', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for TrackedElementActivated
-tracked_element.mojom.TrackedElementHandler_TrackedElementActivated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tracked_element.mojom.TrackedElementHandler.TrackedElementActivated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'native_identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for TrackedElementCustomEvent
-tracked_element.mojom.TrackedElementHandler_TrackedElementCustomEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tracked_element.mojom.TrackedElementHandler.TrackedElementCustomEvent_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'native_identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'custom_event_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 tracked_element.mojom.TrackedElementHandlerPtr = tracked_element.mojom.TrackedElementHandlerRemote;
 tracked_element.mojom.TrackedElementHandlerRequest = tracked_element.mojom.TrackedElementHandlerPendingReceiver;
 

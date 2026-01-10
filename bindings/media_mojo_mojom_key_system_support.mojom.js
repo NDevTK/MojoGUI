@@ -8,6 +8,16 @@
 var media = media || {};
 media.mojom = media.mojom || {};
 
+media.mojom.CdmCapabilityQueryStatusSpec = { $: mojo.internal.Enum() };
+media.mojom.VideoCodecInfoSpec = { $: {} };
+media.mojom.CdmCapabilitySpec = { $: {} };
+media.mojom.KeySystemCapabilitySpec = { $: {} };
+media.mojom.KeySystemSupportObserver = {};
+media.mojom.KeySystemSupportObserver.$interfaceName = 'media.mojom.KeySystemSupportObserver';
+media.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_ParamsSpec = { $: {} };
+media.mojom.KeySystemSupport = {};
+media.mojom.KeySystemSupport.$interfaceName = 'media.mojom.KeySystemSupport';
+media.mojom.KeySystemSupport_SetObserver_ParamsSpec = { $: {} };
 
 // Enum: CdmCapabilityQueryStatus
 media.mojom.CdmCapabilityQueryStatus = {
@@ -25,73 +35,42 @@ media.mojom.CdmCapabilityQueryStatus = {
   kNoMediaDrmSupport: 11,
   kMediaFoundationGetExtendedDRMTypeSupportFailed: 12,
 };
-media.mojom.CdmCapabilityQueryStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: VideoCodecInfo
-media.mojom.VideoCodecInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.VideoCodecInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'supported_profiles', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.VideoCodecProfileSpec, false), nullable: false, minVersion: 0 },
-        { name: 'supports_clear_lead', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.VideoCodecInfoSpec, 'media.mojom.VideoCodecInfo', [
+      mojo.internal.StructField('supported_profiles', 0, 0, mojo.internal.Array(media.mojom.VideoCodecProfileSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('supports_clear_lead', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: CdmCapability
-media.mojom.CdmCapabilitySpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CdmCapability',
-      packedSize: 48,
-      fields: [
-        { name: 'audio_codecs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.AudioCodecSpec, false), nullable: false, minVersion: 0 },
-        { name: 'video_codecs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(media.mojom.VideoCodecSpec, media.mojom.VideoCodecInfoSpec, false), nullable: false, minVersion: 0 },
-        { name: 'encryption_schemes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.EncryptionSchemeSpec, false), nullable: false, minVersion: 0 },
-        { name: 'session_types', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.CdmSessionTypeSpec, false), nullable: false, minVersion: 0 },
-        { name: 'version', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.VersionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.CdmCapabilitySpec, 'media.mojom.CdmCapability', [
+      mojo.internal.StructField('audio_codecs', 0, 0, mojo.internal.Array(media.mojom.AudioCodecSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('video_codecs', 8, 0, mojo.internal.Map(media.mojom.VideoCodecSpec, media.mojom.VideoCodecInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('encryption_schemes', 16, 0, mojo.internal.Array(media.mojom.EncryptionSchemeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('session_types', 24, 0, mojo.internal.Array(media.mojom.CdmSessionTypeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('version', 32, 0, mojo_base.mojom.VersionSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: KeySystemCapability
-media.mojom.KeySystemCapabilitySpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.KeySystemCapability',
-      packedSize: 32,
-      fields: [
-        { name: 'sw_secure_capability', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CdmCapabilitySpec, nullable: true, minVersion: 0 },
-        { name: 'hw_secure_capability', packedOffset: 8, packedBitOffset: 0, type: media.mojom.CdmCapabilitySpec, nullable: true, minVersion: 0 },
-        { name: 'sw_secure_capability_query_status', packedOffset: 16, packedBitOffset: 0, type: media.mojom.CdmCapabilityQueryStatusSpec, nullable: true, minVersion: 0 },
-        { name: 'hw_secure_capability_query_status', packedOffset: 20, packedBitOffset: 0, type: media.mojom.CdmCapabilityQueryStatusSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.KeySystemCapabilitySpec, 'media.mojom.KeySystemCapability', [
+      mojo.internal.StructField('sw_secure_capability', 0, 0, media.mojom.CdmCapabilitySpec, null, true, 0, undefined),
+      mojo.internal.StructField('hw_secure_capability', 8, 0, media.mojom.CdmCapabilitySpec, null, true, 0, undefined),
+      mojo.internal.StructField('sw_secure_capability_query_status', 16, 0, media.mojom.CdmCapabilityQueryStatusSpec, null, true, 0, undefined),
+      mojo.internal.StructField('hw_secure_capability_query_status', 20, 0, media.mojom.CdmCapabilityQueryStatusSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: KeySystemSupportObserver
-media.mojom.KeySystemSupportObserver = {};
-
-media.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'key_systems', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, media.mojom.KeySystemCapabilitySpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_ParamsSpec, 'media.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_Params', [
+      mojo.internal.StructField('key_systems', 0, 0, mojo.internal.Map(mojo.internal.String, media.mojom.KeySystemCapabilitySpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media.mojom.KeySystemSupportObserverPendingReceiver = class {
   constructor(handle) {
@@ -146,40 +125,16 @@ media.mojom.KeySystemSupportObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnKeySystemSupportUpdated
-media.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.KeySystemSupportObserver.OnKeySystemSupportUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'key_systems', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, media.mojom.KeySystemCapabilitySpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.KeySystemSupportObserverPtr = media.mojom.KeySystemSupportObserverRemote;
 media.mojom.KeySystemSupportObserverRequest = media.mojom.KeySystemSupportObserverPendingReceiver;
 
 
 // Interface: KeySystemSupport
-media.mojom.KeySystemSupport = {};
-
-media.mojom.KeySystemSupport_SetObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.KeySystemSupport_SetObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.KeySystemSupportObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.KeySystemSupport_SetObserver_ParamsSpec, 'media.mojom.KeySystemSupport_SetObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(media.mojom.KeySystemSupportObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media.mojom.KeySystemSupportPendingReceiver = class {
   constructor(handle) {
@@ -234,21 +189,6 @@ media.mojom.KeySystemSupport.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetObserver
-media.mojom.KeySystemSupport_SetObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.KeySystemSupport.SetObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.KeySystemSupportObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.KeySystemSupportPtr = media.mojom.KeySystemSupportRemote;
 media.mojom.KeySystemSupportRequest = media.mojom.KeySystemSupportPendingReceiver;
 

@@ -9,6 +9,8 @@ var privacy_sandbox = privacy_sandbox || {};
 privacy_sandbox.notice = privacy_sandbox.notice || {};
 privacy_sandbox.notice.mojom = privacy_sandbox.notice.mojom || {};
 
+privacy_sandbox.notice.mojom.PrivacySandboxNoticeEventSpec = { $: mojo.internal.Enum() };
+privacy_sandbox.notice.mojom.PrivacySandboxNoticeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PrivacySandboxNoticeEvent
 privacy_sandbox.notice.mojom.PrivacySandboxNoticeEvent = {
@@ -19,7 +21,6 @@ privacy_sandbox.notice.mojom.PrivacySandboxNoticeEvent = {
   kSettings: 4,
   kShown: 5,
 };
-privacy_sandbox.notice.mojom.PrivacySandboxNoticeEventSpec = { $: mojo.internal.Enum() };
 
 // Enum: PrivacySandboxNotice
 privacy_sandbox.notice.mojom.PrivacySandboxNotice = {
@@ -28,4 +29,3 @@ privacy_sandbox.notice.mojom.PrivacySandboxNotice = {
   kThreeAdsApisNotice: 2,
   kMeasurementNotice: 3,
 };
-privacy_sandbox.notice.mojom.PrivacySandboxNoticeSpec = { $: mojo.internal.Enum() };

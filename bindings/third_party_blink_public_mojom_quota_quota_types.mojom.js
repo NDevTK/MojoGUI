@@ -8,40 +8,34 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.BucketDurabilitySpec = { $: mojo.internal.Enum() };
+blink.mojom.QuotaStatusCodeSpec = { $: mojo.internal.Enum() };
+blink.mojom.UsageBreakdownSpec = { $: {} };
 
 // Enum: BucketDurability
 blink.mojom.BucketDurability = {
   kRelaxed: 0,
   kStrict: 1,
 };
-blink.mojom.BucketDurabilitySpec = { $: mojo.internal.Enum() };
 
 // Enum: QuotaStatusCode
 blink.mojom.QuotaStatusCode = {
   kOk: 0,
-  kErrorNotSupported: 1,
-  kErrorInvalidModification: 2,
-  kErrorInvalidAccess: 3,
-  kErrorAbort: 4,
-  kUnknown: 5,
+  kErrorNotSupported: 9,
+  kErrorInvalidModification: 13,
+  kErrorInvalidAccess: 15,
+  kErrorAbort: 20,
+  kUnknown: -1,
 };
-blink.mojom.QuotaStatusCodeSpec = { $: mojo.internal.Enum() };
 
 // Struct: UsageBreakdown
-blink.mojom.UsageBreakdownSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.UsageBreakdown',
-      packedSize: 56,
-      fields: [
-        { name: 'fileSystem', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'webSql', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'indexedDatabase', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'serviceWorkerCache', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'serviceWorker', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'backgroundFetch', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.UsageBreakdownSpec, 'blink.mojom.UsageBreakdown', [
+      mojo.internal.StructField('fileSystem', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('webSql', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('indexedDatabase', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('serviceWorkerCache', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('serviceWorker', 32, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('backgroundFetch', 40, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 56]]);

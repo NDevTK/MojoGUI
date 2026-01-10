@@ -8,6 +8,9 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+network.mojom.LogTypeSpec = { $: mojo.internal.Enum() };
+network.mojom.PreviousOperatorEntrySpec = { $: {} };
+network.mojom.CTLogInfoSpec = { $: {} };
 
 // Enum: LogType
 network.mojom.LogType = {
@@ -15,40 +18,25 @@ network.mojom.LogType = {
   kRFC6962: 1,
   kStaticCTAPI: 2,
 };
-network.mojom.LogTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: PreviousOperatorEntry
-network.mojom.PreviousOperatorEntrySpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.PreviousOperatorEntry',
-      packedSize: 24,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'end_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.PreviousOperatorEntrySpec, 'network.mojom.PreviousOperatorEntry', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('end_time', 8, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: CTLogInfo
-network.mojom.CTLogInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.CTLogInfo',
-      packedSize: 72,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false, minVersion: 0 },
-        { name: 'public_key', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'disqualified_at', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true, minVersion: 0 },
-        { name: 'mmd', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'current_operator', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'previous_operators', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.PreviousOperatorEntrySpec, false), nullable: false, minVersion: 0 },
-        { name: 'kUnspecified', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 72}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.CTLogInfoSpec, 'network.mojom.CTLogInfo', [
+      mojo.internal.StructField('id', 0, 0, mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('public_key', 8, 0, mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('disqualified_at', 24, 0, mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('mmd', 32, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('current_operator', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('previous_operators', 48, 0, mojo.internal.Array(network.mojom.PreviousOperatorEntrySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('kUnspecified', 56, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 72]]);

@@ -10,6 +10,21 @@ ash.boca_receiver = ash.boca_receiver || {};
 ash.boca_receiver.mojom = ash.boca_receiver.mojom || {};
 var skia = skia || {};
 
+ash.boca_receiver.mojom.ConnectionClosedReasonSpec = { $: mojo.internal.Enum() };
+ash.boca_receiver.mojom.ReceiverInfoSpec = { $: {} };
+ash.boca_receiver.mojom.UserInfoSpec = { $: {} };
+ash.boca_receiver.mojom.DecodedAudioPacketSpec = { $: {} };
+ash.boca_receiver.mojom.UntrustedPage = {};
+ash.boca_receiver.mojom.UntrustedPage.$interfaceName = 'ash.boca_receiver.mojom.UntrustedPage';
+ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverInfo_ParamsSpec = { $: {} };
+ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverError_ParamsSpec = { $: {} };
+ash.boca_receiver.mojom.UntrustedPage_OnFrameReceived_ParamsSpec = { $: {} };
+ash.boca_receiver.mojom.UntrustedPage_OnAudioPacket_ParamsSpec = { $: {} };
+ash.boca_receiver.mojom.UntrustedPage_OnConnecting_ParamsSpec = { $: {} };
+ash.boca_receiver.mojom.UntrustedPage_OnConnectionClosed_ParamsSpec = { $: {} };
+ash.boca_receiver.mojom.UntrustedPageHandlerFactory = {};
+ash.boca_receiver.mojom.UntrustedPageHandlerFactory.$interfaceName = 'ash.boca_receiver.mojom.UntrustedPageHandlerFactory';
+ash.boca_receiver.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_ParamsSpec = { $: {} };
 
 // Enum: ConnectionClosedReason
 ash.boca_receiver.mojom.ConnectionClosedReason = {
@@ -18,132 +33,66 @@ ash.boca_receiver.mojom.ConnectionClosedReason = {
   kError: 2,
   kTakeOver: 3,
 };
-ash.boca_receiver.mojom.ConnectionClosedReasonSpec = { $: mojo.internal.Enum() };
 
 // Struct: ReceiverInfo
-ash.boca_receiver.mojom.ReceiverInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.boca_receiver.mojom.ReceiverInfo',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.boca_receiver.mojom.ReceiverInfoSpec, 'ash.boca_receiver.mojom.ReceiverInfo', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: UserInfo
-ash.boca_receiver.mojom.UserInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.boca_receiver.mojom.UserInfo',
-      packedSize: 16,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.boca_receiver.mojom.UserInfoSpec, 'ash.boca_receiver.mojom.UserInfo', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: DecodedAudioPacket
-ash.boca_receiver.mojom.DecodedAudioPacketSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.boca_receiver.mojom.DecodedAudioPacket',
-      packedSize: 24,
-      fields: [
-        { name: 'sample_rate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'channels', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int16, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.boca_receiver.mojom.DecodedAudioPacketSpec, 'ash.boca_receiver.mojom.DecodedAudioPacket', [
+      mojo.internal.StructField('sample_rate', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('channels', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(mojo.internal.Int16, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: UntrustedPage
-ash.boca_receiver.mojom.UntrustedPage = {};
+mojo.internal.Struct(
+    ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverInfo_ParamsSpec, 'ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverInfo_Params', [
+      mojo.internal.StructField('receiver_info', 0, 0, ash.boca_receiver.mojom.ReceiverInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverInfo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver_info', packedOffset: 0, packedBitOffset: 0, type: ash.boca_receiver.mojom.ReceiverInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverError_ParamsSpec, 'ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverError_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverError_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.boca_receiver.mojom.UntrustedPage_OnFrameReceived_ParamsSpec, 'ash.boca_receiver.mojom.UntrustedPage_OnFrameReceived_Params', [
+      mojo.internal.StructField('frame_data', 0, 0, skia.mojom.BitmapN32Spec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.boca_receiver.mojom.UntrustedPage_OnFrameReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.boca_receiver.mojom.UntrustedPage_OnFrameReceived_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'frame_data', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.boca_receiver.mojom.UntrustedPage_OnAudioPacket_ParamsSpec, 'ash.boca_receiver.mojom.UntrustedPage_OnAudioPacket_Params', [
+      mojo.internal.StructField('audio_packet', 0, 0, ash.boca_receiver.mojom.DecodedAudioPacketSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.boca_receiver.mojom.UntrustedPage_OnAudioPacket_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.boca_receiver.mojom.UntrustedPage_OnAudioPacket_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'audio_packet', packedOffset: 0, packedBitOffset: 0, type: ash.boca_receiver.mojom.DecodedAudioPacketSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.boca_receiver.mojom.UntrustedPage_OnConnecting_ParamsSpec, 'ash.boca_receiver.mojom.UntrustedPage_OnConnecting_Params', [
+      mojo.internal.StructField('initiator', 0, 0, ash.boca_receiver.mojom.UserInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('presenter', 8, 0, ash.boca_receiver.mojom.UserInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.boca_receiver.mojom.UntrustedPage_OnConnecting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.boca_receiver.mojom.UntrustedPage_OnConnecting_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'initiator', packedOffset: 0, packedBitOffset: 0, type: ash.boca_receiver.mojom.UserInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'presenter', packedOffset: 8, packedBitOffset: 0, type: ash.boca_receiver.mojom.UserInfoSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-ash.boca_receiver.mojom.UntrustedPage_OnConnectionClosed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.boca_receiver.mojom.UntrustedPage_OnConnectionClosed_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: ash.boca_receiver.mojom.ConnectionClosedReasonSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.boca_receiver.mojom.UntrustedPage_OnConnectionClosed_ParamsSpec, 'ash.boca_receiver.mojom.UntrustedPage_OnConnectionClosed_Params', [
+      mojo.internal.StructField('reason', 0, 0, ash.boca_receiver.mojom.ConnectionClosedReasonSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.boca_receiver.mojom.UntrustedPagePendingReceiver = class {
   constructor(handle) {
@@ -243,110 +192,16 @@ ash.boca_receiver.mojom.UntrustedPage.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnInitReceiverInfo
-ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.boca_receiver.mojom.UntrustedPage.OnInitReceiverInfo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver_info', packedOffset: 0, packedBitOffset: 0, type: ash.boca_receiver.mojom.ReceiverInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnInitReceiverError
-ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.boca_receiver.mojom.UntrustedPage.OnInitReceiverError_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnFrameReceived
-ash.boca_receiver.mojom.UntrustedPage_OnFrameReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.boca_receiver.mojom.UntrustedPage.OnFrameReceived_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'frame_data', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnAudioPacket
-ash.boca_receiver.mojom.UntrustedPage_OnAudioPacket_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.boca_receiver.mojom.UntrustedPage.OnAudioPacket_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'audio_packet', packedOffset: 0, packedBitOffset: 0, type: ash.boca_receiver.mojom.DecodedAudioPacketSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnConnecting
-ash.boca_receiver.mojom.UntrustedPage_OnConnecting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.boca_receiver.mojom.UntrustedPage.OnConnecting_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'initiator', packedOffset: 0, packedBitOffset: 0, type: ash.boca_receiver.mojom.UserInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'presenter', packedOffset: 8, packedBitOffset: 0, type: ash.boca_receiver.mojom.UserInfoSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnConnectionClosed
-ash.boca_receiver.mojom.UntrustedPage_OnConnectionClosed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.boca_receiver.mojom.UntrustedPage.OnConnectionClosed_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: ash.boca_receiver.mojom.ConnectionClosedReasonSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.boca_receiver.mojom.UntrustedPagePtr = ash.boca_receiver.mojom.UntrustedPageRemote;
 ash.boca_receiver.mojom.UntrustedPageRequest = ash.boca_receiver.mojom.UntrustedPagePendingReceiver;
 
 
 // Interface: UntrustedPageHandlerFactory
-ash.boca_receiver.mojom.UntrustedPageHandlerFactory = {};
-
-ash.boca_receiver.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.boca_receiver.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.boca_receiver.mojom.UntrustedPageRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.boca_receiver.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_ParamsSpec, 'ash.boca_receiver.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(ash.boca_receiver.mojom.UntrustedPageRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.boca_receiver.mojom.UntrustedPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -401,21 +256,6 @@ ash.boca_receiver.mojom.UntrustedPageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateUntrustedPageHandler
-ash.boca_receiver.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.boca_receiver.mojom.UntrustedPageHandlerFactory.CreateUntrustedPageHandler_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.boca_receiver.mojom.UntrustedPageRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.boca_receiver.mojom.UntrustedPageHandlerFactoryPtr = ash.boca_receiver.mojom.UntrustedPageHandlerFactoryRemote;
 ash.boca_receiver.mojom.UntrustedPageHandlerFactoryRequest = ash.boca_receiver.mojom.UntrustedPageHandlerFactoryPendingReceiver;
 

@@ -8,6 +8,8 @@
 var device = device || {};
 device.mojom = device.mojom || {};
 
+device.mojom.ScreenOrientationLockResultSpec = { $: mojo.internal.Enum() };
+device.mojom.ScreenOrientationLockTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ScreenOrientationLockResult
 device.mojom.ScreenOrientationLockResult = {
@@ -16,7 +18,6 @@ device.mojom.ScreenOrientationLockResult = {
   SCREEN_ORIENTATION_LOCK_RESULT_ERROR_FULLSCREEN_REQUIRED: 2,
   SCREEN_ORIENTATION_LOCK_RESULT_ERROR_CANCELED: 3,
 };
-device.mojom.ScreenOrientationLockResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: ScreenOrientationLockType
 device.mojom.ScreenOrientationLockType = {
@@ -30,4 +31,3 @@ device.mojom.ScreenOrientationLockType = {
   PORTRAIT: 7,
   NATURAL: 8,
 };
-device.mojom.ScreenOrientationLockTypeSpec = { $: mojo.internal.Enum() };

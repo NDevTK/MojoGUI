@@ -16,6 +16,35 @@ var gfx = gfx || {};
 var url = url || {};
 var url = url || {};
 
+remote_cocoa.mojom.SelectionDirectionSpec = { $: mojo.internal.Enum() };
+remote_cocoa.mojom.VisibilitySpec = { $: mojo.internal.Enum() };
+remote_cocoa.mojom.DraggingInfoSpec = { $: {} };
+remote_cocoa.mojom.WebContentsNSView = {};
+remote_cocoa.mojom.WebContentsNSView.$interfaceName = 'remote_cocoa.mojom.WebContentsNSView';
+remote_cocoa.mojom.WebContentsNSView_SetParentNSView_ParamsSpec = { $: {} };
+remote_cocoa.mojom.WebContentsNSView_ResetParentNSView_ParamsSpec = { $: {} };
+remote_cocoa.mojom.WebContentsNSView_SetBounds_ParamsSpec = { $: {} };
+remote_cocoa.mojom.WebContentsNSView_SetVisible_ParamsSpec = { $: {} };
+remote_cocoa.mojom.WebContentsNSView_MakeFirstResponder_ParamsSpec = { $: {} };
+remote_cocoa.mojom.WebContentsNSView_TakeFocus_ParamsSpec = { $: {} };
+remote_cocoa.mojom.WebContentsNSView_StartDrag_ParamsSpec = { $: {} };
+remote_cocoa.mojom.WebContentsNSView_Destroy_ParamsSpec = { $: {} };
+remote_cocoa.mojom.WebContentsNSViewHost = {};
+remote_cocoa.mojom.WebContentsNSViewHost.$interfaceName = 'remote_cocoa.mojom.WebContentsNSViewHost';
+remote_cocoa.mojom.WebContentsNSViewHost_OnMouseEvent_ParamsSpec = { $: {} };
+remote_cocoa.mojom.WebContentsNSViewHost_OnBecameFirstResponder_ParamsSpec = { $: {} };
+remote_cocoa.mojom.WebContentsNSViewHost_OnWindowVisibilityChanged_ParamsSpec = { $: {} };
+remote_cocoa.mojom.WebContentsNSViewHost_SetDropData_ParamsSpec = { $: {} };
+remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ParamsSpec = { $: {} };
+remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ResponseParamsSpec = { $: {} };
+remote_cocoa.mojom.WebContentsNSViewHost_DraggingExited_ParamsSpec = { $: {} };
+remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ParamsSpec = { $: {} };
+remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ResponseParamsSpec = { $: {} };
+remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ParamsSpec = { $: {} };
+remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ResponseParamsSpec = { $: {} };
+remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ParamsSpec = { $: {} };
+remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ResponseParamsSpec = { $: {} };
+remote_cocoa.mojom.WebContentsNSViewHost_EndDrag_ParamsSpec = { $: {} };
 
 // Enum: SelectionDirection
 remote_cocoa.mojom.SelectionDirection = {
@@ -23,7 +52,6 @@ remote_cocoa.mojom.SelectionDirection = {
   kForward: 1,
   kReverse: 2,
 };
-remote_cocoa.mojom.SelectionDirectionSpec = { $: mojo.internal.Enum() };
 
 // Enum: Visibility
 remote_cocoa.mojom.Visibility = {
@@ -31,133 +59,67 @@ remote_cocoa.mojom.Visibility = {
   kOccluded: 1,
   kHidden: 2,
 };
-remote_cocoa.mojom.VisibilitySpec = { $: mojo.internal.Enum() };
 
 // Struct: DraggingInfo
-remote_cocoa.mojom.DraggingInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.DraggingInfo',
-      packedSize: 40,
-      fields: [
-        { name: 'location_in_view', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'location_in_screen', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
-        { name: 'operation_mask', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remote_cocoa.mojom.DraggingInfoSpec, 'remote_cocoa.mojom.DraggingInfo', [
+      mojo.internal.StructField('location_in_view', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('location_in_screen', 8, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('operation_mask', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Interface: WebContentsNSView
-remote_cocoa.mojom.WebContentsNSView = {};
+mojo.internal.Struct(
+    remote_cocoa.mojom.WebContentsNSView_SetParentNSView_ParamsSpec, 'remote_cocoa.mojom.WebContentsNSView_SetParentNSView_Params', [
+      mojo.internal.StructField('parent_ns_view_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remote_cocoa.mojom.WebContentsNSView_SetParentNSView_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSView_SetParentNSView_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'parent_ns_view_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remote_cocoa.mojom.WebContentsNSView_ResetParentNSView_ParamsSpec, 'remote_cocoa.mojom.WebContentsNSView_ResetParentNSView_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-remote_cocoa.mojom.WebContentsNSView_ResetParentNSView_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSView_ResetParentNSView_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remote_cocoa.mojom.WebContentsNSView_SetBounds_ParamsSpec, 'remote_cocoa.mojom.WebContentsNSView_SetBounds_Params', [
+      mojo.internal.StructField('bounds_in_superview', 0, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remote_cocoa.mojom.WebContentsNSView_SetBounds_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSView_SetBounds_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'bounds_in_superview', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remote_cocoa.mojom.WebContentsNSView_SetVisible_ParamsSpec, 'remote_cocoa.mojom.WebContentsNSView_SetVisible_Params', [
+      mojo.internal.StructField('visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remote_cocoa.mojom.WebContentsNSView_SetVisible_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSView_SetVisible_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remote_cocoa.mojom.WebContentsNSView_MakeFirstResponder_ParamsSpec, 'remote_cocoa.mojom.WebContentsNSView_MakeFirstResponder_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-remote_cocoa.mojom.WebContentsNSView_MakeFirstResponder_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSView_MakeFirstResponder_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remote_cocoa.mojom.WebContentsNSView_TakeFocus_ParamsSpec, 'remote_cocoa.mojom.WebContentsNSView_TakeFocus_Params', [
+      mojo.internal.StructField('reverse', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remote_cocoa.mojom.WebContentsNSView_TakeFocus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSView_TakeFocus_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'reverse', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remote_cocoa.mojom.WebContentsNSView_StartDrag_ParamsSpec, 'remote_cocoa.mojom.WebContentsNSView_StartDrag_Params', [
+      mojo.internal.StructField('drop_data', 0, 0, content.mojom.DropDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source_origin', 8, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('operation_mask', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('image', 16, 0, gfx.mojom.ImageSkiaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('image_offset', 24, 0, gfx.mojom.Vector2dSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_privileged', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
-remote_cocoa.mojom.WebContentsNSView_StartDrag_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSView_StartDrag_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'drop_data', packedOffset: 0, packedBitOffset: 0, type: content.mojom.DropDataSpec, nullable: false, minVersion: 0 },
-        { name: 'source_origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-        { name: 'operation_mask', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'image', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: true, minVersion: 0 },
-        { name: 'image_offset', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.Vector2dSpec, nullable: false, minVersion: 0 },
-        { name: 'is_privileged', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
-
-remote_cocoa.mojom.WebContentsNSView_Destroy_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSView_Destroy_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remote_cocoa.mojom.WebContentsNSView_Destroy_ParamsSpec, 'remote_cocoa.mojom.WebContentsNSView_Destroy_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 remote_cocoa.mojom.WebContentsNSViewPendingReceiver = class {
   constructor(handle) {
@@ -275,261 +237,98 @@ remote_cocoa.mojom.WebContentsNSView.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetParentNSView
-remote_cocoa.mojom.WebContentsNSView_SetParentNSView_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSView.SetParentNSView_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'parent_ns_view_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ResetParentNSView
-remote_cocoa.mojom.WebContentsNSView_ResetParentNSView_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSView.ResetParentNSView_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetBounds
-remote_cocoa.mojom.WebContentsNSView_SetBounds_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSView.SetBounds_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'bounds_in_superview', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetVisible
-remote_cocoa.mojom.WebContentsNSView_SetVisible_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSView.SetVisible_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for MakeFirstResponder
-remote_cocoa.mojom.WebContentsNSView_MakeFirstResponder_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSView.MakeFirstResponder_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for TakeFocus
-remote_cocoa.mojom.WebContentsNSView_TakeFocus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSView.TakeFocus_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'reverse', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StartDrag
-remote_cocoa.mojom.WebContentsNSView_StartDrag_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSView.StartDrag_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'drop_data', packedOffset: 0, packedBitOffset: 0, type: content.mojom.DropDataSpec, nullable: false, minVersion: 0 },
-        { name: 'source_origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-        { name: 'operation_mask', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'image', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: true, minVersion: 0 },
-        { name: 'image_offset', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.Vector2dSpec, nullable: false, minVersion: 0 },
-        { name: 'is_privileged', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
-
-// ParamsSpec for Destroy
-remote_cocoa.mojom.WebContentsNSView_Destroy_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSView.Destroy_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 remote_cocoa.mojom.WebContentsNSViewPtr = remote_cocoa.mojom.WebContentsNSViewRemote;
 remote_cocoa.mojom.WebContentsNSViewRequest = remote_cocoa.mojom.WebContentsNSViewPendingReceiver;
 
 
 // Interface: WebContentsNSViewHost
-remote_cocoa.mojom.WebContentsNSViewHost = {};
+mojo.internal.Struct(
+    remote_cocoa.mojom.WebContentsNSViewHost_OnMouseEvent_ParamsSpec, 'remote_cocoa.mojom.WebContentsNSViewHost_OnMouseEvent_Params', [
+      mojo.internal.StructField('event', 0, 0, ui.mojom.EventSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remote_cocoa.mojom.WebContentsNSViewHost_OnMouseEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSViewHost_OnMouseEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.EventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remote_cocoa.mojom.WebContentsNSViewHost_OnBecameFirstResponder_ParamsSpec, 'remote_cocoa.mojom.WebContentsNSViewHost_OnBecameFirstResponder_Params', [
+      mojo.internal.StructField('direction', 0, 0, remote_cocoa.mojom.SelectionDirectionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remote_cocoa.mojom.WebContentsNSViewHost_OnBecameFirstResponder_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSViewHost_OnBecameFirstResponder_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'direction', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.SelectionDirectionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remote_cocoa.mojom.WebContentsNSViewHost_OnWindowVisibilityChanged_ParamsSpec, 'remote_cocoa.mojom.WebContentsNSViewHost_OnWindowVisibilityChanged_Params', [
+      mojo.internal.StructField('visibility', 0, 0, remote_cocoa.mojom.VisibilitySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remote_cocoa.mojom.WebContentsNSViewHost_OnWindowVisibilityChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSViewHost_OnWindowVisibilityChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'visibility', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.VisibilitySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remote_cocoa.mojom.WebContentsNSViewHost_SetDropData_ParamsSpec, 'remote_cocoa.mojom.WebContentsNSViewHost_SetDropData_Params', [
+      mojo.internal.StructField('drop_data', 0, 0, content.mojom.DropDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remote_cocoa.mojom.WebContentsNSViewHost_SetDropData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSViewHost_SetDropData_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'drop_data', packedOffset: 0, packedBitOffset: 0, type: content.mojom.DropDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ParamsSpec, 'remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_Params', [
+      mojo.internal.StructField('dragging_info', 0, 0, remote_cocoa.mojom.DraggingInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'dragging_info', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.DraggingInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ResponseParamsSpec, 'remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remote_cocoa.mojom.WebContentsNSViewHost_DraggingExited_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSViewHost_DraggingExited_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remote_cocoa.mojom.WebContentsNSViewHost_DraggingExited_ParamsSpec, 'remote_cocoa.mojom.WebContentsNSViewHost_DraggingExited_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'dragging_info', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.DraggingInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ParamsSpec, 'remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_Params', [
+      mojo.internal.StructField('dragging_info', 0, 0, remote_cocoa.mojom.DraggingInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'dragging_info', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.DraggingInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ResponseParamsSpec, 'remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'drop_data', packedOffset: 8, packedBitOffset: 0, type: content.mojom.DropDataSpec, nullable: false, minVersion: 0 },
-        { name: 'download_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'source_origin', packedOffset: 24, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ParamsSpec, 'remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_Params', [
+      mojo.internal.StructField('dragging_info', 0, 0, remote_cocoa.mojom.DraggingInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remote_cocoa.mojom.WebContentsNSViewHost_EndDrag_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSViewHost_EndDrag_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'drag_operation', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'local_point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'screen_point', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ResponseParamsSpec, 'remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ParamsSpec, 'remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_Params', [
+      mojo.internal.StructField('file_path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('drop_data', 8, 0, content.mojom.DropDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('download_url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source_origin', 24, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ResponseParamsSpec, 'remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ResponseParams', [
+      mojo.internal.StructField('file_path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    remote_cocoa.mojom.WebContentsNSViewHost_EndDrag_ParamsSpec, 'remote_cocoa.mojom.WebContentsNSViewHost_EndDrag_Params', [
+      mojo.internal.StructField('drag_operation', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('local_point', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('screen_point', 8, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 remote_cocoa.mojom.WebContentsNSViewHostPendingReceiver = class {
   constructor(handle) {
@@ -665,203 +464,6 @@ remote_cocoa.mojom.WebContentsNSViewHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnMouseEvent
-remote_cocoa.mojom.WebContentsNSViewHost_OnMouseEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSViewHost.OnMouseEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.EventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnBecameFirstResponder
-remote_cocoa.mojom.WebContentsNSViewHost_OnBecameFirstResponder_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSViewHost.OnBecameFirstResponder_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'direction', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.SelectionDirectionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnWindowVisibilityChanged
-remote_cocoa.mojom.WebContentsNSViewHost_OnWindowVisibilityChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSViewHost.OnWindowVisibilityChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'visibility', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.VisibilitySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetDropData
-remote_cocoa.mojom.WebContentsNSViewHost_SetDropData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSViewHost.SetDropData_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'drop_data', packedOffset: 0, packedBitOffset: 0, type: content.mojom.DropDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DraggingEntered
-remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSViewHost.DraggingEntered_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'dragging_info', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.DraggingInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSViewHost.DraggingEntered_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DraggingExited
-remote_cocoa.mojom.WebContentsNSViewHost_DraggingExited_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSViewHost.DraggingExited_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for DraggingUpdated
-remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSViewHost.DraggingUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'dragging_info', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.DraggingInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSViewHost.DraggingUpdated_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for PerformDragOperation
-remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSViewHost.PerformDragOperation_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'dragging_info', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.DraggingInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSViewHost.PerformDragOperation_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DragPromisedFileTo
-remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSViewHost.DragPromisedFileTo_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'drop_data', packedOffset: 8, packedBitOffset: 0, type: content.mojom.DropDataSpec, nullable: false, minVersion: 0 },
-        { name: 'download_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'source_origin', packedOffset: 24, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSViewHost.DragPromisedFileTo_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EndDrag
-remote_cocoa.mojom.WebContentsNSViewHost_EndDrag_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSViewHost.EndDrag_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'drag_operation', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'local_point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'screen_point', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 remote_cocoa.mojom.WebContentsNSViewHostPtr = remote_cocoa.mojom.WebContentsNSViewHostRemote;
 remote_cocoa.mojom.WebContentsNSViewHostRequest = remote_cocoa.mojom.WebContentsNSViewHostPendingReceiver;
 

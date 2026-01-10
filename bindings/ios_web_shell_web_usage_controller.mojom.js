@@ -8,22 +8,22 @@
 var web = web || {};
 web.mojom = web.mojom || {};
 
+web.mojom.WebUsageController = {};
+web.mojom.WebUsageController.$interfaceName = 'web.mojom.WebUsageController';
+web.mojom.WebUsageController_SetWebUsageEnabled_ParamsSpec = { $: {} };
+web.mojom.WebUsageController_SetWebUsageEnabled_ResponseParamsSpec = { $: {} };
 
 // Interface: WebUsageController
-web.mojom.WebUsageController = {};
+mojo.internal.Struct(
+    web.mojom.WebUsageController_SetWebUsageEnabled_ParamsSpec, 'web.mojom.WebUsageController_SetWebUsageEnabled_Params', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-web.mojom.WebUsageController_SetWebUsageEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'web.mojom.WebUsageController_SetWebUsageEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    web.mojom.WebUsageController_SetWebUsageEnabled_ResponseParamsSpec, 'web.mojom.WebUsageController_SetWebUsageEnabled_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 web.mojom.WebUsageControllerPendingReceiver = class {
   constructor(handle) {
@@ -62,7 +62,7 @@ web.mojom.WebUsageControllerRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       web.mojom.WebUsageController_SetWebUsageEnabled_ParamsSpec,
-      null,
+      web.mojom.WebUsageController_SetWebUsageEnabled_ResponseParamsSpec,
       [enabled]);
   }
 
@@ -78,21 +78,6 @@ web.mojom.WebUsageController.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetWebUsageEnabled
-web.mojom.WebUsageController_SetWebUsageEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'web.mojom.WebUsageController.SetWebUsageEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 web.mojom.WebUsageControllerPtr = web.mojom.WebUsageControllerRemote;
 web.mojom.WebUsageControllerRequest = web.mojom.WebUsageControllerPendingReceiver;
 

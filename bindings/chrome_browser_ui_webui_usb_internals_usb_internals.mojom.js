@@ -6,36 +6,26 @@
 
 // Module namespace
 var mojom = mojom || {};
+var services = services || {};
+var services = services || {};
 
+mojom.UsbInternalsPageHandler = {};
+mojom.UsbInternalsPageHandler.$interfaceName = 'mojom.UsbInternalsPageHandler';
+mojom.UsbInternalsPageHandler_BindUsbDeviceManagerInterface_ParamsSpec = { $: {} };
+mojom.UsbInternalsPageHandler_BindTestInterface_ParamsSpec = { $: {} };
 
 // Interface: UsbInternalsPageHandler
-mojom.UsbInternalsPageHandler = {};
+mojo.internal.Struct(
+    mojom.UsbInternalsPageHandler_BindUsbDeviceManagerInterface_ParamsSpec, 'mojom.UsbInternalsPageHandler_BindUsbDeviceManagerInterface_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(device.mojom.UsbDeviceManagerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-mojom.UsbInternalsPageHandler_BindUsbDeviceManagerInterface_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.UsbInternalsPageHandler_BindUsbDeviceManagerInterface_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.UsbDeviceManagerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-mojom.UsbInternalsPageHandler_BindTestInterface_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.UsbInternalsPageHandler_BindTestInterface_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.UsbDeviceManagerTestRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojom.UsbInternalsPageHandler_BindTestInterface_ParamsSpec, 'mojom.UsbInternalsPageHandler_BindTestInterface_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(device.mojom.UsbDeviceManagerTestRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 mojom.UsbInternalsPageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -99,35 +89,6 @@ mojom.UsbInternalsPageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for BindUsbDeviceManagerInterface
-mojom.UsbInternalsPageHandler_BindUsbDeviceManagerInterface_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.UsbInternalsPageHandler.BindUsbDeviceManagerInterface_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.UsbDeviceManagerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindTestInterface
-mojom.UsbInternalsPageHandler_BindTestInterface_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.UsbInternalsPageHandler.BindTestInterface_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.UsbDeviceManagerTestRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 mojom.UsbInternalsPageHandlerPtr = mojom.UsbInternalsPageHandlerRemote;
 mojom.UsbInternalsPageHandlerRequest = mojom.UsbInternalsPageHandlerPendingReceiver;
 

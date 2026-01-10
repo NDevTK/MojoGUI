@@ -8,35 +8,38 @@
 var ai = ai || {};
 ai.mojom = ai.mojom || {};
 
+ai.mojom.SmartTabGroupingResponseResultSpec = { $: {} };
+ai.mojom.SmartTabGroupingService = {};
+ai.mojom.SmartTabGroupingService.$interfaceName = 'ai.mojom.SmartTabGroupingService';
+ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ParamsSpec = { $: {} };
+ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ResponseParamsSpec = { $: {} };
 
 // Union: SmartTabGroupingResponseResult
-ai.mojom.SmartTabGroupingResponseResultSpec = { $: mojo.internal.Union(
-    'ai.mojom.SmartTabGroupingResponseResult', {
+mojo.internal.Union(
+    ai.mojom.SmartTabGroupingResponseResultSpec, 'ai.mojom.SmartTabGroupingResponseResult', {
       'error': {
         'ordinal': 0,
         'type': mojo.internal.String,
-      }},
+        'nullable': false,
+      },
       'response': {
         'ordinal': 1,
         'type': mojo_base.mojom.ProtoWrapperSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Interface: SmartTabGroupingService
-ai.mojom.SmartTabGroupingService = {};
+mojo.internal.Struct(
+    ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ParamsSpec, 'ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ResponseParamsSpec, 'ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, ai.mojom.SmartTabGroupingResponseResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 ai.mojom.SmartTabGroupingServicePendingReceiver = class {
   constructor(handle) {
@@ -91,33 +94,6 @@ ai.mojom.SmartTabGroupingService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ExecuteSmartTabGroupingRequest
-ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ai.mojom.SmartTabGroupingService.ExecuteSmartTabGroupingRequest_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ai.mojom.SmartTabGroupingService.ExecuteSmartTabGroupingRequest_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ai.mojom.SmartTabGroupingResponseResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 ai.mojom.SmartTabGroupingServicePtr = ai.mojom.SmartTabGroupingServiceRemote;
 ai.mojom.SmartTabGroupingServiceRequest = ai.mojom.SmartTabGroupingServicePendingReceiver;
 

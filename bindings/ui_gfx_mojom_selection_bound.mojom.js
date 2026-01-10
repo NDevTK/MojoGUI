@@ -10,6 +10,8 @@ gfx.mojom = gfx.mojom || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+gfx.mojom.SelectionBoundTypeSpec = { $: mojo.internal.Enum() };
+gfx.mojom.SelectionBoundSpec = { $: {} };
 
 // Enum: SelectionBoundType
 gfx.mojom.SelectionBoundType = {
@@ -18,25 +20,17 @@ gfx.mojom.SelectionBoundType = {
   CENTER: 2,
   HIDDEN: 3,
   EMPTY: 4,
-  LAST: 5,
+  LAST: 4,
 };
-gfx.mojom.SelectionBoundTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: SelectionBound
-gfx.mojom.SelectionBoundSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.SelectionBound',
-      packedSize: 48,
-      fields: [
-        { name: 'type', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.SelectionBoundTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'edge_start', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'edge_end', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'visible_edge_start', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'visible_edge_end', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'visible', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.SelectionBoundSpec, 'gfx.mojom.SelectionBound', [
+      mojo.internal.StructField('type', 32, 0, gfx.mojom.SelectionBoundTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('edge_start', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('edge_end', 8, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('visible_edge_start', 16, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('visible_edge_end', 24, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('visible', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 48]]);

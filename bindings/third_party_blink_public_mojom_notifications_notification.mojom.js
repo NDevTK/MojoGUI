@@ -10,6 +10,12 @@ blink.mojom = blink.mojom || {};
 var skia = skia || {};
 var url = url || {};
 
+blink.mojom.NotificationDirectionSpec = { $: mojo.internal.Enum() };
+blink.mojom.NotificationActionTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.NotificationScenarioSpec = { $: mojo.internal.Enum() };
+blink.mojom.NotificationActionSpec = { $: {} };
+blink.mojom.NotificationDataSpec = { $: {} };
+blink.mojom.NotificationResourcesSpec = { $: {} };
 
 blink.mojom.kMaximumDeveloperDataSize = 1048576;
 
@@ -21,85 +27,61 @@ blink.mojom.NotificationDirection = {
   RIGHT_TO_LEFT: 1,
   AUTO: 2,
 };
-blink.mojom.NotificationDirectionSpec = { $: mojo.internal.Enum() };
 
 // Enum: NotificationActionType
 blink.mojom.NotificationActionType = {
   BUTTON: 0,
   TEXT: 1,
 };
-blink.mojom.NotificationActionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: NotificationScenario
 blink.mojom.NotificationScenario = {
   DEFAULT: 0,
   INCOMING_CALL: 1,
 };
-blink.mojom.NotificationScenarioSpec = { $: mojo.internal.Enum() };
 
 // Struct: NotificationAction
-blink.mojom.NotificationActionSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.NotificationAction',
-      packedSize: 48,
-      fields: [
-        { name: 'type', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.NotificationActionTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'icon', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'placeholder', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.NotificationActionSpec, 'blink.mojom.NotificationAction', [
+      mojo.internal.StructField('type', 32, 0, blink.mojom.NotificationActionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('action', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('title', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('icon', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('placeholder', 24, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: NotificationData
-blink.mojom.NotificationDataSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.NotificationData',
-      packedSize: 136,
-      fields: [
-        { name: 'kMaximumDeveloperDataSize', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'kMaximumActions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'direction', packedOffset: 112, packedBitOffset: 0, type: blink.mojom.NotificationDirectionSpec, nullable: false, minVersion: 0 },
-        { name: 'lang', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'body', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'tag', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'image', packedOffset: 48, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'icon', packedOffset: 56, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'badge', packedOffset: 64, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'vibration_pattern', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int32, false), nullable: true, minVersion: 0 },
-        { name: 'timestamp', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'renotify', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'silent', packedOffset: 120, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'require_interaction', packedOffset: 120, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
-        { name: 'actions', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.NotificationActionSpec, false), nullable: true, minVersion: 0 },
-        { name: 'show_trigger_timestamp', packedOffset: 104, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true, minVersion: 0 },
-        { name: 'scenario', packedOffset: 116, packedBitOffset: 0, type: blink.mojom.NotificationScenarioSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 136}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.NotificationDataSpec, 'blink.mojom.NotificationData', [
+      mojo.internal.StructField('kMaximumDeveloperDataSize', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kMaximumActions', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('title', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('direction', 112, 0, blink.mojom.NotificationDirectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('lang', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('body', 32, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('tag', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('image', 48, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('icon', 56, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('badge', 64, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('vibration_pattern', 72, 0, mojo.internal.Array(mojo.internal.Int32, false), null, true, 0, undefined),
+      mojo.internal.StructField('timestamp', 80, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('renotify', 120, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('silent', 120, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('require_interaction', 120, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('data', 88, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('actions', 96, 0, mojo.internal.Array(blink.mojom.NotificationActionSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('show_trigger_timestamp', 104, 0, mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('scenario', 116, 0, blink.mojom.NotificationScenarioSpec, null, false, 0, undefined),
+    ],
+    [[0, 136]]);
 
 // Struct: NotificationResources
-blink.mojom.NotificationResourcesSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.NotificationResources',
-      packedSize: 40,
-      fields: [
-        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true, minVersion: 0 },
-        { name: 'icon', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true, minVersion: 0 },
-        { name: 'badge', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true, minVersion: 0 },
-        { name: 'action_icons', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(skia.mojom.BitmapN32Spec, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.NotificationResourcesSpec, 'blink.mojom.NotificationResources', [
+      mojo.internal.StructField('image', 0, 0, skia.mojom.BitmapN32Spec, null, true, 0, undefined),
+      mojo.internal.StructField('icon', 8, 0, skia.mojom.BitmapN32Spec, null, true, 0, undefined),
+      mojo.internal.StructField('badge', 16, 0, skia.mojom.BitmapN32Spec, null, true, 0, undefined),
+      mojo.internal.StructField('action_icons', 24, 0, mojo.internal.Array(skia.mojom.BitmapN32Spec, false), null, true, 0, undefined),
+    ],
+    [[0, 40]]);

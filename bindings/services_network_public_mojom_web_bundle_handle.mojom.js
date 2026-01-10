@@ -8,6 +8,12 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+network.mojom.WebBundleErrorTypeSpec = { $: mojo.internal.Enum() };
+network.mojom.WebBundleHandle = {};
+network.mojom.WebBundleHandle.$interfaceName = 'network.mojom.WebBundleHandle';
+network.mojom.WebBundleHandle_Clone_ParamsSpec = { $: {} };
+network.mojom.WebBundleHandle_OnWebBundleError_ParamsSpec = { $: {} };
+network.mojom.WebBundleHandle_OnWebBundleLoadFinished_ParamsSpec = { $: {} };
 
 // Enum: WebBundleErrorType
 network.mojom.WebBundleErrorType = {
@@ -20,50 +26,26 @@ network.mojom.WebBundleErrorType = {
   kWebBundleRedirected: 6,
   kDeprecationWarning: 7,
 };
-network.mojom.WebBundleErrorTypeSpec = { $: mojo.internal.Enum() };
 
 // Interface: WebBundleHandle
-network.mojom.WebBundleHandle = {};
+mojo.internal.Struct(
+    network.mojom.WebBundleHandle_Clone_ParamsSpec, 'network.mojom.WebBundleHandle_Clone_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(network.mojom.WebBundleHandleRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.WebBundleHandle_Clone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebBundleHandle_Clone_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.WebBundleHandleRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.WebBundleHandle_OnWebBundleError_ParamsSpec, 'network.mojom.WebBundleHandle_OnWebBundleError_Params', [
+      mojo.internal.StructField('type', 8, 0, network.mojom.WebBundleErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-network.mojom.WebBundleHandle_OnWebBundleError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebBundleHandle_OnWebBundleError_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.WebBundleErrorTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-network.mojom.WebBundleHandle_OnWebBundleLoadFinished_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebBundleHandle_OnWebBundleLoadFinished_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.WebBundleHandle_OnWebBundleLoadFinished_ParamsSpec, 'network.mojom.WebBundleHandle_OnWebBundleLoadFinished_Params', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 network.mojom.WebBundleHandlePendingReceiver = class {
   constructor(handle) {
@@ -136,50 +118,6 @@ network.mojom.WebBundleHandle.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Clone
-network.mojom.WebBundleHandle_Clone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebBundleHandle.Clone_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.WebBundleHandleRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnWebBundleError
-network.mojom.WebBundleHandle_OnWebBundleError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebBundleHandle.OnWebBundleError_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.WebBundleErrorTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnWebBundleLoadFinished
-network.mojom.WebBundleHandle_OnWebBundleLoadFinished_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebBundleHandle.OnWebBundleLoadFinished_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.WebBundleHandlePtr = network.mojom.WebBundleHandleRemote;
 network.mojom.WebBundleHandleRequest = network.mojom.WebBundleHandlePendingReceiver;
 

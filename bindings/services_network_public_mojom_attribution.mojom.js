@@ -8,6 +8,8 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+network.mojom.AttributionSupportSpec = { $: mojo.internal.Enum() };
+network.mojom.AttributionReportingEligibilitySpec = { $: mojo.internal.Enum() };
 
 // Enum: AttributionSupport
 network.mojom.AttributionSupport = {
@@ -17,7 +19,6 @@ network.mojom.AttributionSupport = {
   kNone: 3,
   kUnset: 4,
 };
-network.mojom.AttributionSupportSpec = { $: mojo.internal.Enum() };
 
 // Enum: AttributionReportingEligibility
 network.mojom.AttributionReportingEligibility = {
@@ -28,4 +29,3 @@ network.mojom.AttributionReportingEligibility = {
   kTrigger: 4,
   kEventSourceOrTrigger: 5,
 };
-network.mojom.AttributionReportingEligibilitySpec = { $: mojo.internal.Enum() };

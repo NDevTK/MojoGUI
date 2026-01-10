@@ -9,23 +9,25 @@ var safe_browsing = safe_browsing || {};
 safe_browsing.mojom = safe_browsing.mojom || {};
 var url = url || {};
 
+safe_browsing.mojom.SafeBrowsingUrlChecker = {};
+safe_browsing.mojom.SafeBrowsingUrlChecker.$interfaceName = 'safe_browsing.mojom.SafeBrowsingUrlChecker';
+safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ParamsSpec = { $: {} };
+safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ResponseParamsSpec = { $: {} };
 
 // Interface: SafeBrowsingUrlChecker
-safe_browsing.mojom.SafeBrowsingUrlChecker = {};
+mojo.internal.Struct(
+    safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ParamsSpec, 'safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('method', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'method', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ResponseParamsSpec, 'safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ResponseParams', [
+      mojo.internal.StructField('proceed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('showed_interstitial', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 safe_browsing.mojom.SafeBrowsingUrlCheckerPendingReceiver = class {
   constructor(handle) {
@@ -80,36 +82,6 @@ safe_browsing.mojom.SafeBrowsingUrlChecker.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CheckUrl
-safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'safe_browsing.mojom.SafeBrowsingUrlChecker.CheckUrl_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'method', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'safe_browsing.mojom.SafeBrowsingUrlChecker.CheckUrl_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'proceed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'showed_interstitial', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 safe_browsing.mojom.SafeBrowsingUrlCheckerPtr = safe_browsing.mojom.SafeBrowsingUrlCheckerRemote;
 safe_browsing.mojom.SafeBrowsingUrlCheckerRequest = safe_browsing.mojom.SafeBrowsingUrlCheckerPendingReceiver;
 

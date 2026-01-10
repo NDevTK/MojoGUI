@@ -8,23 +8,24 @@
 var web_app = web_app || {};
 web_app.mojom = web_app.mojom || {};
 
+web_app.mojom.WebAppShortcutCopier = {};
+web_app.mojom.WebAppShortcutCopier.$interfaceName = 'web_app.mojom.WebAppShortcutCopier';
+web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ParamsSpec = { $: {} };
+web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ResponseParamsSpec = { $: {} };
 
 // Interface: WebAppShortcutCopier
-web_app.mojom.WebAppShortcutCopier = {};
+mojo.internal.Struct(
+    web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ParamsSpec, 'web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_Params', [
+      mojo.internal.StructField('source_path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('destination_path', 8, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'source_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'destination_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ResponseParamsSpec, 'web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 web_app.mojom.WebAppShortcutCopierPendingReceiver = class {
   constructor(handle) {
@@ -79,35 +80,6 @@ web_app.mojom.WebAppShortcutCopier.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CopyWebAppShortcut
-web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'web_app.mojom.WebAppShortcutCopier.CopyWebAppShortcut_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'source_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'destination_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'web_app.mojom.WebAppShortcutCopier.CopyWebAppShortcut_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 web_app.mojom.WebAppShortcutCopierPtr = web_app.mojom.WebAppShortcutCopierRemote;
 web_app.mojom.WebAppShortcutCopierRequest = web_app.mojom.WebAppShortcutCopierPendingReceiver;
 

@@ -10,35 +10,37 @@ gfx.mojom = gfx.mojom || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+gfx.mojom.RangeTraitsTestService = {};
+gfx.mojom.RangeTraitsTestService.$interfaceName = 'gfx.mojom.RangeTraitsTestService';
+gfx.mojom.RangeTraitsTestService_EchoRange_ParamsSpec = { $: {} };
+gfx.mojom.RangeTraitsTestService_EchoRange_ResponseParamsSpec = { $: {} };
+gfx.mojom.RangeTraitsTestService_EchoRangeF_ParamsSpec = { $: {} };
+gfx.mojom.RangeTraitsTestService_EchoRangeF_ResponseParamsSpec = { $: {} };
 
 // Interface: RangeTraitsTestService
-gfx.mojom.RangeTraitsTestService = {};
+mojo.internal.Struct(
+    gfx.mojom.RangeTraitsTestService_EchoRange_ParamsSpec, 'gfx.mojom.RangeTraitsTestService_EchoRange_Params', [
+      mojo.internal.StructField('p', 0, 0, gfx.mojom.RangeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-gfx.mojom.RangeTraitsTestService_EchoRange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.RangeTraitsTestService_EchoRange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'p', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RangeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.RangeTraitsTestService_EchoRange_ResponseParamsSpec, 'gfx.mojom.RangeTraitsTestService_EchoRange_ResponseParams', [
+      mojo.internal.StructField('pass', 0, 0, gfx.mojom.RangeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-gfx.mojom.RangeTraitsTestService_EchoRangeF_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.RangeTraitsTestService_EchoRangeF_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'p', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RangeFSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.RangeTraitsTestService_EchoRangeF_ParamsSpec, 'gfx.mojom.RangeTraitsTestService_EchoRangeF_Params', [
+      mojo.internal.StructField('p', 0, 0, gfx.mojom.RangeFSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    gfx.mojom.RangeTraitsTestService_EchoRangeF_ResponseParamsSpec, 'gfx.mojom.RangeTraitsTestService_EchoRangeF_ResponseParams', [
+      mojo.internal.StructField('pass', 0, 0, gfx.mojom.RangeFSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 gfx.mojom.RangeTraitsTestServicePendingReceiver = class {
   constructor(handle) {
@@ -102,61 +104,6 @@ gfx.mojom.RangeTraitsTestService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for EchoRange
-gfx.mojom.RangeTraitsTestService_EchoRange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.RangeTraitsTestService.EchoRange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'p', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RangeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-gfx.mojom.RangeTraitsTestService_EchoRange_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.RangeTraitsTestService.EchoRange_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RangeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EchoRangeF
-gfx.mojom.RangeTraitsTestService_EchoRangeF_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.RangeTraitsTestService.EchoRangeF_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'p', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RangeFSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-gfx.mojom.RangeTraitsTestService_EchoRangeF_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.RangeTraitsTestService.EchoRangeF_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RangeFSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 gfx.mojom.RangeTraitsTestServicePtr = gfx.mojom.RangeTraitsTestServiceRemote;
 gfx.mojom.RangeTraitsTestServiceRequest = gfx.mojom.RangeTraitsTestServicePendingReceiver;
 

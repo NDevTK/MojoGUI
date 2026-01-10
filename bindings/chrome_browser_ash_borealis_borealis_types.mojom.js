@@ -8,6 +8,7 @@
 var borealis = borealis || {};
 borealis.mojom = borealis.mojom || {};
 
+borealis.mojom.InstallResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: InstallResult
 borealis.mojom.InstallResult = {
@@ -26,4 +27,3 @@ borealis.mojom.InstallResult = {
   kStartupFailed: 12,
   kMainAppNotPresent: 13,
 };
-borealis.mojom.InstallResultSpec = { $: mojo.internal.Enum() };

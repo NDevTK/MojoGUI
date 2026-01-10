@@ -8,25 +8,19 @@
 var dom_distiller = dom_distiller || {};
 dom_distiller.mojom = dom_distiller.mojom || {};
 
+dom_distiller.mojom.DistillabilityService = {};
+dom_distiller.mojom.DistillabilityService.$interfaceName = 'dom_distiller.mojom.DistillabilityService';
+dom_distiller.mojom.DistillabilityService_NotifyIsDistillable_ParamsSpec = { $: {} };
 
 // Interface: DistillabilityService
-dom_distiller.mojom.DistillabilityService = {};
-
-dom_distiller.mojom.DistillabilityService_NotifyIsDistillable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'dom_distiller.mojom.DistillabilityService_NotifyIsDistillable_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page_is_distillable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_last_update', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_long_article', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_mobile_friendly', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    dom_distiller.mojom.DistillabilityService_NotifyIsDistillable_ParamsSpec, 'dom_distiller.mojom.DistillabilityService_NotifyIsDistillable_Params', [
+      mojo.internal.StructField('page_is_distillable', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_last_update', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_long_article', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_mobile_friendly', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 dom_distiller.mojom.DistillabilityServicePendingReceiver = class {
   constructor(handle) {
@@ -81,24 +75,6 @@ dom_distiller.mojom.DistillabilityService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for NotifyIsDistillable
-dom_distiller.mojom.DistillabilityService_NotifyIsDistillable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'dom_distiller.mojom.DistillabilityService.NotifyIsDistillable_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page_is_distillable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_last_update', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_long_article', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_mobile_friendly', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 dom_distiller.mojom.DistillabilityServicePtr = dom_distiller.mojom.DistillabilityServiceRemote;
 dom_distiller.mojom.DistillabilityServiceRequest = dom_distiller.mojom.DistillabilityServicePendingReceiver;
 

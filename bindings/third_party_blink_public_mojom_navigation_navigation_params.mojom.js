@@ -7,6 +7,17 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 var blink = blink || {};
 var blink = blink || {};
 var blink = blink || {};
@@ -26,12 +37,23 @@ var blink = blink || {};
 var blink = blink || {};
 var blink = blink || {};
 var blink = blink || {};
+var services = services || {};
 var blink = blink || {};
 var blink = blink || {};
 var blink = blink || {};
 var url = url || {};
 var url = url || {};
 
+blink.mojom.NavigationTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.NavigationTypeForNavigationApiSpec = { $: mojo.internal.Enum() };
+blink.mojom.ForceHistoryPushSpec = { $: mojo.internal.Enum() };
+blink.mojom.ParentResourceTimingAccessSpec = { $: mojo.internal.Enum() };
+blink.mojom.BeginNavigationParamsSpec = { $: {} };
+blink.mojom.CommonNavigationParamsSpec = { $: {} };
+blink.mojom.NavigationTimingSpec = { $: {} };
+blink.mojom.OldPageInfoSpec = { $: {} };
+blink.mojom.CommitNavigationParamsSpec = { $: {} };
+blink.mojom.PageSwapEventParamsSpec = { $: {} };
 
 // Enum: NavigationType
 blink.mojom.NavigationType = {
@@ -44,7 +66,6 @@ blink.mojom.NavigationType = {
   SAME_DOCUMENT: 6,
   DIFFERENT_DOCUMENT: 7,
 };
-blink.mojom.NavigationTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: NavigationTypeForNavigationApi
 blink.mojom.NavigationTypeForNavigationApi = {
@@ -53,14 +74,12 @@ blink.mojom.NavigationTypeForNavigationApi = {
   kReplace: 2,
   kReload: 3,
 };
-blink.mojom.NavigationTypeForNavigationApiSpec = { $: mojo.internal.Enum() };
 
 // Enum: ForceHistoryPush
 blink.mojom.ForceHistoryPush = {
   kYes: 0,
   kNo: 1,
 };
-blink.mojom.ForceHistoryPushSpec = { $: mojo.internal.Enum() };
 
 // Enum: ParentResourceTimingAccess
 blink.mojom.ParentResourceTimingAccess = {
@@ -68,193 +87,150 @@ blink.mojom.ParentResourceTimingAccess = {
   kReportWithoutResponseDetails: 1,
   kReportWithResponseDetails: 2,
 };
-blink.mojom.ParentResourceTimingAccessSpec = { $: mojo.internal.Enum() };
 
 // Struct: BeginNavigationParams
-blink.mojom.BeginNavigationParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BeginNavigationParams',
-      packedSize: 112,
-      fields: [
-        { name: 'initiator_frame_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: true, minVersion: 0 },
-        { name: 'headers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'load_flags', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'skip_service_worker', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_form_submission', packedOffset: 96, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'was_initiated_by_link_click', packedOffset: 96, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'force_history_push', packedOffset: 84, packedBitOffset: 0, type: blink.mojom.ForceHistoryPushSpec, nullable: false, minVersion: 0 },
-        { name: 'searchable_form_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'searchable_form_encoding', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'client_side_redirect_url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'devtools_initiator', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: true, minVersion: 0 },
-        { name: 'trust_token_params', packedOffset: 48, packedBitOffset: 0, type: network.mojom.TrustTokenParamsSpec, nullable: true, minVersion: 0 },
-        { name: 'impression', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.ImpressionSpec, nullable: true, minVersion: 0 },
-        { name: 'before_unload_start', packedOffset: 64, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'before_unload_end', packedOffset: 72, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'initiator_activation_and_ad_status', packedOffset: 88, packedBitOffset: 0, type: blink.mojom.NavigationInitiatorActivationAndAdStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'is_container_initiated', packedOffset: 96, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'storage_access_api_status', packedOffset: 92, packedBitOffset: 0, type: network.mojom.StorageAccessApiStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'has_rel_opener', packedOffset: 96, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 112}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.BeginNavigationParamsSpec, 'blink.mojom.BeginNavigationParams', [
+      mojo.internal.StructField('initiator_frame_token', 0, 0, blink.mojom.LocalFrameTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('headers', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('load_flags', 80, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('skip_service_worker', 96, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_form_submission', 96, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('was_initiated_by_link_click', 96, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('force_history_push', 84, 0, blink.mojom.ForceHistoryPushSpec, null, false, 0, undefined),
+      mojo.internal.StructField('searchable_form_url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('searchable_form_encoding', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('client_side_redirect_url', 32, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('devtools_initiator', 40, 0, mojo_base.mojom.DictionaryValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('trust_token_params', 48, 0, network.mojom.TrustTokenParamsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('impression', 56, 0, blink.mojom.ImpressionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('before_unload_start', 64, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('before_unload_end', 72, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('initiator_activation_and_ad_status', 88, 0, blink.mojom.NavigationInitiatorActivationAndAdStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_container_initiated', 96, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('storage_access_api_status', 92, 0, network.mojom.StorageAccessApiStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('has_rel_opener', 96, 4, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 112]]);
 
 // Struct: CommonNavigationParams
-blink.mojom.CommonNavigationParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CommonNavigationParams',
-      packedSize: 136,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'initiator_origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true, minVersion: 0 },
-        { name: 'initiator_base_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
-        { name: 'referrer', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ReferrerSpec, nullable: false, minVersion: 0 },
-        { name: 'transition', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'navigation_type', packedOffset: 116, packedBitOffset: 0, type: blink.mojom.NavigationTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'download_policy', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.NavigationDownloadPolicySpec, nullable: false, minVersion: 0 },
-        { name: 'should_replace_current_entry', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'base_url_for_data_url', packedOffset: 40, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'actual_navigation_start', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'navigation_start', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'method', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'post_data', packedOffset: 72, packedBitOffset: 0, type: network.mojom.URLRequestBodySpec, nullable: true, minVersion: 0 },
-        { name: 'source_location', packedOffset: 80, packedBitOffset: 0, type: network.mojom.SourceLocationSpec, nullable: false, minVersion: 0 },
-        { name: 'started_from_context_menu', packedOffset: 120, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_user_gesture', packedOffset: 120, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'text_fragment_token', packedOffset: 120, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'initiator_origin_trial_features', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int32, false), nullable: false, minVersion: 0 },
-        { name: 'href_translate', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_history_navigation_in_new_child_frame', packedOffset: 120, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'input_start', packedOffset: 104, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 136}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.CommonNavigationParamsSpec, 'blink.mojom.CommonNavigationParams', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('initiator_origin', 8, 0, url.mojom.OriginSpec, null, true, 0, undefined),
+      mojo.internal.StructField('initiator_base_url', 16, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('referrer', 24, 0, blink.mojom.ReferrerSpec, null, false, 0, undefined),
+      mojo.internal.StructField('transition', 112, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('navigation_type', 116, 0, blink.mojom.NavigationTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('download_policy', 32, 0, blink.mojom.NavigationDownloadPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('should_replace_current_entry', 120, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('base_url_for_data_url', 40, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('actual_navigation_start', 48, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('navigation_start', 56, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('method', 64, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('post_data', 72, 0, network.mojom.URLRequestBodySpec, null, true, 0, undefined),
+      mojo.internal.StructField('source_location', 80, 0, network.mojom.SourceLocationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('started_from_context_menu', 120, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_user_gesture', 120, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('text_fragment_token', 120, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('initiator_origin_trial_features', 88, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
+      mojo.internal.StructField('href_translate', 96, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('is_history_navigation_in_new_child_frame', 120, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('input_start', 104, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+    ],
+    [[0, 136]]);
 
 // Struct: NavigationTiming
-blink.mojom.NavigationTimingSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.NavigationTiming',
-      packedSize: 32,
-      fields: [
-        { name: 'redirect_start', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'redirect_end', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'fetch_start', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.NavigationTimingSpec, 'blink.mojom.NavigationTiming', [
+      mojo.internal.StructField('redirect_start', 0, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('redirect_end', 8, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('fetch_start', 16, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: OldPageInfo
-blink.mojom.OldPageInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.OldPageInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'frame_token_for_old_main_frame', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'new_lifecycle_state_for_old_page', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PageLifecycleStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.OldPageInfoSpec, 'blink.mojom.OldPageInfo', [
+      mojo.internal.StructField('frame_token_for_old_main_frame', 0, 0, blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('new_lifecycle_state_for_old_page', 8, 0, blink.mojom.PageLifecycleStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: CommitNavigationParams
-blink.mojom.CommitNavigationParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CommitNavigationParams',
-      packedSize: 344,
-      fields: [
-        { name: 'origin_to_commit', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-        { name: 'storage_key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
-        { name: 'is_overriding_user_agent', packedOffset: 328, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'redirects', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
-        { name: 'redirect_response', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.URLResponseHeadSpec, false), nullable: false, minVersion: 0 },
-        { name: 'redirect_infos', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.URLRequestRedirectInfoSpec, false), nullable: false, minVersion: 0 },
-        { name: 'post_content_type', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'original_url', packedOffset: 48, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'original_method', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'can_load_local_resources', packedOffset: 328, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'page_state', packedOffset: 64, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false, minVersion: 0 },
-        { name: 'nav_entry_id', packedOffset: 296, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'subframe_unique_names', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.Bool, false), nullable: false, minVersion: 0 },
-        { name: 'intended_as_new_entry', packedOffset: 328, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'pending_history_list_index', packedOffset: 300, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'current_history_list_index', packedOffset: 304, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'current_history_list_length', packedOffset: 308, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'was_discarded', packedOffset: 328, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_view_source', packedOffset: 328, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'should_clear_history_list', packedOffset: 328, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'navigation_timing', packedOffset: 80, packedBitOffset: 0, type: blink.mojom.NavigationTimingSpec, nullable: false, minVersion: 0 },
-        { name: 'was_activated', packedOffset: 312, packedBitOffset: 0, type: blink.mojom.WasActivatedOptionSpec, nullable: false, minVersion: 0 },
-        { name: 'navigation_token', packedOffset: 88, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'prefetched_signed_exchanges', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.PrefetchedSignedExchangeInfoSpec, false), nullable: false, minVersion: 0 },
-        { name: 'data_url_as_string', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_browser_initiated', packedOffset: 328, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_ua_visual_transition', packedOffset: 328, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'document_ukm_source_id', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'frame_policy', packedOffset: 120, packedBitOffset: 0, type: blink.mojom.FramePolicySpec, nullable: false, minVersion: 0 },
-        { name: 'force_enabled_origin_trials', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'origin_agent_cluster', packedOffset: 329, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'origin_agent_cluster_left_as_default', packedOffset: 329, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'enabled_client_hints', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.WebClientHintsTypeSpec, false), nullable: false, minVersion: 0 },
-        { name: 'is_cross_site_cross_browsing_context_group', packedOffset: 329, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'should_have_sticky_user_activation', packedOffset: 329, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'old_page_info', packedOffset: 144, packedBitOffset: 0, type: blink.mojom.OldPageInfoSpec, nullable: true, minVersion: 0 },
-        { name: 'http_response_code', packedOffset: 316, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'navigation_api_history_entry_arrays', packedOffset: 152, packedBitOffset: 0, type: blink.mojom.NavigationApiHistoryEntryArraysSpec, nullable: false, minVersion: 0 },
-        { name: 'early_hints_preloaded_resources', packedOffset: 160, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
-        { name: 'commit_sent', packedOffset: 168, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'srcdoc_value', packedOffset: 176, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_load_data_with_base_url', packedOffset: 329, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'ancestor_or_self_has_cspee', packedOffset: 329, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'reduced_accept_language', packedOffset: 184, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'navigation_delivery_type', packedOffset: 320, packedBitOffset: 0, type: network.mojom.NavigationDeliveryTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'view_transition_state', packedOffset: 192, packedBitOffset: 0, type: blink.mojom.ViewTransitionStateSpec, nullable: true, minVersion: 0 },
-        { name: 'soft_navigation_heuristics_task_id', packedOffset: 200, packedBitOffset: 0, type: blink.mojom.TaskAttributionIdSpec, nullable: true, minVersion: 0 },
-        { name: 'modified_runtime_features', packedOffset: 208, packedBitOffset: 0, type: mojo.internal.Map(blink.mojom.RuntimeFeatureSpec, mojo.internal.Bool, false), nullable: false, minVersion: 0 },
-        { name: 'fenced_frame_properties', packedOffset: 216, packedBitOffset: 0, type: blink.mojom.FencedFramePropertiesSpec, nullable: true, minVersion: 0 },
-        { name: 'not_restored_reasons', packedOffset: 224, packedBitOffset: 0, type: blink.mojom.BackForwardCacheNotRestoredReasonsSpec, nullable: true, minVersion: 0 },
-        { name: 'load_with_storage_access', packedOffset: 324, packedBitOffset: 0, type: network.mojom.StorageAccessApiStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'browsing_context_group_token', packedOffset: 232, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
-        { name: 'lcpp_hint', packedOffset: 240, packedBitOffset: 0, type: blink.mojom.LCPCriticalPathPredictorNavigationTimeHintSpec, nullable: true, minVersion: 0 },
-        { name: 'content_settings', packedOffset: 248, packedBitOffset: 0, type: blink.mojom.RendererContentSettingsSpec, nullable: false, minVersion: 0 },
-        { name: 'visited_link_salt_$flag', packedOffset: 329, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'visited_link_salt_$value', originalFieldName: 'visited_link_salt' } },
-        { name: 'visited_link_salt_$value', packedOffset: 256, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'visited_link_salt_$flag', originalFieldName: 'visited_link_salt' } },
-        { name: 'local_surface_id', packedOffset: 264, packedBitOffset: 0, type: viz.mojom.LocalSurfaceIdSpec, nullable: true, minVersion: 0 },
-        { name: 'initial_permission_statuses', packedOffset: 272, packedBitOffset: 0, type: mojo.internal.Map(blink.mojom.PermissionNameSpec, blink.mojom.PermissionStatusSpec, false), nullable: true, minVersion: 0 },
-        { name: 'should_skip_screenshot', packedOffset: 329, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'force_new_document_sequence_number', packedOffset: 330, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'navigation_metrics_token', packedOffset: 280, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'commit_target_frame_token', packedOffset: 288, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: true, minVersion: 0 },
-        { name: 'is_initial_webui', packedOffset: 330, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 344}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.CommitNavigationParamsSpec, 'blink.mojom.CommitNavigationParams', [
+      mojo.internal.StructField('origin_to_commit', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('storage_key', 8, 0, blink.mojom.StorageKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_overriding_user_agent', 328, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('redirects', 16, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('redirect_response', 24, 0, mojo.internal.Array(network.mojom.URLResponseHeadSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('redirect_infos', 32, 0, mojo.internal.Array(network.mojom.URLRequestRedirectInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('post_content_type', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('original_url', 48, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('original_method', 56, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('can_load_local_resources', 328, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('page_state', 64, 0, mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('nav_entry_id', 296, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('subframe_unique_names', 72, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Bool, false), null, false, 0, undefined),
+      mojo.internal.StructField('intended_as_new_entry', 328, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('pending_history_list_index', 300, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('current_history_list_index', 304, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('current_history_list_length', 308, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('was_discarded', 328, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_view_source', 328, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('should_clear_history_list', 328, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('navigation_timing', 80, 0, blink.mojom.NavigationTimingSpec, null, false, 0, undefined),
+      mojo.internal.StructField('was_activated', 312, 0, blink.mojom.WasActivatedOptionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('navigation_token', 88, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('prefetched_signed_exchanges', 96, 0, mojo.internal.Array(blink.mojom.PrefetchedSignedExchangeInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('data_url_as_string', 104, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('is_browser_initiated', 328, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_ua_visual_transition', 328, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('document_ukm_source_id', 112, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('frame_policy', 120, 0, blink.mojom.FramePolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('force_enabled_origin_trials', 128, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('origin_agent_cluster', 329, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('origin_agent_cluster_left_as_default', 329, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enabled_client_hints', 136, 0, mojo.internal.Array(network.mojom.WebClientHintsTypeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('is_cross_site_cross_browsing_context_group', 329, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('should_have_sticky_user_activation', 329, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('old_page_info', 144, 0, blink.mojom.OldPageInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('http_response_code', 316, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('navigation_api_history_entry_arrays', 152, 0, blink.mojom.NavigationApiHistoryEntryArraysSpec, null, false, 0, undefined),
+      mojo.internal.StructField('early_hints_preloaded_resources', 160, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('commit_sent', 168, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('srcdoc_value', 176, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('is_load_data_with_base_url', 329, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('ancestor_or_self_has_cspee', 329, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('reduced_accept_language', 184, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('navigation_delivery_type', 320, 0, network.mojom.NavigationDeliveryTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('view_transition_state', 192, 0, blink.mojom.ViewTransitionStateSpec, null, true, 0, undefined),
+      mojo.internal.StructField('soft_navigation_heuristics_task_id', 200, 0, blink.mojom.TaskAttributionIdSpec, null, true, 0, undefined),
+      mojo.internal.StructField('modified_runtime_features', 208, 0, mojo.internal.Map(blink.mojom.RuntimeFeatureSpec, mojo.internal.Bool, false), null, false, 0, undefined),
+      mojo.internal.StructField('fenced_frame_properties', 216, 0, blink.mojom.FencedFramePropertiesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('not_restored_reasons', 224, 0, blink.mojom.BackForwardCacheNotRestoredReasonsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('load_with_storage_access', 324, 0, network.mojom.StorageAccessApiStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('browsing_context_group_token', 232, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('lcpp_hint', 240, 0, blink.mojom.LCPCriticalPathPredictorNavigationTimeHintSpec, null, true, 0, undefined),
+      mojo.internal.StructField('content_settings', 248, 0, blink.mojom.RendererContentSettingsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('visited_link_salt_$flag', 329, 6, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'visited_link_salt_$value', originalFieldName: 'visited_link_salt' }),
+      mojo.internal.StructField('visited_link_salt_$value', 256, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'visited_link_salt_$flag', originalFieldName: 'visited_link_salt' }),
+      mojo.internal.StructField('local_surface_id', 264, 0, viz.mojom.LocalSurfaceIdSpec, null, true, 0, undefined),
+      mojo.internal.StructField('initial_permission_statuses', 272, 0, mojo.internal.Map(blink.mojom.PermissionNameSpec, blink.mojom.PermissionStatusSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('should_skip_screenshot', 329, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('force_new_document_sequence_number', 330, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('navigation_metrics_token', 280, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('commit_target_frame_token', 288, 0, blink.mojom.LocalFrameTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('is_initial_webui', 330, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 344]]);
 
 // Struct: PageSwapEventParams
-blink.mojom.PageSwapEventParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PageSwapEventParams',
-      packedSize: 32,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'page_state', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false, minVersion: 0 },
-        { name: 'navigation_type', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.NavigationTypeForNavigationApiSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PageSwapEventParamsSpec, 'blink.mojom.PageSwapEventParams', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('page_state', 8, 0, mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('navigation_type', 16, 0, blink.mojom.NavigationTypeForNavigationApiSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);

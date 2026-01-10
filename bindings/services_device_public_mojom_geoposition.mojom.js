@@ -8,6 +8,10 @@
 var device = device || {};
 device.mojom = device.mojom || {};
 
+device.mojom.GeopositionErrorCodeSpec = { $: mojo.internal.Enum() };
+device.mojom.GeopositionResultSpec = { $: {} };
+device.mojom.GeopositionSpec = { $: {} };
+device.mojom.GeopositionErrorSpec = { $: {} };
 
 device.mojom.kBadLatitudeLongitude = 200;
 
@@ -25,60 +29,46 @@ device.mojom.kGeoPositionUnavailableErrorMessage = "Position update is unavailab
 
 // Enum: GeopositionErrorCode
 device.mojom.GeopositionErrorCode = {
-  kPermissionDenied: 0,
-  kPositionUnavailable: 1,
-  kWifiDisabled: 2,
+  kPermissionDenied: 1,
+  kPositionUnavailable: 2,
+  kWifiDisabled: 3,
 };
-device.mojom.GeopositionErrorCodeSpec = { $: mojo.internal.Enum() };
 
 // Union: GeopositionResult
-device.mojom.GeopositionResultSpec = { $: mojo.internal.Union(
-    'device.mojom.GeopositionResult', {
+mojo.internal.Union(
+    device.mojom.GeopositionResultSpec, 'device.mojom.GeopositionResult', {
       'position': {
         'ordinal': 0,
         'type': device.mojom.GeopositionSpec,
-      }},
+        'nullable': false,
+      },
       'error': {
         'ordinal': 1,
         'type': device.mojom.GeopositionErrorSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: Geoposition
-device.mojom.GeopositionSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.Geoposition',
-      packedSize: 80,
-      fields: [
-        { name: 'latitude', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'longitude', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'altitude', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'accuracy', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'altitude_accuracy', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'heading', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'speed', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'timestamp', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'is_precise', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 80}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.GeopositionSpec, 'device.mojom.Geoposition', [
+      mojo.internal.StructField('latitude', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('longitude', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('altitude', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('accuracy', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('altitude_accuracy', 32, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('heading', 40, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('speed', 48, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 56, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_precise', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 80]]);
 
 // Struct: GeopositionError
-device.mojom.GeopositionErrorSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.GeopositionError',
-      packedSize: 32,
-      fields: [
-        { name: 'error_code', packedOffset: 16, packedBitOffset: 0, type: device.mojom.GeopositionErrorCodeSpec, nullable: false, minVersion: 0 },
-        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'error_technical', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.GeopositionErrorSpec, 'device.mojom.GeopositionError', [
+      mojo.internal.StructField('error_code', 16, 0, device.mojom.GeopositionErrorCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('error_technical', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);

@@ -8,6 +8,11 @@
 var prefs = prefs || {};
 prefs.mojom = prefs.mojom || {};
 
+prefs.mojom.ValueStateSpec = { $: mojo.internal.Enum() };
+prefs.mojom.TrackedPreferenceValidationDelegate = {};
+prefs.mojom.TrackedPreferenceValidationDelegate.$interfaceName = 'prefs.mojom.TrackedPreferenceValidationDelegate';
+prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_ParamsSpec = { $: {} };
+prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_ParamsSpec = { $: {} };
 
 // Enum: ValueState
 prefs.mojom.ValueState = {
@@ -25,45 +30,28 @@ prefs.mojom.ValueState = {
   CHANGED_VIA_HMAC_FALLBACK: 11,
   CLEARED_VIA_HMAC_FALLBACK: 12,
 };
-prefs.mojom.ValueStateSpec = { $: mojo.internal.Enum() };
 
 // Interface: TrackedPreferenceValidationDelegate
-prefs.mojom.TrackedPreferenceValidationDelegate = {};
+mojo.internal.Struct(
+    prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_ParamsSpec, 'prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_Params', [
+      mojo.internal.StructField('pref_path', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('value_state', 24, 0, prefs.mojom.ValueStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('external_validation_value_state', 28, 0, prefs.mojom.ValueStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_personal', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
-prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'pref_path', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: true, minVersion: 0 },
-        { name: 'value_state', packedOffset: 24, packedBitOffset: 0, type: prefs.mojom.ValueStateSpec, nullable: false, minVersion: 0 },
-        { name: 'external_validation_value_state', packedOffset: 28, packedBitOffset: 0, type: prefs.mojom.ValueStateSpec, nullable: false, minVersion: 0 },
-        { name: 'is_personal', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
-
-prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'pref_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'invalid_keys', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'external_validation_invalid_keys', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'value_state', packedOffset: 24, packedBitOffset: 0, type: prefs.mojom.ValueStateSpec, nullable: false, minVersion: 0 },
-        { name: 'external_validation_value_state', packedOffset: 28, packedBitOffset: 0, type: prefs.mojom.ValueStateSpec, nullable: false, minVersion: 0 },
-        { name: 'is_personal', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_ParamsSpec, 'prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_Params', [
+      mojo.internal.StructField('pref_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('invalid_keys', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('external_validation_invalid_keys', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('value_state', 24, 0, prefs.mojom.ValueStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('external_validation_value_state', 28, 0, prefs.mojom.ValueStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_personal', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 prefs.mojom.TrackedPreferenceValidationDelegatePendingReceiver = class {
   constructor(handle) {
@@ -127,44 +115,6 @@ prefs.mojom.TrackedPreferenceValidationDelegate.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnAtomicPreferenceValidation
-prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'prefs.mojom.TrackedPreferenceValidationDelegate.OnAtomicPreferenceValidation_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'pref_path', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: true, minVersion: 0 },
-        { name: 'value_state', packedOffset: 24, packedBitOffset: 0, type: prefs.mojom.ValueStateSpec, nullable: false, minVersion: 0 },
-        { name: 'external_validation_value_state', packedOffset: 28, packedBitOffset: 0, type: prefs.mojom.ValueStateSpec, nullable: false, minVersion: 0 },
-        { name: 'is_personal', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
-
-// ParamsSpec for OnSplitPreferenceValidation
-prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'prefs.mojom.TrackedPreferenceValidationDelegate.OnSplitPreferenceValidation_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'pref_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'invalid_keys', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'external_validation_invalid_keys', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'value_state', packedOffset: 24, packedBitOffset: 0, type: prefs.mojom.ValueStateSpec, nullable: false, minVersion: 0 },
-        { name: 'external_validation_value_state', packedOffset: 28, packedBitOffset: 0, type: prefs.mojom.ValueStateSpec, nullable: false, minVersion: 0 },
-        { name: 'is_personal', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
-
-// Legacy compatibility
 prefs.mojom.TrackedPreferenceValidationDelegatePtr = prefs.mojom.TrackedPreferenceValidationDelegateRemote;
 prefs.mojom.TrackedPreferenceValidationDelegateRequest = prefs.mojom.TrackedPreferenceValidationDelegatePendingReceiver;
 

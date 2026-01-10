@@ -8,21 +8,21 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.FileSystemAccessAccessHandleHost = {};
+blink.mojom.FileSystemAccessAccessHandleHost.$interfaceName = 'blink.mojom.FileSystemAccessAccessHandleHost';
+blink.mojom.FileSystemAccessAccessHandleHost_Close_ParamsSpec = { $: {} };
+blink.mojom.FileSystemAccessAccessHandleHost_Close_ResponseParamsSpec = { $: {} };
 
 // Interface: FileSystemAccessAccessHandleHost
-blink.mojom.FileSystemAccessAccessHandleHost = {};
+mojo.internal.Struct(
+    blink.mojom.FileSystemAccessAccessHandleHost_Close_ParamsSpec, 'blink.mojom.FileSystemAccessAccessHandleHost_Close_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.FileSystemAccessAccessHandleHost_Close_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessAccessHandleHost_Close_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FileSystemAccessAccessHandleHost_Close_ResponseParamsSpec, 'blink.mojom.FileSystemAccessAccessHandleHost_Close_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 blink.mojom.FileSystemAccessAccessHandleHostPendingReceiver = class {
   constructor(handle) {
@@ -61,7 +61,7 @@ blink.mojom.FileSystemAccessAccessHandleHostRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       blink.mojom.FileSystemAccessAccessHandleHost_Close_ParamsSpec,
-      null,
+      blink.mojom.FileSystemAccessAccessHandleHost_Close_ResponseParamsSpec,
       []);
   }
 
@@ -77,20 +77,6 @@ blink.mojom.FileSystemAccessAccessHandleHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Close
-blink.mojom.FileSystemAccessAccessHandleHost_Close_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessAccessHandleHost.Close_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.FileSystemAccessAccessHandleHostPtr = blink.mojom.FileSystemAccessAccessHandleHostRemote;
 blink.mojom.FileSystemAccessAccessHandleHostRequest = blink.mojom.FileSystemAccessAccessHandleHostPendingReceiver;
 

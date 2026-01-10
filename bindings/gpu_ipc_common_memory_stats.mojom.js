@@ -8,33 +8,21 @@
 var gpu = gpu || {};
 gpu.mojom = gpu.mojom || {};
 
+gpu.mojom.VideoMemoryProcessStatsSpec = { $: {} };
+gpu.mojom.VideoMemoryUsageStatsSpec = { $: {} };
 
 // Struct: VideoMemoryProcessStats
-gpu.mojom.VideoMemoryProcessStatsSpec = {
-  $: {
-    structSpec: {
-      name: 'gpu.mojom.VideoMemoryProcessStats',
-      packedSize: 24,
-      fields: [
-        { name: 'video_memory_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'has_duplicates', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gpu.mojom.VideoMemoryProcessStatsSpec, 'gpu.mojom.VideoMemoryProcessStats', [
+      mojo.internal.StructField('video_memory_bytes', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('has_duplicates', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: VideoMemoryUsageStats
-gpu.mojom.VideoMemoryUsageStatsSpec = {
-  $: {
-    structSpec: {
-      name: 'gpu.mojom.VideoMemoryUsageStats',
-      packedSize: 24,
-      fields: [
-        { name: 'process_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Int32, gpu.mojom.VideoMemoryProcessStatsSpec, false), nullable: false, minVersion: 0 },
-        { name: 'bytes_allocated', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gpu.mojom.VideoMemoryUsageStatsSpec, 'gpu.mojom.VideoMemoryUsageStats', [
+      mojo.internal.StructField('process_map', 0, 0, mojo.internal.Map(mojo.internal.Int32, gpu.mojom.VideoMemoryProcessStatsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('bytes_allocated', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);

@@ -8,6 +8,9 @@
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
 
+viz.mojom.ContentFrameIntervalTypeSpec = { $: mojo.internal.Enum() };
+viz.mojom.ContentFrameIntervalInfoSpec = { $: {} };
+viz.mojom.FrameIntervalInputsSpec = { $: {} };
 
 // Enum: ContentFrameIntervalType
 viz.mojom.ContentFrameIntervalType = {
@@ -16,39 +19,24 @@ viz.mojom.ContentFrameIntervalType = {
   kScrollBarFadeOutAnimation: 2,
   kCompositorScroll: 3,
 };
-viz.mojom.ContentFrameIntervalTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: ContentFrameIntervalInfo
-viz.mojom.ContentFrameIntervalInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.ContentFrameIntervalInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.ContentFrameIntervalTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'frame_interval', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'duplicate_count', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.ContentFrameIntervalInfoSpec, 'viz.mojom.ContentFrameIntervalInfo', [
+      mojo.internal.StructField('type', 8, 0, viz.mojom.ContentFrameIntervalTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame_interval', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('duplicate_count', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: FrameIntervalInputs
-viz.mojom.FrameIntervalInputsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.FrameIntervalInputs',
-      packedSize: 32,
-      fields: [
-        { name: 'frame_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'has_user_input', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_input', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'major_scroll_speed_in_pixels_per_second', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'content_interval_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.ContentFrameIntervalInfoSpec, false), nullable: false, minVersion: 0 },
-        { name: 'has_only_content_frame_interval_updates', packedOffset: 20, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.FrameIntervalInputsSpec, 'viz.mojom.FrameIntervalInputs', [
+      mojo.internal.StructField('frame_time', 0, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('has_user_input', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_input', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('major_scroll_speed_in_pixels_per_second', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('content_interval_info', 8, 0, mojo.internal.Array(viz.mojom.ContentFrameIntervalInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('has_only_content_frame_interval_updates', 20, 2, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);

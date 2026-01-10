@@ -10,35 +10,37 @@ extensions.mojom = extensions.mojom || {};
 var blink = blink || {};
 var url = url || {};
 
+extensions.mojom.GuestView = {};
+extensions.mojom.GuestView.$interfaceName = 'extensions.mojom.GuestView';
+extensions.mojom.GuestView_ReadyToCreateMimeHandlerView_ParamsSpec = { $: {} };
+extensions.mojom.GuestView_CanExecuteContentScript_ParamsSpec = { $: {} };
+extensions.mojom.GuestView_CanExecuteContentScript_ResponseParamsSpec = { $: {} };
+extensions.mojom.MimeHandlerViewContainerManager = {};
+extensions.mojom.MimeHandlerViewContainerManager.$interfaceName = 'extensions.mojom.MimeHandlerViewContainerManager';
+extensions.mojom.MimeHandlerViewContainerManager_SetInternalId_ParamsSpec = { $: {} };
+extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ParamsSpec = { $: {} };
+extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ResponseParamsSpec = { $: {} };
+extensions.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_ParamsSpec = { $: {} };
+extensions.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec = { $: {} };
 
 // Interface: GuestView
-extensions.mojom.GuestView = {};
+mojo.internal.Struct(
+    extensions.mojom.GuestView_ReadyToCreateMimeHandlerView_ParamsSpec, 'extensions.mojom.GuestView_ReadyToCreateMimeHandlerView_Params', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-extensions.mojom.GuestView_ReadyToCreateMimeHandlerView_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.GuestView_ReadyToCreateMimeHandlerView_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions.mojom.GuestView_CanExecuteContentScript_ParamsSpec, 'extensions.mojom.GuestView_CanExecuteContentScript_Params', [
+      mojo.internal.StructField('script_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-extensions.mojom.GuestView_CanExecuteContentScript_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.GuestView_CanExecuteContentScript_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'script_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions.mojom.GuestView_CanExecuteContentScript_ResponseParamsSpec, 'extensions.mojom.GuestView_CanExecuteContentScript_ResponseParams', [
+      mojo.internal.StructField('allowed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 extensions.mojom.GuestViewPendingReceiver = class {
   constructor(handle) {
@@ -102,106 +104,40 @@ extensions.mojom.GuestView.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ReadyToCreateMimeHandlerView
-extensions.mojom.GuestView_ReadyToCreateMimeHandlerView_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.GuestView.ReadyToCreateMimeHandlerView_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CanExecuteContentScript
-extensions.mojom.GuestView_CanExecuteContentScript_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.GuestView.CanExecuteContentScript_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'script_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-extensions.mojom.GuestView_CanExecuteContentScript_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.GuestView.CanExecuteContentScript_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 extensions.mojom.GuestViewPtr = extensions.mojom.GuestViewRemote;
 extensions.mojom.GuestViewRequest = extensions.mojom.GuestViewPendingReceiver;
 
 
 // Interface: MimeHandlerViewContainerManager
-extensions.mojom.MimeHandlerViewContainerManager = {};
+mojo.internal.Struct(
+    extensions.mojom.MimeHandlerViewContainerManager_SetInternalId_ParamsSpec, 'extensions.mojom.MimeHandlerViewContainerManager_SetInternalId_Params', [
+      mojo.internal.StructField('token_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-extensions.mojom.MimeHandlerViewContainerManager_SetInternalId_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.MimeHandlerViewContainerManager_SetInternalId_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'token_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ParamsSpec, 'extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ResponseParamsSpec, 'extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ResponseParams', [
+      mojo.internal.StructField('before_unload_control', 0, 0, mojo.internal.InterfaceProxy(extensions.mime_handler.BeforeUnloadControlRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-extensions.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'element_instance_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_ParamsSpec, 'extensions.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_Params', [
+      mojo.internal.StructField('element_instance_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-extensions.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.MimeHandlerViewContainerManager_DidLoad_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'mime_handler_view_guest_element_instance_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'resource_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec, 'extensions.mojom.MimeHandlerViewContainerManager_DidLoad_Params', [
+      mojo.internal.StructField('mime_handler_view_guest_element_instance_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('resource_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 extensions.mojom.MimeHandlerViewContainerManagerPendingReceiver = class {
   constructor(handle) {
@@ -283,76 +219,6 @@ extensions.mojom.MimeHandlerViewContainerManager.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetInternalId
-extensions.mojom.MimeHandlerViewContainerManager_SetInternalId_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.MimeHandlerViewContainerManager.SetInternalId_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'token_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CreateBeforeUnloadControl
-extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.MimeHandlerViewContainerManager.CreateBeforeUnloadControl_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.MimeHandlerViewContainerManager.CreateBeforeUnloadControl_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'before_unload_control', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(extensions.mime_handler.BeforeUnloadControlRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DestroyFrameContainer
-extensions.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.MimeHandlerViewContainerManager.DestroyFrameContainer_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'element_instance_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DidLoad
-extensions.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.MimeHandlerViewContainerManager.DidLoad_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'mime_handler_view_guest_element_instance_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'resource_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 extensions.mojom.MimeHandlerViewContainerManagerPtr = extensions.mojom.MimeHandlerViewContainerManagerRemote;
 extensions.mojom.MimeHandlerViewContainerManagerRequest = extensions.mojom.MimeHandlerViewContainerManagerPendingReceiver;
 

@@ -8,41 +8,29 @@
 var device = device || {};
 device.mojom = device.mojom || {};
 
+device.mojom.UsbDeviceFilterSpec = { $: {} };
+device.mojom.UsbEnumerationOptionsSpec = { $: {} };
 
 // Struct: UsbDeviceFilter
-device.mojom.UsbDeviceFilterSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.UsbDeviceFilter',
-      packedSize: 24,
-      fields: [
-        { name: 'has_vendor_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'vendor_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'has_product_id', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'product_id', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'has_class_code', packedOffset: 12, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'class_code', packedOffset: 13, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'has_subclass_code', packedOffset: 12, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'subclass_code', packedOffset: 14, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'has_protocol_code', packedOffset: 12, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'protocol_code', packedOffset: 15, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'serial_number', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.UsbDeviceFilterSpec, 'device.mojom.UsbDeviceFilter', [
+      mojo.internal.StructField('has_vendor_id', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('vendor_id', 8, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('has_product_id', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('product_id', 10, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('has_class_code', 12, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('class_code', 13, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('has_subclass_code', 12, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('subclass_code', 14, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('has_protocol_code', 12, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('protocol_code', 15, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('serial_number', 0, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: UsbEnumerationOptions
-device.mojom.UsbEnumerationOptionsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.UsbEnumerationOptions',
-      packedSize: 16,
-      fields: [
-        { name: 'filters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.UsbDeviceFilterSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.UsbEnumerationOptionsSpec, 'device.mojom.UsbEnumerationOptions', [
+      mojo.internal.StructField('filters', 0, 0, mojo.internal.Array(device.mojom.UsbDeviceFilterSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);

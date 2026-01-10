@@ -8,6 +8,9 @@
 var media = media || {};
 media.mojom = media.mojom || {};
 
+media.mojom.DisplayCaptureSurfaceTypeSpec = { $: mojo.internal.Enum() };
+media.mojom.CursorCaptureTypeSpec = { $: mojo.internal.Enum() };
+media.mojom.DisplayMediaInformationSpec = { $: {} };
 
 // Enum: DisplayCaptureSurfaceType
 media.mojom.DisplayCaptureSurfaceType = {
@@ -15,7 +18,6 @@ media.mojom.DisplayCaptureSurfaceType = {
   WINDOW: 1,
   BROWSER: 2,
 };
-media.mojom.DisplayCaptureSurfaceTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CursorCaptureType
 media.mojom.CursorCaptureType = {
@@ -23,22 +25,14 @@ media.mojom.CursorCaptureType = {
   ALWAYS: 1,
   MOTION: 2,
 };
-media.mojom.CursorCaptureTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: DisplayMediaInformation
-media.mojom.DisplayMediaInformationSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.DisplayMediaInformation',
-      packedSize: 32,
-      fields: [
-        { name: 'display_surface', packedOffset: 8, packedBitOffset: 0, type: media.mojom.DisplayCaptureSurfaceTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'logical_surface', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'cursor', packedOffset: 12, packedBitOffset: 0, type: media.mojom.CursorCaptureTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'capture_handle', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CaptureHandleSpec, nullable: true, minVersion: 0 },
-        { name: 'initial_zoom_level', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.DisplayMediaInformationSpec, 'media.mojom.DisplayMediaInformation', [
+      mojo.internal.StructField('display_surface', 8, 0, media.mojom.DisplayCaptureSurfaceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('logical_surface', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('cursor', 12, 0, media.mojom.CursorCaptureTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('capture_handle', 0, 0, media.mojom.CaptureHandleSpec, null, true, 0, undefined),
+      mojo.internal.StructField('initial_zoom_level', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);

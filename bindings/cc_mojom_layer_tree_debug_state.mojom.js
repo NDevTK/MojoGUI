@@ -8,36 +8,30 @@
 var cc = cc || {};
 cc.mojom = cc.mojom || {};
 
+cc.mojom.LayerTreeDebugStateSpec = { $: {} };
 
 // Struct: LayerTreeDebugState
-cc.mojom.LayerTreeDebugStateSpec = {
-  $: {
-    structSpec: {
-      name: 'cc.mojom.LayerTreeDebugState',
-      packedSize: 16,
-      fields: [
-        { name: 'debugger_paused', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'show_fps_counter', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'show_render_pass_borders', packedOffset: 4, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'show_surface_borders', packedOffset: 4, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'show_layer_borders', packedOffset: 4, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'show_layout_shift_regions', packedOffset: 4, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'show_paint_rects', packedOffset: 4, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'show_property_changed_rects', packedOffset: 4, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'show_surface_damage_rects', packedOffset: 5, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'show_screen_space_rects', packedOffset: 5, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'show_touch_event_handler_rects', packedOffset: 5, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'show_wheel_event_handler_rects', packedOffset: 5, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'show_scroll_event_handler_rects', packedOffset: 5, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'show_main_thread_scroll_hit_test_rects', packedOffset: 5, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'show_main_thread_scroll_repaint_rects', packedOffset: 5, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'show_raster_inducing_scroll_rects', packedOffset: 5, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'show_layer_animation_bounds_rects', packedOffset: 6, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'slow_down_raster_scale_factor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'rasterize_only_visible_content', packedOffset: 6, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'record_rendering_stats', packedOffset: 6, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cc.mojom.LayerTreeDebugStateSpec, 'cc.mojom.LayerTreeDebugState', [
+      mojo.internal.StructField('debugger_paused', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('show_fps_counter', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('show_render_pass_borders', 4, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('show_surface_borders', 4, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('show_layer_borders', 4, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('show_layout_shift_regions', 4, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('show_paint_rects', 4, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('show_property_changed_rects', 4, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('show_surface_damage_rects', 5, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('show_screen_space_rects', 5, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('show_touch_event_handler_rects', 5, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('show_wheel_event_handler_rects', 5, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('show_scroll_event_handler_rects', 5, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('show_main_thread_scroll_hit_test_rects', 5, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('show_main_thread_scroll_repaint_rects', 5, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('show_raster_inducing_scroll_rects', 5, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('show_layer_animation_bounds_rects', 6, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('slow_down_raster_scale_factor', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('rasterize_only_visible_content', 6, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('record_rendering_stats', 6, 2, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);

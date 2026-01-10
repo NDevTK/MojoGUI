@@ -7,9 +7,21 @@
 // Module namespace
 var chromeos_camera = chromeos_camera || {};
 chromeos_camera.mojom = chromeos_camera.mojom || {};
+var components = components || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+chromeos_camera.mojom.DecodeErrorSpec = { $: mojo.internal.Enum() };
+chromeos_camera.mojom.BitstreamBufferSpec = { $: {} };
+chromeos_camera.mojom.MjpegDecodeAccelerator = {};
+chromeos_camera.mojom.MjpegDecodeAccelerator.$interfaceName = 'chromeos_camera.mojom.MjpegDecodeAccelerator';
+chromeos_camera.mojom.MjpegDecodeAccelerator_Initialize_ParamsSpec = { $: {} };
+chromeos_camera.mojom.MjpegDecodeAccelerator_Initialize_ResponseParamsSpec = { $: {} };
+chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ParamsSpec = { $: {} };
+chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ResponseParamsSpec = { $: {} };
+chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ParamsSpec = { $: {} };
+chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ResponseParamsSpec = { $: {} };
+chromeos_camera.mojom.MjpegDecodeAccelerator_Uninitialize_ParamsSpec = { $: {} };
 
 // Enum: DecodeError
 chromeos_camera.mojom.DecodeError = {
@@ -20,88 +32,69 @@ chromeos_camera.mojom.DecodeError = {
   UNSUPPORTED_JPEG: 4,
   PLATFORM_FAILURE: 5,
 };
-chromeos_camera.mojom.DecodeErrorSpec = { $: mojo.internal.Enum() };
 
 // Struct: BitstreamBuffer
-chromeos_camera.mojom.BitstreamBufferSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos_camera.mojom.BitstreamBuffer',
-      packedSize: 64,
-      fields: [
-        { name: 'id', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'memory_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'key_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'iv', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'subsamples', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.SubsampleEntrySpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos_camera.mojom.BitstreamBufferSpec, 'chromeos_camera.mojom.BitstreamBuffer', [
+      mojo.internal.StructField('id', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('memory_handle', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('size', 52, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('offset', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 16, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('key_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('iv', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('subsamples', 40, 0, mojo.internal.Array(media.mojom.SubsampleEntrySpec, false), null, false, 0, undefined),
+    ],
+    [[0, 64]]);
 
 // Interface: MjpegDecodeAccelerator
-chromeos_camera.mojom.MjpegDecodeAccelerator = {};
+mojo.internal.Struct(
+    chromeos_camera.mojom.MjpegDecodeAccelerator_Initialize_ParamsSpec, 'chromeos_camera.mojom.MjpegDecodeAccelerator_Initialize_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromeos_camera.mojom.MjpegDecodeAccelerator_Initialize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos_camera.mojom.MjpegDecodeAccelerator_Initialize_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos_camera.mojom.MjpegDecodeAccelerator_Initialize_ResponseParamsSpec, 'chromeos_camera.mojom.MjpegDecodeAccelerator_Initialize_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'input_buffer', packedOffset: 0, packedBitOffset: 0, type: chromeos_camera.mojom.BitstreamBufferSpec, nullable: false, minVersion: 0 },
-        { name: 'coded_size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'output_handle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'output_buffer_size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ParamsSpec, 'chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_Params', [
+      mojo.internal.StructField('input_buffer', 0, 0, chromeos_camera.mojom.BitstreamBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('coded_size', 8, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('output_handle', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('output_buffer_size', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'task_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'src_dmabuf_fd', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-        { name: 'src_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'src_offset', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'dst_frame', packedOffset: 0, packedBitOffset: 0, type: chromeos_camera.mojom.DmaBufVideoFrameSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ResponseParamsSpec, 'chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ResponseParams', [
+      mojo.internal.StructField('bitstream_buffer_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('error', 4, 0, chromeos_camera.mojom.DecodeErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos_camera.mojom.MjpegDecodeAccelerator_Uninitialize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos_camera.mojom.MjpegDecodeAccelerator_Uninitialize_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ParamsSpec, 'chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_Params', [
+      mojo.internal.StructField('task_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('src_dmabuf_fd', 12, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('src_size', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('src_offset', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('dst_frame', 0, 0, chromeos_camera.mojom.DmaBufVideoFrameSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ResponseParamsSpec, 'chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ResponseParams', [
+      mojo.internal.StructField('error', 0, 0, chromeos_camera.mojom.DecodeErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chromeos_camera.mojom.MjpegDecodeAccelerator_Uninitialize_ParamsSpec, 'chromeos_camera.mojom.MjpegDecodeAccelerator_Uninitialize_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 chromeos_camera.mojom.MjpegDecodeAcceleratorPendingReceiver = class {
   constructor(handle) {
@@ -183,108 +176,6 @@ chromeos_camera.mojom.MjpegDecodeAccelerator.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Initialize
-chromeos_camera.mojom.MjpegDecodeAccelerator_Initialize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos_camera.mojom.MjpegDecodeAccelerator.Initialize_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chromeos_camera.mojom.MjpegDecodeAccelerator_Initialize_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos_camera.mojom.MjpegDecodeAccelerator.Initialize_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Decode
-chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos_camera.mojom.MjpegDecodeAccelerator.Decode_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'input_buffer', packedOffset: 0, packedBitOffset: 0, type: chromeos_camera.mojom.BitstreamBufferSpec, nullable: false, minVersion: 0 },
-        { name: 'coded_size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'output_handle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'output_buffer_size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos_camera.mojom.MjpegDecodeAccelerator.Decode_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'bitstream_buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'error', packedOffset: 4, packedBitOffset: 0, type: chromeos_camera.mojom.DecodeErrorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DecodeWithDmaBuf
-chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos_camera.mojom.MjpegDecodeAccelerator.DecodeWithDmaBuf_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'task_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'src_dmabuf_fd', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-        { name: 'src_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'src_offset', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'dst_frame', packedOffset: 0, packedBitOffset: 0, type: chromeos_camera.mojom.DmaBufVideoFrameSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos_camera.mojom.MjpegDecodeAccelerator.DecodeWithDmaBuf_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: chromeos_camera.mojom.DecodeErrorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Uninitialize
-chromeos_camera.mojom.MjpegDecodeAccelerator_Uninitialize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos_camera.mojom.MjpegDecodeAccelerator.Uninitialize_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromeos_camera.mojom.MjpegDecodeAcceleratorPtr = chromeos_camera.mojom.MjpegDecodeAcceleratorRemote;
 chromeos_camera.mojom.MjpegDecodeAcceleratorRequest = chromeos_camera.mojom.MjpegDecodeAcceleratorPendingReceiver;
 

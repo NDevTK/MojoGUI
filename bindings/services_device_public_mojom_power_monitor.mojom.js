@@ -8,22 +8,21 @@
 var device = device || {};
 device.mojom = device.mojom || {};
 
+device.mojom.PowerMonitor = {};
+device.mojom.PowerMonitor.$interfaceName = 'device.mojom.PowerMonitor';
+device.mojom.PowerMonitor_AddClient_ParamsSpec = { $: {} };
+device.mojom.PowerMonitorClient = {};
+device.mojom.PowerMonitorClient.$interfaceName = 'device.mojom.PowerMonitorClient';
+device.mojom.PowerMonitorClient_PowerStateChange_ParamsSpec = { $: {} };
+device.mojom.PowerMonitorClient_Suspend_ParamsSpec = { $: {} };
+device.mojom.PowerMonitorClient_Resume_ParamsSpec = { $: {} };
 
 // Interface: PowerMonitor
-device.mojom.PowerMonitor = {};
-
-device.mojom.PowerMonitor_AddClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.PowerMonitor_AddClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.PowerMonitorClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.PowerMonitor_AddClient_ParamsSpec, 'device.mojom.PowerMonitor_AddClient_Params', [
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(device.mojom.PowerMonitorClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 device.mojom.PowerMonitorPendingReceiver = class {
   constructor(handle) {
@@ -78,64 +77,26 @@ device.mojom.PowerMonitor.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddClient
-device.mojom.PowerMonitor_AddClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.PowerMonitor.AddClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.PowerMonitorClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 device.mojom.PowerMonitorPtr = device.mojom.PowerMonitorRemote;
 device.mojom.PowerMonitorRequest = device.mojom.PowerMonitorPendingReceiver;
 
 
 // Interface: PowerMonitorClient
-device.mojom.PowerMonitorClient = {};
+mojo.internal.Struct(
+    device.mojom.PowerMonitorClient_PowerStateChange_ParamsSpec, 'device.mojom.PowerMonitorClient_PowerStateChange_Params', [
+      mojo.internal.StructField('battery_power_status', 0, 0, mojo_base.mojom.BatteryPowerStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.PowerMonitorClient_PowerStateChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.PowerMonitorClient_PowerStateChange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'battery_power_status', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BatteryPowerStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.PowerMonitorClient_Suspend_ParamsSpec, 'device.mojom.PowerMonitorClient_Suspend_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-device.mojom.PowerMonitorClient_Suspend_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.PowerMonitorClient_Suspend_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-device.mojom.PowerMonitorClient_Resume_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.PowerMonitorClient_Resume_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.PowerMonitorClient_Resume_ParamsSpec, 'device.mojom.PowerMonitorClient_Resume_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 device.mojom.PowerMonitorClientPendingReceiver = class {
   constructor(handle) {
@@ -208,47 +169,6 @@ device.mojom.PowerMonitorClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for PowerStateChange
-device.mojom.PowerMonitorClient_PowerStateChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.PowerMonitorClient.PowerStateChange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'battery_power_status', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BatteryPowerStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Suspend
-device.mojom.PowerMonitorClient_Suspend_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.PowerMonitorClient.Suspend_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for Resume
-device.mojom.PowerMonitorClient_Resume_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.PowerMonitorClient.Resume_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 device.mojom.PowerMonitorClientPtr = device.mojom.PowerMonitorClientRemote;
 device.mojom.PowerMonitorClientRequest = device.mojom.PowerMonitorClientPendingReceiver;
 

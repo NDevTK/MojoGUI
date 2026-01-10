@@ -8,104 +8,113 @@
 var chromeos = chromeos || {};
 chromeos.cdm = chromeos.cdm || {};
 chromeos.cdm.mojom = chromeos.cdm.mojom || {};
+var chromeos = chromeos || {};
+var components = components || {};
+var chromeos = chromeos || {};
+var components = components || {};
+var chromeos = chromeos || {};
+var components = components || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+chromeos.cdm.mojom.BrowserCdmFactory = {};
+chromeos.cdm.mojom.BrowserCdmFactory.$interfaceName = 'chromeos.cdm.mojom.BrowserCdmFactory';
+chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_ParamsSpec = { $: {} };
+chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_ResponseParamsSpec = { $: {} };
+chromeos.cdm.mojom.BrowserCdmFactory_GetOutputProtection_ParamsSpec = { $: {} };
+chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ParamsSpec = { $: {} };
+chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ResponseParamsSpec = { $: {} };
+chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ParamsSpec = { $: {} };
+chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ResponseParamsSpec = { $: {} };
+chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ParamsSpec = { $: {} };
+chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ResponseParamsSpec = { $: {} };
+chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_ParamsSpec = { $: {} };
+chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_ResponseParamsSpec = { $: {} };
+chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_ParamsSpec = { $: {} };
+chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_ResponseParamsSpec = { $: {} };
 
 // Interface: BrowserCdmFactory
-chromeos.cdm.mojom.BrowserCdmFactory = {};
+mojo.internal.Struct(
+    chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_ParamsSpec, 'chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_Params', [
+      mojo.internal.StructField('key_system', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'key_system', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_ResponseParamsSpec, 'chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_ResponseParams', [
+      mojo.internal.StructField('factory', 0, 0, mojo.internal.InterfaceProxy(chromeos.cdm.mojom.CdmFactoryRemote), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.cdm.mojom.BrowserCdmFactory_GetOutputProtection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.BrowserCdmFactory_GetOutputProtection_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'output_protection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.cdm.mojom.OutputProtectionRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cdm.mojom.BrowserCdmFactory_GetOutputProtection_ParamsSpec, 'chromeos.cdm.mojom.BrowserCdmFactory_GetOutputProtection_Params', [
+      mojo.internal.StructField('output_protection', 0, 0, mojo.internal.InterfaceRequest(chromeos.cdm.mojom.OutputProtectionRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ParamsSpec, 'chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ResponseParamsSpec, 'chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ResponseParams', [
+      mojo.internal.StructField('success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('config_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'key_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'hw_identifier', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ParamsSpec, 'chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ResponseParamsSpec, 'chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ResponseParams', [
+      mojo.internal.StructField('resolutions', 0, 0, mojo.internal.Array(gfx.mojom.SizeSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'secure_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'offset', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'stream_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ParamsSpec, 'chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_Params', [
+      mojo.internal.StructField('key_id', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('hw_identifier', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ResponseParamsSpec, 'chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ResponseParams', [
+      mojo.internal.StructField('status', 8, 0, chromeos.cdm.mojom.DecryptStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('key_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_ParamsSpec, 'chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_Params', [
+      mojo.internal.StructField('size', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_ResponseParamsSpec, 'chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_ResponseParams', [
+      mojo.internal.StructField('fd', 0, 0, mojo.internal.Pointer, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_ParamsSpec, 'chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_Params', [
+      mojo.internal.StructField('secure_handle', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('offset', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('stream_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_ResponseParamsSpec, 'chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_ResponseParams', [
+      mojo.internal.StructField('success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('slice_header', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 chromeos.cdm.mojom.BrowserCdmFactoryPendingReceiver = class {
   constructor(handle) {
@@ -214,187 +223,6 @@ chromeos.cdm.mojom.BrowserCdmFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateFactory
-chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.BrowserCdmFactory.CreateFactory_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'key_system', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.BrowserCdmFactory.CreateFactory_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.cdm.mojom.CdmFactoryRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetOutputProtection
-chromeos.cdm.mojom.BrowserCdmFactory_GetOutputProtection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.BrowserCdmFactory.GetOutputProtection_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'output_protection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.cdm.mojom.OutputProtectionRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetHwConfigData
-chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.BrowserCdmFactory.GetHwConfigData_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.BrowserCdmFactory.GetHwConfigData_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'config_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for GetScreenResolutions
-chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.BrowserCdmFactory.GetScreenResolutions_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.BrowserCdmFactory.GetScreenResolutions_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'resolutions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.SizeSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetAndroidHwKeyData
-chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.BrowserCdmFactory.GetAndroidHwKeyData_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'key_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'hw_identifier', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.BrowserCdmFactory.GetAndroidHwKeyData_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: chromeos.cdm.mojom.DecryptStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'key_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for AllocateSecureBuffer
-chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.BrowserCdmFactory.AllocateSecureBuffer_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.BrowserCdmFactory.AllocateSecureBuffer_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'fd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ParseEncryptedSliceHeader
-chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.BrowserCdmFactory.ParseEncryptedSliceHeader_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'secure_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'offset', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'stream_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.BrowserCdmFactory.ParseEncryptedSliceHeader_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'slice_header', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromeos.cdm.mojom.BrowserCdmFactoryPtr = chromeos.cdm.mojom.BrowserCdmFactoryRemote;
 chromeos.cdm.mojom.BrowserCdmFactoryRequest = chromeos.cdm.mojom.BrowserCdmFactoryPendingReceiver;
 

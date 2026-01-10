@@ -8,56 +8,44 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+network.mojom.LoadTimingInfoConnectTimingSpec = { $: {} };
+network.mojom.LoadTimingInfoSpec = { $: {} };
 
 // Struct: LoadTimingInfoConnectTiming
-network.mojom.LoadTimingInfoConnectTimingSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.LoadTimingInfoConnectTiming',
-      packedSize: 56,
-      fields: [
-        { name: 'domain_lookup_start', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'domain_lookup_end', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'connect_start', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'connect_end', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'ssl_start', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'ssl_end', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.LoadTimingInfoConnectTimingSpec, 'network.mojom.LoadTimingInfoConnectTiming', [
+      mojo.internal.StructField('domain_lookup_start', 0, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('domain_lookup_end', 8, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('connect_start', 16, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('connect_end', 24, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('ssl_start', 32, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('ssl_end', 40, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Struct: LoadTimingInfo
-network.mojom.LoadTimingInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.LoadTimingInfo',
-      packedSize: 168,
-      fields: [
-        { name: 'socket_reused', packedOffset: 156, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'socket_log_id', packedOffset: 152, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'request_start_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'request_start', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'proxy_resolve_start', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'proxy_resolve_end', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'connect_timing', packedOffset: 32, packedBitOffset: 0, type: network.mojom.LoadTimingInfoConnectTimingSpec, nullable: false, minVersion: 0 },
-        { name: 'send_start', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'send_end', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'receive_headers_start', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'receive_headers_end', packedOffset: 64, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'receive_non_informational_headers_start', packedOffset: 72, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'first_early_hints_time', packedOffset: 80, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'push_start', packedOffset: 88, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'push_end', packedOffset: 96, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'service_worker_start_time', packedOffset: 104, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'service_worker_ready_time', packedOffset: 112, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'service_worker_fetch_start', packedOffset: 120, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'service_worker_respond_with_settled', packedOffset: 128, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'service_worker_router_evaluation_start', packedOffset: 136, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'service_worker_cache_lookup_start', packedOffset: 144, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 168}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.LoadTimingInfoSpec, 'network.mojom.LoadTimingInfo', [
+      mojo.internal.StructField('socket_reused', 156, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('socket_log_id', 152, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('request_start_time', 0, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request_start', 8, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('proxy_resolve_start', 16, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('proxy_resolve_end', 24, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('connect_timing', 32, 0, network.mojom.LoadTimingInfoConnectTimingSpec, null, false, 0, undefined),
+      mojo.internal.StructField('send_start', 40, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('send_end', 48, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('receive_headers_start', 56, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('receive_headers_end', 64, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('receive_non_informational_headers_start', 72, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('first_early_hints_time', 80, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('push_start', 88, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('push_end', 96, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('service_worker_start_time', 104, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('service_worker_ready_time', 112, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('service_worker_fetch_start', 120, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('service_worker_respond_with_settled', 128, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('service_worker_router_evaluation_start', 136, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('service_worker_cache_lookup_start', 144, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+    ],
+    [[0, 168]]);

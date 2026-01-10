@@ -7,35 +7,31 @@
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
+var services = services || {};
 
+device.mojom.Geolocation = {};
+device.mojom.Geolocation.$interfaceName = 'device.mojom.Geolocation';
+device.mojom.Geolocation_SetHighAccuracyHint_ParamsSpec = { $: {} };
+device.mojom.Geolocation_QueryNextPosition_ParamsSpec = { $: {} };
+device.mojom.Geolocation_QueryNextPosition_ResponseParamsSpec = { $: {} };
 
 // Interface: Geolocation
-device.mojom.Geolocation = {};
+mojo.internal.Struct(
+    device.mojom.Geolocation_SetHighAccuracyHint_ParamsSpec, 'device.mojom.Geolocation_SetHighAccuracyHint_Params', [
+      mojo.internal.StructField('high_accuracy', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.Geolocation_SetHighAccuracyHint_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.Geolocation_SetHighAccuracyHint_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'high_accuracy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.Geolocation_QueryNextPosition_ParamsSpec, 'device.mojom.Geolocation_QueryNextPosition_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-device.mojom.Geolocation_QueryNextPosition_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.Geolocation_QueryNextPosition_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.Geolocation_QueryNextPosition_ResponseParamsSpec, 'device.mojom.Geolocation_QueryNextPosition_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, device.mojom.GeopositionResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 device.mojom.GeolocationPendingReceiver = class {
   constructor(handle) {
@@ -99,47 +95,6 @@ device.mojom.Geolocation.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetHighAccuracyHint
-device.mojom.Geolocation_SetHighAccuracyHint_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.Geolocation.SetHighAccuracyHint_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'high_accuracy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for QueryNextPosition
-device.mojom.Geolocation_QueryNextPosition_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.Geolocation.QueryNextPosition_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-device.mojom.Geolocation_QueryNextPosition_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.Geolocation.QueryNextPosition_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.GeopositionResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 device.mojom.GeolocationPtr = device.mojom.GeolocationRemote;
 device.mojom.GeolocationRequest = device.mojom.GeolocationPendingReceiver;
 

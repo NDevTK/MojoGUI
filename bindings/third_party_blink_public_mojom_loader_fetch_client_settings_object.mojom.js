@@ -8,27 +8,22 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 var url = url || {};
+var services = services || {};
 
+blink.mojom.InsecureRequestsPolicySpec = { $: mojo.internal.Enum() };
+blink.mojom.FetchClientSettingsObjectSpec = { $: {} };
 
 // Enum: InsecureRequestsPolicy
 blink.mojom.InsecureRequestsPolicy = {
   kDoNotUpgrade: 0,
   kUpgrade: 1,
 };
-blink.mojom.InsecureRequestsPolicySpec = { $: mojo.internal.Enum() };
 
 // Struct: FetchClientSettingsObject
-blink.mojom.FetchClientSettingsObjectSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FetchClientSettingsObject',
-      packedSize: 24,
-      fields: [
-        { name: 'referrer_policy', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ReferrerPolicySpec, nullable: false, minVersion: 0 },
-        { name: 'outgoing_referrer', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'insecure_requests_policy', packedOffset: 12, packedBitOffset: 0, type: blink.mojom.InsecureRequestsPolicySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FetchClientSettingsObjectSpec, 'blink.mojom.FetchClientSettingsObject', [
+      mojo.internal.StructField('referrer_policy', 8, 0, network.mojom.ReferrerPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('outgoing_referrer', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('insecure_requests_policy', 12, 0, blink.mojom.InsecureRequestsPolicySpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);

@@ -10,6 +10,27 @@ ash.settings = ash.settings || {};
 ash.settings.app_parental_controls = ash.settings.app_parental_controls || {};
 ash.settings.app_parental_controls.mojom = ash.settings.app_parental_controls.mojom || {};
 
+ash.settings.app_parental_controls.mojom.PinValidationResultSpec = { $: mojo.internal.Enum() };
+ash.settings.app_parental_controls.mojom.AppSpec = { $: {} };
+ash.settings.app_parental_controls.mojom.AppParentalControlsHandler = {};
+ash.settings.app_parental_controls.mojom.AppParentalControlsHandler.$interfaceName = 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler';
+ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ParamsSpec = { $: {} };
+ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ResponseParamsSpec = { $: {} };
+ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_UpdateApp_ParamsSpec = { $: {} };
+ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_AddObserver_ParamsSpec = { $: {} };
+ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_OnControlsDisabled_ParamsSpec = { $: {} };
+ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ParamsSpec = { $: {} };
+ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ResponseParamsSpec = { $: {} };
+ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_ParamsSpec = { $: {} };
+ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_ResponseParamsSpec = { $: {} };
+ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_ParamsSpec = { $: {} };
+ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_ResponseParamsSpec = { $: {} };
+ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ParamsSpec = { $: {} };
+ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ResponseParamsSpec = { $: {} };
+ash.settings.app_parental_controls.mojom.AppParentalControlsObserver = {};
+ash.settings.app_parental_controls.mojom.AppParentalControlsObserver.$interfaceName = 'ash.settings.app_parental_controls.mojom.AppParentalControlsObserver';
+ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppInstalledOrUpdated_ParamsSpec = { $: {} };
+ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppUninstalled_ParamsSpec = { $: {} };
 
 // Enum: PinValidationResult
 ash.settings.app_parental_controls.mojom.PinValidationResult = {
@@ -17,128 +38,92 @@ ash.settings.app_parental_controls.mojom.PinValidationResult = {
   kPinLengthError: 1,
   kPinNumericError: 2,
 };
-ash.settings.app_parental_controls.mojom.PinValidationResultSpec = { $: mojo.internal.Enum() };
 
 // Struct: App
-ash.settings.app_parental_controls.mojom.AppSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_parental_controls.mojom.App',
-      packedSize: 32,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'is_blocked', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.app_parental_controls.mojom.AppSpec, 'ash.settings.app_parental_controls.mojom.App', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('is_blocked', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: AppParentalControlsHandler
-ash.settings.app_parental_controls.mojom.AppParentalControlsHandler = {};
+mojo.internal.Struct(
+    ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ParamsSpec, 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ResponseParamsSpec, 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ResponseParams', [
+      mojo.internal.StructField('apps', 0, 0, mojo.internal.Array(ash.settings.app_parental_controls.mojom.AppSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_UpdateApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_UpdateApp_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_blocked', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_UpdateApp_ParamsSpec, 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_UpdateApp_Params', [
+      mojo.internal.StructField('app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('is_blocked', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_AddObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_AddObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.app_parental_controls.mojom.AppParentalControlsObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_AddObserver_ParamsSpec, 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_AddObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.settings.app_parental_controls.mojom.AppParentalControlsObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_OnControlsDisabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_OnControlsDisabled_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_OnControlsDisabled_ParamsSpec, 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_OnControlsDisabled_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ParamsSpec, 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_Params', [
+      mojo.internal.StructField('pin', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ResponseParamsSpec, 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, ash.settings.app_parental_controls.mojom.PinValidationResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_ParamsSpec, 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_Params', [
+      mojo.internal.StructField('pin', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_ResponseParamsSpec, 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_ResponseParams', [
+      mojo.internal.StructField('is_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_ParamsSpec, 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_Params', [
+      mojo.internal.StructField('pin', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_ResponseParamsSpec, 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_ResponseParams', [
+      mojo.internal.StructField('is_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ParamsSpec, 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ResponseParamsSpec, 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ResponseParams', [
+      mojo.internal.StructField('is_completed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerPendingReceiver = class {
   constructor(handle) {
@@ -256,214 +241,22 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandler.getRemote = 
   return remote.$;
 };
 
-// ParamsSpec for GetApps
-ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler.GetApps_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler.GetApps_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.settings.app_parental_controls.mojom.AppSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateApp
-ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_UpdateApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler.UpdateApp_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_blocked', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for AddObserver
-ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_AddObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler.AddObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.app_parental_controls.mojom.AppParentalControlsObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnControlsDisabled
-ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_OnControlsDisabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler.OnControlsDisabled_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for ValidatePin
-ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler.ValidatePin_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler.ValidatePin_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.settings.app_parental_controls.mojom.PinValidationResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetUpPin
-ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler.SetUpPin_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler.SetUpPin_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'is_success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for VerifyPin
-ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler.VerifyPin_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler.VerifyPin_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'is_success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for IsSetupCompleted
-ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler.IsSetupCompleted_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler.IsSetupCompleted_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'is_completed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerPtr = ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerRemote;
 ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerRequest = ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerPendingReceiver;
 
 
 // Interface: AppParentalControlsObserver
-ash.settings.app_parental_controls.mojom.AppParentalControlsObserver = {};
+mojo.internal.Struct(
+    ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppInstalledOrUpdated_ParamsSpec, 'ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppInstalledOrUpdated_Params', [
+      mojo.internal.StructField('app', 0, 0, ash.settings.app_parental_controls.mojom.AppSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppInstalledOrUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppInstalledOrUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'app', packedOffset: 0, packedBitOffset: 0, type: ash.settings.app_parental_controls.mojom.AppSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppUninstalled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppUninstalled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'app', packedOffset: 0, packedBitOffset: 0, type: ash.settings.app_parental_controls.mojom.AppSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppUninstalled_ParamsSpec, 'ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppUninstalled_Params', [
+      mojo.internal.StructField('app', 0, 0, ash.settings.app_parental_controls.mojom.AppSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.settings.app_parental_controls.mojom.AppParentalControlsObserverPendingReceiver = class {
   constructor(handle) {
@@ -527,35 +320,6 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsObserver.getRemote =
   return remote.$;
 };
 
-// ParamsSpec for OnAppInstalledOrUpdated
-ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppInstalledOrUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_parental_controls.mojom.AppParentalControlsObserver.OnAppInstalledOrUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'app', packedOffset: 0, packedBitOffset: 0, type: ash.settings.app_parental_controls.mojom.AppSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnAppUninstalled
-ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppUninstalled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.app_parental_controls.mojom.AppParentalControlsObserver.OnAppUninstalled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'app', packedOffset: 0, packedBitOffset: 0, type: ash.settings.app_parental_controls.mojom.AppSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.settings.app_parental_controls.mojom.AppParentalControlsObserverPtr = ash.settings.app_parental_controls.mojom.AppParentalControlsObserverRemote;
 ash.settings.app_parental_controls.mojom.AppParentalControlsObserverRequest = ash.settings.app_parental_controls.mojom.AppParentalControlsObserverPendingReceiver;
 

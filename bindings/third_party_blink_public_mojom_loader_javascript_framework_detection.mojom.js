@@ -8,6 +8,8 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.JavaScriptFrameworkSpec = { $: mojo.internal.Enum() };
+blink.mojom.JavaScriptFrameworkDetectionResultSpec = { $: {} };
 
 // Enum: JavaScriptFramework
 blink.mojom.JavaScriptFramework = {
@@ -28,18 +30,10 @@ blink.mojom.JavaScriptFramework = {
   kWix: 14,
   kWordPress: 15,
 };
-blink.mojom.JavaScriptFrameworkSpec = { $: mojo.internal.Enum() };
 
 // Struct: JavaScriptFrameworkDetectionResult
-blink.mojom.JavaScriptFrameworkDetectionResultSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.JavaScriptFrameworkDetectionResult',
-      packedSize: 16,
-      fields: [
-        { name: 'detected_versions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(blink.mojom.JavaScriptFrameworkSpec, mojo.internal.Int16, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.JavaScriptFrameworkDetectionResultSpec, 'blink.mojom.JavaScriptFrameworkDetectionResult', [
+      mojo.internal.StructField('detected_versions', 0, 0, mojo.internal.Map(blink.mojom.JavaScriptFrameworkSpec, mojo.internal.Int16, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);

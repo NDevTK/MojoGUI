@@ -9,61 +9,37 @@ var visitedlink = visitedlink || {};
 visitedlink.mojom = visitedlink.mojom || {};
 var url = url || {};
 
+visitedlink.mojom.VisitedLinkNotificationSink = {};
+visitedlink.mojom.VisitedLinkNotificationSink.$interfaceName = 'visitedlink.mojom.VisitedLinkNotificationSink';
+visitedlink.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_ParamsSpec = { $: {} };
+visitedlink.mojom.VisitedLinkNotificationSink_AddVisitedLinks_ParamsSpec = { $: {} };
+visitedlink.mojom.VisitedLinkNotificationSink_ResetVisitedLinks_ParamsSpec = { $: {} };
+visitedlink.mojom.VisitedLinkNotificationSink_UpdateOriginSalts_ParamsSpec = { $: {} };
 
 // Interface: VisitedLinkNotificationSink
-visitedlink.mojom.VisitedLinkNotificationSink = {};
+mojo.internal.Struct(
+    visitedlink.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_ParamsSpec, 'visitedlink.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_Params', [
+      mojo.internal.StructField('table_region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-visitedlink.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'visitedlink.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'table_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    visitedlink.mojom.VisitedLinkNotificationSink_AddVisitedLinks_ParamsSpec, 'visitedlink.mojom.VisitedLinkNotificationSink_AddVisitedLinks_Params', [
+      mojo.internal.StructField('link_hashes', 0, 0, mojo.internal.Array(mojo.internal.Uint64, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-visitedlink.mojom.VisitedLinkNotificationSink_AddVisitedLinks_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'visitedlink.mojom.VisitedLinkNotificationSink_AddVisitedLinks_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'link_hashes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint64, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    visitedlink.mojom.VisitedLinkNotificationSink_ResetVisitedLinks_ParamsSpec, 'visitedlink.mojom.VisitedLinkNotificationSink_ResetVisitedLinks_Params', [
+      mojo.internal.StructField('invalidate_cached_hashes', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-visitedlink.mojom.VisitedLinkNotificationSink_ResetVisitedLinks_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'visitedlink.mojom.VisitedLinkNotificationSink_ResetVisitedLinks_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'invalidate_cached_hashes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-visitedlink.mojom.VisitedLinkNotificationSink_UpdateOriginSalts_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'visitedlink.mojom.VisitedLinkNotificationSink_UpdateOriginSalts_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'origin_salts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(url.mojom.OriginSpec, mojo.internal.Uint64, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    visitedlink.mojom.VisitedLinkNotificationSink_UpdateOriginSalts_ParamsSpec, 'visitedlink.mojom.VisitedLinkNotificationSink_UpdateOriginSalts_Params', [
+      mojo.internal.StructField('origin_salts', 0, 0, mojo.internal.Map(url.mojom.OriginSpec, mojo.internal.Uint64, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 visitedlink.mojom.VisitedLinkNotificationSinkPendingReceiver = class {
   constructor(handle) {
@@ -145,63 +121,6 @@ visitedlink.mojom.VisitedLinkNotificationSink.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for UpdateVisitedLinks
-visitedlink.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'visitedlink.mojom.VisitedLinkNotificationSink.UpdateVisitedLinks_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'table_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AddVisitedLinks
-visitedlink.mojom.VisitedLinkNotificationSink_AddVisitedLinks_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'visitedlink.mojom.VisitedLinkNotificationSink.AddVisitedLinks_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'link_hashes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint64, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ResetVisitedLinks
-visitedlink.mojom.VisitedLinkNotificationSink_ResetVisitedLinks_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'visitedlink.mojom.VisitedLinkNotificationSink.ResetVisitedLinks_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'invalidate_cached_hashes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateOriginSalts
-visitedlink.mojom.VisitedLinkNotificationSink_UpdateOriginSalts_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'visitedlink.mojom.VisitedLinkNotificationSink.UpdateOriginSalts_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'origin_salts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(url.mojom.OriginSpec, mojo.internal.Uint64, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 visitedlink.mojom.VisitedLinkNotificationSinkPtr = visitedlink.mojom.VisitedLinkNotificationSinkRemote;
 visitedlink.mojom.VisitedLinkNotificationSinkRequest = visitedlink.mojom.VisitedLinkNotificationSinkPendingReceiver;
 

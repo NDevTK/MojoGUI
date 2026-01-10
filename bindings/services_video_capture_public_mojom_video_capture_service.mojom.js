@@ -7,27 +7,34 @@
 // Module namespace
 var video_capture = video_capture || {};
 video_capture.mojom = video_capture.mojom || {};
+var services = services || {};
+var services = services || {};
+var components = components || {};
+var chromeos = chromeos || {};
+var chromeos = chromeos || {};
 
+video_capture.mojom.AcceleratorFactory = {};
+video_capture.mojom.AcceleratorFactory.$interfaceName = 'video_capture.mojom.AcceleratorFactory';
+video_capture.mojom.AcceleratorFactory_CreateJpegDecodeAccelerator_ParamsSpec = { $: {} };
+video_capture.mojom.VideoCaptureService = {};
+video_capture.mojom.VideoCaptureService.$interfaceName = 'video_capture.mojom.VideoCaptureService';
+video_capture.mojom.VideoCaptureService_InjectGpuDependencies_ParamsSpec = { $: {} };
+video_capture.mojom.VideoCaptureService_ConnectToCameraAppDeviceBridge_ParamsSpec = { $: {} };
+video_capture.mojom.VideoCaptureService_BindVideoCaptureDeviceFactory_ParamsSpec = { $: {} };
+video_capture.mojom.VideoCaptureService_ConnectToVideoSourceProvider_ParamsSpec = { $: {} };
+video_capture.mojom.VideoCaptureService_BindControlsForTesting_ParamsSpec = { $: {} };
+video_capture.mojom.VideoCaptureService_OnGpuInfoUpdate_ParamsSpec = { $: {} };
 
 video_capture.mojom.kVideoCaptureSandbox = sandbox.mojom.Sandbox.kVideoCapture;
 
 video_capture.mojom.kVideoCaptureSandbox = sandbox.mojom.Sandbox.kNoSandbox;
 
 // Interface: AcceleratorFactory
-video_capture.mojom.AcceleratorFactory = {};
-
-video_capture.mojom.AcceleratorFactory_CreateJpegDecodeAccelerator_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.AcceleratorFactory_CreateJpegDecodeAccelerator_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'jda', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos_camera.mojom.MjpegDecodeAcceleratorRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    video_capture.mojom.AcceleratorFactory_CreateJpegDecodeAccelerator_ParamsSpec, 'video_capture.mojom.AcceleratorFactory_CreateJpegDecodeAccelerator_Params', [
+      mojo.internal.StructField('jda', 0, 0, mojo.internal.InterfaceRequest(chromeos_camera.mojom.MjpegDecodeAcceleratorRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 video_capture.mojom.AcceleratorFactoryPendingReceiver = class {
   constructor(handle) {
@@ -82,105 +89,46 @@ video_capture.mojom.AcceleratorFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateJpegDecodeAccelerator
-video_capture.mojom.AcceleratorFactory_CreateJpegDecodeAccelerator_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.AcceleratorFactory.CreateJpegDecodeAccelerator_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'jda', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos_camera.mojom.MjpegDecodeAcceleratorRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 video_capture.mojom.AcceleratorFactoryPtr = video_capture.mojom.AcceleratorFactoryRemote;
 video_capture.mojom.AcceleratorFactoryRequest = video_capture.mojom.AcceleratorFactoryPendingReceiver;
 
 
 // Interface: VideoCaptureService
-video_capture.mojom.VideoCaptureService = {};
+mojo.internal.Struct(
+    video_capture.mojom.VideoCaptureService_InjectGpuDependencies_ParamsSpec, 'video_capture.mojom.VideoCaptureService_InjectGpuDependencies_Params', [
+      mojo.internal.StructField('accelerator_factory', 0, 0, mojo.internal.InterfaceProxy(video_capture.mojom.AcceleratorFactoryRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-video_capture.mojom.VideoCaptureService_InjectGpuDependencies_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.VideoCaptureService_InjectGpuDependencies_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'accelerator_factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(video_capture.mojom.AcceleratorFactoryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    video_capture.mojom.VideoCaptureService_ConnectToCameraAppDeviceBridge_ParamsSpec, 'video_capture.mojom.VideoCaptureService_ConnectToCameraAppDeviceBridge_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(cros.mojom.CameraAppDeviceBridgeRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-video_capture.mojom.VideoCaptureService_ConnectToCameraAppDeviceBridge_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.VideoCaptureService_ConnectToCameraAppDeviceBridge_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(cros.mojom.CameraAppDeviceBridgeRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    video_capture.mojom.VideoCaptureService_BindVideoCaptureDeviceFactory_ParamsSpec, 'video_capture.mojom.VideoCaptureService_BindVideoCaptureDeviceFactory_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(crosapi.mojom.VideoCaptureDeviceFactoryRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-video_capture.mojom.VideoCaptureService_BindVideoCaptureDeviceFactory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.VideoCaptureService_BindVideoCaptureDeviceFactory_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.VideoCaptureDeviceFactoryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    video_capture.mojom.VideoCaptureService_ConnectToVideoSourceProvider_ParamsSpec, 'video_capture.mojom.VideoCaptureService_ConnectToVideoSourceProvider_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(video_capture.mojom.VideoSourceProviderRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-video_capture.mojom.VideoCaptureService_ConnectToVideoSourceProvider_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.VideoCaptureService_ConnectToVideoSourceProvider_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(video_capture.mojom.VideoSourceProviderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    video_capture.mojom.VideoCaptureService_BindControlsForTesting_ParamsSpec, 'video_capture.mojom.VideoCaptureService_BindControlsForTesting_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(video_capture.mojom.TestingControlsRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-video_capture.mojom.VideoCaptureService_BindControlsForTesting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.VideoCaptureService_BindControlsForTesting_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(video_capture.mojom.TestingControlsRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-video_capture.mojom.VideoCaptureService_OnGpuInfoUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.VideoCaptureService_OnGpuInfoUpdate_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'luid', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.LuidSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    video_capture.mojom.VideoCaptureService_OnGpuInfoUpdate_ParamsSpec, 'video_capture.mojom.VideoCaptureService_OnGpuInfoUpdate_Params', [
+      mojo.internal.StructField('luid', 0, 0, gpu.mojom.LuidSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 video_capture.mojom.VideoCaptureServicePendingReceiver = class {
   constructor(handle) {
@@ -280,91 +228,6 @@ video_capture.mojom.VideoCaptureService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for InjectGpuDependencies
-video_capture.mojom.VideoCaptureService_InjectGpuDependencies_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.VideoCaptureService.InjectGpuDependencies_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'accelerator_factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(video_capture.mojom.AcceleratorFactoryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ConnectToCameraAppDeviceBridge
-video_capture.mojom.VideoCaptureService_ConnectToCameraAppDeviceBridge_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.VideoCaptureService.ConnectToCameraAppDeviceBridge_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(cros.mojom.CameraAppDeviceBridgeRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindVideoCaptureDeviceFactory
-video_capture.mojom.VideoCaptureService_BindVideoCaptureDeviceFactory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.VideoCaptureService.BindVideoCaptureDeviceFactory_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.VideoCaptureDeviceFactoryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ConnectToVideoSourceProvider
-video_capture.mojom.VideoCaptureService_ConnectToVideoSourceProvider_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.VideoCaptureService.ConnectToVideoSourceProvider_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(video_capture.mojom.VideoSourceProviderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindControlsForTesting
-video_capture.mojom.VideoCaptureService_BindControlsForTesting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.VideoCaptureService.BindControlsForTesting_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(video_capture.mojom.TestingControlsRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnGpuInfoUpdate
-video_capture.mojom.VideoCaptureService_OnGpuInfoUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.VideoCaptureService.OnGpuInfoUpdate_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'luid', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.LuidSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 video_capture.mojom.VideoCaptureServicePtr = video_capture.mojom.VideoCaptureServiceRemote;
 video_capture.mojom.VideoCaptureServiceRequest = video_capture.mojom.VideoCaptureServicePendingReceiver;
 

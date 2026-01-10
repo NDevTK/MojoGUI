@@ -8,17 +8,11 @@
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
 
+viz.mojom.PaintFilterSpec = { $: {} };
 
 // Struct: PaintFilter
-viz.mojom.PaintFilterSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.PaintFilter',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.PaintFilterSpec, 'viz.mojom.PaintFilter', [
+      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);

@@ -7,55 +7,52 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
 
+arc.mojom.VideoFrameSpec = { $: {} };
+arc.mojom.VideoFramePool = {};
+arc.mojom.VideoFramePool.$interfaceName = 'arc.mojom.VideoFramePool';
+arc.mojom.VideoFramePool_Initialize_ParamsSpec = { $: {} };
+arc.mojom.VideoFramePool_AddVideoFrame_ParamsSpec = { $: {} };
+arc.mojom.VideoFramePool_AddVideoFrame_ResponseParamsSpec = { $: {} };
+arc.mojom.VideoFramePoolClient = {};
+arc.mojom.VideoFramePoolClient.$interfaceName = 'arc.mojom.VideoFramePoolClient';
+arc.mojom.VideoFramePoolClient_RequestVideoFrames_ParamsSpec = { $: {} };
+arc.mojom.VideoFramePoolClient_RequestVideoFrames_ResponseParamsSpec = { $: {} };
 
 // Struct: VideoFrame
-arc.mojom.VideoFrameSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.VideoFrame',
-      packedSize: 48,
-      fields: [
-        { name: 'id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'handle_fd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'coded_size', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'format', packedOffset: 36, packedBitOffset: 0, type: arc.mojom.HalPixelFormatSpec, nullable: false, minVersion: 0 },
-        { name: 'planes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.VideoFramePlaneSpec, false), nullable: false, minVersion: 0 },
-        { name: 'modifier', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.VideoFrameSpec, 'arc.mojom.VideoFrame', [
+      mojo.internal.StructField('id', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('handle_fd', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('coded_size', 8, 0, arc.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('format', 36, 0, arc.mojom.HalPixelFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('planes', 16, 0, mojo.internal.Array(arc.mojom.VideoFramePlaneSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('modifier', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Interface: VideoFramePool
-arc.mojom.VideoFramePool = {};
+mojo.internal.Struct(
+    arc.mojom.VideoFramePool_Initialize_ParamsSpec, 'arc.mojom.VideoFramePool_Initialize_Params', [
+      mojo.internal.StructField('client', 0, 0, mojo.internal.AssociatedInterfaceProxy(arc.mojom.VideoFramePoolClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.VideoFramePool_Initialize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.VideoFramePool_Initialize_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(arc.mojom.VideoFramePoolClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.VideoFramePool_AddVideoFrame_ParamsSpec, 'arc.mojom.VideoFramePool_AddVideoFrame_Params', [
+      mojo.internal.StructField('video_frame', 0, 0, arc.mojom.VideoFrameSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.VideoFramePool_AddVideoFrame_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.VideoFramePool_AddVideoFrame_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'video_frame', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.VideoFrameSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.VideoFramePool_AddVideoFrame_ResponseParamsSpec, 'arc.mojom.VideoFramePool_AddVideoFrame_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.VideoFramePoolPendingReceiver = class {
   constructor(handle) {
@@ -119,70 +116,24 @@ arc.mojom.VideoFramePool.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Initialize
-arc.mojom.VideoFramePool_Initialize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.VideoFramePool.Initialize_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(arc.mojom.VideoFramePoolClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AddVideoFrame
-arc.mojom.VideoFramePool_AddVideoFrame_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.VideoFramePool.AddVideoFrame_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'video_frame', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.VideoFrameSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.VideoFramePool_AddVideoFrame_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.VideoFramePool.AddVideoFrame_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.VideoFramePoolPtr = arc.mojom.VideoFramePoolRemote;
 arc.mojom.VideoFramePoolRequest = arc.mojom.VideoFramePoolPendingReceiver;
 
 
 // Interface: VideoFramePoolClient
-arc.mojom.VideoFramePoolClient = {};
+mojo.internal.Struct(
+    arc.mojom.VideoFramePoolClient_RequestVideoFrames_ParamsSpec, 'arc.mojom.VideoFramePoolClient_RequestVideoFrames_Params', [
+      mojo.internal.StructField('format', 16, 0, arc.mojom.VideoPixelFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('coded_size', 0, 0, arc.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('visible_rect', 8, 0, arc.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('num_frames', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-arc.mojom.VideoFramePoolClient_RequestVideoFrames_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.VideoFramePoolClient_RequestVideoFrames_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'format', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.VideoPixelFormatSpec, nullable: false, minVersion: 0 },
-        { name: 'coded_size', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'visible_rect', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'num_frames', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.VideoFramePoolClient_RequestVideoFrames_ResponseParamsSpec, 'arc.mojom.VideoFramePoolClient_RequestVideoFrames_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 arc.mojom.VideoFramePoolClientPendingReceiver = class {
   constructor(handle) {
@@ -221,7 +172,7 @@ arc.mojom.VideoFramePoolClientRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       arc.mojom.VideoFramePoolClient_RequestVideoFrames_ParamsSpec,
-      null,
+      arc.mojom.VideoFramePoolClient_RequestVideoFrames_ResponseParamsSpec,
       [format, coded_size, visible_rect, num_frames]);
   }
 
@@ -237,24 +188,6 @@ arc.mojom.VideoFramePoolClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RequestVideoFrames
-arc.mojom.VideoFramePoolClient_RequestVideoFrames_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.VideoFramePoolClient.RequestVideoFrames_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'format', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.VideoPixelFormatSpec, nullable: false, minVersion: 0 },
-        { name: 'coded_size', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'visible_rect', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'num_frames', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.VideoFramePoolClientPtr = arc.mojom.VideoFramePoolClientRemote;
 arc.mojom.VideoFramePoolClientRequest = arc.mojom.VideoFramePoolClientPendingReceiver;
 

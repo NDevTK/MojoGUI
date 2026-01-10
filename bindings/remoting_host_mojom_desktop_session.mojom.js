@@ -10,33 +10,130 @@ remoting.mojom = remoting.mojom || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+remoting.mojom.EncodingSpec = { $: mojo.internal.Enum() };
+remoting.mojom.SamplingRateSpec = { $: mojo.internal.Enum() };
+remoting.mojom.BytesPerSampleSpec = { $: mojo.internal.Enum() };
+remoting.mojom.ChannelsSpec = { $: mojo.internal.Enum() };
+remoting.mojom.MouseButtonSpec = { $: mojo.internal.Enum() };
+remoting.mojom.TouchEventTypeSpec = { $: mojo.internal.Enum() };
+remoting.mojom.UrlForwarderStateSpec = { $: mojo.internal.Enum() };
+remoting.mojom.TypeSpec = { $: mojo.internal.Enum() };
+remoting.mojom.ProtocolErrorCodeSpec = { $: mojo.internal.Enum() };
+remoting.mojom.ReadChunkResultSpec = { $: {} };
+remoting.mojom.FileChooserResultSpec = { $: {} };
+remoting.mojom.BeginFileReadResultSpec = { $: {} };
+remoting.mojom.BeginFileWriteResultSpec = { $: {} };
+remoting.mojom.CaptureResultSpec = { $: {} };
+remoting.mojom.AudioPacketSpec = { $: {} };
+remoting.mojom.ClipboardEventSpec = { $: {} };
+remoting.mojom.KeyEventSpec = { $: {} };
+remoting.mojom.MouseEventSpec = { $: {} };
+remoting.mojom.TextEventSpec = { $: {} };
+remoting.mojom.TouchEventPointSpec = { $: {} };
+remoting.mojom.TouchEventSpec = { $: {} };
+remoting.mojom.FractionalCoordinateSpec = { $: {} };
+remoting.mojom.DesktopEnvironmentOptionsSpec = { $: {} };
+remoting.mojom.ScreenResolutionSpec = { $: {} };
+remoting.mojom.FileTransferErrorSpec = { $: {} };
+remoting.mojom.BeginFileReadSuccessSpec = { $: {} };
+remoting.mojom.BeginFileWriteSuccessSpec = { $: {} };
+remoting.mojom.CreateVideoCapturerResultSpec = { $: {} };
+remoting.mojom.VideoTrackLayoutSpec = { $: {} };
+remoting.mojom.VideoLayoutSpec = { $: {} };
+remoting.mojom.SourceLocationSpec = { $: {} };
+remoting.mojom.DesktopSessionRequestHandler = {};
+remoting.mojom.DesktopSessionRequestHandler.$interfaceName = 'remoting.mojom.DesktopSessionRequestHandler';
+remoting.mojom.DesktopSessionRequestHandler_ConnectDesktopChannel_ParamsSpec = { $: {} };
+remoting.mojom.DesktopSessionRequestHandler_InjectSecureAttentionSequence_ParamsSpec = { $: {} };
+remoting.mojom.DesktopSessionRequestHandler_CrashNetworkProcess_ParamsSpec = { $: {} };
+remoting.mojom.DesktopSessionManager = {};
+remoting.mojom.DesktopSessionManager.$interfaceName = 'remoting.mojom.DesktopSessionManager';
+remoting.mojom.DesktopSessionManager_CreateDesktopSession_ParamsSpec = { $: {} };
+remoting.mojom.DesktopSessionManager_CloseDesktopSession_ParamsSpec = { $: {} };
+remoting.mojom.DesktopSessionManager_SetScreenResolution_ParamsSpec = { $: {} };
+remoting.mojom.DesktopSessionAgent = {};
+remoting.mojom.DesktopSessionAgent.$interfaceName = 'remoting.mojom.DesktopSessionAgent';
+remoting.mojom.DesktopSessionAgent_Start_ParamsSpec = { $: {} };
+remoting.mojom.DesktopSessionAgent_Start_ResponseParamsSpec = { $: {} };
+remoting.mojom.FileWriter = {};
+remoting.mojom.FileWriter.$interfaceName = 'remoting.mojom.FileWriter';
+remoting.mojom.FileWriter_WriteChunk_ParamsSpec = { $: {} };
+remoting.mojom.FileWriter_WriteChunk_ResponseParamsSpec = { $: {} };
+remoting.mojom.FileWriter_CloseFile_ParamsSpec = { $: {} };
+remoting.mojom.FileWriter_CloseFile_ResponseParamsSpec = { $: {} };
+remoting.mojom.FileReader = {};
+remoting.mojom.FileReader.$interfaceName = 'remoting.mojom.FileReader';
+remoting.mojom.FileReader_ReadChunk_ParamsSpec = { $: {} };
+remoting.mojom.FileReader_ReadChunk_ResponseParamsSpec = { $: {} };
+remoting.mojom.DesktopSessionControl = {};
+remoting.mojom.DesktopSessionControl.$interfaceName = 'remoting.mojom.DesktopSessionControl';
+remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ParamsSpec = { $: {} };
+remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ResponseParamsSpec = { $: {} };
+remoting.mojom.DesktopSessionControl_SetScreenResolution_ParamsSpec = { $: {} };
+remoting.mojom.DesktopSessionControl_LockWorkstation_ParamsSpec = { $: {} };
+remoting.mojom.DesktopSessionControl_InjectSendAttentionSequence_ParamsSpec = { $: {} };
+remoting.mojom.DesktopSessionControl_InjectClipboardEvent_ParamsSpec = { $: {} };
+remoting.mojom.DesktopSessionControl_InjectKeyEvent_ParamsSpec = { $: {} };
+remoting.mojom.DesktopSessionControl_InjectMouseEvent_ParamsSpec = { $: {} };
+remoting.mojom.DesktopSessionControl_InjectTextEvent_ParamsSpec = { $: {} };
+remoting.mojom.DesktopSessionControl_InjectTouchEvent_ParamsSpec = { $: {} };
+remoting.mojom.DesktopSessionControl_SetUpUrlForwarder_ParamsSpec = { $: {} };
+remoting.mojom.DesktopSessionControl_SignalWebAuthnExtension_ParamsSpec = { $: {} };
+remoting.mojom.DesktopSessionControl_BeginFileRead_ParamsSpec = { $: {} };
+remoting.mojom.DesktopSessionControl_BeginFileRead_ResponseParamsSpec = { $: {} };
+remoting.mojom.DesktopSessionControl_BeginFileWrite_ParamsSpec = { $: {} };
+remoting.mojom.DesktopSessionControl_BeginFileWrite_ResponseParamsSpec = { $: {} };
+remoting.mojom.DesktopSessionControl_SetHostCursorRenderedByClient_ParamsSpec = { $: {} };
+remoting.mojom.VideoCapturer = {};
+remoting.mojom.VideoCapturer.$interfaceName = 'remoting.mojom.VideoCapturer';
+remoting.mojom.VideoCapturer_CaptureFrame_ParamsSpec = { $: {} };
+remoting.mojom.VideoCapturer_SetComposeEnabled_ParamsSpec = { $: {} };
+remoting.mojom.VideoCapturerEventHandler = {};
+remoting.mojom.VideoCapturerEventHandler.$interfaceName = 'remoting.mojom.VideoCapturerEventHandler';
+remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionCreated_ParamsSpec = { $: {} };
+remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionReleased_ParamsSpec = { $: {} };
+remoting.mojom.VideoCapturerEventHandler_OnCaptureResult_ParamsSpec = { $: {} };
+remoting.mojom.DesktopSessionEventHandler = {};
+remoting.mojom.DesktopSessionEventHandler.$interfaceName = 'remoting.mojom.DesktopSessionEventHandler';
+remoting.mojom.DesktopSessionEventHandler_OnClipboardEvent_ParamsSpec = { $: {} };
+remoting.mojom.DesktopSessionEventHandler_OnUrlForwarderStateChange_ParamsSpec = { $: {} };
+remoting.mojom.DesktopSessionEventHandler_OnAudioPacket_ParamsSpec = { $: {} };
+remoting.mojom.DesktopSessionEventHandler_OnDesktopDisplayChanged_ParamsSpec = { $: {} };
+remoting.mojom.DesktopSessionEventHandler_OnMouseCursorChanged_ParamsSpec = { $: {} };
+remoting.mojom.DesktopSessionEventHandler_OnMouseCursorFractionalPositionChanged_ParamsSpec = { $: {} };
+remoting.mojom.DesktopSessionEventHandler_OnKeyboardLayoutChanged_ParamsSpec = { $: {} };
+remoting.mojom.DesktopSessionEventHandler_OnLocalMouseMoveDetected_ParamsSpec = { $: {} };
+remoting.mojom.DesktopSessionEventHandler_OnLocalKeyboardInputDetected_ParamsSpec = { $: {} };
+remoting.mojom.DesktopSessionStateHandler = {};
+remoting.mojom.DesktopSessionStateHandler.$interfaceName = 'remoting.mojom.DesktopSessionStateHandler';
+remoting.mojom.DesktopSessionStateHandler_DisconnectSession_ParamsSpec = { $: {} };
+remoting.mojom.WorkerProcessControl = {};
+remoting.mojom.WorkerProcessControl.$interfaceName = 'remoting.mojom.WorkerProcessControl';
+remoting.mojom.WorkerProcessControl_CrashProcess_ParamsSpec = { $: {} };
 
 // Enum: Encoding
 remoting.mojom.Encoding = {
-  kInvalid: 0,
-  kRaw: 1,
-  kOpus: 2,
+  kInvalid: -1,
+  kRaw: 0,
+  kOpus: 1,
 };
-remoting.mojom.EncodingSpec = { $: mojo.internal.Enum() };
 
 // Enum: SamplingRate
 remoting.mojom.SamplingRate = {
-  kInvalid: 0,
-  kRate_44100: 1,
-  kRate_48000: 2,
+  kInvalid: -1,
+  kRate_44100: 44100,
+  kRate_48000: 48000,
 };
-remoting.mojom.SamplingRateSpec = { $: mojo.internal.Enum() };
 
 // Enum: BytesPerSample
 remoting.mojom.BytesPerSample = {
-  kInvalid: 0,
-  kBytesPerSample_2: 1,
+  kInvalid: -1,
+  kBytesPerSample_2: 2,
 };
-remoting.mojom.BytesPerSampleSpec = { $: mojo.internal.Enum() };
 
 // Enum: Channels
 remoting.mojom.Channels = {
-  kInvalid: 0,
+  kInvalid: -1,
   kMono: 1,
   kStereo: 2,
   kSurround: 3,
@@ -46,7 +143,6 @@ remoting.mojom.Channels = {
   kChannel_6_1: 7,
   kChannel_7_1: 8,
 };
-remoting.mojom.ChannelsSpec = { $: mojo.internal.Enum() };
 
 // Enum: MouseButton
 remoting.mojom.MouseButton = {
@@ -57,7 +153,6 @@ remoting.mojom.MouseButton = {
   kBack: 4,
   kForward: 5,
 };
-remoting.mojom.MouseButtonSpec = { $: mojo.internal.Enum() };
 
 // Enum: TouchEventType
 remoting.mojom.TouchEventType = {
@@ -67,7 +162,6 @@ remoting.mojom.TouchEventType = {
   kEnd: 3,
   kCancel: 4,
 };
-remoting.mojom.TouchEventTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: UrlForwarderState
 remoting.mojom.UrlForwarderState = {
@@ -77,7 +171,6 @@ remoting.mojom.UrlForwarderState = {
   kFailed: 3,
   kSetupPendingUserIntervention: 4,
 };
-remoting.mojom.UrlForwarderStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: Type
 remoting.mojom.Type = {
@@ -90,7 +183,6 @@ remoting.mojom.Type = {
   kIoError: 6,
   kNotLoggedIn: 7,
 };
-remoting.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ProtocolErrorCode
 remoting.mojom.ProtocolErrorCode = {
@@ -125,396 +217,258 @@ remoting.mojom.ProtocolErrorCode = {
   kNetworkFailure: 28,
   kOperationTimeout: 29,
 };
-remoting.mojom.ProtocolErrorCodeSpec = { $: mojo.internal.Enum() };
 
 // Union: ReadChunkResult
-remoting.mojom.ReadChunkResultSpec = { $: mojo.internal.Union(
-    'remoting.mojom.ReadChunkResult', {
+mojo.internal.Union(
+    remoting.mojom.ReadChunkResultSpec, 'remoting.mojom.ReadChunkResult', {
       'data': {
         'ordinal': 0,
         'type': mojo.internal.Array(mojo.internal.Uint8, false),
-      }},
+        'nullable': false,
+      },
       'error': {
         'ordinal': 1,
         'type': remoting.mojom.FileTransferErrorSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Union: FileChooserResult
-remoting.mojom.FileChooserResultSpec = { $: mojo.internal.Union(
-    'remoting.mojom.FileChooserResult', {
+mojo.internal.Union(
+    remoting.mojom.FileChooserResultSpec, 'remoting.mojom.FileChooserResult', {
       'filepath': {
         'ordinal': 0,
         'type': mojo_base.mojom.FilePathSpec,
-      }},
+        'nullable': false,
+      },
       'error': {
         'ordinal': 1,
         'type': remoting.mojom.FileTransferErrorSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Union: BeginFileReadResult
-remoting.mojom.BeginFileReadResultSpec = { $: mojo.internal.Union(
-    'remoting.mojom.BeginFileReadResult', {
+mojo.internal.Union(
+    remoting.mojom.BeginFileReadResultSpec, 'remoting.mojom.BeginFileReadResult', {
       'success': {
         'ordinal': 0,
         'type': remoting.mojom.BeginFileReadSuccessSpec,
-      }},
+        'nullable': false,
+      },
       'error': {
         'ordinal': 1,
         'type': remoting.mojom.FileTransferErrorSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Union: BeginFileWriteResult
-remoting.mojom.BeginFileWriteResultSpec = { $: mojo.internal.Union(
-    'remoting.mojom.BeginFileWriteResult', {
+mojo.internal.Union(
+    remoting.mojom.BeginFileWriteResultSpec, 'remoting.mojom.BeginFileWriteResult', {
       'success': {
         'ordinal': 0,
         'type': remoting.mojom.BeginFileWriteSuccessSpec,
-      }},
+        'nullable': false,
+      },
       'error': {
         'ordinal': 1,
         'type': remoting.mojom.FileTransferErrorSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Union: CaptureResult
-remoting.mojom.CaptureResultSpec = { $: mojo.internal.Union(
-    'remoting.mojom.CaptureResult', {
+mojo.internal.Union(
+    remoting.mojom.CaptureResultSpec, 'remoting.mojom.CaptureResult', {
       'desktop_frame': {
         'ordinal': 0,
         'type': remoting.mojom.DesktopFrameSpec,
-      }},
+        'nullable': false,
+      },
       'capture_error': {
         'ordinal': 1,
         'type': remoting.mojom.DesktopCaptureResultSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: AudioPacket
-remoting.mojom.AudioPacketSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.AudioPacket',
-      packedSize: 32,
-      fields: [
-        { name: 'timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.ByteStringSpec, false), nullable: false, minVersion: 0 },
-        { name: 'kInvalid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.AudioPacketSpec, 'remoting.mojom.AudioPacket', [
+      mojo.internal.StructField('timestamp', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(mojo_base.mojom.ByteStringSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('kInvalid', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: ClipboardEvent
-remoting.mojom.ClipboardEventSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.ClipboardEvent',
-      packedSize: 24,
-      fields: [
-        { name: 'mime_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.ClipboardEventSpec, 'remoting.mojom.ClipboardEvent', [
+      mojo.internal.StructField('mime_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('data', 8, 0, mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: KeyEvent
-remoting.mojom.KeyEventSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.KeyEvent',
-      packedSize: 40,
-      fields: [
-        { name: 'pressed', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'usb_keycode', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'lock_states', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'caps_lock_state', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.BoolSpec, nullable: true, minVersion: 0 },
-        { name: 'num_lock_state', packedOffset: 8, packedBitOffset: 0, type: remoting.mojom.BoolSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.KeyEventSpec, 'remoting.mojom.KeyEvent', [
+      mojo.internal.StructField('pressed', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('usb_keycode', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('lock_states', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('caps_lock_state', 0, 0, remoting.mojom.BoolSpec, null, true, 0, undefined),
+      mojo.internal.StructField('num_lock_state', 8, 0, remoting.mojom.BoolSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: MouseEvent
-remoting.mojom.MouseEventSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.MouseEvent',
-      packedSize: 88,
-      fields: [
-        { name: 'x', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.Int32Spec, nullable: true, minVersion: 0 },
-        { name: 'y', packedOffset: 8, packedBitOffset: 0, type: remoting.mojom.Int32Spec, nullable: true, minVersion: 0 },
-        { name: 'button', packedOffset: 72, packedBitOffset: 0, type: remoting.mojom.MouseButtonSpec, nullable: false, minVersion: 0 },
-        { name: 'button_down', packedOffset: 16, packedBitOffset: 0, type: remoting.mojom.BoolSpec, nullable: true, minVersion: 0 },
-        { name: 'wheel_delta_x', packedOffset: 24, packedBitOffset: 0, type: remoting.mojom.FloatSpec, nullable: true, minVersion: 0 },
-        { name: 'wheel_delta_y', packedOffset: 32, packedBitOffset: 0, type: remoting.mojom.FloatSpec, nullable: true, minVersion: 0 },
-        { name: 'wheel_ticks_x', packedOffset: 40, packedBitOffset: 0, type: remoting.mojom.FloatSpec, nullable: true, minVersion: 0 },
-        { name: 'wheel_ticks_y', packedOffset: 48, packedBitOffset: 0, type: remoting.mojom.FloatSpec, nullable: true, minVersion: 0 },
-        { name: 'delta_x', packedOffset: 56, packedBitOffset: 0, type: remoting.mojom.Int32Spec, nullable: true, minVersion: 0 },
-        { name: 'delta_y', packedOffset: 64, packedBitOffset: 0, type: remoting.mojom.Int32Spec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 88}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.MouseEventSpec, 'remoting.mojom.MouseEvent', [
+      mojo.internal.StructField('x', 0, 0, remoting.mojom.Int32Spec, null, true, 0, undefined),
+      mojo.internal.StructField('y', 8, 0, remoting.mojom.Int32Spec, null, true, 0, undefined),
+      mojo.internal.StructField('button', 72, 0, remoting.mojom.MouseButtonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('button_down', 16, 0, remoting.mojom.BoolSpec, null, true, 0, undefined),
+      mojo.internal.StructField('wheel_delta_x', 24, 0, remoting.mojom.FloatSpec, null, true, 0, undefined),
+      mojo.internal.StructField('wheel_delta_y', 32, 0, remoting.mojom.FloatSpec, null, true, 0, undefined),
+      mojo.internal.StructField('wheel_ticks_x', 40, 0, remoting.mojom.FloatSpec, null, true, 0, undefined),
+      mojo.internal.StructField('wheel_ticks_y', 48, 0, remoting.mojom.FloatSpec, null, true, 0, undefined),
+      mojo.internal.StructField('delta_x', 56, 0, remoting.mojom.Int32Spec, null, true, 0, undefined),
+      mojo.internal.StructField('delta_y', 64, 0, remoting.mojom.Int32Spec, null, true, 0, undefined),
+    ],
+    [[0, 88]]);
 
 // Struct: TextEvent
-remoting.mojom.TextEventSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.TextEvent',
-      packedSize: 16,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.TextEventSpec, 'remoting.mojom.TextEvent', [
+      mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: TouchEventPoint
-remoting.mojom.TouchEventPointSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.TouchEventPoint',
-      packedSize: 40,
-      fields: [
-        { name: 'id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'radius', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'angle', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'pressure', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.TouchEventPointSpec, 'remoting.mojom.TouchEventPoint', [
+      mojo.internal.StructField('id', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('position', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('radius', 8, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('angle', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('pressure', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: TouchEvent
-remoting.mojom.TouchEventSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.TouchEvent',
-      packedSize: 24,
-      fields: [
-        { name: 'event_type', packedOffset: 8, packedBitOffset: 0, type: remoting.mojom.TouchEventTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'touch_points', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(remoting.mojom.TouchEventPointSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.TouchEventSpec, 'remoting.mojom.TouchEvent', [
+      mojo.internal.StructField('event_type', 8, 0, remoting.mojom.TouchEventTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('touch_points', 0, 0, mojo.internal.Array(remoting.mojom.TouchEventPointSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: FractionalCoordinate
-remoting.mojom.FractionalCoordinateSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.FractionalCoordinate',
-      packedSize: 24,
-      fields: [
-        { name: 'x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'y', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'screen_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.FractionalCoordinateSpec, 'remoting.mojom.FractionalCoordinate', [
+      mojo.internal.StructField('x', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('y', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('screen_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: DesktopEnvironmentOptions
-remoting.mojom.DesktopEnvironmentOptionsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopEnvironmentOptions',
-      packedSize: 24,
-      fields: [
-        { name: 'enable_curtaining', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'enable_user_interface', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'enable_notifications', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'terminate_upon_input', packedOffset: 8, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'enable_remote_webauthn', packedOffset: 8, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'desktop_capture_options', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.DesktopCaptureOptionsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.DesktopEnvironmentOptionsSpec, 'remoting.mojom.DesktopEnvironmentOptions', [
+      mojo.internal.StructField('enable_curtaining', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable_user_interface', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable_notifications', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('terminate_upon_input', 8, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable_remote_webauthn', 8, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('desktop_capture_options', 0, 0, remoting.mojom.DesktopCaptureOptionsSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: ScreenResolution
-remoting.mojom.ScreenResolutionSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.ScreenResolution',
-      packedSize: 24,
-      fields: [
-        { name: 'dimensions', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.DesktopSizeSpec, nullable: false, minVersion: 0 },
-        { name: 'dpi', packedOffset: 8, packedBitOffset: 0, type: remoting.mojom.DesktopVectorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.ScreenResolutionSpec, 'remoting.mojom.ScreenResolution', [
+      mojo.internal.StructField('dimensions', 0, 0, remoting.mojom.DesktopSizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('dpi', 8, 0, remoting.mojom.DesktopVectorSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: FileTransferError
-remoting.mojom.FileTransferErrorSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.FileTransferError',
-      packedSize: 16,
-      fields: [
-        { name: 'kUnknown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.FileTransferErrorSpec, 'remoting.mojom.FileTransferError', [
+      mojo.internal.StructField('kUnknown', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: BeginFileReadSuccess
-remoting.mojom.BeginFileReadSuccessSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.BeginFileReadSuccess',
-      packedSize: 32,
-      fields: [
-        { name: 'file_reader', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(remoting.mojom.FileReaderRemote), nullable: false, minVersion: 0 },
-        { name: 'filename', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.BeginFileReadSuccessSpec, 'remoting.mojom.BeginFileReadSuccess', [
+      mojo.internal.StructField('file_reader', 0, 0, mojo.internal.AssociatedInterfaceProxy(remoting.mojom.FileReaderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('filename', 8, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('size', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: BeginFileWriteSuccess
-remoting.mojom.BeginFileWriteSuccessSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.BeginFileWriteSuccess',
-      packedSize: 16,
-      fields: [
-        { name: 'file_writer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(remoting.mojom.FileWriterRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.BeginFileWriteSuccessSpec, 'remoting.mojom.BeginFileWriteSuccess', [
+      mojo.internal.StructField('file_writer', 0, 0, mojo.internal.AssociatedInterfaceProxy(remoting.mojom.FileWriterRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: CreateVideoCapturerResult
-remoting.mojom.CreateVideoCapturerResultSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.CreateVideoCapturerResult',
-      packedSize: 24,
-      fields: [
-        { name: 'video_capturer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(remoting.mojom.VideoCapturerRemote), nullable: false, minVersion: 0 },
-        { name: 'video_capturer_event_handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(remoting.mojom.VideoCapturerEventHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.CreateVideoCapturerResultSpec, 'remoting.mojom.CreateVideoCapturerResult', [
+      mojo.internal.StructField('video_capturer', 0, 0, mojo.internal.InterfaceProxy(remoting.mojom.VideoCapturerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('video_capturer_event_handler', 8, 0, mojo.internal.InterfaceRequest(remoting.mojom.VideoCapturerEventHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: VideoTrackLayout
-remoting.mojom.VideoTrackLayoutSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.VideoTrackLayout',
-      packedSize: 56,
-      fields: [
-        { name: 'screen_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'media_stream_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'position', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 24, packedBitOffset: 0, type: remoting.mojom.DesktopSizeSpec, nullable: false, minVersion: 0 },
-        { name: 'dpi', packedOffset: 32, packedBitOffset: 0, type: remoting.mojom.DesktopVectorSpec, nullable: false, minVersion: 0 },
-        { name: 'display_name', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.VideoTrackLayoutSpec, 'remoting.mojom.VideoTrackLayout', [
+      mojo.internal.StructField('screen_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('media_stream_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('position', 16, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('size', 24, 0, remoting.mojom.DesktopSizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('dpi', 32, 0, remoting.mojom.DesktopVectorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('display_name', 40, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Struct: VideoLayout
-remoting.mojom.VideoLayoutSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.VideoLayout',
-      packedSize: 32,
-      fields: [
-        { name: 'tracks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(remoting.mojom.VideoTrackLayoutSpec, false), nullable: false, minVersion: 0 },
-        { name: 'supports_full_desktop_capture', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'primary_screen_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.VideoLayoutSpec, 'remoting.mojom.VideoLayout', [
+      mojo.internal.StructField('tracks', 0, 0, mojo.internal.Array(remoting.mojom.VideoTrackLayoutSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('supports_full_desktop_capture', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('primary_screen_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: SourceLocation
-remoting.mojom.SourceLocationSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.SourceLocation',
-      packedSize: 32,
-      fields: [
-        { name: 'function_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'file_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'line_number', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.SourceLocationSpec, 'remoting.mojom.SourceLocation', [
+      mojo.internal.StructField('function_name', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('file_name', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('line_number', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: DesktopSessionRequestHandler
-remoting.mojom.DesktopSessionRequestHandler = {};
+mojo.internal.Struct(
+    remoting.mojom.DesktopSessionRequestHandler_ConnectDesktopChannel_ParamsSpec, 'remoting.mojom.DesktopSessionRequestHandler_ConnectDesktopChannel_Params', [
+      mojo.internal.StructField('desktop_pipe', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remoting.mojom.DesktopSessionRequestHandler_ConnectDesktopChannel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionRequestHandler_ConnectDesktopChannel_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'desktop_pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.DesktopSessionRequestHandler_InjectSecureAttentionSequence_ParamsSpec, 'remoting.mojom.DesktopSessionRequestHandler_InjectSecureAttentionSequence_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-remoting.mojom.DesktopSessionRequestHandler_InjectSecureAttentionSequence_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionRequestHandler_InjectSecureAttentionSequence_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-remoting.mojom.DesktopSessionRequestHandler_CrashNetworkProcess_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionRequestHandler_CrashNetworkProcess_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.DesktopSessionRequestHandler_CrashNetworkProcess_ParamsSpec, 'remoting.mojom.DesktopSessionRequestHandler_CrashNetworkProcess_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 remoting.mojom.DesktopSessionRequestHandlerPendingReceiver = class {
   constructor(handle) {
@@ -587,95 +541,31 @@ remoting.mojom.DesktopSessionRequestHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ConnectDesktopChannel
-remoting.mojom.DesktopSessionRequestHandler_ConnectDesktopChannel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionRequestHandler.ConnectDesktopChannel_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'desktop_pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for InjectSecureAttentionSequence
-remoting.mojom.DesktopSessionRequestHandler_InjectSecureAttentionSequence_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionRequestHandler.InjectSecureAttentionSequence_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for CrashNetworkProcess
-remoting.mojom.DesktopSessionRequestHandler_CrashNetworkProcess_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionRequestHandler.CrashNetworkProcess_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 remoting.mojom.DesktopSessionRequestHandlerPtr = remoting.mojom.DesktopSessionRequestHandlerRemote;
 remoting.mojom.DesktopSessionRequestHandlerRequest = remoting.mojom.DesktopSessionRequestHandlerPendingReceiver;
 
 
 // Interface: DesktopSessionManager
-remoting.mojom.DesktopSessionManager = {};
+mojo.internal.Struct(
+    remoting.mojom.DesktopSessionManager_CreateDesktopSession_ParamsSpec, 'remoting.mojom.DesktopSessionManager_CreateDesktopSession_Params', [
+      mojo.internal.StructField('terminal_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('screen_resolution', 0, 0, remoting.mojom.ScreenResolutionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_virtual_terminal', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-remoting.mojom.DesktopSessionManager_CreateDesktopSession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionManager_CreateDesktopSession_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'terminal_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'screen_resolution', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.ScreenResolutionSpec, nullable: false, minVersion: 0 },
-        { name: 'is_virtual_terminal', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.DesktopSessionManager_CloseDesktopSession_ParamsSpec, 'remoting.mojom.DesktopSessionManager_CloseDesktopSession_Params', [
+      mojo.internal.StructField('terminal_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remoting.mojom.DesktopSessionManager_CloseDesktopSession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionManager_CloseDesktopSession_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'terminal_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-remoting.mojom.DesktopSessionManager_SetScreenResolution_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionManager_SetScreenResolution_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'terminal_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'screen_resolution', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.ScreenResolutionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.DesktopSessionManager_SetScreenResolution_ParamsSpec, 'remoting.mojom.DesktopSessionManager_SetScreenResolution_Params', [
+      mojo.internal.StructField('terminal_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('screen_resolution', 0, 0, remoting.mojom.ScreenResolutionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 remoting.mojom.DesktopSessionManagerPendingReceiver = class {
   constructor(handle) {
@@ -748,73 +638,24 @@ remoting.mojom.DesktopSessionManager.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateDesktopSession
-remoting.mojom.DesktopSessionManager_CreateDesktopSession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionManager.CreateDesktopSession_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'terminal_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'screen_resolution', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.ScreenResolutionSpec, nullable: false, minVersion: 0 },
-        { name: 'is_virtual_terminal', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for CloseDesktopSession
-remoting.mojom.DesktopSessionManager_CloseDesktopSession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionManager.CloseDesktopSession_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'terminal_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetScreenResolution
-remoting.mojom.DesktopSessionManager_SetScreenResolution_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionManager.SetScreenResolution_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'terminal_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'screen_resolution', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.ScreenResolutionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 remoting.mojom.DesktopSessionManagerPtr = remoting.mojom.DesktopSessionManagerRemote;
 remoting.mojom.DesktopSessionManagerRequest = remoting.mojom.DesktopSessionManagerPendingReceiver;
 
 
 // Interface: DesktopSessionAgent
-remoting.mojom.DesktopSessionAgent = {};
+mojo.internal.Struct(
+    remoting.mojom.DesktopSessionAgent_Start_ParamsSpec, 'remoting.mojom.DesktopSessionAgent_Start_Params', [
+      mojo.internal.StructField('authenticated_jid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('resolution', 8, 0, remoting.mojom.ScreenResolutionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('options', 16, 0, remoting.mojom.DesktopEnvironmentOptionsSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-remoting.mojom.DesktopSessionAgent_Start_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionAgent_Start_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'authenticated_jid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'resolution', packedOffset: 8, packedBitOffset: 0, type: remoting.mojom.ScreenResolutionSpec, nullable: false, minVersion: 0 },
-        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: remoting.mojom.DesktopEnvironmentOptionsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.DesktopSessionAgent_Start_ResponseParamsSpec, 'remoting.mojom.DesktopSessionAgent_Start_ResponseParams', [
+      mojo.internal.StructField('desktop_session_control', 0, 0, mojo.internal.AssociatedInterfaceProxy(remoting.mojom.DesktopSessionControlRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 remoting.mojom.DesktopSessionAgentPendingReceiver = class {
   constructor(handle) {
@@ -869,67 +710,33 @@ remoting.mojom.DesktopSessionAgent.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Start
-remoting.mojom.DesktopSessionAgent_Start_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionAgent.Start_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'authenticated_jid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'resolution', packedOffset: 8, packedBitOffset: 0, type: remoting.mojom.ScreenResolutionSpec, nullable: false, minVersion: 0 },
-        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: remoting.mojom.DesktopEnvironmentOptionsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-remoting.mojom.DesktopSessionAgent_Start_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionAgent.Start_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'desktop_session_control', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(remoting.mojom.DesktopSessionControlRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 remoting.mojom.DesktopSessionAgentPtr = remoting.mojom.DesktopSessionAgentRemote;
 remoting.mojom.DesktopSessionAgentRequest = remoting.mojom.DesktopSessionAgentPendingReceiver;
 
 
 // Interface: FileWriter
-remoting.mojom.FileWriter = {};
+mojo.internal.Struct(
+    remoting.mojom.FileWriter_WriteChunk_ParamsSpec, 'remoting.mojom.FileWriter_WriteChunk_Params', [
+      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remoting.mojom.FileWriter_WriteChunk_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.FileWriter_WriteChunk_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.FileWriter_WriteChunk_ResponseParamsSpec, 'remoting.mojom.FileWriter_WriteChunk_ResponseParams', [
+      mojo.internal.StructField('error', 0, 0, remoting.mojom.FileTransferErrorSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remoting.mojom.FileWriter_CloseFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.FileWriter_CloseFile_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.FileWriter_CloseFile_ParamsSpec, 'remoting.mojom.FileWriter_CloseFile_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    remoting.mojom.FileWriter_CloseFile_ResponseParamsSpec, 'remoting.mojom.FileWriter_CloseFile_ResponseParams', [
+      mojo.internal.StructField('error', 0, 0, remoting.mojom.FileTransferErrorSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 remoting.mojom.FileWriterPendingReceiver = class {
   constructor(handle) {
@@ -993,79 +800,22 @@ remoting.mojom.FileWriter.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for WriteChunk
-remoting.mojom.FileWriter_WriteChunk_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.FileWriter.WriteChunk_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-remoting.mojom.FileWriter_WriteChunk_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.FileWriter.WriteChunk_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.FileTransferErrorSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CloseFile
-remoting.mojom.FileWriter_CloseFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.FileWriter.CloseFile_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-remoting.mojom.FileWriter_CloseFile_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.FileWriter.CloseFile_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.FileTransferErrorSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 remoting.mojom.FileWriterPtr = remoting.mojom.FileWriterRemote;
 remoting.mojom.FileWriterRequest = remoting.mojom.FileWriterPendingReceiver;
 
 
 // Interface: FileReader
-remoting.mojom.FileReader = {};
+mojo.internal.Struct(
+    remoting.mojom.FileReader_ReadChunk_ParamsSpec, 'remoting.mojom.FileReader_ReadChunk_Params', [
+      mojo.internal.StructField('bytes_to_read', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remoting.mojom.FileReader_ReadChunk_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.FileReader_ReadChunk_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'bytes_to_read', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.FileReader_ReadChunk_ResponseParamsSpec, 'remoting.mojom.FileReader_ReadChunk_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, remoting.mojom.ReadChunkResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 remoting.mojom.FileReaderPendingReceiver = class {
   constructor(handle) {
@@ -1120,216 +870,106 @@ remoting.mojom.FileReader.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ReadChunk
-remoting.mojom.FileReader_ReadChunk_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.FileReader.ReadChunk_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'bytes_to_read', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-remoting.mojom.FileReader_ReadChunk_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.FileReader.ReadChunk_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.ReadChunkResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 remoting.mojom.FileReaderPtr = remoting.mojom.FileReaderRemote;
 remoting.mojom.FileReaderRequest = remoting.mojom.FileReaderPendingReceiver;
 
 
 // Interface: DesktopSessionControl
-remoting.mojom.DesktopSessionControl = {};
+mojo.internal.Struct(
+    remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ParamsSpec, 'remoting.mojom.DesktopSessionControl_CreateVideoCapturer_Params', [
+      mojo.internal.StructField('desktop_display_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionControl_CreateVideoCapturer_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'desktop_display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ResponseParamsSpec, 'remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, remoting.mojom.CreateVideoCapturerResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remoting.mojom.DesktopSessionControl_SetScreenResolution_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionControl_SetScreenResolution_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'new_resolution', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.ScreenResolutionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.DesktopSessionControl_SetScreenResolution_ParamsSpec, 'remoting.mojom.DesktopSessionControl_SetScreenResolution_Params', [
+      mojo.internal.StructField('new_resolution', 0, 0, remoting.mojom.ScreenResolutionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remoting.mojom.DesktopSessionControl_LockWorkstation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionControl_LockWorkstation_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.DesktopSessionControl_LockWorkstation_ParamsSpec, 'remoting.mojom.DesktopSessionControl_LockWorkstation_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-remoting.mojom.DesktopSessionControl_InjectSendAttentionSequence_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionControl_InjectSendAttentionSequence_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.DesktopSessionControl_InjectSendAttentionSequence_ParamsSpec, 'remoting.mojom.DesktopSessionControl_InjectSendAttentionSequence_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-remoting.mojom.DesktopSessionControl_InjectClipboardEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionControl_InjectClipboardEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.ClipboardEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.DesktopSessionControl_InjectClipboardEvent_ParamsSpec, 'remoting.mojom.DesktopSessionControl_InjectClipboardEvent_Params', [
+      mojo.internal.StructField('event', 0, 0, remoting.mojom.ClipboardEventSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remoting.mojom.DesktopSessionControl_InjectKeyEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionControl_InjectKeyEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.KeyEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.DesktopSessionControl_InjectKeyEvent_ParamsSpec, 'remoting.mojom.DesktopSessionControl_InjectKeyEvent_Params', [
+      mojo.internal.StructField('event', 0, 0, remoting.mojom.KeyEventSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remoting.mojom.DesktopSessionControl_InjectMouseEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionControl_InjectMouseEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.MouseEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.DesktopSessionControl_InjectMouseEvent_ParamsSpec, 'remoting.mojom.DesktopSessionControl_InjectMouseEvent_Params', [
+      mojo.internal.StructField('event', 0, 0, remoting.mojom.MouseEventSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remoting.mojom.DesktopSessionControl_InjectTextEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionControl_InjectTextEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.TextEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.DesktopSessionControl_InjectTextEvent_ParamsSpec, 'remoting.mojom.DesktopSessionControl_InjectTextEvent_Params', [
+      mojo.internal.StructField('event', 0, 0, remoting.mojom.TextEventSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remoting.mojom.DesktopSessionControl_InjectTouchEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionControl_InjectTouchEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.TouchEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.DesktopSessionControl_InjectTouchEvent_ParamsSpec, 'remoting.mojom.DesktopSessionControl_InjectTouchEvent_Params', [
+      mojo.internal.StructField('event', 0, 0, remoting.mojom.TouchEventSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remoting.mojom.DesktopSessionControl_SetUpUrlForwarder_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionControl_SetUpUrlForwarder_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.DesktopSessionControl_SetUpUrlForwarder_ParamsSpec, 'remoting.mojom.DesktopSessionControl_SetUpUrlForwarder_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-remoting.mojom.DesktopSessionControl_SignalWebAuthnExtension_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionControl_SignalWebAuthnExtension_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.DesktopSessionControl_SignalWebAuthnExtension_ParamsSpec, 'remoting.mojom.DesktopSessionControl_SignalWebAuthnExtension_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-remoting.mojom.DesktopSessionControl_BeginFileRead_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionControl_BeginFileRead_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.DesktopSessionControl_BeginFileRead_ParamsSpec, 'remoting.mojom.DesktopSessionControl_BeginFileRead_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-remoting.mojom.DesktopSessionControl_BeginFileWrite_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionControl_BeginFileWrite_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.DesktopSessionControl_BeginFileRead_ResponseParamsSpec, 'remoting.mojom.DesktopSessionControl_BeginFileRead_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, remoting.mojom.BeginFileReadResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-remoting.mojom.DesktopSessionControl_SetHostCursorRenderedByClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionControl_SetHostCursorRenderedByClient_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.DesktopSessionControl_BeginFileWrite_ParamsSpec, 'remoting.mojom.DesktopSessionControl_BeginFileWrite_Params', [
+      mojo.internal.StructField('file_path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    remoting.mojom.DesktopSessionControl_BeginFileWrite_ResponseParamsSpec, 'remoting.mojom.DesktopSessionControl_BeginFileWrite_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, remoting.mojom.BeginFileWriteResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    remoting.mojom.DesktopSessionControl_SetHostCursorRenderedByClient_ParamsSpec, 'remoting.mojom.DesktopSessionControl_SetHostCursorRenderedByClient_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 remoting.mojom.DesktopSessionControlPendingReceiver = class {
   constructor(handle) {
@@ -1501,267 +1141,21 @@ remoting.mojom.DesktopSessionControl.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateVideoCapturer
-remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionControl.CreateVideoCapturer_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'desktop_display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionControl.CreateVideoCapturer_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.CreateVideoCapturerResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetScreenResolution
-remoting.mojom.DesktopSessionControl_SetScreenResolution_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionControl.SetScreenResolution_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'new_resolution', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.ScreenResolutionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for LockWorkstation
-remoting.mojom.DesktopSessionControl_LockWorkstation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionControl.LockWorkstation_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for InjectSendAttentionSequence
-remoting.mojom.DesktopSessionControl_InjectSendAttentionSequence_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionControl.InjectSendAttentionSequence_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for InjectClipboardEvent
-remoting.mojom.DesktopSessionControl_InjectClipboardEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionControl.InjectClipboardEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.ClipboardEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for InjectKeyEvent
-remoting.mojom.DesktopSessionControl_InjectKeyEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionControl.InjectKeyEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.KeyEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for InjectMouseEvent
-remoting.mojom.DesktopSessionControl_InjectMouseEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionControl.InjectMouseEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.MouseEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for InjectTextEvent
-remoting.mojom.DesktopSessionControl_InjectTextEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionControl.InjectTextEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.TextEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for InjectTouchEvent
-remoting.mojom.DesktopSessionControl_InjectTouchEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionControl.InjectTouchEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.TouchEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetUpUrlForwarder
-remoting.mojom.DesktopSessionControl_SetUpUrlForwarder_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionControl.SetUpUrlForwarder_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SignalWebAuthnExtension
-remoting.mojom.DesktopSessionControl_SignalWebAuthnExtension_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionControl.SignalWebAuthnExtension_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for BeginFileRead
-remoting.mojom.DesktopSessionControl_BeginFileRead_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionControl.BeginFileRead_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-remoting.mojom.DesktopSessionControl_BeginFileRead_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionControl.BeginFileRead_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.BeginFileReadResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for BeginFileWrite
-remoting.mojom.DesktopSessionControl_BeginFileWrite_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionControl.BeginFileWrite_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-remoting.mojom.DesktopSessionControl_BeginFileWrite_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionControl.BeginFileWrite_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.BeginFileWriteResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SetHostCursorRenderedByClient
-remoting.mojom.DesktopSessionControl_SetHostCursorRenderedByClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionControl.SetHostCursorRenderedByClient_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 remoting.mojom.DesktopSessionControlPtr = remoting.mojom.DesktopSessionControlRemote;
 remoting.mojom.DesktopSessionControlRequest = remoting.mojom.DesktopSessionControlPendingReceiver;
 
 
 // Interface: VideoCapturer
-remoting.mojom.VideoCapturer = {};
+mojo.internal.Struct(
+    remoting.mojom.VideoCapturer_CaptureFrame_ParamsSpec, 'remoting.mojom.VideoCapturer_CaptureFrame_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-remoting.mojom.VideoCapturer_CaptureFrame_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.VideoCapturer_CaptureFrame_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-remoting.mojom.VideoCapturer_SetComposeEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.VideoCapturer_SetComposeEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.VideoCapturer_SetComposeEnabled_ParamsSpec, 'remoting.mojom.VideoCapturer_SetComposeEnabled_Params', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 remoting.mojom.VideoCapturerPendingReceiver = class {
   constructor(handle) {
@@ -1825,81 +1219,30 @@ remoting.mojom.VideoCapturer.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CaptureFrame
-remoting.mojom.VideoCapturer_CaptureFrame_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.VideoCapturer.CaptureFrame_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetComposeEnabled
-remoting.mojom.VideoCapturer_SetComposeEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.VideoCapturer.SetComposeEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 remoting.mojom.VideoCapturerPtr = remoting.mojom.VideoCapturerRemote;
 remoting.mojom.VideoCapturerRequest = remoting.mojom.VideoCapturerPendingReceiver;
 
 
 // Interface: VideoCapturerEventHandler
-remoting.mojom.VideoCapturerEventHandler = {};
+mojo.internal.Struct(
+    remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionCreated_ParamsSpec, 'remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionCreated_Params', [
+      mojo.internal.StructField('id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('size', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionCreated_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionReleased_ParamsSpec, 'remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionReleased_Params', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionReleased_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionReleased_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-remoting.mojom.VideoCapturerEventHandler_OnCaptureResult_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.VideoCapturerEventHandler_OnCaptureResult_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.CaptureResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.VideoCapturerEventHandler_OnCaptureResult_ParamsSpec, 'remoting.mojom.VideoCapturerEventHandler_OnCaptureResult_Params', [
+      mojo.internal.StructField('result', 0, 0, remoting.mojom.CaptureResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 remoting.mojom.VideoCapturerEventHandlerPendingReceiver = class {
   constructor(handle) {
@@ -1972,174 +1315,64 @@ remoting.mojom.VideoCapturerEventHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnSharedMemoryRegionCreated
-remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.VideoCapturerEventHandler.OnSharedMemoryRegionCreated_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnSharedMemoryRegionReleased
-remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionReleased_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.VideoCapturerEventHandler.OnSharedMemoryRegionReleased_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnCaptureResult
-remoting.mojom.VideoCapturerEventHandler_OnCaptureResult_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.VideoCapturerEventHandler.OnCaptureResult_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.CaptureResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 remoting.mojom.VideoCapturerEventHandlerPtr = remoting.mojom.VideoCapturerEventHandlerRemote;
 remoting.mojom.VideoCapturerEventHandlerRequest = remoting.mojom.VideoCapturerEventHandlerPendingReceiver;
 
 
 // Interface: DesktopSessionEventHandler
-remoting.mojom.DesktopSessionEventHandler = {};
+mojo.internal.Struct(
+    remoting.mojom.DesktopSessionEventHandler_OnClipboardEvent_ParamsSpec, 'remoting.mojom.DesktopSessionEventHandler_OnClipboardEvent_Params', [
+      mojo.internal.StructField('event', 0, 0, remoting.mojom.ClipboardEventSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remoting.mojom.DesktopSessionEventHandler_OnClipboardEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionEventHandler_OnClipboardEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.ClipboardEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.DesktopSessionEventHandler_OnUrlForwarderStateChange_ParamsSpec, 'remoting.mojom.DesktopSessionEventHandler_OnUrlForwarderStateChange_Params', [
+      mojo.internal.StructField('state', 0, 0, remoting.mojom.UrlForwarderStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remoting.mojom.DesktopSessionEventHandler_OnUrlForwarderStateChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionEventHandler_OnUrlForwarderStateChange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.UrlForwarderStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.DesktopSessionEventHandler_OnAudioPacket_ParamsSpec, 'remoting.mojom.DesktopSessionEventHandler_OnAudioPacket_Params', [
+      mojo.internal.StructField('audio_packet', 0, 0, remoting.mojom.AudioPacketSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remoting.mojom.DesktopSessionEventHandler_OnAudioPacket_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionEventHandler_OnAudioPacket_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'audio_packet', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.AudioPacketSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.DesktopSessionEventHandler_OnDesktopDisplayChanged_ParamsSpec, 'remoting.mojom.DesktopSessionEventHandler_OnDesktopDisplayChanged_Params', [
+      mojo.internal.StructField('layout', 0, 0, remoting.mojom.VideoLayoutSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remoting.mojom.DesktopSessionEventHandler_OnDesktopDisplayChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionEventHandler_OnDesktopDisplayChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'layout', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.VideoLayoutSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.DesktopSessionEventHandler_OnMouseCursorChanged_ParamsSpec, 'remoting.mojom.DesktopSessionEventHandler_OnMouseCursorChanged_Params', [
+      mojo.internal.StructField('mouse_cursor', 0, 0, remoting.mojom.MouseCursorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remoting.mojom.DesktopSessionEventHandler_OnMouseCursorChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionEventHandler_OnMouseCursorChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'mouse_cursor', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.MouseCursorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.DesktopSessionEventHandler_OnMouseCursorFractionalPositionChanged_ParamsSpec, 'remoting.mojom.DesktopSessionEventHandler_OnMouseCursorFractionalPositionChanged_Params', [
+      mojo.internal.StructField('position', 0, 0, remoting.mojom.FractionalCoordinateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remoting.mojom.DesktopSessionEventHandler_OnMouseCursorFractionalPositionChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionEventHandler_OnMouseCursorFractionalPositionChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.FractionalCoordinateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.DesktopSessionEventHandler_OnKeyboardLayoutChanged_ParamsSpec, 'remoting.mojom.DesktopSessionEventHandler_OnKeyboardLayoutChanged_Params', [
+      mojo.internal.StructField('keyboard_layout', 0, 0, remoting.mojom.KeyboardLayoutSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remoting.mojom.DesktopSessionEventHandler_OnKeyboardLayoutChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionEventHandler_OnKeyboardLayoutChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'keyboard_layout', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.KeyboardLayoutSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.DesktopSessionEventHandler_OnLocalMouseMoveDetected_ParamsSpec, 'remoting.mojom.DesktopSessionEventHandler_OnLocalMouseMoveDetected_Params', [
+      mojo.internal.StructField('new_position', 0, 0, remoting.mojom.DesktopVectorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remoting.mojom.DesktopSessionEventHandler_OnLocalMouseMoveDetected_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionEventHandler_OnLocalMouseMoveDetected_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'new_position', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.DesktopVectorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-remoting.mojom.DesktopSessionEventHandler_OnLocalKeyboardInputDetected_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionEventHandler_OnLocalKeyboardInputDetected_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'usb_keycode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.DesktopSessionEventHandler_OnLocalKeyboardInputDetected_ParamsSpec, 'remoting.mojom.DesktopSessionEventHandler_OnLocalKeyboardInputDetected_Params', [
+      mojo.internal.StructField('usb_keycode', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 remoting.mojom.DesktopSessionEventHandlerPendingReceiver = class {
   constructor(handle) {
@@ -2266,154 +1499,18 @@ remoting.mojom.DesktopSessionEventHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnClipboardEvent
-remoting.mojom.DesktopSessionEventHandler_OnClipboardEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionEventHandler.OnClipboardEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.ClipboardEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnUrlForwarderStateChange
-remoting.mojom.DesktopSessionEventHandler_OnUrlForwarderStateChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionEventHandler.OnUrlForwarderStateChange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.UrlForwarderStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnAudioPacket
-remoting.mojom.DesktopSessionEventHandler_OnAudioPacket_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionEventHandler.OnAudioPacket_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'audio_packet', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.AudioPacketSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnDesktopDisplayChanged
-remoting.mojom.DesktopSessionEventHandler_OnDesktopDisplayChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionEventHandler.OnDesktopDisplayChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'layout', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.VideoLayoutSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnMouseCursorChanged
-remoting.mojom.DesktopSessionEventHandler_OnMouseCursorChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionEventHandler.OnMouseCursorChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'mouse_cursor', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.MouseCursorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnMouseCursorFractionalPositionChanged
-remoting.mojom.DesktopSessionEventHandler_OnMouseCursorFractionalPositionChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionEventHandler.OnMouseCursorFractionalPositionChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.FractionalCoordinateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnKeyboardLayoutChanged
-remoting.mojom.DesktopSessionEventHandler_OnKeyboardLayoutChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionEventHandler.OnKeyboardLayoutChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'keyboard_layout', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.KeyboardLayoutSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnLocalMouseMoveDetected
-remoting.mojom.DesktopSessionEventHandler_OnLocalMouseMoveDetected_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionEventHandler.OnLocalMouseMoveDetected_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'new_position', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.DesktopVectorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnLocalKeyboardInputDetected
-remoting.mojom.DesktopSessionEventHandler_OnLocalKeyboardInputDetected_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionEventHandler.OnLocalKeyboardInputDetected_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'usb_keycode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 remoting.mojom.DesktopSessionEventHandlerPtr = remoting.mojom.DesktopSessionEventHandlerRemote;
 remoting.mojom.DesktopSessionEventHandlerRequest = remoting.mojom.DesktopSessionEventHandlerPendingReceiver;
 
 
 // Interface: DesktopSessionStateHandler
-remoting.mojom.DesktopSessionStateHandler = {};
-
-remoting.mojom.DesktopSessionStateHandler_DisconnectSession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionStateHandler_DisconnectSession_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'error_code', packedOffset: 16, packedBitOffset: 0, type: remoting.mojom.ProtocolErrorCodeSpec, nullable: false, minVersion: 0 },
-        { name: 'error_details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'error_location', packedOffset: 8, packedBitOffset: 0, type: remoting.mojom.SourceLocationSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.DesktopSessionStateHandler_DisconnectSession_ParamsSpec, 'remoting.mojom.DesktopSessionStateHandler_DisconnectSession_Params', [
+      mojo.internal.StructField('error_code', 16, 0, remoting.mojom.ProtocolErrorCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error_details', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('error_location', 8, 0, remoting.mojom.SourceLocationSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 remoting.mojom.DesktopSessionStateHandlerPendingReceiver = class {
   constructor(handle) {
@@ -2468,44 +1565,18 @@ remoting.mojom.DesktopSessionStateHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for DisconnectSession
-remoting.mojom.DesktopSessionStateHandler_DisconnectSession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSessionStateHandler.DisconnectSession_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'error_code', packedOffset: 16, packedBitOffset: 0, type: remoting.mojom.ProtocolErrorCodeSpec, nullable: false, minVersion: 0 },
-        { name: 'error_details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'error_location', packedOffset: 8, packedBitOffset: 0, type: remoting.mojom.SourceLocationSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 remoting.mojom.DesktopSessionStateHandlerPtr = remoting.mojom.DesktopSessionStateHandlerRemote;
 remoting.mojom.DesktopSessionStateHandlerRequest = remoting.mojom.DesktopSessionStateHandlerPendingReceiver;
 
 
 // Interface: WorkerProcessControl
-remoting.mojom.WorkerProcessControl = {};
-
-remoting.mojom.WorkerProcessControl_CrashProcess_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.WorkerProcessControl_CrashProcess_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'function_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'file_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'line_number', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.WorkerProcessControl_CrashProcess_ParamsSpec, 'remoting.mojom.WorkerProcessControl_CrashProcess_Params', [
+      mojo.internal.StructField('function_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('file_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('line_number', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 remoting.mojom.WorkerProcessControlPendingReceiver = class {
   constructor(handle) {
@@ -2560,23 +1631,6 @@ remoting.mojom.WorkerProcessControl.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CrashProcess
-remoting.mojom.WorkerProcessControl_CrashProcess_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.WorkerProcessControl.CrashProcess_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'function_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'file_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'line_number', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 remoting.mojom.WorkerProcessControlPtr = remoting.mojom.WorkerProcessControlRemote;
 remoting.mojom.WorkerProcessControlRequest = remoting.mojom.WorkerProcessControlPendingReceiver;
 

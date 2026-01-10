@@ -7,7 +7,14 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 
+network.mojom.URLLoaderFactory = {};
+network.mojom.URLLoaderFactory.$interfaceName = 'network.mojom.URLLoaderFactory';
+network.mojom.URLLoaderFactory_CreateLoaderAndStart_ParamsSpec = { $: {} };
+network.mojom.URLLoaderFactory_Clone_ParamsSpec = { $: {} };
 
 network.mojom.kURLLoadOptionNone = 0;
 
@@ -32,38 +39,22 @@ network.mojom.kURLLoadOptionBlockLocalRequest = 256;
 network.mojom.kURLLoadOptionReadAndDiscardBody = 512;
 
 // Interface: URLLoaderFactory
-network.mojom.URLLoaderFactory = {};
+mojo.internal.Struct(
+    network.mojom.URLLoaderFactory_CreateLoaderAndStart_ParamsSpec, 'network.mojom.URLLoaderFactory_CreateLoaderAndStart_Params', [
+      mojo.internal.StructField('loader', 0, 0, mojo.internal.InterfaceRequest(network.mojom.URLLoaderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('request_id', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('options', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('request', 8, 0, network.mojom.URLRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('client', 16, 0, mojo.internal.InterfaceProxy(network.mojom.URLLoaderClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('traffic_annotation', 24, 0, network.mojom.MutableNetworkTrafficAnnotationTagSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
-network.mojom.URLLoaderFactory_CreateLoaderAndStart_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.URLLoaderFactory_CreateLoaderAndStart_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'loader', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.URLLoaderRemote), nullable: false, minVersion: 0 },
-        { name: 'request_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'options', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: network.mojom.URLRequestSpec, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.URLLoaderClientRemote), nullable: false, minVersion: 0 },
-        { name: 'traffic_annotation', packedOffset: 24, packedBitOffset: 0, type: network.mojom.MutableNetworkTrafficAnnotationTagSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
-
-network.mojom.URLLoaderFactory_Clone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.URLLoaderFactory_Clone_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.URLLoaderFactoryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.URLLoaderFactory_Clone_ParamsSpec, 'network.mojom.URLLoaderFactory_Clone_Params', [
+      mojo.internal.StructField('factory', 0, 0, mojo.internal.InterfaceRequest(network.mojom.URLLoaderFactoryRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 network.mojom.URLLoaderFactoryPendingReceiver = class {
   constructor(handle) {
@@ -127,40 +118,6 @@ network.mojom.URLLoaderFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateLoaderAndStart
-network.mojom.URLLoaderFactory_CreateLoaderAndStart_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.URLLoaderFactory.CreateLoaderAndStart_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'loader', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.URLLoaderRemote), nullable: false, minVersion: 0 },
-        { name: 'request_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'options', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: network.mojom.URLRequestSpec, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.URLLoaderClientRemote), nullable: false, minVersion: 0 },
-        { name: 'traffic_annotation', packedOffset: 24, packedBitOffset: 0, type: network.mojom.MutableNetworkTrafficAnnotationTagSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
-
-// ParamsSpec for Clone
-network.mojom.URLLoaderFactory_Clone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.URLLoaderFactory.Clone_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.URLLoaderFactoryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.URLLoaderFactoryPtr = network.mojom.URLLoaderFactoryRemote;
 network.mojom.URLLoaderFactoryRequest = network.mojom.URLLoaderFactoryPendingReceiver;
 

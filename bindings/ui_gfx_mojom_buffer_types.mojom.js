@@ -10,6 +10,10 @@ gfx.mojom = gfx.mojom || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+gfx.mojom.BufferFormatSpec = { $: mojo.internal.Enum() };
+gfx.mojom.BufferUsageSpec = { $: mojo.internal.Enum() };
+gfx.mojom.GpuMemoryBufferIdSpec = { $: {} };
+gfx.mojom.GpuMemoryBufferHandleSpec = { $: {} };
 
 // Enum: BufferFormat
 gfx.mojom.BufferFormat = {
@@ -31,7 +35,6 @@ gfx.mojom.BufferFormat = {
   YUVA_420_TRIPLANAR: 15,
   P010: 16,
 };
-gfx.mojom.BufferFormatSpec = { $: mojo.internal.Enum() };
 
 // Enum: BufferUsage
 gfx.mojom.BufferUsage = {
@@ -48,34 +51,19 @@ gfx.mojom.BufferUsage = {
   VEA_READ_CAMERA_AND_CPU_READ_WRITE: 10,
   SCANOUT_FRONT_RENDERING: 11,
 };
-gfx.mojom.BufferUsageSpec = { $: mojo.internal.Enum() };
 
 // Struct: GpuMemoryBufferId
-gfx.mojom.GpuMemoryBufferIdSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.GpuMemoryBufferId',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.GpuMemoryBufferIdSpec, 'gfx.mojom.GpuMemoryBufferId', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: GpuMemoryBufferHandle
-gfx.mojom.GpuMemoryBufferHandleSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.GpuMemoryBufferHandle',
-      packedSize: 32,
-      fields: [
-        { name: 'offset', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'stride', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'platform_handle', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.GpuMemoryBufferPlatformHandleSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.GpuMemoryBufferHandleSpec, 'gfx.mojom.GpuMemoryBufferHandle', [
+      mojo.internal.StructField('offset', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('stride', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('platform_handle', 0, 0, gfx.mojom.GpuMemoryBufferPlatformHandleSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);

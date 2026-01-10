@@ -9,6 +9,24 @@ var history_embeddings = history_embeddings || {};
 history_embeddings.mojom = history_embeddings.mojom || {};
 var url = url || {};
 
+history_embeddings.mojom.AnswerStatusSpec = { $: mojo.internal.Enum() };
+history_embeddings.mojom.UserFeedbackSpec = { $: mojo.internal.Enum() };
+history_embeddings.mojom.AnswerDataSpec = { $: {} };
+history_embeddings.mojom.SearchResultItemSpec = { $: {} };
+history_embeddings.mojom.SearchQuerySpec = { $: {} };
+history_embeddings.mojom.SearchResultSpec = { $: {} };
+history_embeddings.mojom.PageHandler = {};
+history_embeddings.mojom.PageHandler.$interfaceName = 'history_embeddings.mojom.PageHandler';
+history_embeddings.mojom.PageHandler_SetPage_ParamsSpec = { $: {} };
+history_embeddings.mojom.PageHandler_Search_ParamsSpec = { $: {} };
+history_embeddings.mojom.PageHandler_SendQualityLog_ParamsSpec = { $: {} };
+history_embeddings.mojom.PageHandler_RecordSearchResultsMetrics_ParamsSpec = { $: {} };
+history_embeddings.mojom.PageHandler_SetUserFeedback_ParamsSpec = { $: {} };
+history_embeddings.mojom.PageHandler_MaybeShowFeaturePromo_ParamsSpec = { $: {} };
+history_embeddings.mojom.PageHandler_OpenSettingsPage_ParamsSpec = { $: {} };
+history_embeddings.mojom.Page = {};
+history_embeddings.mojom.Page.$interfaceName = 'history_embeddings.mojom.Page';
+history_embeddings.mojom.Page_SearchResultChanged_ParamsSpec = { $: {} };
 
 // Enum: AnswerStatus
 history_embeddings.mojom.AnswerStatus = {
@@ -21,7 +39,6 @@ history_embeddings.mojom.AnswerStatus = {
   kExecutionCanceled: 6,
   kFiltered: 7,
 };
-history_embeddings.mojom.AnswerStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: UserFeedback
 history_embeddings.mojom.UserFeedback = {
@@ -29,173 +46,93 @@ history_embeddings.mojom.UserFeedback = {
   kUserFeedbackNegative: 1,
   kUserFeedbackPositive: 2,
 };
-history_embeddings.mojom.UserFeedbackSpec = { $: mojo.internal.Enum() };
 
 // Struct: AnswerData
-history_embeddings.mojom.AnswerDataSpec = {
-  $: {
-    structSpec: {
-      name: 'history_embeddings.mojom.AnswerData',
-      packedSize: 16,
-      fields: [
-        { name: 'answer_text_directives', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    history_embeddings.mojom.AnswerDataSpec, 'history_embeddings.mojom.AnswerData', [
+      mojo.internal.StructField('answer_text_directives', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: SearchResultItem
-history_embeddings.mojom.SearchResultItemSpec = {
-  $: {
-    structSpec: {
-      name: 'history_embeddings.mojom.SearchResultItem',
-      packedSize: 80,
-      fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'url_for_display', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'relative_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'short_date_time', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'last_url_visit_timestamp', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'source_passage', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'answer_data', packedOffset: 56, packedBitOffset: 0, type: history_embeddings.mojom.AnswerDataSpec, nullable: true, minVersion: 0 },
-        { name: 'is_url_known_to_sync', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 80}]
-    }
-  }
-};
+mojo.internal.Struct(
+    history_embeddings.mojom.SearchResultItemSpec, 'history_embeddings.mojom.SearchResultItem', [
+      mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url_for_display', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('relative_time', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('short_date_time', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('last_url_visit_timestamp', 40, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('source_passage', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('answer_data', 56, 0, history_embeddings.mojom.AnswerDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('is_url_known_to_sync', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 80]]);
 
 // Struct: SearchQuery
-history_embeddings.mojom.SearchQuerySpec = {
-  $: {
-    structSpec: {
-      name: 'history_embeddings.mojom.SearchQuery',
-      packedSize: 24,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'time_range_start', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    history_embeddings.mojom.SearchQuerySpec, 'history_embeddings.mojom.SearchQuery', [
+      mojo.internal.StructField('query', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('time_range_start', 8, 0, mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: SearchResult
-history_embeddings.mojom.SearchResultSpec = {
-  $: {
-    structSpec: {
-      name: 'history_embeddings.mojom.SearchResult',
-      packedSize: 40,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'answer_status', packedOffset: 24, packedBitOffset: 0, type: history_embeddings.mojom.AnswerStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'answer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'items', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(history_embeddings.mojom.SearchResultItemSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    history_embeddings.mojom.SearchResultSpec, 'history_embeddings.mojom.SearchResult', [
+      mojo.internal.StructField('query', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('answer_status', 24, 0, history_embeddings.mojom.AnswerStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('answer', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('items', 16, 0, mojo.internal.Array(history_embeddings.mojom.SearchResultItemSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Interface: PageHandler
-history_embeddings.mojom.PageHandler = {};
+mojo.internal.Struct(
+    history_embeddings.mojom.PageHandler_SetPage_ParamsSpec, 'history_embeddings.mojom.PageHandler_SetPage_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(history_embeddings.mojom.PageRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-history_embeddings.mojom.PageHandler_SetPage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history_embeddings.mojom.PageHandler_SetPage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(history_embeddings.mojom.PageRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    history_embeddings.mojom.PageHandler_Search_ParamsSpec, 'history_embeddings.mojom.PageHandler_Search_Params', [
+      mojo.internal.StructField('query', 0, 0, history_embeddings.mojom.SearchQuerySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-history_embeddings.mojom.PageHandler_Search_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history_embeddings.mojom.PageHandler_Search_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: history_embeddings.mojom.SearchQuerySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    history_embeddings.mojom.PageHandler_SendQualityLog_ParamsSpec, 'history_embeddings.mojom.PageHandler_SendQualityLog_Params', [
+      mojo.internal.StructField('selected_indices', 0, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+      mojo.internal.StructField('num_entered_chars', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-history_embeddings.mojom.PageHandler_SendQualityLog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history_embeddings.mojom.PageHandler_SendQualityLog_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'selected_indices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: false, minVersion: 0 },
-        { name: 'num_entered_chars', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    history_embeddings.mojom.PageHandler_RecordSearchResultsMetrics_ParamsSpec, 'history_embeddings.mojom.PageHandler_RecordSearchResultsMetrics_Params', [
+      mojo.internal.StructField('nonEmptyResults', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('userClickedResult', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('answerShown', 4, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('answerCitationClicked', 4, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('otherHistoryResultClicked', 4, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('queryWordCount', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-history_embeddings.mojom.PageHandler_RecordSearchResultsMetrics_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history_embeddings.mojom.PageHandler_RecordSearchResultsMetrics_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'nonEmptyResults', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'userClickedResult', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'answerShown', packedOffset: 4, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'answerCitationClicked', packedOffset: 4, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'otherHistoryResultClicked', packedOffset: 4, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'queryWordCount', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    history_embeddings.mojom.PageHandler_SetUserFeedback_ParamsSpec, 'history_embeddings.mojom.PageHandler_SetUserFeedback_Params', [
+      mojo.internal.StructField('feedback', 0, 0, history_embeddings.mojom.UserFeedbackSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-history_embeddings.mojom.PageHandler_SetUserFeedback_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history_embeddings.mojom.PageHandler_SetUserFeedback_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'feedback', packedOffset: 0, packedBitOffset: 0, type: history_embeddings.mojom.UserFeedbackSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    history_embeddings.mojom.PageHandler_MaybeShowFeaturePromo_ParamsSpec, 'history_embeddings.mojom.PageHandler_MaybeShowFeaturePromo_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-history_embeddings.mojom.PageHandler_MaybeShowFeaturePromo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history_embeddings.mojom.PageHandler_MaybeShowFeaturePromo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-history_embeddings.mojom.PageHandler_OpenSettingsPage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history_embeddings.mojom.PageHandler_OpenSettingsPage_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    history_embeddings.mojom.PageHandler_OpenSettingsPage_ParamsSpec, 'history_embeddings.mojom.PageHandler_OpenSettingsPage_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 history_embeddings.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -304,128 +241,16 @@ history_embeddings.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetPage
-history_embeddings.mojom.PageHandler_SetPage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history_embeddings.mojom.PageHandler.SetPage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(history_embeddings.mojom.PageRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Search
-history_embeddings.mojom.PageHandler_Search_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history_embeddings.mojom.PageHandler.Search_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: history_embeddings.mojom.SearchQuerySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SendQualityLog
-history_embeddings.mojom.PageHandler_SendQualityLog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history_embeddings.mojom.PageHandler.SendQualityLog_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'selected_indices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: false, minVersion: 0 },
-        { name: 'num_entered_chars', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for RecordSearchResultsMetrics
-history_embeddings.mojom.PageHandler_RecordSearchResultsMetrics_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history_embeddings.mojom.PageHandler.RecordSearchResultsMetrics_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'nonEmptyResults', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'userClickedResult', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'answerShown', packedOffset: 4, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'answerCitationClicked', packedOffset: 4, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'otherHistoryResultClicked', packedOffset: 4, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'queryWordCount', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetUserFeedback
-history_embeddings.mojom.PageHandler_SetUserFeedback_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history_embeddings.mojom.PageHandler.SetUserFeedback_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'feedback', packedOffset: 0, packedBitOffset: 0, type: history_embeddings.mojom.UserFeedbackSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for MaybeShowFeaturePromo
-history_embeddings.mojom.PageHandler_MaybeShowFeaturePromo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history_embeddings.mojom.PageHandler.MaybeShowFeaturePromo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OpenSettingsPage
-history_embeddings.mojom.PageHandler_OpenSettingsPage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history_embeddings.mojom.PageHandler.OpenSettingsPage_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 history_embeddings.mojom.PageHandlerPtr = history_embeddings.mojom.PageHandlerRemote;
 history_embeddings.mojom.PageHandlerRequest = history_embeddings.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-history_embeddings.mojom.Page = {};
-
-history_embeddings.mojom.Page_SearchResultChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history_embeddings.mojom.Page_SearchResultChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: history_embeddings.mojom.SearchResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    history_embeddings.mojom.Page_SearchResultChanged_ParamsSpec, 'history_embeddings.mojom.Page_SearchResultChanged_Params', [
+      mojo.internal.StructField('result', 0, 0, history_embeddings.mojom.SearchResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 history_embeddings.mojom.PagePendingReceiver = class {
   constructor(handle) {
@@ -480,21 +305,6 @@ history_embeddings.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SearchResultChanged
-history_embeddings.mojom.Page_SearchResultChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'history_embeddings.mojom.Page.SearchResultChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: history_embeddings.mojom.SearchResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 history_embeddings.mojom.PagePtr = history_embeddings.mojom.PageRemote;
 history_embeddings.mojom.PageRequest = history_embeddings.mojom.PagePendingReceiver;
 

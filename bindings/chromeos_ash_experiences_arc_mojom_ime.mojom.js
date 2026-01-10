@@ -7,7 +7,34 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
 
+arc.mojom.TextInputTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.SegmentStyleSpec = { $: mojo.internal.Enum() };
+arc.mojom.CursorCoordinateSpaceSpec = { $: mojo.internal.Enum() };
+arc.mojom.CompositionSegmentSpec = { $: {} };
+arc.mojom.KeyEventDataSpec = { $: {} };
+arc.mojom.ImeHost = {};
+arc.mojom.ImeHost.$interfaceName = 'arc.mojom.ImeHost';
+arc.mojom.ImeHost_OnTextInputTypeChanged_ParamsSpec = { $: {} };
+arc.mojom.ImeHost_OnCursorRectChanged_ParamsSpec = { $: {} };
+arc.mojom.ImeHost_OnCancelComposition_ParamsSpec = { $: {} };
+arc.mojom.ImeHost_ShowVirtualKeyboardIfEnabled_ParamsSpec = { $: {} };
+arc.mojom.ImeHost_OnCursorRectChangedWithSurroundingText_ParamsSpec = { $: {} };
+arc.mojom.ImeHost_SendKeyEvent_ParamsSpec = { $: {} };
+arc.mojom.ImeHost_SendKeyEvent_ResponseParamsSpec = { $: {} };
+arc.mojom.ImeInstance = {};
+arc.mojom.ImeInstance.$interfaceName = 'arc.mojom.ImeInstance';
+arc.mojom.ImeInstance_Init_ParamsSpec = { $: {} };
+arc.mojom.ImeInstance_Init_ResponseParamsSpec = { $: {} };
+arc.mojom.ImeInstance_SetCompositionText_ParamsSpec = { $: {} };
+arc.mojom.ImeInstance_SetSelectionText_ParamsSpec = { $: {} };
+arc.mojom.ImeInstance_ConfirmCompositionText_ParamsSpec = { $: {} };
+arc.mojom.ImeInstance_InsertText_ParamsSpec = { $: {} };
+arc.mojom.ImeInstance_OnKeyboardAppearanceChanging_ParamsSpec = { $: {} };
+arc.mojom.ImeInstance_ExtendSelectionAndDelete_ParamsSpec = { $: {} };
+arc.mojom.ImeInstance_SetComposingRegion_ParamsSpec = { $: {} };
 
 arc.mojom.TEXT_INPUT_FLAG_NONE = 0;
 
@@ -21,19 +48,19 @@ arc.mojom.TEXT_INPUT_FLAG_AUTOCAPITALIZE_SENTENCES = 512;
 
 // Enum: TextInputType
 arc.mojom.TextInputType = {
-  TEXT: 0,
-  PASSWORD: 1,
-  SEARCH: 2,
-  EMAIL: 3,
-  NUMBER: 4,
-  TELEPHONE: 5,
-  URL: 6,
-  DATE: 7,
-  TIME: 8,
-  DATETIME: 9,
-  ANDROID_NULL: 10,
+  NONE: 0,
+  TEXT: 1,
+  PASSWORD: 2,
+  SEARCH: 3,
+  EMAIL: 4,
+  NUMBER: 5,
+  TELEPHONE: 6,
+  URL: 7,
+  DATE: 8,
+  TIME: 9,
+  DATETIME: 10,
+  ANDROID_NULL: 11,
 };
-arc.mojom.TextInputTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SegmentStyle
 arc.mojom.SegmentStyle = {
@@ -41,7 +68,6 @@ arc.mojom.SegmentStyle = {
   EMPHASIZED: 1,
   NONE: 2,
 };
-arc.mojom.SegmentStyleSpec = { $: mojo.internal.Enum() };
 
 // Enum: CursorCoordinateSpace
 arc.mojom.CursorCoordinateSpace = {
@@ -49,132 +75,79 @@ arc.mojom.CursorCoordinateSpace = {
   DISPLAY: 1,
   NOTIFICATION: 2,
 };
-arc.mojom.CursorCoordinateSpaceSpec = { $: mojo.internal.Enum() };
 
 // Struct: CompositionSegment
-arc.mojom.CompositionSegmentSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.CompositionSegment',
-      packedSize: 24,
-      fields: [
-        { name: 'start_offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'end_offset', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'emphasized', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'style', packedOffset: 12, packedBitOffset: 0, type: arc.mojom.SegmentStyleSpec, nullable: false, minVersion: 18 },
-      ],
-      versions: [{version: 0, packedSize: 24}, {version: 18, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.CompositionSegmentSpec, 'arc.mojom.CompositionSegment', [
+      mojo.internal.StructField('start_offset', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('end_offset', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('emphasized', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('style', 12, 0, arc.mojom.SegmentStyleSpec, null, false, 18, undefined),
+    ],
+    [[0, 24], [18, 24]]);
 
 // Struct: KeyEventData
-arc.mojom.KeyEventDataSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.KeyEventData',
-      packedSize: 24,
-      fields: [
-        { name: 'pressed', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'key_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'is_shift_down', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_control_down', packedOffset: 4, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_alt_down', packedOffset: 4, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_capslock_on', packedOffset: 4, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'scan_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 16 },
-        { name: 'is_alt_gr_down', packedOffset: 4, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 20 },
-        { name: 'is_repeat', packedOffset: 4, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 23 },
-      ],
-      versions: [{version: 0, packedSize: 16}, {version: 16, packedSize: 24}, {version: 20, packedSize: 24}, {version: 23, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.KeyEventDataSpec, 'arc.mojom.KeyEventData', [
+      mojo.internal.StructField('pressed', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('key_code', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_shift_down', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_control_down', 4, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_alt_down', 4, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_capslock_on', 4, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('scan_code', 8, 0, mojo.internal.Uint32, 0, false, 16, undefined),
+      mojo.internal.StructField('is_alt_gr_down', 4, 5, mojo.internal.Bool, false, false, 20, undefined),
+      mojo.internal.StructField('is_repeat', 4, 6, mojo.internal.Bool, false, false, 23, undefined),
+    ],
+    [[0, 16], [16, 24], [20, 16], [23, 16]]);
 
 // Interface: ImeHost
-arc.mojom.ImeHost = {};
+mojo.internal.Struct(
+    arc.mojom.ImeHost_OnTextInputTypeChanged_ParamsSpec, 'arc.mojom.ImeHost_OnTextInputTypeChanged_Params', [
+      mojo.internal.StructField('type', 0, 0, arc.mojom.TextInputTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_personalized_learning_allowed', 4, 0, mojo.internal.Bool, false, false, 10, undefined),
+      mojo.internal.StructField('flags', 8, 0, mojo.internal.Int32, 0, false, 11, undefined),
+    ],
+    [[0, 16], [10, 16], [11, 24]]);
 
-arc.mojom.ImeHost_OnTextInputTypeChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ImeHost_OnTextInputTypeChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.TextInputTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'is_personalized_learning_allowed', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 10 },
-        { name: 'flags', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 11 },
-      ],
-      versions: [{version: 0, packedSize: 16}, {version: 10, packedSize: 16}, {version: 11, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ImeHost_OnCursorRectChanged_ParamsSpec, 'arc.mojom.ImeHost_OnCursorRectChanged_Params', [
+      mojo.internal.StructField('rect', 0, 0, arc.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('coordinateSpace', 8, 0, arc.mojom.CursorCoordinateSpaceSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.ImeHost_OnCursorRectChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ImeHost_OnCursorRectChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'rect', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'coordinateSpace', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.CursorCoordinateSpaceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ImeHost_OnCancelComposition_ParamsSpec, 'arc.mojom.ImeHost_OnCancelComposition_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.ImeHost_OnCancelComposition_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ImeHost_OnCancelComposition_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ImeHost_ShowVirtualKeyboardIfEnabled_ParamsSpec, 'arc.mojom.ImeHost_ShowVirtualKeyboardIfEnabled_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.ImeHost_ShowVirtualKeyboardIfEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ImeHost_ShowVirtualKeyboardIfEnabled_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ImeHost_OnCursorRectChangedWithSurroundingText_ParamsSpec, 'arc.mojom.ImeHost_OnCursorRectChangedWithSurroundingText_Params', [
+      mojo.internal.StructField('rect', 0, 0, arc.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('text_range', 8, 0, arc.mojom.RangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('text_in_range', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('selection_range', 24, 0, arc.mojom.RangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('coordinateSpace', 32, 0, arc.mojom.CursorCoordinateSpaceSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
-arc.mojom.ImeHost_OnCursorRectChangedWithSurroundingText_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ImeHost_OnCursorRectChangedWithSurroundingText_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'rect', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'text_range', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.RangeSpec, nullable: false, minVersion: 0 },
-        { name: 'text_in_range', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'selection_range', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.RangeSpec, nullable: false, minVersion: 0 },
-        { name: 'coordinateSpace', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.CursorCoordinateSpaceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ImeHost_SendKeyEvent_ParamsSpec, 'arc.mojom.ImeHost_SendKeyEvent_Params', [
+      mojo.internal.StructField('key_event_data', 0, 0, arc.mojom.KeyEventDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ImeHost_SendKeyEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ImeHost_SendKeyEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'key_event_data', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.KeyEventDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ImeHost_SendKeyEvent_ResponseParamsSpec, 'arc.mojom.ImeHost_SendKeyEvent_ResponseParams', [
+      mojo.internal.StructField('is_consumed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.ImeHostPendingReceiver = class {
   constructor(handle) {
@@ -274,223 +247,67 @@ arc.mojom.ImeHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnTextInputTypeChanged
-arc.mojom.ImeHost_OnTextInputTypeChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ImeHost.OnTextInputTypeChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.TextInputTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'is_personalized_learning_allowed', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 10 },
-        { name: 'flags', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 11 },
-      ],
-      versions: [{version: 0, packedSize: 16}, {version: 10, packedSize: 16}, {version: 11, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnCursorRectChanged
-arc.mojom.ImeHost_OnCursorRectChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ImeHost.OnCursorRectChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'rect', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'coordinateSpace', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.CursorCoordinateSpaceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnCancelComposition
-arc.mojom.ImeHost_OnCancelComposition_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ImeHost.OnCancelComposition_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for ShowVirtualKeyboardIfEnabled
-arc.mojom.ImeHost_ShowVirtualKeyboardIfEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ImeHost.ShowVirtualKeyboardIfEnabled_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnCursorRectChangedWithSurroundingText
-arc.mojom.ImeHost_OnCursorRectChangedWithSurroundingText_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ImeHost.OnCursorRectChangedWithSurroundingText_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'rect', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'text_range', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.RangeSpec, nullable: false, minVersion: 0 },
-        { name: 'text_in_range', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'selection_range', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.RangeSpec, nullable: false, minVersion: 0 },
-        { name: 'coordinateSpace', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.CursorCoordinateSpaceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
-
-// ParamsSpec for SendKeyEvent
-arc.mojom.ImeHost_SendKeyEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ImeHost.SendKeyEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'key_event_data', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.KeyEventDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.ImeHost_SendKeyEvent_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ImeHost.SendKeyEvent_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'is_consumed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.ImeHostPtr = arc.mojom.ImeHostRemote;
 arc.mojom.ImeHostRequest = arc.mojom.ImeHostPendingReceiver;
 
 
 // Interface: ImeInstance
-arc.mojom.ImeInstance = {};
+mojo.internal.Struct(
+    arc.mojom.ImeInstance_Init_ParamsSpec, 'arc.mojom.ImeInstance_Init_Params', [
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.ImeHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ImeInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ImeInstance_Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ImeHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ImeInstance_Init_ResponseParamsSpec, 'arc.mojom.ImeInstance_Init_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.ImeInstance_SetCompositionText_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ImeInstance_SetCompositionText_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'segments', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.CompositionSegmentSpec, false), nullable: false, minVersion: 0 },
-        { name: 'selection_range', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.RangeSpec, nullable: true, minVersion: 21 },
-      ],
-      versions: [{version: 0, packedSize: 24}, {version: 21, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ImeInstance_SetCompositionText_ParamsSpec, 'arc.mojom.ImeInstance_SetCompositionText_Params', [
+      mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('segments', 8, 0, mojo.internal.Array(arc.mojom.CompositionSegmentSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('selection_range', 16, 0, arc.mojom.RangeSpec, null, true, 21, undefined),
+    ],
+    [[0, 24], [21, 32]]);
 
-arc.mojom.ImeInstance_SetSelectionText_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ImeInstance_SetSelectionText_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'selection', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.RangeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ImeInstance_SetSelectionText_ParamsSpec, 'arc.mojom.ImeInstance_SetSelectionText_Params', [
+      mojo.internal.StructField('selection', 0, 0, arc.mojom.RangeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ImeInstance_ConfirmCompositionText_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ImeInstance_ConfirmCompositionText_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ImeInstance_ConfirmCompositionText_ParamsSpec, 'arc.mojom.ImeInstance_ConfirmCompositionText_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.ImeInstance_InsertText_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ImeInstance_InsertText_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'new_cursor_position', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 17 },
-      ],
-      versions: [{version: 0, packedSize: 16}, {version: 17, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ImeInstance_InsertText_ParamsSpec, 'arc.mojom.ImeInstance_InsertText_Params', [
+      mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('new_cursor_position', 8, 0, mojo.internal.Int32, 0, false, 17, undefined),
+    ],
+    [[0, 16], [17, 24]]);
 
-arc.mojom.ImeInstance_OnKeyboardAppearanceChanging_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ImeInstance_OnKeyboardAppearanceChanging_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'new_bounds', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'is_available', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 7 },
-      ],
-      versions: [{version: 0, packedSize: 16}, {version: 7, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ImeInstance_OnKeyboardAppearanceChanging_ParamsSpec, 'arc.mojom.ImeInstance_OnKeyboardAppearanceChanging_Params', [
+      mojo.internal.StructField('new_bounds', 0, 0, arc.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_available', 8, 0, mojo.internal.Bool, false, false, 7, undefined),
+    ],
+    [[0, 16], [7, 24]]);
 
-arc.mojom.ImeInstance_ExtendSelectionAndDelete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ImeInstance_ExtendSelectionAndDelete_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'before', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'after', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ImeInstance_ExtendSelectionAndDelete_ParamsSpec, 'arc.mojom.ImeInstance_ExtendSelectionAndDelete_Params', [
+      mojo.internal.StructField('before', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('after', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.ImeInstance_SetComposingRegion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ImeInstance_SetComposingRegion_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'range', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.RangeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ImeInstance_SetComposingRegion_ParamsSpec, 'arc.mojom.ImeInstance_SetComposingRegion_Params', [
+      mojo.internal.StructField('range', 0, 0, arc.mojom.RangeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.ImeInstancePendingReceiver = class {
   constructor(handle) {
@@ -529,7 +346,7 @@ arc.mojom.ImeInstanceRemoteCallHandler = class {
     return this.proxy.sendMessage(
       6,  // ordinal
       arc.mojom.ImeInstance_Init_ParamsSpec,
-      null,
+      arc.mojom.ImeInstance_Init_ResponseParamsSpec,
       [host_remote]);
   }
 
@@ -608,123 +425,6 @@ arc.mojom.ImeInstance.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Init
-arc.mojom.ImeInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ImeInstance.Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ImeHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetCompositionText
-arc.mojom.ImeInstance_SetCompositionText_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ImeInstance.SetCompositionText_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'segments', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.CompositionSegmentSpec, false), nullable: false, minVersion: 0 },
-        { name: 'selection_range', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.RangeSpec, nullable: true, minVersion: 21 },
-      ],
-      versions: [{version: 0, packedSize: 24}, {version: 21, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for SetSelectionText
-arc.mojom.ImeInstance_SetSelectionText_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ImeInstance.SetSelectionText_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'selection', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.RangeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ConfirmCompositionText
-arc.mojom.ImeInstance_ConfirmCompositionText_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ImeInstance.ConfirmCompositionText_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for InsertText
-arc.mojom.ImeInstance_InsertText_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ImeInstance.InsertText_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'new_cursor_position', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 17 },
-      ],
-      versions: [{version: 0, packedSize: 16}, {version: 17, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnKeyboardAppearanceChanging
-arc.mojom.ImeInstance_OnKeyboardAppearanceChanging_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ImeInstance.OnKeyboardAppearanceChanging_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'new_bounds', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'is_available', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 7 },
-      ],
-      versions: [{version: 0, packedSize: 16}, {version: 7, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ExtendSelectionAndDelete
-arc.mojom.ImeInstance_ExtendSelectionAndDelete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ImeInstance.ExtendSelectionAndDelete_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'before', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'after', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SetComposingRegion
-arc.mojom.ImeInstance_SetComposingRegion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ImeInstance.SetComposingRegion_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'range', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.RangeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.ImeInstancePtr = arc.mojom.ImeInstanceRemote;
 arc.mojom.ImeInstanceRequest = arc.mojom.ImeInstancePendingReceiver;
 

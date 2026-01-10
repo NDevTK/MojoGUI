@@ -8,24 +8,27 @@
 var chromeos = chromeos || {};
 chromeos.media_perception = chromeos.media_perception || {};
 chromeos.media_perception.mojom = chromeos.media_perception.mojom || {};
+var chromeos = chromeos || {};
+var services = services || {};
+var services = services || {};
 
+chromeos.media_perception.mojom.MediaPerceptionService = {};
+chromeos.media_perception.mojom.MediaPerceptionService.$interfaceName = 'chromeos.media_perception.mojom.MediaPerceptionService';
+chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec = { $: {} };
+chromeos.media_perception.mojom.MediaPerceptionController = {};
+chromeos.media_perception.mojom.MediaPerceptionController.$interfaceName = 'chromeos.media_perception.mojom.MediaPerceptionController';
+chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec = { $: {} };
+chromeos.media_perception.mojom.MediaPerceptionControllerClient = {};
+chromeos.media_perception.mojom.MediaPerceptionControllerClient.$interfaceName = 'chromeos.media_perception.mojom.MediaPerceptionControllerClient';
+chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec = { $: {} };
 
 // Interface: MediaPerceptionService
-chromeos.media_perception.mojom.MediaPerceptionService = {};
-
-chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.media_perception.mojom.MediaPerceptionService_GetController_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.media_perception.mojom.MediaPerceptionControllerRemote), nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.media_perception.mojom.MediaPerceptionControllerClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec, 'chromeos.media_perception.mojom.MediaPerceptionService_GetController_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(chromeos.media_perception.mojom.MediaPerceptionControllerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(chromeos.media_perception.mojom.MediaPerceptionControllerClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 chromeos.media_perception.mojom.MediaPerceptionServicePendingReceiver = class {
   constructor(handle) {
@@ -80,41 +83,16 @@ chromeos.media_perception.mojom.MediaPerceptionService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetController
-chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.media_perception.mojom.MediaPerceptionService.GetController_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.media_perception.mojom.MediaPerceptionControllerRemote), nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.media_perception.mojom.MediaPerceptionControllerClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromeos.media_perception.mojom.MediaPerceptionServicePtr = chromeos.media_perception.mojom.MediaPerceptionServiceRemote;
 chromeos.media_perception.mojom.MediaPerceptionServiceRequest = chromeos.media_perception.mojom.MediaPerceptionServicePendingReceiver;
 
 
 // Interface: MediaPerceptionController
-chromeos.media_perception.mojom.MediaPerceptionController = {};
-
-chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.media_perception.mojom.MediaPerceptionRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec, 'chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(chromeos.media_perception.mojom.MediaPerceptionRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromeos.media_perception.mojom.MediaPerceptionControllerPendingReceiver = class {
   constructor(handle) {
@@ -169,40 +147,16 @@ chromeos.media_perception.mojom.MediaPerceptionController.getRemote = function()
   return remote.$;
 };
 
-// ParamsSpec for ActivateMediaPerception
-chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.media_perception.mojom.MediaPerceptionController.ActivateMediaPerception_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.media_perception.mojom.MediaPerceptionRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromeos.media_perception.mojom.MediaPerceptionControllerPtr = chromeos.media_perception.mojom.MediaPerceptionControllerRemote;
 chromeos.media_perception.mojom.MediaPerceptionControllerRequest = chromeos.media_perception.mojom.MediaPerceptionControllerPendingReceiver;
 
 
 // Interface: MediaPerceptionControllerClient
-chromeos.media_perception.mojom.MediaPerceptionControllerClient = {};
-
-chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(video_capture.mojom.VideoSourceProviderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec, 'chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(video_capture.mojom.VideoSourceProviderRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromeos.media_perception.mojom.MediaPerceptionControllerClientPendingReceiver = class {
   constructor(handle) {
@@ -257,21 +211,6 @@ chromeos.media_perception.mojom.MediaPerceptionControllerClient.getRemote = func
   return remote.$;
 };
 
-// ParamsSpec for ConnectToVideoCaptureService
-chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.media_perception.mojom.MediaPerceptionControllerClient.ConnectToVideoCaptureService_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(video_capture.mojom.VideoSourceProviderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromeos.media_perception.mojom.MediaPerceptionControllerClientPtr = chromeos.media_perception.mojom.MediaPerceptionControllerClientRemote;
 chromeos.media_perception.mojom.MediaPerceptionControllerClientRequest = chromeos.media_perception.mojom.MediaPerceptionControllerClientPendingReceiver;
 

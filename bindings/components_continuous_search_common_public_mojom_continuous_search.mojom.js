@@ -9,89 +9,73 @@ var continuous_search = continuous_search || {};
 continuous_search.mojom = continuous_search.mojom || {};
 var url = url || {};
 
+continuous_search.mojom.ResultTypeSpec = { $: mojo.internal.Enum() };
+continuous_search.mojom.CategorySpec = { $: mojo.internal.Enum() };
+continuous_search.mojom.StatusSpec = { $: mojo.internal.Enum() };
+continuous_search.mojom.SearchResultSpec = { $: {} };
+continuous_search.mojom.ResultGroupSpec = { $: {} };
+continuous_search.mojom.CategoryResultsSpec = { $: {} };
+continuous_search.mojom.SearchResultExtractor = {};
+continuous_search.mojom.SearchResultExtractor.$interfaceName = 'continuous_search.mojom.SearchResultExtractor';
+continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ParamsSpec = { $: {} };
+continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParamsSpec = { $: {} };
 
 // Enum: ResultType
 continuous_search.mojom.ResultType = {
   kSearchResults: 0,
   kRelatedSearches: 1,
 };
-continuous_search.mojom.ResultTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: Category
 continuous_search.mojom.Category = {
   kNone: 0,
   kOrganic: 1,
 };
-continuous_search.mojom.CategorySpec = { $: mojo.internal.Enum() };
 
 // Enum: Status
 continuous_search.mojom.Status = {
   kSuccess: 0,
   kNoResults: 1,
 };
-continuous_search.mojom.StatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: SearchResult
-continuous_search.mojom.SearchResultSpec = {
-  $: {
-    structSpec: {
-      name: 'continuous_search.mojom.SearchResult',
-      packedSize: 24,
-      fields: [
-        { name: 'link', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    continuous_search.mojom.SearchResultSpec, 'continuous_search.mojom.SearchResult', [
+      mojo.internal.StructField('link', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('title', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: ResultGroup
-continuous_search.mojom.ResultGroupSpec = {
-  $: {
-    structSpec: {
-      name: 'continuous_search.mojom.ResultGroup',
-      packedSize: 24,
-      fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: continuous_search.mojom.ResultTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(continuous_search.mojom.SearchResultSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    continuous_search.mojom.ResultGroupSpec, 'continuous_search.mojom.ResultGroup', [
+      mojo.internal.StructField('type', 8, 0, continuous_search.mojom.ResultTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(continuous_search.mojom.SearchResultSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: CategoryResults
-continuous_search.mojom.CategoryResultsSpec = {
-  $: {
-    structSpec: {
-      name: 'continuous_search.mojom.CategoryResults',
-      packedSize: 32,
-      fields: [
-        { name: 'document_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'category_type', packedOffset: 16, packedBitOffset: 0, type: continuous_search.mojom.CategorySpec, nullable: false, minVersion: 0 },
-        { name: 'groups', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(continuous_search.mojom.ResultGroupSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    continuous_search.mojom.CategoryResultsSpec, 'continuous_search.mojom.CategoryResults', [
+      mojo.internal.StructField('document_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('category_type', 16, 0, continuous_search.mojom.CategorySpec, null, false, 0, undefined),
+      mojo.internal.StructField('groups', 8, 0, mojo.internal.Array(continuous_search.mojom.ResultGroupSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: SearchResultExtractor
-continuous_search.mojom.SearchResultExtractor = {};
+mojo.internal.Struct(
+    continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ParamsSpec, 'continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_Params', [
+      mojo.internal.StructField('result_types', 0, 0, mojo.internal.Array(continuous_search.mojom.ResultTypeSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'result_types', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(continuous_search.mojom.ResultTypeSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParamsSpec, 'continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParams', [
+      mojo.internal.StructField('status', 8, 0, continuous_search.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('results', 0, 0, continuous_search.mojom.CategoryResultsSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 continuous_search.mojom.SearchResultExtractorPendingReceiver = class {
   constructor(handle) {
@@ -146,35 +130,6 @@ continuous_search.mojom.SearchResultExtractor.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ExtractCurrentSearchResults
-continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'continuous_search.mojom.SearchResultExtractor.ExtractCurrentSearchResults_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'result_types', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(continuous_search.mojom.ResultTypeSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'continuous_search.mojom.SearchResultExtractor.ExtractCurrentSearchResults_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: continuous_search.mojom.StatusSpec, nullable: false, minVersion: 0 },
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: continuous_search.mojom.CategoryResultsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 continuous_search.mojom.SearchResultExtractorPtr = continuous_search.mojom.SearchResultExtractorRemote;
 continuous_search.mojom.SearchResultExtractorRequest = continuous_search.mojom.SearchResultExtractorPendingReceiver;
 

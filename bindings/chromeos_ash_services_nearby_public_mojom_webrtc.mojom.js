@@ -7,56 +7,53 @@
 // Module namespace
 var sharing = sharing || {};
 sharing.mojom = sharing.mojom || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var services = services || {};
 var url = url || {};
+var services = services || {};
+var services = services || {};
 
+sharing.mojom.IceServerSpec = { $: {} };
+sharing.mojom.WebRtcDependenciesSpec = { $: {} };
+sharing.mojom.IceConfigFetcher = {};
+sharing.mojom.IceConfigFetcher.$interfaceName = 'sharing.mojom.IceConfigFetcher';
+sharing.mojom.IceConfigFetcher_GetIceServers_ParamsSpec = { $: {} };
+sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParamsSpec = { $: {} };
+sharing.mojom.MdnsResponderFactory = {};
+sharing.mojom.MdnsResponderFactory.$interfaceName = 'sharing.mojom.MdnsResponderFactory';
+sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_ParamsSpec = { $: {} };
 
 // Struct: IceServer
-sharing.mojom.IceServerSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.IceServer',
-      packedSize: 32,
-      fields: [
-        { name: 'urls', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
-        { name: 'username', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'credential', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    sharing.mojom.IceServerSpec, 'sharing.mojom.IceServer', [
+      mojo.internal.StructField('urls', 0, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('username', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('credential', 16, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: WebRtcDependencies
-sharing.mojom.WebRtcDependenciesSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.WebRtcDependencies',
-      packedSize: 40,
-      fields: [
-        { name: 'socket_manager', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.P2PSocketManagerRemote), nullable: false, minVersion: 0 },
-        { name: 'mdns_responder_factory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(sharing.mojom.MdnsResponderFactoryRemote), nullable: false, minVersion: 0 },
-        { name: 'ice_config_fetcher', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(sharing.mojom.IceConfigFetcherRemote), nullable: false, minVersion: 0 },
-        { name: 'messenger', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(sharing.mojom.WebRtcSignalingMessengerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    sharing.mojom.WebRtcDependenciesSpec, 'sharing.mojom.WebRtcDependencies', [
+      mojo.internal.StructField('socket_manager', 0, 0, mojo.internal.InterfaceProxy(network.mojom.P2PSocketManagerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('mdns_responder_factory', 8, 0, mojo.internal.InterfaceProxy(sharing.mojom.MdnsResponderFactoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('ice_config_fetcher', 16, 0, mojo.internal.InterfaceProxy(sharing.mojom.IceConfigFetcherRemote), null, false, 0, undefined),
+      mojo.internal.StructField('messenger', 24, 0, mojo.internal.InterfaceProxy(sharing.mojom.WebRtcSignalingMessengerRemote), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Interface: IceConfigFetcher
-sharing.mojom.IceConfigFetcher = {};
+mojo.internal.Struct(
+    sharing.mojom.IceConfigFetcher_GetIceServers_ParamsSpec, 'sharing.mojom.IceConfigFetcher_GetIceServers_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-sharing.mojom.IceConfigFetcher_GetIceServers_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.IceConfigFetcher_GetIceServers_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParamsSpec, 'sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParams', [
+      mojo.internal.StructField('ice_servers', 0, 0, mojo.internal.Array(sharing.mojom.IceServerSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 sharing.mojom.IceConfigFetcherPendingReceiver = class {
   constructor(handle) {
@@ -111,52 +108,16 @@ sharing.mojom.IceConfigFetcher.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetIceServers
-sharing.mojom.IceConfigFetcher_GetIceServers_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.IceConfigFetcher.GetIceServers_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.IceConfigFetcher.GetIceServers_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'ice_servers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(sharing.mojom.IceServerSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 sharing.mojom.IceConfigFetcherPtr = sharing.mojom.IceConfigFetcherRemote;
 sharing.mojom.IceConfigFetcherRequest = sharing.mojom.IceConfigFetcherPendingReceiver;
 
 
 // Interface: MdnsResponderFactory
-sharing.mojom.MdnsResponderFactory = {};
-
-sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'responder_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.MdnsResponderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_ParamsSpec, 'sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_Params', [
+      mojo.internal.StructField('responder_receiver', 0, 0, mojo.internal.InterfaceRequest(network.mojom.MdnsResponderRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 sharing.mojom.MdnsResponderFactoryPendingReceiver = class {
   constructor(handle) {
@@ -211,21 +172,6 @@ sharing.mojom.MdnsResponderFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateMdnsResponder
-sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.MdnsResponderFactory.CreateMdnsResponder_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'responder_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.MdnsResponderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 sharing.mojom.MdnsResponderFactoryPtr = sharing.mojom.MdnsResponderFactoryRemote;
 sharing.mojom.MdnsResponderFactoryRequest = sharing.mojom.MdnsResponderFactoryPendingReceiver;
 

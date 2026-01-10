@@ -28,13 +28,109 @@ var gfx = gfx || {};
 var ui = ui || {};
 var blink = blink || {};
 
+blink.mojom.SelectionGranularitySpec = { $: mojo.internal.Enum() };
+blink.mojom.PanActionSpec = { $: mojo.internal.Enum() };
+blink.mojom.ImeStateSpec = { $: mojo.internal.Enum() };
+blink.mojom.FocusStateSpec = { $: mojo.internal.Enum() };
+blink.mojom.KeyDataSpec = { $: {} };
+blink.mojom.PointerDataSpec = { $: {} };
+blink.mojom.WheelDataSpec = { $: {} };
+blink.mojom.MouseDataSpec = { $: {} };
+blink.mojom.ScrollDataSpec = { $: {} };
+blink.mojom.PinchBeginDataSpec = { $: {} };
+blink.mojom.PinchUpdateDataSpec = { $: {} };
+blink.mojom.PinchEndDataSpec = { $: {} };
+blink.mojom.FlingDataSpec = { $: {} };
+blink.mojom.TapDataSpec = { $: {} };
+blink.mojom.TapDownDataSpec = { $: {} };
+blink.mojom.GestureDataSpec = { $: {} };
+blink.mojom.TouchPointSpec = { $: {} };
+blink.mojom.TouchDataSpec = { $: {} };
+blink.mojom.EventSpec = { $: {} };
+blink.mojom.DidOverscrollParamsSpec = { $: {} };
+blink.mojom.TouchActionOptionalSpec = { $: {} };
+blink.mojom.EditCommandSpec = { $: {} };
+blink.mojom.SelectAroundCaretResultSpec = { $: {} };
+blink.mojom.WidgetInputHandlerHost = {};
+blink.mojom.WidgetInputHandlerHost.$interfaceName = 'blink.mojom.WidgetInputHandlerHost';
+blink.mojom.WidgetInputHandlerHost_SetTouchActionFromMain_ParamsSpec = { $: {} };
+blink.mojom.WidgetInputHandlerHost_SetPanAction_ParamsSpec = { $: {} };
+blink.mojom.WidgetInputHandlerHost_DidOverscroll_ParamsSpec = { $: {} };
+blink.mojom.WidgetInputHandlerHost_DidStartScrollingViewport_ParamsSpec = { $: {} };
+blink.mojom.WidgetInputHandlerHost_ImeCancelComposition_ParamsSpec = { $: {} };
+blink.mojom.WidgetInputHandlerHost_ImeCompositionRangeChanged_ParamsSpec = { $: {} };
+blink.mojom.WidgetInputHandlerHost_SetMouseCapture_ParamsSpec = { $: {} };
+blink.mojom.WidgetInputHandlerHost_SetAutoscrollSelectionActiveInMainFrame_ParamsSpec = { $: {} };
+blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ParamsSpec = { $: {} };
+blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ResponseParamsSpec = { $: {} };
+blink.mojom.FrameWidgetInputHandler = {};
+blink.mojom.FrameWidgetInputHandler.$interfaceName = 'blink.mojom.FrameWidgetInputHandler';
+blink.mojom.FrameWidgetInputHandler_AddImeTextSpansToExistingText_ParamsSpec = { $: {} };
+blink.mojom.FrameWidgetInputHandler_ClearImeTextSpansByType_ParamsSpec = { $: {} };
+blink.mojom.FrameWidgetInputHandler_SetCompositionFromExistingText_ParamsSpec = { $: {} };
+blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndDelete_ParamsSpec = { $: {} };
+blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndReplace_ParamsSpec = { $: {} };
+blink.mojom.FrameWidgetInputHandler_DeleteSurroundingText_ParamsSpec = { $: {} };
+blink.mojom.FrameWidgetInputHandler_DeleteSurroundingTextInCodePoints_ParamsSpec = { $: {} };
+blink.mojom.FrameWidgetInputHandler_SetEditableSelectionOffsets_ParamsSpec = { $: {} };
+blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ParamsSpec = { $: {} };
+blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ResponseParamsSpec = { $: {} };
+blink.mojom.FrameWidgetInputHandler_ExecuteEditCommand_ParamsSpec = { $: {} };
+blink.mojom.FrameWidgetInputHandler_Undo_ParamsSpec = { $: {} };
+blink.mojom.FrameWidgetInputHandler_Redo_ParamsSpec = { $: {} };
+blink.mojom.FrameWidgetInputHandler_Cut_ParamsSpec = { $: {} };
+blink.mojom.FrameWidgetInputHandler_Copy_ParamsSpec = { $: {} };
+blink.mojom.FrameWidgetInputHandler_CopyToFindPboard_ParamsSpec = { $: {} };
+blink.mojom.FrameWidgetInputHandler_CenterSelection_ParamsSpec = { $: {} };
+blink.mojom.FrameWidgetInputHandler_Paste_ParamsSpec = { $: {} };
+blink.mojom.FrameWidgetInputHandler_PasteAndMatchStyle_ParamsSpec = { $: {} };
+blink.mojom.FrameWidgetInputHandler_Delete_ParamsSpec = { $: {} };
+blink.mojom.FrameWidgetInputHandler_SelectAll_ParamsSpec = { $: {} };
+blink.mojom.FrameWidgetInputHandler_CollapseSelection_ParamsSpec = { $: {} };
+blink.mojom.FrameWidgetInputHandler_Replace_ParamsSpec = { $: {} };
+blink.mojom.FrameWidgetInputHandler_ReplaceMisspelling_ParamsSpec = { $: {} };
+blink.mojom.FrameWidgetInputHandler_SelectRange_ParamsSpec = { $: {} };
+blink.mojom.FrameWidgetInputHandler_AdjustSelectionByCharacterOffset_ParamsSpec = { $: {} };
+blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ParamsSpec = { $: {} };
+blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ResponseParamsSpec = { $: {} };
+blink.mojom.FrameWidgetInputHandler_MoveRangeSelectionExtent_ParamsSpec = { $: {} };
+blink.mojom.FrameWidgetInputHandler_ScrollFocusedEditableNodeIntoView_ParamsSpec = { $: {} };
+blink.mojom.FrameWidgetInputHandler_WaitForPageScaleAnimationForTesting_ParamsSpec = { $: {} };
+blink.mojom.FrameWidgetInputHandler_WaitForPageScaleAnimationForTesting_ResponseParamsSpec = { $: {} };
+blink.mojom.FrameWidgetInputHandler_MoveCaret_ParamsSpec = { $: {} };
+blink.mojom.FrameWidgetInputHandler_StartAutoscrollForSelectionToPoint_ParamsSpec = { $: {} };
+blink.mojom.FrameWidgetInputHandler_StopAutoscroll_ParamsSpec = { $: {} };
+blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ParamsSpec = { $: {} };
+blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ResponseParamsSpec = { $: {} };
+blink.mojom.WidgetInputHandler = {};
+blink.mojom.WidgetInputHandler.$interfaceName = 'blink.mojom.WidgetInputHandler';
+blink.mojom.WidgetInputHandler_SetFocus_ParamsSpec = { $: {} };
+blink.mojom.WidgetInputHandler_MouseCaptureLost_ParamsSpec = { $: {} };
+blink.mojom.WidgetInputHandler_SetEditCommandsForNextKeyEvent_ParamsSpec = { $: {} };
+blink.mojom.WidgetInputHandler_CursorVisibilityChanged_ParamsSpec = { $: {} };
+blink.mojom.WidgetInputHandler_ImeSetComposition_ParamsSpec = { $: {} };
+blink.mojom.WidgetInputHandler_ImeSetComposition_ResponseParamsSpec = { $: {} };
+blink.mojom.WidgetInputHandler_ImeCommitText_ParamsSpec = { $: {} };
+blink.mojom.WidgetInputHandler_ImeCommitText_ResponseParamsSpec = { $: {} };
+blink.mojom.WidgetInputHandler_ImeFinishComposingText_ParamsSpec = { $: {} };
+blink.mojom.WidgetInputHandler_RequestTextInputStateUpdate_ParamsSpec = { $: {} };
+blink.mojom.WidgetInputHandler_RequestCompositionUpdates_ParamsSpec = { $: {} };
+blink.mojom.WidgetInputHandler_DispatchEvent_ParamsSpec = { $: {} };
+blink.mojom.WidgetInputHandler_DispatchEvent_ResponseParamsSpec = { $: {} };
+blink.mojom.WidgetInputHandler_DispatchNonBlockingEvent_ParamsSpec = { $: {} };
+blink.mojom.WidgetInputHandler_WaitForInputProcessed_ParamsSpec = { $: {} };
+blink.mojom.WidgetInputHandler_WaitForInputProcessed_ResponseParamsSpec = { $: {} };
+blink.mojom.WidgetInputHandler_PingMainThread_ParamsSpec = { $: {} };
+blink.mojom.WidgetInputHandler_PingMainThread_ResponseParamsSpec = { $: {} };
+blink.mojom.WidgetInputHandler_AttachSynchronousCompositor_ParamsSpec = { $: {} };
+blink.mojom.WidgetInputHandler_GetFrameWidgetInputHandler_ParamsSpec = { $: {} };
+blink.mojom.WidgetInputHandler_UpdateBrowserControlsState_ParamsSpec = { $: {} };
 
 // Enum: SelectionGranularity
 blink.mojom.SelectionGranularity = {
   kWord: 0,
   kSentence: 1,
 };
-blink.mojom.SelectionGranularitySpec = { $: mojo.internal.Enum() };
 
 // Enum: PanAction
 blink.mojom.PanAction = {
@@ -43,14 +139,12 @@ blink.mojom.PanAction = {
   kMoveCursorOrScroll: 2,
   kStylusWritable: 3,
 };
-blink.mojom.PanActionSpec = { $: mojo.internal.Enum() };
 
 // Enum: ImeState
 blink.mojom.ImeState = {
   kNone: 0,
   kTextSuggestionSelected: 1,
 };
-blink.mojom.ImeStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: FocusState
 blink.mojom.FocusState = {
@@ -58,479 +152,287 @@ blink.mojom.FocusState = {
   kNotFocusedAndActive: 1,
   kNotFocusedAndNotActive: 2,
 };
-blink.mojom.FocusStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: KeyData
-blink.mojom.KeyDataSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.KeyData',
-      packedSize: 48,
-      fields: [
-        { name: 'dom_key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'dom_code', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'windows_key_code', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'native_key_code', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'is_system_key', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_browser_shortcut', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_confirmed_physical_keyboard_input', packedOffset: 32, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'unmodified_text', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.KeyDataSpec, 'blink.mojom.KeyData', [
+      mojo.internal.StructField('dom_key', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('dom_code', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('windows_key_code', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('native_key_code', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_system_key', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_browser_shortcut', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_confirmed_physical_keyboard_input', 32, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('text', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('unmodified_text', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: PointerData
-blink.mojom.PointerDataSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PointerData',
-      packedSize: 96,
-      fields: [
-        { name: 'pointer_id', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'force', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'tilt_x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'tilt_y', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'tangential_pressure', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'twist', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'button', packedOffset: 64, packedBitOffset: 0, type: blink.mojom.ButtonSpec, nullable: false, minVersion: 0 },
-        { name: 'pointer_type', packedOffset: 16, packedBitOffset: 0, type: ui.mojom.EventPointerTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'movement_x', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'movement_y', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'is_raw_movement_event', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'widget_position', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'screen_position', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'mouse_data', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.MouseDataSpec, nullable: true, minVersion: 0 },
-        { name: 'device_id', packedOffset: 76, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 96}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PointerDataSpec, 'blink.mojom.PointerData', [
+      mojo.internal.StructField('pointer_id', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('force', 52, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('tilt_x', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('tilt_y', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('tangential_pressure', 56, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('twist', 60, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('button', 64, 0, blink.mojom.ButtonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pointer_type', 16, 0, ui.mojom.EventPointerTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('movement_x', 68, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('movement_y', 72, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_raw_movement_event', 80, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('widget_position', 24, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('screen_position', 32, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mouse_data', 40, 0, blink.mojom.MouseDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('device_id', 76, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 96]]);
 
 // Struct: WheelData
-blink.mojom.WheelDataSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WheelData',
-      packedSize: 40,
-      fields: [
-        { name: 'delta_x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'delta_y', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'wheel_ticks_x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'wheel_ticks_y', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'acceleration_ratio_x', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'acceleration_ratio_y', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'phase', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'momentum_phase', packedOffset: 29, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'cancelable', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.DispatchTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'event_action', packedOffset: 30, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'delta_units', packedOffset: 31, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WheelDataSpec, 'blink.mojom.WheelData', [
+      mojo.internal.StructField('delta_x', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('delta_y', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('wheel_ticks_x', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('wheel_ticks_y', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('acceleration_ratio_x', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('acceleration_ratio_y', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('phase', 28, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('momentum_phase', 29, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('cancelable', 24, 0, blink.mojom.DispatchTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event_action', 30, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('delta_units', 31, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: MouseData
-blink.mojom.MouseDataSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MouseData',
-      packedSize: 24,
-      fields: [
-        { name: 'click_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'wheel_data', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WheelDataSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.MouseDataSpec, 'blink.mojom.MouseData', [
+      mojo.internal.StructField('click_count', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('wheel_data', 0, 0, blink.mojom.WheelDataSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: ScrollData
-blink.mojom.ScrollDataSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ScrollData',
-      packedSize: 40,
-      fields: [
-        { name: 'delta_x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'delta_y', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'delta_units', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.ScrollGranularitySpec, nullable: false, minVersion: 0 },
-        { name: 'target_viewport', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'inertial_phase', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.InertialPhaseStateSpec, nullable: false, minVersion: 0 },
-        { name: 'synthetic', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'pointer_count', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'cursor_control', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ScrollDataSpec, 'blink.mojom.ScrollData', [
+      mojo.internal.StructField('delta_x', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('delta_y', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('delta_units', 0, 0, ui.mojom.ScrollGranularitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('target_viewport', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('inertial_phase', 16, 0, blink.mojom.InertialPhaseStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('synthetic', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('pointer_count', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('cursor_control', 24, 2, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: PinchBeginData
-blink.mojom.PinchBeginDataSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PinchBeginData',
-      packedSize: 16,
-      fields: [
-        { name: 'needs_wheel_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PinchBeginDataSpec, 'blink.mojom.PinchBeginData', [
+      mojo.internal.StructField('needs_wheel_event', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: PinchUpdateData
-blink.mojom.PinchUpdateDataSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PinchUpdateData',
-      packedSize: 16,
-      fields: [
-        { name: 'scale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'zoom_disabled', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'needs_wheel_event', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PinchUpdateDataSpec, 'blink.mojom.PinchUpdateData', [
+      mojo.internal.StructField('scale', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('zoom_disabled', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('needs_wheel_event', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: PinchEndData
-blink.mojom.PinchEndDataSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PinchEndData',
-      packedSize: 16,
-      fields: [
-        { name: 'needs_wheel_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PinchEndDataSpec, 'blink.mojom.PinchEndData', [
+      mojo.internal.StructField('needs_wheel_event', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: FlingData
-blink.mojom.FlingDataSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FlingData',
-      packedSize: 24,
-      fields: [
-        { name: 'velocity_x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'velocity_y', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'target_viewport', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'prevent_boosting', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FlingDataSpec, 'blink.mojom.FlingData', [
+      mojo.internal.StructField('velocity_x', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('velocity_y', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('target_viewport', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('prevent_boosting', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: TapData
-blink.mojom.TapDataSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TapData',
-      packedSize: 16,
-      fields: [
-        { name: 'tap_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'needs_wheel_event', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.TapDataSpec, 'blink.mojom.TapData', [
+      mojo.internal.StructField('tap_count', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('needs_wheel_event', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: TapDownData
-blink.mojom.TapDownDataSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TapDownData',
-      packedSize: 16,
-      fields: [
-        { name: 'tap_down_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.TapDownDataSpec, 'blink.mojom.TapDownData', [
+      mojo.internal.StructField('tap_down_count', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: GestureData
-blink.mojom.GestureDataSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.GestureData',
-      packedSize: 112,
-      fields: [
-        { name: 'screen_position', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'widget_position', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'source_device', packedOffset: 88, packedBitOffset: 0, type: blink.mojom.GestureDeviceSpec, nullable: false, minVersion: 0 },
-        { name: 'is_source_touch_event_set_blocking', packedOffset: 100, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'primary_pointer_type', packedOffset: 16, packedBitOffset: 0, type: ui.mojom.EventPointerTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'primary_unique_touch_event_id', packedOffset: 92, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'unique_touch_event_id', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'contact_size', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: true, minVersion: 0 },
-        { name: 'scroll_data', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.ScrollDataSpec, nullable: true, minVersion: 0 },
-        { name: 'pinch_begin_data', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.PinchBeginDataSpec, nullable: true, minVersion: 0 },
-        { name: 'pinch_update_data', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.PinchUpdateDataSpec, nullable: true, minVersion: 0 },
-        { name: 'pinch_end_data', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.PinchEndDataSpec, nullable: true, minVersion: 0 },
-        { name: 'tap_data', packedOffset: 64, packedBitOffset: 0, type: blink.mojom.TapDataSpec, nullable: true, minVersion: 0 },
-        { name: 'tap_down_data', packedOffset: 72, packedBitOffset: 0, type: blink.mojom.TapDownDataSpec, nullable: true, minVersion: 0 },
-        { name: 'fling_data', packedOffset: 80, packedBitOffset: 0, type: blink.mojom.FlingDataSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 112}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.GestureDataSpec, 'blink.mojom.GestureData', [
+      mojo.internal.StructField('screen_position', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('widget_position', 8, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source_device', 88, 0, blink.mojom.GestureDeviceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_source_touch_event_set_blocking', 100, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('primary_pointer_type', 16, 0, ui.mojom.EventPointerTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('primary_unique_touch_event_id', 92, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('unique_touch_event_id', 96, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('contact_size', 24, 0, gfx.mojom.SizeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('scroll_data', 32, 0, blink.mojom.ScrollDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('pinch_begin_data', 40, 0, blink.mojom.PinchBeginDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('pinch_update_data', 48, 0, blink.mojom.PinchUpdateDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('pinch_end_data', 56, 0, blink.mojom.PinchEndDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('tap_data', 64, 0, blink.mojom.TapDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('tap_down_data', 72, 0, blink.mojom.TapDownDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('fling_data', 80, 0, blink.mojom.FlingDataSpec, null, true, 0, undefined),
+    ],
+    [[0, 112]]);
 
 // Struct: TouchPoint
-blink.mojom.TouchPointSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TouchPoint',
-      packedSize: 32,
-      fields: [
-        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.TouchStateSpec, nullable: false, minVersion: 0 },
-        { name: 'radius_x', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'radius_y', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'rotation_angle', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'pointer_data', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PointerDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.TouchPointSpec, 'blink.mojom.TouchPoint', [
+      mojo.internal.StructField('state', 8, 0, blink.mojom.TouchStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('radius_x', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('radius_y', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('rotation_angle', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('pointer_data', 0, 0, blink.mojom.PointerDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: TouchData
-blink.mojom.TouchDataSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TouchData',
-      packedSize: 32,
-      fields: [
-        { name: 'cancelable', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DispatchTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'moved_beyond_slop_region', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'touch_start_or_first_move', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'hovering', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'unique_touch_event_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'touches', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.TouchPointSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.TouchDataSpec, 'blink.mojom.TouchData', [
+      mojo.internal.StructField('cancelable', 8, 0, blink.mojom.DispatchTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('moved_beyond_slop_region', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('touch_start_or_first_move', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('hovering', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('unique_touch_event_id', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('touches', 0, 0, mojo.internal.Array(blink.mojom.TouchPointSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: Event
-blink.mojom.EventSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.Event',
-      packedSize: 72,
-      fields: [
-        { name: 'type', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.EventTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'modifiers', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'latency', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.LatencyInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'event_latency_metadata', packedOffset: 16, packedBitOffset: 0, type: ui.mojom.EventLatencyMetadataSpec, nullable: false, minVersion: 0 },
-        { name: 'key_data', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.KeyDataSpec, nullable: true, minVersion: 0 },
-        { name: 'pointer_data', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.PointerDataSpec, nullable: true, minVersion: 0 },
-        { name: 'gesture_data', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.GestureDataSpec, nullable: true, minVersion: 0 },
-        { name: 'touch_data', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.TouchDataSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 72}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.EventSpec, 'blink.mojom.Event', [
+      mojo.internal.StructField('type', 56, 0, blink.mojom.EventTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('modifiers', 60, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 0, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('latency', 8, 0, ui.mojom.LatencyInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event_latency_metadata', 16, 0, ui.mojom.EventLatencyMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('key_data', 24, 0, blink.mojom.KeyDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('pointer_data', 32, 0, blink.mojom.PointerDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('gesture_data', 40, 0, blink.mojom.GestureDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('touch_data', 48, 0, blink.mojom.TouchDataSpec, null, true, 0, undefined),
+    ],
+    [[0, 72]]);
 
 // Struct: DidOverscrollParams
-blink.mojom.DidOverscrollParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DidOverscrollParams',
-      packedSize: 56,
-      fields: [
-        { name: 'accumulated_overscroll', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.Vector2dFSpec, nullable: false, minVersion: 0 },
-        { name: 'latest_overscroll_delta', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.Vector2dFSpec, nullable: false, minVersion: 0 },
-        { name: 'current_fling_velocity', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.Vector2dFSpec, nullable: false, minVersion: 0 },
-        { name: 'causal_event_viewport_point', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'overscroll_behavior', packedOffset: 32, packedBitOffset: 0, type: cc.mojom.OverscrollBehaviorSpec, nullable: false, minVersion: 0 },
-        { name: 'source_device', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.GestureDeviceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.DidOverscrollParamsSpec, 'blink.mojom.DidOverscrollParams', [
+      mojo.internal.StructField('accumulated_overscroll', 0, 0, gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('latest_overscroll_delta', 8, 0, gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('current_fling_velocity', 16, 0, gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('causal_event_viewport_point', 24, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('overscroll_behavior', 32, 0, cc.mojom.OverscrollBehaviorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source_device', 40, 0, blink.mojom.GestureDeviceSpec, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Struct: TouchActionOptional
-blink.mojom.TouchActionOptionalSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TouchActionOptional',
-      packedSize: 16,
-      fields: [
-        { name: 'touch_action', packedOffset: 0, packedBitOffset: 0, type: cc.mojom.TouchActionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.TouchActionOptionalSpec, 'blink.mojom.TouchActionOptional', [
+      mojo.internal.StructField('touch_action', 0, 0, cc.mojom.TouchActionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: EditCommand
-blink.mojom.EditCommandSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.EditCommand',
-      packedSize: 24,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.EditCommandSpec, 'blink.mojom.EditCommand', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: SelectAroundCaretResult
-blink.mojom.SelectAroundCaretResultSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SelectAroundCaretResult',
-      packedSize: 24,
-      fields: [
-        { name: 'extended_start_adjust', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'extended_end_adjust', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'word_start_adjust', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'word_end_adjust', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SelectAroundCaretResultSpec, 'blink.mojom.SelectAroundCaretResult', [
+      mojo.internal.StructField('extended_start_adjust', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('extended_end_adjust', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('word_start_adjust', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('word_end_adjust', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: WidgetInputHandlerHost
-blink.mojom.WidgetInputHandlerHost = {};
+mojo.internal.Struct(
+    blink.mojom.WidgetInputHandlerHost_SetTouchActionFromMain_ParamsSpec, 'blink.mojom.WidgetInputHandlerHost_SetTouchActionFromMain_Params', [
+      mojo.internal.StructField('touch_action', 0, 0, cc.mojom.TouchActionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.WidgetInputHandlerHost_SetTouchActionFromMain_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandlerHost_SetTouchActionFromMain_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'touch_action', packedOffset: 0, packedBitOffset: 0, type: cc.mojom.TouchActionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WidgetInputHandlerHost_SetPanAction_ParamsSpec, 'blink.mojom.WidgetInputHandlerHost_SetPanAction_Params', [
+      mojo.internal.StructField('pan_action', 0, 0, blink.mojom.PanActionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.WidgetInputHandlerHost_SetPanAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandlerHost_SetPanAction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pan_action', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PanActionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WidgetInputHandlerHost_DidOverscroll_ParamsSpec, 'blink.mojom.WidgetInputHandlerHost_DidOverscroll_Params', [
+      mojo.internal.StructField('params', 0, 0, blink.mojom.DidOverscrollParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.WidgetInputHandlerHost_DidOverscroll_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandlerHost_DidOverscroll_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DidOverscrollParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WidgetInputHandlerHost_DidStartScrollingViewport_ParamsSpec, 'blink.mojom.WidgetInputHandlerHost_DidStartScrollingViewport_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.WidgetInputHandlerHost_DidStartScrollingViewport_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandlerHost_DidStartScrollingViewport_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WidgetInputHandlerHost_ImeCancelComposition_ParamsSpec, 'blink.mojom.WidgetInputHandlerHost_ImeCancelComposition_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.WidgetInputHandlerHost_ImeCancelComposition_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandlerHost_ImeCancelComposition_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WidgetInputHandlerHost_ImeCompositionRangeChanged_ParamsSpec, 'blink.mojom.WidgetInputHandlerHost_ImeCompositionRangeChanged_Params', [
+      mojo.internal.StructField('range', 0, 0, gfx.mojom.RangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('character_bounds', 8, 0, mojo.internal.Array(gfx.mojom.RectSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.WidgetInputHandlerHost_ImeCompositionRangeChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandlerHost_ImeCompositionRangeChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'range', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RangeSpec, nullable: false, minVersion: 0 },
-        { name: 'character_bounds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.RectSpec, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WidgetInputHandlerHost_SetMouseCapture_ParamsSpec, 'blink.mojom.WidgetInputHandlerHost_SetMouseCapture_Params', [
+      mojo.internal.StructField('capture', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.WidgetInputHandlerHost_SetMouseCapture_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandlerHost_SetMouseCapture_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'capture', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WidgetInputHandlerHost_SetAutoscrollSelectionActiveInMainFrame_ParamsSpec, 'blink.mojom.WidgetInputHandlerHost_SetAutoscrollSelectionActiveInMainFrame_Params', [
+      mojo.internal.StructField('autoscroll_selection', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.WidgetInputHandlerHost_SetAutoscrollSelectionActiveInMainFrame_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandlerHost_SetAutoscrollSelectionActiveInMainFrame_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'autoscroll_selection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ParamsSpec, 'blink.mojom.WidgetInputHandlerHost_RequestMouseLock_Params', [
+      mojo.internal.StructField('from_user_gesture', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('unadjusted_movement', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandlerHost_RequestMouseLock_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'from_user_gesture', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'unadjusted_movement', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ResponseParamsSpec, 'blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ResponseParams', [
+      mojo.internal.StructField('result', 8, 0, blink.mojom.PointerLockResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('context', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.PointerLockContextRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 blink.mojom.WidgetInputHandlerHostPendingReceiver = class {
   constructor(handle) {
@@ -657,586 +559,235 @@ blink.mojom.WidgetInputHandlerHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetTouchActionFromMain
-blink.mojom.WidgetInputHandlerHost_SetTouchActionFromMain_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandlerHost.SetTouchActionFromMain_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'touch_action', packedOffset: 0, packedBitOffset: 0, type: cc.mojom.TouchActionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetPanAction
-blink.mojom.WidgetInputHandlerHost_SetPanAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandlerHost.SetPanAction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pan_action', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PanActionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DidOverscroll
-blink.mojom.WidgetInputHandlerHost_DidOverscroll_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandlerHost.DidOverscroll_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DidOverscrollParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DidStartScrollingViewport
-blink.mojom.WidgetInputHandlerHost_DidStartScrollingViewport_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandlerHost.DidStartScrollingViewport_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for ImeCancelComposition
-blink.mojom.WidgetInputHandlerHost_ImeCancelComposition_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandlerHost.ImeCancelComposition_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for ImeCompositionRangeChanged
-blink.mojom.WidgetInputHandlerHost_ImeCompositionRangeChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandlerHost.ImeCompositionRangeChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'range', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RangeSpec, nullable: false, minVersion: 0 },
-        { name: 'character_bounds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.RectSpec, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SetMouseCapture
-blink.mojom.WidgetInputHandlerHost_SetMouseCapture_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandlerHost.SetMouseCapture_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'capture', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetAutoscrollSelectionActiveInMainFrame
-blink.mojom.WidgetInputHandlerHost_SetAutoscrollSelectionActiveInMainFrame_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandlerHost.SetAutoscrollSelectionActiveInMainFrame_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'autoscroll_selection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestMouseLock
-blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandlerHost.RequestMouseLock_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'from_user_gesture', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'unadjusted_movement', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandlerHost.RequestMouseLock_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PointerLockResultSpec, nullable: false, minVersion: 0 },
-        { name: 'context', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.PointerLockContextRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.WidgetInputHandlerHostPtr = blink.mojom.WidgetInputHandlerHostRemote;
 blink.mojom.WidgetInputHandlerHostRequest = blink.mojom.WidgetInputHandlerHostPendingReceiver;
 
 
 // Interface: FrameWidgetInputHandler
-blink.mojom.FrameWidgetInputHandler = {};
+mojo.internal.Struct(
+    blink.mojom.FrameWidgetInputHandler_AddImeTextSpansToExistingText_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_AddImeTextSpansToExistingText_Params', [
+      mojo.internal.StructField('start', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('end', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('ime_text_spans', 0, 0, mojo.internal.Array(ui.mojom.ImeTextSpanSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.FrameWidgetInputHandler_AddImeTextSpansToExistingText_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler_AddImeTextSpansToExistingText_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'start', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'end', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'ime_text_spans', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ui.mojom.ImeTextSpanSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FrameWidgetInputHandler_ClearImeTextSpansByType_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_ClearImeTextSpansByType_Params', [
+      mojo.internal.StructField('start', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('end', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, ui.mojom.ImeTextSpanTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.FrameWidgetInputHandler_ClearImeTextSpansByType_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler_ClearImeTextSpansByType_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'start', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'end', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.ImeTextSpanTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FrameWidgetInputHandler_SetCompositionFromExistingText_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_SetCompositionFromExistingText_Params', [
+      mojo.internal.StructField('start', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('end', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('ime_text_spans', 0, 0, mojo.internal.Array(ui.mojom.ImeTextSpanSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.FrameWidgetInputHandler_SetCompositionFromExistingText_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler_SetCompositionFromExistingText_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'start', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'end', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'ime_text_spans', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ui.mojom.ImeTextSpanSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndDelete_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndDelete_Params', [
+      mojo.internal.StructField('before', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('after', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndDelete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndDelete_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'before', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'after', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndReplace_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndReplace_Params', [
+      mojo.internal.StructField('before', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('after', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('replacement_text', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndReplace_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndReplace_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'before', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'after', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'replacement_text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FrameWidgetInputHandler_DeleteSurroundingText_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_DeleteSurroundingText_Params', [
+      mojo.internal.StructField('before', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('after', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.FrameWidgetInputHandler_DeleteSurroundingText_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler_DeleteSurroundingText_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'before', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'after', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FrameWidgetInputHandler_DeleteSurroundingTextInCodePoints_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_DeleteSurroundingTextInCodePoints_Params', [
+      mojo.internal.StructField('before', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('after', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.FrameWidgetInputHandler_DeleteSurroundingTextInCodePoints_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler_DeleteSurroundingTextInCodePoints_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'before', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'after', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FrameWidgetInputHandler_SetEditableSelectionOffsets_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_SetEditableSelectionOffsets_Params', [
+      mojo.internal.StructField('start', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('end', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.FrameWidgetInputHandler_SetEditableSelectionOffsets_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler_SetEditableSelectionOffsets_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'start', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'end', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_Params', [
+      mojo.internal.StructField('gesture_data', 0, 0, blink.mojom.StylusWritingGestureDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'gesture_data', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.StylusWritingGestureDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ResponseParamsSpec, 'blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, blink.mojom.HandwritingGestureResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.FrameWidgetInputHandler_ExecuteEditCommand_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler_ExecuteEditCommand_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'command', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FrameWidgetInputHandler_ExecuteEditCommand_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_ExecuteEditCommand_Params', [
+      mojo.internal.StructField('command', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.FrameWidgetInputHandler_Undo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler_Undo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FrameWidgetInputHandler_Undo_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_Undo_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.FrameWidgetInputHandler_Redo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler_Redo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FrameWidgetInputHandler_Redo_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_Redo_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.FrameWidgetInputHandler_Cut_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler_Cut_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FrameWidgetInputHandler_Cut_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_Cut_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.FrameWidgetInputHandler_Copy_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler_Copy_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FrameWidgetInputHandler_Copy_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_Copy_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.FrameWidgetInputHandler_CopyToFindPboard_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler_CopyToFindPboard_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FrameWidgetInputHandler_CopyToFindPboard_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_CopyToFindPboard_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.FrameWidgetInputHandler_CenterSelection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler_CenterSelection_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FrameWidgetInputHandler_CenterSelection_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_CenterSelection_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.FrameWidgetInputHandler_Paste_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler_Paste_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FrameWidgetInputHandler_Paste_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_Paste_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.FrameWidgetInputHandler_PasteAndMatchStyle_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler_PasteAndMatchStyle_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FrameWidgetInputHandler_PasteAndMatchStyle_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_PasteAndMatchStyle_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.FrameWidgetInputHandler_Delete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler_Delete_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FrameWidgetInputHandler_Delete_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_Delete_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.FrameWidgetInputHandler_SelectAll_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler_SelectAll_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FrameWidgetInputHandler_SelectAll_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_SelectAll_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.FrameWidgetInputHandler_CollapseSelection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler_CollapseSelection_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FrameWidgetInputHandler_CollapseSelection_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_CollapseSelection_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.FrameWidgetInputHandler_Replace_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler_Replace_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'word', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FrameWidgetInputHandler_Replace_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_Replace_Params', [
+      mojo.internal.StructField('word', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.FrameWidgetInputHandler_ReplaceMisspelling_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler_ReplaceMisspelling_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'word', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FrameWidgetInputHandler_ReplaceMisspelling_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_ReplaceMisspelling_Params', [
+      mojo.internal.StructField('word', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.FrameWidgetInputHandler_SelectRange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler_SelectRange_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'base', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
-        { name: 'extent', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FrameWidgetInputHandler_SelectRange_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_SelectRange_Params', [
+      mojo.internal.StructField('base', 0, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('extent', 8, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.FrameWidgetInputHandler_AdjustSelectionByCharacterOffset_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler_AdjustSelectionByCharacterOffset_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'start', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'end', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'behavior', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SelectionMenuBehaviorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FrameWidgetInputHandler_AdjustSelectionByCharacterOffset_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_AdjustSelectionByCharacterOffset_Params', [
+      mojo.internal.StructField('start', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('end', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('behavior', 8, 0, blink.mojom.SelectionMenuBehaviorSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'granularity', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SelectionGranularitySpec, nullable: false, minVersion: 0 },
-        { name: 'should_show_handle', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'should_show_context_menu', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_Params', [
+      mojo.internal.StructField('granularity', 0, 0, blink.mojom.SelectionGranularitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('should_show_handle', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('should_show_context_menu', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.FrameWidgetInputHandler_MoveRangeSelectionExtent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler_MoveRangeSelectionExtent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'extent', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ResponseParamsSpec, 'blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, blink.mojom.SelectAroundCaretResultSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.FrameWidgetInputHandler_ScrollFocusedEditableNodeIntoView_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler_ScrollFocusedEditableNodeIntoView_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FrameWidgetInputHandler_MoveRangeSelectionExtent_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_MoveRangeSelectionExtent_Params', [
+      mojo.internal.StructField('extent', 0, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.FrameWidgetInputHandler_WaitForPageScaleAnimationForTesting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler_WaitForPageScaleAnimationForTesting_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FrameWidgetInputHandler_ScrollFocusedEditableNodeIntoView_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_ScrollFocusedEditableNodeIntoView_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.FrameWidgetInputHandler_MoveCaret_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler_MoveCaret_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FrameWidgetInputHandler_WaitForPageScaleAnimationForTesting_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_WaitForPageScaleAnimationForTesting_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.FrameWidgetInputHandler_StartAutoscrollForSelectionToPoint_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler_StartAutoscrollForSelectionToPoint_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FrameWidgetInputHandler_WaitForPageScaleAnimationForTesting_ResponseParamsSpec, 'blink.mojom.FrameWidgetInputHandler_WaitForPageScaleAnimationForTesting_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.FrameWidgetInputHandler_StopAutoscroll_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler_StopAutoscroll_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FrameWidgetInputHandler_MoveCaret_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_MoveCaret_Params', [
+      mojo.internal.StructField('point', 0, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'range', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RangeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FrameWidgetInputHandler_StartAutoscrollForSelectionToPoint_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_StartAutoscrollForSelectionToPoint_Params', [
+      mojo.internal.StructField('point', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.FrameWidgetInputHandler_StopAutoscroll_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_StopAutoscroll_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_Params', [
+      mojo.internal.StructField('range', 0, 0, gfx.mojom.RangeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ResponseParamsSpec, 'blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ResponseParams', [
+      mojo.internal.StructField('rect', 0, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.FrameWidgetInputHandlerPendingReceiver = class {
   constructor(handle) {
@@ -1527,7 +1078,7 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
     return this.proxy.sendMessage(
       28,  // ordinal
       blink.mojom.FrameWidgetInputHandler_WaitForPageScaleAnimationForTesting_ParamsSpec,
-      null,
+      blink.mojom.FrameWidgetInputHandler_WaitForPageScaleAnimationForTesting_ResponseParamsSpec,
       []);
   }
 
@@ -1579,737 +1130,147 @@ blink.mojom.FrameWidgetInputHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddImeTextSpansToExistingText
-blink.mojom.FrameWidgetInputHandler_AddImeTextSpansToExistingText_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler.AddImeTextSpansToExistingText_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'start', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'end', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'ime_text_spans', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ui.mojom.ImeTextSpanSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ClearImeTextSpansByType
-blink.mojom.FrameWidgetInputHandler_ClearImeTextSpansByType_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler.ClearImeTextSpansByType_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'start', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'end', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.ImeTextSpanTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SetCompositionFromExistingText
-blink.mojom.FrameWidgetInputHandler_SetCompositionFromExistingText_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler.SetCompositionFromExistingText_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'start', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'end', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'ime_text_spans', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ui.mojom.ImeTextSpanSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ExtendSelectionAndDelete
-blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndDelete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler.ExtendSelectionAndDelete_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'before', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'after', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ExtendSelectionAndReplace
-blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndReplace_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler.ExtendSelectionAndReplace_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'before', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'after', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'replacement_text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for DeleteSurroundingText
-blink.mojom.FrameWidgetInputHandler_DeleteSurroundingText_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler.DeleteSurroundingText_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'before', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'after', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DeleteSurroundingTextInCodePoints
-blink.mojom.FrameWidgetInputHandler_DeleteSurroundingTextInCodePoints_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler.DeleteSurroundingTextInCodePoints_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'before', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'after', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetEditableSelectionOffsets
-blink.mojom.FrameWidgetInputHandler_SetEditableSelectionOffsets_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler.SetEditableSelectionOffsets_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'start', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'end', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for HandleStylusWritingGestureAction
-blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler.HandleStylusWritingGestureAction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'gesture_data', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.StylusWritingGestureDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler.HandleStylusWritingGestureAction_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.HandwritingGestureResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ExecuteEditCommand
-blink.mojom.FrameWidgetInputHandler_ExecuteEditCommand_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler.ExecuteEditCommand_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'command', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for Undo
-blink.mojom.FrameWidgetInputHandler_Undo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler.Undo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for Redo
-blink.mojom.FrameWidgetInputHandler_Redo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler.Redo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for Cut
-blink.mojom.FrameWidgetInputHandler_Cut_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler.Cut_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for Copy
-blink.mojom.FrameWidgetInputHandler_Copy_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler.Copy_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for CopyToFindPboard
-blink.mojom.FrameWidgetInputHandler_CopyToFindPboard_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler.CopyToFindPboard_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for CenterSelection
-blink.mojom.FrameWidgetInputHandler_CenterSelection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler.CenterSelection_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for Paste
-blink.mojom.FrameWidgetInputHandler_Paste_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler.Paste_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for PasteAndMatchStyle
-blink.mojom.FrameWidgetInputHandler_PasteAndMatchStyle_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler.PasteAndMatchStyle_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for Delete
-blink.mojom.FrameWidgetInputHandler_Delete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler.Delete_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SelectAll
-blink.mojom.FrameWidgetInputHandler_SelectAll_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler.SelectAll_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for CollapseSelection
-blink.mojom.FrameWidgetInputHandler_CollapseSelection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler.CollapseSelection_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for Replace
-blink.mojom.FrameWidgetInputHandler_Replace_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler.Replace_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'word', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReplaceMisspelling
-blink.mojom.FrameWidgetInputHandler_ReplaceMisspelling_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler.ReplaceMisspelling_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'word', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SelectRange
-blink.mojom.FrameWidgetInputHandler_SelectRange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler.SelectRange_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'base', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
-        { name: 'extent', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for AdjustSelectionByCharacterOffset
-blink.mojom.FrameWidgetInputHandler_AdjustSelectionByCharacterOffset_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler.AdjustSelectionByCharacterOffset_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'start', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'end', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'behavior', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SelectionMenuBehaviorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SelectAroundCaret
-blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler.SelectAroundCaret_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'granularity', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SelectionGranularitySpec, nullable: false, minVersion: 0 },
-        { name: 'should_show_handle', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'should_show_context_menu', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler.SelectAroundCaret_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SelectAroundCaretResultSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for MoveRangeSelectionExtent
-blink.mojom.FrameWidgetInputHandler_MoveRangeSelectionExtent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler.MoveRangeSelectionExtent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'extent', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ScrollFocusedEditableNodeIntoView
-blink.mojom.FrameWidgetInputHandler_ScrollFocusedEditableNodeIntoView_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler.ScrollFocusedEditableNodeIntoView_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for WaitForPageScaleAnimationForTesting
-blink.mojom.FrameWidgetInputHandler_WaitForPageScaleAnimationForTesting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler.WaitForPageScaleAnimationForTesting_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for MoveCaret
-blink.mojom.FrameWidgetInputHandler_MoveCaret_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler.MoveCaret_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StartAutoscrollForSelectionToPoint
-blink.mojom.FrameWidgetInputHandler_StartAutoscrollForSelectionToPoint_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler.StartAutoscrollForSelectionToPoint_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StopAutoscroll
-blink.mojom.FrameWidgetInputHandler_StopAutoscroll_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler.StopAutoscroll_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for RectForEditFieldChars
-blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler.RectForEditFieldChars_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'range', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RangeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameWidgetInputHandler.RectForEditFieldChars_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'rect', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.FrameWidgetInputHandlerPtr = blink.mojom.FrameWidgetInputHandlerRemote;
 blink.mojom.FrameWidgetInputHandlerRequest = blink.mojom.FrameWidgetInputHandlerPendingReceiver;
 
 
 // Interface: WidgetInputHandler
-blink.mojom.WidgetInputHandler = {};
+mojo.internal.Struct(
+    blink.mojom.WidgetInputHandler_SetFocus_ParamsSpec, 'blink.mojom.WidgetInputHandler_SetFocus_Params', [
+      mojo.internal.StructField('state', 0, 0, blink.mojom.FocusStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.WidgetInputHandler_SetFocus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandler_SetFocus_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FocusStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WidgetInputHandler_MouseCaptureLost_ParamsSpec, 'blink.mojom.WidgetInputHandler_MouseCaptureLost_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.WidgetInputHandler_MouseCaptureLost_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandler_MouseCaptureLost_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WidgetInputHandler_SetEditCommandsForNextKeyEvent_ParamsSpec, 'blink.mojom.WidgetInputHandler_SetEditCommandsForNextKeyEvent_Params', [
+      mojo.internal.StructField('commands', 0, 0, mojo.internal.Array(blink.mojom.EditCommandSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.WidgetInputHandler_SetEditCommandsForNextKeyEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandler_SetEditCommandsForNextKeyEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'commands', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.EditCommandSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WidgetInputHandler_CursorVisibilityChanged_ParamsSpec, 'blink.mojom.WidgetInputHandler_CursorVisibilityChanged_Params', [
+      mojo.internal.StructField('visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.WidgetInputHandler_CursorVisibilityChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandler_CursorVisibilityChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WidgetInputHandler_ImeSetComposition_ParamsSpec, 'blink.mojom.WidgetInputHandler_ImeSetComposition_Params', [
+      mojo.internal.StructField('text', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('ime_text_spans', 8, 0, mojo.internal.Array(ui.mojom.ImeTextSpanSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('range', 16, 0, gfx.mojom.RangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('start', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('end', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('ime_state', 32, 0, blink.mojom.ImeStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
-blink.mojom.WidgetInputHandler_ImeSetComposition_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandler_ImeSetComposition_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'ime_text_spans', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ui.mojom.ImeTextSpanSpec, false), nullable: false, minVersion: 0 },
-        { name: 'range', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RangeSpec, nullable: false, minVersion: 0 },
-        { name: 'start', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'end', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'ime_state', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.ImeStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WidgetInputHandler_ImeSetComposition_ResponseParamsSpec, 'blink.mojom.WidgetInputHandler_ImeSetComposition_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.WidgetInputHandler_ImeCommitText_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandler_ImeCommitText_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'ime_text_spans', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ui.mojom.ImeTextSpanSpec, false), nullable: false, minVersion: 0 },
-        { name: 'range', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RangeSpec, nullable: false, minVersion: 0 },
-        { name: 'relative_cursor_position', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WidgetInputHandler_ImeCommitText_ParamsSpec, 'blink.mojom.WidgetInputHandler_ImeCommitText_Params', [
+      mojo.internal.StructField('text', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('ime_text_spans', 8, 0, mojo.internal.Array(ui.mojom.ImeTextSpanSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('range', 16, 0, gfx.mojom.RangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('relative_cursor_position', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-blink.mojom.WidgetInputHandler_ImeFinishComposingText_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandler_ImeFinishComposingText_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'keep_selection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WidgetInputHandler_ImeCommitText_ResponseParamsSpec, 'blink.mojom.WidgetInputHandler_ImeCommitText_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.WidgetInputHandler_RequestTextInputStateUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandler_RequestTextInputStateUpdate_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WidgetInputHandler_ImeFinishComposingText_ParamsSpec, 'blink.mojom.WidgetInputHandler_ImeFinishComposingText_Params', [
+      mojo.internal.StructField('keep_selection', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.WidgetInputHandler_RequestCompositionUpdates_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandler_RequestCompositionUpdates_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'immediate_request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'monitor_request', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WidgetInputHandler_RequestTextInputStateUpdate_ParamsSpec, 'blink.mojom.WidgetInputHandler_RequestTextInputStateUpdate_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.WidgetInputHandler_DispatchEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandler_DispatchEvent_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.EventSpec, nullable: false, minVersion: 0 },
-        { name: 'original_event_for_gesture', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.EventSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WidgetInputHandler_RequestCompositionUpdates_ParamsSpec, 'blink.mojom.WidgetInputHandler_RequestCompositionUpdates_Params', [
+      mojo.internal.StructField('immediate_request', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('monitor_request', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.WidgetInputHandler_DispatchNonBlockingEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandler_DispatchNonBlockingEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.EventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WidgetInputHandler_DispatchEvent_ParamsSpec, 'blink.mojom.WidgetInputHandler_DispatchEvent_Params', [
+      mojo.internal.StructField('event', 0, 0, blink.mojom.EventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('original_event_for_gesture', 8, 0, blink.mojom.EventSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.WidgetInputHandler_WaitForInputProcessed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandler_WaitForInputProcessed_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WidgetInputHandler_DispatchEvent_ResponseParamsSpec, 'blink.mojom.WidgetInputHandler_DispatchEvent_ResponseParams', [
+      mojo.internal.StructField('source', 24, 0, blink.mojom.InputEventResultSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('updated_latency', 0, 0, ui.mojom.LatencyInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 28, 0, blink.mojom.InputEventResultStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('overscroll', 8, 0, blink.mojom.DidOverscrollParamsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('touch_action', 16, 0, blink.mojom.TouchActionOptionalSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
 
-blink.mojom.WidgetInputHandler_PingMainThread_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandler_PingMainThread_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WidgetInputHandler_DispatchNonBlockingEvent_ParamsSpec, 'blink.mojom.WidgetInputHandler_DispatchNonBlockingEvent_Params', [
+      mojo.internal.StructField('event', 0, 0, blink.mojom.EventSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.WidgetInputHandler_AttachSynchronousCompositor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandler_AttachSynchronousCompositor_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'control_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.SynchronousCompositorControlHostRemote), nullable: false, minVersion: 0 },
-        { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(blink.mojom.SynchronousCompositorHostRemote), nullable: false, minVersion: 0 },
-        { name: 'compositor_request', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(blink.mojom.SynchronousCompositorRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WidgetInputHandler_WaitForInputProcessed_ParamsSpec, 'blink.mojom.WidgetInputHandler_WaitForInputProcessed_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.WidgetInputHandler_GetFrameWidgetInputHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandler_GetFrameWidgetInputHandler_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'interface_request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(blink.mojom.FrameWidgetInputHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WidgetInputHandler_WaitForInputProcessed_ResponseParamsSpec, 'blink.mojom.WidgetInputHandler_WaitForInputProcessed_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.WidgetInputHandler_UpdateBrowserControlsState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandler_UpdateBrowserControlsState_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'constraints', packedOffset: 0, packedBitOffset: 0, type: cc.mojom.BrowserControlsStateSpec, nullable: false, minVersion: 0 },
-        { name: 'current', packedOffset: 8, packedBitOffset: 0, type: cc.mojom.BrowserControlsStateSpec, nullable: false, minVersion: 0 },
-        { name: 'animate', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'offset_tag_modifications', packedOffset: 16, packedBitOffset: 0, type: cc.mojom.BrowserControlsOffsetTagModificationsSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WidgetInputHandler_PingMainThread_ParamsSpec, 'blink.mojom.WidgetInputHandler_PingMainThread_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    blink.mojom.WidgetInputHandler_PingMainThread_ResponseParamsSpec, 'blink.mojom.WidgetInputHandler_PingMainThread_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    blink.mojom.WidgetInputHandler_AttachSynchronousCompositor_ParamsSpec, 'blink.mojom.WidgetInputHandler_AttachSynchronousCompositor_Params', [
+      mojo.internal.StructField('control_host', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.SynchronousCompositorControlHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host', 8, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.SynchronousCompositorHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('compositor_request', 16, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.SynchronousCompositorRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    blink.mojom.WidgetInputHandler_GetFrameWidgetInputHandler_ParamsSpec, 'blink.mojom.WidgetInputHandler_GetFrameWidgetInputHandler_Params', [
+      mojo.internal.StructField('interface_request', 0, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.FrameWidgetInputHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.WidgetInputHandler_UpdateBrowserControlsState_ParamsSpec, 'blink.mojom.WidgetInputHandler_UpdateBrowserControlsState_Params', [
+      mojo.internal.StructField('constraints', 0, 0, cc.mojom.BrowserControlsStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('current', 8, 0, cc.mojom.BrowserControlsStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('animate', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('offset_tag_modifications', 16, 0, cc.mojom.BrowserControlsOffsetTagModificationsSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
 
 blink.mojom.WidgetInputHandlerPendingReceiver = class {
   constructor(handle) {
@@ -2384,7 +1345,7 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
     return this.proxy.sendMessage(
       4,  // ordinal
       blink.mojom.WidgetInputHandler_ImeSetComposition_ParamsSpec,
-      null,
+      blink.mojom.WidgetInputHandler_ImeSetComposition_ResponseParamsSpec,
       [text, ime_text_spans, range, start, end, ime_state]);
   }
 
@@ -2393,7 +1354,7 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
     return this.proxy.sendMessage(
       5,  // ordinal
       blink.mojom.WidgetInputHandler_ImeCommitText_ParamsSpec,
-      null,
+      blink.mojom.WidgetInputHandler_ImeCommitText_ResponseParamsSpec,
       [text, ime_text_spans, range, relative_cursor_position]);
   }
 
@@ -2447,7 +1408,7 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
     return this.proxy.sendMessage(
       11,  // ordinal
       blink.mojom.WidgetInputHandler_WaitForInputProcessed_ParamsSpec,
-      null,
+      blink.mojom.WidgetInputHandler_WaitForInputProcessed_ResponseParamsSpec,
       []);
   }
 
@@ -2456,7 +1417,7 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
     return this.proxy.sendMessage(
       12,  // ordinal
       blink.mojom.WidgetInputHandler_PingMainThread_ParamsSpec,
-      null,
+      blink.mojom.WidgetInputHandler_PingMainThread_ResponseParamsSpec,
       []);
   }
 
@@ -2499,259 +1460,6 @@ blink.mojom.WidgetInputHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetFocus
-blink.mojom.WidgetInputHandler_SetFocus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandler.SetFocus_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FocusStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for MouseCaptureLost
-blink.mojom.WidgetInputHandler_MouseCaptureLost_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandler.MouseCaptureLost_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetEditCommandsForNextKeyEvent
-blink.mojom.WidgetInputHandler_SetEditCommandsForNextKeyEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandler.SetEditCommandsForNextKeyEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'commands', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.EditCommandSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CursorVisibilityChanged
-blink.mojom.WidgetInputHandler_CursorVisibilityChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandler.CursorVisibilityChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ImeSetComposition
-blink.mojom.WidgetInputHandler_ImeSetComposition_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandler.ImeSetComposition_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'ime_text_spans', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ui.mojom.ImeTextSpanSpec, false), nullable: false, minVersion: 0 },
-        { name: 'range', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RangeSpec, nullable: false, minVersion: 0 },
-        { name: 'start', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'end', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'ime_state', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.ImeStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
-
-// ParamsSpec for ImeCommitText
-blink.mojom.WidgetInputHandler_ImeCommitText_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandler.ImeCommitText_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'ime_text_spans', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ui.mojom.ImeTextSpanSpec, false), nullable: false, minVersion: 0 },
-        { name: 'range', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RangeSpec, nullable: false, minVersion: 0 },
-        { name: 'relative_cursor_position', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for ImeFinishComposingText
-blink.mojom.WidgetInputHandler_ImeFinishComposingText_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandler.ImeFinishComposingText_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'keep_selection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestTextInputStateUpdate
-blink.mojom.WidgetInputHandler_RequestTextInputStateUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandler.RequestTextInputStateUpdate_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for RequestCompositionUpdates
-blink.mojom.WidgetInputHandler_RequestCompositionUpdates_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandler.RequestCompositionUpdates_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'immediate_request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'monitor_request', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DispatchEvent
-blink.mojom.WidgetInputHandler_DispatchEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandler.DispatchEvent_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.EventSpec, nullable: false, minVersion: 0 },
-        { name: 'original_event_for_gesture', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.EventSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.WidgetInputHandler_DispatchEvent_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandler.DispatchEvent_ResponseParams',
-      packedSize: 40,
-      fields: [
-        { name: 'source', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.InputEventResultSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'updated_latency', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.LatencyInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'state', packedOffset: 28, packedBitOffset: 0, type: blink.mojom.InputEventResultStateSpec, nullable: false, minVersion: 0 },
-        { name: 'overscroll', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DidOverscrollParamsSpec, nullable: true, minVersion: 0 },
-        { name: 'touch_action', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.TouchActionOptionalSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for DispatchNonBlockingEvent
-blink.mojom.WidgetInputHandler_DispatchNonBlockingEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandler.DispatchNonBlockingEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.EventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for WaitForInputProcessed
-blink.mojom.WidgetInputHandler_WaitForInputProcessed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandler.WaitForInputProcessed_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for PingMainThread
-blink.mojom.WidgetInputHandler_PingMainThread_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandler.PingMainThread_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for AttachSynchronousCompositor
-blink.mojom.WidgetInputHandler_AttachSynchronousCompositor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandler.AttachSynchronousCompositor_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'control_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.SynchronousCompositorControlHostRemote), nullable: false, minVersion: 0 },
-        { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(blink.mojom.SynchronousCompositorHostRemote), nullable: false, minVersion: 0 },
-        { name: 'compositor_request', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(blink.mojom.SynchronousCompositorRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for GetFrameWidgetInputHandler
-blink.mojom.WidgetInputHandler_GetFrameWidgetInputHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandler.GetFrameWidgetInputHandler_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'interface_request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(blink.mojom.FrameWidgetInputHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateBrowserControlsState
-blink.mojom.WidgetInputHandler_UpdateBrowserControlsState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WidgetInputHandler.UpdateBrowserControlsState_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'constraints', packedOffset: 0, packedBitOffset: 0, type: cc.mojom.BrowserControlsStateSpec, nullable: false, minVersion: 0 },
-        { name: 'current', packedOffset: 8, packedBitOffset: 0, type: cc.mojom.BrowserControlsStateSpec, nullable: false, minVersion: 0 },
-        { name: 'animate', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'offset_tag_modifications', packedOffset: 16, packedBitOffset: 0, type: cc.mojom.BrowserControlsOffsetTagModificationsSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.WidgetInputHandlerPtr = blink.mojom.WidgetInputHandlerRemote;
 blink.mojom.WidgetInputHandlerRequest = blink.mojom.WidgetInputHandlerPendingReceiver;
 

@@ -7,10 +7,10 @@
 // Module namespace
 var extensions = extensions || {};
 
+extensions.KeepAlive = {};
+extensions.KeepAlive.$interfaceName = 'extensions.KeepAlive';
 
 // Interface: KeepAlive
-extensions.KeepAlive = {};
-
 extensions.KeepAlivePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -55,7 +55,6 @@ extensions.KeepAlive.getRemote = function() {
   return remote.$;
 };
 
-// Legacy compatibility
 extensions.KeepAlivePtr = extensions.KeepAliveRemote;
 extensions.KeepAliveRequest = extensions.KeepAlivePendingReceiver;
 

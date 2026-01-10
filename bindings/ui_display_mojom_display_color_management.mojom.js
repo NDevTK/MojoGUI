@@ -10,61 +10,37 @@ display.mojom = display.mojom || {};
 var skia = skia || {};
 var ui = ui || {};
 
+display.mojom.GammaCurveSpec = { $: {} };
+display.mojom.ColorCalibrationSpec = { $: {} };
+display.mojom.ColorTemperatureAdjustmentSpec = { $: {} };
+display.mojom.GammaAdjustmentSpec = { $: {} };
 
 // Struct: GammaCurve
-display.mojom.GammaCurveSpec = {
-  $: {
-    structSpec: {
-      name: 'display.mojom.GammaCurve',
-      packedSize: 16,
-      fields: [
-        { name: 'lut', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(display.mojom.GammaRampRGBEntrySpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    display.mojom.GammaCurveSpec, 'display.mojom.GammaCurve', [
+      mojo.internal.StructField('lut', 0, 0, mojo.internal.Array(display.mojom.GammaRampRGBEntrySpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: ColorCalibration
-display.mojom.ColorCalibrationSpec = {
-  $: {
-    structSpec: {
-      name: 'display.mojom.ColorCalibration',
-      packedSize: 32,
-      fields: [
-        { name: 'srgb_to_linear', packedOffset: 0, packedBitOffset: 0, type: display.mojom.GammaCurveSpec, nullable: false, minVersion: 0 },
-        { name: 'srgb_to_device_matrix', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkcmsMatrix3x3Spec, nullable: false, minVersion: 0 },
-        { name: 'linear_to_device', packedOffset: 16, packedBitOffset: 0, type: display.mojom.GammaCurveSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    display.mojom.ColorCalibrationSpec, 'display.mojom.ColorCalibration', [
+      mojo.internal.StructField('srgb_to_linear', 0, 0, display.mojom.GammaCurveSpec, null, false, 0, undefined),
+      mojo.internal.StructField('srgb_to_device_matrix', 8, 0, skia.mojom.SkcmsMatrix3x3Spec, null, false, 0, undefined),
+      mojo.internal.StructField('linear_to_device', 16, 0, display.mojom.GammaCurveSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: ColorTemperatureAdjustment
-display.mojom.ColorTemperatureAdjustmentSpec = {
-  $: {
-    structSpec: {
-      name: 'display.mojom.ColorTemperatureAdjustment',
-      packedSize: 16,
-      fields: [
-        { name: 'srgb_matrix', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.SkcmsMatrix3x3Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    display.mojom.ColorTemperatureAdjustmentSpec, 'display.mojom.ColorTemperatureAdjustment', [
+      mojo.internal.StructField('srgb_matrix', 0, 0, skia.mojom.SkcmsMatrix3x3Spec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: GammaAdjustment
-display.mojom.GammaAdjustmentSpec = {
-  $: {
-    structSpec: {
-      name: 'display.mojom.GammaAdjustment',
-      packedSize: 16,
-      fields: [
-        { name: 'curve', packedOffset: 0, packedBitOffset: 0, type: display.mojom.GammaCurveSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    display.mojom.GammaAdjustmentSpec, 'display.mojom.GammaAdjustment', [
+      mojo.internal.StructField('curve', 0, 0, display.mojom.GammaCurveSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);

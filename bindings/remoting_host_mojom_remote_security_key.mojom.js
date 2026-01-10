@@ -8,22 +8,23 @@
 var remoting = remoting || {};
 remoting.mojom = remoting.mojom || {};
 
+remoting.mojom.SecurityKeyForwarder = {};
+remoting.mojom.SecurityKeyForwarder.$interfaceName = 'remoting.mojom.SecurityKeyForwarder';
+remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ParamsSpec = { $: {} };
+remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ResponseParamsSpec = { $: {} };
 
 // Interface: SecurityKeyForwarder
-remoting.mojom.SecurityKeyForwarder = {};
+mojo.internal.Struct(
+    remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ParamsSpec, 'remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_Params', [
+      mojo.internal.StructField('request_data', 0, 0, mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request_data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ResponseParamsSpec, 'remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ResponseParams', [
+      mojo.internal.StructField('response_data', 0, 0, mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 remoting.mojom.SecurityKeyForwarderPendingReceiver = class {
   constructor(handle) {
@@ -78,34 +79,6 @@ remoting.mojom.SecurityKeyForwarder.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnSecurityKeyRequest
-remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.SecurityKeyForwarder.OnSecurityKeyRequest_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request_data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.SecurityKeyForwarder.OnSecurityKeyRequest_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'response_data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 remoting.mojom.SecurityKeyForwarderPtr = remoting.mojom.SecurityKeyForwarderRemote;
 remoting.mojom.SecurityKeyForwarderRequest = remoting.mojom.SecurityKeyForwarderPendingReceiver;
 

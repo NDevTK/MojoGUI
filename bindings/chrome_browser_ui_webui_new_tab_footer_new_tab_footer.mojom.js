@@ -11,6 +11,29 @@ var url = url || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+new_tab_footer.mojom.NewTabPageTypeSpec = { $: mojo.internal.Enum() };
+new_tab_footer.mojom.ManagementNoticeSpec = { $: {} };
+new_tab_footer.mojom.BackgroundAttributionSpec = { $: {} };
+new_tab_footer.mojom.NewTabFooterHandlerFactory = {};
+new_tab_footer.mojom.NewTabFooterHandlerFactory.$interfaceName = 'new_tab_footer.mojom.NewTabFooterHandlerFactory';
+new_tab_footer.mojom.NewTabFooterHandlerFactory_CreateNewTabFooterHandler_ParamsSpec = { $: {} };
+new_tab_footer.mojom.NewTabFooterHandler = {};
+new_tab_footer.mojom.NewTabFooterHandler.$interfaceName = 'new_tab_footer.mojom.NewTabFooterHandler';
+new_tab_footer.mojom.NewTabFooterHandler_UpdateNtpExtensionName_ParamsSpec = { $: {} };
+new_tab_footer.mojom.NewTabFooterHandler_UpdateManagementNotice_ParamsSpec = { $: {} };
+new_tab_footer.mojom.NewTabFooterHandler_UpdateAttachedTabState_ParamsSpec = { $: {} };
+new_tab_footer.mojom.NewTabFooterHandler_UpdateBackgroundAttribution_ParamsSpec = { $: {} };
+new_tab_footer.mojom.NewTabFooterHandler_OpenExtensionOptionsPageWithFallback_ParamsSpec = { $: {} };
+new_tab_footer.mojom.NewTabFooterHandler_OpenManagementPage_ParamsSpec = { $: {} };
+new_tab_footer.mojom.NewTabFooterHandler_OpenUrlInCurrentTab_ParamsSpec = { $: {} };
+new_tab_footer.mojom.NewTabFooterHandler_ShowContextMenu_ParamsSpec = { $: {} };
+new_tab_footer.mojom.NewTabFooterHandler_NotifyCustomizationButtonVisible_ParamsSpec = { $: {} };
+new_tab_footer.mojom.NewTabFooterDocument = {};
+new_tab_footer.mojom.NewTabFooterDocument.$interfaceName = 'new_tab_footer.mojom.NewTabFooterDocument';
+new_tab_footer.mojom.NewTabFooterDocument_SetNtpExtensionName_ParamsSpec = { $: {} };
+new_tab_footer.mojom.NewTabFooterDocument_SetManagementNotice_ParamsSpec = { $: {} };
+new_tab_footer.mojom.NewTabFooterDocument_AttachedTabStateUpdated_ParamsSpec = { $: {} };
+new_tab_footer.mojom.NewTabFooterDocument_SetBackgroundAttribution_ParamsSpec = { $: {} };
 
 // Enum: NewTabPageType
 new_tab_footer.mojom.NewTabPageType = {
@@ -18,54 +41,30 @@ new_tab_footer.mojom.NewTabPageType = {
   kExtension: 1,
   kOther: 2,
 };
-new_tab_footer.mojom.NewTabPageTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: ManagementNotice
-new_tab_footer.mojom.ManagementNoticeSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_footer.mojom.ManagementNotice',
-      packedSize: 24,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'custom_bitmap_data_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    new_tab_footer.mojom.ManagementNoticeSpec, 'new_tab_footer.mojom.ManagementNotice', [
+      mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('custom_bitmap_data_url', 8, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: BackgroundAttribution
-new_tab_footer.mojom.BackgroundAttributionSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_footer.mojom.BackgroundAttribution',
-      packedSize: 24,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    new_tab_footer.mojom.BackgroundAttributionSpec, 'new_tab_footer.mojom.BackgroundAttribution', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: NewTabFooterHandlerFactory
-new_tab_footer.mojom.NewTabFooterHandlerFactory = {};
-
-new_tab_footer.mojom.NewTabFooterHandlerFactory_CreateNewTabFooterHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_footer.mojom.NewTabFooterHandlerFactory_CreateNewTabFooterHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'document', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(new_tab_footer.mojom.NewTabFooterDocumentRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(new_tab_footer.mojom.NewTabFooterHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    new_tab_footer.mojom.NewTabFooterHandlerFactory_CreateNewTabFooterHandler_ParamsSpec, 'new_tab_footer.mojom.NewTabFooterHandlerFactory_CreateNewTabFooterHandler_Params', [
+      mojo.internal.StructField('document', 0, 0, mojo.internal.InterfaceProxy(new_tab_footer.mojom.NewTabFooterDocumentRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(new_tab_footer.mojom.NewTabFooterHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 new_tab_footer.mojom.NewTabFooterHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -120,138 +119,57 @@ new_tab_footer.mojom.NewTabFooterHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateNewTabFooterHandler
-new_tab_footer.mojom.NewTabFooterHandlerFactory_CreateNewTabFooterHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_footer.mojom.NewTabFooterHandlerFactory.CreateNewTabFooterHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'document', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(new_tab_footer.mojom.NewTabFooterDocumentRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(new_tab_footer.mojom.NewTabFooterHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 new_tab_footer.mojom.NewTabFooterHandlerFactoryPtr = new_tab_footer.mojom.NewTabFooterHandlerFactoryRemote;
 new_tab_footer.mojom.NewTabFooterHandlerFactoryRequest = new_tab_footer.mojom.NewTabFooterHandlerFactoryPendingReceiver;
 
 
 // Interface: NewTabFooterHandler
-new_tab_footer.mojom.NewTabFooterHandler = {};
+mojo.internal.Struct(
+    new_tab_footer.mojom.NewTabFooterHandler_UpdateNtpExtensionName_ParamsSpec, 'new_tab_footer.mojom.NewTabFooterHandler_UpdateNtpExtensionName_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-new_tab_footer.mojom.NewTabFooterHandler_UpdateNtpExtensionName_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_footer.mojom.NewTabFooterHandler_UpdateNtpExtensionName_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    new_tab_footer.mojom.NewTabFooterHandler_UpdateManagementNotice_ParamsSpec, 'new_tab_footer.mojom.NewTabFooterHandler_UpdateManagementNotice_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-new_tab_footer.mojom.NewTabFooterHandler_UpdateManagementNotice_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_footer.mojom.NewTabFooterHandler_UpdateManagementNotice_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    new_tab_footer.mojom.NewTabFooterHandler_UpdateAttachedTabState_ParamsSpec, 'new_tab_footer.mojom.NewTabFooterHandler_UpdateAttachedTabState_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-new_tab_footer.mojom.NewTabFooterHandler_UpdateAttachedTabState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_footer.mojom.NewTabFooterHandler_UpdateAttachedTabState_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    new_tab_footer.mojom.NewTabFooterHandler_UpdateBackgroundAttribution_ParamsSpec, 'new_tab_footer.mojom.NewTabFooterHandler_UpdateBackgroundAttribution_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-new_tab_footer.mojom.NewTabFooterHandler_UpdateBackgroundAttribution_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_footer.mojom.NewTabFooterHandler_UpdateBackgroundAttribution_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    new_tab_footer.mojom.NewTabFooterHandler_OpenExtensionOptionsPageWithFallback_ParamsSpec, 'new_tab_footer.mojom.NewTabFooterHandler_OpenExtensionOptionsPageWithFallback_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-new_tab_footer.mojom.NewTabFooterHandler_OpenExtensionOptionsPageWithFallback_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_footer.mojom.NewTabFooterHandler_OpenExtensionOptionsPageWithFallback_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    new_tab_footer.mojom.NewTabFooterHandler_OpenManagementPage_ParamsSpec, 'new_tab_footer.mojom.NewTabFooterHandler_OpenManagementPage_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-new_tab_footer.mojom.NewTabFooterHandler_OpenManagementPage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_footer.mojom.NewTabFooterHandler_OpenManagementPage_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    new_tab_footer.mojom.NewTabFooterHandler_OpenUrlInCurrentTab_ParamsSpec, 'new_tab_footer.mojom.NewTabFooterHandler_OpenUrlInCurrentTab_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-new_tab_footer.mojom.NewTabFooterHandler_OpenUrlInCurrentTab_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_footer.mojom.NewTabFooterHandler_OpenUrlInCurrentTab_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    new_tab_footer.mojom.NewTabFooterHandler_ShowContextMenu_ParamsSpec, 'new_tab_footer.mojom.NewTabFooterHandler_ShowContextMenu_Params', [
+      mojo.internal.StructField('point', 0, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-new_tab_footer.mojom.NewTabFooterHandler_ShowContextMenu_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_footer.mojom.NewTabFooterHandler_ShowContextMenu_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-new_tab_footer.mojom.NewTabFooterHandler_NotifyCustomizationButtonVisible_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_footer.mojom.NewTabFooterHandler_NotifyCustomizationButtonVisible_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    new_tab_footer.mojom.NewTabFooterHandler_NotifyCustomizationButtonVisible_ParamsSpec, 'new_tab_footer.mojom.NewTabFooterHandler_NotifyCustomizationButtonVisible_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 new_tab_footer.mojom.NewTabFooterHandlerPendingReceiver = class {
   constructor(handle) {
@@ -378,185 +296,35 @@ new_tab_footer.mojom.NewTabFooterHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for UpdateNtpExtensionName
-new_tab_footer.mojom.NewTabFooterHandler_UpdateNtpExtensionName_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_footer.mojom.NewTabFooterHandler.UpdateNtpExtensionName_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateManagementNotice
-new_tab_footer.mojom.NewTabFooterHandler_UpdateManagementNotice_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_footer.mojom.NewTabFooterHandler.UpdateManagementNotice_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateAttachedTabState
-new_tab_footer.mojom.NewTabFooterHandler_UpdateAttachedTabState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_footer.mojom.NewTabFooterHandler.UpdateAttachedTabState_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateBackgroundAttribution
-new_tab_footer.mojom.NewTabFooterHandler_UpdateBackgroundAttribution_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_footer.mojom.NewTabFooterHandler.UpdateBackgroundAttribution_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OpenExtensionOptionsPageWithFallback
-new_tab_footer.mojom.NewTabFooterHandler_OpenExtensionOptionsPageWithFallback_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_footer.mojom.NewTabFooterHandler.OpenExtensionOptionsPageWithFallback_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OpenManagementPage
-new_tab_footer.mojom.NewTabFooterHandler_OpenManagementPage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_footer.mojom.NewTabFooterHandler.OpenManagementPage_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OpenUrlInCurrentTab
-new_tab_footer.mojom.NewTabFooterHandler_OpenUrlInCurrentTab_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_footer.mojom.NewTabFooterHandler.OpenUrlInCurrentTab_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ShowContextMenu
-new_tab_footer.mojom.NewTabFooterHandler_ShowContextMenu_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_footer.mojom.NewTabFooterHandler.ShowContextMenu_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for NotifyCustomizationButtonVisible
-new_tab_footer.mojom.NewTabFooterHandler_NotifyCustomizationButtonVisible_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_footer.mojom.NewTabFooterHandler.NotifyCustomizationButtonVisible_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 new_tab_footer.mojom.NewTabFooterHandlerPtr = new_tab_footer.mojom.NewTabFooterHandlerRemote;
 new_tab_footer.mojom.NewTabFooterHandlerRequest = new_tab_footer.mojom.NewTabFooterHandlerPendingReceiver;
 
 
 // Interface: NewTabFooterDocument
-new_tab_footer.mojom.NewTabFooterDocument = {};
+mojo.internal.Struct(
+    new_tab_footer.mojom.NewTabFooterDocument_SetNtpExtensionName_ParamsSpec, 'new_tab_footer.mojom.NewTabFooterDocument_SetNtpExtensionName_Params', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-new_tab_footer.mojom.NewTabFooterDocument_SetNtpExtensionName_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_footer.mojom.NewTabFooterDocument_SetNtpExtensionName_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    new_tab_footer.mojom.NewTabFooterDocument_SetManagementNotice_ParamsSpec, 'new_tab_footer.mojom.NewTabFooterDocument_SetManagementNotice_Params', [
+      mojo.internal.StructField('notice', 0, 0, new_tab_footer.mojom.ManagementNoticeSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-new_tab_footer.mojom.NewTabFooterDocument_SetManagementNotice_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_footer.mojom.NewTabFooterDocument_SetManagementNotice_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'notice', packedOffset: 0, packedBitOffset: 0, type: new_tab_footer.mojom.ManagementNoticeSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    new_tab_footer.mojom.NewTabFooterDocument_AttachedTabStateUpdated_ParamsSpec, 'new_tab_footer.mojom.NewTabFooterDocument_AttachedTabStateUpdated_Params', [
+      mojo.internal.StructField('ntp_type', 0, 0, new_tab_footer.mojom.NewTabPageTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('can_customize_chrome', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-new_tab_footer.mojom.NewTabFooterDocument_AttachedTabStateUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_footer.mojom.NewTabFooterDocument_AttachedTabStateUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'ntp_type', packedOffset: 0, packedBitOffset: 0, type: new_tab_footer.mojom.NewTabPageTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'can_customize_chrome', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-new_tab_footer.mojom.NewTabFooterDocument_SetBackgroundAttribution_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_footer.mojom.NewTabFooterDocument_SetBackgroundAttribution_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'background_image_attribution', packedOffset: 0, packedBitOffset: 0, type: new_tab_footer.mojom.BackgroundAttributionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    new_tab_footer.mojom.NewTabFooterDocument_SetBackgroundAttribution_ParamsSpec, 'new_tab_footer.mojom.NewTabFooterDocument_SetBackgroundAttribution_Params', [
+      mojo.internal.StructField('background_image_attribution', 0, 0, new_tab_footer.mojom.BackgroundAttributionSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 new_tab_footer.mojom.NewTabFooterDocumentPendingReceiver = class {
   constructor(handle) {
@@ -638,64 +406,6 @@ new_tab_footer.mojom.NewTabFooterDocument.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetNtpExtensionName
-new_tab_footer.mojom.NewTabFooterDocument_SetNtpExtensionName_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_footer.mojom.NewTabFooterDocument.SetNtpExtensionName_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetManagementNotice
-new_tab_footer.mojom.NewTabFooterDocument_SetManagementNotice_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_footer.mojom.NewTabFooterDocument.SetManagementNotice_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'notice', packedOffset: 0, packedBitOffset: 0, type: new_tab_footer.mojom.ManagementNoticeSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AttachedTabStateUpdated
-new_tab_footer.mojom.NewTabFooterDocument_AttachedTabStateUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_footer.mojom.NewTabFooterDocument.AttachedTabStateUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'ntp_type', packedOffset: 0, packedBitOffset: 0, type: new_tab_footer.mojom.NewTabPageTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'can_customize_chrome', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetBackgroundAttribution
-new_tab_footer.mojom.NewTabFooterDocument_SetBackgroundAttribution_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_footer.mojom.NewTabFooterDocument.SetBackgroundAttribution_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'background_image_attribution', packedOffset: 0, packedBitOffset: 0, type: new_tab_footer.mojom.BackgroundAttributionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 new_tab_footer.mojom.NewTabFooterDocumentPtr = new_tab_footer.mojom.NewTabFooterDocumentRemote;
 new_tab_footer.mojom.NewTabFooterDocumentRequest = new_tab_footer.mojom.NewTabFooterDocumentPendingReceiver;
 

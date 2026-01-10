@@ -9,54 +9,44 @@ var chromecast = chromecast || {};
 chromecast.external_mojo = chromecast.external_mojo || {};
 chromecast.external_mojo.mojom = chromecast.external_mojo.mojom || {};
 
+chromecast.external_mojo.mojom.ExternalServiceInfoSpec = { $: {} };
+chromecast.external_mojo.mojom.ServiceInstanceInfoSpec = { $: {} };
+chromecast.external_mojo.mojom.ExternalService = {};
+chromecast.external_mojo.mojom.ExternalService.$interfaceName = 'chromecast.external_mojo.mojom.ExternalService';
+chromecast.external_mojo.mojom.ExternalService_OnBindInterface_ParamsSpec = { $: {} };
+chromecast.external_mojo.mojom.ExternalConnector = {};
+chromecast.external_mojo.mojom.ExternalConnector.$interfaceName = 'chromecast.external_mojo.mojom.ExternalConnector';
+chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_ParamsSpec = { $: {} };
+chromecast.external_mojo.mojom.ExternalConnector_BindInterface_ParamsSpec = { $: {} };
+chromecast.external_mojo.mojom.ExternalConnector_Clone_ParamsSpec = { $: {} };
+chromecast.external_mojo.mojom.ExternalConnector_BindChromiumConnector_ParamsSpec = { $: {} };
+chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ParamsSpec = { $: {} };
+chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ResponseParamsSpec = { $: {} };
 
 // Struct: ExternalServiceInfo
-chromecast.external_mojo.mojom.ExternalServiceInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.external_mojo.mojom.ExternalServiceInfo',
-      packedSize: 32,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'connect_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'disconnect_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.external_mojo.mojom.ExternalServiceInfoSpec, 'chromecast.external_mojo.mojom.ExternalServiceInfo', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('connect_time', 8, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('disconnect_time', 16, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: ServiceInstanceInfo
-chromecast.external_mojo.mojom.ServiceInstanceInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.external_mojo.mojom.ServiceInstanceInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'service_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'service_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.external_mojo.mojom.ExternalServiceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.external_mojo.mojom.ServiceInstanceInfoSpec, 'chromecast.external_mojo.mojom.ServiceInstanceInfo', [
+      mojo.internal.StructField('service_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('service_remote', 8, 0, mojo.internal.InterfaceProxy(chromecast.external_mojo.mojom.ExternalServiceRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: ExternalService
-chromecast.external_mojo.mojom.ExternalService = {};
-
-chromecast.external_mojo.mojom.ExternalService_OnBindInterface_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.external_mojo.mojom.ExternalService_OnBindInterface_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'interface_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'interface_pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.external_mojo.mojom.ExternalService_OnBindInterface_ParamsSpec, 'chromecast.external_mojo.mojom.ExternalService_OnBindInterface_Params', [
+      mojo.internal.StructField('interface_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('interface_pipe', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 chromecast.external_mojo.mojom.ExternalServicePendingReceiver = class {
   constructor(handle) {
@@ -111,94 +101,47 @@ chromecast.external_mojo.mojom.ExternalService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnBindInterface
-chromecast.external_mojo.mojom.ExternalService_OnBindInterface_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.external_mojo.mojom.ExternalService.OnBindInterface_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'interface_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'interface_pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromecast.external_mojo.mojom.ExternalServicePtr = chromecast.external_mojo.mojom.ExternalServiceRemote;
 chromecast.external_mojo.mojom.ExternalServiceRequest = chromecast.external_mojo.mojom.ExternalServicePendingReceiver;
 
 
 // Interface: ExternalConnector
-chromecast.external_mojo.mojom.ExternalConnector = {};
+mojo.internal.Struct(
+    chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_ParamsSpec, 'chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_Params', [
+      mojo.internal.StructField('instances_info', 0, 0, mojo.internal.Array(chromecast.external_mojo.mojom.ServiceInstanceInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instances_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromecast.external_mojo.mojom.ServiceInstanceInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.external_mojo.mojom.ExternalConnector_BindInterface_ParamsSpec, 'chromecast.external_mojo.mojom.ExternalConnector_BindInterface_Params', [
+      mojo.internal.StructField('service_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('interface_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('interface_pipe', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-chromecast.external_mojo.mojom.ExternalConnector_BindInterface_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.external_mojo.mojom.ExternalConnector_BindInterface_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'service_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'interface_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'interface_pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.external_mojo.mojom.ExternalConnector_Clone_ParamsSpec, 'chromecast.external_mojo.mojom.ExternalConnector_Clone_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(chromecast.external_mojo.mojom.ExternalConnectorRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromecast.external_mojo.mojom.ExternalConnector_Clone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.external_mojo.mojom.ExternalConnector_Clone_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromecast.external_mojo.mojom.ExternalConnectorRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.external_mojo.mojom.ExternalConnector_BindChromiumConnector_ParamsSpec, 'chromecast.external_mojo.mojom.ExternalConnector_BindChromiumConnector_Params', [
+      mojo.internal.StructField('interface_pipe', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromecast.external_mojo.mojom.ExternalConnector_BindChromiumConnector_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.external_mojo.mojom.ExternalConnector_BindChromiumConnector_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'interface_pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ParamsSpec, 'chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ResponseParamsSpec, 'chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ResponseParams', [
+      mojo.internal.StructField('services', 0, 0, mojo.internal.Array(chromecast.external_mojo.mojom.ExternalServiceInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromecast.external_mojo.mojom.ExternalConnectorPendingReceiver = class {
   constructor(handle) {
@@ -289,91 +232,6 @@ chromecast.external_mojo.mojom.ExternalConnector.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RegisterServiceInstances
-chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.external_mojo.mojom.ExternalConnector.RegisterServiceInstances_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instances_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromecast.external_mojo.mojom.ServiceInstanceInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindInterface
-chromecast.external_mojo.mojom.ExternalConnector_BindInterface_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.external_mojo.mojom.ExternalConnector.BindInterface_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'service_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'interface_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'interface_pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for Clone
-chromecast.external_mojo.mojom.ExternalConnector_Clone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.external_mojo.mojom.ExternalConnector.Clone_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromecast.external_mojo.mojom.ExternalConnectorRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindChromiumConnector
-chromecast.external_mojo.mojom.ExternalConnector_BindChromiumConnector_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.external_mojo.mojom.ExternalConnector.BindChromiumConnector_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'interface_pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for QueryServiceList
-chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.external_mojo.mojom.ExternalConnector.QueryServiceList_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.external_mojo.mojom.ExternalConnector.QueryServiceList_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'services', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromecast.external_mojo.mojom.ExternalServiceInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromecast.external_mojo.mojom.ExternalConnectorPtr = chromecast.external_mojo.mojom.ExternalConnectorRemote;
 chromecast.external_mojo.mojom.ExternalConnectorRequest = chromecast.external_mojo.mojom.ExternalConnectorPendingReceiver;
 

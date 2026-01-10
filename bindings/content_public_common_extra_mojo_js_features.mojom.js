@@ -8,17 +8,11 @@
 var content = content || {};
 content.mojom = content.mojom || {};
 
+content.mojom.ExtraMojoJsFeaturesSpec = { $: {} };
 
 // Struct: ExtraMojoJsFeatures
-content.mojom.ExtraMojoJsFeaturesSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ExtraMojoJsFeatures',
-      packedSize: 16,
-      fields: [
-        { name: 'file_system_access', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.ExtraMojoJsFeaturesSpec, 'content.mojom.ExtraMojoJsFeatures', [
+      mojo.internal.StructField('file_system_access', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);

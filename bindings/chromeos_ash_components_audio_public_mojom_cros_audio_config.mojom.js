@@ -9,6 +9,31 @@ var ash = ash || {};
 ash.audio_config = ash.audio_config || {};
 ash.audio_config.mojom = ash.audio_config.mojom || {};
 
+ash.audio_config.mojom.AudioDeviceTypeSpec = { $: mojo.internal.Enum() };
+ash.audio_config.mojom.AudioEffectStateSpec = { $: mojo.internal.Enum() };
+ash.audio_config.mojom.MuteStateSpec = { $: mojo.internal.Enum() };
+ash.audio_config.mojom.AudioEffectTypeSpec = { $: mojo.internal.Enum() };
+ash.audio_config.mojom.VoiceIsolationUIAppearanceSpec = { $: {} };
+ash.audio_config.mojom.AudioDeviceSpec = { $: {} };
+ash.audio_config.mojom.AudioSystemPropertiesSpec = { $: {} };
+ash.audio_config.mojom.AudioSystemPropertiesObserver = {};
+ash.audio_config.mojom.AudioSystemPropertiesObserver.$interfaceName = 'ash.audio_config.mojom.AudioSystemPropertiesObserver';
+ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec = { $: {} };
+ash.audio_config.mojom.CrosAudioConfig = {};
+ash.audio_config.mojom.CrosAudioConfig.$interfaceName = 'ash.audio_config.mojom.CrosAudioConfig';
+ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_ParamsSpec = { $: {} };
+ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_ParamsSpec = { $: {} };
+ash.audio_config.mojom.CrosAudioConfig_SetOutputVolumePercent_ParamsSpec = { $: {} };
+ash.audio_config.mojom.CrosAudioConfig_SetInputGainPercent_ParamsSpec = { $: {} };
+ash.audio_config.mojom.CrosAudioConfig_SetActiveDevice_ParamsSpec = { $: {} };
+ash.audio_config.mojom.CrosAudioConfig_SetInputMuted_ParamsSpec = { $: {} };
+ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationEnabledChange_ParamsSpec = { $: {} };
+ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange_ParamsSpec = { $: {} };
+ash.audio_config.mojom.CrosAudioConfig_SetNoiseCancellationEnabled_ParamsSpec = { $: {} };
+ash.audio_config.mojom.CrosAudioConfig_SetStyleTransferEnabled_ParamsSpec = { $: {} };
+ash.audio_config.mojom.CrosAudioConfig_SetForceRespectUiGainsEnabled_ParamsSpec = { $: {} };
+ash.audio_config.mojom.CrosAudioConfig_SetHfpMicSrEnabled_ParamsSpec = { $: {} };
+ash.audio_config.mojom.CrosAudioConfig_SetSpatialAudioEnabled_ParamsSpec = { $: {} };
 
 // Enum: AudioDeviceType
 ash.audio_config.mojom.AudioDeviceType = {
@@ -30,7 +55,6 @@ ash.audio_config.mojom.AudioDeviceType = {
   kAlsaLoopback: 15,
   kOther: 16,
 };
-ash.audio_config.mojom.AudioDeviceTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AudioEffectState
 ash.audio_config.mojom.AudioEffectState = {
@@ -38,7 +62,6 @@ ash.audio_config.mojom.AudioEffectState = {
   kNotEnabled: 1,
   kEnabled: 2,
 };
-ash.audio_config.mojom.AudioEffectStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: MuteState
 ash.audio_config.mojom.MuteState = {
@@ -47,91 +70,59 @@ ash.audio_config.mojom.MuteState = {
   kMutedByPolicy: 2,
   kMutedExternally: 3,
 };
-ash.audio_config.mojom.MuteStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: AudioEffectType
 ash.audio_config.mojom.AudioEffectType = {
   kNone: 0,
   kNoiseCancellation: 1,
   kHfpMicSr: 2,
-  kStyleTransfer: 3,
-  kBeamforming: 4,
+  kStyleTransfer: 4,
+  kBeamforming: 8,
 };
-ash.audio_config.mojom.AudioEffectTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: VoiceIsolationUIAppearance
-ash.audio_config.mojom.VoiceIsolationUIAppearanceSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.audio_config.mojom.VoiceIsolationUIAppearance',
-      packedSize: 24,
-      fields: [
-        { name: 'toggle_type', packedOffset: 0, packedBitOffset: 0, type: ash.audio_config.mojom.AudioEffectTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'effect_mode_options', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'show_effect_fallback_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.audio_config.mojom.VoiceIsolationUIAppearanceSpec, 'ash.audio_config.mojom.VoiceIsolationUIAppearance', [
+      mojo.internal.StructField('toggle_type', 0, 0, ash.audio_config.mojom.AudioEffectTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('effect_mode_options', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('show_effect_fallback_message', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: AudioDevice
-ash.audio_config.mojom.AudioDeviceSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.audio_config.mojom.AudioDevice',
-      packedSize: 56,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'display_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_active', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'device_type', packedOffset: 16, packedBitOffset: 0, type: ash.audio_config.mojom.AudioDeviceTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'noise_cancellation_state', packedOffset: 20, packedBitOffset: 0, type: ash.audio_config.mojom.AudioEffectStateSpec, nullable: false, minVersion: 0 },
-        { name: 'style_transfer_state', packedOffset: 24, packedBitOffset: 0, type: ash.audio_config.mojom.AudioEffectStateSpec, nullable: false, minVersion: 0 },
-        { name: 'force_respect_ui_gains_state', packedOffset: 28, packedBitOffset: 0, type: ash.audio_config.mojom.AudioEffectStateSpec, nullable: false, minVersion: 0 },
-        { name: 'hfp_mic_sr_state', packedOffset: 32, packedBitOffset: 0, type: ash.audio_config.mojom.AudioEffectStateSpec, nullable: false, minVersion: 0 },
-        { name: 'spatial_audio_state', packedOffset: 36, packedBitOffset: 0, type: ash.audio_config.mojom.AudioEffectStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.audio_config.mojom.AudioDeviceSpec, 'ash.audio_config.mojom.AudioDevice', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('display_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('is_active', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('device_type', 16, 0, ash.audio_config.mojom.AudioDeviceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('noise_cancellation_state', 20, 0, ash.audio_config.mojom.AudioEffectStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('style_transfer_state', 24, 0, ash.audio_config.mojom.AudioEffectStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('force_respect_ui_gains_state', 28, 0, ash.audio_config.mojom.AudioEffectStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('hfp_mic_sr_state', 32, 0, ash.audio_config.mojom.AudioEffectStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('spatial_audio_state', 36, 0, ash.audio_config.mojom.AudioEffectStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Struct: AudioSystemProperties
-ash.audio_config.mojom.AudioSystemPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.audio_config.mojom.AudioSystemProperties',
-      packedSize: 48,
-      fields: [
-        { name: 'output_devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.audio_config.mojom.AudioDeviceSpec, false), nullable: false, minVersion: 0 },
-        { name: 'output_volume_percent', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'input_gain_percent', packedOffset: 33, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'output_mute_state', packedOffset: 24, packedBitOffset: 0, type: ash.audio_config.mojom.MuteStateSpec, nullable: false, minVersion: 0 },
-        { name: 'input_devices', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ash.audio_config.mojom.AudioDeviceSpec, false), nullable: false, minVersion: 0 },
-        { name: 'input_mute_state', packedOffset: 28, packedBitOffset: 0, type: ash.audio_config.mojom.MuteStateSpec, nullable: false, minVersion: 0 },
-        { name: 'voice_isolation_ui_appearance', packedOffset: 16, packedBitOffset: 0, type: ash.audio_config.mojom.VoiceIsolationUIAppearanceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.audio_config.mojom.AudioSystemPropertiesSpec, 'ash.audio_config.mojom.AudioSystemProperties', [
+      mojo.internal.StructField('output_devices', 0, 0, mojo.internal.Array(ash.audio_config.mojom.AudioDeviceSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('output_volume_percent', 32, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('input_gain_percent', 33, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('output_mute_state', 24, 0, ash.audio_config.mojom.MuteStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('input_devices', 8, 0, mojo.internal.Array(ash.audio_config.mojom.AudioDeviceSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('input_mute_state', 28, 0, ash.audio_config.mojom.MuteStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('voice_isolation_ui_appearance', 16, 0, ash.audio_config.mojom.VoiceIsolationUIAppearanceSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Interface: AudioSystemPropertiesObserver
-ash.audio_config.mojom.AudioSystemPropertiesObserver = {};
-
-ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: ash.audio_config.mojom.AudioSystemPropertiesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec, 'ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_Params', [
+      mojo.internal.StructField('properties', 0, 0, ash.audio_config.mojom.AudioSystemPropertiesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.audio_config.mojom.AudioSystemPropertiesObserverPendingReceiver = class {
   constructor(handle) {
@@ -186,195 +177,87 @@ ash.audio_config.mojom.AudioSystemPropertiesObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnPropertiesUpdated
-ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.audio_config.mojom.AudioSystemPropertiesObserver.OnPropertiesUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: ash.audio_config.mojom.AudioSystemPropertiesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.audio_config.mojom.AudioSystemPropertiesObserverPtr = ash.audio_config.mojom.AudioSystemPropertiesObserverRemote;
 ash.audio_config.mojom.AudioSystemPropertiesObserverRequest = ash.audio_config.mojom.AudioSystemPropertiesObserverPendingReceiver;
 
 
 // Interface: CrosAudioConfig
-ash.audio_config.mojom.CrosAudioConfig = {};
+mojo.internal.Struct(
+    ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.audio_config.mojom.AudioSystemPropertiesObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.audio_config.mojom.AudioSystemPropertiesObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_Params', [
+      mojo.internal.StructField('muted', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'muted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.audio_config.mojom.CrosAudioConfig_SetOutputVolumePercent_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_SetOutputVolumePercent_Params', [
+      mojo.internal.StructField('volume', 0, 0, mojo.internal.Int8, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.audio_config.mojom.CrosAudioConfig_SetOutputVolumePercent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.audio_config.mojom.CrosAudioConfig_SetOutputVolumePercent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.audio_config.mojom.CrosAudioConfig_SetInputGainPercent_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_SetInputGainPercent_Params', [
+      mojo.internal.StructField('gain', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.audio_config.mojom.CrosAudioConfig_SetInputGainPercent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.audio_config.mojom.CrosAudioConfig_SetInputGainPercent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'gain', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.audio_config.mojom.CrosAudioConfig_SetActiveDevice_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_SetActiveDevice_Params', [
+      mojo.internal.StructField('device', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.audio_config.mojom.CrosAudioConfig_SetActiveDevice_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.audio_config.mojom.CrosAudioConfig_SetActiveDevice_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.audio_config.mojom.CrosAudioConfig_SetInputMuted_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_SetInputMuted_Params', [
+      mojo.internal.StructField('muted', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.audio_config.mojom.CrosAudioConfig_SetInputMuted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.audio_config.mojom.CrosAudioConfig_SetInputMuted_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'muted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationEnabledChange_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationEnabledChange_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationEnabledChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationEnabledChange_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange_Params', [
+      mojo.internal.StructField('preferred_effect', 0, 0, ash.audio_config.mojom.AudioEffectTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'preferred_effect', packedOffset: 0, packedBitOffset: 0, type: ash.audio_config.mojom.AudioEffectTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.audio_config.mojom.CrosAudioConfig_SetNoiseCancellationEnabled_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_SetNoiseCancellationEnabled_Params', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.audio_config.mojom.CrosAudioConfig_SetNoiseCancellationEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.audio_config.mojom.CrosAudioConfig_SetNoiseCancellationEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.audio_config.mojom.CrosAudioConfig_SetStyleTransferEnabled_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_SetStyleTransferEnabled_Params', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.audio_config.mojom.CrosAudioConfig_SetStyleTransferEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.audio_config.mojom.CrosAudioConfig_SetStyleTransferEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.audio_config.mojom.CrosAudioConfig_SetForceRespectUiGainsEnabled_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_SetForceRespectUiGainsEnabled_Params', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.audio_config.mojom.CrosAudioConfig_SetForceRespectUiGainsEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.audio_config.mojom.CrosAudioConfig_SetForceRespectUiGainsEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.audio_config.mojom.CrosAudioConfig_SetHfpMicSrEnabled_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_SetHfpMicSrEnabled_Params', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.audio_config.mojom.CrosAudioConfig_SetHfpMicSrEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.audio_config.mojom.CrosAudioConfig_SetHfpMicSrEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.audio_config.mojom.CrosAudioConfig_SetSpatialAudioEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.audio_config.mojom.CrosAudioConfig_SetSpatialAudioEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.audio_config.mojom.CrosAudioConfig_SetSpatialAudioEnabled_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_SetSpatialAudioEnabled_Params', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.audio_config.mojom.CrosAudioConfigPendingReceiver = class {
   constructor(handle) {
@@ -537,188 +420,6 @@ ash.audio_config.mojom.CrosAudioConfig.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ObserveAudioSystemProperties
-ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.audio_config.mojom.CrosAudioConfig.ObserveAudioSystemProperties_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.audio_config.mojom.AudioSystemPropertiesObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetOutputMuted
-ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.audio_config.mojom.CrosAudioConfig.SetOutputMuted_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'muted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetOutputVolumePercent
-ash.audio_config.mojom.CrosAudioConfig_SetOutputVolumePercent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.audio_config.mojom.CrosAudioConfig.SetOutputVolumePercent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetInputGainPercent
-ash.audio_config.mojom.CrosAudioConfig_SetInputGainPercent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.audio_config.mojom.CrosAudioConfig.SetInputGainPercent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'gain', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetActiveDevice
-ash.audio_config.mojom.CrosAudioConfig_SetActiveDevice_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.audio_config.mojom.CrosAudioConfig.SetActiveDevice_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetInputMuted
-ash.audio_config.mojom.CrosAudioConfig_SetInputMuted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.audio_config.mojom.CrosAudioConfig.SetInputMuted_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'muted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RecordVoiceIsolationEnabledChange
-ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationEnabledChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.audio_config.mojom.CrosAudioConfig.RecordVoiceIsolationEnabledChange_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for RecordVoiceIsolationPreferredEffectChange
-ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.audio_config.mojom.CrosAudioConfig.RecordVoiceIsolationPreferredEffectChange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'preferred_effect', packedOffset: 0, packedBitOffset: 0, type: ash.audio_config.mojom.AudioEffectTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetNoiseCancellationEnabled
-ash.audio_config.mojom.CrosAudioConfig_SetNoiseCancellationEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.audio_config.mojom.CrosAudioConfig.SetNoiseCancellationEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetStyleTransferEnabled
-ash.audio_config.mojom.CrosAudioConfig_SetStyleTransferEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.audio_config.mojom.CrosAudioConfig.SetStyleTransferEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetForceRespectUiGainsEnabled
-ash.audio_config.mojom.CrosAudioConfig_SetForceRespectUiGainsEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.audio_config.mojom.CrosAudioConfig.SetForceRespectUiGainsEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetHfpMicSrEnabled
-ash.audio_config.mojom.CrosAudioConfig_SetHfpMicSrEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.audio_config.mojom.CrosAudioConfig.SetHfpMicSrEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetSpatialAudioEnabled
-ash.audio_config.mojom.CrosAudioConfig_SetSpatialAudioEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.audio_config.mojom.CrosAudioConfig.SetSpatialAudioEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.audio_config.mojom.CrosAudioConfigPtr = ash.audio_config.mojom.CrosAudioConfigRemote;
 ash.audio_config.mojom.CrosAudioConfigRequest = ash.audio_config.mojom.CrosAudioConfigPendingReceiver;
 

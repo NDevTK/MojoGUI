@@ -10,41 +10,35 @@ blink.mojom = blink.mojom || {};
 var blink = blink || {};
 var blink = blink || {};
 
+blink.mojom.FileBackedBlobFactory = {};
+blink.mojom.FileBackedBlobFactory.$interfaceName = 'blink.mojom.FileBackedBlobFactory';
+blink.mojom.FileBackedBlobFactory_RegisterBlob_ParamsSpec = { $: {} };
+blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ParamsSpec = { $: {} };
+blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ResponseParamsSpec = { $: {} };
 
 // Interface: FileBackedBlobFactory
-blink.mojom.FileBackedBlobFactory = {};
+mojo.internal.Struct(
+    blink.mojom.FileBackedBlobFactory_RegisterBlob_ParamsSpec, 'blink.mojom.FileBackedBlobFactory_RegisterBlob_Params', [
+      mojo.internal.StructField('blob', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.BlobRemote), null, false, 0, undefined),
+      mojo.internal.StructField('uuid', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('content_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('file', 24, 0, blink.mojom.DataElementFileSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-blink.mojom.FileBackedBlobFactory_RegisterBlob_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileBackedBlobFactory_RegisterBlob_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.BlobRemote), nullable: false, minVersion: 0 },
-        { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'content_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'file', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.DataElementFileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ParamsSpec, 'blink.mojom.FileBackedBlobFactory_RegisterBlobSync_Params', [
+      mojo.internal.StructField('blob', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.BlobRemote), null, false, 0, undefined),
+      mojo.internal.StructField('uuid', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('content_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('file', 24, 0, blink.mojom.DataElementFileSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileBackedBlobFactory_RegisterBlobSync_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.BlobRemote), nullable: false, minVersion: 0 },
-        { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'content_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'file', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.DataElementFileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ResponseParamsSpec, 'blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 blink.mojom.FileBackedBlobFactoryPendingReceiver = class {
   constructor(handle) {
@@ -92,7 +86,7 @@ blink.mojom.FileBackedBlobFactoryRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ParamsSpec,
-      null,
+      blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ResponseParamsSpec,
       [blob, uuid, content_type, file]);
   }
 
@@ -108,41 +102,6 @@ blink.mojom.FileBackedBlobFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RegisterBlob
-blink.mojom.FileBackedBlobFactory_RegisterBlob_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileBackedBlobFactory.RegisterBlob_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.BlobRemote), nullable: false, minVersion: 0 },
-        { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'content_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'file', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.DataElementFileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for RegisterBlobSync
-blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileBackedBlobFactory.RegisterBlobSync_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.BlobRemote), nullable: false, minVersion: 0 },
-        { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'content_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'file', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.DataElementFileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.FileBackedBlobFactoryPtr = blink.mojom.FileBackedBlobFactoryRemote;
 blink.mojom.FileBackedBlobFactoryRequest = blink.mojom.FileBackedBlobFactoryPendingReceiver;
 

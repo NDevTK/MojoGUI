@@ -8,22 +8,16 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.SessionStorageNamespace = {};
+blink.mojom.SessionStorageNamespace.$interfaceName = 'blink.mojom.SessionStorageNamespace';
+blink.mojom.SessionStorageNamespace_Clone_ParamsSpec = { $: {} };
 
 // Interface: SessionStorageNamespace
-blink.mojom.SessionStorageNamespace = {};
-
-blink.mojom.SessionStorageNamespace_Clone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SessionStorageNamespace_Clone_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'clone_to_namespace', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SessionStorageNamespace_Clone_ParamsSpec, 'blink.mojom.SessionStorageNamespace_Clone_Params', [
+      mojo.internal.StructField('clone_to_namespace', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.SessionStorageNamespacePendingReceiver = class {
   constructor(handle) {
@@ -78,21 +72,6 @@ blink.mojom.SessionStorageNamespace.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Clone
-blink.mojom.SessionStorageNamespace_Clone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SessionStorageNamespace.Clone_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'clone_to_namespace', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.SessionStorageNamespacePtr = blink.mojom.SessionStorageNamespaceRemote;
 blink.mojom.SessionStorageNamespaceRequest = blink.mojom.SessionStorageNamespacePendingReceiver;
 

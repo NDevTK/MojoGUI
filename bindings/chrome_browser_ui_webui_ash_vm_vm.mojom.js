@@ -8,22 +8,24 @@
 var ash = ash || {};
 ash.vm = ash.vm || {};
 ash.vm.mojom = ash.vm.mojom || {};
+var ash = ash || {};
 
+ash.vm.mojom.VmDiagnosticsProvider = {};
+ash.vm.mojom.VmDiagnosticsProvider.$interfaceName = 'ash.vm.mojom.VmDiagnosticsProvider';
+ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ParamsSpec = { $: {} };
+ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ResponseParamsSpec = { $: {} };
 
 // Interface: VmDiagnosticsProvider
-ash.vm.mojom.VmDiagnosticsProvider = {};
+mojo.internal.Struct(
+    ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ParamsSpec, 'ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ResponseParamsSpec, 'ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ResponseParams', [
+      mojo.internal.StructField('diagnostics', 0, 0, guest_os.mojom.DiagnosticsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.vm.mojom.VmDiagnosticsProviderPendingReceiver = class {
   constructor(handle) {
@@ -78,33 +80,6 @@ ash.vm.mojom.VmDiagnosticsProvider.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetPluginVmDiagnostics
-ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.vm.mojom.VmDiagnosticsProvider.GetPluginVmDiagnostics_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.vm.mojom.VmDiagnosticsProvider.GetPluginVmDiagnostics_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'diagnostics', packedOffset: 0, packedBitOffset: 0, type: guest_os.mojom.DiagnosticsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.vm.mojom.VmDiagnosticsProviderPtr = ash.vm.mojom.VmDiagnosticsProviderRemote;
 ash.vm.mojom.VmDiagnosticsProviderRequest = ash.vm.mojom.VmDiagnosticsProviderPendingReceiver;
 

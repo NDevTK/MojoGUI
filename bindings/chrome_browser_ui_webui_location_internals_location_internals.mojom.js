@@ -6,23 +6,18 @@
 
 // Module namespace
 var mojom = mojom || {};
+var services = services || {};
 
+mojom.LocationInternalsHandler = {};
+mojom.LocationInternalsHandler.$interfaceName = 'mojom.LocationInternalsHandler';
+mojom.LocationInternalsHandler_BindInternalsInterface_ParamsSpec = { $: {} };
 
 // Interface: LocationInternalsHandler
-mojom.LocationInternalsHandler = {};
-
-mojom.LocationInternalsHandler_BindInternalsInterface_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.LocationInternalsHandler_BindInternalsInterface_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.GeolocationInternalsRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojom.LocationInternalsHandler_BindInternalsInterface_ParamsSpec, 'mojom.LocationInternalsHandler_BindInternalsInterface_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(device.mojom.GeolocationInternalsRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 mojom.LocationInternalsHandlerPendingReceiver = class {
   constructor(handle) {
@@ -77,21 +72,6 @@ mojom.LocationInternalsHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for BindInternalsInterface
-mojom.LocationInternalsHandler_BindInternalsInterface_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.LocationInternalsHandler.BindInternalsInterface_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.GeolocationInternalsRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 mojom.LocationInternalsHandlerPtr = mojom.LocationInternalsHandlerRemote;
 mojom.LocationInternalsHandlerRequest = mojom.LocationInternalsHandlerPendingReceiver;
 

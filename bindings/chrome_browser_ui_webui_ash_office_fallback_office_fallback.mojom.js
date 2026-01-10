@@ -9,6 +9,13 @@ var ash = ash || {};
 ash.office_fallback = ash.office_fallback || {};
 ash.office_fallback.mojom = ash.office_fallback.mojom || {};
 
+ash.office_fallback.mojom.DialogChoiceSpec = { $: mojo.internal.Enum() };
+ash.office_fallback.mojom.PageHandlerFactory = {};
+ash.office_fallback.mojom.PageHandlerFactory.$interfaceName = 'ash.office_fallback.mojom.PageHandlerFactory';
+ash.office_fallback.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+ash.office_fallback.mojom.PageHandler = {};
+ash.office_fallback.mojom.PageHandler.$interfaceName = 'ash.office_fallback.mojom.PageHandler';
+ash.office_fallback.mojom.PageHandler_Close_ParamsSpec = { $: {} };
 
 // Enum: DialogChoice
 ash.office_fallback.mojom.DialogChoice = {
@@ -17,23 +24,13 @@ ash.office_fallback.mojom.DialogChoice = {
   kQuickOffice: 2,
   kTryAgain: 3,
 };
-ash.office_fallback.mojom.DialogChoiceSpec = { $: mojo.internal.Enum() };
 
 // Interface: PageHandlerFactory
-ash.office_fallback.mojom.PageHandlerFactory = {};
-
-ash.office_fallback.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.office_fallback.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.office_fallback.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.office_fallback.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.office_fallback.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(ash.office_fallback.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.office_fallback.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -88,40 +85,16 @@ ash.office_fallback.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-ash.office_fallback.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.office_fallback.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.office_fallback.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.office_fallback.mojom.PageHandlerFactoryPtr = ash.office_fallback.mojom.PageHandlerFactoryRemote;
 ash.office_fallback.mojom.PageHandlerFactoryRequest = ash.office_fallback.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-ash.office_fallback.mojom.PageHandler = {};
-
-ash.office_fallback.mojom.PageHandler_Close_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.office_fallback.mojom.PageHandler_Close_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'choice', packedOffset: 0, packedBitOffset: 0, type: ash.office_fallback.mojom.DialogChoiceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.office_fallback.mojom.PageHandler_Close_ParamsSpec, 'ash.office_fallback.mojom.PageHandler_Close_Params', [
+      mojo.internal.StructField('choice', 0, 0, ash.office_fallback.mojom.DialogChoiceSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.office_fallback.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -176,21 +149,6 @@ ash.office_fallback.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Close
-ash.office_fallback.mojom.PageHandler_Close_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.office_fallback.mojom.PageHandler.Close_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'choice', packedOffset: 0, packedBitOffset: 0, type: ash.office_fallback.mojom.DialogChoiceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.office_fallback.mojom.PageHandlerPtr = ash.office_fallback.mojom.PageHandlerRemote;
 ash.office_fallback.mojom.PageHandlerRequest = ash.office_fallback.mojom.PageHandlerPendingReceiver;
 

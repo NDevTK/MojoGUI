@@ -8,24 +8,18 @@
 var drivefs = drivefs || {};
 drivefs.mojom = drivefs.mojom || {};
 
+drivefs.mojom.FakeDriveFsLauncher = {};
+drivefs.mojom.FakeDriveFsLauncher.$interfaceName = 'drivefs.mojom.FakeDriveFsLauncher';
+drivefs.mojom.FakeDriveFsLauncher_LaunchDriveFs_ParamsSpec = { $: {} };
 
 // Interface: FakeDriveFsLauncher
-drivefs.mojom.FakeDriveFsLauncher = {};
-
-drivefs.mojom.FakeDriveFsLauncher_LaunchDriveFs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'drivefs.mojom.FakeDriveFsLauncher_LaunchDriveFs_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'datadir_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'mount_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'mojo_socket_handle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    drivefs.mojom.FakeDriveFsLauncher_LaunchDriveFs_ParamsSpec, 'drivefs.mojom.FakeDriveFsLauncher_LaunchDriveFs_Params', [
+      mojo.internal.StructField('datadir_path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mount_path', 8, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mojo_socket_handle', 16, 0, mojo.internal.Handle, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 drivefs.mojom.FakeDriveFsLauncherPendingReceiver = class {
   constructor(handle) {
@@ -80,23 +74,6 @@ drivefs.mojom.FakeDriveFsLauncher.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for LaunchDriveFs
-drivefs.mojom.FakeDriveFsLauncher_LaunchDriveFs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'drivefs.mojom.FakeDriveFsLauncher.LaunchDriveFs_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'datadir_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'mount_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'mojo_socket_handle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 drivefs.mojom.FakeDriveFsLauncherPtr = drivefs.mojom.FakeDriveFsLauncherRemote;
 drivefs.mojom.FakeDriveFsLauncherRequest = drivefs.mojom.FakeDriveFsLauncherPendingReceiver;
 

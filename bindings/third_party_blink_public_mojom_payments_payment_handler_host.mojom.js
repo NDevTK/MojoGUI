@@ -7,99 +7,85 @@
 // Module namespace
 var payments = payments || {};
 payments.mojom = payments.mojom || {};
+var components = components || {};
 var blink = blink || {};
 
+payments.mojom.PaymentHandlerMethodDataSpec = { $: {} };
+payments.mojom.PaymentHandlerModifierSpec = { $: {} };
+payments.mojom.PaymentRequestDetailsUpdateSpec = { $: {} };
+payments.mojom.PaymentHandlerHost = {};
+payments.mojom.PaymentHandlerHost.$interfaceName = 'payments.mojom.PaymentHandlerHost';
+payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ParamsSpec = { $: {} };
+payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec = { $: {} };
+payments.mojom.PaymentHandlerHost_ChangeShippingOption_ParamsSpec = { $: {} };
+payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec = { $: {} };
+payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ParamsSpec = { $: {} };
+payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec = { $: {} };
 
 // Struct: PaymentHandlerMethodData
-payments.mojom.PaymentHandlerMethodDataSpec = {
-  $: {
-    structSpec: {
-      name: 'payments.mojom.PaymentHandlerMethodData',
-      packedSize: 24,
-      fields: [
-        { name: 'method_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'stringified_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    payments.mojom.PaymentHandlerMethodDataSpec, 'payments.mojom.PaymentHandlerMethodData', [
+      mojo.internal.StructField('method_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('stringified_data', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: PaymentHandlerModifier
-payments.mojom.PaymentHandlerModifierSpec = {
-  $: {
-    structSpec: {
-      name: 'payments.mojom.PaymentHandlerModifier',
-      packedSize: 24,
-      fields: [
-        { name: 'total', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PaymentCurrencyAmountSpec, nullable: true, minVersion: 0 },
-        { name: 'method_data', packedOffset: 8, packedBitOffset: 0, type: payments.mojom.PaymentHandlerMethodDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    payments.mojom.PaymentHandlerModifierSpec, 'payments.mojom.PaymentHandlerModifier', [
+      mojo.internal.StructField('total', 0, 0, payments.mojom.PaymentCurrencyAmountSpec, null, true, 0, undefined),
+      mojo.internal.StructField('method_data', 8, 0, payments.mojom.PaymentHandlerMethodDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: PaymentRequestDetailsUpdate
-payments.mojom.PaymentRequestDetailsUpdateSpec = {
-  $: {
-    structSpec: {
-      name: 'payments.mojom.PaymentRequestDetailsUpdate',
-      packedSize: 56,
-      fields: [
-        { name: 'total', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PaymentCurrencyAmountSpec, nullable: true, minVersion: 0 },
-        { name: 'shipping_options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(payments.mojom.PaymentShippingOptionSpec, false), nullable: true, minVersion: 0 },
-        { name: 'modifiers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(payments.mojom.PaymentHandlerModifierSpec, false), nullable: true, minVersion: 0 },
-        { name: 'error', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'stringified_payment_method_errors', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'shipping_address_errors', packedOffset: 40, packedBitOffset: 0, type: payments.mojom.AddressErrorsSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    payments.mojom.PaymentRequestDetailsUpdateSpec, 'payments.mojom.PaymentRequestDetailsUpdate', [
+      mojo.internal.StructField('total', 0, 0, payments.mojom.PaymentCurrencyAmountSpec, null, true, 0, undefined),
+      mojo.internal.StructField('shipping_options', 8, 0, mojo.internal.Array(payments.mojom.PaymentShippingOptionSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('modifiers', 16, 0, mojo.internal.Array(payments.mojom.PaymentHandlerModifierSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('error', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('stringified_payment_method_errors', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('shipping_address_errors', 40, 0, payments.mojom.AddressErrorsSpec, null, true, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Interface: PaymentHandlerHost
-payments.mojom.PaymentHandlerHost = {};
+mojo.internal.Struct(
+    payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ParamsSpec, 'payments.mojom.PaymentHandlerHost_ChangePaymentMethod_Params', [
+      mojo.internal.StructField('method_data', 0, 0, payments.mojom.PaymentHandlerMethodDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'payments.mojom.PaymentHandlerHost_ChangePaymentMethod_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'method_data', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PaymentHandlerMethodDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec, 'payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParams', [
+      mojo.internal.StructField('response_data', 0, 0, payments.mojom.PaymentRequestDetailsUpdateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-payments.mojom.PaymentHandlerHost_ChangeShippingOption_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'payments.mojom.PaymentHandlerHost_ChangeShippingOption_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'shipping_option_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    payments.mojom.PaymentHandlerHost_ChangeShippingOption_ParamsSpec, 'payments.mojom.PaymentHandlerHost_ChangeShippingOption_Params', [
+      mojo.internal.StructField('shipping_option_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'payments.mojom.PaymentHandlerHost_ChangeShippingAddress_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'shipping_address', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PaymentAddressSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec, 'payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParams', [
+      mojo.internal.StructField('response_data', 0, 0, payments.mojom.PaymentRequestDetailsUpdateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ParamsSpec, 'payments.mojom.PaymentHandlerHost_ChangeShippingAddress_Params', [
+      mojo.internal.StructField('shipping_address', 0, 0, payments.mojom.PaymentAddressSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec, 'payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParams', [
+      mojo.internal.StructField('response_data', 0, 0, payments.mojom.PaymentRequestDetailsUpdateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 payments.mojom.PaymentHandlerHostPendingReceiver = class {
   constructor(handle) {
@@ -172,88 +158,6 @@ payments.mojom.PaymentHandlerHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ChangePaymentMethod
-payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'payments.mojom.PaymentHandlerHost.ChangePaymentMethod_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'method_data', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PaymentHandlerMethodDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'payments.mojom.PaymentHandlerHost.ChangePaymentMethod_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'response_data', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PaymentRequestDetailsUpdateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ChangeShippingOption
-payments.mojom.PaymentHandlerHost_ChangeShippingOption_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'payments.mojom.PaymentHandlerHost.ChangeShippingOption_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'shipping_option_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'payments.mojom.PaymentHandlerHost.ChangeShippingOption_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'response_data', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PaymentRequestDetailsUpdateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ChangeShippingAddress
-payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'payments.mojom.PaymentHandlerHost.ChangeShippingAddress_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'shipping_address', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PaymentAddressSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'payments.mojom.PaymentHandlerHost.ChangeShippingAddress_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'response_data', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PaymentRequestDetailsUpdateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 payments.mojom.PaymentHandlerHostPtr = payments.mojom.PaymentHandlerHostRemote;
 payments.mojom.PaymentHandlerHostRequest = payments.mojom.PaymentHandlerHostPendingReceiver;
 

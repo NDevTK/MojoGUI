@@ -8,21 +8,22 @@
 var content = content || {};
 content.mojom = content.mojom || {};
 
+content.mojom.PowerMonitorTest = {};
+content.mojom.PowerMonitorTest.$interfaceName = 'content.mojom.PowerMonitorTest';
+content.mojom.PowerMonitorTest_QueryNextState_ParamsSpec = { $: {} };
+content.mojom.PowerMonitorTest_QueryNextState_ResponseParamsSpec = { $: {} };
 
 // Interface: PowerMonitorTest
-content.mojom.PowerMonitorTest = {};
+mojo.internal.Struct(
+    content.mojom.PowerMonitorTest_QueryNextState_ParamsSpec, 'content.mojom.PowerMonitorTest_QueryNextState_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.PowerMonitorTest_QueryNextState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.PowerMonitorTest_QueryNextState_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.PowerMonitorTest_QueryNextState_ResponseParamsSpec, 'content.mojom.PowerMonitorTest_QueryNextState_ResponseParams', [
+      mojo.internal.StructField('battery_power_status', 0, 0, mojo_base.mojom.BatteryPowerStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 content.mojom.PowerMonitorTestPendingReceiver = class {
   constructor(handle) {
@@ -77,33 +78,6 @@ content.mojom.PowerMonitorTest.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for QueryNextState
-content.mojom.PowerMonitorTest_QueryNextState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.PowerMonitorTest.QueryNextState_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-content.mojom.PowerMonitorTest_QueryNextState_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.PowerMonitorTest.QueryNextState_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'battery_power_status', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BatteryPowerStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 content.mojom.PowerMonitorTestPtr = content.mojom.PowerMonitorTestRemote;
 content.mojom.PowerMonitorTestRequest = content.mojom.PowerMonitorTestPendingReceiver;
 

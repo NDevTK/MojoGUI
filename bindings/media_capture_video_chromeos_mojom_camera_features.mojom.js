@@ -8,6 +8,9 @@
 var cros = cros || {};
 cros.mojom = cros.mojom || {};
 
+cros.mojom.PortraitModeSegResultSpec = { $: mojo.internal.Enum() };
+cros.mojom.Camera3StreamEffectSpec = { $: {} };
+cros.mojom.PortraitModeConfigSpec = { $: {} };
 
 // Enum: PortraitModeSegResult
 cros.mojom.PortraitModeSegResult = {
@@ -17,32 +20,25 @@ cros.mojom.PortraitModeSegResult = {
   kNoFaces: 3,
   kUnknown: 4,
 };
-cros.mojom.PortraitModeSegResultSpec = { $: mojo.internal.Enum() };
 
 // Union: Camera3StreamEffect
-cros.mojom.Camera3StreamEffectSpec = { $: mojo.internal.Union(
-    'cros.mojom.Camera3StreamEffect', {
+mojo.internal.Union(
+    cros.mojom.Camera3StreamEffectSpec, 'cros.mojom.Camera3StreamEffect', {
       'unknown_config': {
         'ordinal': 0,
         'type': mojo.internal.Uint8,
-      }},
+        'nullable': false,
+      },
       'portrait_mode_config': {
         'ordinal': 1,
         'type': cros.mojom.PortraitModeConfigSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: PortraitModeConfig
-cros.mojom.PortraitModeConfigSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.PortraitModeConfig',
-      packedSize: 16,
-      fields: [
-        { name: 'enable_rectiface', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.PortraitModeConfigSpec, 'cros.mojom.PortraitModeConfig', [
+      mojo.internal.StructField('enable_rectiface', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);

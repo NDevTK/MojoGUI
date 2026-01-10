@@ -8,6 +8,11 @@
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
 
+viz.mojom.BeginFrameArgsTypeSpec = { $: mojo.internal.Enum() };
+viz.mojom.BeginFrameIdSpec = { $: {} };
+viz.mojom.BeginFrameArgsSpec = { $: {} };
+viz.mojom.BeginFrameAckSpec = { $: {} };
+viz.mojom.CADisplayLinkParamsSpec = { $: {} };
 
 // Enum: BeginFrameArgsType
 viz.mojom.BeginFrameArgsType = {
@@ -15,77 +20,48 @@ viz.mojom.BeginFrameArgsType = {
   NORMAL: 1,
   MISSED: 2,
 };
-viz.mojom.BeginFrameArgsTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: BeginFrameId
-viz.mojom.BeginFrameIdSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.BeginFrameId',
-      packedSize: 24,
-      fields: [
-        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'sequence_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.BeginFrameIdSpec, 'viz.mojom.BeginFrameId', [
+      mojo.internal.StructField('source_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('sequence_number', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: BeginFrameArgs
-viz.mojom.BeginFrameArgsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.BeginFrameArgs',
-      packedSize: 80,
-      fields: [
-        { name: 'frame_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'deadline', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'interval', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'frame_id', packedOffset: 24, packedBitOffset: 0, type: viz.mojom.BeginFrameIdSpec, nullable: false, minVersion: 0 },
-        { name: 'frames_throttled_since_last', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'trace_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'dispatch_time', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'client_arrival_time', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 64, packedBitOffset: 0, type: viz.mojom.BeginFrameArgsTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'on_critical_path', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'animate_only', packedOffset: 68, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 80}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.BeginFrameArgsSpec, 'viz.mojom.BeginFrameArgs', [
+      mojo.internal.StructField('frame_time', 0, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('deadline', 8, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('interval', 16, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame_id', 24, 0, viz.mojom.BeginFrameIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frames_throttled_since_last', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('trace_id', 40, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('dispatch_time', 48, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('client_arrival_time', 56, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 64, 0, viz.mojom.BeginFrameArgsTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('on_critical_path', 68, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('animate_only', 68, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 80]]);
 
 // Struct: BeginFrameAck
-viz.mojom.BeginFrameAckSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.BeginFrameAck',
-      packedSize: 40,
-      fields: [
-        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'sequence_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'trace_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'has_damage', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.BeginFrameAckSpec, 'viz.mojom.BeginFrameAck', [
+      mojo.internal.StructField('source_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('sequence_number', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('trace_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('has_damage', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: CADisplayLinkParams
-viz.mojom.CADisplayLinkParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.CADisplayLinkParams',
-      packedSize: 40,
-      fields: [
-        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'target_timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'interval', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.CADisplayLinkParamsSpec, 'viz.mojom.CADisplayLinkParams', [
+      mojo.internal.StructField('display_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 8, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('target_timestamp', 16, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('interval', 24, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);

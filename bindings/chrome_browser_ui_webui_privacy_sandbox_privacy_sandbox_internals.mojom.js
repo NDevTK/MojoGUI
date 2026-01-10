@@ -7,89 +7,92 @@
 // Module namespace
 var privacy_sandbox_internals = privacy_sandbox_internals || {};
 privacy_sandbox_internals.mojom = privacy_sandbox_internals.mojom || {};
+var components = components || {};
+var components = components || {};
 
+privacy_sandbox_internals.mojom.PrivacySandboxInternalsPrefSpec = { $: {} };
+privacy_sandbox_internals.mojom.PageHandler = {};
+privacy_sandbox_internals.mojom.PageHandler.$interfaceName = 'privacy_sandbox_internals.mojom.PageHandler';
+privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ParamsSpec = { $: {} };
+privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ResponseParamsSpec = { $: {} };
+privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ParamsSpec = { $: {} };
+privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ResponseParamsSpec = { $: {} };
+privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_ParamsSpec = { $: {} };
+privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_ResponseParamsSpec = { $: {} };
+privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_ParamsSpec = { $: {} };
+privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_ResponseParamsSpec = { $: {} };
+privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_ParamsSpec = { $: {} };
+privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_ResponseParamsSpec = { $: {} };
+privacy_sandbox_internals.mojom.Page = {};
+privacy_sandbox_internals.mojom.Page.$interfaceName = 'privacy_sandbox_internals.mojom.Page';
 
 // Struct: PrivacySandboxInternalsPref
-privacy_sandbox_internals.mojom.PrivacySandboxInternalsPrefSpec = {
-  $: {
-    structSpec: {
-      name: 'privacy_sandbox_internals.mojom.PrivacySandboxInternalsPref',
-      packedSize: 32,
-      fields: [
-        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    privacy_sandbox_internals.mojom.PrivacySandboxInternalsPrefSpec, 'privacy_sandbox_internals.mojom.PrivacySandboxInternalsPref', [
+      mojo.internal.StructField('name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: PageHandler
-privacy_sandbox_internals.mojom.PageHandler = {};
+mojo.internal.Struct(
+    privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ParamsSpec, 'privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_Params', [
+      mojo.internal.StructField('pref_prefixes', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pref_prefixes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ResponseParamsSpec, 'privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ResponseParams', [
+      mojo.internal.StructField('prefs', 0, 0, mojo.internal.Array(privacy_sandbox_internals.mojom.PrivacySandboxInternalsPrefSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: content_settings.mojom.ContentSettingsTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ParamsSpec, 'privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_Params', [
+      mojo.internal.StructField('type', 0, 0, content_settings.mojom.ContentSettingsTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ResponseParamsSpec, 'privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ResponseParams', [
+      mojo.internal.StructField('content_settings', 0, 0, mojo.internal.Array(content_settings.mojom.ContentSettingPatternSourceSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pattern', packedOffset: 0, packedBitOffset: 0, type: content_settings.mojom.ContentSettingsPatternSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_ParamsSpec, 'privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_Params',
-      packedSize: 16,
-      fields: [
-        { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_ResponseParamsSpec, 'privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_ResponseParams', [
+      mojo.internal.StructField('content_settings', 0, 0, mojo.internal.Array(content_settings.mojom.ContentSettingPatternSourceSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_ParamsSpec, 'privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_Params', [
+      mojo.internal.StructField('pattern', 0, 0, content_settings.mojom.ContentSettingsPatternSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_ResponseParamsSpec, 'privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_ResponseParams', [
+      mojo.internal.StructField('s', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_ParamsSpec, 'privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_Params', [
+      mojo.internal.StructField('s', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_ResponseParamsSpec, 'privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_ResponseParams', [
+      mojo.internal.StructField('pattern', 0, 0, content_settings.mojom.ContentSettingsPatternSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 privacy_sandbox_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -180,148 +183,11 @@ privacy_sandbox_internals.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ReadPrefsWithPrefixes
-privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'privacy_sandbox_internals.mojom.PageHandler.ReadPrefsWithPrefixes_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pref_prefixes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'privacy_sandbox_internals.mojom.PageHandler.ReadPrefsWithPrefixes_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'prefs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(privacy_sandbox_internals.mojom.PrivacySandboxInternalsPrefSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReadContentSettings
-privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'privacy_sandbox_internals.mojom.PageHandler.ReadContentSettings_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: content_settings.mojom.ContentSettingsTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'privacy_sandbox_internals.mojom.PageHandler.ReadContentSettings_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'content_settings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(content_settings.mojom.ContentSettingPatternSourceSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetTpcdMetadataGrants
-privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'privacy_sandbox_internals.mojom.PageHandler.GetTpcdMetadataGrants_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'privacy_sandbox_internals.mojom.PageHandler.GetTpcdMetadataGrants_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'content_settings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(content_settings.mojom.ContentSettingPatternSourceSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ContentSettingsPatternToString
-privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'privacy_sandbox_internals.mojom.PageHandler.ContentSettingsPatternToString_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pattern', packedOffset: 0, packedBitOffset: 0, type: content_settings.mojom.ContentSettingsPatternSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'privacy_sandbox_internals.mojom.PageHandler.ContentSettingsPatternToString_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StringToContentSettingsPattern
-privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'privacy_sandbox_internals.mojom.PageHandler.StringToContentSettingsPattern_Params',
-      packedSize: 16,
-      fields: [
-        { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'privacy_sandbox_internals.mojom.PageHandler.StringToContentSettingsPattern_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'pattern', packedOffset: 0, packedBitOffset: 0, type: content_settings.mojom.ContentSettingsPatternSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 privacy_sandbox_internals.mojom.PageHandlerPtr = privacy_sandbox_internals.mojom.PageHandlerRemote;
 privacy_sandbox_internals.mojom.PageHandlerRequest = privacy_sandbox_internals.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-privacy_sandbox_internals.mojom.Page = {};
-
 privacy_sandbox_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -366,7 +232,6 @@ privacy_sandbox_internals.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// Legacy compatibility
 privacy_sandbox_internals.mojom.PagePtr = privacy_sandbox_internals.mojom.PageRemote;
 privacy_sandbox_internals.mojom.PageRequest = privacy_sandbox_internals.mojom.PagePendingReceiver;
 

@@ -9,14 +9,25 @@ var ash = ash || {};
 ash.projector = ash.projector || {};
 ash.projector.mojom = ash.projector.mojom || {};
 
+ash.projector.mojom.NewScreencastPreconditionStateSpec = { $: mojo.internal.Enum() };
+ash.projector.mojom.NewScreencastPreconditionReasonSpec = { $: mojo.internal.Enum() };
+ash.projector.mojom.PrefsThatProjectorCanAskForSpec = { $: mojo.internal.Enum() };
+ash.projector.mojom.XhrResponseCodeSpec = { $: mojo.internal.Enum() };
+ash.projector.mojom.JsNetErrorCodeSpec = { $: mojo.internal.Enum() };
+ash.projector.mojom.RequestTypeSpec = { $: mojo.internal.Enum() };
+ash.projector.mojom.GetVideoResultSpec = { $: {} };
+ash.projector.mojom.NewScreencastPreconditionSpec = { $: {} };
+ash.projector.mojom.PendingScreencastSpec = { $: {} };
+ash.projector.mojom.XhrResponseSpec = { $: {} };
+ash.projector.mojom.AccountSpec = { $: {} };
+ash.projector.mojom.VideoInfoSpec = { $: {} };
 
 // Enum: NewScreencastPreconditionState
 ash.projector.mojom.NewScreencastPreconditionState = {
-  kDisabled: 0,
-  kEnabled: 1,
-  kHidden: 2,
+  kDisabled: 1,
+  kEnabled: 2,
+  kHidden: 3,
 };
-ash.projector.mojom.NewScreencastPreconditionStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: NewScreencastPreconditionReason
 ash.projector.mojom.NewScreencastPreconditionReason = {
@@ -36,7 +47,6 @@ ash.projector.mojom.NewScreencastPreconditionReason = {
   kEnabledBySoda: 13,
   kEnabledByServerSideSpeechRecognition: 14,
 };
-ash.projector.mojom.NewScreencastPreconditionReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: PrefsThatProjectorCanAskFor
 ash.projector.mojom.PrefsThatProjectorCanAskFor = {
@@ -45,7 +55,6 @@ ash.projector.mojom.PrefsThatProjectorCanAskFor = {
   kProjectorViewerOnboardingShowCount: 2,
   kProjectorGalleryOnboardingShowCount: 3,
 };
-ash.projector.mojom.PrefsThatProjectorCanAskForSpec = { $: mojo.internal.Enum() };
 
 // Enum: XhrResponseCode
 ash.projector.mojom.XhrResponseCode = {
@@ -55,7 +64,6 @@ ash.projector.mojom.XhrResponseCode = {
   kUnsupportedURL: 3,
   kInvalidAccountEmail: 4,
 };
-ash.projector.mojom.XhrResponseCodeSpec = { $: mojo.internal.Enum() };
 
 // Enum: JsNetErrorCode
 ash.projector.mojom.JsNetErrorCode = {
@@ -70,7 +78,6 @@ ash.projector.mojom.JsNetErrorCode = {
   kTimeout: 8,
   kOffline: 9,
 };
-ash.projector.mojom.JsNetErrorCodeSpec = { $: mojo.internal.Enum() };
 
 // Enum: RequestType
 ash.projector.mojom.RequestType = {
@@ -79,96 +86,61 @@ ash.projector.mojom.RequestType = {
   kPatch: 2,
   kDelete: 3,
 };
-ash.projector.mojom.RequestTypeSpec = { $: mojo.internal.Enum() };
 
 // Union: GetVideoResult
-ash.projector.mojom.GetVideoResultSpec = { $: mojo.internal.Union(
-    'ash.projector.mojom.GetVideoResult', {
+mojo.internal.Union(
+    ash.projector.mojom.GetVideoResultSpec, 'ash.projector.mojom.GetVideoResult', {
       'video': {
         'ordinal': 0,
         'type': ash.projector.mojom.VideoInfoSpec,
-      }},
+        'nullable': false,
+      },
       'error_message': {
         'ordinal': 1,
         'type': mojo.internal.String,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: NewScreencastPrecondition
-ash.projector.mojom.NewScreencastPreconditionSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.projector.mojom.NewScreencastPrecondition',
-      packedSize: 24,
-      fields: [
-        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: ash.projector.mojom.NewScreencastPreconditionStateSpec, nullable: false, minVersion: 0 },
-        { name: 'reasons', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.projector.mojom.NewScreencastPreconditionReasonSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.projector.mojom.NewScreencastPreconditionSpec, 'ash.projector.mojom.NewScreencastPrecondition', [
+      mojo.internal.StructField('state', 8, 0, ash.projector.mojom.NewScreencastPreconditionStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reasons', 0, 0, mojo.internal.Array(ash.projector.mojom.NewScreencastPreconditionReasonSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: PendingScreencast
-ash.projector.mojom.PendingScreencastSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.projector.mojom.PendingScreencast',
-      packedSize: 32,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'upload_progress', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'created_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'upload_failed', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.projector.mojom.PendingScreencastSpec, 'ash.projector.mojom.PendingScreencast', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('upload_progress', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('created_time', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('upload_failed', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: XhrResponse
-ash.projector.mojom.XhrResponseSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.projector.mojom.XhrResponse',
-      packedSize: 24,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'response_code', packedOffset: 8, packedBitOffset: 0, type: ash.projector.mojom.XhrResponseCodeSpec, nullable: false, minVersion: 0 },
-        { name: 'net_error_code', packedOffset: 12, packedBitOffset: 0, type: ash.projector.mojom.JsNetErrorCodeSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.projector.mojom.XhrResponseSpec, 'ash.projector.mojom.XhrResponse', [
+      mojo.internal.StructField('response', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('response_code', 8, 0, ash.projector.mojom.XhrResponseCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('net_error_code', 12, 0, ash.projector.mojom.JsNetErrorCodeSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: Account
-ash.projector.mojom.AccountSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.projector.mojom.Account',
-      packedSize: 24,
-      fields: [
-        { name: 'email', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_primary_user', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.projector.mojom.AccountSpec, 'ash.projector.mojom.Account', [
+      mojo.internal.StructField('email', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('is_primary_user', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: VideoInfo
-ash.projector.mojom.VideoInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.projector.mojom.VideoInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'duration_millis', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'file_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.projector.mojom.VideoInfoSpec, 'ash.projector.mojom.VideoInfo', [
+      mojo.internal.StructField('duration_millis', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('file_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);

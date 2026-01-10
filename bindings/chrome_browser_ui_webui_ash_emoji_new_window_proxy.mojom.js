@@ -9,22 +9,16 @@ var new_window_proxy = new_window_proxy || {};
 new_window_proxy.mojom = new_window_proxy.mojom || {};
 var url = url || {};
 
+new_window_proxy.mojom.NewWindowProxy = {};
+new_window_proxy.mojom.NewWindowProxy.$interfaceName = 'new_window_proxy.mojom.NewWindowProxy';
+new_window_proxy.mojom.NewWindowProxy_OpenUrl_ParamsSpec = { $: {} };
 
 // Interface: NewWindowProxy
-new_window_proxy.mojom.NewWindowProxy = {};
-
-new_window_proxy.mojom.NewWindowProxy_OpenUrl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_window_proxy.mojom.NewWindowProxy_OpenUrl_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    new_window_proxy.mojom.NewWindowProxy_OpenUrl_ParamsSpec, 'new_window_proxy.mojom.NewWindowProxy_OpenUrl_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 new_window_proxy.mojom.NewWindowProxyPendingReceiver = class {
   constructor(handle) {
@@ -79,21 +73,6 @@ new_window_proxy.mojom.NewWindowProxy.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OpenUrl
-new_window_proxy.mojom.NewWindowProxy_OpenUrl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_window_proxy.mojom.NewWindowProxy.OpenUrl_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 new_window_proxy.mojom.NewWindowProxyPtr = new_window_proxy.mojom.NewWindowProxyRemote;
 new_window_proxy.mojom.NewWindowProxyRequest = new_window_proxy.mojom.NewWindowProxyPendingReceiver;
 

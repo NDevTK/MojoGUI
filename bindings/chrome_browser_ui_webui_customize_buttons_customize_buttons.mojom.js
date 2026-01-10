@@ -9,30 +9,32 @@ var customize_buttons = customize_buttons || {};
 customize_buttons.mojom = customize_buttons.mojom || {};
 var ui = ui || {};
 
+customize_buttons.mojom.SidePanelOpenTriggerSpec = { $: mojo.internal.Enum() };
+customize_buttons.mojom.CustomizeButtonsHandlerFactory = {};
+customize_buttons.mojom.CustomizeButtonsHandlerFactory.$interfaceName = 'customize_buttons.mojom.CustomizeButtonsHandlerFactory';
+customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHandler_ParamsSpec = { $: {} };
+customize_buttons.mojom.CustomizeButtonsHandler = {};
+customize_buttons.mojom.CustomizeButtonsHandler.$interfaceName = 'customize_buttons.mojom.CustomizeButtonsHandler';
+customize_buttons.mojom.CustomizeButtonsHandler_IncrementCustomizeChromeButtonOpenCount_ParamsSpec = { $: {} };
+customize_buttons.mojom.CustomizeButtonsHandler_IncrementWallpaperSearchButtonShownCount_ParamsSpec = { $: {} };
+customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisible_ParamsSpec = { $: {} };
+customize_buttons.mojom.CustomizeButtonsDocument = {};
+customize_buttons.mojom.CustomizeButtonsDocument.$interfaceName = 'customize_buttons.mojom.CustomizeButtonsDocument';
+customize_buttons.mojom.CustomizeButtonsDocument_SetCustomizeChromeSidePanelVisibility_ParamsSpec = { $: {} };
 
 // Enum: SidePanelOpenTrigger
 customize_buttons.mojom.SidePanelOpenTrigger = {
   kNewTabPage: 0,
   kNewTabFooter: 1,
 };
-customize_buttons.mojom.SidePanelOpenTriggerSpec = { $: mojo.internal.Enum() };
 
 // Interface: CustomizeButtonsHandlerFactory
-customize_buttons.mojom.CustomizeButtonsHandlerFactory = {};
-
-customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(customize_buttons.mojom.CustomizeButtonsDocumentRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(customize_buttons.mojom.CustomizeButtonsHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHandler_ParamsSpec, 'customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHandler_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(customize_buttons.mojom.CustomizeButtonsDocumentRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(customize_buttons.mojom.CustomizeButtonsHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 customize_buttons.mojom.CustomizeButtonsHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -87,67 +89,28 @@ customize_buttons.mojom.CustomizeButtonsHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateCustomizeButtonsHandler
-customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'customize_buttons.mojom.CustomizeButtonsHandlerFactory.CreateCustomizeButtonsHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(customize_buttons.mojom.CustomizeButtonsDocumentRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(customize_buttons.mojom.CustomizeButtonsHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 customize_buttons.mojom.CustomizeButtonsHandlerFactoryPtr = customize_buttons.mojom.CustomizeButtonsHandlerFactoryRemote;
 customize_buttons.mojom.CustomizeButtonsHandlerFactoryRequest = customize_buttons.mojom.CustomizeButtonsHandlerFactoryPendingReceiver;
 
 
 // Interface: CustomizeButtonsHandler
-customize_buttons.mojom.CustomizeButtonsHandler = {};
+mojo.internal.Struct(
+    customize_buttons.mojom.CustomizeButtonsHandler_IncrementCustomizeChromeButtonOpenCount_ParamsSpec, 'customize_buttons.mojom.CustomizeButtonsHandler_IncrementCustomizeChromeButtonOpenCount_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-customize_buttons.mojom.CustomizeButtonsHandler_IncrementCustomizeChromeButtonOpenCount_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'customize_buttons.mojom.CustomizeButtonsHandler_IncrementCustomizeChromeButtonOpenCount_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    customize_buttons.mojom.CustomizeButtonsHandler_IncrementWallpaperSearchButtonShownCount_ParamsSpec, 'customize_buttons.mojom.CustomizeButtonsHandler_IncrementWallpaperSearchButtonShownCount_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-customize_buttons.mojom.CustomizeButtonsHandler_IncrementWallpaperSearchButtonShownCount_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'customize_buttons.mojom.CustomizeButtonsHandler_IncrementWallpaperSearchButtonShownCount_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisible_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisible_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'visible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'section', packedOffset: 0, packedBitOffset: 0, type: side_panel.mojom.CustomizeChromeSectionSpec, nullable: false, minVersion: 0 },
-        { name: 'trigger', packedOffset: 4, packedBitOffset: 0, type: customize_buttons.mojom.SidePanelOpenTriggerSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisible_ParamsSpec, 'customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisible_Params', [
+      mojo.internal.StructField('visible', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('section', 0, 0, side_panel.mojom.CustomizeChromeSectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('trigger', 4, 0, customize_buttons.mojom.SidePanelOpenTriggerSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 customize_buttons.mojom.CustomizeButtonsHandlerPendingReceiver = class {
   constructor(handle) {
@@ -220,68 +183,16 @@ customize_buttons.mojom.CustomizeButtonsHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for IncrementCustomizeChromeButtonOpenCount
-customize_buttons.mojom.CustomizeButtonsHandler_IncrementCustomizeChromeButtonOpenCount_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'customize_buttons.mojom.CustomizeButtonsHandler.IncrementCustomizeChromeButtonOpenCount_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for IncrementWallpaperSearchButtonShownCount
-customize_buttons.mojom.CustomizeButtonsHandler_IncrementWallpaperSearchButtonShownCount_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'customize_buttons.mojom.CustomizeButtonsHandler.IncrementWallpaperSearchButtonShownCount_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetCustomizeChromeSidePanelVisible
-customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisible_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'customize_buttons.mojom.CustomizeButtonsHandler.SetCustomizeChromeSidePanelVisible_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'visible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'section', packedOffset: 0, packedBitOffset: 0, type: side_panel.mojom.CustomizeChromeSectionSpec, nullable: false, minVersion: 0 },
-        { name: 'trigger', packedOffset: 4, packedBitOffset: 0, type: customize_buttons.mojom.SidePanelOpenTriggerSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 customize_buttons.mojom.CustomizeButtonsHandlerPtr = customize_buttons.mojom.CustomizeButtonsHandlerRemote;
 customize_buttons.mojom.CustomizeButtonsHandlerRequest = customize_buttons.mojom.CustomizeButtonsHandlerPendingReceiver;
 
 
 // Interface: CustomizeButtonsDocument
-customize_buttons.mojom.CustomizeButtonsDocument = {};
-
-customize_buttons.mojom.CustomizeButtonsDocument_SetCustomizeChromeSidePanelVisibility_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'customize_buttons.mojom.CustomizeButtonsDocument_SetCustomizeChromeSidePanelVisibility_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    customize_buttons.mojom.CustomizeButtonsDocument_SetCustomizeChromeSidePanelVisibility_ParamsSpec, 'customize_buttons.mojom.CustomizeButtonsDocument_SetCustomizeChromeSidePanelVisibility_Params', [
+      mojo.internal.StructField('visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 customize_buttons.mojom.CustomizeButtonsDocumentPendingReceiver = class {
   constructor(handle) {
@@ -336,21 +247,6 @@ customize_buttons.mojom.CustomizeButtonsDocument.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetCustomizeChromeSidePanelVisibility
-customize_buttons.mojom.CustomizeButtonsDocument_SetCustomizeChromeSidePanelVisibility_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'customize_buttons.mojom.CustomizeButtonsDocument.SetCustomizeChromeSidePanelVisibility_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 customize_buttons.mojom.CustomizeButtonsDocumentPtr = customize_buttons.mojom.CustomizeButtonsDocumentRemote;
 customize_buttons.mojom.CustomizeButtonsDocumentRequest = customize_buttons.mojom.CustomizeButtonsDocumentPendingReceiver;
 

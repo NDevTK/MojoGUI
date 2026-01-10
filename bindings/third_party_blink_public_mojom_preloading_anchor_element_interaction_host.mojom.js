@@ -9,92 +9,56 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 var url = url || {};
 
+blink.mojom.AnchorElementPointerDataSpec = { $: {} };
+blink.mojom.AnchorElementInteractionHost = {};
+blink.mojom.AnchorElementInteractionHost.$interfaceName = 'blink.mojom.AnchorElementInteractionHost';
+blink.mojom.AnchorElementInteractionHost_OnPointerDown_ParamsSpec = { $: {} };
+blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_ParamsSpec = { $: {} };
+blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_ParamsSpec = { $: {} };
+blink.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_ParamsSpec = { $: {} };
+blink.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_ParamsSpec = { $: {} };
 
 // Struct: AnchorElementPointerData
-blink.mojom.AnchorElementPointerDataSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AnchorElementPointerData',
-      packedSize: 32,
-      fields: [
-        { name: 'is_mouse_pointer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'mouse_velocity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'mouse_acceleration', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.AnchorElementPointerDataSpec, 'blink.mojom.AnchorElementPointerData', [
+      mojo.internal.StructField('is_mouse_pointer', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('mouse_velocity', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('mouse_acceleration', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: AnchorElementInteractionHost
-blink.mojom.AnchorElementInteractionHost = {};
+mojo.internal.Struct(
+    blink.mojom.AnchorElementInteractionHost_OnPointerDown_ParamsSpec, 'blink.mojom.AnchorElementInteractionHost_OnPointerDown_Params', [
+      mojo.internal.StructField('target', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.AnchorElementInteractionHost_OnPointerDown_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AnchorElementInteractionHost_OnPointerDown_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'target', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_ParamsSpec, 'blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_Params', [
+      mojo.internal.StructField('target', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mouse_data', 8, 0, blink.mojom.AnchorElementPointerDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'target', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'mouse_data', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AnchorElementPointerDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_ParamsSpec, 'blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_Params', [
+      mojo.internal.StructField('target', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mouse_data', 8, 0, blink.mojom.AnchorElementPointerDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'target', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'mouse_data', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AnchorElementPointerDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_ParamsSpec, 'blink.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_Params', [
+      mojo.internal.StructField('target', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'target', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'targets', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_ParamsSpec, 'blink.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_Params', [
+      mojo.internal.StructField('targets', 0, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.AnchorElementInteractionHostPendingReceiver = class {
   constructor(handle) {
@@ -185,79 +149,6 @@ blink.mojom.AnchorElementInteractionHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnPointerDown
-blink.mojom.AnchorElementInteractionHost_OnPointerDown_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AnchorElementInteractionHost.OnPointerDown_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'target', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnPointerHoverEager
-blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AnchorElementInteractionHost.OnPointerHoverEager_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'target', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'mouse_data', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AnchorElementPointerDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnPointerHoverModerate
-blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AnchorElementInteractionHost.OnPointerHoverModerate_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'target', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'mouse_data', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AnchorElementPointerDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnModerateViewportHeuristicTriggered
-blink.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AnchorElementInteractionHost.OnModerateViewportHeuristicTriggered_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'target', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnEagerViewportHeuristicTriggered
-blink.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AnchorElementInteractionHost.OnEagerViewportHeuristicTriggered_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'targets', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.AnchorElementInteractionHostPtr = blink.mojom.AnchorElementInteractionHostRemote;
 blink.mojom.AnchorElementInteractionHostRequest = blink.mojom.AnchorElementInteractionHostPendingReceiver;
 

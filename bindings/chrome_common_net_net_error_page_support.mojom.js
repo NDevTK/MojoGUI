@@ -8,46 +8,28 @@
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
 
+chrome.mojom.NetErrorPageSupport = {};
+chrome.mojom.NetErrorPageSupport.$interfaceName = 'chrome.mojom.NetErrorPageSupport';
+chrome.mojom.NetErrorPageSupport_DownloadPageLater_ParamsSpec = { $: {} };
+chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpec = { $: {} };
+chrome.mojom.NetErrorPageSupport_ShowPortalSignin_ParamsSpec = { $: {} };
 
 // Interface: NetErrorPageSupport
-chrome.mojom.NetErrorPageSupport = {};
+mojo.internal.Struct(
+    chrome.mojom.NetErrorPageSupport_DownloadPageLater_ParamsSpec, 'chrome.mojom.NetErrorPageSupport_DownloadPageLater_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chrome.mojom.NetErrorPageSupport_DownloadPageLater_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.NetErrorPageSupport_DownloadPageLater_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpec, 'chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_Params', [
+      mojo.internal.StructField('showing_download_button', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'showing_download_button', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chrome.mojom.NetErrorPageSupport_ShowPortalSignin_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.NetErrorPageSupport_ShowPortalSignin_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.NetErrorPageSupport_ShowPortalSignin_ParamsSpec, 'chrome.mojom.NetErrorPageSupport_ShowPortalSignin_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 chrome.mojom.NetErrorPageSupportPendingReceiver = class {
   constructor(handle) {
@@ -120,47 +102,6 @@ chrome.mojom.NetErrorPageSupport.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for DownloadPageLater
-chrome.mojom.NetErrorPageSupport_DownloadPageLater_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.NetErrorPageSupport.DownloadPageLater_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetIsShowingDownloadButtonInErrorPage
-chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.NetErrorPageSupport.SetIsShowingDownloadButtonInErrorPage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'showing_download_button', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ShowPortalSignin
-chrome.mojom.NetErrorPageSupport_ShowPortalSignin_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.NetErrorPageSupport.ShowPortalSignin_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 chrome.mojom.NetErrorPageSupportPtr = chrome.mojom.NetErrorPageSupportRemote;
 chrome.mojom.NetErrorPageSupportRequest = chrome.mojom.NetErrorPageSupportPendingReceiver;
 

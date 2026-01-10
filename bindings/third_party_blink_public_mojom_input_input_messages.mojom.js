@@ -8,86 +8,50 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.TextSuggestionBackend = {};
+blink.mojom.TextSuggestionBackend.$interfaceName = 'blink.mojom.TextSuggestionBackend';
+blink.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_ParamsSpec = { $: {} };
+blink.mojom.TextSuggestionBackend_ApplyTextSuggestion_ParamsSpec = { $: {} };
+blink.mojom.TextSuggestionBackend_DeleteActiveSuggestionRange_ParamsSpec = { $: {} };
+blink.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_ParamsSpec = { $: {} };
+blink.mojom.TextSuggestionBackend_OnSuggestionMenuClosed_ParamsSpec = { $: {} };
+blink.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_ParamsSpec = { $: {} };
 
 // Interface: TextSuggestionBackend
-blink.mojom.TextSuggestionBackend = {};
+mojo.internal.Struct(
+    blink.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_ParamsSpec, 'blink.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_Params', [
+      mojo.internal.StructField('suggestion', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'suggestion', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.TextSuggestionBackend_ApplyTextSuggestion_ParamsSpec, 'blink.mojom.TextSuggestionBackend_ApplyTextSuggestion_Params', [
+      mojo.internal.StructField('marker_tag', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('suggestion_index', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.TextSuggestionBackend_ApplyTextSuggestion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TextSuggestionBackend_ApplyTextSuggestion_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'marker_tag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'suggestion_index', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.TextSuggestionBackend_DeleteActiveSuggestionRange_ParamsSpec, 'blink.mojom.TextSuggestionBackend_DeleteActiveSuggestionRange_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.TextSuggestionBackend_DeleteActiveSuggestionRange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TextSuggestionBackend_DeleteActiveSuggestionRange_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_ParamsSpec, 'blink.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_Params', [
+      mojo.internal.StructField('suggestion', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'suggestion', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.TextSuggestionBackend_OnSuggestionMenuClosed_ParamsSpec, 'blink.mojom.TextSuggestionBackend_OnSuggestionMenuClosed_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.TextSuggestionBackend_OnSuggestionMenuClosed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TextSuggestionBackend_OnSuggestionMenuClosed_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'max_number_of_suggestions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_ParamsSpec, 'blink.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_Params', [
+      mojo.internal.StructField('max_number_of_suggestions', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.TextSuggestionBackendPendingReceiver = class {
   constructor(handle) {
@@ -187,90 +151,6 @@ blink.mojom.TextSuggestionBackend.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ApplySpellCheckSuggestion
-blink.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TextSuggestionBackend.ApplySpellCheckSuggestion_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'suggestion', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ApplyTextSuggestion
-blink.mojom.TextSuggestionBackend_ApplyTextSuggestion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TextSuggestionBackend.ApplyTextSuggestion_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'marker_tag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'suggestion_index', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DeleteActiveSuggestionRange
-blink.mojom.TextSuggestionBackend_DeleteActiveSuggestionRange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TextSuggestionBackend.DeleteActiveSuggestionRange_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnNewWordAddedToDictionary
-blink.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TextSuggestionBackend.OnNewWordAddedToDictionary_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'suggestion', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnSuggestionMenuClosed
-blink.mojom.TextSuggestionBackend_OnSuggestionMenuClosed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TextSuggestionBackend.OnSuggestionMenuClosed_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SuggestionMenuTimeoutCallback
-blink.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TextSuggestionBackend.SuggestionMenuTimeoutCallback_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'max_number_of_suggestions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.TextSuggestionBackendPtr = blink.mojom.TextSuggestionBackendRemote;
 blink.mojom.TextSuggestionBackendRequest = blink.mojom.TextSuggestionBackendPendingReceiver;
 

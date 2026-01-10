@@ -9,6 +9,48 @@ var ash = ash || {};
 ash.cellular_setup = ash.cellular_setup || {};
 ash.cellular_setup.mojom = ash.cellular_setup.mojom || {};
 
+ash.cellular_setup.mojom.ProfileStateSpec = { $: mojo.internal.Enum() };
+ash.cellular_setup.mojom.ProfileInstallResultSpec = { $: mojo.internal.Enum() };
+ash.cellular_setup.mojom.ProfileInstallMethodSpec = { $: mojo.internal.Enum() };
+ash.cellular_setup.mojom.ESimOperationResultSpec = { $: mojo.internal.Enum() };
+ash.cellular_setup.mojom.EuiccPropertiesSpec = { $: {} };
+ash.cellular_setup.mojom.ESimProfilePropertiesSpec = { $: {} };
+ash.cellular_setup.mojom.QRCodeSpec = { $: {} };
+ash.cellular_setup.mojom.ESimManagerObserver = {};
+ash.cellular_setup.mojom.ESimManagerObserver.$interfaceName = 'ash.cellular_setup.mojom.ESimManagerObserver';
+ash.cellular_setup.mojom.ESimManagerObserver_OnAvailableEuiccListChanged_ParamsSpec = { $: {} };
+ash.cellular_setup.mojom.ESimManagerObserver_OnProfileListChanged_ParamsSpec = { $: {} };
+ash.cellular_setup.mojom.ESimManagerObserver_OnEuiccChanged_ParamsSpec = { $: {} };
+ash.cellular_setup.mojom.ESimManagerObserver_OnProfileChanged_ParamsSpec = { $: {} };
+ash.cellular_setup.mojom.ESimManager = {};
+ash.cellular_setup.mojom.ESimManager.$interfaceName = 'ash.cellular_setup.mojom.ESimManager';
+ash.cellular_setup.mojom.ESimManager_AddObserver_ParamsSpec = { $: {} };
+ash.cellular_setup.mojom.ESimManager_GetAvailableEuiccs_ParamsSpec = { $: {} };
+ash.cellular_setup.mojom.ESimManager_GetAvailableEuiccs_ResponseParamsSpec = { $: {} };
+ash.cellular_setup.mojom.Euicc = {};
+ash.cellular_setup.mojom.Euicc.$interfaceName = 'ash.cellular_setup.mojom.Euicc';
+ash.cellular_setup.mojom.Euicc_GetProperties_ParamsSpec = { $: {} };
+ash.cellular_setup.mojom.Euicc_GetProperties_ResponseParamsSpec = { $: {} };
+ash.cellular_setup.mojom.Euicc_GetProfileList_ParamsSpec = { $: {} };
+ash.cellular_setup.mojom.Euicc_GetProfileList_ResponseParamsSpec = { $: {} };
+ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ParamsSpec = { $: {} };
+ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ResponseParamsSpec = { $: {} };
+ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_ParamsSpec = { $: {} };
+ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_ResponseParamsSpec = { $: {} };
+ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ParamsSpec = { $: {} };
+ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ResponseParamsSpec = { $: {} };
+ash.cellular_setup.mojom.Euicc_GetEidQRCode_ParamsSpec = { $: {} };
+ash.cellular_setup.mojom.Euicc_GetEidQRCode_ResponseParamsSpec = { $: {} };
+ash.cellular_setup.mojom.ESimProfile = {};
+ash.cellular_setup.mojom.ESimProfile.$interfaceName = 'ash.cellular_setup.mojom.ESimProfile';
+ash.cellular_setup.mojom.ESimProfile_GetProperties_ParamsSpec = { $: {} };
+ash.cellular_setup.mojom.ESimProfile_GetProperties_ResponseParamsSpec = { $: {} };
+ash.cellular_setup.mojom.ESimProfile_InstallProfile_ParamsSpec = { $: {} };
+ash.cellular_setup.mojom.ESimProfile_InstallProfile_ResponseParamsSpec = { $: {} };
+ash.cellular_setup.mojom.ESimProfile_UninstallProfile_ParamsSpec = { $: {} };
+ash.cellular_setup.mojom.ESimProfile_UninstallProfile_ResponseParamsSpec = { $: {} };
+ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ParamsSpec = { $: {} };
+ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ResponseParamsSpec = { $: {} };
 
 // Enum: ProfileState
 ash.cellular_setup.mojom.ProfileState = {
@@ -17,7 +59,6 @@ ash.cellular_setup.mojom.ProfileState = {
   kInactive: 2,
   kActive: 3,
 };
-ash.cellular_setup.mojom.ProfileStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: ProfileInstallResult
 ash.cellular_setup.mojom.ProfileInstallResult = {
@@ -26,7 +67,6 @@ ash.cellular_setup.mojom.ProfileInstallResult = {
   kErrorNeedsConfirmationCode: 2,
   kErrorInvalidActivationCode: 3,
 };
-ash.cellular_setup.mojom.ProfileInstallResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: ProfileInstallMethod
 ash.cellular_setup.mojom.ProfileInstallMethod = {
@@ -36,118 +76,65 @@ ash.cellular_setup.mojom.ProfileInstallMethod = {
   kViaActivationCodeAfterSmds: 3,
   kViaActivationCodeSkippedSmds: 4,
 };
-ash.cellular_setup.mojom.ProfileInstallMethodSpec = { $: mojo.internal.Enum() };
 
 // Enum: ESimOperationResult
 ash.cellular_setup.mojom.ESimOperationResult = {
   kSuccess: 0,
   kFailure: 1,
 };
-ash.cellular_setup.mojom.ESimOperationResultSpec = { $: mojo.internal.Enum() };
 
 // Struct: EuiccProperties
-ash.cellular_setup.mojom.EuiccPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.EuiccProperties',
-      packedSize: 24,
-      fields: [
-        { name: 'eid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_active', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cellular_setup.mojom.EuiccPropertiesSpec, 'ash.cellular_setup.mojom.EuiccProperties', [
+      mojo.internal.StructField('eid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('is_active', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: ESimProfileProperties
-ash.cellular_setup.mojom.ESimProfilePropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.ESimProfileProperties',
-      packedSize: 64,
-      fields: [
-        { name: 'eid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'iccid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'nickname', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'service_provider', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'state', packedOffset: 48, packedBitOffset: 0, type: ash.cellular_setup.mojom.ProfileStateSpec, nullable: false, minVersion: 0 },
-        { name: 'activation_code', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cellular_setup.mojom.ESimProfilePropertiesSpec, 'ash.cellular_setup.mojom.ESimProfileProperties', [
+      mojo.internal.StructField('eid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('iccid', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('name', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('nickname', 24, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('service_provider', 32, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 48, 0, ash.cellular_setup.mojom.ProfileStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('activation_code', 40, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 64]]);
 
 // Struct: QRCode
-ash.cellular_setup.mojom.QRCodeSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.QRCode',
-      packedSize: 24,
-      fields: [
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cellular_setup.mojom.QRCodeSpec, 'ash.cellular_setup.mojom.QRCode', [
+      mojo.internal.StructField('size', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: ESimManagerObserver
-ash.cellular_setup.mojom.ESimManagerObserver = {};
+mojo.internal.Struct(
+    ash.cellular_setup.mojom.ESimManagerObserver_OnAvailableEuiccListChanged_ParamsSpec, 'ash.cellular_setup.mojom.ESimManagerObserver_OnAvailableEuiccListChanged_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.cellular_setup.mojom.ESimManagerObserver_OnAvailableEuiccListChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.ESimManagerObserver_OnAvailableEuiccListChanged_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cellular_setup.mojom.ESimManagerObserver_OnProfileListChanged_ParamsSpec, 'ash.cellular_setup.mojom.ESimManagerObserver_OnProfileListChanged_Params', [
+      mojo.internal.StructField('euicc', 0, 0, mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.EuiccRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.cellular_setup.mojom.ESimManagerObserver_OnProfileListChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.ESimManagerObserver_OnProfileListChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'euicc', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.EuiccRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cellular_setup.mojom.ESimManagerObserver_OnEuiccChanged_ParamsSpec, 'ash.cellular_setup.mojom.ESimManagerObserver_OnEuiccChanged_Params', [
+      mojo.internal.StructField('euicc', 0, 0, mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.EuiccRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.cellular_setup.mojom.ESimManagerObserver_OnEuiccChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.ESimManagerObserver_OnEuiccChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'euicc', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.EuiccRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.cellular_setup.mojom.ESimManagerObserver_OnProfileChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.ESimManagerObserver_OnProfileChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.ESimProfileRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cellular_setup.mojom.ESimManagerObserver_OnProfileChanged_ParamsSpec, 'ash.cellular_setup.mojom.ESimManagerObserver_OnProfileChanged_Params', [
+      mojo.internal.StructField('profile', 0, 0, mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.ESimProfileRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.cellular_setup.mojom.ESimManagerObserverPendingReceiver = class {
   constructor(handle) {
@@ -229,93 +216,27 @@ ash.cellular_setup.mojom.ESimManagerObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnAvailableEuiccListChanged
-ash.cellular_setup.mojom.ESimManagerObserver_OnAvailableEuiccListChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.ESimManagerObserver.OnAvailableEuiccListChanged_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnProfileListChanged
-ash.cellular_setup.mojom.ESimManagerObserver_OnProfileListChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.ESimManagerObserver.OnProfileListChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'euicc', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.EuiccRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnEuiccChanged
-ash.cellular_setup.mojom.ESimManagerObserver_OnEuiccChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.ESimManagerObserver.OnEuiccChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'euicc', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.EuiccRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnProfileChanged
-ash.cellular_setup.mojom.ESimManagerObserver_OnProfileChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.ESimManagerObserver.OnProfileChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.ESimProfileRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.cellular_setup.mojom.ESimManagerObserverPtr = ash.cellular_setup.mojom.ESimManagerObserverRemote;
 ash.cellular_setup.mojom.ESimManagerObserverRequest = ash.cellular_setup.mojom.ESimManagerObserverPendingReceiver;
 
 
 // Interface: ESimManager
-ash.cellular_setup.mojom.ESimManager = {};
+mojo.internal.Struct(
+    ash.cellular_setup.mojom.ESimManager_AddObserver_ParamsSpec, 'ash.cellular_setup.mojom.ESimManager_AddObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.ESimManagerObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.cellular_setup.mojom.ESimManager_AddObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.ESimManager_AddObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.ESimManagerObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cellular_setup.mojom.ESimManager_GetAvailableEuiccs_ParamsSpec, 'ash.cellular_setup.mojom.ESimManager_GetAvailableEuiccs_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.cellular_setup.mojom.ESimManager_GetAvailableEuiccs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.ESimManager_GetAvailableEuiccs_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cellular_setup.mojom.ESimManager_GetAvailableEuiccs_ResponseParamsSpec, 'ash.cellular_setup.mojom.ESimManager_GetAvailableEuiccs_ResponseParams', [
+      mojo.internal.StructField('euiccs', 0, 0, mojo.internal.Array(mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.EuiccRemote), false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.cellular_setup.mojom.ESimManagerPendingReceiver = class {
   constructor(handle) {
@@ -379,128 +300,81 @@ ash.cellular_setup.mojom.ESimManager.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddObserver
-ash.cellular_setup.mojom.ESimManager_AddObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.ESimManager.AddObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.ESimManagerObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetAvailableEuiccs
-ash.cellular_setup.mojom.ESimManager_GetAvailableEuiccs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.ESimManager.GetAvailableEuiccs_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.cellular_setup.mojom.ESimManager_GetAvailableEuiccs_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.ESimManager.GetAvailableEuiccs_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'euiccs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.EuiccRemote), false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.cellular_setup.mojom.ESimManagerPtr = ash.cellular_setup.mojom.ESimManagerRemote;
 ash.cellular_setup.mojom.ESimManagerRequest = ash.cellular_setup.mojom.ESimManagerPendingReceiver;
 
 
 // Interface: Euicc
-ash.cellular_setup.mojom.Euicc = {};
+mojo.internal.Struct(
+    ash.cellular_setup.mojom.Euicc_GetProperties_ParamsSpec, 'ash.cellular_setup.mojom.Euicc_GetProperties_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.cellular_setup.mojom.Euicc_GetProperties_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.Euicc_GetProperties_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cellular_setup.mojom.Euicc_GetProperties_ResponseParamsSpec, 'ash.cellular_setup.mojom.Euicc_GetProperties_ResponseParams', [
+      mojo.internal.StructField('properties', 0, 0, ash.cellular_setup.mojom.EuiccPropertiesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.cellular_setup.mojom.Euicc_GetProfileList_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.Euicc_GetProfileList_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cellular_setup.mojom.Euicc_GetProfileList_ParamsSpec, 'ash.cellular_setup.mojom.Euicc_GetProfileList_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cellular_setup.mojom.Euicc_GetProfileList_ResponseParamsSpec, 'ash.cellular_setup.mojom.Euicc_GetProfileList_ResponseParams', [
+      mojo.internal.StructField('profiles', 0, 0, mojo.internal.Array(mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.ESimProfileRemote), false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ParamsSpec, 'ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'activation_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'confirmation_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'install_method', packedOffset: 16, packedBitOffset: 0, type: ash.cellular_setup.mojom.ProfileInstallMethodSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ResponseParamsSpec, 'ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ResponseParams', [
+      mojo.internal.StructField('result', 8, 0, ash.cellular_setup.mojom.ESimOperationResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('profiles', 0, 0, mojo.internal.Array(ash.cellular_setup.mojom.ESimProfilePropertiesSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.cellular_setup.mojom.Euicc_GetEidQRCode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.Euicc_GetEidQRCode_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_ParamsSpec, 'ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_ResponseParamsSpec, 'ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, ash.cellular_setup.mojom.ESimOperationResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ParamsSpec, 'ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_Params', [
+      mojo.internal.StructField('activation_code', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('confirmation_code', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('install_method', 16, 0, ash.cellular_setup.mojom.ProfileInstallMethodSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ResponseParamsSpec, 'ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ResponseParams', [
+      mojo.internal.StructField('result', 8, 0, ash.cellular_setup.mojom.ProfileInstallResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('profile', 0, 0, mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.ESimProfileRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    ash.cellular_setup.mojom.Euicc_GetEidQRCode_ParamsSpec, 'ash.cellular_setup.mojom.Euicc_GetEidQRCode_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    ash.cellular_setup.mojom.Euicc_GetEidQRCode_ResponseParamsSpec, 'ash.cellular_setup.mojom.Euicc_GetEidQRCode_ResponseParams', [
+      mojo.internal.StructField('qr_code', 0, 0, ash.cellular_setup.mojom.QRCodeSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.cellular_setup.mojom.EuiccPendingReceiver = class {
   constructor(handle) {
@@ -600,224 +474,56 @@ ash.cellular_setup.mojom.Euicc.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetProperties
-ash.cellular_setup.mojom.Euicc_GetProperties_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.Euicc.GetProperties_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.cellular_setup.mojom.Euicc_GetProperties_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.Euicc.GetProperties_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: ash.cellular_setup.mojom.EuiccPropertiesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetProfileList
-ash.cellular_setup.mojom.Euicc_GetProfileList_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.Euicc.GetProfileList_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.cellular_setup.mojom.Euicc_GetProfileList_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.Euicc.GetProfileList_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'profiles', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.ESimProfileRemote), false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestAvailableProfiles
-ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.Euicc.RequestAvailableProfiles_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.Euicc.RequestAvailableProfiles_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: ash.cellular_setup.mojom.ESimOperationResultSpec, nullable: false, minVersion: 0 },
-        { name: 'profiles', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.cellular_setup.mojom.ESimProfilePropertiesSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for RefreshInstalledProfiles
-ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.Euicc.RefreshInstalledProfiles_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.Euicc.RefreshInstalledProfiles_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.cellular_setup.mojom.ESimOperationResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for InstallProfileFromActivationCode
-ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.Euicc.InstallProfileFromActivationCode_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'activation_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'confirmation_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'install_method', packedOffset: 16, packedBitOffset: 0, type: ash.cellular_setup.mojom.ProfileInstallMethodSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.Euicc.InstallProfileFromActivationCode_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: ash.cellular_setup.mojom.ProfileInstallResultSpec, nullable: false, minVersion: 0 },
-        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.ESimProfileRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for GetEidQRCode
-ash.cellular_setup.mojom.Euicc_GetEidQRCode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.Euicc.GetEidQRCode_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.cellular_setup.mojom.Euicc_GetEidQRCode_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.Euicc.GetEidQRCode_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'qr_code', packedOffset: 0, packedBitOffset: 0, type: ash.cellular_setup.mojom.QRCodeSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.cellular_setup.mojom.EuiccPtr = ash.cellular_setup.mojom.EuiccRemote;
 ash.cellular_setup.mojom.EuiccRequest = ash.cellular_setup.mojom.EuiccPendingReceiver;
 
 
 // Interface: ESimProfile
-ash.cellular_setup.mojom.ESimProfile = {};
+mojo.internal.Struct(
+    ash.cellular_setup.mojom.ESimProfile_GetProperties_ParamsSpec, 'ash.cellular_setup.mojom.ESimProfile_GetProperties_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.cellular_setup.mojom.ESimProfile_GetProperties_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.ESimProfile_GetProperties_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cellular_setup.mojom.ESimProfile_GetProperties_ResponseParamsSpec, 'ash.cellular_setup.mojom.ESimProfile_GetProperties_ResponseParams', [
+      mojo.internal.StructField('properties', 0, 0, ash.cellular_setup.mojom.ESimProfilePropertiesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.cellular_setup.mojom.ESimProfile_InstallProfile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.ESimProfile_InstallProfile_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'confirmation_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cellular_setup.mojom.ESimProfile_InstallProfile_ParamsSpec, 'ash.cellular_setup.mojom.ESimProfile_InstallProfile_Params', [
+      mojo.internal.StructField('confirmation_code', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.cellular_setup.mojom.ESimProfile_UninstallProfile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.ESimProfile_UninstallProfile_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cellular_setup.mojom.ESimProfile_InstallProfile_ResponseParamsSpec, 'ash.cellular_setup.mojom.ESimProfile_InstallProfile_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, ash.cellular_setup.mojom.ProfileInstallResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'nickname', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cellular_setup.mojom.ESimProfile_UninstallProfile_ParamsSpec, 'ash.cellular_setup.mojom.ESimProfile_UninstallProfile_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    ash.cellular_setup.mojom.ESimProfile_UninstallProfile_ResponseParamsSpec, 'ash.cellular_setup.mojom.ESimProfile_UninstallProfile_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, ash.cellular_setup.mojom.ESimOperationResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ParamsSpec, 'ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_Params', [
+      mojo.internal.StructField('nickname', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ResponseParamsSpec, 'ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, ash.cellular_setup.mojom.ESimOperationResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.cellular_setup.mojom.ESimProfilePendingReceiver = class {
   constructor(handle) {
@@ -899,113 +605,6 @@ ash.cellular_setup.mojom.ESimProfile.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetProperties
-ash.cellular_setup.mojom.ESimProfile_GetProperties_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.ESimProfile.GetProperties_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.cellular_setup.mojom.ESimProfile_GetProperties_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.ESimProfile.GetProperties_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: ash.cellular_setup.mojom.ESimProfilePropertiesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for InstallProfile
-ash.cellular_setup.mojom.ESimProfile_InstallProfile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.ESimProfile.InstallProfile_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'confirmation_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.cellular_setup.mojom.ESimProfile_InstallProfile_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.ESimProfile.InstallProfile_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.cellular_setup.mojom.ProfileInstallResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for UninstallProfile
-ash.cellular_setup.mojom.ESimProfile_UninstallProfile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.ESimProfile.UninstallProfile_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.cellular_setup.mojom.ESimProfile_UninstallProfile_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.ESimProfile.UninstallProfile_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.cellular_setup.mojom.ESimOperationResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetProfileNickname
-ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.ESimProfile.SetProfileNickname_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'nickname', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.ESimProfile.SetProfileNickname_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.cellular_setup.mojom.ESimOperationResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.cellular_setup.mojom.ESimProfilePtr = ash.cellular_setup.mojom.ESimProfileRemote;
 ash.cellular_setup.mojom.ESimProfileRequest = ash.cellular_setup.mojom.ESimProfilePendingReceiver;
 

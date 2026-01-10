@@ -8,38 +8,26 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.NavigationDownloadTypesSpec = { $: {} };
+blink.mojom.NavigationDownloadPolicySpec = { $: {} };
 
 // Struct: NavigationDownloadTypes
-blink.mojom.NavigationDownloadTypesSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.NavigationDownloadTypes',
-      packedSize: 16,
-      fields: [
-        { name: 'view_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'interstitial', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'opener_cross_origin', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'ad_frame_no_gesture', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'ad_frame', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'sandbox', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'no_gesture', packedOffset: 0, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.NavigationDownloadTypesSpec, 'blink.mojom.NavigationDownloadTypes', [
+      mojo.internal.StructField('view_source', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('interstitial', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('opener_cross_origin', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('ad_frame_no_gesture', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('ad_frame', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('sandbox', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('no_gesture', 0, 6, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: NavigationDownloadPolicy
-blink.mojom.NavigationDownloadPolicySpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.NavigationDownloadPolicy',
-      packedSize: 24,
-      fields: [
-        { name: 'observed_types', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.NavigationDownloadTypesSpec, nullable: false, minVersion: 0 },
-        { name: 'disallowed_types', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.NavigationDownloadTypesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.NavigationDownloadPolicySpec, 'blink.mojom.NavigationDownloadPolicy', [
+      mojo.internal.StructField('observed_types', 0, 0, blink.mojom.NavigationDownloadTypesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('disallowed_types', 8, 0, blink.mojom.NavigationDownloadTypesSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);

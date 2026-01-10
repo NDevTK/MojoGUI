@@ -7,50 +7,45 @@
 // Module namespace
 var printing = printing || {};
 printing.mojom = printing.mojom || {};
+var services = services || {};
 var url = url || {};
 
+printing.mojom.PdfToEmfConverter = {};
+printing.mojom.PdfToEmfConverter.$interfaceName = 'printing.mojom.PdfToEmfConverter';
+printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec = { $: {} };
+printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec = { $: {} };
+printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec = { $: {} };
+printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec = { $: {} };
+printing.mojom.PdfToEmfConverterFactory = {};
+printing.mojom.PdfToEmfConverterFactory.$interfaceName = 'printing.mojom.PdfToEmfConverterFactory';
+printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec = { $: {} };
+printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec = { $: {} };
 
 // Interface: PdfToEmfConverter
-printing.mojom.PdfToEmfConverter = {};
+mojo.internal.Struct(
+    printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec, 'printing.mojom.PdfToEmfConverter_ConvertPage_Params', [
+      mojo.internal.StructField('page_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PdfToEmfConverter_ConvertPage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec, 'printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParams', [
+      mojo.internal.StructField('emf_region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('scale_factor', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PdfToEmfConverter_SetWebContentsURL_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec, 'printing.mojom.PdfToEmfConverter_SetWebContentsURL_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'use_skia', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec, 'printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_Params', [
+      mojo.internal.StructField('use_skia', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 printing.mojom.PdfToEmfConverterPendingReceiver = class {
   constructor(handle) {
@@ -123,83 +118,24 @@ printing.mojom.PdfToEmfConverter.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ConvertPage
-printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PdfToEmfConverter.ConvertPage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PdfToEmfConverter.ConvertPage_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'emf_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true, minVersion: 0 },
-        { name: 'scale_factor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SetWebContentsURL
-printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PdfToEmfConverter.SetWebContentsURL_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetUseSkiaRendererPolicy
-printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PdfToEmfConverter.SetUseSkiaRendererPolicy_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'use_skia', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 printing.mojom.PdfToEmfConverterPtr = printing.mojom.PdfToEmfConverterRemote;
 printing.mojom.PdfToEmfConverterRequest = printing.mojom.PdfToEmfConverterPendingReceiver;
 
 
 // Interface: PdfToEmfConverterFactory
-printing.mojom.PdfToEmfConverterFactory = {};
+mojo.internal.Struct(
+    printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec, 'printing.mojom.PdfToEmfConverterFactory_CreateConverter_Params', [
+      mojo.internal.StructField('pdf_region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('render_settings', 8, 0, printing.mojom.PdfRenderSettingsSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PdfToEmfConverterFactory_CreateConverter_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'pdf_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
-        { name: 'render_settings', packedOffset: 8, packedBitOffset: 0, type: printing.mojom.PdfRenderSettingsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec, 'printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParams', [
+      mojo.internal.StructField('converter', 0, 0, mojo.internal.InterfaceProxy(printing.mojom.PdfToEmfConverterRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page_count', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 printing.mojom.PdfToEmfConverterFactoryPendingReceiver = class {
   constructor(handle) {
@@ -254,36 +190,6 @@ printing.mojom.PdfToEmfConverterFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateConverter
-printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PdfToEmfConverterFactory.CreateConverter_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'pdf_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
-        { name: 'render_settings', packedOffset: 8, packedBitOffset: 0, type: printing.mojom.PdfRenderSettingsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PdfToEmfConverterFactory.CreateConverter_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'converter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(printing.mojom.PdfToEmfConverterRemote), nullable: false, minVersion: 0 },
-        { name: 'page_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 printing.mojom.PdfToEmfConverterFactoryPtr = printing.mojom.PdfToEmfConverterFactoryRemote;
 printing.mojom.PdfToEmfConverterFactoryRequest = printing.mojom.PdfToEmfConverterFactoryPendingReceiver;
 

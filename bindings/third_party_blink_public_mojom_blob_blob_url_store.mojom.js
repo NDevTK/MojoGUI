@@ -7,68 +7,56 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var services = services || {};
 var blink = blink || {};
 var url = url || {};
 
+blink.mojom.BlobURLStore = {};
+blink.mojom.BlobURLStore.$interfaceName = 'blink.mojom.BlobURLStore';
+blink.mojom.BlobURLStore_Register_ParamsSpec = { $: {} };
+blink.mojom.BlobURLStore_Register_ResponseParamsSpec = { $: {} };
+blink.mojom.BlobURLStore_Revoke_ParamsSpec = { $: {} };
+blink.mojom.BlobURLStore_ResolveAsURLLoaderFactory_ParamsSpec = { $: {} };
+blink.mojom.BlobURLStore_ResolveAsBlobURLToken_ParamsSpec = { $: {} };
+blink.mojom.BlobURLToken = {};
+blink.mojom.BlobURLToken.$interfaceName = 'blink.mojom.BlobURLToken';
+blink.mojom.BlobURLToken_Clone_ParamsSpec = { $: {} };
+blink.mojom.BlobURLToken_GetToken_ParamsSpec = { $: {} };
+blink.mojom.BlobURLToken_GetToken_ResponseParamsSpec = { $: {} };
 
 // Interface: BlobURLStore
-blink.mojom.BlobURLStore = {};
+mojo.internal.Struct(
+    blink.mojom.BlobURLStore_Register_ParamsSpec, 'blink.mojom.BlobURLStore_Register_Params', [
+      mojo.internal.StructField('blob', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.BlobRemote), null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.BlobURLStore_Register_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BlobURLStore_Register_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.BlobRemote), nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.BlobURLStore_Register_ResponseParamsSpec, 'blink.mojom.BlobURLStore_Register_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.BlobURLStore_Revoke_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BlobURLStore_Revoke_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.BlobURLStore_Revoke_ParamsSpec, 'blink.mojom.BlobURLStore_Revoke_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.BlobURLStore_ResolveAsURLLoaderFactory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BlobURLStore_ResolveAsURLLoaderFactory_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'factory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.URLLoaderFactoryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.BlobURLStore_ResolveAsURLLoaderFactory_ParamsSpec, 'blink.mojom.BlobURLStore_ResolveAsURLLoaderFactory_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('factory', 8, 0, mojo.internal.InterfaceRequest(network.mojom.URLLoaderFactoryRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.BlobURLStore_ResolveAsBlobURLToken_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BlobURLStore_ResolveAsBlobURLToken_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.BlobURLTokenRemote), nullable: false, minVersion: 0 },
-        { name: 'is_top_level_navigation', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.BlobURLStore_ResolveAsBlobURLToken_ParamsSpec, 'blink.mojom.BlobURLStore_ResolveAsBlobURLToken_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('token', 8, 0, mojo.internal.InterfaceRequest(blink.mojom.BlobURLTokenRemote), null, false, 0, undefined),
+      mojo.internal.StructField('is_top_level_navigation', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 blink.mojom.BlobURLStorePendingReceiver = class {
   constructor(handle) {
@@ -107,7 +95,7 @@ blink.mojom.BlobURLStoreRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       blink.mojom.BlobURLStore_Register_ParamsSpec,
-      null,
+      blink.mojom.BlobURLStore_Register_ResponseParamsSpec,
       [blob, url]);
   }
 
@@ -150,98 +138,27 @@ blink.mojom.BlobURLStore.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Register
-blink.mojom.BlobURLStore_Register_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BlobURLStore.Register_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.BlobRemote), nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for Revoke
-blink.mojom.BlobURLStore_Revoke_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BlobURLStore.Revoke_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ResolveAsURLLoaderFactory
-blink.mojom.BlobURLStore_ResolveAsURLLoaderFactory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BlobURLStore.ResolveAsURLLoaderFactory_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'factory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.URLLoaderFactoryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ResolveAsBlobURLToken
-blink.mojom.BlobURLStore_ResolveAsBlobURLToken_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BlobURLStore.ResolveAsBlobURLToken_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.BlobURLTokenRemote), nullable: false, minVersion: 0 },
-        { name: 'is_top_level_navigation', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.BlobURLStorePtr = blink.mojom.BlobURLStoreRemote;
 blink.mojom.BlobURLStoreRequest = blink.mojom.BlobURLStorePendingReceiver;
 
 
 // Interface: BlobURLToken
-blink.mojom.BlobURLToken = {};
+mojo.internal.Struct(
+    blink.mojom.BlobURLToken_Clone_ParamsSpec, 'blink.mojom.BlobURLToken_Clone_Params', [
+      mojo.internal.StructField('token', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.BlobURLTokenRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.BlobURLToken_Clone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BlobURLToken_Clone_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.BlobURLTokenRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.BlobURLToken_GetToken_ParamsSpec, 'blink.mojom.BlobURLToken_GetToken_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.BlobURLToken_GetToken_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BlobURLToken_GetToken_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.BlobURLToken_GetToken_ResponseParamsSpec, 'blink.mojom.BlobURLToken_GetToken_ResponseParams', [
+      mojo.internal.StructField('token', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.BlobURLTokenPendingReceiver = class {
   constructor(handle) {
@@ -305,47 +222,6 @@ blink.mojom.BlobURLToken.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Clone
-blink.mojom.BlobURLToken_Clone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BlobURLToken.Clone_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.BlobURLTokenRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetToken
-blink.mojom.BlobURLToken_GetToken_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BlobURLToken.GetToken_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.BlobURLToken_GetToken_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BlobURLToken.GetToken_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.BlobURLTokenPtr = blink.mojom.BlobURLTokenRemote;
 blink.mojom.BlobURLTokenRequest = blink.mojom.BlobURLTokenPendingReceiver;
 

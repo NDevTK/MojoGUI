@@ -8,22 +8,20 @@
 var crosapi = crosapi || {};
 crosapi.mojom = crosapi.mojom || {};
 
+crosapi.mojom.GuestOsSkForwarderFactory = {};
+crosapi.mojom.GuestOsSkForwarderFactory.$interfaceName = 'crosapi.mojom.GuestOsSkForwarderFactory';
+crosapi.mojom.GuestOsSkForwarderFactory_BindGuestOsSkForwarder_ParamsSpec = { $: {} };
+crosapi.mojom.GuestOsSkForwarder = {};
+crosapi.mojom.GuestOsSkForwarder.$interfaceName = 'crosapi.mojom.GuestOsSkForwarder';
+crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ParamsSpec = { $: {} };
+crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ResponseParamsSpec = { $: {} };
 
 // Interface: GuestOsSkForwarderFactory
-crosapi.mojom.GuestOsSkForwarderFactory = {};
-
-crosapi.mojom.GuestOsSkForwarderFactory_BindGuestOsSkForwarder_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.GuestOsSkForwarderFactory_BindGuestOsSkForwarder_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(crosapi.mojom.GuestOsSkForwarderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.GuestOsSkForwarderFactory_BindGuestOsSkForwarder_ParamsSpec, 'crosapi.mojom.GuestOsSkForwarderFactory_BindGuestOsSkForwarder_Params', [
+      mojo.internal.StructField('remote', 0, 0, mojo.internal.InterfaceProxy(crosapi.mojom.GuestOsSkForwarderRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 crosapi.mojom.GuestOsSkForwarderFactoryPendingReceiver = class {
   constructor(handle) {
@@ -78,40 +76,22 @@ crosapi.mojom.GuestOsSkForwarderFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for BindGuestOsSkForwarder
-crosapi.mojom.GuestOsSkForwarderFactory_BindGuestOsSkForwarder_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.GuestOsSkForwarderFactory.BindGuestOsSkForwarder_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(crosapi.mojom.GuestOsSkForwarderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 crosapi.mojom.GuestOsSkForwarderFactoryPtr = crosapi.mojom.GuestOsSkForwarderFactoryRemote;
 crosapi.mojom.GuestOsSkForwarderFactoryRequest = crosapi.mojom.GuestOsSkForwarderFactoryPendingReceiver;
 
 
 // Interface: GuestOsSkForwarder
-crosapi.mojom.GuestOsSkForwarder = {};
+mojo.internal.Struct(
+    crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ParamsSpec, 'crosapi.mojom.GuestOsSkForwarder_ForwardRequest_Params', [
+      mojo.internal.StructField('message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.GuestOsSkForwarder_ForwardRequest_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ResponseParamsSpec, 'crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ResponseParams', [
+      mojo.internal.StructField('response', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 crosapi.mojom.GuestOsSkForwarderPendingReceiver = class {
   constructor(handle) {
@@ -166,34 +146,6 @@ crosapi.mojom.GuestOsSkForwarder.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ForwardRequest
-crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.GuestOsSkForwarder.ForwardRequest_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.GuestOsSkForwarder.ForwardRequest_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 crosapi.mojom.GuestOsSkForwarderPtr = crosapi.mojom.GuestOsSkForwarderRemote;
 crosapi.mojom.GuestOsSkForwarderRequest = crosapi.mojom.GuestOsSkForwarderPendingReceiver;
 

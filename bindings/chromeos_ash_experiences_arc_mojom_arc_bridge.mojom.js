@@ -7,764 +7,531 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
+var services = services || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var chromeos = chromeos || {};
+var components = components || {};
 
+arc.mojom.ArcBridgeHost = {};
+arc.mojom.ArcBridgeHost.$interfaceName = 'arc.mojom.ArcBridgeHost';
+arc.mojom.ArcBridgeHost_OnAccessibilityHelperInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnAdbdMonitorInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnAppInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnAppPermissionsInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnAppfuseInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnArcShellExecutionInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnArcWifiInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnAudioInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnAuthInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnBackupSettingsInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnBluetoothInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnBootPhaseMonitorInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnCameraInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnChromeFeatureFlagsInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnCompatibilityModeInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnCrashCollectorInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnOnDeviceSafetyInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnDigitalGoodsInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnDiskSpaceInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnEnterpriseReportingInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnErrorNotificationInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnFileSystemInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnIioSensorInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnImeInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnInputMethodManagerInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnIntentHelperInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnKeymasterInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnKeyMintInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnKioskInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnMediaSessionInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnMemoryInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnMetricsInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnMidisInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnNearbyShareInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnNetInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnNotificationsInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnObbMounterInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnOemCryptoInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnPaymentAppInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnPipInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnPolicyInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnPowerInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnPrintSpoolerInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnPrivacyItemsInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnProcessInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnScreenCaptureInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnSharesheetInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnSystemStateInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnSystemUiInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnTimerInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnTracingInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnTtsInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnUsbHostInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnVideoInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnVolumeMounterInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnWakeLockInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnWallpaperInstanceReady_ParamsSpec = { $: {} };
+arc.mojom.ArcBridgeHost_OnWebApkInstanceReady_ParamsSpec = { $: {} };
 
 // Interface: ArcBridgeHost
-arc.mojom.ArcBridgeHost = {};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnAccessibilityHelperInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnAccessibilityHelperInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(ax.android.mojom.AccessibilityHelperInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnAccessibilityHelperInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnAccessibilityHelperInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ax.android.mojom.AccessibilityHelperInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnAdbdMonitorInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnAdbdMonitorInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.AdbdMonitorInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnAdbdMonitorInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnAdbdMonitorInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.AdbdMonitorInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnAppInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnAppInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.AppInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnAppInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnAppInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.AppInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnAppPermissionsInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnAppPermissionsInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.AppPermissionsInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnAppPermissionsInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnAppPermissionsInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.AppPermissionsInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnAppfuseInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnAppfuseInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.AppfuseInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnAppfuseInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnAppfuseInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.AppfuseInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnArcShellExecutionInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnArcShellExecutionInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.ArcShellExecutionInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnArcShellExecutionInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnArcShellExecutionInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ArcShellExecutionInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnArcWifiInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnArcWifiInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.ArcWifiInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnArcWifiInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnArcWifiInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ArcWifiInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnAudioInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnAudioInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.AudioInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnAudioInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnAudioInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.AudioInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnAuthInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnAuthInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.AuthInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnAuthInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnAuthInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.AuthInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnBackupSettingsInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnBackupSettingsInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.BackupSettingsInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnBackupSettingsInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnBackupSettingsInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.BackupSettingsInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnBluetoothInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnBluetoothInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.BluetoothInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnBluetoothInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnBluetoothInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.BluetoothInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnBootPhaseMonitorInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnBootPhaseMonitorInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.BootPhaseMonitorInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnBootPhaseMonitorInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnBootPhaseMonitorInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.BootPhaseMonitorInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnCameraInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnCameraInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.CameraInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnCameraInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnCameraInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.CameraInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnChromeFeatureFlagsInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnChromeFeatureFlagsInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.ChromeFeatureFlagsInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnChromeFeatureFlagsInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnChromeFeatureFlagsInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ChromeFeatureFlagsInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnCompatibilityModeInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnCompatibilityModeInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.CompatibilityModeInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnCompatibilityModeInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnCompatibilityModeInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.CompatibilityModeInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnCrashCollectorInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnCrashCollectorInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.CrashCollectorInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnCrashCollectorInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnCrashCollectorInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.CrashCollectorInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnOnDeviceSafetyInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnOnDeviceSafetyInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.OnDeviceSafetyInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnOnDeviceSafetyInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnOnDeviceSafetyInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.OnDeviceSafetyInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnDigitalGoodsInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnDigitalGoodsInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.DigitalGoodsInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnDigitalGoodsInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnDigitalGoodsInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.DigitalGoodsInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnDiskSpaceInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnDiskSpaceInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.DiskSpaceInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnDiskSpaceInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnDiskSpaceInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.DiskSpaceInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnEnterpriseReportingInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnEnterpriseReportingInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.EnterpriseReportingInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnEnterpriseReportingInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnEnterpriseReportingInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.EnterpriseReportingInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnErrorNotificationInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnErrorNotificationInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.ErrorNotificationInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnErrorNotificationInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnErrorNotificationInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ErrorNotificationInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnFileSystemInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnFileSystemInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.FileSystemInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnFileSystemInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnFileSystemInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.FileSystemInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnIioSensorInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnIioSensorInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.IioSensorInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnIioSensorInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnIioSensorInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.IioSensorInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnImeInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnImeInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.ImeInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnImeInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnImeInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ImeInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnInputMethodManagerInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnInputMethodManagerInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.InputMethodManagerInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnInputMethodManagerInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnInputMethodManagerInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.InputMethodManagerInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnIntentHelperInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnIntentHelperInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.IntentHelperInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnIntentHelperInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnIntentHelperInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.IntentHelperInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnKeymasterInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnKeymasterInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.KeymasterInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnKeymasterInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnKeymasterInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.KeymasterInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnKeyMintInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnKeyMintInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(keymint.KeyMintInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnKeyMintInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnKeyMintInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(keymint.KeyMintInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnKioskInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnKioskInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.KioskInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnKioskInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnKioskInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.KioskInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnMediaSessionInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnMediaSessionInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.MediaSessionInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnMediaSessionInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnMediaSessionInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.MediaSessionInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnMemoryInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnMemoryInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.MemoryInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnMemoryInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnMemoryInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.MemoryInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnMetricsInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnMetricsInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.MetricsInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnMetricsInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnMetricsInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.MetricsInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnMidisInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnMidisInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.MidisInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnMidisInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnMidisInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.MidisInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnNearbyShareInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnNearbyShareInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.NearbyShareInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnNearbyShareInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnNearbyShareInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.NearbyShareInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnNetInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnNetInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.NetInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnNetInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnNetInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.NetInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnNotificationsInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnNotificationsInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.NotificationsInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnNotificationsInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnNotificationsInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.NotificationsInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnObbMounterInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnObbMounterInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.ObbMounterInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnObbMounterInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnObbMounterInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ObbMounterInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnOemCryptoInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnOemCryptoInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.OemCryptoInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnOemCryptoInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnOemCryptoInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.OemCryptoInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnPaymentAppInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnPaymentAppInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(chromeos.payments.mojom.PaymentAppInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnPaymentAppInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnPaymentAppInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.payments.mojom.PaymentAppInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnPipInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnPipInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.PipInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnPipInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnPipInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.PipInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnPolicyInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnPolicyInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.PolicyInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnPolicyInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnPolicyInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.PolicyInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnPowerInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnPowerInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.PowerInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnPowerInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnPowerInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.PowerInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnPrintSpoolerInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnPrintSpoolerInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.PrintSpoolerInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnPrintSpoolerInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnPrintSpoolerInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.PrintSpoolerInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnPrivacyItemsInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnPrivacyItemsInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.PrivacyItemsInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnPrivacyItemsInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnPrivacyItemsInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.PrivacyItemsInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnProcessInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnProcessInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.ProcessInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnProcessInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnProcessInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ProcessInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnScreenCaptureInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnScreenCaptureInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.ScreenCaptureInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnScreenCaptureInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnScreenCaptureInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ScreenCaptureInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnSharesheetInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnSharesheetInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.SharesheetInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnSharesheetInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnSharesheetInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.SharesheetInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnSystemStateInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnSystemStateInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.SystemStateInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnSystemStateInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnSystemStateInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.SystemStateInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnSystemUiInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnSystemUiInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.SystemUiInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnSystemUiInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnSystemUiInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.SystemUiInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnTimerInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnTimerInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.TimerInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnTimerInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnTimerInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.TimerInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnTracingInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnTracingInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.TracingInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnTracingInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnTracingInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.TracingInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnTtsInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnTtsInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.TtsInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnTtsInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnTtsInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.TtsInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnUsbHostInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnUsbHostInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.UsbHostInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnUsbHostInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnUsbHostInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.UsbHostInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnVideoInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnVideoInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.VideoInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnVideoInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnVideoInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.VideoInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnVolumeMounterInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnVolumeMounterInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.VolumeMounterInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnVolumeMounterInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnVolumeMounterInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.VolumeMounterInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnWakeLockInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnWakeLockInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.WakeLockInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnWakeLockInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnWakeLockInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.WakeLockInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnWallpaperInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnWallpaperInstanceReady_Params', [
+      mojo.internal.StructField('instance_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.WallpaperInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcBridgeHost_OnWallpaperInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnWallpaperInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.WallpaperInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.ArcBridgeHost_OnWebApkInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost_OnWebApkInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_ptr', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.WebApkInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcBridgeHost_OnWebApkInstanceReady_ParamsSpec, 'arc.mojom.ArcBridgeHost_OnWebApkInstanceReady_Params', [
+      mojo.internal.StructField('instance_ptr', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.WebApkInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.ArcBridgeHostPendingReceiver = class {
   constructor(handle) {
@@ -1332,819 +1099,6 @@ arc.mojom.ArcBridgeHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnAccessibilityHelperInstanceReady
-arc.mojom.ArcBridgeHost_OnAccessibilityHelperInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnAccessibilityHelperInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ax.android.mojom.AccessibilityHelperInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnAdbdMonitorInstanceReady
-arc.mojom.ArcBridgeHost_OnAdbdMonitorInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnAdbdMonitorInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.AdbdMonitorInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnAppInstanceReady
-arc.mojom.ArcBridgeHost_OnAppInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnAppInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.AppInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnAppPermissionsInstanceReady
-arc.mojom.ArcBridgeHost_OnAppPermissionsInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnAppPermissionsInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.AppPermissionsInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnAppfuseInstanceReady
-arc.mojom.ArcBridgeHost_OnAppfuseInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnAppfuseInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.AppfuseInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnArcShellExecutionInstanceReady
-arc.mojom.ArcBridgeHost_OnArcShellExecutionInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnArcShellExecutionInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ArcShellExecutionInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnArcWifiInstanceReady
-arc.mojom.ArcBridgeHost_OnArcWifiInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnArcWifiInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ArcWifiInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnAudioInstanceReady
-arc.mojom.ArcBridgeHost_OnAudioInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnAudioInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.AudioInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnAuthInstanceReady
-arc.mojom.ArcBridgeHost_OnAuthInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnAuthInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.AuthInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnBackupSettingsInstanceReady
-arc.mojom.ArcBridgeHost_OnBackupSettingsInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnBackupSettingsInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.BackupSettingsInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnBluetoothInstanceReady
-arc.mojom.ArcBridgeHost_OnBluetoothInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnBluetoothInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.BluetoothInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnBootPhaseMonitorInstanceReady
-arc.mojom.ArcBridgeHost_OnBootPhaseMonitorInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnBootPhaseMonitorInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.BootPhaseMonitorInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnCameraInstanceReady
-arc.mojom.ArcBridgeHost_OnCameraInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnCameraInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.CameraInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnChromeFeatureFlagsInstanceReady
-arc.mojom.ArcBridgeHost_OnChromeFeatureFlagsInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnChromeFeatureFlagsInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ChromeFeatureFlagsInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnCompatibilityModeInstanceReady
-arc.mojom.ArcBridgeHost_OnCompatibilityModeInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnCompatibilityModeInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.CompatibilityModeInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnCrashCollectorInstanceReady
-arc.mojom.ArcBridgeHost_OnCrashCollectorInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnCrashCollectorInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.CrashCollectorInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnOnDeviceSafetyInstanceReady
-arc.mojom.ArcBridgeHost_OnOnDeviceSafetyInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnOnDeviceSafetyInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.OnDeviceSafetyInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnDigitalGoodsInstanceReady
-arc.mojom.ArcBridgeHost_OnDigitalGoodsInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnDigitalGoodsInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.DigitalGoodsInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnDiskSpaceInstanceReady
-arc.mojom.ArcBridgeHost_OnDiskSpaceInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnDiskSpaceInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.DiskSpaceInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnEnterpriseReportingInstanceReady
-arc.mojom.ArcBridgeHost_OnEnterpriseReportingInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnEnterpriseReportingInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.EnterpriseReportingInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnErrorNotificationInstanceReady
-arc.mojom.ArcBridgeHost_OnErrorNotificationInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnErrorNotificationInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ErrorNotificationInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnFileSystemInstanceReady
-arc.mojom.ArcBridgeHost_OnFileSystemInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnFileSystemInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.FileSystemInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnIioSensorInstanceReady
-arc.mojom.ArcBridgeHost_OnIioSensorInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnIioSensorInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.IioSensorInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnImeInstanceReady
-arc.mojom.ArcBridgeHost_OnImeInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnImeInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ImeInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnInputMethodManagerInstanceReady
-arc.mojom.ArcBridgeHost_OnInputMethodManagerInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnInputMethodManagerInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.InputMethodManagerInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnIntentHelperInstanceReady
-arc.mojom.ArcBridgeHost_OnIntentHelperInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnIntentHelperInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.IntentHelperInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnKeymasterInstanceReady
-arc.mojom.ArcBridgeHost_OnKeymasterInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnKeymasterInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.KeymasterInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnKeyMintInstanceReady
-arc.mojom.ArcBridgeHost_OnKeyMintInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnKeyMintInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(keymint.KeyMintInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnKioskInstanceReady
-arc.mojom.ArcBridgeHost_OnKioskInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnKioskInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.KioskInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnMediaSessionInstanceReady
-arc.mojom.ArcBridgeHost_OnMediaSessionInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnMediaSessionInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.MediaSessionInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnMemoryInstanceReady
-arc.mojom.ArcBridgeHost_OnMemoryInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnMemoryInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.MemoryInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnMetricsInstanceReady
-arc.mojom.ArcBridgeHost_OnMetricsInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnMetricsInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.MetricsInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnMidisInstanceReady
-arc.mojom.ArcBridgeHost_OnMidisInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnMidisInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.MidisInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnNearbyShareInstanceReady
-arc.mojom.ArcBridgeHost_OnNearbyShareInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnNearbyShareInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.NearbyShareInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnNetInstanceReady
-arc.mojom.ArcBridgeHost_OnNetInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnNetInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.NetInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnNotificationsInstanceReady
-arc.mojom.ArcBridgeHost_OnNotificationsInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnNotificationsInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.NotificationsInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnObbMounterInstanceReady
-arc.mojom.ArcBridgeHost_OnObbMounterInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnObbMounterInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ObbMounterInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnOemCryptoInstanceReady
-arc.mojom.ArcBridgeHost_OnOemCryptoInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnOemCryptoInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.OemCryptoInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnPaymentAppInstanceReady
-arc.mojom.ArcBridgeHost_OnPaymentAppInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnPaymentAppInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.payments.mojom.PaymentAppInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnPipInstanceReady
-arc.mojom.ArcBridgeHost_OnPipInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnPipInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.PipInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnPolicyInstanceReady
-arc.mojom.ArcBridgeHost_OnPolicyInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnPolicyInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.PolicyInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnPowerInstanceReady
-arc.mojom.ArcBridgeHost_OnPowerInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnPowerInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.PowerInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnPrintSpoolerInstanceReady
-arc.mojom.ArcBridgeHost_OnPrintSpoolerInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnPrintSpoolerInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.PrintSpoolerInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnPrivacyItemsInstanceReady
-arc.mojom.ArcBridgeHost_OnPrivacyItemsInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnPrivacyItemsInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.PrivacyItemsInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnProcessInstanceReady
-arc.mojom.ArcBridgeHost_OnProcessInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnProcessInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ProcessInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnScreenCaptureInstanceReady
-arc.mojom.ArcBridgeHost_OnScreenCaptureInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnScreenCaptureInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ScreenCaptureInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnSharesheetInstanceReady
-arc.mojom.ArcBridgeHost_OnSharesheetInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnSharesheetInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.SharesheetInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnSystemStateInstanceReady
-arc.mojom.ArcBridgeHost_OnSystemStateInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnSystemStateInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.SystemStateInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnSystemUiInstanceReady
-arc.mojom.ArcBridgeHost_OnSystemUiInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnSystemUiInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.SystemUiInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnTimerInstanceReady
-arc.mojom.ArcBridgeHost_OnTimerInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnTimerInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.TimerInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnTracingInstanceReady
-arc.mojom.ArcBridgeHost_OnTracingInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnTracingInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.TracingInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnTtsInstanceReady
-arc.mojom.ArcBridgeHost_OnTtsInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnTtsInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.TtsInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnUsbHostInstanceReady
-arc.mojom.ArcBridgeHost_OnUsbHostInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnUsbHostInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.UsbHostInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnVideoInstanceReady
-arc.mojom.ArcBridgeHost_OnVideoInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnVideoInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.VideoInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnVolumeMounterInstanceReady
-arc.mojom.ArcBridgeHost_OnVolumeMounterInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnVolumeMounterInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.VolumeMounterInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnWakeLockInstanceReady
-arc.mojom.ArcBridgeHost_OnWakeLockInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnWakeLockInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.WakeLockInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnWallpaperInstanceReady
-arc.mojom.ArcBridgeHost_OnWallpaperInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnWallpaperInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.WallpaperInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnWebApkInstanceReady
-arc.mojom.ArcBridgeHost_OnWebApkInstanceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcBridgeHost.OnWebApkInstanceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'instance_ptr', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.WebApkInstanceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.ArcBridgeHostPtr = arc.mojom.ArcBridgeHostRemote;
 arc.mojom.ArcBridgeHostRequest = arc.mojom.ArcBridgeHostPendingReceiver;
 

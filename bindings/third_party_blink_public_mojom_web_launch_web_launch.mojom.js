@@ -10,37 +10,25 @@ blink.mojom = blink.mojom || {};
 var blink = blink || {};
 var url = url || {};
 
+blink.mojom.WebLaunchService = {};
+blink.mojom.WebLaunchService.$interfaceName = 'blink.mojom.WebLaunchService';
+blink.mojom.WebLaunchService_SetLaunchFiles_ParamsSpec = { $: {} };
+blink.mojom.WebLaunchService_EnqueueLaunchParams_ParamsSpec = { $: {} };
 
 // Interface: WebLaunchService
-blink.mojom.WebLaunchService = {};
+mojo.internal.Struct(
+    blink.mojom.WebLaunchService_SetLaunchFiles_ParamsSpec, 'blink.mojom.WebLaunchService_SetLaunchFiles_Params', [
+      mojo.internal.StructField('files', 0, 0, mojo.internal.Array(blink.mojom.FileSystemAccessEntrySpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.WebLaunchService_SetLaunchFiles_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebLaunchService_SetLaunchFiles_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'files', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.FileSystemAccessEntrySpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.WebLaunchService_EnqueueLaunchParams_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebLaunchService_EnqueueLaunchParams_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'launch_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'time_navigation_started_in_browser', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'navigation_started', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WebLaunchService_EnqueueLaunchParams_ParamsSpec, 'blink.mojom.WebLaunchService_EnqueueLaunchParams_Params', [
+      mojo.internal.StructField('launch_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('time_navigation_started_in_browser', 8, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('navigation_started', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 blink.mojom.WebLaunchServicePendingReceiver = class {
   constructor(handle) {
@@ -104,37 +92,6 @@ blink.mojom.WebLaunchService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetLaunchFiles
-blink.mojom.WebLaunchService_SetLaunchFiles_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebLaunchService.SetLaunchFiles_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'files', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.FileSystemAccessEntrySpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EnqueueLaunchParams
-blink.mojom.WebLaunchService_EnqueueLaunchParams_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebLaunchService.EnqueueLaunchParams_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'launch_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'time_navigation_started_in_browser', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'navigation_started', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.WebLaunchServicePtr = blink.mojom.WebLaunchServiceRemote;
 blink.mojom.WebLaunchServiceRequest = blink.mojom.WebLaunchServicePendingReceiver;
 

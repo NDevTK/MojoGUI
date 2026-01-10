@@ -8,35 +8,38 @@
 var ai = ai || {};
 ai.mojom = ai.mojom || {};
 
+ai.mojom.ZeroStateSuggestionsResponseResultSpec = { $: {} };
+ai.mojom.ZeroStateSuggestionsService = {};
+ai.mojom.ZeroStateSuggestionsService.$interfaceName = 'ai.mojom.ZeroStateSuggestionsService';
+ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ParamsSpec = { $: {} };
+ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParamsSpec = { $: {} };
 
 // Union: ZeroStateSuggestionsResponseResult
-ai.mojom.ZeroStateSuggestionsResponseResultSpec = { $: mojo.internal.Union(
-    'ai.mojom.ZeroStateSuggestionsResponseResult', {
+mojo.internal.Union(
+    ai.mojom.ZeroStateSuggestionsResponseResultSpec, 'ai.mojom.ZeroStateSuggestionsResponseResult', {
       'response': {
         'ordinal': 0,
         'type': mojo_base.mojom.ProtoWrapperSpec,
-      }},
+        'nullable': false,
+      },
       'error': {
         'ordinal': 1,
         'type': mojo.internal.String,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Interface: ZeroStateSuggestionsService
-ai.mojom.ZeroStateSuggestionsService = {};
+mojo.internal.Struct(
+    ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ParamsSpec, 'ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParamsSpec, 'ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, ai.mojom.ZeroStateSuggestionsResponseResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 ai.mojom.ZeroStateSuggestionsServicePendingReceiver = class {
   constructor(handle) {
@@ -91,33 +94,6 @@ ai.mojom.ZeroStateSuggestionsService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for FetchZeroStateSuggestions
-ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ai.mojom.ZeroStateSuggestionsService.FetchZeroStateSuggestions_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ai.mojom.ZeroStateSuggestionsService.FetchZeroStateSuggestions_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ai.mojom.ZeroStateSuggestionsResponseResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 ai.mojom.ZeroStateSuggestionsServicePtr = ai.mojom.ZeroStateSuggestionsServiceRemote;
 ai.mojom.ZeroStateSuggestionsServiceRequest = ai.mojom.ZeroStateSuggestionsServicePendingReceiver;
 

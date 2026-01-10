@@ -9,6 +9,16 @@ var translate = translate || {};
 translate.mojom = translate.mojom || {};
 var url = url || {};
 
+translate.mojom.TranslateErrorSpec = { $: mojo.internal.Enum() };
+translate.mojom.LanguageDetectionDetailsSpec = { $: {} };
+translate.mojom.TranslateAgent = {};
+translate.mojom.TranslateAgent.$interfaceName = 'translate.mojom.TranslateAgent';
+translate.mojom.TranslateAgent_TranslateFrame_ParamsSpec = { $: {} };
+translate.mojom.TranslateAgent_TranslateFrame_ResponseParamsSpec = { $: {} };
+translate.mojom.TranslateAgent_RevertTranslation_ParamsSpec = { $: {} };
+translate.mojom.ContentTranslateDriver = {};
+translate.mojom.ContentTranslateDriver.$interfaceName = 'translate.mojom.ContentTranslateDriver';
+translate.mojom.ContentTranslateDriver_RegisterPage_ParamsSpec = { $: {} };
 
 // Enum: TranslateError
 translate.mojom.TranslateError = {
@@ -25,62 +35,47 @@ translate.mojom.TranslateError = {
   SCRIPT_LOAD_ERROR: 10,
   TRANSLATE_ERROR_MAX: 11,
 };
-translate.mojom.TranslateErrorSpec = { $: mojo.internal.Enum() };
 
 // Struct: LanguageDetectionDetails
-translate.mojom.LanguageDetectionDetailsSpec = {
-  $: {
-    structSpec: {
-      name: 'translate.mojom.LanguageDetectionDetails',
-      packedSize: 80,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'adopted_language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'has_notranslate', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_run_lang_detection', packedOffset: 68, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'content_language', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'model_detected_language', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_model_reliable', packedOffset: 68, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'html_root_language', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'contents', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'model_reliability_score', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'detection_model_version', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 80}]
-    }
-  }
-};
+mojo.internal.Struct(
+    translate.mojom.LanguageDetectionDetailsSpec, 'translate.mojom.LanguageDetectionDetails', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('adopted_language', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('has_notranslate', 68, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_run_lang_detection', 68, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('time', 16, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('content_language', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('model_detected_language', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('is_model_reliable', 68, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('html_root_language', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('contents', 48, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('model_reliability_score', 64, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('detection_model_version', 56, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 80]]);
 
 // Interface: TranslateAgent
-translate.mojom.TranslateAgent = {};
+mojo.internal.Struct(
+    translate.mojom.TranslateAgent_TranslateFrame_ParamsSpec, 'translate.mojom.TranslateAgent_TranslateFrame_Params', [
+      mojo.internal.StructField('translate_script', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('source_lang', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('target_lang', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-translate.mojom.TranslateAgent_TranslateFrame_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'translate.mojom.TranslateAgent_TranslateFrame_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'translate_script', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'source_lang', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'target_lang', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    translate.mojom.TranslateAgent_TranslateFrame_ResponseParamsSpec, 'translate.mojom.TranslateAgent_TranslateFrame_ResponseParams', [
+      mojo.internal.StructField('cancelled', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('original_lang', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('translated_lang', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('error', 16, 0, translate.mojom.TranslateErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-translate.mojom.TranslateAgent_RevertTranslation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'translate.mojom.TranslateAgent_RevertTranslation_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    translate.mojom.TranslateAgent_RevertTranslation_ParamsSpec, 'translate.mojom.TranslateAgent_RevertTranslation_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 translate.mojom.TranslateAgentPendingReceiver = class {
   constructor(handle) {
@@ -144,73 +139,18 @@ translate.mojom.TranslateAgent.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for TranslateFrame
-translate.mojom.TranslateAgent_TranslateFrame_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'translate.mojom.TranslateAgent.TranslateFrame_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'translate_script', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'source_lang', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'target_lang', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-translate.mojom.TranslateAgent_TranslateFrame_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'translate.mojom.TranslateAgent.TranslateFrame_ResponseParams',
-      packedSize: 32,
-      fields: [
-        { name: 'cancelled', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'original_lang', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'translated_lang', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: translate.mojom.TranslateErrorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for RevertTranslation
-translate.mojom.TranslateAgent_RevertTranslation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'translate.mojom.TranslateAgent.RevertTranslation_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 translate.mojom.TranslateAgentPtr = translate.mojom.TranslateAgentRemote;
 translate.mojom.TranslateAgentRequest = translate.mojom.TranslateAgentPendingReceiver;
 
 
 // Interface: ContentTranslateDriver
-translate.mojom.ContentTranslateDriver = {};
-
-translate.mojom.ContentTranslateDriver_RegisterPage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'translate.mojom.ContentTranslateDriver_RegisterPage_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'translate_agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(translate.mojom.TranslateAgentRemote), nullable: false, minVersion: 0 },
-        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: translate.mojom.LanguageDetectionDetailsSpec, nullable: false, minVersion: 0 },
-        { name: 'translation_critiera_met', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    translate.mojom.ContentTranslateDriver_RegisterPage_ParamsSpec, 'translate.mojom.ContentTranslateDriver_RegisterPage_Params', [
+      mojo.internal.StructField('translate_agent', 0, 0, mojo.internal.InterfaceProxy(translate.mojom.TranslateAgentRemote), null, false, 0, undefined),
+      mojo.internal.StructField('details', 8, 0, translate.mojom.LanguageDetectionDetailsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('translation_critiera_met', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 translate.mojom.ContentTranslateDriverPendingReceiver = class {
   constructor(handle) {
@@ -265,23 +205,6 @@ translate.mojom.ContentTranslateDriver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RegisterPage
-translate.mojom.ContentTranslateDriver_RegisterPage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'translate.mojom.ContentTranslateDriver.RegisterPage_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'translate_agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(translate.mojom.TranslateAgentRemote), nullable: false, minVersion: 0 },
-        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: translate.mojom.LanguageDetectionDetailsSpec, nullable: false, minVersion: 0 },
-        { name: 'translation_critiera_met', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 translate.mojom.ContentTranslateDriverPtr = translate.mojom.ContentTranslateDriverRemote;
 translate.mojom.ContentTranslateDriverRequest = translate.mojom.ContentTranslateDriverPendingReceiver;
 

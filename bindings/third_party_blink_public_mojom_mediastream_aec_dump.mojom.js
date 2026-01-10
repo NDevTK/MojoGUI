@@ -8,34 +8,25 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.AecDumpAgent = {};
+blink.mojom.AecDumpAgent.$interfaceName = 'blink.mojom.AecDumpAgent';
+blink.mojom.AecDumpAgent_Start_ParamsSpec = { $: {} };
+blink.mojom.AecDumpAgent_Stop_ParamsSpec = { $: {} };
+blink.mojom.AecDumpManager = {};
+blink.mojom.AecDumpManager.$interfaceName = 'blink.mojom.AecDumpManager';
+blink.mojom.AecDumpManager_Add_ParamsSpec = { $: {} };
 
 // Interface: AecDumpAgent
-blink.mojom.AecDumpAgent = {};
+mojo.internal.Struct(
+    blink.mojom.AecDumpAgent_Start_ParamsSpec, 'blink.mojom.AecDumpAgent_Start_Params', [
+      mojo.internal.StructField('file', 0, 0, mojo_base.mojom.FileSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.AecDumpAgent_Start_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AecDumpAgent_Start_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.AecDumpAgent_Stop_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AecDumpAgent_Stop_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.AecDumpAgent_Stop_ParamsSpec, 'blink.mojom.AecDumpAgent_Stop_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 blink.mojom.AecDumpAgentPendingReceiver = class {
   constructor(handle) {
@@ -99,53 +90,16 @@ blink.mojom.AecDumpAgent.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Start
-blink.mojom.AecDumpAgent_Start_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AecDumpAgent.Start_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Stop
-blink.mojom.AecDumpAgent_Stop_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AecDumpAgent.Stop_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.AecDumpAgentPtr = blink.mojom.AecDumpAgentRemote;
 blink.mojom.AecDumpAgentRequest = blink.mojom.AecDumpAgentPendingReceiver;
 
 
 // Interface: AecDumpManager
-blink.mojom.AecDumpManager = {};
-
-blink.mojom.AecDumpManager_Add_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AecDumpManager_Add_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.AecDumpAgentRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.AecDumpManager_Add_ParamsSpec, 'blink.mojom.AecDumpManager_Add_Params', [
+      mojo.internal.StructField('agent', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.AecDumpAgentRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.AecDumpManagerPendingReceiver = class {
   constructor(handle) {
@@ -200,21 +154,6 @@ blink.mojom.AecDumpManager.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Add
-blink.mojom.AecDumpManager_Add_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AecDumpManager.Add_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.AecDumpAgentRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.AecDumpManagerPtr = blink.mojom.AecDumpManagerRemote;
 blink.mojom.AecDumpManagerRequest = blink.mojom.AecDumpManagerPendingReceiver;
 

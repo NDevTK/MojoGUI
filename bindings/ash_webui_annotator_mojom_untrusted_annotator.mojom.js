@@ -8,59 +8,43 @@
 var ash = ash || {};
 ash.annotator = ash.annotator || {};
 ash.annotator.mojom = ash.annotator.mojom || {};
+var ash = ash || {};
 
+ash.annotator.mojom.UntrustedAnnotatorPage = {};
+ash.annotator.mojom.UntrustedAnnotatorPage.$interfaceName = 'ash.annotator.mojom.UntrustedAnnotatorPage';
+ash.annotator.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec = { $: {} };
+ash.annotator.mojom.UntrustedAnnotatorPage_Undo_ParamsSpec = { $: {} };
+ash.annotator.mojom.UntrustedAnnotatorPage_Redo_ParamsSpec = { $: {} };
+ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec = { $: {} };
+ash.annotator.mojom.UntrustedAnnotatorPageHandler = {};
+ash.annotator.mojom.UntrustedAnnotatorPageHandler.$interfaceName = 'ash.annotator.mojom.UntrustedAnnotatorPageHandler';
+ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_ParamsSpec = { $: {} };
+ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec = { $: {} };
+ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory = {};
+ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory.$interfaceName = 'ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory';
+ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec = { $: {} };
 
 // Interface: UntrustedAnnotatorPage
-ash.annotator.mojom.UntrustedAnnotatorPage = {};
+mojo.internal.Struct(
+    ash.annotator.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec, 'ash.annotator.mojom.UntrustedAnnotatorPage_Clear_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.annotator.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.annotator.mojom.UntrustedAnnotatorPage_Clear_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.annotator.mojom.UntrustedAnnotatorPage_Undo_ParamsSpec, 'ash.annotator.mojom.UntrustedAnnotatorPage_Undo_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.annotator.mojom.UntrustedAnnotatorPage_Undo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.annotator.mojom.UntrustedAnnotatorPage_Undo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.annotator.mojom.UntrustedAnnotatorPage_Redo_ParamsSpec, 'ash.annotator.mojom.UntrustedAnnotatorPage_Redo_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.annotator.mojom.UntrustedAnnotatorPage_Redo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.annotator.mojom.UntrustedAnnotatorPage_Redo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'tool', packedOffset: 0, packedBitOffset: 0, type: ash.annotator.mojom.AnnotatorToolSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec, 'ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_Params', [
+      mojo.internal.StructField('tool', 0, 0, ash.annotator.mojom.AnnotatorToolSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.annotator.mojom.UntrustedAnnotatorPagePendingReceiver = class {
   constructor(handle) {
@@ -142,93 +126,23 @@ ash.annotator.mojom.UntrustedAnnotatorPage.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Clear
-ash.annotator.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.annotator.mojom.UntrustedAnnotatorPage.Clear_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for Undo
-ash.annotator.mojom.UntrustedAnnotatorPage_Undo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.annotator.mojom.UntrustedAnnotatorPage.Undo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for Redo
-ash.annotator.mojom.UntrustedAnnotatorPage_Redo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.annotator.mojom.UntrustedAnnotatorPage.Redo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetTool
-ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.annotator.mojom.UntrustedAnnotatorPage.SetTool_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'tool', packedOffset: 0, packedBitOffset: 0, type: ash.annotator.mojom.AnnotatorToolSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.annotator.mojom.UntrustedAnnotatorPagePtr = ash.annotator.mojom.UntrustedAnnotatorPageRemote;
 ash.annotator.mojom.UntrustedAnnotatorPageRequest = ash.annotator.mojom.UntrustedAnnotatorPagePendingReceiver;
 
 
 // Interface: UntrustedAnnotatorPageHandler
-ash.annotator.mojom.UntrustedAnnotatorPageHandler = {};
+mojo.internal.Struct(
+    ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_ParamsSpec, 'ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_Params', [
+      mojo.internal.StructField('undo_available', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('redo_available', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'undo_available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'redo_available', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec, 'ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_Params', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.annotator.mojom.UntrustedAnnotatorPageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -292,56 +206,17 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnUndoRedoAvailabilityChanged
-ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.annotator.mojom.UntrustedAnnotatorPageHandler.OnUndoRedoAvailabilityChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'undo_available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'redo_available', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnCanvasInitialized
-ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.annotator.mojom.UntrustedAnnotatorPageHandler.OnCanvasInitialized_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.annotator.mojom.UntrustedAnnotatorPageHandlerPtr = ash.annotator.mojom.UntrustedAnnotatorPageHandlerRemote;
 ash.annotator.mojom.UntrustedAnnotatorPageHandlerRequest = ash.annotator.mojom.UntrustedAnnotatorPageHandlerPendingReceiver;
 
 
 // Interface: UntrustedAnnotatorPageHandlerFactory
-ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory = {};
-
-ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.annotator.mojom.UntrustedAnnotatorPageHandlerRemote), nullable: false, minVersion: 0 },
-        { name: 'annotator', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.annotator.mojom.UntrustedAnnotatorPageRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec, 'ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_Params', [
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(ash.annotator.mojom.UntrustedAnnotatorPageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('annotator', 8, 0, mojo.internal.InterfaceProxy(ash.annotator.mojom.UntrustedAnnotatorPageRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -396,22 +271,6 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory.getRemote = function() 
   return remote.$;
 };
 
-// ParamsSpec for Create
-ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory.Create_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.annotator.mojom.UntrustedAnnotatorPageHandlerRemote), nullable: false, minVersion: 0 },
-        { name: 'annotator', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.annotator.mojom.UntrustedAnnotatorPageRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryPtr = ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryRemote;
 ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryRequest = ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryPendingReceiver;
 

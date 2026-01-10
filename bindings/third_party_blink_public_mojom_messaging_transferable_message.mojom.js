@@ -16,24 +16,18 @@ var blink = blink || {};
 var blink = blink || {};
 var blink = blink || {};
 
+blink.mojom.TransferableMessageSpec = { $: {} };
 
 // Struct: TransferableMessage
-blink.mojom.TransferableMessageSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TransferableMessage',
-      packedSize: 72,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CloneableMessageSpec, nullable: false, minVersion: 0 },
-        { name: 'ports', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.MessagePortDescriptorSpec, false), nullable: false, minVersion: 0 },
-        { name: 'stream_channels', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.MessagePortDescriptorSpec, false), nullable: false, minVersion: 0 },
-        { name: 'array_buffer_contents_array', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SerializedArrayBufferContentsSpec, false), nullable: false, minVersion: 0 },
-        { name: 'image_bitmap_contents_array', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SerializedStaticBitmapImageSpec, false), nullable: false, minVersion: 0 },
-        { name: 'user_activation', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.UserActivationSnapshotSpec, nullable: true, minVersion: 0 },
-        { name: 'delegated_capability', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.DelegatedCapabilitySpec, nullable: false, minVersion: 0 },
-        { name: 'task_state_id', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.TaskAttributionIdSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 72}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.TransferableMessageSpec, 'blink.mojom.TransferableMessage', [
+      mojo.internal.StructField('message', 0, 0, blink.mojom.CloneableMessageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('ports', 8, 0, mojo.internal.Array(blink.mojom.MessagePortDescriptorSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('stream_channels', 16, 0, mojo.internal.Array(blink.mojom.MessagePortDescriptorSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('array_buffer_contents_array', 24, 0, mojo.internal.Array(blink.mojom.SerializedArrayBufferContentsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('image_bitmap_contents_array', 32, 0, mojo.internal.Array(blink.mojom.SerializedStaticBitmapImageSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('user_activation', 40, 0, blink.mojom.UserActivationSnapshotSpec, null, true, 0, undefined),
+      mojo.internal.StructField('delegated_capability', 56, 0, blink.mojom.DelegatedCapabilitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('task_state_id', 48, 0, blink.mojom.TaskAttributionIdSpec, null, true, 0, undefined),
+    ],
+    [[0, 72]]);

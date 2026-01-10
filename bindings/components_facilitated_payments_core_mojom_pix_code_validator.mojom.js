@@ -9,6 +9,11 @@ var payments = payments || {};
 payments.facilitated = payments.facilitated || {};
 payments.facilitated.mojom = payments.facilitated.mojom || {};
 
+payments.facilitated.mojom.PixQrCodeTypeSpec = { $: mojo.internal.Enum() };
+payments.facilitated.mojom.PixCodeValidator = {};
+payments.facilitated.mojom.PixCodeValidator.$interfaceName = 'payments.facilitated.mojom.PixCodeValidator';
+payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ParamsSpec = { $: {} };
+payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ResponseParamsSpec = { $: {} };
 
 // Enum: PixQrCodeType
 payments.facilitated.mojom.PixQrCodeType = {
@@ -16,23 +21,19 @@ payments.facilitated.mojom.PixQrCodeType = {
   kDynamic: 1,
   kStatic: 2,
 };
-payments.facilitated.mojom.PixQrCodeTypeSpec = { $: mojo.internal.Enum() };
 
 // Interface: PixCodeValidator
-payments.facilitated.mojom.PixCodeValidator = {};
+mojo.internal.Struct(
+    payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ParamsSpec, 'payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_Params', [
+      mojo.internal.StructField('input_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'input_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ResponseParamsSpec, 'payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ResponseParams', [
+      mojo.internal.StructField('pix_qr_code_type', 0, 0, payments.facilitated.mojom.PixQrCodeTypeSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 payments.facilitated.mojom.PixCodeValidatorPendingReceiver = class {
   constructor(handle) {
@@ -87,34 +88,6 @@ payments.facilitated.mojom.PixCodeValidator.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ValidatePixCode
-payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'payments.facilitated.mojom.PixCodeValidator.ValidatePixCode_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'input_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'payments.facilitated.mojom.PixCodeValidator.ValidatePixCode_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'pix_qr_code_type', packedOffset: 0, packedBitOffset: 0, type: payments.facilitated.mojom.PixQrCodeTypeSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 payments.facilitated.mojom.PixCodeValidatorPtr = payments.facilitated.mojom.PixCodeValidatorRemote;
 payments.facilitated.mojom.PixCodeValidatorRequest = payments.facilitated.mojom.PixCodeValidatorPendingReceiver;
 

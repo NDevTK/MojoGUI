@@ -8,35 +8,23 @@
 var media = media || {};
 media.mojom = media.mojom || {};
 
+media.mojom.VideoDecodeStatsRecorder = {};
+media.mojom.VideoDecodeStatsRecorder.$interfaceName = 'media.mojom.VideoDecodeStatsRecorder';
+media.mojom.VideoDecodeStatsRecorder_StartNewRecord_ParamsSpec = { $: {} };
+media.mojom.VideoDecodeStatsRecorder_UpdateRecord_ParamsSpec = { $: {} };
 
 // Interface: VideoDecodeStatsRecorder
-media.mojom.VideoDecodeStatsRecorder = {};
+mojo.internal.Struct(
+    media.mojom.VideoDecodeStatsRecorder_StartNewRecord_ParamsSpec, 'media.mojom.VideoDecodeStatsRecorder_StartNewRecord_Params', [
+      mojo.internal.StructField('features', 0, 0, media.mojom.PredictionFeaturesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.VideoDecodeStatsRecorder_StartNewRecord_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.VideoDecodeStatsRecorder_StartNewRecord_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'features', packedOffset: 0, packedBitOffset: 0, type: media.mojom.PredictionFeaturesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-media.mojom.VideoDecodeStatsRecorder_UpdateRecord_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.VideoDecodeStatsRecorder_UpdateRecord_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'targets', packedOffset: 0, packedBitOffset: 0, type: media.mojom.PredictionTargetsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.VideoDecodeStatsRecorder_UpdateRecord_ParamsSpec, 'media.mojom.VideoDecodeStatsRecorder_UpdateRecord_Params', [
+      mojo.internal.StructField('targets', 0, 0, media.mojom.PredictionTargetsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media.mojom.VideoDecodeStatsRecorderPendingReceiver = class {
   constructor(handle) {
@@ -100,35 +88,6 @@ media.mojom.VideoDecodeStatsRecorder.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for StartNewRecord
-media.mojom.VideoDecodeStatsRecorder_StartNewRecord_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.VideoDecodeStatsRecorder.StartNewRecord_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'features', packedOffset: 0, packedBitOffset: 0, type: media.mojom.PredictionFeaturesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateRecord
-media.mojom.VideoDecodeStatsRecorder_UpdateRecord_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.VideoDecodeStatsRecorder.UpdateRecord_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'targets', packedOffset: 0, packedBitOffset: 0, type: media.mojom.PredictionTargetsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.VideoDecodeStatsRecorderPtr = media.mojom.VideoDecodeStatsRecorderRemote;
 media.mojom.VideoDecodeStatsRecorderRequest = media.mojom.VideoDecodeStatsRecorderPendingReceiver;
 

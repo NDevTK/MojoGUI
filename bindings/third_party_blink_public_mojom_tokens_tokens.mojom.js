@@ -8,395 +8,305 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.FrameTokenSpec = { $: {} };
+blink.mojom.WorkerTokenSpec = { $: {} };
+blink.mojom.WorkletTokenSpec = { $: {} };
+blink.mojom.ExecutionContextTokenSpec = { $: {} };
+blink.mojom.WebGPUExecutionContextTokenSpec = { $: {} };
+blink.mojom.DocumentTokenSpec = { $: {} };
+blink.mojom.LocalFrameTokenSpec = { $: {} };
+blink.mojom.RemoteFrameTokenSpec = { $: {} };
+blink.mojom.DedicatedWorkerTokenSpec = { $: {} };
+blink.mojom.ServiceWorkerTokenSpec = { $: {} };
+blink.mojom.SharedWorkerTokenSpec = { $: {} };
+blink.mojom.AnimationWorkletTokenSpec = { $: {} };
+blink.mojom.AudioWorkletTokenSpec = { $: {} };
+blink.mojom.LayoutWorkletTokenSpec = { $: {} };
+blink.mojom.PaintWorkletTokenSpec = { $: {} };
+blink.mojom.SharedStorageWorkletTokenSpec = { $: {} };
+blink.mojom.ShadowRealmTokenSpec = { $: {} };
+blink.mojom.AttributionSrcTokenSpec = { $: {} };
+blink.mojom.SameDocNavigationScreenshotDestinationTokenSpec = { $: {} };
+blink.mojom.V8ContextTokenSpec = { $: {} };
+blink.mojom.ViewTransitionTokenSpec = { $: {} };
+blink.mojom.WebNNContextTokenSpec = { $: {} };
+blink.mojom.WebNNPendingConstantTokenSpec = { $: {} };
+blink.mojom.WebNNTensorTokenSpec = { $: {} };
 
 // Union: FrameToken
-blink.mojom.FrameTokenSpec = { $: mojo.internal.Union(
-    'blink.mojom.FrameToken', {
+mojo.internal.Union(
+    blink.mojom.FrameTokenSpec, 'blink.mojom.FrameToken', {
       'local_frame_token': {
         'ordinal': 0,
         'type': blink.mojom.LocalFrameTokenSpec,
-      }},
+        'nullable': false,
+      },
       'remote_frame_token': {
         'ordinal': 1,
         'type': blink.mojom.RemoteFrameTokenSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Union: WorkerToken
-blink.mojom.WorkerTokenSpec = { $: mojo.internal.Union(
-    'blink.mojom.WorkerToken', {
+mojo.internal.Union(
+    blink.mojom.WorkerTokenSpec, 'blink.mojom.WorkerToken', {
       'dedicated_worker_token': {
         'ordinal': 0,
         'type': blink.mojom.DedicatedWorkerTokenSpec,
-      }},
+        'nullable': false,
+      },
       'service_worker_token': {
         'ordinal': 1,
         'type': blink.mojom.ServiceWorkerTokenSpec,
-      }},
+        'nullable': false,
+      },
       'shared_worker_token': {
         'ordinal': 2,
         'type': blink.mojom.SharedWorkerTokenSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Union: WorkletToken
-blink.mojom.WorkletTokenSpec = { $: mojo.internal.Union(
-    'blink.mojom.WorkletToken', {
+mojo.internal.Union(
+    blink.mojom.WorkletTokenSpec, 'blink.mojom.WorkletToken', {
       'animation_worklet_token': {
         'ordinal': 0,
         'type': blink.mojom.AnimationWorkletTokenSpec,
-      }},
+        'nullable': false,
+      },
       'audio_worklet_token': {
         'ordinal': 1,
         'type': blink.mojom.AudioWorkletTokenSpec,
-      }},
+        'nullable': false,
+      },
       'layout_worklet_token': {
         'ordinal': 2,
         'type': blink.mojom.LayoutWorkletTokenSpec,
-      }},
+        'nullable': false,
+      },
       'paint_worklet_token': {
         'ordinal': 3,
         'type': blink.mojom.PaintWorkletTokenSpec,
-      }},
+        'nullable': false,
+      },
       'shared_storage_worklet_token': {
         'ordinal': 4,
         'type': blink.mojom.SharedStorageWorkletTokenSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Union: ExecutionContextToken
-blink.mojom.ExecutionContextTokenSpec = { $: mojo.internal.Union(
-    'blink.mojom.ExecutionContextToken', {
+mojo.internal.Union(
+    blink.mojom.ExecutionContextTokenSpec, 'blink.mojom.ExecutionContextToken', {
       'local_frame_token': {
         'ordinal': 0,
         'type': blink.mojom.LocalFrameTokenSpec,
-      }},
+        'nullable': false,
+      },
       'dedicated_worker_token': {
         'ordinal': 1,
         'type': blink.mojom.DedicatedWorkerTokenSpec,
-      }},
+        'nullable': false,
+      },
       'service_worker_token': {
         'ordinal': 2,
         'type': blink.mojom.ServiceWorkerTokenSpec,
-      }},
+        'nullable': false,
+      },
       'shared_worker_token': {
         'ordinal': 3,
         'type': blink.mojom.SharedWorkerTokenSpec,
-      }},
+        'nullable': false,
+      },
       'animation_worklet_token': {
         'ordinal': 4,
         'type': blink.mojom.AnimationWorkletTokenSpec,
-      }},
+        'nullable': false,
+      },
       'audio_worklet_token': {
         'ordinal': 5,
         'type': blink.mojom.AudioWorkletTokenSpec,
-      }},
+        'nullable': false,
+      },
       'layout_worklet_token': {
         'ordinal': 6,
         'type': blink.mojom.LayoutWorkletTokenSpec,
-      }},
+        'nullable': false,
+      },
       'paint_worklet_token': {
         'ordinal': 7,
         'type': blink.mojom.PaintWorkletTokenSpec,
-      }},
+        'nullable': false,
+      },
       'shared_storage_worklet_token': {
         'ordinal': 8,
         'type': blink.mojom.SharedStorageWorkletTokenSpec,
-      }},
+        'nullable': false,
+      },
       'shadow_realm_token': {
         'ordinal': 9,
         'type': blink.mojom.ShadowRealmTokenSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Union: WebGPUExecutionContextToken
-blink.mojom.WebGPUExecutionContextTokenSpec = { $: mojo.internal.Union(
-    'blink.mojom.WebGPUExecutionContextToken', {
+mojo.internal.Union(
+    blink.mojom.WebGPUExecutionContextTokenSpec, 'blink.mojom.WebGPUExecutionContextToken', {
       'document_token': {
         'ordinal': 0,
         'type': blink.mojom.DocumentTokenSpec,
-      }},
+        'nullable': false,
+      },
       'dedicated_worker_token': {
         'ordinal': 1,
         'type': blink.mojom.DedicatedWorkerTokenSpec,
-      }},
+        'nullable': false,
+      },
       'shared_worker_token': {
         'ordinal': 2,
         'type': blink.mojom.SharedWorkerTokenSpec,
-      }},
+        'nullable': false,
+      },
       'service_worker_token': {
         'ordinal': 3,
         'type': blink.mojom.ServiceWorkerTokenSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: DocumentToken
-blink.mojom.DocumentTokenSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DocumentToken',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.DocumentTokenSpec, 'blink.mojom.DocumentToken', [
+      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: LocalFrameToken
-blink.mojom.LocalFrameTokenSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.LocalFrameToken',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.LocalFrameTokenSpec, 'blink.mojom.LocalFrameToken', [
+      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: RemoteFrameToken
-blink.mojom.RemoteFrameTokenSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.RemoteFrameToken',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.RemoteFrameTokenSpec, 'blink.mojom.RemoteFrameToken', [
+      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: DedicatedWorkerToken
-blink.mojom.DedicatedWorkerTokenSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DedicatedWorkerToken',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.DedicatedWorkerTokenSpec, 'blink.mojom.DedicatedWorkerToken', [
+      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: ServiceWorkerToken
-blink.mojom.ServiceWorkerTokenSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerToken',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerTokenSpec, 'blink.mojom.ServiceWorkerToken', [
+      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: SharedWorkerToken
-blink.mojom.SharedWorkerTokenSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedWorkerToken',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SharedWorkerTokenSpec, 'blink.mojom.SharedWorkerToken', [
+      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: AnimationWorkletToken
-blink.mojom.AnimationWorkletTokenSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AnimationWorkletToken',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.AnimationWorkletTokenSpec, 'blink.mojom.AnimationWorkletToken', [
+      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: AudioWorkletToken
-blink.mojom.AudioWorkletTokenSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AudioWorkletToken',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.AudioWorkletTokenSpec, 'blink.mojom.AudioWorkletToken', [
+      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: LayoutWorkletToken
-blink.mojom.LayoutWorkletTokenSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.LayoutWorkletToken',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.LayoutWorkletTokenSpec, 'blink.mojom.LayoutWorkletToken', [
+      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: PaintWorkletToken
-blink.mojom.PaintWorkletTokenSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PaintWorkletToken',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PaintWorkletTokenSpec, 'blink.mojom.PaintWorkletToken', [
+      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: SharedStorageWorkletToken
-blink.mojom.SharedStorageWorkletTokenSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedStorageWorkletToken',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SharedStorageWorkletTokenSpec, 'blink.mojom.SharedStorageWorkletToken', [
+      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: ShadowRealmToken
-blink.mojom.ShadowRealmTokenSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ShadowRealmToken',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ShadowRealmTokenSpec, 'blink.mojom.ShadowRealmToken', [
+      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: AttributionSrcToken
-blink.mojom.AttributionSrcTokenSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AttributionSrcToken',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.AttributionSrcTokenSpec, 'blink.mojom.AttributionSrcToken', [
+      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: SameDocNavigationScreenshotDestinationToken
-blink.mojom.SameDocNavigationScreenshotDestinationTokenSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SameDocNavigationScreenshotDestinationToken',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SameDocNavigationScreenshotDestinationTokenSpec, 'blink.mojom.SameDocNavigationScreenshotDestinationToken', [
+      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: V8ContextToken
-blink.mojom.V8ContextTokenSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.V8ContextToken',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.V8ContextTokenSpec, 'blink.mojom.V8ContextToken', [
+      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: ViewTransitionToken
-blink.mojom.ViewTransitionTokenSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ViewTransitionToken',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ViewTransitionTokenSpec, 'blink.mojom.ViewTransitionToken', [
+      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: WebNNContextToken
-blink.mojom.WebNNContextTokenSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebNNContextToken',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WebNNContextTokenSpec, 'blink.mojom.WebNNContextToken', [
+      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: WebNNPendingConstantToken
-blink.mojom.WebNNPendingConstantTokenSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebNNPendingConstantToken',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WebNNPendingConstantTokenSpec, 'blink.mojom.WebNNPendingConstantToken', [
+      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: WebNNTensorToken
-blink.mojom.WebNNTensorTokenSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebNNTensorToken',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WebNNTensorTokenSpec, 'blink.mojom.WebNNTensorToken', [
+      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);

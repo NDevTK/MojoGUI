@@ -8,20 +8,14 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.RelatedApplicationSpec = { $: {} };
 
 // Struct: RelatedApplication
-blink.mojom.RelatedApplicationSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.RelatedApplication',
-      packedSize: 40,
-      fields: [
-        { name: 'platform', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'version', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.RelatedApplicationSpec, 'blink.mojom.RelatedApplication', [
+      mojo.internal.StructField('platform', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('id', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('version', 24, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 40]]);

@@ -8,35 +8,37 @@
 var on_device_translation = on_device_translation || {};
 on_device_translation.mojom = on_device_translation.mojom || {};
 
+on_device_translation.mojom.Translator = {};
+on_device_translation.mojom.Translator.$interfaceName = 'on_device_translation.mojom.Translator';
+on_device_translation.mojom.Translator_Translate_ParamsSpec = { $: {} };
+on_device_translation.mojom.Translator_Translate_ResponseParamsSpec = { $: {} };
+on_device_translation.mojom.Translator_SplitSentences_ParamsSpec = { $: {} };
+on_device_translation.mojom.Translator_SplitSentences_ResponseParamsSpec = { $: {} };
 
 // Interface: Translator
-on_device_translation.mojom.Translator = {};
+mojo.internal.Struct(
+    on_device_translation.mojom.Translator_Translate_ParamsSpec, 'on_device_translation.mojom.Translator_Translate_Params', [
+      mojo.internal.StructField('input', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-on_device_translation.mojom.Translator_Translate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_translation.mojom.Translator_Translate_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    on_device_translation.mojom.Translator_Translate_ResponseParamsSpec, 'on_device_translation.mojom.Translator_Translate_ResponseParams', [
+      mojo.internal.StructField('output', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-on_device_translation.mojom.Translator_SplitSentences_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_translation.mojom.Translator_SplitSentences_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    on_device_translation.mojom.Translator_SplitSentences_ParamsSpec, 'on_device_translation.mojom.Translator_SplitSentences_Params', [
+      mojo.internal.StructField('input', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    on_device_translation.mojom.Translator_SplitSentences_ResponseParamsSpec, 'on_device_translation.mojom.Translator_SplitSentences_ResponseParams', [
+      mojo.internal.StructField('sentences', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 on_device_translation.mojom.TranslatorPendingReceiver = class {
   constructor(handle) {
@@ -100,61 +102,6 @@ on_device_translation.mojom.Translator.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Translate
-on_device_translation.mojom.Translator_Translate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_translation.mojom.Translator.Translate_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-on_device_translation.mojom.Translator_Translate_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_translation.mojom.Translator.Translate_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'output', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SplitSentences
-on_device_translation.mojom.Translator_SplitSentences_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_translation.mojom.Translator.SplitSentences_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-on_device_translation.mojom.Translator_SplitSentences_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_translation.mojom.Translator.SplitSentences_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'sentences', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 on_device_translation.mojom.TranslatorPtr = on_device_translation.mojom.TranslatorRemote;
 on_device_translation.mojom.TranslatorRequest = on_device_translation.mojom.TranslatorPendingReceiver;
 

@@ -8,6 +8,17 @@
 var media = media || {};
 media.mojom = media.mojom || {};
 
+media.mojom.VideoDecoderSecureMemoryModeSpec = { $: mojo.internal.Enum() };
+media.mojom.CdmRequestSpec = { $: {} };
+media.mojom.StreamProcessorRequestSpec = { $: {} };
+media.mojom.FuchsiaMediaCdmProvider = {};
+media.mojom.FuchsiaMediaCdmProvider.$interfaceName = 'media.mojom.FuchsiaMediaCdmProvider';
+media.mojom.FuchsiaMediaCdmProvider_CreateCdm_ParamsSpec = { $: {} };
+media.mojom.FuchsiaMediaCodecProvider = {};
+media.mojom.FuchsiaMediaCodecProvider.$interfaceName = 'media.mojom.FuchsiaMediaCodecProvider';
+media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_ParamsSpec = { $: {} };
+media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ParamsSpec = { $: {} };
+media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ResponseParamsSpec = { $: {} };
 
 // Enum: VideoDecoderSecureMemoryMode
 media.mojom.VideoDecoderSecureMemoryMode = {
@@ -15,52 +26,28 @@ media.mojom.VideoDecoderSecureMemoryMode = {
   SECURE: 1,
   SECURE_OUTPUT: 2,
 };
-media.mojom.VideoDecoderSecureMemoryModeSpec = { $: mojo.internal.Enum() };
 
 // Struct: CdmRequest
-media.mojom.CdmRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CdmRequest',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.CdmRequestSpec, 'media.mojom.CdmRequest', [
+      mojo.internal.StructField('request', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: StreamProcessorRequest
-media.mojom.StreamProcessorRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.StreamProcessorRequest',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.StreamProcessorRequestSpec, 'media.mojom.StreamProcessorRequest', [
+      mojo.internal.StructField('request', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: FuchsiaMediaCdmProvider
-media.mojom.FuchsiaMediaCdmProvider = {};
-
-media.mojom.FuchsiaMediaCdmProvider_CreateCdm_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.FuchsiaMediaCdmProvider_CreateCdm_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'key_system', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'cdm_request', packedOffset: 8, packedBitOffset: 0, type: media.mojom.CdmRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.FuchsiaMediaCdmProvider_CreateCdm_ParamsSpec, 'media.mojom.FuchsiaMediaCdmProvider_CreateCdm_Params', [
+      mojo.internal.StructField('key_system', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('cdm_request', 8, 0, media.mojom.CdmRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 media.mojom.FuchsiaMediaCdmProviderPendingReceiver = class {
   constructor(handle) {
@@ -115,55 +102,29 @@ media.mojom.FuchsiaMediaCdmProvider.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateCdm
-media.mojom.FuchsiaMediaCdmProvider_CreateCdm_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.FuchsiaMediaCdmProvider.CreateCdm_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'key_system', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'cdm_request', packedOffset: 8, packedBitOffset: 0, type: media.mojom.CdmRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.FuchsiaMediaCdmProviderPtr = media.mojom.FuchsiaMediaCdmProviderRemote;
 media.mojom.FuchsiaMediaCdmProviderRequest = media.mojom.FuchsiaMediaCdmProviderPendingReceiver;
 
 
 // Interface: FuchsiaMediaCodecProvider
-media.mojom.FuchsiaMediaCodecProvider = {};
+mojo.internal.Struct(
+    media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_ParamsSpec, 'media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_Params', [
+      mojo.internal.StructField('codec', 0, 0, media.mojom.VideoCodecSpec, null, false, 0, undefined),
+      mojo.internal.StructField('secure_mode', 16, 0, media.mojom.VideoDecoderSecureMemoryModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('stream_processor_request', 8, 0, media.mojom.StreamProcessorRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'codec', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoCodecSpec, nullable: false, minVersion: 0 },
-        { name: 'secure_mode', packedOffset: 16, packedBitOffset: 0, type: media.mojom.VideoDecoderSecureMemoryModeSpec, nullable: false, minVersion: 0 },
-        { name: 'stream_processor_request', packedOffset: 8, packedBitOffset: 0, type: media.mojom.StreamProcessorRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ParamsSpec, 'media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ResponseParamsSpec, 'media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ResponseParams', [
+      mojo.internal.StructField('supported_configs', 0, 0, mojo.internal.Array(media.mojom.SupportedVideoDecoderConfigSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media.mojom.FuchsiaMediaCodecProviderPendingReceiver = class {
   constructor(handle) {
@@ -227,49 +188,6 @@ media.mojom.FuchsiaMediaCodecProvider.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateVideoDecoder
-media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.FuchsiaMediaCodecProvider.CreateVideoDecoder_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'codec', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoCodecSpec, nullable: false, minVersion: 0 },
-        { name: 'secure_mode', packedOffset: 16, packedBitOffset: 0, type: media.mojom.VideoDecoderSecureMemoryModeSpec, nullable: false, minVersion: 0 },
-        { name: 'stream_processor_request', packedOffset: 8, packedBitOffset: 0, type: media.mojom.StreamProcessorRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for GetSupportedVideoDecoderConfigs
-media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.FuchsiaMediaCodecProvider.GetSupportedVideoDecoderConfigs_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.FuchsiaMediaCodecProvider.GetSupportedVideoDecoderConfigs_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'supported_configs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.SupportedVideoDecoderConfigSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.FuchsiaMediaCodecProviderPtr = media.mojom.FuchsiaMediaCodecProviderRemote;
 media.mojom.FuchsiaMediaCodecProviderRequest = media.mojom.FuchsiaMediaCodecProviderPendingReceiver;
 

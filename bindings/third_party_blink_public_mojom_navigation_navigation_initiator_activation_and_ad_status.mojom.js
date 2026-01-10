@@ -8,6 +8,7 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.NavigationInitiatorActivationAndAdStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: NavigationInitiatorActivationAndAdStatus
 blink.mojom.NavigationInitiatorActivationAndAdStatus = {
@@ -15,4 +16,3 @@ blink.mojom.NavigationInitiatorActivationAndAdStatus = {
   kStartedWithTransientActivationFromNonAd: 1,
   kStartedWithTransientActivationFromAd: 2,
 };
-blink.mojom.NavigationInitiatorActivationAndAdStatusSpec = { $: mojo.internal.Enum() };

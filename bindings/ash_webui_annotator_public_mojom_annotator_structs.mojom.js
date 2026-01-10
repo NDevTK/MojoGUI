@@ -9,19 +9,13 @@ var ash = ash || {};
 ash.annotator = ash.annotator || {};
 ash.annotator.mojom = ash.annotator.mojom || {};
 
+ash.annotator.mojom.AnnotatorToolSpec = { $: {} };
 
 // Struct: AnnotatorTool
-ash.annotator.mojom.AnnotatorToolSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.annotator.mojom.AnnotatorTool',
-      packedSize: 32,
-      fields: [
-        { name: 'tool', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'color', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.annotator.mojom.AnnotatorToolSpec, 'ash.annotator.mojom.AnnotatorTool', [
+      mojo.internal.StructField('tool', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('color', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('size', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);

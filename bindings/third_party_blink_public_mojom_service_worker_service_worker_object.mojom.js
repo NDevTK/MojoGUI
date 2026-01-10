@@ -12,52 +12,43 @@ var blink = blink || {};
 var blink = blink || {};
 var url = url || {};
 
+blink.mojom.ServiceWorkerObjectInfoSpec = { $: {} };
+blink.mojom.ServiceWorkerObjectHost = {};
+blink.mojom.ServiceWorkerObjectHost.$interfaceName = 'blink.mojom.ServiceWorkerObjectHost';
+blink.mojom.ServiceWorkerObjectHost_PostMessageToServiceWorker_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorkerObjectHost_TerminateForTesting_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorkerObjectHost_TerminateForTesting_ResponseParamsSpec = { $: {} };
+blink.mojom.ServiceWorkerObject = {};
+blink.mojom.ServiceWorkerObject.$interfaceName = 'blink.mojom.ServiceWorkerObject';
+blink.mojom.ServiceWorkerObject_StateChanged_ParamsSpec = { $: {} };
 
 // Struct: ServiceWorkerObjectInfo
-blink.mojom.ServiceWorkerObjectInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerObjectInfo',
-      packedSize: 48,
-      fields: [
-        { name: 'version_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'state', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.ServiceWorkerStateSpec, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'host_remote', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(blink.mojom.ServiceWorkerObjectHostRemote), nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(blink.mojom.ServiceWorkerObjectRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerObjectInfoSpec, 'blink.mojom.ServiceWorkerObjectInfo', [
+      mojo.internal.StructField('version_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('state', 32, 0, blink.mojom.ServiceWorkerStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('host_remote', 16, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.ServiceWorkerObjectHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 24, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.ServiceWorkerObjectRemote), null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Interface: ServiceWorkerObjectHost
-blink.mojom.ServiceWorkerObjectHost = {};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerObjectHost_PostMessageToServiceWorker_ParamsSpec, 'blink.mojom.ServiceWorkerObjectHost_PostMessageToServiceWorker_Params', [
+      mojo.internal.StructField('message', 0, 0, blink.mojom.TransferableMessageSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.ServiceWorkerObjectHost_PostMessageToServiceWorker_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerObjectHost_PostMessageToServiceWorker_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.TransferableMessageSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerObjectHost_TerminateForTesting_ParamsSpec, 'blink.mojom.ServiceWorkerObjectHost_TerminateForTesting_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.ServiceWorkerObjectHost_TerminateForTesting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerObjectHost_TerminateForTesting_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerObjectHost_TerminateForTesting_ResponseParamsSpec, 'blink.mojom.ServiceWorkerObjectHost_TerminateForTesting_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 blink.mojom.ServiceWorkerObjectHostPendingReceiver = class {
   constructor(handle) {
@@ -105,7 +96,7 @@ blink.mojom.ServiceWorkerObjectHostRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       blink.mojom.ServiceWorkerObjectHost_TerminateForTesting_ParamsSpec,
-      null,
+      blink.mojom.ServiceWorkerObjectHost_TerminateForTesting_ResponseParamsSpec,
       []);
   }
 
@@ -121,53 +112,16 @@ blink.mojom.ServiceWorkerObjectHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for PostMessageToServiceWorker
-blink.mojom.ServiceWorkerObjectHost_PostMessageToServiceWorker_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerObjectHost.PostMessageToServiceWorker_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.TransferableMessageSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for TerminateForTesting
-blink.mojom.ServiceWorkerObjectHost_TerminateForTesting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerObjectHost.TerminateForTesting_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.ServiceWorkerObjectHostPtr = blink.mojom.ServiceWorkerObjectHostRemote;
 blink.mojom.ServiceWorkerObjectHostRequest = blink.mojom.ServiceWorkerObjectHostPendingReceiver;
 
 
 // Interface: ServiceWorkerObject
-blink.mojom.ServiceWorkerObject = {};
-
-blink.mojom.ServiceWorkerObject_StateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerObject_StateChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerObject_StateChanged_ParamsSpec, 'blink.mojom.ServiceWorkerObject_StateChanged_Params', [
+      mojo.internal.StructField('state', 0, 0, blink.mojom.ServiceWorkerStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.ServiceWorkerObjectPendingReceiver = class {
   constructor(handle) {
@@ -222,21 +176,6 @@ blink.mojom.ServiceWorkerObject.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for StateChanged
-blink.mojom.ServiceWorkerObject_StateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerObject.StateChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.ServiceWorkerObjectPtr = blink.mojom.ServiceWorkerObjectRemote;
 blink.mojom.ServiceWorkerObjectRequest = blink.mojom.ServiceWorkerObjectPendingReceiver;
 

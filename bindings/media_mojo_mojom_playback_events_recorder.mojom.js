@@ -10,120 +10,66 @@ media.mojom = media.mojom || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+media.mojom.PlaybackEventsRecorder = {};
+media.mojom.PlaybackEventsRecorder.$interfaceName = 'media.mojom.PlaybackEventsRecorder';
+media.mojom.PlaybackEventsRecorder_OnPlaying_ParamsSpec = { $: {} };
+media.mojom.PlaybackEventsRecorder_OnPaused_ParamsSpec = { $: {} };
+media.mojom.PlaybackEventsRecorder_OnSeeking_ParamsSpec = { $: {} };
+media.mojom.PlaybackEventsRecorder_OnEnded_ParamsSpec = { $: {} };
+media.mojom.PlaybackEventsRecorder_OnError_ParamsSpec = { $: {} };
+media.mojom.PlaybackEventsRecorder_OnBuffering_ParamsSpec = { $: {} };
+media.mojom.PlaybackEventsRecorder_OnBufferingComplete_ParamsSpec = { $: {} };
+media.mojom.PlaybackEventsRecorder_OnNaturalSizeChanged_ParamsSpec = { $: {} };
+media.mojom.PlaybackEventsRecorder_OnPipelineStatistics_ParamsSpec = { $: {} };
 
 // Interface: PlaybackEventsRecorder
-media.mojom.PlaybackEventsRecorder = {};
+mojo.internal.Struct(
+    media.mojom.PlaybackEventsRecorder_OnPlaying_ParamsSpec, 'media.mojom.PlaybackEventsRecorder_OnPlaying_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media.mojom.PlaybackEventsRecorder_OnPlaying_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.PlaybackEventsRecorder_OnPlaying_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.PlaybackEventsRecorder_OnPaused_ParamsSpec, 'media.mojom.PlaybackEventsRecorder_OnPaused_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media.mojom.PlaybackEventsRecorder_OnPaused_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.PlaybackEventsRecorder_OnPaused_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.PlaybackEventsRecorder_OnSeeking_ParamsSpec, 'media.mojom.PlaybackEventsRecorder_OnSeeking_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media.mojom.PlaybackEventsRecorder_OnSeeking_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.PlaybackEventsRecorder_OnSeeking_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.PlaybackEventsRecorder_OnEnded_ParamsSpec, 'media.mojom.PlaybackEventsRecorder_OnEnded_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media.mojom.PlaybackEventsRecorder_OnEnded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.PlaybackEventsRecorder_OnEnded_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.PlaybackEventsRecorder_OnError_ParamsSpec, 'media.mojom.PlaybackEventsRecorder_OnError_Params', [
+      mojo.internal.StructField('status', 0, 0, media.mojom.PipelineStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.PlaybackEventsRecorder_OnError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.PlaybackEventsRecorder_OnError_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.PipelineStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.PlaybackEventsRecorder_OnBuffering_ParamsSpec, 'media.mojom.PlaybackEventsRecorder_OnBuffering_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media.mojom.PlaybackEventsRecorder_OnBuffering_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.PlaybackEventsRecorder_OnBuffering_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.PlaybackEventsRecorder_OnBufferingComplete_ParamsSpec, 'media.mojom.PlaybackEventsRecorder_OnBufferingComplete_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media.mojom.PlaybackEventsRecorder_OnBufferingComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.PlaybackEventsRecorder_OnBufferingComplete_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.PlaybackEventsRecorder_OnNaturalSizeChanged_ParamsSpec, 'media.mojom.PlaybackEventsRecorder_OnNaturalSizeChanged_Params', [
+      mojo.internal.StructField('size', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.PlaybackEventsRecorder_OnNaturalSizeChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.PlaybackEventsRecorder_OnNaturalSizeChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-media.mojom.PlaybackEventsRecorder_OnPipelineStatistics_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.PlaybackEventsRecorder_OnPipelineStatistics_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'stats', packedOffset: 0, packedBitOffset: 0, type: media.mojom.PipelineStatisticsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.PlaybackEventsRecorder_OnPipelineStatistics_ParamsSpec, 'media.mojom.PlaybackEventsRecorder_OnPipelineStatistics_Params', [
+      mojo.internal.StructField('stats', 0, 0, media.mojom.PipelineStatisticsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media.mojom.PlaybackEventsRecorderPendingReceiver = class {
   constructor(handle) {
@@ -250,127 +196,6 @@ media.mojom.PlaybackEventsRecorder.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnPlaying
-media.mojom.PlaybackEventsRecorder_OnPlaying_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.PlaybackEventsRecorder.OnPlaying_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnPaused
-media.mojom.PlaybackEventsRecorder_OnPaused_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.PlaybackEventsRecorder.OnPaused_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnSeeking
-media.mojom.PlaybackEventsRecorder_OnSeeking_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.PlaybackEventsRecorder.OnSeeking_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnEnded
-media.mojom.PlaybackEventsRecorder_OnEnded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.PlaybackEventsRecorder.OnEnded_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnError
-media.mojom.PlaybackEventsRecorder_OnError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.PlaybackEventsRecorder.OnError_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.PipelineStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnBuffering
-media.mojom.PlaybackEventsRecorder_OnBuffering_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.PlaybackEventsRecorder.OnBuffering_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnBufferingComplete
-media.mojom.PlaybackEventsRecorder_OnBufferingComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.PlaybackEventsRecorder.OnBufferingComplete_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnNaturalSizeChanged
-media.mojom.PlaybackEventsRecorder_OnNaturalSizeChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.PlaybackEventsRecorder.OnNaturalSizeChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnPipelineStatistics
-media.mojom.PlaybackEventsRecorder_OnPipelineStatistics_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.PlaybackEventsRecorder.OnPipelineStatistics_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'stats', packedOffset: 0, packedBitOffset: 0, type: media.mojom.PipelineStatisticsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.PlaybackEventsRecorderPtr = media.mojom.PlaybackEventsRecorderRemote;
 media.mojom.PlaybackEventsRecorderRequest = media.mojom.PlaybackEventsRecorderPendingReceiver;
 

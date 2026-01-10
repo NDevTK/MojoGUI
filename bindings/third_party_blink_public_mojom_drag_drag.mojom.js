@@ -7,6 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var services = services || {};
 var ui = ui || {};
 var ui = ui || {};
 var gfx = gfx || {};
@@ -14,124 +15,92 @@ var url = url || {};
 var blink = blink || {};
 var blink = blink || {};
 
+blink.mojom.DragItemSpec = { $: {} };
+blink.mojom.AllowedDragOperationsSpec = { $: {} };
+blink.mojom.DragItemStringSpec = { $: {} };
+blink.mojom.DragItemBinarySpec = { $: {} };
+blink.mojom.DragItemFileSystemFileSpec = { $: {} };
+blink.mojom.DragDataSpec = { $: {} };
+blink.mojom.DragEventSourceInfoSpec = { $: {} };
 
 // Union: DragItem
-blink.mojom.DragItemSpec = { $: mojo.internal.Union(
-    'blink.mojom.DragItem', {
+mojo.internal.Union(
+    blink.mojom.DragItemSpec, 'blink.mojom.DragItem', {
       'string': {
         'ordinal': 0,
         'type': blink.mojom.DragItemStringSpec,
-      }},
+        'nullable': false,
+      },
       'file': {
         'ordinal': 1,
         'type': blink.mojom.DataTransferFileSpec,
-      }},
+        'nullable': false,
+      },
       'binary': {
         'ordinal': 2,
         'type': blink.mojom.DragItemBinarySpec,
-      }},
+        'nullable': false,
+      },
       'file_system_file': {
         'ordinal': 3,
         'type': blink.mojom.DragItemFileSystemFileSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: AllowedDragOperations
-blink.mojom.AllowedDragOperationsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AllowedDragOperations',
-      packedSize: 16,
-      fields: [
-        { name: 'allow_copy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'allow_link', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'allow_move', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.AllowedDragOperationsSpec, 'blink.mojom.AllowedDragOperations', [
+      mojo.internal.StructField('allow_copy', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('allow_link', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('allow_move', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: DragItemString
-blink.mojom.DragItemStringSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DragItemString',
-      packedSize: 40,
-      fields: [
-        { name: 'string_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'string_data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.BigString16Spec, nullable: false, minVersion: 0 },
-        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
-        { name: 'base_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.DragItemStringSpec, 'blink.mojom.DragItemString', [
+      mojo.internal.StructField('string_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('string_data', 8, 0, mojo_base.mojom.BigString16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('title', 16, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('base_url', 24, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: DragItemBinary
-blink.mojom.DragItemBinarySpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DragItemBinary',
-      packedSize: 56,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
-        { name: 'is_image_accessible', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'source_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'filename_extension', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'content_disposition', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.DragItemBinarySpec, 'blink.mojom.DragItemBinary', [
+      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_image_accessible', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('source_url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('filename_extension', 24, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('content_disposition', 32, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Struct: DragItemFileSystemFile
-blink.mojom.DragItemFileSystemFileSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DragItemFileSystemFile',
-      packedSize: 40,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'file_system_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'serialized_blob', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.SerializedBlobSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.DragItemFileSystemFileSpec, 'blink.mojom.DragItemFileSystemFile', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('size', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('file_system_id', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('serialized_blob', 24, 0, blink.mojom.SerializedBlobSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: DragData
-blink.mojom.DragDataSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DragData',
-      packedSize: 32,
-      fields: [
-        { name: 'items', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.DragItemSpec, false), nullable: false, minVersion: 0 },
-        { name: 'file_system_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'force_default_action', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.DragDataSpec, 'blink.mojom.DragData', [
+      mojo.internal.StructField('items', 0, 0, mojo.internal.Array(blink.mojom.DragItemSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('file_system_id', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('force_default_action', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: DragEventSourceInfo
-blink.mojom.DragEventSourceInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DragEventSourceInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'location', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.DragEventSourceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.DragEventSourceInfoSpec, 'blink.mojom.DragEventSourceInfo', [
+      mojo.internal.StructField('location', 0, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source', 8, 0, ui.mojom.DragEventSourceSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);

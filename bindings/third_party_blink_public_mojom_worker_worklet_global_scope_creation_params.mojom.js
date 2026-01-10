@@ -14,44 +14,32 @@ var blink = blink || {};
 var url = url || {};
 var url = url || {};
 
+blink.mojom.WorkletGlobalScopeCreationParamsSpec = { $: {} };
+blink.mojom.WorkletDevToolsHost = {};
+blink.mojom.WorkletDevToolsHost.$interfaceName = 'blink.mojom.WorkletDevToolsHost';
+blink.mojom.WorkletDevToolsHost_OnReadyForInspection_ParamsSpec = { $: {} };
 
 // Struct: WorkletGlobalScopeCreationParams
-blink.mojom.WorkletGlobalScopeCreationParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WorkletGlobalScopeCreationParams',
-      packedSize: 72,
-      fields: [
-        { name: 'script_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'starter_origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-        { name: 'origin_trial_features', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.OriginTrialFeatureSpec, false), nullable: false, minVersion: 0 },
-        { name: 'devtools_token', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'devtools_host', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.WorkletDevToolsHostRemote), nullable: false, minVersion: 0 },
-        { name: 'code_cache_host', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.CodeCacheHostRemote), nullable: true, minVersion: 0 },
-        { name: 'browser_interface_broker', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.BrowserInterfaceBrokerRemote), nullable: false, minVersion: 0 },
-        { name: 'wait_for_debugger', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 72}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WorkletGlobalScopeCreationParamsSpec, 'blink.mojom.WorkletGlobalScopeCreationParams', [
+      mojo.internal.StructField('script_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('starter_origin', 8, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('origin_trial_features', 16, 0, mojo.internal.Array(blink.mojom.OriginTrialFeatureSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('devtools_token', 24, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('devtools_host', 32, 0, mojo.internal.InterfaceProxy(blink.mojom.WorkletDevToolsHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('code_cache_host', 40, 0, mojo.internal.InterfaceProxy(blink.mojom.CodeCacheHostRemote), null, true, 0, undefined),
+      mojo.internal.StructField('browser_interface_broker', 48, 0, mojo.internal.InterfaceProxy(blink.mojom.BrowserInterfaceBrokerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('wait_for_debugger', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 72]]);
 
 // Interface: WorkletDevToolsHost
-blink.mojom.WorkletDevToolsHost = {};
-
-blink.mojom.WorkletDevToolsHost_OnReadyForInspection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WorkletDevToolsHost_OnReadyForInspection_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.DevToolsAgentRemote), nullable: false, minVersion: 0 },
-        { name: 'agent_host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.DevToolsAgentHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WorkletDevToolsHost_OnReadyForInspection_ParamsSpec, 'blink.mojom.WorkletDevToolsHost_OnReadyForInspection_Params', [
+      mojo.internal.StructField('agent', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.DevToolsAgentRemote), null, false, 0, undefined),
+      mojo.internal.StructField('agent_host', 8, 0, mojo.internal.InterfaceRequest(blink.mojom.DevToolsAgentHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 blink.mojom.WorkletDevToolsHostPendingReceiver = class {
   constructor(handle) {
@@ -106,22 +94,6 @@ blink.mojom.WorkletDevToolsHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnReadyForInspection
-blink.mojom.WorkletDevToolsHost_OnReadyForInspection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WorkletDevToolsHost.OnReadyForInspection_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.DevToolsAgentRemote), nullable: false, minVersion: 0 },
-        { name: 'agent_host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.DevToolsAgentHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.WorkletDevToolsHostPtr = blink.mojom.WorkletDevToolsHostRemote;
 blink.mojom.WorkletDevToolsHostRequest = blink.mojom.WorkletDevToolsHostPendingReceiver;
 

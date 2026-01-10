@@ -9,35 +9,23 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 var blink = blink || {};
 
+blink.mojom.SharedWorker = {};
+blink.mojom.SharedWorker.$interfaceName = 'blink.mojom.SharedWorker';
+blink.mojom.SharedWorker_Connect_ParamsSpec = { $: {} };
+blink.mojom.SharedWorker_Terminate_ParamsSpec = { $: {} };
 
 // Interface: SharedWorker
-blink.mojom.SharedWorker = {};
+mojo.internal.Struct(
+    blink.mojom.SharedWorker_Connect_ParamsSpec, 'blink.mojom.SharedWorker_Connect_Params', [
+      mojo.internal.StructField('connection_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('message_port', 0, 0, blink.mojom.MessagePortDescriptorSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.SharedWorker_Connect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedWorker_Connect_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'connection_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'message_port', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.MessagePortDescriptorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.SharedWorker_Terminate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedWorker_Terminate_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SharedWorker_Terminate_ParamsSpec, 'blink.mojom.SharedWorker_Terminate_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 blink.mojom.SharedWorkerPendingReceiver = class {
   constructor(handle) {
@@ -101,35 +89,6 @@ blink.mojom.SharedWorker.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Connect
-blink.mojom.SharedWorker_Connect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedWorker.Connect_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'connection_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'message_port', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.MessagePortDescriptorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for Terminate
-blink.mojom.SharedWorker_Terminate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedWorker.Terminate_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.SharedWorkerPtr = blink.mojom.SharedWorkerRemote;
 blink.mojom.SharedWorkerRequest = blink.mojom.SharedWorkerPendingReceiver;
 

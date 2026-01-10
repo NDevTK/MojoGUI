@@ -8,27 +8,24 @@
 var metrics = metrics || {};
 metrics.mojom = metrics.mojom || {};
 
+metrics.mojom.SingleSampleMetricsProvider = {};
+metrics.mojom.SingleSampleMetricsProvider.$interfaceName = 'metrics.mojom.SingleSampleMetricsProvider';
+metrics.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_ParamsSpec = { $: {} };
+metrics.mojom.SingleSampleMetric = {};
+metrics.mojom.SingleSampleMetric.$interfaceName = 'metrics.mojom.SingleSampleMetric';
+metrics.mojom.SingleSampleMetric_SetSample_ParamsSpec = { $: {} };
 
 // Interface: SingleSampleMetricsProvider
-metrics.mojom.SingleSampleMetricsProvider = {};
-
-metrics.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'metrics.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'histogram_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'min', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'max', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'bucket_count', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'flags', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(metrics.mojom.SingleSampleMetricRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    metrics.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_ParamsSpec, 'metrics.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_Params', [
+      mojo.internal.StructField('histogram_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('min', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('max', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('bucket_count', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('flags', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('receiver', 8, 0, mojo.internal.InterfaceRequest(metrics.mojom.SingleSampleMetricRemote), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 metrics.mojom.SingleSampleMetricsProviderPendingReceiver = class {
   constructor(handle) {
@@ -83,45 +80,16 @@ metrics.mojom.SingleSampleMetricsProvider.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AcquireSingleSampleMetric
-metrics.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'metrics.mojom.SingleSampleMetricsProvider.AcquireSingleSampleMetric_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'histogram_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'min', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'max', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'bucket_count', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'flags', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(metrics.mojom.SingleSampleMetricRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// Legacy compatibility
 metrics.mojom.SingleSampleMetricsProviderPtr = metrics.mojom.SingleSampleMetricsProviderRemote;
 metrics.mojom.SingleSampleMetricsProviderRequest = metrics.mojom.SingleSampleMetricsProviderPendingReceiver;
 
 
 // Interface: SingleSampleMetric
-metrics.mojom.SingleSampleMetric = {};
-
-metrics.mojom.SingleSampleMetric_SetSample_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'metrics.mojom.SingleSampleMetric_SetSample_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'sample', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    metrics.mojom.SingleSampleMetric_SetSample_ParamsSpec, 'metrics.mojom.SingleSampleMetric_SetSample_Params', [
+      mojo.internal.StructField('sample', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 metrics.mojom.SingleSampleMetricPendingReceiver = class {
   constructor(handle) {
@@ -176,21 +144,6 @@ metrics.mojom.SingleSampleMetric.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetSample
-metrics.mojom.SingleSampleMetric_SetSample_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'metrics.mojom.SingleSampleMetric.SetSample_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'sample', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 metrics.mojom.SingleSampleMetricPtr = metrics.mojom.SingleSampleMetricRemote;
 metrics.mojom.SingleSampleMetricRequest = metrics.mojom.SingleSampleMetricPendingReceiver;
 

@@ -11,6 +11,19 @@ var content = content || {};
 var url = url || {};
 var url = url || {};
 
+chrome.mojom.PluginStatusSpec = { $: mojo.internal.Enum() };
+chrome.mojom.PluginInfoSpec = { $: {} };
+chrome.mojom.PluginParamSpec = { $: {} };
+chrome.mojom.PluginHost = {};
+chrome.mojom.PluginHost.$interfaceName = 'chrome.mojom.PluginHost';
+chrome.mojom.PluginHost_OpenPDF_ParamsSpec = { $: {} };
+chrome.mojom.PluginAuthHost = {};
+chrome.mojom.PluginAuthHost.$interfaceName = 'chrome.mojom.PluginAuthHost';
+chrome.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_ParamsSpec = { $: {} };
+chrome.mojom.PluginInfoHost = {};
+chrome.mojom.PluginInfoHost.$interfaceName = 'chrome.mojom.PluginInfoHost';
+chrome.mojom.PluginInfoHost_GetPluginInfo_ParamsSpec = { $: {} };
+chrome.mojom.PluginInfoHost_GetPluginInfo_ResponseParamsSpec = { $: {} };
 
 // Enum: PluginStatus
 chrome.mojom.PluginStatus = {
@@ -21,56 +34,32 @@ chrome.mojom.PluginStatus = {
   kNotFound: 4,
   kUnauthorized: 5,
 };
-chrome.mojom.PluginStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: PluginInfo
-chrome.mojom.PluginInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.PluginInfo',
-      packedSize: 48,
-      fields: [
-        { name: 'status', packedOffset: 32, packedBitOffset: 0, type: chrome.mojom.PluginStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'plugin', packedOffset: 0, packedBitOffset: 0, type: content.mojom.WebPluginInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'actual_mime_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'group_identifier', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'group_name', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.PluginInfoSpec, 'chrome.mojom.PluginInfo', [
+      mojo.internal.StructField('status', 32, 0, chrome.mojom.PluginStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('plugin', 0, 0, content.mojom.WebPluginInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('actual_mime_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('group_identifier', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('group_name', 24, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: PluginParam
-chrome.mojom.PluginParamSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.PluginParam',
-      packedSize: 24,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.PluginParamSpec, 'chrome.mojom.PluginParam', [
+      mojo.internal.StructField('name', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: PluginHost
-chrome.mojom.PluginHost = {};
-
-chrome.mojom.PluginHost_OpenPDF_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.PluginHost_OpenPDF_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.PluginHost_OpenPDF_ParamsSpec, 'chrome.mojom.PluginHost_OpenPDF_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chrome.mojom.PluginHostPendingReceiver = class {
   constructor(handle) {
@@ -125,41 +114,17 @@ chrome.mojom.PluginHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OpenPDF
-chrome.mojom.PluginHost_OpenPDF_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.PluginHost.OpenPDF_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chrome.mojom.PluginHostPtr = chrome.mojom.PluginHostRemote;
 chrome.mojom.PluginHostRequest = chrome.mojom.PluginHostPendingReceiver;
 
 
 // Interface: PluginAuthHost
-chrome.mojom.PluginAuthHost = {};
-
-chrome.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'group_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_ParamsSpec, 'chrome.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_Params', [
+      mojo.internal.StructField('name', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('group_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 chrome.mojom.PluginAuthHostPendingReceiver = class {
   constructor(handle) {
@@ -214,43 +179,24 @@ chrome.mojom.PluginAuthHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for BlockedUnauthorizedPlugin
-chrome.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.PluginAuthHost.BlockedUnauthorizedPlugin_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'group_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 chrome.mojom.PluginAuthHostPtr = chrome.mojom.PluginAuthHostRemote;
 chrome.mojom.PluginAuthHostRequest = chrome.mojom.PluginAuthHostPendingReceiver;
 
 
 // Interface: PluginInfoHost
-chrome.mojom.PluginInfoHost = {};
+mojo.internal.Struct(
+    chrome.mojom.PluginInfoHost_GetPluginInfo_ParamsSpec, 'chrome.mojom.PluginInfoHost_GetPluginInfo_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('origin', 8, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mime_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-chrome.mojom.PluginInfoHost_GetPluginInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.PluginInfoHost_GetPluginInfo_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-        { name: 'mime_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.PluginInfoHost_GetPluginInfo_ResponseParamsSpec, 'chrome.mojom.PluginInfoHost_GetPluginInfo_ResponseParams', [
+      mojo.internal.StructField('plugin_info', 0, 0, chrome.mojom.PluginInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chrome.mojom.PluginInfoHostPendingReceiver = class {
   constructor(handle) {
@@ -305,36 +251,6 @@ chrome.mojom.PluginInfoHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetPluginInfo
-chrome.mojom.PluginInfoHost_GetPluginInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.PluginInfoHost.GetPluginInfo_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-        { name: 'mime_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-chrome.mojom.PluginInfoHost_GetPluginInfo_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.PluginInfoHost.GetPluginInfo_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'plugin_info', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.PluginInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chrome.mojom.PluginInfoHostPtr = chrome.mojom.PluginInfoHostRemote;
 chrome.mojom.PluginInfoHostRequest = chrome.mojom.PluginInfoHostPendingReceiver;
 

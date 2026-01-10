@@ -7,46 +7,61 @@
 // Module namespace
 var sharing = sharing || {};
 sharing.mojom = sharing.mojom || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 
+sharing.mojom.TcpSocketFactory = {};
+sharing.mojom.TcpSocketFactory.$interfaceName = 'sharing.mojom.TcpSocketFactory';
+sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ParamsSpec = { $: {} };
+sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ResponseParamsSpec = { $: {} };
+sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ParamsSpec = { $: {} };
+sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ResponseParamsSpec = { $: {} };
 
 // Interface: TcpSocketFactory
-sharing.mojom.TcpSocketFactory = {};
+mojo.internal.Struct(
+    sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ParamsSpec, 'sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_Params', [
+      mojo.internal.StructField('local_addr', 0, 0, network.mojom.IPAddressSpec, null, false, 0, undefined),
+      mojo.internal.StructField('port', 8, 0, sharing.mojom.TcpServerSocketPortSpec, null, false, 0, undefined),
+      mojo.internal.StructField('backlog', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('traffic_annotation', 16, 0, network.mojom.MutableNetworkTrafficAnnotationTagSpec, null, false, 0, undefined),
+      mojo.internal.StructField('socket', 24, 0, mojo.internal.InterfaceRequest(network.mojom.TCPServerSocketRemote), null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
-sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'local_addr', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false, minVersion: 0 },
-        { name: 'port', packedOffset: 8, packedBitOffset: 0, type: sharing.mojom.TcpServerSocketPortSpec, nullable: false, minVersion: 0 },
-        { name: 'backlog', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'traffic_annotation', packedOffset: 16, packedBitOffset: 0, type: network.mojom.MutableNetworkTrafficAnnotationTagSpec, nullable: false, minVersion: 0 },
-        { name: 'socket', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.TCPServerSocketRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ResponseParamsSpec, 'sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ResponseParams', [
+      mojo.internal.StructField('result', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('local_addr_out', 0, 0, network.mojom.IPEndPointSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_Params',
-      packedSize: 64,
-      fields: [
-        { name: 'timeout', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'local_addr', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: true, minVersion: 0 },
-        { name: 'remote_addr_list', packedOffset: 16, packedBitOffset: 0, type: network.mojom.AddressListSpec, nullable: false, minVersion: 0 },
-        { name: 'tcp_connected_socket_options', packedOffset: 24, packedBitOffset: 0, type: network.mojom.TCPConnectedSocketOptionsSpec, nullable: true, minVersion: 0 },
-        { name: 'traffic_annotation', packedOffset: 32, packedBitOffset: 0, type: network.mojom.MutableNetworkTrafficAnnotationTagSpec, nullable: false, minVersion: 0 },
-        { name: 'socket', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.TCPConnectedSocketRemote), nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.SocketObserverRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ParamsSpec, 'sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_Params', [
+      mojo.internal.StructField('timeout', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('local_addr', 8, 0, network.mojom.IPEndPointSpec, null, true, 0, undefined),
+      mojo.internal.StructField('remote_addr_list', 16, 0, network.mojom.AddressListSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tcp_connected_socket_options', 24, 0, network.mojom.TCPConnectedSocketOptionsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('traffic_annotation', 32, 0, network.mojom.MutableNetworkTrafficAnnotationTagSpec, null, false, 0, undefined),
+      mojo.internal.StructField('socket', 40, 0, mojo.internal.InterfaceRequest(network.mojom.TCPConnectedSocketRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 48, 0, mojo.internal.InterfaceProxy(network.mojom.SocketObserverRemote), null, true, 0, undefined),
+    ],
+    [[0, 64]]);
+
+mojo.internal.Struct(
+    sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ResponseParamsSpec, 'sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ResponseParams', [
+      mojo.internal.StructField('result', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('local_addr', 0, 0, network.mojom.IPEndPointSpec, null, true, 0, undefined),
+      mojo.internal.StructField('peer_addr', 8, 0, network.mojom.IPEndPointSpec, null, true, 0, undefined),
+      mojo.internal.StructField('receive_stream', 16, 0, mojo.internal.Pointer, null, true, 0, undefined),
+      mojo.internal.StructField('send_stream', 24, 0, mojo.internal.Pointer, null, true, 0, undefined),
+    ],
+    [[0, 48]]);
 
 sharing.mojom.TcpSocketFactoryPendingReceiver = class {
   constructor(handle) {
@@ -110,76 +125,6 @@ sharing.mojom.TcpSocketFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateTCPServerSocket
-sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.TcpSocketFactory.CreateTCPServerSocket_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'local_addr', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false, minVersion: 0 },
-        { name: 'port', packedOffset: 8, packedBitOffset: 0, type: sharing.mojom.TcpServerSocketPortSpec, nullable: false, minVersion: 0 },
-        { name: 'backlog', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'traffic_annotation', packedOffset: 16, packedBitOffset: 0, type: network.mojom.MutableNetworkTrafficAnnotationTagSpec, nullable: false, minVersion: 0 },
-        { name: 'socket', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.TCPServerSocketRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
-
-sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.TcpSocketFactory.CreateTCPServerSocket_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'local_addr_out', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for CreateTCPConnectedSocket
-sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.TcpSocketFactory.CreateTCPConnectedSocket_Params',
-      packedSize: 64,
-      fields: [
-        { name: 'timeout', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'local_addr', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: true, minVersion: 0 },
-        { name: 'remote_addr_list', packedOffset: 16, packedBitOffset: 0, type: network.mojom.AddressListSpec, nullable: false, minVersion: 0 },
-        { name: 'tcp_connected_socket_options', packedOffset: 24, packedBitOffset: 0, type: network.mojom.TCPConnectedSocketOptionsSpec, nullable: true, minVersion: 0 },
-        { name: 'traffic_annotation', packedOffset: 32, packedBitOffset: 0, type: network.mojom.MutableNetworkTrafficAnnotationTagSpec, nullable: false, minVersion: 0 },
-        { name: 'socket', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.TCPConnectedSocketRemote), nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.SocketObserverRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
-
-sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.TcpSocketFactory.CreateTCPConnectedSocket_ResponseParams',
-      packedSize: 48,
-      fields: [
-        { name: 'result', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'local_addr', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: true, minVersion: 0 },
-        { name: 'peer_addr', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: true, minVersion: 0 },
-        { name: 'receive_stream', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
-        { name: 'send_stream', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
-
-// Legacy compatibility
 sharing.mojom.TcpSocketFactoryPtr = sharing.mojom.TcpSocketFactoryRemote;
 sharing.mojom.TcpSocketFactoryRequest = sharing.mojom.TcpSocketFactoryPendingReceiver;
 

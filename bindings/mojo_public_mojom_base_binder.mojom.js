@@ -8,22 +8,16 @@
 var mojo_base = mojo_base || {};
 mojo_base.mojom = mojo_base.mojom || {};
 
+mojo_base.mojom.Binder = {};
+mojo_base.mojom.Binder.$interfaceName = 'mojo_base.mojom.Binder';
+mojo_base.mojom.Binder_Bind_ParamsSpec = { $: {} };
 
 // Interface: Binder
-mojo_base.mojom.Binder = {};
-
-mojo_base.mojom.Binder_Bind_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mojo_base.mojom.Binder_Bind_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.GenericPendingReceiverSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojo_base.mojom.Binder_Bind_ParamsSpec, 'mojo_base.mojom.Binder_Bind_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo_base.mojom.GenericPendingReceiverSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 mojo_base.mojom.BinderPendingReceiver = class {
   constructor(handle) {
@@ -78,21 +72,6 @@ mojo_base.mojom.Binder.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Bind
-mojo_base.mojom.Binder_Bind_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mojo_base.mojom.Binder.Bind_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.GenericPendingReceiverSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 mojo_base.mojom.BinderPtr = mojo_base.mojom.BinderRemote;
 mojo_base.mojom.BinderRequest = mojo_base.mojom.BinderPendingReceiver;
 

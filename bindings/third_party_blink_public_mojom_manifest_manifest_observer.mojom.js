@@ -9,22 +9,16 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 var url = url || {};
 
+blink.mojom.ManifestUrlChangeObserver = {};
+blink.mojom.ManifestUrlChangeObserver.$interfaceName = 'blink.mojom.ManifestUrlChangeObserver';
+blink.mojom.ManifestUrlChangeObserver_ManifestUrlChanged_ParamsSpec = { $: {} };
 
 // Interface: ManifestUrlChangeObserver
-blink.mojom.ManifestUrlChangeObserver = {};
-
-blink.mojom.ManifestUrlChangeObserver_ManifestUrlChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ManifestUrlChangeObserver_ManifestUrlChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'manifest_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ManifestUrlChangeObserver_ManifestUrlChanged_ParamsSpec, 'blink.mojom.ManifestUrlChangeObserver_ManifestUrlChanged_Params', [
+      mojo.internal.StructField('manifest_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.ManifestUrlChangeObserverPendingReceiver = class {
   constructor(handle) {
@@ -79,21 +73,6 @@ blink.mojom.ManifestUrlChangeObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ManifestUrlChanged
-blink.mojom.ManifestUrlChangeObserver_ManifestUrlChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ManifestUrlChangeObserver.ManifestUrlChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'manifest_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.ManifestUrlChangeObserverPtr = blink.mojom.ManifestUrlChangeObserverRemote;
 blink.mojom.ManifestUrlChangeObserverRequest = blink.mojom.ManifestUrlChangeObserverPendingReceiver;
 

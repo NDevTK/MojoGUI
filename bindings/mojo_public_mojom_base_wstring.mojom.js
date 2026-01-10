@@ -8,17 +8,11 @@
 var mojo_base = mojo_base || {};
 mojo_base.mojom = mojo_base.mojom || {};
 
+mojo_base.mojom.WStringSpec = { $: {} };
 
 // Struct: WString
-mojo_base.mojom.WStringSpec = {
-  $: {
-    structSpec: {
-      name: 'mojo_base.mojom.WString',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint16, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojo_base.mojom.WStringSpec, 'mojo_base.mojom.WString', [
+      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);

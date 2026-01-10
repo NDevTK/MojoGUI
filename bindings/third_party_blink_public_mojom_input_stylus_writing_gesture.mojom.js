@@ -10,6 +10,9 @@ blink.mojom = blink.mojom || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+blink.mojom.StylusWritingGestureActionSpec = { $: mojo.internal.Enum() };
+blink.mojom.StylusWritingGestureGranularitySpec = { $: mojo.internal.Enum() };
+blink.mojom.StylusWritingGestureDataSpec = { $: {} };
 
 // Enum: StylusWritingGestureAction
 blink.mojom.StylusWritingGestureAction = {
@@ -19,30 +22,21 @@ blink.mojom.StylusWritingGestureAction = {
   SPLIT_OR_MERGE: 3,
   SELECT_TEXT: 4,
 };
-blink.mojom.StylusWritingGestureActionSpec = { $: mojo.internal.Enum() };
 
 // Enum: StylusWritingGestureGranularity
 blink.mojom.StylusWritingGestureGranularity = {
   CHARACTER: 0,
   WORD: 1,
 };
-blink.mojom.StylusWritingGestureGranularitySpec = { $: mojo.internal.Enum() };
 
 // Struct: StylusWritingGestureData
-blink.mojom.StylusWritingGestureDataSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StylusWritingGestureData',
-      packedSize: 48,
-      fields: [
-        { name: 'action', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.StylusWritingGestureActionSpec, nullable: false, minVersion: 0 },
-        { name: 'granularity', packedOffset: 36, packedBitOffset: 0, type: blink.mojom.StylusWritingGestureGranularitySpec, nullable: false, minVersion: 0 },
-        { name: 'start_rect', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'end_rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true, minVersion: 0 },
-        { name: 'text_alternative', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'text_to_insert', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.StylusWritingGestureDataSpec, 'blink.mojom.StylusWritingGestureData', [
+      mojo.internal.StructField('action', 32, 0, blink.mojom.StylusWritingGestureActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('granularity', 36, 0, blink.mojom.StylusWritingGestureGranularitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('start_rect', 0, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('end_rect', 8, 0, gfx.mojom.RectSpec, null, true, 0, undefined),
+      mojo.internal.StructField('text_alternative', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('text_to_insert', 24, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+    ],
+    [[0, 48]]);

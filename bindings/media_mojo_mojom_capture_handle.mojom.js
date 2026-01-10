@@ -9,18 +9,12 @@ var media = media || {};
 media.mojom = media.mojom || {};
 var url = url || {};
 
+media.mojom.CaptureHandleSpec = { $: {} };
 
 // Struct: CaptureHandle
-media.mojom.CaptureHandleSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CaptureHandle',
-      packedSize: 24,
-      fields: [
-        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-        { name: 'capture_handle', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.CaptureHandleSpec, 'media.mojom.CaptureHandle', [
+      mojo.internal.StructField('origin', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('capture_handle', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);

@@ -8,57 +8,57 @@
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
 
+chrome.mojom.NetBenchmarking = {};
+chrome.mojom.NetBenchmarking.$interfaceName = 'chrome.mojom.NetBenchmarking';
+chrome.mojom.NetBenchmarking_CloseCurrentConnections_ParamsSpec = { $: {} };
+chrome.mojom.NetBenchmarking_CloseCurrentConnections_ResponseParamsSpec = { $: {} };
+chrome.mojom.NetBenchmarking_ClearCache_ParamsSpec = { $: {} };
+chrome.mojom.NetBenchmarking_ClearCache_ResponseParamsSpec = { $: {} };
+chrome.mojom.NetBenchmarking_ClearHostResolverCache_ParamsSpec = { $: {} };
+chrome.mojom.NetBenchmarking_ClearHostResolverCache_ResponseParamsSpec = { $: {} };
+chrome.mojom.NetBenchmarking_ClearPredictorCache_ParamsSpec = { $: {} };
+chrome.mojom.NetBenchmarking_ClearPredictorCache_ResponseParamsSpec = { $: {} };
 
 // Interface: NetBenchmarking
-chrome.mojom.NetBenchmarking = {};
+mojo.internal.Struct(
+    chrome.mojom.NetBenchmarking_CloseCurrentConnections_ParamsSpec, 'chrome.mojom.NetBenchmarking_CloseCurrentConnections_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chrome.mojom.NetBenchmarking_CloseCurrentConnections_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.NetBenchmarking_CloseCurrentConnections_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.NetBenchmarking_CloseCurrentConnections_ResponseParamsSpec, 'chrome.mojom.NetBenchmarking_CloseCurrentConnections_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chrome.mojom.NetBenchmarking_ClearCache_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.NetBenchmarking_ClearCache_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.NetBenchmarking_ClearCache_ParamsSpec, 'chrome.mojom.NetBenchmarking_ClearCache_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chrome.mojom.NetBenchmarking_ClearHostResolverCache_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.NetBenchmarking_ClearHostResolverCache_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.NetBenchmarking_ClearCache_ResponseParamsSpec, 'chrome.mojom.NetBenchmarking_ClearCache_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chrome.mojom.NetBenchmarking_ClearPredictorCache_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.NetBenchmarking_ClearPredictorCache_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.NetBenchmarking_ClearHostResolverCache_ParamsSpec, 'chrome.mojom.NetBenchmarking_ClearHostResolverCache_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    chrome.mojom.NetBenchmarking_ClearHostResolverCache_ResponseParamsSpec, 'chrome.mojom.NetBenchmarking_ClearHostResolverCache_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    chrome.mojom.NetBenchmarking_ClearPredictorCache_ParamsSpec, 'chrome.mojom.NetBenchmarking_ClearPredictorCache_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    chrome.mojom.NetBenchmarking_ClearPredictorCache_ResponseParamsSpec, 'chrome.mojom.NetBenchmarking_ClearPredictorCache_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 chrome.mojom.NetBenchmarkingPendingReceiver = class {
   constructor(handle) {
@@ -97,7 +97,7 @@ chrome.mojom.NetBenchmarkingRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       chrome.mojom.NetBenchmarking_CloseCurrentConnections_ParamsSpec,
-      null,
+      chrome.mojom.NetBenchmarking_CloseCurrentConnections_ResponseParamsSpec,
       []);
   }
 
@@ -106,7 +106,7 @@ chrome.mojom.NetBenchmarkingRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       chrome.mojom.NetBenchmarking_ClearCache_ParamsSpec,
-      null,
+      chrome.mojom.NetBenchmarking_ClearCache_ResponseParamsSpec,
       []);
   }
 
@@ -115,7 +115,7 @@ chrome.mojom.NetBenchmarkingRemoteCallHandler = class {
     return this.proxy.sendMessage(
       2,  // ordinal
       chrome.mojom.NetBenchmarking_ClearHostResolverCache_ParamsSpec,
-      null,
+      chrome.mojom.NetBenchmarking_ClearHostResolverCache_ResponseParamsSpec,
       []);
   }
 
@@ -124,7 +124,7 @@ chrome.mojom.NetBenchmarkingRemoteCallHandler = class {
     return this.proxy.sendMessage(
       3,  // ordinal
       chrome.mojom.NetBenchmarking_ClearPredictorCache_ParamsSpec,
-      null,
+      chrome.mojom.NetBenchmarking_ClearPredictorCache_ResponseParamsSpec,
       []);
   }
 
@@ -140,59 +140,6 @@ chrome.mojom.NetBenchmarking.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CloseCurrentConnections
-chrome.mojom.NetBenchmarking_CloseCurrentConnections_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.NetBenchmarking.CloseCurrentConnections_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for ClearCache
-chrome.mojom.NetBenchmarking_ClearCache_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.NetBenchmarking.ClearCache_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for ClearHostResolverCache
-chrome.mojom.NetBenchmarking_ClearHostResolverCache_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.NetBenchmarking.ClearHostResolverCache_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for ClearPredictorCache
-chrome.mojom.NetBenchmarking_ClearPredictorCache_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.NetBenchmarking.ClearPredictorCache_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 chrome.mojom.NetBenchmarkingPtr = chrome.mojom.NetBenchmarkingRemote;
 chrome.mojom.NetBenchmarkingRequest = chrome.mojom.NetBenchmarkingPendingReceiver;
 

@@ -7,6 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var services = services || {};
 var blink = blink || {};
 var blink = blink || {};
 var blink = blink || {};
@@ -15,6 +16,17 @@ var ui = ui || {};
 var gfx = gfx || {};
 var url = url || {};
 
+blink.mojom.ContextMenuDataMediaTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.CustomContextMenuItemTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.AcceleratorSpec = { $: {} };
+blink.mojom.FormRendererIdSpec = { $: {} };
+blink.mojom.FieldRendererIdSpec = { $: {} };
+blink.mojom.CustomContextMenuItemSpec = { $: {} };
+blink.mojom.UntrustworthyContextMenuParamsSpec = { $: {} };
+blink.mojom.ContextMenuClient = {};
+blink.mojom.ContextMenuClient.$interfaceName = 'blink.mojom.ContextMenuClient';
+blink.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec = { $: {} };
+blink.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec = { $: {} };
 
 // Enum: ContextMenuDataMediaType
 blink.mojom.ContextMenuDataMediaType = {
@@ -26,7 +38,6 @@ blink.mojom.ContextMenuDataMediaType = {
   kFile: 5,
   kPlugin: 6,
 };
-blink.mojom.ContextMenuDataMediaTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CustomContextMenuItemType
 blink.mojom.CustomContextMenuItemType = {
@@ -36,157 +47,105 @@ blink.mojom.CustomContextMenuItemType = {
   kSeparator: 3,
   kSubMenu: 4,
 };
-blink.mojom.CustomContextMenuItemTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: Accelerator
-blink.mojom.AcceleratorSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.Accelerator',
-      packedSize: 16,
-      fields: [
-        { name: 'key_code', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'modifiers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.AcceleratorSpec, 'blink.mojom.Accelerator', [
+      mojo.internal.StructField('key_code', 4, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('modifiers', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: FormRendererId
-blink.mojom.FormRendererIdSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FormRendererId',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FormRendererIdSpec, 'blink.mojom.FormRendererId', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: FieldRendererId
-blink.mojom.FieldRendererIdSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FieldRendererId',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FieldRendererIdSpec, 'blink.mojom.FieldRendererId', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: CustomContextMenuItem
-blink.mojom.CustomContextMenuItemSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CustomContextMenuItem',
-      packedSize: 72,
-      fields: [
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'accelerator', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AcceleratorSpec, nullable: true, minVersion: 0 },
-        { name: 'icon', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'tool_tip', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.CustomContextMenuItemTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'action', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'feature_name', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'is_experimental_feature', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'rtl', packedOffset: 56, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_directional_override', packedOffset: 56, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'enabled', packedOffset: 56, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'checked', packedOffset: 56, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'force_show_accelerator_for_item', packedOffset: 56, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'submenu', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.CustomContextMenuItemSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 72}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.CustomContextMenuItemSpec, 'blink.mojom.CustomContextMenuItem', [
+      mojo.internal.StructField('label', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('accelerator', 8, 0, blink.mojom.AcceleratorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('icon', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('tool_tip', 24, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 48, 0, blink.mojom.CustomContextMenuItemTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('action', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('feature_name', 32, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('is_experimental_feature', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('rtl', 56, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_directional_override', 56, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enabled', 56, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('checked', 56, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('force_show_accelerator_for_item', 56, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('submenu', 40, 0, mojo.internal.Array(blink.mojom.CustomContextMenuItemSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 72]]);
 
 // Struct: UntrustworthyContextMenuParams
-blink.mojom.UntrustworthyContextMenuParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.UntrustworthyContextMenuParams',
-      packedSize: 208,
-      fields: [
-        { name: 'media_type', packedOffset: 136, packedBitOffset: 0, type: blink.mojom.ContextMenuDataMediaTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'x', packedOffset: 140, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'y', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'link_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'link_text', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'impression', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ImpressionSpec, nullable: true, minVersion: 0 },
-        { name: 'unfiltered_link_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'src_url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'has_image_contents', packedOffset: 192, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_image_media_plugin_document', packedOffset: 192, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'media_flags', packedOffset: 148, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'selection_text', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'title_text', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'alt_text', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'suggested_filename', packedOffset: 64, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'misspelled_word', packedOffset: 72, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'dictionary_suggestions', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.String16Spec, false), nullable: false, minVersion: 0 },
-        { name: 'spellcheck_enabled', packedOffset: 192, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_editable', packedOffset: 192, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'writing_direction_default', packedOffset: 152, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'writing_direction_left_to_right', packedOffset: 156, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'writing_direction_right_to_left', packedOffset: 160, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'edit_flags', packedOffset: 164, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'frame_charset', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'referrer_policy', packedOffset: 168, packedBitOffset: 0, type: network.mojom.ReferrerPolicySpec, nullable: false, minVersion: 0 },
-        { name: 'link_followed', packedOffset: 96, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'custom_items', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.CustomContextMenuItemSpec, false), nullable: false, minVersion: 0 },
-        { name: 'source_type', packedOffset: 172, packedBitOffset: 0, type: ui.mojom.MenuSourceTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'selection_rect', packedOffset: 112, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'selection_start_offset', packedOffset: 176, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'annotation_type', packedOffset: 180, packedBitOffset: 0, type: blink.mojom.AnnotationTypeSpec, nullable: true, minVersion: 0 },
-        { name: 'opened_from_interest_for', packedOffset: 192, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'interest_for_node_id', packedOffset: 184, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'form_control_type', packedOffset: 188, packedBitOffset: 0, type: blink.mojom.FormControlTypeSpec, nullable: true, minVersion: 0 },
-        { name: 'is_content_editable_for_autofill', packedOffset: 192, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'field_renderer_id', packedOffset: 120, packedBitOffset: 0, type: blink.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
-        { name: 'form_renderer_id', packedOffset: 128, packedBitOffset: 0, type: blink.mojom.FormRendererIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 208}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.UntrustworthyContextMenuParamsSpec, 'blink.mojom.UntrustworthyContextMenuParams', [
+      mojo.internal.StructField('media_type', 136, 0, blink.mojom.ContextMenuDataMediaTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('x', 140, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('y', 144, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('link_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('link_text', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('impression', 16, 0, blink.mojom.ImpressionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('unfiltered_link_url', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('src_url', 32, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('has_image_contents', 192, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_image_media_plugin_document', 192, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('media_flags', 148, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('selection_text', 40, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('title_text', 48, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('alt_text', 56, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('suggested_filename', 64, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('misspelled_word', 72, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('dictionary_suggestions', 80, 0, mojo.internal.Array(mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('spellcheck_enabled', 192, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_editable', 192, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('writing_direction_default', 152, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('writing_direction_left_to_right', 156, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('writing_direction_right_to_left', 160, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('edit_flags', 164, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('frame_charset', 88, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('referrer_policy', 168, 0, network.mojom.ReferrerPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('link_followed', 96, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('custom_items', 104, 0, mojo.internal.Array(blink.mojom.CustomContextMenuItemSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('source_type', 172, 0, ui.mojom.MenuSourceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('selection_rect', 112, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('selection_start_offset', 176, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('annotation_type', 180, 0, blink.mojom.AnnotationTypeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('opened_from_interest_for', 192, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('interest_for_node_id', 184, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('form_control_type', 188, 0, blink.mojom.FormControlTypeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('is_content_editable_for_autofill', 192, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('field_renderer_id', 120, 0, blink.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('form_renderer_id', 128, 0, blink.mojom.FormRendererIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 208]]);
 
 // Interface: ContextMenuClient
-blink.mojom.ContextMenuClient = {};
+mojo.internal.Struct(
+    blink.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec, 'blink.mojom.ContextMenuClient_CustomContextMenuAction_Params', [
+      mojo.internal.StructField('action', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ContextMenuClient_CustomContextMenuAction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ContextMenuClient_ContextMenuClosed_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'link_followed', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'impression', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ImpressionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec, 'blink.mojom.ContextMenuClient_ContextMenuClosed_Params', [
+      mojo.internal.StructField('link_followed', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('impression', 8, 0, blink.mojom.ImpressionSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 blink.mojom.ContextMenuClientPendingReceiver = class {
   constructor(handle) {
@@ -250,36 +209,6 @@ blink.mojom.ContextMenuClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CustomContextMenuAction
-blink.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ContextMenuClient.CustomContextMenuAction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ContextMenuClosed
-blink.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ContextMenuClient.ContextMenuClosed_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'link_followed', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'impression', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ImpressionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.ContextMenuClientPtr = blink.mojom.ContextMenuClientRemote;
 blink.mojom.ContextMenuClientRequest = blink.mojom.ContextMenuClientPendingReceiver;
 

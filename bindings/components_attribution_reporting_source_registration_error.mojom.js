@@ -8,6 +8,7 @@
 var attribution_reporting = attribution_reporting || {};
 attribution_reporting.mojom = attribution_reporting.mojom || {};
 
+attribution_reporting.mojom.SourceRegistrationErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: SourceRegistrationError
 attribution_reporting.mojom.SourceRegistrationError = {
@@ -39,20 +40,19 @@ attribution_reporting.mojom.SourceRegistrationError = {
   kEventReportWindowsStartTimeInvalid: 25,
   kEventReportWindowsEndTimeValueInvalid: 26,
   kTriggerDataMatchingValueInvalid: 27,
-  kTriggerDataListInvalid: 28,
-  kDuplicateTriggerData: 29,
-  kExcessiveTriggerData: 30,
-  kInvalidTriggerDataForMatchingMode: 31,
-  kEventLevelEpsilonValueInvalid: 32,
-  kDestinationLimitPriorityInvalid: 33,
-  kAttributionScopeLimitInvalid: 34,
-  kAttributionScopeLimitRequired: 35,
-  kMaxEventStatesInvalid: 36,
-  kAttributionScopesInvalid: 37,
-  kAttributionScopesListInvalid: 38,
-  kAttributionScopesListValueInvalid: 39,
-  kAggregatableNamedBudgetsDictInvalid: 40,
-  kAggregatableNamedBudgetsKeyTooLong: 41,
-  kAggregatableNamedBudgetsValueInvalid: 42,
+  kTriggerDataListInvalid: 31,
+  kDuplicateTriggerData: 32,
+  kExcessiveTriggerData: 34,
+  kInvalidTriggerDataForMatchingMode: 36,
+  kEventLevelEpsilonValueInvalid: 41,
+  kDestinationLimitPriorityInvalid: 42,
+  kAttributionScopeLimitInvalid: 43,
+  kAttributionScopeLimitRequired: 44,
+  kMaxEventStatesInvalid: 45,
+  kAttributionScopesInvalid: 46,
+  kAttributionScopesListInvalid: 47,
+  kAttributionScopesListValueInvalid: 48,
+  kAggregatableNamedBudgetsDictInvalid: 49,
+  kAggregatableNamedBudgetsKeyTooLong: 50,
+  kAggregatableNamedBudgetsValueInvalid: 51,
 };
-attribution_reporting.mojom.SourceRegistrationErrorSpec = { $: mojo.internal.Enum() };

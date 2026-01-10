@@ -7,20 +7,17 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 
+network.mojom.EarlyHintsSpec = { $: {} };
 
 // Struct: EarlyHints
-network.mojom.EarlyHintsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.EarlyHints',
-      packedSize: 24,
-      fields: [
-        { name: 'headers', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ParsedHeadersSpec, nullable: false, minVersion: 0 },
-        { name: 'referrer_policy', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ReferrerPolicySpec, nullable: false, minVersion: 0 },
-        { name: 'ip_address_space', packedOffset: 12, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.EarlyHintsSpec, 'network.mojom.EarlyHints', [
+      mojo.internal.StructField('headers', 0, 0, network.mojom.ParsedHeadersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('referrer_policy', 8, 0, network.mojom.ReferrerPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('ip_address_space', 12, 0, network.mojom.IPAddressSpaceSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);

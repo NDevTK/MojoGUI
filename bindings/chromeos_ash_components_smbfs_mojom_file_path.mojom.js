@@ -8,17 +8,11 @@
 var smbfs = smbfs || {};
 smbfs.mojom = smbfs.mojom || {};
 
+smbfs.mojom.FilePathSpec = { $: {} };
 
 // Struct: FilePath
-smbfs.mojom.FilePathSpec = {
-  $: {
-    structSpec: {
-      name: 'smbfs.mojom.FilePath',
-      packedSize: 16,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    smbfs.mojom.FilePathSpec, 'smbfs.mojom.FilePath', [
+      mojo.internal.StructField('path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);

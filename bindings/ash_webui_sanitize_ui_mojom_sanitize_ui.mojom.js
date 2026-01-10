@@ -10,21 +10,15 @@ ash.sanitize_ui = ash.sanitize_ui || {};
 ash.sanitize_ui.mojom = ash.sanitize_ui.mojom || {};
 var url = url || {};
 
+ash.sanitize_ui.mojom.SettingsResetter = {};
+ash.sanitize_ui.mojom.SettingsResetter.$interfaceName = 'ash.sanitize_ui.mojom.SettingsResetter';
+ash.sanitize_ui.mojom.SettingsResetter_PerformSanitizeSettings_ParamsSpec = { $: {} };
 
 // Interface: SettingsResetter
-ash.sanitize_ui.mojom.SettingsResetter = {};
-
-ash.sanitize_ui.mojom.SettingsResetter_PerformSanitizeSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.sanitize_ui.mojom.SettingsResetter_PerformSanitizeSettings_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.sanitize_ui.mojom.SettingsResetter_PerformSanitizeSettings_ParamsSpec, 'ash.sanitize_ui.mojom.SettingsResetter_PerformSanitizeSettings_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 ash.sanitize_ui.mojom.SettingsResetterPendingReceiver = class {
   constructor(handle) {
@@ -79,20 +73,6 @@ ash.sanitize_ui.mojom.SettingsResetter.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for PerformSanitizeSettings
-ash.sanitize_ui.mojom.SettingsResetter_PerformSanitizeSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.sanitize_ui.mojom.SettingsResetter.PerformSanitizeSettings_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.sanitize_ui.mojom.SettingsResetterPtr = ash.sanitize_ui.mojom.SettingsResetterRemote;
 ash.sanitize_ui.mojom.SettingsResetterRequest = ash.sanitize_ui.mojom.SettingsResetterPendingReceiver;
 

@@ -8,9 +8,60 @@
 var ash = ash || {};
 ash.shortcut_customization = ash.shortcut_customization || {};
 ash.shortcut_customization.mojom = ash.shortcut_customization.mojom || {};
+var ash = ash || {};
+var ash = ash || {};
+var ash = ash || {};
 var ui = ui || {};
 var ui = ui || {};
+var ash = ash || {};
 
+ash.shortcut_customization.mojom.UserActionSpec = { $: mojo.internal.Enum() };
+ash.shortcut_customization.mojom.EditDialogCompletedActionsSpec = { $: mojo.internal.Enum() };
+ash.shortcut_customization.mojom.SubactionsSpec = { $: mojo.internal.Enum() };
+ash.shortcut_customization.mojom.AcceleratorResultDataSpec = { $: {} };
+ash.shortcut_customization.mojom.SimpleAcceleratorSpec = { $: {} };
+ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver = {};
+ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver.$interfaceName = 'ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver';
+ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver_OnAcceleratorsUpdated_ParamsSpec = { $: {} };
+ash.shortcut_customization.mojom.PolicyUpdatedObserver = {};
+ash.shortcut_customization.mojom.PolicyUpdatedObserver.$interfaceName = 'ash.shortcut_customization.mojom.PolicyUpdatedObserver';
+ash.shortcut_customization.mojom.PolicyUpdatedObserver_OnCustomizationPolicyUpdated_ParamsSpec = { $: {} };
+ash.shortcut_customization.mojom.AcceleratorConfigurationProvider = {};
+ash.shortcut_customization.mojom.AcceleratorConfigurationProvider.$interfaceName = 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider';
+ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsMutable_ParamsSpec = { $: {} };
+ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsMutable_ResponseParamsSpec = { $: {} };
+ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsCustomizationAllowedByPolicy_ParamsSpec = { $: {} };
+ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsCustomizationAllowedByPolicy_ResponseParamsSpec = { $: {} };
+ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetMetaKeyToDisplay_ParamsSpec = { $: {} };
+ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetMetaKeyToDisplay_ResponseParamsSpec = { $: {} };
+ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetConflictAccelerator_ParamsSpec = { $: {} };
+ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetConflictAccelerator_ResponseParamsSpec = { $: {} };
+ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetDefaultAcceleratorsForId_ParamsSpec = { $: {} };
+ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetDefaultAcceleratorsForId_ResponseParamsSpec = { $: {} };
+ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerators_ParamsSpec = { $: {} };
+ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerators_ResponseParamsSpec = { $: {} };
+ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddObserver_ParamsSpec = { $: {} };
+ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddPolicyObserver_ParamsSpec = { $: {} };
+ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAcceleratorLayoutInfos_ParamsSpec = { $: {} };
+ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAcceleratorLayoutInfos_ResponseParamsSpec = { $: {} };
+ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_PreventProcessingAccelerators_ParamsSpec = { $: {} };
+ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_PreventProcessingAccelerators_ResponseParamsSpec = { $: {} };
+ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddAccelerator_ParamsSpec = { $: {} };
+ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddAccelerator_ResponseParamsSpec = { $: {} };
+ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RemoveAccelerator_ParamsSpec = { $: {} };
+ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RemoveAccelerator_ResponseParamsSpec = { $: {} };
+ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_ReplaceAccelerator_ParamsSpec = { $: {} };
+ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_ReplaceAccelerator_ResponseParamsSpec = { $: {} };
+ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreDefault_ParamsSpec = { $: {} };
+ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreDefault_ResponseParamsSpec = { $: {} };
+ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreAllDefaults_ParamsSpec = { $: {} };
+ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreAllDefaults_ResponseParamsSpec = { $: {} };
+ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordUserAction_ParamsSpec = { $: {} };
+ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordMainCategoryNavigation_ParamsSpec = { $: {} };
+ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordEditDialogCompletedActions_ParamsSpec = { $: {} };
+ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordAddOrEditSubactions_ParamsSpec = { $: {} };
+ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_HasCustomAccelerators_ParamsSpec = { $: {} };
+ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_HasCustomAccelerators_ResponseParamsSpec = { $: {} };
 
 // Enum: UserAction
 ash.shortcut_customization.mojom.UserAction = {
@@ -22,7 +73,6 @@ ash.shortcut_customization.mojom.UserAction = {
   kResetAction: 5,
   kResetAll: 6,
 };
-ash.shortcut_customization.mojom.UserActionSpec = { $: mojo.internal.Enum() };
 
 // Enum: EditDialogCompletedActions
 ash.shortcut_customization.mojom.EditDialogCompletedActions = {
@@ -43,7 +93,6 @@ ash.shortcut_customization.mojom.EditDialogCompletedActions = {
   kResetRemoveEdit: 14,
   kResetRemoveEditAdd: 15,
 };
-ash.shortcut_customization.mojom.EditDialogCompletedActionsSpec = { $: mojo.internal.Enum() };
 
 // Enum: Subactions
 ash.shortcut_customization.mojom.Subactions = {
@@ -52,54 +101,30 @@ ash.shortcut_customization.mojom.Subactions = {
   kErrorCancel: 2,
   kErrorSuccess: 3,
 };
-ash.shortcut_customization.mojom.SubactionsSpec = { $: mojo.internal.Enum() };
 
 // Struct: AcceleratorResultData
-ash.shortcut_customization.mojom.AcceleratorResultDataSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorResultData',
-      packedSize: 24,
-      fields: [
-        { name: 'shortcut_name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: ash.mojom.AcceleratorConfigResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.AcceleratorResultDataSpec, 'ash.shortcut_customization.mojom.AcceleratorResultData', [
+      mojo.internal.StructField('shortcut_name', 0, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('result', 8, 0, ash.mojom.AcceleratorConfigResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: SimpleAccelerator
-ash.shortcut_customization.mojom.SimpleAcceleratorSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.SimpleAccelerator',
-      packedSize: 24,
-      fields: [
-        { name: 'key_code', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.VKeySpec, nullable: false, minVersion: 0 },
-        { name: 'modifiers', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'key_state', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.AcceleratorKeyStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.SimpleAcceleratorSpec, 'ash.shortcut_customization.mojom.SimpleAccelerator', [
+      mojo.internal.StructField('key_code', 0, 0, ash.mojom.VKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('modifiers', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('key_state', 8, 0, ui.mojom.AcceleratorKeyStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: AcceleratorsUpdatedObserver
-ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver = {};
-
-ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver_OnAcceleratorsUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver_OnAcceleratorsUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(ash.mojom.AcceleratorSourceSpec, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.Array(ash.mojom.AcceleratorInfoSpec, false), false), false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver_OnAcceleratorsUpdated_ParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver_OnAcceleratorsUpdated_Params', [
+      mojo.internal.StructField('config', 0, 0, mojo.internal.Map(ash.mojom.AcceleratorSourceSpec, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.Array(ash.mojom.AcceleratorInfoSpec, false), false), false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.shortcut_customization.mojom.AcceleratorsUpdatedObserverPendingReceiver = class {
   constructor(handle) {
@@ -154,39 +179,15 @@ ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver.getRemote = functio
   return remote.$;
 };
 
-// ParamsSpec for OnAcceleratorsUpdated
-ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver_OnAcceleratorsUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver.OnAcceleratorsUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(ash.mojom.AcceleratorSourceSpec, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.Array(ash.mojom.AcceleratorInfoSpec, false), false), false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.shortcut_customization.mojom.AcceleratorsUpdatedObserverPtr = ash.shortcut_customization.mojom.AcceleratorsUpdatedObserverRemote;
 ash.shortcut_customization.mojom.AcceleratorsUpdatedObserverRequest = ash.shortcut_customization.mojom.AcceleratorsUpdatedObserverPendingReceiver;
 
 
 // Interface: PolicyUpdatedObserver
-ash.shortcut_customization.mojom.PolicyUpdatedObserver = {};
-
-ash.shortcut_customization.mojom.PolicyUpdatedObserver_OnCustomizationPolicyUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.PolicyUpdatedObserver_OnCustomizationPolicyUpdated_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.PolicyUpdatedObserver_OnCustomizationPolicyUpdated_ParamsSpec, 'ash.shortcut_customization.mojom.PolicyUpdatedObserver_OnCustomizationPolicyUpdated_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 ash.shortcut_customization.mojom.PolicyUpdatedObserverPendingReceiver = class {
   constructor(handle) {
@@ -241,291 +242,218 @@ ash.shortcut_customization.mojom.PolicyUpdatedObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnCustomizationPolicyUpdated
-ash.shortcut_customization.mojom.PolicyUpdatedObserver_OnCustomizationPolicyUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.PolicyUpdatedObserver.OnCustomizationPolicyUpdated_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.shortcut_customization.mojom.PolicyUpdatedObserverPtr = ash.shortcut_customization.mojom.PolicyUpdatedObserverRemote;
 ash.shortcut_customization.mojom.PolicyUpdatedObserverRequest = ash.shortcut_customization.mojom.PolicyUpdatedObserverPendingReceiver;
 
 
 // Interface: AcceleratorConfigurationProvider
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider = {};
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsMutable_ParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsMutable_Params', [
+      mojo.internal.StructField('source', 0, 0, ash.mojom.AcceleratorSourceSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsMutable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsMutable_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.AcceleratorSourceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsMutable_ResponseParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsMutable_ResponseParams', [
+      mojo.internal.StructField('is_mutable', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsCustomizationAllowedByPolicy_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsCustomizationAllowedByPolicy_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsCustomizationAllowedByPolicy_ParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsCustomizationAllowedByPolicy_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetMetaKeyToDisplay_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetMetaKeyToDisplay_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsCustomizationAllowedByPolicy_ResponseParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsCustomizationAllowedByPolicy_ResponseParams', [
+      mojo.internal.StructField('is_customization_allowed_by_policy', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetConflictAccelerator_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetConflictAccelerator_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: ash.mojom.AcceleratorSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'action_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'accelerator', packedOffset: 0, packedBitOffset: 0, type: ash.shortcut_customization.mojom.SimpleAcceleratorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetMetaKeyToDisplay_ParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetMetaKeyToDisplay_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetDefaultAcceleratorsForId_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetDefaultAcceleratorsForId_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'action_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetMetaKeyToDisplay_ResponseParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetMetaKeyToDisplay_ResponseParams', [
+      mojo.internal.StructField('meta_key', 0, 0, ui.mojom.MetaKeySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerators_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerators_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetConflictAccelerator_ParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetConflictAccelerator_Params', [
+      mojo.internal.StructField('source', 8, 0, ash.mojom.AcceleratorSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('action_id', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('accelerator', 0, 0, ash.shortcut_customization.mojom.SimpleAcceleratorSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.shortcut_customization.mojom.AcceleratorsUpdatedObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetConflictAccelerator_ResponseParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetConflictAccelerator_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, ash.shortcut_customization.mojom.AcceleratorResultDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddPolicyObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddPolicyObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.shortcut_customization.mojom.PolicyUpdatedObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetDefaultAcceleratorsForId_ParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetDefaultAcceleratorsForId_Params', [
+      mojo.internal.StructField('action_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAcceleratorLayoutInfos_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAcceleratorLayoutInfos_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetDefaultAcceleratorsForId_ResponseParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetDefaultAcceleratorsForId_ResponseParams', [
+      mojo.internal.StructField('accelerators', 0, 0, mojo.internal.Array(ash.shortcut_customization.mojom.SimpleAcceleratorSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_PreventProcessingAccelerators_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_PreventProcessingAccelerators_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'prevent_processing_accelerators', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerators_ParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerators_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddAccelerator_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddAccelerator_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: ash.mojom.AcceleratorSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'action_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'accelerator', packedOffset: 0, packedBitOffset: 0, type: ash.shortcut_customization.mojom.SimpleAcceleratorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerators_ResponseParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerators_ResponseParams', [
+      mojo.internal.StructField('config', 0, 0, mojo.internal.Map(ash.mojom.AcceleratorSourceSpec, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.Array(ash.mojom.AcceleratorInfoSpec, false), false), false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RemoveAccelerator_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RemoveAccelerator_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: ash.mojom.AcceleratorSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'action_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'accelerator', packedOffset: 0, packedBitOffset: 0, type: ash.shortcut_customization.mojom.SimpleAcceleratorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddObserver_ParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.shortcut_customization.mojom.AcceleratorsUpdatedObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_ReplaceAccelerator_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_ReplaceAccelerator_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'source', packedOffset: 16, packedBitOffset: 0, type: ash.mojom.AcceleratorSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'action_id', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'old_accelerator', packedOffset: 0, packedBitOffset: 0, type: ash.shortcut_customization.mojom.SimpleAcceleratorSpec, nullable: false, minVersion: 0 },
-        { name: 'new_accelerator', packedOffset: 8, packedBitOffset: 0, type: ash.shortcut_customization.mojom.SimpleAcceleratorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddPolicyObserver_ParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddPolicyObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.shortcut_customization.mojom.PolicyUpdatedObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreDefault_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreDefault_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.AcceleratorSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'action_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAcceleratorLayoutInfos_ParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAcceleratorLayoutInfos_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreAllDefaults_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreAllDefaults_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAcceleratorLayoutInfos_ResponseParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAcceleratorLayoutInfos_ResponseParams', [
+      mojo.internal.StructField('layout_infos', 0, 0, mojo.internal.Array(ash.mojom.AcceleratorLayoutInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordUserAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordUserAction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'user_action', packedOffset: 0, packedBitOffset: 0, type: ash.shortcut_customization.mojom.UserActionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_PreventProcessingAccelerators_ParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_PreventProcessingAccelerators_Params', [
+      mojo.internal.StructField('prevent_processing_accelerators', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordMainCategoryNavigation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordMainCategoryNavigation_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.AcceleratorCategorySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_PreventProcessingAccelerators_ResponseParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_PreventProcessingAccelerators_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordEditDialogCompletedActions_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordEditDialogCompletedActions_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'completed_actions', packedOffset: 0, packedBitOffset: 0, type: ash.shortcut_customization.mojom.EditDialogCompletedActionsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddAccelerator_ParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddAccelerator_Params', [
+      mojo.internal.StructField('source', 8, 0, ash.mojom.AcceleratorSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('action_id', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('accelerator', 0, 0, ash.shortcut_customization.mojom.SimpleAcceleratorSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordAddOrEditSubactions_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordAddOrEditSubactions_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_add', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'subactions', packedOffset: 0, packedBitOffset: 0, type: ash.shortcut_customization.mojom.SubactionsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddAccelerator_ResponseParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddAccelerator_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, ash.shortcut_customization.mojom.AcceleratorResultDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_HasCustomAccelerators_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_HasCustomAccelerators_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RemoveAccelerator_ParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RemoveAccelerator_Params', [
+      mojo.internal.StructField('source', 8, 0, ash.mojom.AcceleratorSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('action_id', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('accelerator', 0, 0, ash.shortcut_customization.mojom.SimpleAcceleratorSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RemoveAccelerator_ResponseParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RemoveAccelerator_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, ash.shortcut_customization.mojom.AcceleratorResultDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_ReplaceAccelerator_ParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_ReplaceAccelerator_Params', [
+      mojo.internal.StructField('source', 16, 0, ash.mojom.AcceleratorSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('action_id', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('old_accelerator', 0, 0, ash.shortcut_customization.mojom.SimpleAcceleratorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('new_accelerator', 8, 0, ash.shortcut_customization.mojom.SimpleAcceleratorSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_ReplaceAccelerator_ResponseParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_ReplaceAccelerator_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, ash.shortcut_customization.mojom.AcceleratorResultDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreDefault_ParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreDefault_Params', [
+      mojo.internal.StructField('source', 0, 0, ash.mojom.AcceleratorSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('action_id', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreDefault_ResponseParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreDefault_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, ash.shortcut_customization.mojom.AcceleratorResultDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreAllDefaults_ParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreAllDefaults_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreAllDefaults_ResponseParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreAllDefaults_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, ash.shortcut_customization.mojom.AcceleratorResultDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordUserAction_ParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordUserAction_Params', [
+      mojo.internal.StructField('user_action', 0, 0, ash.shortcut_customization.mojom.UserActionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordMainCategoryNavigation_ParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordMainCategoryNavigation_Params', [
+      mojo.internal.StructField('category', 0, 0, ash.mojom.AcceleratorCategorySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordEditDialogCompletedActions_ParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordEditDialogCompletedActions_Params', [
+      mojo.internal.StructField('completed_actions', 0, 0, ash.shortcut_customization.mojom.EditDialogCompletedActionsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordAddOrEditSubactions_ParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordAddOrEditSubactions_Params', [
+      mojo.internal.StructField('is_add', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('subactions', 0, 0, ash.shortcut_customization.mojom.SubactionsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_HasCustomAccelerators_ParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_HasCustomAccelerators_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_HasCustomAccelerators_ResponseParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_HasCustomAccelerators_ResponseParams', [
+      mojo.internal.StructField('has_custom_accelerators', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.shortcut_customization.mojom.AcceleratorConfigurationProviderPendingReceiver = class {
   constructor(handle) {
@@ -645,7 +573,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
     return this.proxy.sendMessage(
       9,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_PreventProcessingAccelerators_ParamsSpec,
-      null,
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_PreventProcessingAccelerators_ResponseParamsSpec,
       [prevent_processing_accelerators]);
   }
 
@@ -751,461 +679,6 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider.getRemote = fu
   return remote.$;
 };
 
-// ParamsSpec for IsMutable
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsMutable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider.IsMutable_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.AcceleratorSourceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsMutable_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider.IsMutable_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'is_mutable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for IsCustomizationAllowedByPolicy
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsCustomizationAllowedByPolicy_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider.IsCustomizationAllowedByPolicy_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsCustomizationAllowedByPolicy_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider.IsCustomizationAllowedByPolicy_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'is_customization_allowed_by_policy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetMetaKeyToDisplay
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetMetaKeyToDisplay_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider.GetMetaKeyToDisplay_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetMetaKeyToDisplay_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider.GetMetaKeyToDisplay_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'meta_key', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.MetaKeySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetConflictAccelerator
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetConflictAccelerator_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider.GetConflictAccelerator_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: ash.mojom.AcceleratorSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'action_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'accelerator', packedOffset: 0, packedBitOffset: 0, type: ash.shortcut_customization.mojom.SimpleAcceleratorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetConflictAccelerator_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider.GetConflictAccelerator_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.shortcut_customization.mojom.AcceleratorResultDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetDefaultAcceleratorsForId
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetDefaultAcceleratorsForId_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider.GetDefaultAcceleratorsForId_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'action_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetDefaultAcceleratorsForId_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider.GetDefaultAcceleratorsForId_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'accelerators', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.shortcut_customization.mojom.SimpleAcceleratorSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetAccelerators
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerators_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider.GetAccelerators_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerators_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider.GetAccelerators_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(ash.mojom.AcceleratorSourceSpec, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.Array(ash.mojom.AcceleratorInfoSpec, false), false), false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AddObserver
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider.AddObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.shortcut_customization.mojom.AcceleratorsUpdatedObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AddPolicyObserver
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddPolicyObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider.AddPolicyObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.shortcut_customization.mojom.PolicyUpdatedObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetAcceleratorLayoutInfos
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAcceleratorLayoutInfos_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider.GetAcceleratorLayoutInfos_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAcceleratorLayoutInfos_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider.GetAcceleratorLayoutInfos_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'layout_infos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.mojom.AcceleratorLayoutInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for PreventProcessingAccelerators
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_PreventProcessingAccelerators_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider.PreventProcessingAccelerators_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'prevent_processing_accelerators', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AddAccelerator
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddAccelerator_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider.AddAccelerator_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: ash.mojom.AcceleratorSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'action_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'accelerator', packedOffset: 0, packedBitOffset: 0, type: ash.shortcut_customization.mojom.SimpleAcceleratorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddAccelerator_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider.AddAccelerator_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.shortcut_customization.mojom.AcceleratorResultDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RemoveAccelerator
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RemoveAccelerator_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider.RemoveAccelerator_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: ash.mojom.AcceleratorSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'action_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'accelerator', packedOffset: 0, packedBitOffset: 0, type: ash.shortcut_customization.mojom.SimpleAcceleratorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RemoveAccelerator_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider.RemoveAccelerator_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.shortcut_customization.mojom.AcceleratorResultDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReplaceAccelerator
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_ReplaceAccelerator_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider.ReplaceAccelerator_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'source', packedOffset: 16, packedBitOffset: 0, type: ash.mojom.AcceleratorSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'action_id', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'old_accelerator', packedOffset: 0, packedBitOffset: 0, type: ash.shortcut_customization.mojom.SimpleAcceleratorSpec, nullable: false, minVersion: 0 },
-        { name: 'new_accelerator', packedOffset: 8, packedBitOffset: 0, type: ash.shortcut_customization.mojom.SimpleAcceleratorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_ReplaceAccelerator_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider.ReplaceAccelerator_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.shortcut_customization.mojom.AcceleratorResultDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RestoreDefault
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreDefault_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider.RestoreDefault_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.AcceleratorSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'action_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreDefault_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider.RestoreDefault_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.shortcut_customization.mojom.AcceleratorResultDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RestoreAllDefaults
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreAllDefaults_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider.RestoreAllDefaults_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreAllDefaults_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider.RestoreAllDefaults_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.shortcut_customization.mojom.AcceleratorResultDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RecordUserAction
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordUserAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider.RecordUserAction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'user_action', packedOffset: 0, packedBitOffset: 0, type: ash.shortcut_customization.mojom.UserActionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RecordMainCategoryNavigation
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordMainCategoryNavigation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider.RecordMainCategoryNavigation_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.AcceleratorCategorySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RecordEditDialogCompletedActions
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordEditDialogCompletedActions_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider.RecordEditDialogCompletedActions_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'completed_actions', packedOffset: 0, packedBitOffset: 0, type: ash.shortcut_customization.mojom.EditDialogCompletedActionsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RecordAddOrEditSubactions
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordAddOrEditSubactions_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider.RecordAddOrEditSubactions_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_add', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'subactions', packedOffset: 0, packedBitOffset: 0, type: ash.shortcut_customization.mojom.SubactionsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for HasCustomAccelerators
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_HasCustomAccelerators_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider.HasCustomAccelerators_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_HasCustomAccelerators_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider.HasCustomAccelerators_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'has_custom_accelerators', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.shortcut_customization.mojom.AcceleratorConfigurationProviderPtr = ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemote;
 ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRequest = ash.shortcut_customization.mojom.AcceleratorConfigurationProviderPendingReceiver;
 

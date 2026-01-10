@@ -8,10 +8,10 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.PauseSubresourceLoadingHandle = {};
+blink.mojom.PauseSubresourceLoadingHandle.$interfaceName = 'blink.mojom.PauseSubresourceLoadingHandle';
 
 // Interface: PauseSubresourceLoadingHandle
-blink.mojom.PauseSubresourceLoadingHandle = {};
-
 blink.mojom.PauseSubresourceLoadingHandlePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -56,7 +56,6 @@ blink.mojom.PauseSubresourceLoadingHandle.getRemote = function() {
   return remote.$;
 };
 
-// Legacy compatibility
 blink.mojom.PauseSubresourceLoadingHandlePtr = blink.mojom.PauseSubresourceLoadingHandleRemote;
 blink.mojom.PauseSubresourceLoadingHandleRequest = blink.mojom.PauseSubresourceLoadingHandlePendingReceiver;
 

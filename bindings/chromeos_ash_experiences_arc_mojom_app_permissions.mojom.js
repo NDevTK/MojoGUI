@@ -8,6 +8,13 @@
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
+arc.mojom.AppPermissionSpec = { $: mojo.internal.Enum() };
+arc.mojom.AppPermissionGroupSpec = { $: mojo.internal.Enum() };
+arc.mojom.PermissionStateSpec = { $: {} };
+arc.mojom.AppPermissionsInstance = {};
+arc.mojom.AppPermissionsInstance.$interfaceName = 'arc.mojom.AppPermissionsInstance';
+arc.mojom.AppPermissionsInstance_GrantPermission_ParamsSpec = { $: {} };
+arc.mojom.AppPermissionsInstance_RevokePermission_ParamsSpec = { $: {} };
 
 // Enum: AppPermission
 arc.mojom.AppPermission = {
@@ -18,7 +25,6 @@ arc.mojom.AppPermission = {
   CONTACTS: 4,
   STORAGE: 5,
 };
-arc.mojom.AppPermissionSpec = { $: mojo.internal.Enum() };
 
 // Enum: AppPermissionGroup
 arc.mojom.AppPermissionGroup = {
@@ -26,55 +32,31 @@ arc.mojom.AppPermissionGroup = {
   MICROPHONE: 1,
   LOCATION: 2,
 };
-arc.mojom.AppPermissionGroupSpec = { $: mojo.internal.Enum() };
 
 // Struct: PermissionState
-arc.mojom.PermissionStateSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PermissionState',
-      packedSize: 24,
-      fields: [
-        { name: 'granted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'managed', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 1 },
-        { name: 'one_time', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 2 },
-      ],
-      versions: [{version: 0, packedSize: 16}, {version: 1, packedSize: 24}, {version: 2, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PermissionStateSpec, 'arc.mojom.PermissionState', [
+      mojo.internal.StructField('granted', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('managed', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('details', 8, 0, mojo.internal.String, null, true, 1, undefined),
+      mojo.internal.StructField('one_time', 0, 2, mojo.internal.Bool, false, false, 2, undefined),
+    ],
+    [[0, 16], [1, 24], [2, 16]]);
 
 // Interface: AppPermissionsInstance
-arc.mojom.AppPermissionsInstance = {};
+mojo.internal.Struct(
+    arc.mojom.AppPermissionsInstance_GrantPermission_ParamsSpec, 'arc.mojom.AppPermissionsInstance_GrantPermission_Params', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('permission', 8, 0, arc.mojom.AppPermissionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.AppPermissionsInstance_GrantPermission_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppPermissionsInstance_GrantPermission_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'permission', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.AppPermissionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-arc.mojom.AppPermissionsInstance_RevokePermission_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppPermissionsInstance_RevokePermission_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'permission', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.AppPermissionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppPermissionsInstance_RevokePermission_ParamsSpec, 'arc.mojom.AppPermissionsInstance_RevokePermission_Params', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('permission', 8, 0, arc.mojom.AppPermissionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 arc.mojom.AppPermissionsInstancePendingReceiver = class {
   constructor(handle) {
@@ -138,37 +120,6 @@ arc.mojom.AppPermissionsInstance.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GrantPermission
-arc.mojom.AppPermissionsInstance_GrantPermission_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppPermissionsInstance.GrantPermission_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'permission', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.AppPermissionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for RevokePermission
-arc.mojom.AppPermissionsInstance_RevokePermission_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppPermissionsInstance.RevokePermission_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'permission', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.AppPermissionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.AppPermissionsInstancePtr = arc.mojom.AppPermissionsInstanceRemote;
 arc.mojom.AppPermissionsInstanceRequest = arc.mojom.AppPermissionsInstancePendingReceiver;
 

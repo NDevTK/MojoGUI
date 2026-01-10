@@ -8,18 +8,12 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+network.mojom.ParsedRequestCookieSpec = { $: {} };
 
 // Struct: ParsedRequestCookie
-network.mojom.ParsedRequestCookieSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ParsedRequestCookie',
-      packedSize: 24,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.ParsedRequestCookieSpec, 'network.mojom.ParsedRequestCookie', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);

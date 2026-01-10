@@ -7,271 +7,171 @@
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 
+device.mojom.DeviceService = {};
+device.mojom.DeviceService.$interfaceName = 'device.mojom.DeviceService';
+device.mojom.DeviceService_BindFingerprint_ParamsSpec = { $: {} };
+device.mojom.DeviceService_BindGeolocationContext_ParamsSpec = { $: {} };
+device.mojom.DeviceService_BindGeolocationControl_ParamsSpec = { $: {} };
+device.mojom.DeviceService_BindGeolocationInternals_ParamsSpec = { $: {} };
+device.mojom.DeviceService_BindInputDeviceManager_ParamsSpec = { $: {} };
+device.mojom.DeviceService_BindBatteryMonitor_ParamsSpec = { $: {} };
+device.mojom.DeviceService_BindPressureManager_ParamsSpec = { $: {} };
+device.mojom.DeviceService_BindNFCProvider_ParamsSpec = { $: {} };
+device.mojom.DeviceService_BindVibrationManager_ParamsSpec = { $: {} };
+device.mojom.DeviceService_BindHidManager_ParamsSpec = { $: {} };
+device.mojom.DeviceService_BindMtpManager_ParamsSpec = { $: {} };
+device.mojom.DeviceService_BindPowerMonitor_ParamsSpec = { $: {} };
+device.mojom.DeviceService_BindPublicIpAddressGeolocationProvider_ParamsSpec = { $: {} };
+device.mojom.DeviceService_BindScreenOrientationListener_ParamsSpec = { $: {} };
+device.mojom.DeviceService_BindSensorProvider_ParamsSpec = { $: {} };
+device.mojom.DeviceService_BindSerialPortManager_ParamsSpec = { $: {} };
+device.mojom.DeviceService_BindTimeZoneMonitor_ParamsSpec = { $: {} };
+device.mojom.DeviceService_BindWakeLockProvider_ParamsSpec = { $: {} };
+device.mojom.DeviceService_BindUsbDeviceManager_ParamsSpec = { $: {} };
+device.mojom.DeviceService_BindUsbDeviceManagerTest_ParamsSpec = { $: {} };
 
 // Interface: DeviceService
-device.mojom.DeviceService = {};
+mojo.internal.Struct(
+    device.mojom.DeviceService_BindFingerprint_ParamsSpec, 'device.mojom.DeviceService_BindFingerprint_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(device.mojom.FingerprintRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.DeviceService_BindFingerprint_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.DeviceService_BindFingerprint_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.FingerprintRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.DeviceService_BindGeolocationContext_ParamsSpec, 'device.mojom.DeviceService_BindGeolocationContext_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(device.mojom.GeolocationContextRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.DeviceService_BindGeolocationContext_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.DeviceService_BindGeolocationContext_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.GeolocationContextRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.DeviceService_BindGeolocationControl_ParamsSpec, 'device.mojom.DeviceService_BindGeolocationControl_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(device.mojom.GeolocationControlRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.DeviceService_BindGeolocationControl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.DeviceService_BindGeolocationControl_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.GeolocationControlRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.DeviceService_BindGeolocationInternals_ParamsSpec, 'device.mojom.DeviceService_BindGeolocationInternals_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(device.mojom.GeolocationInternalsRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.DeviceService_BindGeolocationInternals_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.DeviceService_BindGeolocationInternals_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.GeolocationInternalsRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.DeviceService_BindInputDeviceManager_ParamsSpec, 'device.mojom.DeviceService_BindInputDeviceManager_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(device.mojom.InputDeviceManagerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.DeviceService_BindInputDeviceManager_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.DeviceService_BindInputDeviceManager_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.InputDeviceManagerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.DeviceService_BindBatteryMonitor_ParamsSpec, 'device.mojom.DeviceService_BindBatteryMonitor_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(device.mojom.BatteryMonitorRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.DeviceService_BindBatteryMonitor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.DeviceService_BindBatteryMonitor_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.BatteryMonitorRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.DeviceService_BindPressureManager_ParamsSpec, 'device.mojom.DeviceService_BindPressureManager_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(device.mojom.PressureManagerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.DeviceService_BindPressureManager_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.DeviceService_BindPressureManager_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.PressureManagerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.DeviceService_BindNFCProvider_ParamsSpec, 'device.mojom.DeviceService_BindNFCProvider_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(device.mojom.NFCProviderRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.DeviceService_BindNFCProvider_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.DeviceService_BindNFCProvider_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.NFCProviderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.DeviceService_BindVibrationManager_ParamsSpec, 'device.mojom.DeviceService_BindVibrationManager_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(device.mojom.VibrationManagerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('listener', 8, 0, mojo.internal.InterfaceProxy(device.mojom.VibrationManagerListenerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-device.mojom.DeviceService_BindVibrationManager_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.DeviceService_BindVibrationManager_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.VibrationManagerRemote), nullable: false, minVersion: 0 },
-        { name: 'listener', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.VibrationManagerListenerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.DeviceService_BindHidManager_ParamsSpec, 'device.mojom.DeviceService_BindHidManager_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(device.mojom.HidManagerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.DeviceService_BindHidManager_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.DeviceService_BindHidManager_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.HidManagerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.DeviceService_BindMtpManager_ParamsSpec, 'device.mojom.DeviceService_BindMtpManager_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(device.mojom.MtpManagerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.DeviceService_BindMtpManager_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.DeviceService_BindMtpManager_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.MtpManagerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.DeviceService_BindPowerMonitor_ParamsSpec, 'device.mojom.DeviceService_BindPowerMonitor_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(device.mojom.PowerMonitorRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.DeviceService_BindPowerMonitor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.DeviceService_BindPowerMonitor_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.PowerMonitorRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.DeviceService_BindPublicIpAddressGeolocationProvider_ParamsSpec, 'device.mojom.DeviceService_BindPublicIpAddressGeolocationProvider_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(device.mojom.PublicIpAddressGeolocationProviderRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.DeviceService_BindPublicIpAddressGeolocationProvider_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.DeviceService_BindPublicIpAddressGeolocationProvider_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.PublicIpAddressGeolocationProviderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.DeviceService_BindScreenOrientationListener_ParamsSpec, 'device.mojom.DeviceService_BindScreenOrientationListener_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(device.mojom.ScreenOrientationListenerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.DeviceService_BindScreenOrientationListener_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.DeviceService_BindScreenOrientationListener_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.ScreenOrientationListenerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.DeviceService_BindSensorProvider_ParamsSpec, 'device.mojom.DeviceService_BindSensorProvider_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(device.mojom.SensorProviderRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.DeviceService_BindSensorProvider_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.DeviceService_BindSensorProvider_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.SensorProviderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.DeviceService_BindSerialPortManager_ParamsSpec, 'device.mojom.DeviceService_BindSerialPortManager_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(device.mojom.SerialPortManagerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.DeviceService_BindSerialPortManager_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.DeviceService_BindSerialPortManager_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.SerialPortManagerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.DeviceService_BindTimeZoneMonitor_ParamsSpec, 'device.mojom.DeviceService_BindTimeZoneMonitor_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(device.mojom.TimeZoneMonitorRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.DeviceService_BindTimeZoneMonitor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.DeviceService_BindTimeZoneMonitor_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.TimeZoneMonitorRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.DeviceService_BindWakeLockProvider_ParamsSpec, 'device.mojom.DeviceService_BindWakeLockProvider_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(device.mojom.WakeLockProviderRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.DeviceService_BindWakeLockProvider_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.DeviceService_BindWakeLockProvider_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.WakeLockProviderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.DeviceService_BindUsbDeviceManager_ParamsSpec, 'device.mojom.DeviceService_BindUsbDeviceManager_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(device.mojom.UsbDeviceManagerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.DeviceService_BindUsbDeviceManager_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.DeviceService_BindUsbDeviceManager_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.UsbDeviceManagerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-device.mojom.DeviceService_BindUsbDeviceManagerTest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.DeviceService_BindUsbDeviceManagerTest_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.UsbDeviceManagerTestRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.DeviceService_BindUsbDeviceManagerTest_ParamsSpec, 'device.mojom.DeviceService_BindUsbDeviceManagerTest_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(device.mojom.UsbDeviceManagerTestRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 device.mojom.DeviceServicePendingReceiver = class {
   constructor(handle) {
@@ -497,288 +397,6 @@ device.mojom.DeviceService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for BindFingerprint
-device.mojom.DeviceService_BindFingerprint_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.DeviceService.BindFingerprint_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.FingerprintRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindGeolocationContext
-device.mojom.DeviceService_BindGeolocationContext_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.DeviceService.BindGeolocationContext_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.GeolocationContextRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindGeolocationControl
-device.mojom.DeviceService_BindGeolocationControl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.DeviceService.BindGeolocationControl_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.GeolocationControlRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindGeolocationInternals
-device.mojom.DeviceService_BindGeolocationInternals_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.DeviceService.BindGeolocationInternals_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.GeolocationInternalsRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindInputDeviceManager
-device.mojom.DeviceService_BindInputDeviceManager_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.DeviceService.BindInputDeviceManager_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.InputDeviceManagerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindBatteryMonitor
-device.mojom.DeviceService_BindBatteryMonitor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.DeviceService.BindBatteryMonitor_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.BatteryMonitorRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindPressureManager
-device.mojom.DeviceService_BindPressureManager_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.DeviceService.BindPressureManager_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.PressureManagerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindNFCProvider
-device.mojom.DeviceService_BindNFCProvider_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.DeviceService.BindNFCProvider_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.NFCProviderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindVibrationManager
-device.mojom.DeviceService_BindVibrationManager_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.DeviceService.BindVibrationManager_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.VibrationManagerRemote), nullable: false, minVersion: 0 },
-        { name: 'listener', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.VibrationManagerListenerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for BindHidManager
-device.mojom.DeviceService_BindHidManager_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.DeviceService.BindHidManager_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.HidManagerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindMtpManager
-device.mojom.DeviceService_BindMtpManager_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.DeviceService.BindMtpManager_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.MtpManagerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindPowerMonitor
-device.mojom.DeviceService_BindPowerMonitor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.DeviceService.BindPowerMonitor_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.PowerMonitorRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindPublicIpAddressGeolocationProvider
-device.mojom.DeviceService_BindPublicIpAddressGeolocationProvider_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.DeviceService.BindPublicIpAddressGeolocationProvider_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.PublicIpAddressGeolocationProviderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindScreenOrientationListener
-device.mojom.DeviceService_BindScreenOrientationListener_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.DeviceService.BindScreenOrientationListener_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.ScreenOrientationListenerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindSensorProvider
-device.mojom.DeviceService_BindSensorProvider_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.DeviceService.BindSensorProvider_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.SensorProviderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindSerialPortManager
-device.mojom.DeviceService_BindSerialPortManager_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.DeviceService.BindSerialPortManager_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.SerialPortManagerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindTimeZoneMonitor
-device.mojom.DeviceService_BindTimeZoneMonitor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.DeviceService.BindTimeZoneMonitor_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.TimeZoneMonitorRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindWakeLockProvider
-device.mojom.DeviceService_BindWakeLockProvider_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.DeviceService.BindWakeLockProvider_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.WakeLockProviderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindUsbDeviceManager
-device.mojom.DeviceService_BindUsbDeviceManager_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.DeviceService.BindUsbDeviceManager_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.UsbDeviceManagerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindUsbDeviceManagerTest
-device.mojom.DeviceService_BindUsbDeviceManagerTest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.DeviceService.BindUsbDeviceManagerTest_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.UsbDeviceManagerTestRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 device.mojom.DeviceServicePtr = device.mojom.DeviceServiceRemote;
 device.mojom.DeviceServiceRequest = device.mojom.DeviceServicePendingReceiver;
 

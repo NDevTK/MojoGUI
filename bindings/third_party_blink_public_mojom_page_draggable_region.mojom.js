@@ -10,18 +10,12 @@ blink.mojom = blink.mojom || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+blink.mojom.DraggableRegionSpec = { $: {} };
 
 // Struct: DraggableRegion
-blink.mojom.DraggableRegionSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DraggableRegion',
-      packedSize: 24,
-      fields: [
-        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'draggable', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.DraggableRegionSpec, 'blink.mojom.DraggableRegion', [
+      mojo.internal.StructField('bounds', 0, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('draggable', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);

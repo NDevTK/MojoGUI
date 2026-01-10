@@ -8,126 +8,75 @@
 var chromecast = chromecast || {};
 chromecast.mojom = chromecast.mojom || {};
 
+chromecast.mojom.DisplaySettings = {};
+chromecast.mojom.DisplaySettings.$interfaceName = 'chromecast.mojom.DisplaySettings';
+chromecast.mojom.DisplaySettings_SetColorTemperature_ParamsSpec = { $: {} };
+chromecast.mojom.DisplaySettings_SetColorTemperatureSmooth_ParamsSpec = { $: {} };
+chromecast.mojom.DisplaySettings_ResetColorTemperature_ParamsSpec = { $: {} };
+chromecast.mojom.DisplaySettings_SetBrightness_ParamsSpec = { $: {} };
+chromecast.mojom.DisplaySettings_SetBrightnessSmooth_ParamsSpec = { $: {} };
+chromecast.mojom.DisplaySettings_ResetBrightness_ParamsSpec = { $: {} };
+chromecast.mojom.DisplaySettings_SetScreenOn_ParamsSpec = { $: {} };
+chromecast.mojom.DisplaySettings_SetAllowScreenPowerOff_ParamsSpec = { $: {} };
+chromecast.mojom.DisplaySettings_AddDisplaySettingsObserver_ParamsSpec = { $: {} };
+chromecast.mojom.DisplaySettingsObserver = {};
+chromecast.mojom.DisplaySettingsObserver.$interfaceName = 'chromecast.mojom.DisplaySettingsObserver';
+chromecast.mojom.DisplaySettingsObserver_OnDisplayBrightnessChanged_ParamsSpec = { $: {} };
 
 // Interface: DisplaySettings
-chromecast.mojom.DisplaySettings = {};
+mojo.internal.Struct(
+    chromecast.mojom.DisplaySettings_SetColorTemperature_ParamsSpec, 'chromecast.mojom.DisplaySettings_SetColorTemperature_Params', [
+      mojo.internal.StructField('kelvin', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromecast.mojom.DisplaySettings_SetColorTemperature_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.DisplaySettings_SetColorTemperature_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'kelvin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.DisplaySettings_SetColorTemperatureSmooth_ParamsSpec, 'chromecast.mojom.DisplaySettings_SetColorTemperatureSmooth_Params', [
+      mojo.internal.StructField('kelvin', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('duration', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-chromecast.mojom.DisplaySettings_SetColorTemperatureSmooth_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.DisplaySettings_SetColorTemperatureSmooth_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'kelvin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'duration', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.DisplaySettings_ResetColorTemperature_ParamsSpec, 'chromecast.mojom.DisplaySettings_ResetColorTemperature_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromecast.mojom.DisplaySettings_ResetColorTemperature_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.DisplaySettings_ResetColorTemperature_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.DisplaySettings_SetBrightness_ParamsSpec, 'chromecast.mojom.DisplaySettings_SetBrightness_Params', [
+      mojo.internal.StructField('brightness', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromecast.mojom.DisplaySettings_SetBrightness_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.DisplaySettings_SetBrightness_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'brightness', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.DisplaySettings_SetBrightnessSmooth_ParamsSpec, 'chromecast.mojom.DisplaySettings_SetBrightnessSmooth_Params', [
+      mojo.internal.StructField('brightness', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('duration', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-chromecast.mojom.DisplaySettings_SetBrightnessSmooth_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.DisplaySettings_SetBrightnessSmooth_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'brightness', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'duration', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.DisplaySettings_ResetBrightness_ParamsSpec, 'chromecast.mojom.DisplaySettings_ResetBrightness_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromecast.mojom.DisplaySettings_ResetBrightness_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.DisplaySettings_ResetBrightness_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.DisplaySettings_SetScreenOn_ParamsSpec, 'chromecast.mojom.DisplaySettings_SetScreenOn_Params', [
+      mojo.internal.StructField('display_on', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromecast.mojom.DisplaySettings_SetScreenOn_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.DisplaySettings_SetScreenOn_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'display_on', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.DisplaySettings_SetAllowScreenPowerOff_ParamsSpec, 'chromecast.mojom.DisplaySettings_SetAllowScreenPowerOff_Params', [
+      mojo.internal.StructField('allow_power_off', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromecast.mojom.DisplaySettings_SetAllowScreenPowerOff_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.DisplaySettings_SetAllowScreenPowerOff_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'allow_power_off', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromecast.mojom.DisplaySettings_AddDisplaySettingsObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.DisplaySettings_AddDisplaySettingsObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.mojom.DisplaySettingsObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.DisplaySettings_AddDisplaySettingsObserver_ParamsSpec, 'chromecast.mojom.DisplaySettings_AddDisplaySettingsObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(chromecast.mojom.DisplaySettingsObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromecast.mojom.DisplaySettingsPendingReceiver = class {
   constructor(handle) {
@@ -254,152 +203,16 @@ chromecast.mojom.DisplaySettings.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetColorTemperature
-chromecast.mojom.DisplaySettings_SetColorTemperature_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.DisplaySettings.SetColorTemperature_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'kelvin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetColorTemperatureSmooth
-chromecast.mojom.DisplaySettings_SetColorTemperatureSmooth_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.DisplaySettings.SetColorTemperatureSmooth_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'kelvin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'duration', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ResetColorTemperature
-chromecast.mojom.DisplaySettings_ResetColorTemperature_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.DisplaySettings.ResetColorTemperature_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetBrightness
-chromecast.mojom.DisplaySettings_SetBrightness_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.DisplaySettings.SetBrightness_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'brightness', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetBrightnessSmooth
-chromecast.mojom.DisplaySettings_SetBrightnessSmooth_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.DisplaySettings.SetBrightnessSmooth_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'brightness', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'duration', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ResetBrightness
-chromecast.mojom.DisplaySettings_ResetBrightness_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.DisplaySettings.ResetBrightness_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetScreenOn
-chromecast.mojom.DisplaySettings_SetScreenOn_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.DisplaySettings.SetScreenOn_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'display_on', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetAllowScreenPowerOff
-chromecast.mojom.DisplaySettings_SetAllowScreenPowerOff_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.DisplaySettings.SetAllowScreenPowerOff_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'allow_power_off', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AddDisplaySettingsObserver
-chromecast.mojom.DisplaySettings_AddDisplaySettingsObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.DisplaySettings.AddDisplaySettingsObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.mojom.DisplaySettingsObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromecast.mojom.DisplaySettingsPtr = chromecast.mojom.DisplaySettingsRemote;
 chromecast.mojom.DisplaySettingsRequest = chromecast.mojom.DisplaySettingsPendingReceiver;
 
 
 // Interface: DisplaySettingsObserver
-chromecast.mojom.DisplaySettingsObserver = {};
-
-chromecast.mojom.DisplaySettingsObserver_OnDisplayBrightnessChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.DisplaySettingsObserver_OnDisplayBrightnessChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'brightness', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.DisplaySettingsObserver_OnDisplayBrightnessChanged_ParamsSpec, 'chromecast.mojom.DisplaySettingsObserver_OnDisplayBrightnessChanged_Params', [
+      mojo.internal.StructField('brightness', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromecast.mojom.DisplaySettingsObserverPendingReceiver = class {
   constructor(handle) {
@@ -454,21 +267,6 @@ chromecast.mojom.DisplaySettingsObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnDisplayBrightnessChanged
-chromecast.mojom.DisplaySettingsObserver_OnDisplayBrightnessChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.DisplaySettingsObserver.OnDisplayBrightnessChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'brightness', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromecast.mojom.DisplaySettingsObserverPtr = chromecast.mojom.DisplaySettingsObserverRemote;
 chromecast.mojom.DisplaySettingsObserverRequest = chromecast.mojom.DisplaySettingsObserverPendingReceiver;
 

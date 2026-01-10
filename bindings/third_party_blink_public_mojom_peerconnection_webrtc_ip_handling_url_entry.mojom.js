@@ -7,20 +7,15 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var components = components || {};
 var blink = blink || {};
 
+blink.mojom.WebRtcIpHandlingUrlEntrySpec = { $: {} };
 
 // Struct: WebRtcIpHandlingUrlEntry
-blink.mojom.WebRtcIpHandlingUrlEntrySpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebRtcIpHandlingUrlEntry',
-      packedSize: 24,
-      fields: [
-        { name: 'url_pattern', packedOffset: 0, packedBitOffset: 0, type: content_settings.mojom.ContentSettingsPatternSpec, nullable: false, minVersion: 0 },
-        { name: 'handling', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebRtcIpHandlingPolicySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WebRtcIpHandlingUrlEntrySpec, 'blink.mojom.WebRtcIpHandlingUrlEntry', [
+      mojo.internal.StructField('url_pattern', 0, 0, content_settings.mojom.ContentSettingsPatternSpec, null, false, 0, undefined),
+      mojo.internal.StructField('handling', 8, 0, blink.mojom.WebRtcIpHandlingPolicySpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);

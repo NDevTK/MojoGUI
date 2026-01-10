@@ -8,64 +8,59 @@
 var legion_internals = legion_internals || {};
 legion_internals.mojom = legion_internals.mojom || {};
 
+legion_internals.mojom.LegionResponseSpec = { $: {} };
+legion_internals.mojom.LegionInternalsPageHandler = {};
+legion_internals.mojom.LegionInternalsPageHandler.$interfaceName = 'legion_internals.mojom.LegionInternalsPageHandler';
+legion_internals.mojom.LegionInternalsPageHandler_Connect_ParamsSpec = { $: {} };
+legion_internals.mojom.LegionInternalsPageHandler_Connect_ResponseParamsSpec = { $: {} };
+legion_internals.mojom.LegionInternalsPageHandler_Close_ParamsSpec = { $: {} };
+legion_internals.mojom.LegionInternalsPageHandler_Close_ResponseParamsSpec = { $: {} };
+legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ParamsSpec = { $: {} };
+legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ResponseParamsSpec = { $: {} };
 
 // Struct: LegionResponse
-legion_internals.mojom.LegionResponseSpec = {
-  $: {
-    structSpec: {
-      name: 'legion_internals.mojom.LegionResponse',
-      packedSize: 24,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    legion_internals.mojom.LegionResponseSpec, 'legion_internals.mojom.LegionResponse', [
+      mojo.internal.StructField('response', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('error', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: LegionInternalsPageHandler
-legion_internals.mojom.LegionInternalsPageHandler = {};
+mojo.internal.Struct(
+    legion_internals.mojom.LegionInternalsPageHandler_Connect_ParamsSpec, 'legion_internals.mojom.LegionInternalsPageHandler_Connect_Params', [
+      mojo.internal.StructField('url', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('api_key', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-legion_internals.mojom.LegionInternalsPageHandler_Connect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'legion_internals.mojom.LegionInternalsPageHandler_Connect_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'api_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    legion_internals.mojom.LegionInternalsPageHandler_Connect_ResponseParamsSpec, 'legion_internals.mojom.LegionInternalsPageHandler_Connect_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-legion_internals.mojom.LegionInternalsPageHandler_Close_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'legion_internals.mojom.LegionInternalsPageHandler_Close_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    legion_internals.mojom.LegionInternalsPageHandler_Close_ParamsSpec, 'legion_internals.mojom.LegionInternalsPageHandler_Close_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'legion_internals.mojom.LegionInternalsPageHandler_SendRequest_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'feature_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    legion_internals.mojom.LegionInternalsPageHandler_Close_ResponseParamsSpec, 'legion_internals.mojom.LegionInternalsPageHandler_Close_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ParamsSpec, 'legion_internals.mojom.LegionInternalsPageHandler_SendRequest_Params', [
+      mojo.internal.StructField('feature_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('request', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ResponseParamsSpec, 'legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ResponseParams', [
+      mojo.internal.StructField('response', 0, 0, legion_internals.mojom.LegionResponseSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 legion_internals.mojom.LegionInternalsPageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -104,7 +99,7 @@ legion_internals.mojom.LegionInternalsPageHandlerRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       legion_internals.mojom.LegionInternalsPageHandler_Connect_ParamsSpec,
-      null,
+      legion_internals.mojom.LegionInternalsPageHandler_Connect_ResponseParamsSpec,
       [url, api_key]);
   }
 
@@ -113,7 +108,7 @@ legion_internals.mojom.LegionInternalsPageHandlerRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       legion_internals.mojom.LegionInternalsPageHandler_Close_ParamsSpec,
-      null,
+      legion_internals.mojom.LegionInternalsPageHandler_Close_ResponseParamsSpec,
       []);
   }
 
@@ -138,63 +133,6 @@ legion_internals.mojom.LegionInternalsPageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Connect
-legion_internals.mojom.LegionInternalsPageHandler_Connect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'legion_internals.mojom.LegionInternalsPageHandler.Connect_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'api_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for Close
-legion_internals.mojom.LegionInternalsPageHandler_Close_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'legion_internals.mojom.LegionInternalsPageHandler.Close_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SendRequest
-legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'legion_internals.mojom.LegionInternalsPageHandler.SendRequest_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'feature_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'legion_internals.mojom.LegionInternalsPageHandler.SendRequest_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: legion_internals.mojom.LegionResponseSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 legion_internals.mojom.LegionInternalsPageHandlerPtr = legion_internals.mojom.LegionInternalsPageHandlerRemote;
 legion_internals.mojom.LegionInternalsPageHandlerRequest = legion_internals.mojom.LegionInternalsPageHandlerPendingReceiver;
 

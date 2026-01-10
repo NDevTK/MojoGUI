@@ -9,13 +9,49 @@ var ash = ash || {};
 ash.screens_common = ash.screens_common || {};
 ash.screens_common.mojom = ash.screens_common.mojom || {};
 
+ash.screens_common.mojom.UserCreationFlowTypeSpec = { $: mojo.internal.Enum() };
+ash.screens_common.mojom.GesturePagesSpec = { $: mojo.internal.Enum() };
+ash.screens_common.mojom.AiIntroPageHandler = {};
+ash.screens_common.mojom.AiIntroPageHandler.$interfaceName = 'ash.screens_common.mojom.AiIntroPageHandler';
+ash.screens_common.mojom.AiIntroPageHandler_OnNextClicked_ParamsSpec = { $: {} };
+ash.screens_common.mojom.AiIntroPage = {};
+ash.screens_common.mojom.AiIntroPage.$interfaceName = 'ash.screens_common.mojom.AiIntroPage';
+ash.screens_common.mojom.AiIntroPage_SetAutoTransition_ParamsSpec = { $: {} };
+ash.screens_common.mojom.AppDownloadingPageHandler = {};
+ash.screens_common.mojom.AppDownloadingPageHandler.$interfaceName = 'ash.screens_common.mojom.AppDownloadingPageHandler';
+ash.screens_common.mojom.AppDownloadingPageHandler_OnContinueClicked_ParamsSpec = { $: {} };
+ash.screens_common.mojom.DrivePinningPageHandler = {};
+ash.screens_common.mojom.DrivePinningPageHandler.$interfaceName = 'ash.screens_common.mojom.DrivePinningPageHandler';
+ash.screens_common.mojom.DrivePinningPageHandler_OnReturnClicked_ParamsSpec = { $: {} };
+ash.screens_common.mojom.DrivePinningPageHandler_OnNextClicked_ParamsSpec = { $: {} };
+ash.screens_common.mojom.DrivePinningPage = {};
+ash.screens_common.mojom.DrivePinningPage.$interfaceName = 'ash.screens_common.mojom.DrivePinningPage';
+ash.screens_common.mojom.DrivePinningPage_SetRequiredSpaceInfo_ParamsSpec = { $: {} };
+ash.screens_common.mojom.FjordStationSetupPageHandler = {};
+ash.screens_common.mojom.FjordStationSetupPageHandler.$interfaceName = 'ash.screens_common.mojom.FjordStationSetupPageHandler';
+ash.screens_common.mojom.FjordStationSetupPageHandler_OnSetupComplete_ParamsSpec = { $: {} };
+ash.screens_common.mojom.GaiaInfoPageHandler = {};
+ash.screens_common.mojom.GaiaInfoPageHandler.$interfaceName = 'ash.screens_common.mojom.GaiaInfoPageHandler';
+ash.screens_common.mojom.GaiaInfoPageHandler_OnBackClicked_ParamsSpec = { $: {} };
+ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_ParamsSpec = { $: {} };
+ash.screens_common.mojom.GaiaInfoPage = {};
+ash.screens_common.mojom.GaiaInfoPage.$interfaceName = 'ash.screens_common.mojom.GaiaInfoPage';
+ash.screens_common.mojom.GaiaInfoPage_SetQuickStartVisible_ParamsSpec = { $: {} };
+ash.screens_common.mojom.GestureNavigationPageHandler = {};
+ash.screens_common.mojom.GestureNavigationPageHandler.$interfaceName = 'ash.screens_common.mojom.GestureNavigationPageHandler';
+ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_ParamsSpec = { $: {} };
+ash.screens_common.mojom.GestureNavigationPageHandler_OnSkipClicked_ParamsSpec = { $: {} };
+ash.screens_common.mojom.GestureNavigationPageHandler_OnExitClicked_ParamsSpec = { $: {} };
+ash.screens_common.mojom.GeminiIntroPageHandler = {};
+ash.screens_common.mojom.GeminiIntroPageHandler.$interfaceName = 'ash.screens_common.mojom.GeminiIntroPageHandler';
+ash.screens_common.mojom.GeminiIntroPageHandler_OnBackClicked_ParamsSpec = { $: {} };
+ash.screens_common.mojom.GeminiIntroPageHandler_OnNextClicked_ParamsSpec = { $: {} };
 
 // Enum: UserCreationFlowType
 ash.screens_common.mojom.UserCreationFlowType = {
   kManual: 0,
   kQuickstart: 1,
 };
-ash.screens_common.mojom.UserCreationFlowTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: GesturePages
 ash.screens_common.mojom.GesturePages = {
@@ -24,22 +60,12 @@ ash.screens_common.mojom.GesturePages = {
   kOverview: 2,
   kBack: 3,
 };
-ash.screens_common.mojom.GesturePagesSpec = { $: mojo.internal.Enum() };
 
 // Interface: AiIntroPageHandler
-ash.screens_common.mojom.AiIntroPageHandler = {};
-
-ash.screens_common.mojom.AiIntroPageHandler_OnNextClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_common.mojom.AiIntroPageHandler_OnNextClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_common.mojom.AiIntroPageHandler_OnNextClicked_ParamsSpec, 'ash.screens_common.mojom.AiIntroPageHandler_OnNextClicked_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 ash.screens_common.mojom.AiIntroPageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -94,39 +120,16 @@ ash.screens_common.mojom.AiIntroPageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnNextClicked
-ash.screens_common.mojom.AiIntroPageHandler_OnNextClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_common.mojom.AiIntroPageHandler.OnNextClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.screens_common.mojom.AiIntroPageHandlerPtr = ash.screens_common.mojom.AiIntroPageHandlerRemote;
 ash.screens_common.mojom.AiIntroPageHandlerRequest = ash.screens_common.mojom.AiIntroPageHandlerPendingReceiver;
 
 
 // Interface: AiIntroPage
-ash.screens_common.mojom.AiIntroPage = {};
-
-ash.screens_common.mojom.AiIntroPage_SetAutoTransition_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_common.mojom.AiIntroPage_SetAutoTransition_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_common.mojom.AiIntroPage_SetAutoTransition_ParamsSpec, 'ash.screens_common.mojom.AiIntroPage_SetAutoTransition_Params', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.screens_common.mojom.AiIntroPagePendingReceiver = class {
   constructor(handle) {
@@ -181,39 +184,15 @@ ash.screens_common.mojom.AiIntroPage.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetAutoTransition
-ash.screens_common.mojom.AiIntroPage_SetAutoTransition_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_common.mojom.AiIntroPage.SetAutoTransition_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.screens_common.mojom.AiIntroPagePtr = ash.screens_common.mojom.AiIntroPageRemote;
 ash.screens_common.mojom.AiIntroPageRequest = ash.screens_common.mojom.AiIntroPagePendingReceiver;
 
 
 // Interface: AppDownloadingPageHandler
-ash.screens_common.mojom.AppDownloadingPageHandler = {};
-
-ash.screens_common.mojom.AppDownloadingPageHandler_OnContinueClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_common.mojom.AppDownloadingPageHandler_OnContinueClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_common.mojom.AppDownloadingPageHandler_OnContinueClicked_ParamsSpec, 'ash.screens_common.mojom.AppDownloadingPageHandler_OnContinueClicked_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 ash.screens_common.mojom.AppDownloadingPageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -268,52 +247,22 @@ ash.screens_common.mojom.AppDownloadingPageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnContinueClicked
-ash.screens_common.mojom.AppDownloadingPageHandler_OnContinueClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_common.mojom.AppDownloadingPageHandler.OnContinueClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.screens_common.mojom.AppDownloadingPageHandlerPtr = ash.screens_common.mojom.AppDownloadingPageHandlerRemote;
 ash.screens_common.mojom.AppDownloadingPageHandlerRequest = ash.screens_common.mojom.AppDownloadingPageHandlerPendingReceiver;
 
 
 // Interface: DrivePinningPageHandler
-ash.screens_common.mojom.DrivePinningPageHandler = {};
+mojo.internal.Struct(
+    ash.screens_common.mojom.DrivePinningPageHandler_OnReturnClicked_ParamsSpec, 'ash.screens_common.mojom.DrivePinningPageHandler_OnReturnClicked_Params', [
+      mojo.internal.StructField('enable_drive_pinning', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.screens_common.mojom.DrivePinningPageHandler_OnReturnClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_common.mojom.DrivePinningPageHandler_OnReturnClicked_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enable_drive_pinning', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.screens_common.mojom.DrivePinningPageHandler_OnNextClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_common.mojom.DrivePinningPageHandler_OnNextClicked_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enable_drive_pinning', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_common.mojom.DrivePinningPageHandler_OnNextClicked_ParamsSpec, 'ash.screens_common.mojom.DrivePinningPageHandler_OnNextClicked_Params', [
+      mojo.internal.StructField('enable_drive_pinning', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.screens_common.mojom.DrivePinningPageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -377,55 +326,17 @@ ash.screens_common.mojom.DrivePinningPageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnReturnClicked
-ash.screens_common.mojom.DrivePinningPageHandler_OnReturnClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_common.mojom.DrivePinningPageHandler.OnReturnClicked_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enable_drive_pinning', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnNextClicked
-ash.screens_common.mojom.DrivePinningPageHandler_OnNextClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_common.mojom.DrivePinningPageHandler.OnNextClicked_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enable_drive_pinning', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.screens_common.mojom.DrivePinningPageHandlerPtr = ash.screens_common.mojom.DrivePinningPageHandlerRemote;
 ash.screens_common.mojom.DrivePinningPageHandlerRequest = ash.screens_common.mojom.DrivePinningPageHandlerPendingReceiver;
 
 
 // Interface: DrivePinningPage
-ash.screens_common.mojom.DrivePinningPage = {};
-
-ash.screens_common.mojom.DrivePinningPage_SetRequiredSpaceInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_common.mojom.DrivePinningPage_SetRequiredSpaceInfo_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'required_space', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'free_space', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_common.mojom.DrivePinningPage_SetRequiredSpaceInfo_ParamsSpec, 'ash.screens_common.mojom.DrivePinningPage_SetRequiredSpaceInfo_Params', [
+      mojo.internal.StructField('required_space', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('free_space', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 ash.screens_common.mojom.DrivePinningPagePendingReceiver = class {
   constructor(handle) {
@@ -480,40 +391,15 @@ ash.screens_common.mojom.DrivePinningPage.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetRequiredSpaceInfo
-ash.screens_common.mojom.DrivePinningPage_SetRequiredSpaceInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_common.mojom.DrivePinningPage.SetRequiredSpaceInfo_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'required_space', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'free_space', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.screens_common.mojom.DrivePinningPagePtr = ash.screens_common.mojom.DrivePinningPageRemote;
 ash.screens_common.mojom.DrivePinningPageRequest = ash.screens_common.mojom.DrivePinningPagePendingReceiver;
 
 
 // Interface: FjordStationSetupPageHandler
-ash.screens_common.mojom.FjordStationSetupPageHandler = {};
-
-ash.screens_common.mojom.FjordStationSetupPageHandler_OnSetupComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_common.mojom.FjordStationSetupPageHandler_OnSetupComplete_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_common.mojom.FjordStationSetupPageHandler_OnSetupComplete_ParamsSpec, 'ash.screens_common.mojom.FjordStationSetupPageHandler_OnSetupComplete_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 ash.screens_common.mojom.FjordStationSetupPageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -568,51 +454,21 @@ ash.screens_common.mojom.FjordStationSetupPageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnSetupComplete
-ash.screens_common.mojom.FjordStationSetupPageHandler_OnSetupComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_common.mojom.FjordStationSetupPageHandler.OnSetupComplete_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.screens_common.mojom.FjordStationSetupPageHandlerPtr = ash.screens_common.mojom.FjordStationSetupPageHandlerRemote;
 ash.screens_common.mojom.FjordStationSetupPageHandlerRequest = ash.screens_common.mojom.FjordStationSetupPageHandlerPendingReceiver;
 
 
 // Interface: GaiaInfoPageHandler
-ash.screens_common.mojom.GaiaInfoPageHandler = {};
+mojo.internal.Struct(
+    ash.screens_common.mojom.GaiaInfoPageHandler_OnBackClicked_ParamsSpec, 'ash.screens_common.mojom.GaiaInfoPageHandler_OnBackClicked_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.screens_common.mojom.GaiaInfoPageHandler_OnBackClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_common.mojom.GaiaInfoPageHandler_OnBackClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'user_flow', packedOffset: 0, packedBitOffset: 0, type: ash.screens_common.mojom.UserCreationFlowTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_ParamsSpec, 'ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_Params', [
+      mojo.internal.StructField('user_flow', 0, 0, ash.screens_common.mojom.UserCreationFlowTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.screens_common.mojom.GaiaInfoPageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -676,52 +532,15 @@ ash.screens_common.mojom.GaiaInfoPageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnBackClicked
-ash.screens_common.mojom.GaiaInfoPageHandler_OnBackClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_common.mojom.GaiaInfoPageHandler.OnBackClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnNextClicked
-ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_common.mojom.GaiaInfoPageHandler.OnNextClicked_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'user_flow', packedOffset: 0, packedBitOffset: 0, type: ash.screens_common.mojom.UserCreationFlowTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.screens_common.mojom.GaiaInfoPageHandlerPtr = ash.screens_common.mojom.GaiaInfoPageHandlerRemote;
 ash.screens_common.mojom.GaiaInfoPageHandlerRequest = ash.screens_common.mojom.GaiaInfoPageHandlerPendingReceiver;
 
 
 // Interface: GaiaInfoPage
-ash.screens_common.mojom.GaiaInfoPage = {};
-
-ash.screens_common.mojom.GaiaInfoPage_SetQuickStartVisible_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_common.mojom.GaiaInfoPage_SetQuickStartVisible_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_common.mojom.GaiaInfoPage_SetQuickStartVisible_ParamsSpec, 'ash.screens_common.mojom.GaiaInfoPage_SetQuickStartVisible_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 ash.screens_common.mojom.GaiaInfoPagePendingReceiver = class {
   constructor(handle) {
@@ -776,63 +595,26 @@ ash.screens_common.mojom.GaiaInfoPage.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetQuickStartVisible
-ash.screens_common.mojom.GaiaInfoPage_SetQuickStartVisible_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_common.mojom.GaiaInfoPage.SetQuickStartVisible_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.screens_common.mojom.GaiaInfoPagePtr = ash.screens_common.mojom.GaiaInfoPageRemote;
 ash.screens_common.mojom.GaiaInfoPageRequest = ash.screens_common.mojom.GaiaInfoPagePendingReceiver;
 
 
 // Interface: GestureNavigationPageHandler
-ash.screens_common.mojom.GestureNavigationPageHandler = {};
+mojo.internal.Struct(
+    ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_ParamsSpec, 'ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_Params', [
+      mojo.internal.StructField('page', 0, 0, ash.screens_common.mojom.GesturePagesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: ash.screens_common.mojom.GesturePagesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_common.mojom.GestureNavigationPageHandler_OnSkipClicked_ParamsSpec, 'ash.screens_common.mojom.GestureNavigationPageHandler_OnSkipClicked_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.screens_common.mojom.GestureNavigationPageHandler_OnSkipClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_common.mojom.GestureNavigationPageHandler_OnSkipClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.screens_common.mojom.GestureNavigationPageHandler_OnExitClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_common.mojom.GestureNavigationPageHandler_OnExitClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_common.mojom.GestureNavigationPageHandler_OnExitClicked_ParamsSpec, 'ash.screens_common.mojom.GestureNavigationPageHandler_OnExitClicked_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 ash.screens_common.mojom.GestureNavigationPageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -905,77 +687,20 @@ ash.screens_common.mojom.GestureNavigationPageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnPageChange
-ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_common.mojom.GestureNavigationPageHandler.OnPageChange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: ash.screens_common.mojom.GesturePagesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnSkipClicked
-ash.screens_common.mojom.GestureNavigationPageHandler_OnSkipClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_common.mojom.GestureNavigationPageHandler.OnSkipClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnExitClicked
-ash.screens_common.mojom.GestureNavigationPageHandler_OnExitClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_common.mojom.GestureNavigationPageHandler.OnExitClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.screens_common.mojom.GestureNavigationPageHandlerPtr = ash.screens_common.mojom.GestureNavigationPageHandlerRemote;
 ash.screens_common.mojom.GestureNavigationPageHandlerRequest = ash.screens_common.mojom.GestureNavigationPageHandlerPendingReceiver;
 
 
 // Interface: GeminiIntroPageHandler
-ash.screens_common.mojom.GeminiIntroPageHandler = {};
+mojo.internal.Struct(
+    ash.screens_common.mojom.GeminiIntroPageHandler_OnBackClicked_ParamsSpec, 'ash.screens_common.mojom.GeminiIntroPageHandler_OnBackClicked_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.screens_common.mojom.GeminiIntroPageHandler_OnBackClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_common.mojom.GeminiIntroPageHandler_OnBackClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.screens_common.mojom.GeminiIntroPageHandler_OnNextClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_common.mojom.GeminiIntroPageHandler_OnNextClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_common.mojom.GeminiIntroPageHandler_OnNextClicked_ParamsSpec, 'ash.screens_common.mojom.GeminiIntroPageHandler_OnNextClicked_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 ash.screens_common.mojom.GeminiIntroPageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -1039,33 +764,6 @@ ash.screens_common.mojom.GeminiIntroPageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnBackClicked
-ash.screens_common.mojom.GeminiIntroPageHandler_OnBackClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_common.mojom.GeminiIntroPageHandler.OnBackClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnNextClicked
-ash.screens_common.mojom.GeminiIntroPageHandler_OnNextClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_common.mojom.GeminiIntroPageHandler.OnNextClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.screens_common.mojom.GeminiIntroPageHandlerPtr = ash.screens_common.mojom.GeminiIntroPageHandlerRemote;
 ash.screens_common.mojom.GeminiIntroPageHandlerRequest = ash.screens_common.mojom.GeminiIntroPageHandlerPendingReceiver;
 

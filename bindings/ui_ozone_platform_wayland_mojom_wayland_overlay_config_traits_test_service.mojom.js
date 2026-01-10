@@ -9,22 +9,23 @@ var wl = wl || {};
 wl.mojom = wl.mojom || {};
 var ui = ui || {};
 
+wl.mojom.ConfigTraitsTestService = {};
+wl.mojom.ConfigTraitsTestService.$interfaceName = 'wl.mojom.ConfigTraitsTestService';
+wl.mojom.ConfigTraitsTestService_EchoTransform_ParamsSpec = { $: {} };
+wl.mojom.ConfigTraitsTestService_EchoTransform_ResponseParamsSpec = { $: {} };
 
 // Interface: ConfigTraitsTestService
-wl.mojom.ConfigTraitsTestService = {};
+mojo.internal.Struct(
+    wl.mojom.ConfigTraitsTestService_EchoTransform_ParamsSpec, 'wl.mojom.ConfigTraitsTestService_EchoTransform_Params', [
+      mojo.internal.StructField('t', 0, 0, wl.mojom.TransformUnionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-wl.mojom.ConfigTraitsTestService_EchoTransform_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'wl.mojom.ConfigTraitsTestService_EchoTransform_Params',
-      packedSize: 24,
-      fields: [
-        { name: 't', packedOffset: 0, packedBitOffset: 0, type: wl.mojom.TransformUnionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    wl.mojom.ConfigTraitsTestService_EchoTransform_ResponseParamsSpec, 'wl.mojom.ConfigTraitsTestService_EchoTransform_ResponseParams', [
+      mojo.internal.StructField('pass', 0, 0, wl.mojom.TransformUnionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 wl.mojom.ConfigTraitsTestServicePendingReceiver = class {
   constructor(handle) {
@@ -79,34 +80,6 @@ wl.mojom.ConfigTraitsTestService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for EchoTransform
-wl.mojom.ConfigTraitsTestService_EchoTransform_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'wl.mojom.ConfigTraitsTestService.EchoTransform_Params',
-      packedSize: 24,
-      fields: [
-        { name: 't', packedOffset: 0, packedBitOffset: 0, type: wl.mojom.TransformUnionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-wl.mojom.ConfigTraitsTestService_EchoTransform_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'wl.mojom.ConfigTraitsTestService.EchoTransform_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: wl.mojom.TransformUnionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 wl.mojom.ConfigTraitsTestServicePtr = wl.mojom.ConfigTraitsTestServiceRemote;
 wl.mojom.ConfigTraitsTestServiceRequest = wl.mojom.ConfigTraitsTestServicePendingReceiver;
 

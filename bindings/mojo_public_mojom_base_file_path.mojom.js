@@ -8,33 +8,21 @@
 var mojo_base = mojo_base || {};
 mojo_base.mojom = mojo_base.mojom || {};
 
+mojo_base.mojom.FilePathSpec = { $: {} };
+mojo_base.mojom.RelativeFilePathSpec = { $: {} };
 
 // Struct: FilePath
-mojo_base.mojom.FilePathSpec = {
-  $: {
-    structSpec: {
-      name: 'mojo_base.mojom.FilePath',
-      packedSize: 24,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint16, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojo_base.mojom.FilePathSpec, 'mojo_base.mojom.FilePath', [
+      mojo.internal.StructField('path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('path', 8, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: RelativeFilePath
-mojo_base.mojom.RelativeFilePathSpec = {
-  $: {
-    structSpec: {
-      name: 'mojo_base.mojom.RelativeFilePath',
-      packedSize: 24,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint16, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojo_base.mojom.RelativeFilePathSpec, 'mojo_base.mojom.RelativeFilePath', [
+      mojo.internal.StructField('path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('path', 8, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);

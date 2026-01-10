@@ -11,57 +11,46 @@ var skia = skia || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+pdf.mojom.ThumbParamsSpec = { $: {} };
+pdf.mojom.PdfThumbnailer = {};
+pdf.mojom.PdfThumbnailer.$interfaceName = 'pdf.mojom.PdfThumbnailer';
+pdf.mojom.PdfThumbnailer_GetThumbnail_ParamsSpec = { $: {} };
+pdf.mojom.PdfThumbnailer_GetThumbnail_ResponseParamsSpec = { $: {} };
+pdf.mojom.PdfThumbnailer_SetUseSkiaRendererPolicy_ParamsSpec = { $: {} };
 
 pdf.mojom.kMaxWidthPixels = 512;
 
 pdf.mojom.kMaxHeightPixels = 512;
 
 // Struct: ThumbParams
-pdf.mojom.ThumbParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.ThumbParams',
-      packedSize: 32,
-      fields: [
-        { name: 'size_px', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'dpi', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'stretch', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'keep_aspect', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    pdf.mojom.ThumbParamsSpec, 'pdf.mojom.ThumbParams', [
+      mojo.internal.StructField('size_px', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('dpi', 8, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('stretch', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('keep_aspect', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: PdfThumbnailer
-pdf.mojom.PdfThumbnailer = {};
+mojo.internal.Struct(
+    pdf.mojom.PdfThumbnailer_GetThumbnail_ParamsSpec, 'pdf.mojom.PdfThumbnailer_GetThumbnail_Params', [
+      mojo.internal.StructField('params', 0, 0, pdf.mojom.ThumbParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pdf_region', 8, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-pdf.mojom.PdfThumbnailer_GetThumbnail_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfThumbnailer_GetThumbnail_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: pdf.mojom.ThumbParamsSpec, nullable: false, minVersion: 0 },
-        { name: 'pdf_region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    pdf.mojom.PdfThumbnailer_GetThumbnail_ResponseParamsSpec, 'pdf.mojom.PdfThumbnailer_GetThumbnail_ResponseParams', [
+      mojo.internal.StructField('bitmap', 0, 0, skia.mojom.BitmapN32Spec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-pdf.mojom.PdfThumbnailer_SetUseSkiaRendererPolicy_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfThumbnailer_SetUseSkiaRendererPolicy_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'use_skia', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    pdf.mojom.PdfThumbnailer_SetUseSkiaRendererPolicy_ParamsSpec, 'pdf.mojom.PdfThumbnailer_SetUseSkiaRendererPolicy_Params', [
+      mojo.internal.StructField('use_skia', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 pdf.mojom.PdfThumbnailerPendingReceiver = class {
   constructor(handle) {
@@ -125,49 +114,6 @@ pdf.mojom.PdfThumbnailer.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetThumbnail
-pdf.mojom.PdfThumbnailer_GetThumbnail_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfThumbnailer.GetThumbnail_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: pdf.mojom.ThumbParamsSpec, nullable: false, minVersion: 0 },
-        { name: 'pdf_region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-pdf.mojom.PdfThumbnailer_GetThumbnail_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfThumbnailer.GetThumbnail_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetUseSkiaRendererPolicy
-pdf.mojom.PdfThumbnailer_SetUseSkiaRendererPolicy_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfThumbnailer.SetUseSkiaRendererPolicy_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'use_skia', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 pdf.mojom.PdfThumbnailerPtr = pdf.mojom.PdfThumbnailerRemote;
 pdf.mojom.PdfThumbnailerRequest = pdf.mojom.PdfThumbnailerPendingReceiver;
 

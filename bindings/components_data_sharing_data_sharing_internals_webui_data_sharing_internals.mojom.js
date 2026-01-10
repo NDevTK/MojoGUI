@@ -7,24 +7,29 @@
 // Module namespace
 var data_sharing_internals = data_sharing_internals || {};
 data_sharing_internals.mojom = data_sharing_internals.mojom || {};
+var components = components || {};
+var components = components || {};
 
+data_sharing_internals.mojom.PageHandlerFactory = {};
+data_sharing_internals.mojom.PageHandlerFactory.$interfaceName = 'data_sharing_internals.mojom.PageHandlerFactory';
+data_sharing_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+data_sharing_internals.mojom.PageHandler = {};
+data_sharing_internals.mojom.PageHandler.$interfaceName = 'data_sharing_internals.mojom.PageHandler';
+data_sharing_internals.mojom.PageHandler_IsEmptyService_ParamsSpec = { $: {} };
+data_sharing_internals.mojom.PageHandler_IsEmptyService_ResponseParamsSpec = { $: {} };
+data_sharing_internals.mojom.PageHandler_GetAllGroups_ParamsSpec = { $: {} };
+data_sharing_internals.mojom.PageHandler_GetAllGroups_ResponseParamsSpec = { $: {} };
+data_sharing_internals.mojom.Page = {};
+data_sharing_internals.mojom.Page.$interfaceName = 'data_sharing_internals.mojom.Page';
+data_sharing_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = { $: {} };
 
 // Interface: PageHandlerFactory
-data_sharing_internals.mojom.PageHandlerFactory = {};
-
-data_sharing_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing_internals.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(data_sharing_internals.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(data_sharing_internals.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_sharing_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'data_sharing_internals.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(data_sharing_internals.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(data_sharing_internals.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 data_sharing_internals.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -79,52 +84,33 @@ data_sharing_internals.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-data_sharing_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing_internals.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(data_sharing_internals.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(data_sharing_internals.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 data_sharing_internals.mojom.PageHandlerFactoryPtr = data_sharing_internals.mojom.PageHandlerFactoryRemote;
 data_sharing_internals.mojom.PageHandlerFactoryRequest = data_sharing_internals.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-data_sharing_internals.mojom.PageHandler = {};
+mojo.internal.Struct(
+    data_sharing_internals.mojom.PageHandler_IsEmptyService_ParamsSpec, 'data_sharing_internals.mojom.PageHandler_IsEmptyService_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-data_sharing_internals.mojom.PageHandler_IsEmptyService_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing_internals.mojom.PageHandler_IsEmptyService_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_sharing_internals.mojom.PageHandler_IsEmptyService_ResponseParamsSpec, 'data_sharing_internals.mojom.PageHandler_IsEmptyService_ResponseParams', [
+      mojo.internal.StructField('is_empty', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-data_sharing_internals.mojom.PageHandler_GetAllGroups_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing_internals.mojom.PageHandler_GetAllGroups_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_sharing_internals.mojom.PageHandler_GetAllGroups_ParamsSpec, 'data_sharing_internals.mojom.PageHandler_GetAllGroups_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    data_sharing_internals.mojom.PageHandler_GetAllGroups_ResponseParamsSpec, 'data_sharing_internals.mojom.PageHandler_GetAllGroups_ResponseParams', [
+      mojo.internal.StructField('is_success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(data_sharing.mojom.GroupDataSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 data_sharing_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -188,83 +174,20 @@ data_sharing_internals.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for IsEmptyService
-data_sharing_internals.mojom.PageHandler_IsEmptyService_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing_internals.mojom.PageHandler.IsEmptyService_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-data_sharing_internals.mojom.PageHandler_IsEmptyService_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing_internals.mojom.PageHandler.IsEmptyService_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'is_empty', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetAllGroups
-data_sharing_internals.mojom.PageHandler_GetAllGroups_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing_internals.mojom.PageHandler.GetAllGroups_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-data_sharing_internals.mojom.PageHandler_GetAllGroups_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing_internals.mojom.PageHandler.GetAllGroups_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'is_success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(data_sharing.mojom.GroupDataSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 data_sharing_internals.mojom.PageHandlerPtr = data_sharing_internals.mojom.PageHandlerRemote;
 data_sharing_internals.mojom.PageHandlerRequest = data_sharing_internals.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-data_sharing_internals.mojom.Page = {};
-
-data_sharing_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing_internals.mojom.Page_OnLogMessageAdded_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'event_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'log_source', packedOffset: 24, packedBitOffset: 0, type: logger_common.mojom.LogSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'source_file', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'source_line', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_sharing_internals.mojom.Page_OnLogMessageAdded_ParamsSpec, 'data_sharing_internals.mojom.Page_OnLogMessageAdded_Params', [
+      mojo.internal.StructField('event_time', 0, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('log_source', 24, 0, logger_common.mojom.LogSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source_file', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('source_line', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('message', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 data_sharing_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
@@ -319,25 +242,6 @@ data_sharing_internals.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnLogMessageAdded
-data_sharing_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing_internals.mojom.Page.OnLogMessageAdded_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'event_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'log_source', packedOffset: 24, packedBitOffset: 0, type: logger_common.mojom.LogSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'source_file', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'source_line', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// Legacy compatibility
 data_sharing_internals.mojom.PagePtr = data_sharing_internals.mojom.PageRemote;
 data_sharing_internals.mojom.PageRequest = data_sharing_internals.mojom.PagePendingReceiver;
 

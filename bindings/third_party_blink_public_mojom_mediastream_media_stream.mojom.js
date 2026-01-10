@@ -9,6 +9,57 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 var blink = blink || {};
 
+blink.mojom.MediaStreamTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.MediaStreamRequestResultSpec = { $: mojo.internal.Enum() };
+blink.mojom.MediaStreamStateChangeSpec = { $: mojo.internal.Enum() };
+blink.mojom.PreferredDisplaySurfaceSpec = { $: mojo.internal.Enum() };
+blink.mojom.CapturedSurfaceControlResultSpec = { $: mojo.internal.Enum() };
+blink.mojom.ZoomLevelActionSpec = { $: mojo.internal.Enum() };
+blink.mojom.WindowAudioPreferenceSpec = { $: mojo.internal.Enum() };
+blink.mojom.StreamSelectionInfoSpec = { $: {} };
+blink.mojom.SearchOnlyByDeviceIdSpec = { $: {} };
+blink.mojom.SearchBySessionIdSpec = { $: {} };
+blink.mojom.MediaStreamDeviceSpec = { $: {} };
+blink.mojom.TrackControlsSpec = { $: {} };
+blink.mojom.StreamControlsSpec = { $: {} };
+blink.mojom.GetOpenDeviceResponseSpec = { $: {} };
+blink.mojom.CapturedWheelActionSpec = { $: {} };
+blink.mojom.StreamDevicesSpec = { $: {} };
+blink.mojom.StreamDevicesSetSpec = { $: {} };
+blink.mojom.MediaStreamDeviceObserver = {};
+blink.mojom.MediaStreamDeviceObserver.$interfaceName = 'blink.mojom.MediaStreamDeviceObserver';
+blink.mojom.MediaStreamDeviceObserver_OnDeviceStopped_ParamsSpec = { $: {} };
+blink.mojom.MediaStreamDeviceObserver_OnDeviceChanged_ParamsSpec = { $: {} };
+blink.mojom.MediaStreamDeviceObserver_OnDeviceRequestStateChange_ParamsSpec = { $: {} };
+blink.mojom.MediaStreamDeviceObserver_OnDeviceCaptureConfigurationChange_ParamsSpec = { $: {} };
+blink.mojom.MediaStreamDeviceObserver_OnDeviceCaptureHandleChange_ParamsSpec = { $: {} };
+blink.mojom.MediaStreamDeviceObserver_OnZoomLevelChange_ParamsSpec = { $: {} };
+blink.mojom.MediaStreamDispatcherHost = {};
+blink.mojom.MediaStreamDispatcherHost.$interfaceName = 'blink.mojom.MediaStreamDispatcherHost';
+blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ParamsSpec = { $: {} };
+blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ResponseParamsSpec = { $: {} };
+blink.mojom.MediaStreamDispatcherHost_FocusCapturedSurface_ParamsSpec = { $: {} };
+blink.mojom.MediaStreamDispatcherHost_CancelRequest_ParamsSpec = { $: {} };
+blink.mojom.MediaStreamDispatcherHost_StopStreamDevice_ParamsSpec = { $: {} };
+blink.mojom.MediaStreamDispatcherHost_OpenDevice_ParamsSpec = { $: {} };
+blink.mojom.MediaStreamDispatcherHost_OpenDevice_ResponseParamsSpec = { $: {} };
+blink.mojom.MediaStreamDispatcherHost_CloseDevice_ParamsSpec = { $: {} };
+blink.mojom.MediaStreamDispatcherHost_SetCapturingLinkSecured_ParamsSpec = { $: {} };
+blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ParamsSpec = { $: {} };
+blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ResponseParamsSpec = { $: {} };
+blink.mojom.MediaStreamDispatcherHost_SendWheel_ParamsSpec = { $: {} };
+blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ParamsSpec = { $: {} };
+blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ResponseParamsSpec = { $: {} };
+blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_ParamsSpec = { $: {} };
+blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_ResponseParamsSpec = { $: {} };
+blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ParamsSpec = { $: {} };
+blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ResponseParamsSpec = { $: {} };
+blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ParamsSpec = { $: {} };
+blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ResponseParamsSpec = { $: {} };
+blink.mojom.MediaStreamTrackMetricsHost = {};
+blink.mojom.MediaStreamTrackMetricsHost.$interfaceName = 'blink.mojom.MediaStreamTrackMetricsHost';
+blink.mojom.MediaStreamTrackMetricsHost_AddTrack_ParamsSpec = { $: {} };
+blink.mojom.MediaStreamTrackMetricsHost_RemoveTrack_ParamsSpec = { $: {} };
 
 // Enum: MediaStreamType
 blink.mojom.MediaStreamType = {
@@ -25,7 +76,6 @@ blink.mojom.MediaStreamType = {
   DISPLAY_VIDEO_CAPTURE_SET: 10,
   NUM_MEDIA_TYPES: 11,
 };
-blink.mojom.MediaStreamTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: MediaStreamRequestResult
 blink.mojom.MediaStreamRequestResult = {
@@ -35,46 +85,44 @@ blink.mojom.MediaStreamRequestResult = {
   INVALID_STATE: 3,
   NO_HARDWARE: 4,
   INVALID_SECURITY_ORIGIN: 5,
-  CONSTRAINT_NOT_SATISFIED: 6,
-  TRACK_START_FAILURE_AUDIO: 7,
-  TRACK_START_FAILURE_VIDEO: 8,
-  NOT_SUPPORTED: 9,
-  FAILED_DUE_TO_SHUTDOWN: 10,
-  KILL_SWITCH_ON: 11,
-  PERMISSION_DENIED_BY_SYSTEM: 12,
-  DEVICE_IN_USE: 13,
-  START_TIMEOUT: 14,
-  PERMISSION_DENIED_BY_USER: 15,
-  AUDIO_DEVICE_SOCKET_ERROR: 16,
-  NO_TRANSIENT_ACTIVATION: 17,
-  CAPTURE_NOT_ALLOWED_BY_POLICY: 18,
-  INVALID_DISPLAY_CAPTURE_CONSTRAINTS: 19,
-  INVALID_GUM_TAB_CAPTURE_CONSTRAINTS: 20,
-  INVALID_GUM_SCREEN_CAPTURE_CONSTRAINTS: 21,
-  INVALID_VIDEO_DEVICE_ID: 22,
-  STREAM_NOT_FOUND_IN_REGISTRY: 23,
-  ANDROID_CANT_REQUEST_PERMISSION: 24,
-  MULTI_CAPTURE_NOT_SUPPORTED: 25,
-  PERMISSION_DENIED_BY_EMBEDDER_CONTEXT: 26,
-  DLP_PERMISSION_DENIED: 27,
-  REGISTRY_REQUEST_UNVERIFIED: 28,
-  INVALID_DEVICE_TYPE_REQUEST: 29,
-  INVALID_EXTENSION_TYPE_REQUEST: 30,
-  CAPTURED_TAB_DESTROYED: 31,
-  CAPTURE_NOT_ENABLED: 32,
-  SAFE_BROWSING_OBSERVER: 33,
-  CAPTURE_FROM_BACKGROUND_PAGE_ON_MAC: 34,
-  CAPTURE_NOT_ALLOWED_FOR_LONG_DOMAINS: 35,
-  PERMISSION_DENIED_BY_CONTROLLER: 36,
+  CONSTRAINT_NOT_SATISFIED: 9,
+  TRACK_START_FAILURE_AUDIO: 10,
+  TRACK_START_FAILURE_VIDEO: 11,
+  NOT_SUPPORTED: 12,
+  FAILED_DUE_TO_SHUTDOWN: 13,
+  KILL_SWITCH_ON: 14,
+  PERMISSION_DENIED_BY_SYSTEM: 15,
+  DEVICE_IN_USE: 16,
+  START_TIMEOUT: 18,
+  PERMISSION_DENIED_BY_USER: 19,
+  AUDIO_DEVICE_SOCKET_ERROR: 20,
+  NO_TRANSIENT_ACTIVATION: 21,
+  CAPTURE_NOT_ALLOWED_BY_POLICY: 22,
+  INVALID_DISPLAY_CAPTURE_CONSTRAINTS: 23,
+  INVALID_GUM_TAB_CAPTURE_CONSTRAINTS: 24,
+  INVALID_GUM_SCREEN_CAPTURE_CONSTRAINTS: 25,
+  INVALID_VIDEO_DEVICE_ID: 26,
+  STREAM_NOT_FOUND_IN_REGISTRY: 27,
+  ANDROID_CANT_REQUEST_PERMISSION: 28,
+  MULTI_CAPTURE_NOT_SUPPORTED: 29,
+  PERMISSION_DENIED_BY_EMBEDDER_CONTEXT: 30,
+  DLP_PERMISSION_DENIED: 31,
+  REGISTRY_REQUEST_UNVERIFIED: 32,
+  INVALID_DEVICE_TYPE_REQUEST: 33,
+  INVALID_EXTENSION_TYPE_REQUEST: 34,
+  CAPTURED_TAB_DESTROYED: 35,
+  CAPTURE_NOT_ENABLED: 36,
+  SAFE_BROWSING_OBSERVER: 37,
+  CAPTURE_FROM_BACKGROUND_PAGE_ON_MAC: 38,
+  CAPTURE_NOT_ALLOWED_FOR_LONG_DOMAINS: 39,
+  PERMISSION_DENIED_BY_CONTROLLER: 40,
 };
-blink.mojom.MediaStreamRequestResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: MediaStreamStateChange
 blink.mojom.MediaStreamStateChange = {
   PLAY: 0,
   PAUSE: 1,
 };
-blink.mojom.MediaStreamStateChangeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PreferredDisplaySurface
 blink.mojom.PreferredDisplaySurface = {
@@ -83,7 +131,6 @@ blink.mojom.PreferredDisplaySurface = {
   WINDOW: 2,
   BROWSER: 3,
 };
-blink.mojom.PreferredDisplaySurfaceSpec = { $: mojo.internal.Enum() };
 
 // Enum: CapturedSurfaceControlResult
 blink.mojom.CapturedSurfaceControlResult = {
@@ -97,7 +144,6 @@ blink.mojom.CapturedSurfaceControlResult = {
   kMinZoomLevel: 7,
   kMaxZoomLevel: 8,
 };
-blink.mojom.CapturedSurfaceControlResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: ZoomLevelAction
 blink.mojom.ZoomLevelAction = {
@@ -105,7 +151,6 @@ blink.mojom.ZoomLevelAction = {
   kDecrease: 1,
   kReset: 2,
 };
-blink.mojom.ZoomLevelActionSpec = { $: mojo.internal.Enum() };
 
 // Enum: WindowAudioPreference
 blink.mojom.WindowAudioPreference = {
@@ -113,265 +158,158 @@ blink.mojom.WindowAudioPreference = {
   kWindow: 1,
   kExclude: 2,
 };
-blink.mojom.WindowAudioPreferenceSpec = { $: mojo.internal.Enum() };
 
 // Union: StreamSelectionInfo
-blink.mojom.StreamSelectionInfoSpec = { $: mojo.internal.Union(
-    'blink.mojom.StreamSelectionInfo', {
+mojo.internal.Union(
+    blink.mojom.StreamSelectionInfoSpec, 'blink.mojom.StreamSelectionInfo', {
       'search_only_by_device_id': {
         'ordinal': 0,
         'type': blink.mojom.SearchOnlyByDeviceIdSpec,
-      }},
+        'nullable': false,
+      },
       'search_by_session_id': {
         'ordinal': 1,
         'type': blink.mojom.SearchBySessionIdSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: SearchOnlyByDeviceId
-blink.mojom.SearchOnlyByDeviceIdSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SearchOnlyByDeviceId',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SearchOnlyByDeviceIdSpec, 'blink.mojom.SearchOnlyByDeviceId', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 // Struct: SearchBySessionId
-blink.mojom.SearchBySessionIdSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SearchBySessionId',
-      packedSize: 16,
-      fields: [
-        { name: 'session_id_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo_base.mojom.UnguessableTokenSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SearchBySessionIdSpec, 'blink.mojom.SearchBySessionId', [
+      mojo.internal.StructField('session_id_map', 0, 0, mojo.internal.Map(mojo.internal.String, mojo_base.mojom.UnguessableTokenSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: MediaStreamDevice
-blink.mojom.MediaStreamDeviceSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDevice',
-      packedSize: 80,
-      fields: [
-        { name: 'type', packedOffset: 64, packedBitOffset: 0, type: blink.mojom.MediaStreamTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'display_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'video_facing', packedOffset: 68, packedBitOffset: 0, type: media.mojom.VideoFacingModeSpec, nullable: false, minVersion: 0 },
-        { name: 'group_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'matched_output_device_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'input', packedOffset: 40, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: false, minVersion: 0 },
-        { name: 'session_id', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
-        { name: 'display_media_info', packedOffset: 56, packedBitOffset: 0, type: media.mojom.DisplayMediaInformationSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 80}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.MediaStreamDeviceSpec, 'blink.mojom.MediaStreamDevice', [
+      mojo.internal.StructField('type', 64, 0, blink.mojom.MediaStreamTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('display_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('video_facing', 68, 0, media.mojom.VideoFacingModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('group_id', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('matched_output_device_id', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('name', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('input', 40, 0, media.mojom.AudioParametersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('session_id', 48, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('display_media_info', 56, 0, media.mojom.DisplayMediaInformationSpec, null, true, 0, undefined),
+    ],
+    [[0, 80]]);
 
 // Struct: TrackControls
-blink.mojom.TrackControlsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TrackControls',
-      packedSize: 24,
-      fields: [
-        { name: 'stream_type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MediaStreamTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'device_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.TrackControlsSpec, 'blink.mojom.TrackControls', [
+      mojo.internal.StructField('stream_type', 8, 0, blink.mojom.MediaStreamTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('device_ids', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: StreamControls
-blink.mojom.StreamControlsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StreamControls',
-      packedSize: 40,
-      fields: [
-        { name: 'audio', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.TrackControlsSpec, nullable: false, minVersion: 0 },
-        { name: 'video', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.TrackControlsSpec, nullable: false, minVersion: 0 },
-        { name: 'hotword_enabled', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'disable_local_echo', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'suppress_local_audio_playback', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'restrict_own_audio', packedOffset: 24, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'exclude_system_audio', packedOffset: 24, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'window_audio_preference', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.WindowAudioPreferenceSpec, nullable: false, minVersion: 0 },
-        { name: 'exclude_self_browser_surface', packedOffset: 24, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'request_pan_tilt_zoom_permission', packedOffset: 24, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'request_all_screens', packedOffset: 24, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'preferred_display_surface', packedOffset: 20, packedBitOffset: 0, type: blink.mojom.PreferredDisplaySurfaceSpec, nullable: false, minVersion: 0 },
-        { name: 'dynamic_surface_switching_requested', packedOffset: 25, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'exclude_monitor_type_surfaces', packedOffset: 25, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.StreamControlsSpec, 'blink.mojom.StreamControls', [
+      mojo.internal.StructField('audio', 0, 0, blink.mojom.TrackControlsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('video', 8, 0, blink.mojom.TrackControlsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('hotword_enabled', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('disable_local_echo', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('suppress_local_audio_playback', 24, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('restrict_own_audio', 24, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('exclude_system_audio', 24, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('window_audio_preference', 16, 0, blink.mojom.WindowAudioPreferenceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('exclude_self_browser_surface', 24, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('request_pan_tilt_zoom_permission', 24, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('request_all_screens', 24, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('preferred_display_surface', 20, 0, blink.mojom.PreferredDisplaySurfaceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('dynamic_surface_switching_requested', 25, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('exclude_monitor_type_surfaces', 25, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: GetOpenDeviceResponse
-blink.mojom.GetOpenDeviceResponseSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.GetOpenDeviceResponse',
-      packedSize: 32,
-      fields: [
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'device', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MediaStreamDeviceSpec, nullable: false, minVersion: 0 },
-        { name: 'pan_tilt_zoom_allowed', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.GetOpenDeviceResponseSpec, 'blink.mojom.GetOpenDeviceResponse', [
+      mojo.internal.StructField('label', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('device', 8, 0, blink.mojom.MediaStreamDeviceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pan_tilt_zoom_allowed', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: CapturedWheelAction
-blink.mojom.CapturedWheelActionSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CapturedWheelAction',
-      packedSize: 32,
-      fields: [
-        { name: 'relative_x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'relative_y', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'wheel_delta_x', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'wheel_delta_y', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.CapturedWheelActionSpec, 'blink.mojom.CapturedWheelAction', [
+      mojo.internal.StructField('relative_x', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('relative_y', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('wheel_delta_x', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('wheel_delta_y', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: StreamDevices
-blink.mojom.StreamDevicesSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StreamDevices',
-      packedSize: 24,
-      fields: [
-        { name: 'audio_device', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.MediaStreamDeviceSpec, nullable: true, minVersion: 0 },
-        { name: 'video_device', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MediaStreamDeviceSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.StreamDevicesSpec, 'blink.mojom.StreamDevices', [
+      mojo.internal.StructField('audio_device', 0, 0, blink.mojom.MediaStreamDeviceSpec, null, true, 0, undefined),
+      mojo.internal.StructField('video_device', 8, 0, blink.mojom.MediaStreamDeviceSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: StreamDevicesSet
-blink.mojom.StreamDevicesSetSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StreamDevicesSet',
-      packedSize: 16,
-      fields: [
-        { name: 'stream_devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.StreamDevicesSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.StreamDevicesSetSpec, 'blink.mojom.StreamDevicesSet', [
+      mojo.internal.StructField('stream_devices', 0, 0, mojo.internal.Array(blink.mojom.StreamDevicesSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: MediaStreamDeviceObserver
-blink.mojom.MediaStreamDeviceObserver = {};
+mojo.internal.Struct(
+    blink.mojom.MediaStreamDeviceObserver_OnDeviceStopped_ParamsSpec, 'blink.mojom.MediaStreamDeviceObserver_OnDeviceStopped_Params', [
+      mojo.internal.StructField('label', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('device', 8, 0, blink.mojom.MediaStreamDeviceSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.MediaStreamDeviceObserver_OnDeviceStopped_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDeviceObserver_OnDeviceStopped_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'device', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MediaStreamDeviceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.MediaStreamDeviceObserver_OnDeviceChanged_ParamsSpec, 'blink.mojom.MediaStreamDeviceObserver_OnDeviceChanged_Params', [
+      mojo.internal.StructField('label', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('old_device', 8, 0, blink.mojom.MediaStreamDeviceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('new_device', 16, 0, blink.mojom.MediaStreamDeviceSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-blink.mojom.MediaStreamDeviceObserver_OnDeviceChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDeviceObserver_OnDeviceChanged_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'old_device', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MediaStreamDeviceSpec, nullable: false, minVersion: 0 },
-        { name: 'new_device', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.MediaStreamDeviceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.MediaStreamDeviceObserver_OnDeviceRequestStateChange_ParamsSpec, 'blink.mojom.MediaStreamDeviceObserver_OnDeviceRequestStateChange_Params', [
+      mojo.internal.StructField('label', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('device', 8, 0, blink.mojom.MediaStreamDeviceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('new_state', 16, 0, blink.mojom.MediaStreamStateChangeSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-blink.mojom.MediaStreamDeviceObserver_OnDeviceRequestStateChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDeviceObserver_OnDeviceRequestStateChange_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'device', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MediaStreamDeviceSpec, nullable: false, minVersion: 0 },
-        { name: 'new_state', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.MediaStreamStateChangeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.MediaStreamDeviceObserver_OnDeviceCaptureConfigurationChange_ParamsSpec, 'blink.mojom.MediaStreamDeviceObserver_OnDeviceCaptureConfigurationChange_Params', [
+      mojo.internal.StructField('label', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('device', 8, 0, blink.mojom.MediaStreamDeviceSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.MediaStreamDeviceObserver_OnDeviceCaptureConfigurationChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDeviceObserver_OnDeviceCaptureConfigurationChange_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'device', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MediaStreamDeviceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.MediaStreamDeviceObserver_OnDeviceCaptureHandleChange_ParamsSpec, 'blink.mojom.MediaStreamDeviceObserver_OnDeviceCaptureHandleChange_Params', [
+      mojo.internal.StructField('label', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('device', 8, 0, blink.mojom.MediaStreamDeviceSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.MediaStreamDeviceObserver_OnDeviceCaptureHandleChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDeviceObserver_OnDeviceCaptureHandleChange_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'device', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MediaStreamDeviceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.MediaStreamDeviceObserver_OnZoomLevelChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDeviceObserver_OnZoomLevelChange_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'device', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MediaStreamDeviceSpec, nullable: false, minVersion: 0 },
-        { name: 'zoom_level', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.MediaStreamDeviceObserver_OnZoomLevelChange_ParamsSpec, 'blink.mojom.MediaStreamDeviceObserver_OnZoomLevelChange_Params', [
+      mojo.internal.StructField('label', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('device', 8, 0, blink.mojom.MediaStreamDeviceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('zoom_level', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 blink.mojom.MediaStreamDeviceObserverPendingReceiver = class {
   constructor(handle) {
@@ -471,292 +409,153 @@ blink.mojom.MediaStreamDeviceObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnDeviceStopped
-blink.mojom.MediaStreamDeviceObserver_OnDeviceStopped_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDeviceObserver.OnDeviceStopped_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'device', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MediaStreamDeviceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnDeviceChanged
-blink.mojom.MediaStreamDeviceObserver_OnDeviceChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDeviceObserver.OnDeviceChanged_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'old_device', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MediaStreamDeviceSpec, nullable: false, minVersion: 0 },
-        { name: 'new_device', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.MediaStreamDeviceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for OnDeviceRequestStateChange
-blink.mojom.MediaStreamDeviceObserver_OnDeviceRequestStateChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDeviceObserver.OnDeviceRequestStateChange_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'device', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MediaStreamDeviceSpec, nullable: false, minVersion: 0 },
-        { name: 'new_state', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.MediaStreamStateChangeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for OnDeviceCaptureConfigurationChange
-blink.mojom.MediaStreamDeviceObserver_OnDeviceCaptureConfigurationChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDeviceObserver.OnDeviceCaptureConfigurationChange_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'device', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MediaStreamDeviceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnDeviceCaptureHandleChange
-blink.mojom.MediaStreamDeviceObserver_OnDeviceCaptureHandleChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDeviceObserver.OnDeviceCaptureHandleChange_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'device', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MediaStreamDeviceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnZoomLevelChange
-blink.mojom.MediaStreamDeviceObserver_OnZoomLevelChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDeviceObserver.OnZoomLevelChange_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'device', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MediaStreamDeviceSpec, nullable: false, minVersion: 0 },
-        { name: 'zoom_level', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.MediaStreamDeviceObserverPtr = blink.mojom.MediaStreamDeviceObserverRemote;
 blink.mojom.MediaStreamDeviceObserverRequest = blink.mojom.MediaStreamDeviceObserverPendingReceiver;
 
 
 // Interface: MediaStreamDispatcherHost
-blink.mojom.MediaStreamDispatcherHost = {};
+mojo.internal.Struct(
+    blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_GenerateStreams_Params', [
+      mojo.internal.StructField('request_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('controls', 16, 0, blink.mojom.StreamControlsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('user_gesture', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('audio_stream_selection_info', 0, 0, blink.mojom.StreamSelectionInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDispatcherHost_GenerateStreams_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'request_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'controls', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.StreamControlsSpec, nullable: false, minVersion: 0 },
-        { name: 'user_gesture', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'audio_stream_selection_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.StreamSelectionInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ResponseParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ResponseParams', [
+      mojo.internal.StructField('result', 16, 0, blink.mojom.MediaStreamRequestResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('label', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('stream_devices', 8, 0, blink.mojom.StreamDevicesSetSpec, null, true, 0, undefined),
+      mojo.internal.StructField('pan_tilt_zoom_allowed', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-blink.mojom.MediaStreamDispatcherHost_FocusCapturedSurface_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDispatcherHost_FocusCapturedSurface_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'focus', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.MediaStreamDispatcherHost_FocusCapturedSurface_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_FocusCapturedSurface_Params', [
+      mojo.internal.StructField('label', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('focus', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.MediaStreamDispatcherHost_CancelRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDispatcherHost_CancelRequest_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.MediaStreamDispatcherHost_CancelRequest_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_CancelRequest_Params', [
+      mojo.internal.StructField('request_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.MediaStreamDispatcherHost_StopStreamDevice_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDispatcherHost_StopStreamDevice_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.MediaStreamDispatcherHost_StopStreamDevice_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_StopStreamDevice_Params', [
+      mojo.internal.StructField('device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('session_id', 8, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.MediaStreamDispatcherHost_OpenDevice_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDispatcherHost_OpenDevice_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'request_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 12, packedBitOffset: 0, type: blink.mojom.MediaStreamTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.MediaStreamDispatcherHost_OpenDevice_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_OpenDevice_Params', [
+      mojo.internal.StructField('request_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('type', 12, 0, blink.mojom.MediaStreamTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.MediaStreamDispatcherHost_CloseDevice_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDispatcherHost_CloseDevice_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.MediaStreamDispatcherHost_OpenDevice_ResponseParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_OpenDevice_ResponseParams', [
+      mojo.internal.StructField('success', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('label', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('device', 8, 0, blink.mojom.MediaStreamDeviceSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-blink.mojom.MediaStreamDispatcherHost_SetCapturingLinkSecured_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDispatcherHost_SetCapturingLinkSecured_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MediaStreamTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'is_secure', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.MediaStreamDispatcherHost_CloseDevice_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_CloseDevice_Params', [
+      mojo.internal.StructField('label', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: media.mojom.SubCaptureTargetTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'sub_capture_target', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false, minVersion: 0 },
-        { name: 'sub_capture_target_version', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.MediaStreamDispatcherHost_SetCapturingLinkSecured_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_SetCapturingLinkSecured_Params', [
+      mojo.internal.StructField('session_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, blink.mojom.MediaStreamTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_secure', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.MediaStreamDispatcherHost_SendWheel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDispatcherHost_SendWheel_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'action', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CapturedWheelActionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_Params', [
+      mojo.internal.StructField('session_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 16, 0, media.mojom.SubCaptureTargetTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('sub_capture_target', 8, 0, mojo_base.mojom.TokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('sub_capture_target_version', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'action', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ZoomLevelActionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ResponseParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, media.mojom.ApplySubCaptureTargetResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.MediaStreamDispatcherHost_SendWheel_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_SendWheel_Params', [
+      mojo.internal.StructField('session_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('action', 8, 0, blink.mojom.CapturedWheelActionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'request_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'transfer_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_Params', [
+      mojo.internal.StructField('session_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('action', 8, 0, blink.mojom.ZoomLevelActionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'transfer_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ResponseParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, blink.mojom.CapturedSurfaceControlResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_Params', [
+      mojo.internal.StructField('session_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_ResponseParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, blink.mojom.CapturedSurfaceControlResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_Params', [
+      mojo.internal.StructField('request_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('session_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('transfer_id', 8, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ResponseParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ResponseParams', [
+      mojo.internal.StructField('result', 8, 0, blink.mojom.MediaStreamRequestResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, blink.mojom.GetOpenDeviceResponseSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_Params', [
+      mojo.internal.StructField('session_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('transfer_id', 8, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ResponseParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ResponseParams', [
+      mojo.internal.StructField('device_found', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.MediaStreamDispatcherHostPendingReceiver = class {
   constructor(handle) {
@@ -919,337 +718,24 @@ blink.mojom.MediaStreamDispatcherHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GenerateStreams
-blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDispatcherHost.GenerateStreams_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'request_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'controls', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.StreamControlsSpec, nullable: false, minVersion: 0 },
-        { name: 'user_gesture', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'audio_stream_selection_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.StreamSelectionInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDispatcherHost.GenerateStreams_ResponseParams',
-      packedSize: 32,
-      fields: [
-        { name: 'result', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.MediaStreamRequestResultSpec, nullable: false, minVersion: 0 },
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'stream_devices', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StreamDevicesSetSpec, nullable: true, minVersion: 0 },
-        { name: 'pan_tilt_zoom_allowed', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for FocusCapturedSurface
-blink.mojom.MediaStreamDispatcherHost_FocusCapturedSurface_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDispatcherHost.FocusCapturedSurface_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'focus', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for CancelRequest
-blink.mojom.MediaStreamDispatcherHost_CancelRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDispatcherHost.CancelRequest_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StopStreamDevice
-blink.mojom.MediaStreamDispatcherHost_StopStreamDevice_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDispatcherHost.StopStreamDevice_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OpenDevice
-blink.mojom.MediaStreamDispatcherHost_OpenDevice_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDispatcherHost.OpenDevice_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'request_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 12, packedBitOffset: 0, type: blink.mojom.MediaStreamTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.MediaStreamDispatcherHost_OpenDevice_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDispatcherHost.OpenDevice_ResponseParams',
-      packedSize: 32,
-      fields: [
-        { name: 'success', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'device', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MediaStreamDeviceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for CloseDevice
-blink.mojom.MediaStreamDispatcherHost_CloseDevice_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDispatcherHost.CloseDevice_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetCapturingLinkSecured
-blink.mojom.MediaStreamDispatcherHost_SetCapturingLinkSecured_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDispatcherHost.SetCapturingLinkSecured_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MediaStreamTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'is_secure', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ApplySubCaptureTarget
-blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDispatcherHost.ApplySubCaptureTarget_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: media.mojom.SubCaptureTargetTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'sub_capture_target', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false, minVersion: 0 },
-        { name: 'sub_capture_target_version', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDispatcherHost.ApplySubCaptureTarget_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: media.mojom.ApplySubCaptureTargetResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SendWheel
-blink.mojom.MediaStreamDispatcherHost_SendWheel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDispatcherHost.SendWheel_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'action', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CapturedWheelActionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateZoomLevel
-blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDispatcherHost.UpdateZoomLevel_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'action', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ZoomLevelActionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDispatcherHost.UpdateZoomLevel_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CapturedSurfaceControlResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestCapturedSurfaceControlPermission
-blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDispatcherHost.RequestCapturedSurfaceControlPermission_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDispatcherHost.RequestCapturedSurfaceControlPermission_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CapturedSurfaceControlResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetOpenDevice
-blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDispatcherHost.GetOpenDevice_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'request_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'transfer_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDispatcherHost.GetOpenDevice_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MediaStreamRequestResultSpec, nullable: false, minVersion: 0 },
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.GetOpenDeviceResponseSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for KeepDeviceAliveForTransfer
-blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDispatcherHost.KeepDeviceAliveForTransfer_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'transfer_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamDispatcherHost.KeepDeviceAliveForTransfer_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'device_found', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.MediaStreamDispatcherHostPtr = blink.mojom.MediaStreamDispatcherHostRemote;
 blink.mojom.MediaStreamDispatcherHostRequest = blink.mojom.MediaStreamDispatcherHostPendingReceiver;
 
 
 // Interface: MediaStreamTrackMetricsHost
-blink.mojom.MediaStreamTrackMetricsHost = {};
+mojo.internal.Struct(
+    blink.mojom.MediaStreamTrackMetricsHost_AddTrack_ParamsSpec, 'blink.mojom.MediaStreamTrackMetricsHost_AddTrack_Params', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('is_audio', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_remote', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.MediaStreamTrackMetricsHost_AddTrack_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamTrackMetricsHost_AddTrack_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'is_audio', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_remote', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.MediaStreamTrackMetricsHost_RemoveTrack_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamTrackMetricsHost_RemoveTrack_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.MediaStreamTrackMetricsHost_RemoveTrack_ParamsSpec, 'blink.mojom.MediaStreamTrackMetricsHost_RemoveTrack_Params', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.MediaStreamTrackMetricsHostPendingReceiver = class {
   constructor(handle) {
@@ -1313,37 +799,6 @@ blink.mojom.MediaStreamTrackMetricsHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddTrack
-blink.mojom.MediaStreamTrackMetricsHost_AddTrack_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamTrackMetricsHost.AddTrack_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'is_audio', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_remote', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for RemoveTrack
-blink.mojom.MediaStreamTrackMetricsHost_RemoveTrack_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaStreamTrackMetricsHost.RemoveTrack_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.MediaStreamTrackMetricsHostPtr = blink.mojom.MediaStreamTrackMetricsHostRemote;
 blink.mojom.MediaStreamTrackMetricsHostRequest = blink.mojom.MediaStreamTrackMetricsHostPendingReceiver;
 

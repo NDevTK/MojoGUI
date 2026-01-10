@@ -8,6 +8,8 @@
 var ui = ui || {};
 ui.mojom = ui.mojom || {};
 
+ui.mojom.WindowOpenDispositionSpec = { $: mojo.internal.Enum() };
+ui.mojom.ClickModifiersSpec = { $: {} };
 
 // Enum: WindowOpenDisposition
 ui.mojom.WindowOpenDisposition = {
@@ -24,22 +26,14 @@ ui.mojom.WindowOpenDisposition = {
   SWITCH_TO_TAB: 10,
   NEW_PICTURE_IN_PICTURE: 11,
 };
-ui.mojom.WindowOpenDispositionSpec = { $: mojo.internal.Enum() };
 
 // Struct: ClickModifiers
-ui.mojom.ClickModifiersSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.mojom.ClickModifiers',
-      packedSize: 16,
-      fields: [
-        { name: 'middle_button', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'alt_key', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'ctrl_key', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'meta_key', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'shift_key', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ui.mojom.ClickModifiersSpec, 'ui.mojom.ClickModifiers', [
+      mojo.internal.StructField('middle_button', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('alt_key', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('ctrl_key', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('meta_key', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('shift_key', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);

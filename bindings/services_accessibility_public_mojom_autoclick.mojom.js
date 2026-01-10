@@ -10,22 +10,21 @@ ax.mojom = ax.mojom || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+ax.mojom.Autoclick = {};
+ax.mojom.Autoclick.$interfaceName = 'ax.mojom.Autoclick';
+ax.mojom.Autoclick_RequestScrollableBoundsForPoint_ParamsSpec = { $: {} };
+ax.mojom.AutoclickClient = {};
+ax.mojom.AutoclickClient.$interfaceName = 'ax.mojom.AutoclickClient';
+ax.mojom.AutoclickClient_HandleScrollableBoundsForPointFound_ParamsSpec = { $: {} };
+ax.mojom.AutoclickClient_BindAutoclick_ParamsSpec = { $: {} };
+ax.mojom.AutoclickClient_BindAutoclick_ResponseParamsSpec = { $: {} };
 
 // Interface: Autoclick
-ax.mojom.Autoclick = {};
-
-ax.mojom.Autoclick_RequestScrollableBoundsForPoint_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.Autoclick_RequestScrollableBoundsForPoint_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.Autoclick_RequestScrollableBoundsForPoint_ParamsSpec, 'ax.mojom.Autoclick_RequestScrollableBoundsForPoint_Params', [
+      mojo.internal.StructField('point', 0, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ax.mojom.AutoclickPendingReceiver = class {
   constructor(handle) {
@@ -80,52 +79,27 @@ ax.mojom.Autoclick.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RequestScrollableBoundsForPoint
-ax.mojom.Autoclick_RequestScrollableBoundsForPoint_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.Autoclick.RequestScrollableBoundsForPoint_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ax.mojom.AutoclickPtr = ax.mojom.AutoclickRemote;
 ax.mojom.AutoclickRequest = ax.mojom.AutoclickPendingReceiver;
 
 
 // Interface: AutoclickClient
-ax.mojom.AutoclickClient = {};
+mojo.internal.Struct(
+    ax.mojom.AutoclickClient_HandleScrollableBoundsForPointFound_ParamsSpec, 'ax.mojom.AutoclickClient_HandleScrollableBoundsForPointFound_Params', [
+      mojo.internal.StructField('bounds', 0, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ax.mojom.AutoclickClient_HandleScrollableBoundsForPointFound_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AutoclickClient_HandleScrollableBoundsForPointFound_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.AutoclickClient_BindAutoclick_ParamsSpec, 'ax.mojom.AutoclickClient_BindAutoclick_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ax.mojom.AutoclickClient_BindAutoclick_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AutoclickClient_BindAutoclick_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.AutoclickClient_BindAutoclick_ResponseParamsSpec, 'ax.mojom.AutoclickClient_BindAutoclick_ResponseParams', [
+      mojo.internal.StructField('autoclick_receiver', 0, 0, mojo.internal.InterfaceRequest(ax.mojom.AutoclickRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ax.mojom.AutoclickClientPendingReceiver = class {
   constructor(handle) {
@@ -189,47 +163,6 @@ ax.mojom.AutoclickClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for HandleScrollableBoundsForPointFound
-ax.mojom.AutoclickClient_HandleScrollableBoundsForPointFound_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AutoclickClient.HandleScrollableBoundsForPointFound_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindAutoclick
-ax.mojom.AutoclickClient_BindAutoclick_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AutoclickClient.BindAutoclick_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ax.mojom.AutoclickClient_BindAutoclick_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AutoclickClient.BindAutoclick_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'autoclick_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ax.mojom.AutoclickRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ax.mojom.AutoclickClientPtr = ax.mojom.AutoclickClientRemote;
 ax.mojom.AutoclickClientRequest = ax.mojom.AutoclickClientPendingReceiver;
 

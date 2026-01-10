@@ -8,30 +8,24 @@
 var bluetooth = bluetooth || {};
 bluetooth.mojom = bluetooth.mojom || {};
 
+bluetooth.mojom.GattCharacteristicPropertiesSpec = { $: {} };
 
 // Struct: GattCharacteristicProperties
-bluetooth.mojom.GattCharacteristicPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'bluetooth.mojom.GattCharacteristicProperties',
-      packedSize: 16,
-      fields: [
-        { name: 'broadcast', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'read', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'write_without_response', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'write', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'notify', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'indicate', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'authenticated_signed_writes', packedOffset: 0, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'extended_properties', packedOffset: 0, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'reliable_write', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'writable_auxiliaries', packedOffset: 1, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'read_encrypted', packedOffset: 1, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'write_encrypted', packedOffset: 1, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'read_encrypted_authenticated', packedOffset: 1, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'write_encrypted_authenticated', packedOffset: 1, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    bluetooth.mojom.GattCharacteristicPropertiesSpec, 'bluetooth.mojom.GattCharacteristicProperties', [
+      mojo.internal.StructField('broadcast', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('read', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('write_without_response', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('write', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('notify', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('indicate', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('authenticated_signed_writes', 0, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('extended_properties', 0, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('reliable_write', 1, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('writable_auxiliaries', 1, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('read_encrypted', 1, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('write_encrypted', 1, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('read_encrypted_authenticated', 1, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('write_encrypted_authenticated', 1, 5, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);

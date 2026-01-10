@@ -8,10 +8,10 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.ScriptTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ScriptType
 blink.mojom.ScriptType = {
   kClassic: 0,
   kModule: 1,
 };
-blink.mojom.ScriptTypeSpec = { $: mojo.internal.Enum() };

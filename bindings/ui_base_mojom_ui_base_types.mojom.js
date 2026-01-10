@@ -8,6 +8,7 @@
 var ui = ui || {};
 ui.mojom = ui.mojom || {};
 
+ui.mojom.ModalTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ModalType
 ui.mojom.ModalType = {
@@ -16,4 +17,3 @@ ui.mojom.ModalType = {
   kChild: 2,
   kSystem: 3,
 };
-ui.mojom.ModalTypeSpec = { $: mojo.internal.Enum() };

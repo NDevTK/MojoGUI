@@ -14,39 +14,27 @@ var gfx = gfx || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+ui.ozone.mojom.DeviceCursor = {};
+ui.ozone.mojom.DeviceCursor.$interfaceName = 'ui.ozone.mojom.DeviceCursor';
+ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec = { $: {} };
+ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec = { $: {} };
 
 // Interface: DeviceCursor
-ui.ozone.mojom.DeviceCursor = {};
+mojo.internal.Struct(
+    ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec, 'ui.ozone.mojom.DeviceCursor_SetCursor_Params', [
+      mojo.internal.StructField('window', 0, 0, gfx.mojom.AcceleratedWidgetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bitmaps', 8, 0, mojo.internal.Array(skia.mojom.BitmapN32Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('point', 16, 0, gfx.mojom.PointSpec, null, true, 0, undefined),
+      mojo.internal.StructField('frame_delay', 24, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.ozone.mojom.DeviceCursor_SetCursor_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'window', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.AcceleratedWidgetSpec, nullable: false, minVersion: 0 },
-        { name: 'bitmaps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(skia.mojom.BitmapN32Spec, false), nullable: false, minVersion: 0 },
-        { name: 'point', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: true, minVersion: 0 },
-        { name: 'frame_delay', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.ozone.mojom.DeviceCursor_MoveCursor_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'window', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.AcceleratedWidgetSpec, nullable: false, minVersion: 0 },
-        { name: 'point', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec, 'ui.ozone.mojom.DeviceCursor_MoveCursor_Params', [
+      mojo.internal.StructField('window', 0, 0, gfx.mojom.AcceleratedWidgetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('point', 8, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 ui.ozone.mojom.DeviceCursorPendingReceiver = class {
   constructor(handle) {
@@ -110,39 +98,6 @@ ui.ozone.mojom.DeviceCursor.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetCursor
-ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.ozone.mojom.DeviceCursor.SetCursor_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'window', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.AcceleratedWidgetSpec, nullable: false, minVersion: 0 },
-        { name: 'bitmaps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(skia.mojom.BitmapN32Spec, false), nullable: false, minVersion: 0 },
-        { name: 'point', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: true, minVersion: 0 },
-        { name: 'frame_delay', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for MoveCursor
-ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.ozone.mojom.DeviceCursor.MoveCursor_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'window', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.AcceleratedWidgetSpec, nullable: false, minVersion: 0 },
-        { name: 'point', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 ui.ozone.mojom.DeviceCursorPtr = ui.ozone.mojom.DeviceCursorRemote;
 ui.ozone.mojom.DeviceCursorRequest = ui.ozone.mojom.DeviceCursorPendingReceiver;
 

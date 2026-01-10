@@ -8,22 +8,16 @@
 var bluetooth = bluetooth || {};
 bluetooth.mojom = bluetooth.mojom || {};
 
+bluetooth.mojom.GattCharacteristicPermissionsSpec = { $: {} };
 
 // Struct: GattCharacteristicPermissions
-bluetooth.mojom.GattCharacteristicPermissionsSpec = {
-  $: {
-    structSpec: {
-      name: 'bluetooth.mojom.GattCharacteristicPermissions',
-      packedSize: 16,
-      fields: [
-        { name: 'read', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'write', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'read_encrypted', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'write_encrypted', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'read_encrypted_authenticated', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'write_encrypted_authenticated', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    bluetooth.mojom.GattCharacteristicPermissionsSpec, 'bluetooth.mojom.GattCharacteristicPermissions', [
+      mojo.internal.StructField('read', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('write', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('read_encrypted', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('write_encrypted', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('read_encrypted_authenticated', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('write_encrypted_authenticated', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);

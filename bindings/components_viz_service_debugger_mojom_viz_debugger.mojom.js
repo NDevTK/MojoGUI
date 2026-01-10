@@ -8,22 +8,16 @@
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
 
+viz.mojom.VizDebugOutput = {};
+viz.mojom.VizDebugOutput.$interfaceName = 'viz.mojom.VizDebugOutput';
+viz.mojom.VizDebugOutput_LogFrame_ParamsSpec = { $: {} };
 
 // Interface: VizDebugOutput
-viz.mojom.VizDebugOutput = {};
-
-viz.mojom.VizDebugOutput_LogFrame_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.VizDebugOutput_LogFrame_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'frameData', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.VizDebugOutput_LogFrame_ParamsSpec, 'viz.mojom.VizDebugOutput_LogFrame_Params', [
+      mojo.internal.StructField('frameData', 0, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 viz.mojom.VizDebugOutputPendingReceiver = class {
   constructor(handle) {
@@ -78,21 +72,6 @@ viz.mojom.VizDebugOutput.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for LogFrame
-viz.mojom.VizDebugOutput_LogFrame_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.VizDebugOutput.LogFrame_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'frameData', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 viz.mojom.VizDebugOutputPtr = viz.mojom.VizDebugOutputRemote;
 viz.mojom.VizDebugOutputRequest = viz.mojom.VizDebugOutputPendingReceiver;
 

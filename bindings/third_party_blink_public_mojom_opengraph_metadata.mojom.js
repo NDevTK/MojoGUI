@@ -9,17 +9,11 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 var url = url || {};
 
+blink.mojom.OpenGraphMetadataSpec = { $: {} };
 
 // Struct: OpenGraphMetadata
-blink.mojom.OpenGraphMetadataSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.OpenGraphMetadata',
-      packedSize: 16,
-      fields: [
-        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.OpenGraphMetadataSpec, 'blink.mojom.OpenGraphMetadata', [
+      mojo.internal.StructField('image', 0, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);

@@ -8,6 +8,33 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.DeviceThermalStateSpec = { $: mojo.internal.Enum() };
+blink.mojom.PeerConnectionInfoSpec = { $: {} };
+blink.mojom.PeerConnectionManager = {};
+blink.mojom.PeerConnectionManager.$interfaceName = 'blink.mojom.PeerConnectionManager';
+blink.mojom.PeerConnectionManager_OnSuspend_ParamsSpec = { $: {} };
+blink.mojom.PeerConnectionManager_OnThermalStateChange_ParamsSpec = { $: {} };
+blink.mojom.PeerConnectionManager_StartEventLog_ParamsSpec = { $: {} };
+blink.mojom.PeerConnectionManager_StopEventLog_ParamsSpec = { $: {} };
+blink.mojom.PeerConnectionManager_StartDataChannelLog_ParamsSpec = { $: {} };
+blink.mojom.PeerConnectionManager_StopDataChannelLog_ParamsSpec = { $: {} };
+blink.mojom.PeerConnectionManager_GetStandardStats_ParamsSpec = { $: {} };
+blink.mojom.PeerConnectionManager_GetCurrentState_ParamsSpec = { $: {} };
+blink.mojom.PeerConnectionTrackerHost = {};
+blink.mojom.PeerConnectionTrackerHost.$interfaceName = 'blink.mojom.PeerConnectionTrackerHost';
+blink.mojom.PeerConnectionTrackerHost_AddPeerConnection_ParamsSpec = { $: {} };
+blink.mojom.PeerConnectionTrackerHost_RemovePeerConnection_ParamsSpec = { $: {} };
+blink.mojom.PeerConnectionTrackerHost_UpdatePeerConnection_ParamsSpec = { $: {} };
+blink.mojom.PeerConnectionTrackerHost_OnPeerConnectionSessionIdSet_ParamsSpec = { $: {} };
+blink.mojom.PeerConnectionTrackerHost_GetUserMedia_ParamsSpec = { $: {} };
+blink.mojom.PeerConnectionTrackerHost_GetUserMediaSuccess_ParamsSpec = { $: {} };
+blink.mojom.PeerConnectionTrackerHost_GetUserMediaFailure_ParamsSpec = { $: {} };
+blink.mojom.PeerConnectionTrackerHost_GetDisplayMedia_ParamsSpec = { $: {} };
+blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaSuccess_ParamsSpec = { $: {} };
+blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaFailure_ParamsSpec = { $: {} };
+blink.mojom.PeerConnectionTrackerHost_WebRtcEventLogWrite_ParamsSpec = { $: {} };
+blink.mojom.PeerConnectionTrackerHost_WebRtcDataChannelLogWrite_ParamsSpec = { $: {} };
+blink.mojom.PeerConnectionTrackerHost_AddStandardStats_ParamsSpec = { $: {} };
 
 blink.mojom.kSpeedLimitMax = 100;
 
@@ -19,128 +46,62 @@ blink.mojom.DeviceThermalState = {
   kSerious: 3,
   kCritical: 4,
 };
-blink.mojom.DeviceThermalStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: PeerConnectionInfo
-blink.mojom.PeerConnectionInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionInfo',
-      packedSize: 32,
-      fields: [
-        { name: 'lid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'rtc_configuration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PeerConnectionInfoSpec, 'blink.mojom.PeerConnectionInfo', [
+      mojo.internal.StructField('lid', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('rtc_configuration', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: PeerConnectionManager
-blink.mojom.PeerConnectionManager = {};
+mojo.internal.Struct(
+    blink.mojom.PeerConnectionManager_OnSuspend_ParamsSpec, 'blink.mojom.PeerConnectionManager_OnSuspend_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.PeerConnectionManager_OnSuspend_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionManager_OnSuspend_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PeerConnectionManager_OnThermalStateChange_ParamsSpec, 'blink.mojom.PeerConnectionManager_OnThermalStateChange_Params', [
+      mojo.internal.StructField('thermal_state', 0, 0, blink.mojom.DeviceThermalStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.PeerConnectionManager_OnThermalStateChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionManager_OnThermalStateChange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'thermal_state', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DeviceThermalStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PeerConnectionManager_StartEventLog_ParamsSpec, 'blink.mojom.PeerConnectionManager_StartEventLog_Params', [
+      mojo.internal.StructField('peer_connection_local_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('output_period_ms', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.PeerConnectionManager_StartEventLog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionManager_StartEventLog_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'peer_connection_local_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'output_period_ms', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PeerConnectionManager_StopEventLog_ParamsSpec, 'blink.mojom.PeerConnectionManager_StopEventLog_Params', [
+      mojo.internal.StructField('peer_connection_local_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.PeerConnectionManager_StopEventLog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionManager_StopEventLog_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'peer_connection_local_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PeerConnectionManager_StartDataChannelLog_ParamsSpec, 'blink.mojom.PeerConnectionManager_StartDataChannelLog_Params', [
+      mojo.internal.StructField('peer_connection_local_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.PeerConnectionManager_StartDataChannelLog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionManager_StartDataChannelLog_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'peer_connection_local_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PeerConnectionManager_StopDataChannelLog_ParamsSpec, 'blink.mojom.PeerConnectionManager_StopDataChannelLog_Params', [
+      mojo.internal.StructField('peer_connection_local_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.PeerConnectionManager_StopDataChannelLog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionManager_StopDataChannelLog_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'peer_connection_local_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PeerConnectionManager_GetStandardStats_ParamsSpec, 'blink.mojom.PeerConnectionManager_GetStandardStats_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.PeerConnectionManager_GetStandardStats_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionManager_GetStandardStats_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.PeerConnectionManager_GetCurrentState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionManager_GetCurrentState_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PeerConnectionManager_GetCurrentState_ParamsSpec, 'blink.mojom.PeerConnectionManager_GetCurrentState_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 blink.mojom.PeerConnectionManagerPendingReceiver = class {
   constructor(handle) {
@@ -258,316 +219,112 @@ blink.mojom.PeerConnectionManager.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnSuspend
-blink.mojom.PeerConnectionManager_OnSuspend_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionManager.OnSuspend_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnThermalStateChange
-blink.mojom.PeerConnectionManager_OnThermalStateChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionManager.OnThermalStateChange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'thermal_state', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DeviceThermalStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StartEventLog
-blink.mojom.PeerConnectionManager_StartEventLog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionManager.StartEventLog_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'peer_connection_local_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'output_period_ms', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StopEventLog
-blink.mojom.PeerConnectionManager_StopEventLog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionManager.StopEventLog_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'peer_connection_local_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StartDataChannelLog
-blink.mojom.PeerConnectionManager_StartDataChannelLog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionManager.StartDataChannelLog_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'peer_connection_local_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StopDataChannelLog
-blink.mojom.PeerConnectionManager_StopDataChannelLog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionManager.StopDataChannelLog_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'peer_connection_local_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetStandardStats
-blink.mojom.PeerConnectionManager_GetStandardStats_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionManager.GetStandardStats_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for GetCurrentState
-blink.mojom.PeerConnectionManager_GetCurrentState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionManager.GetCurrentState_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.PeerConnectionManagerPtr = blink.mojom.PeerConnectionManagerRemote;
 blink.mojom.PeerConnectionManagerRequest = blink.mojom.PeerConnectionManagerPendingReceiver;
 
 
 // Interface: PeerConnectionTrackerHost
-blink.mojom.PeerConnectionTrackerHost = {};
+mojo.internal.Struct(
+    blink.mojom.PeerConnectionTrackerHost_AddPeerConnection_ParamsSpec, 'blink.mojom.PeerConnectionTrackerHost_AddPeerConnection_Params', [
+      mojo.internal.StructField('info', 0, 0, blink.mojom.PeerConnectionInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.PeerConnectionTrackerHost_AddPeerConnection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionTrackerHost_AddPeerConnection_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PeerConnectionInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PeerConnectionTrackerHost_RemovePeerConnection_ParamsSpec, 'blink.mojom.PeerConnectionTrackerHost_RemovePeerConnection_Params', [
+      mojo.internal.StructField('lid', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.PeerConnectionTrackerHost_RemovePeerConnection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionTrackerHost_RemovePeerConnection_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'lid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PeerConnectionTrackerHost_UpdatePeerConnection_ParamsSpec, 'blink.mojom.PeerConnectionTrackerHost_UpdatePeerConnection_Params', [
+      mojo.internal.StructField('lid', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-blink.mojom.PeerConnectionTrackerHost_UpdatePeerConnection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionTrackerHost_UpdatePeerConnection_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'lid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PeerConnectionTrackerHost_OnPeerConnectionSessionIdSet_ParamsSpec, 'blink.mojom.PeerConnectionTrackerHost_OnPeerConnectionSessionIdSet_Params', [
+      mojo.internal.StructField('lid', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.PeerConnectionTrackerHost_OnPeerConnectionSessionIdSet_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionTrackerHost_OnPeerConnectionSessionIdSet_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'lid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PeerConnectionTrackerHost_GetUserMedia_ParamsSpec, 'blink.mojom.PeerConnectionTrackerHost_GetUserMedia_Params', [
+      mojo.internal.StructField('request_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('audio', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('video', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('audio_constraints', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('video_constraints', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-blink.mojom.PeerConnectionTrackerHost_GetUserMedia_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionTrackerHost_GetUserMedia_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'request_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'audio', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'video', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'audio_constraints', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'video_constraints', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PeerConnectionTrackerHost_GetUserMediaSuccess_ParamsSpec, 'blink.mojom.PeerConnectionTrackerHost_GetUserMediaSuccess_Params', [
+      mojo.internal.StructField('request_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('stream_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('audio_track_info', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('video_track_info', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-blink.mojom.PeerConnectionTrackerHost_GetUserMediaSuccess_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionTrackerHost_GetUserMediaSuccess_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'request_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'audio_track_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'video_track_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PeerConnectionTrackerHost_GetUserMediaFailure_ParamsSpec, 'blink.mojom.PeerConnectionTrackerHost_GetUserMediaFailure_Params', [
+      mojo.internal.StructField('request_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('error_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-blink.mojom.PeerConnectionTrackerHost_GetUserMediaFailure_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionTrackerHost_GetUserMediaFailure_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'request_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PeerConnectionTrackerHost_GetDisplayMedia_ParamsSpec, 'blink.mojom.PeerConnectionTrackerHost_GetDisplayMedia_Params', [
+      mojo.internal.StructField('request_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('audio', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('video', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('audio_constraints', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('video_constraints', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-blink.mojom.PeerConnectionTrackerHost_GetDisplayMedia_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionTrackerHost_GetDisplayMedia_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'request_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'audio', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'video', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'audio_constraints', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'video_constraints', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaSuccess_ParamsSpec, 'blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaSuccess_Params', [
+      mojo.internal.StructField('request_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('stream_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('audio_track_info', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('video_track_info', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaSuccess_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaSuccess_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'request_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'audio_track_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'video_track_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaFailure_ParamsSpec, 'blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaFailure_Params', [
+      mojo.internal.StructField('request_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('error_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaFailure_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaFailure_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'request_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PeerConnectionTrackerHost_WebRtcEventLogWrite_ParamsSpec, 'blink.mojom.PeerConnectionTrackerHost_WebRtcEventLogWrite_Params', [
+      mojo.internal.StructField('lid', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('output', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.PeerConnectionTrackerHost_WebRtcEventLogWrite_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionTrackerHost_WebRtcEventLogWrite_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'lid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'output', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PeerConnectionTrackerHost_WebRtcDataChannelLogWrite_ParamsSpec, 'blink.mojom.PeerConnectionTrackerHost_WebRtcDataChannelLogWrite_Params', [
+      mojo.internal.StructField('lid', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('output', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.PeerConnectionTrackerHost_WebRtcDataChannelLogWrite_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionTrackerHost_WebRtcDataChannelLogWrite_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'lid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'output', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.PeerConnectionTrackerHost_AddStandardStats_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionTrackerHost_AddStandardStats_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'lid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PeerConnectionTrackerHost_AddStandardStats_ParamsSpec, 'blink.mojom.PeerConnectionTrackerHost_AddStandardStats_Params', [
+      mojo.internal.StructField('lid', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 blink.mojom.PeerConnectionTrackerHostPendingReceiver = class {
   constructor(handle) {
@@ -730,213 +487,6 @@ blink.mojom.PeerConnectionTrackerHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddPeerConnection
-blink.mojom.PeerConnectionTrackerHost_AddPeerConnection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionTrackerHost.AddPeerConnection_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PeerConnectionInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RemovePeerConnection
-blink.mojom.PeerConnectionTrackerHost_RemovePeerConnection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionTrackerHost.RemovePeerConnection_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'lid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for UpdatePeerConnection
-blink.mojom.PeerConnectionTrackerHost_UpdatePeerConnection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionTrackerHost.UpdatePeerConnection_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'lid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for OnPeerConnectionSessionIdSet
-blink.mojom.PeerConnectionTrackerHost_OnPeerConnectionSessionIdSet_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionTrackerHost.OnPeerConnectionSessionIdSet_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'lid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for GetUserMedia
-blink.mojom.PeerConnectionTrackerHost_GetUserMedia_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionTrackerHost.GetUserMedia_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'request_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'audio', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'video', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'audio_constraints', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'video_constraints', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for GetUserMediaSuccess
-blink.mojom.PeerConnectionTrackerHost_GetUserMediaSuccess_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionTrackerHost.GetUserMediaSuccess_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'request_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'audio_track_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'video_track_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for GetUserMediaFailure
-blink.mojom.PeerConnectionTrackerHost_GetUserMediaFailure_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionTrackerHost.GetUserMediaFailure_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'request_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for GetDisplayMedia
-blink.mojom.PeerConnectionTrackerHost_GetDisplayMedia_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionTrackerHost.GetDisplayMedia_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'request_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'audio', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'video', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'audio_constraints', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'video_constraints', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for GetDisplayMediaSuccess
-blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaSuccess_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionTrackerHost.GetDisplayMediaSuccess_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'request_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'audio_track_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'video_track_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for GetDisplayMediaFailure
-blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaFailure_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionTrackerHost.GetDisplayMediaFailure_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'request_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for WebRtcEventLogWrite
-blink.mojom.PeerConnectionTrackerHost_WebRtcEventLogWrite_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionTrackerHost.WebRtcEventLogWrite_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'lid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'output', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for WebRtcDataChannelLogWrite
-blink.mojom.PeerConnectionTrackerHost_WebRtcDataChannelLogWrite_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionTrackerHost.WebRtcDataChannelLogWrite_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'lid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'output', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for AddStandardStats
-blink.mojom.PeerConnectionTrackerHost_AddStandardStats_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PeerConnectionTrackerHost.AddStandardStats_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'lid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.PeerConnectionTrackerHostPtr = blink.mojom.PeerConnectionTrackerHostRemote;
 blink.mojom.PeerConnectionTrackerHostRequest = blink.mojom.PeerConnectionTrackerHostPendingReceiver;
 

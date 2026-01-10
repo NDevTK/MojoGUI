@@ -11,87 +11,51 @@ var blink = blink || {};
 var blink = blink || {};
 var blink = blink || {};
 
+blink.mojom.SharedWorkerHost = {};
+blink.mojom.SharedWorkerHost.$interfaceName = 'blink.mojom.SharedWorkerHost';
+blink.mojom.SharedWorkerHost_OnConnected_ParamsSpec = { $: {} };
+blink.mojom.SharedWorkerHost_OnContextClosed_ParamsSpec = { $: {} };
+blink.mojom.SharedWorkerHost_OnReadyForInspection_ParamsSpec = { $: {} };
+blink.mojom.SharedWorkerHost_OnScriptLoadFailed_ParamsSpec = { $: {} };
+blink.mojom.SharedWorkerHost_OnReportException_ParamsSpec = { $: {} };
+blink.mojom.SharedWorkerHost_OnFeatureUsed_ParamsSpec = { $: {} };
 
 // Interface: SharedWorkerHost
-blink.mojom.SharedWorkerHost = {};
+mojo.internal.Struct(
+    blink.mojom.SharedWorkerHost_OnConnected_ParamsSpec, 'blink.mojom.SharedWorkerHost_OnConnected_Params', [
+      mojo.internal.StructField('connection_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.SharedWorkerHost_OnConnected_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedWorkerHost_OnConnected_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'connection_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SharedWorkerHost_OnContextClosed_ParamsSpec, 'blink.mojom.SharedWorkerHost_OnContextClosed_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.SharedWorkerHost_OnContextClosed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedWorkerHost_OnContextClosed_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SharedWorkerHost_OnReadyForInspection_ParamsSpec, 'blink.mojom.SharedWorkerHost_OnReadyForInspection_Params', [
+      mojo.internal.StructField('agent', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.DevToolsAgentRemote), null, false, 0, undefined),
+      mojo.internal.StructField('agent_host', 8, 0, mojo.internal.InterfaceRequest(blink.mojom.DevToolsAgentHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.SharedWorkerHost_OnReadyForInspection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedWorkerHost_OnReadyForInspection_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.DevToolsAgentRemote), nullable: false, minVersion: 0 },
-        { name: 'agent_host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.DevToolsAgentHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SharedWorkerHost_OnScriptLoadFailed_ParamsSpec, 'blink.mojom.SharedWorkerHost_OnScriptLoadFailed_Params', [
+      mojo.internal.StructField('error_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.SharedWorkerHost_OnScriptLoadFailed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedWorkerHost_OnScriptLoadFailed_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SharedWorkerHost_OnReportException_ParamsSpec, 'blink.mojom.SharedWorkerHost_OnReportException_Params', [
+      mojo.internal.StructField('details', 0, 0, blink.mojom.SharedWorkerExceptionDetailsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.SharedWorkerHost_OnReportException_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedWorkerHost_OnReportException_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SharedWorkerExceptionDetailsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.SharedWorkerHost_OnFeatureUsed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedWorkerHost_OnFeatureUsed_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebFeatureSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SharedWorkerHost_OnFeatureUsed_ParamsSpec, 'blink.mojom.SharedWorkerHost_OnFeatureUsed_Params', [
+      mojo.internal.StructField('feature', 0, 0, blink.mojom.WebFeatureSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.SharedWorkerHostPendingReceiver = class {
   constructor(handle) {
@@ -191,91 +155,6 @@ blink.mojom.SharedWorkerHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnConnected
-blink.mojom.SharedWorkerHost_OnConnected_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedWorkerHost.OnConnected_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'connection_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnContextClosed
-blink.mojom.SharedWorkerHost_OnContextClosed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedWorkerHost.OnContextClosed_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnReadyForInspection
-blink.mojom.SharedWorkerHost_OnReadyForInspection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedWorkerHost.OnReadyForInspection_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.DevToolsAgentRemote), nullable: false, minVersion: 0 },
-        { name: 'agent_host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.DevToolsAgentHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnScriptLoadFailed
-blink.mojom.SharedWorkerHost_OnScriptLoadFailed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedWorkerHost.OnScriptLoadFailed_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnReportException
-blink.mojom.SharedWorkerHost_OnReportException_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedWorkerHost.OnReportException_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SharedWorkerExceptionDetailsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnFeatureUsed
-blink.mojom.SharedWorkerHost_OnFeatureUsed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedWorkerHost.OnFeatureUsed_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebFeatureSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.SharedWorkerHostPtr = blink.mojom.SharedWorkerHostRemote;
 blink.mojom.SharedWorkerHostRequest = blink.mojom.SharedWorkerHostPendingReceiver;
 

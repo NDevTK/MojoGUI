@@ -10,6 +10,37 @@ ash.nearby = ash.nearby || {};
 ash.nearby.presence = ash.nearby.presence || {};
 ash.nearby.presence.mojom = ash.nearby.presence.mojom || {};
 
+ash.nearby.presence.mojom.IdentityTypeSpec = { $: mojo.internal.Enum() };
+ash.nearby.presence.mojom.PresenceDeviceTypeSpec = { $: mojo.internal.Enum() };
+ash.nearby.presence.mojom.ActionTypeSpec = { $: mojo.internal.Enum() };
+ash.nearby.presence.mojom.PublicCredentialTypeSpec = { $: mojo.internal.Enum() };
+ash.nearby.presence.mojom.CredentialTypeSpec = { $: mojo.internal.Enum() };
+ash.nearby.presence.mojom.ScanRequestSpec = { $: {} };
+ash.nearby.presence.mojom.PrivateKeySpec = { $: {} };
+ash.nearby.presence.mojom.PresenceScanFilterSpec = { $: {} };
+ash.nearby.presence.mojom.MetadataSpec = { $: {} };
+ash.nearby.presence.mojom.SharedCredentialSpec = { $: {} };
+ash.nearby.presence.mojom.PresenceDeviceSpec = { $: {} };
+ash.nearby.presence.mojom.LocalCredentialSpec = { $: {} };
+ash.nearby.presence.mojom.ScanSession = {};
+ash.nearby.presence.mojom.ScanSession.$interfaceName = 'ash.nearby.presence.mojom.ScanSession';
+ash.nearby.presence.mojom.ScanObserver = {};
+ash.nearby.presence.mojom.ScanObserver.$interfaceName = 'ash.nearby.presence.mojom.ScanObserver';
+ash.nearby.presence.mojom.ScanObserver_OnDeviceFound_ParamsSpec = { $: {} };
+ash.nearby.presence.mojom.ScanObserver_OnDeviceChanged_ParamsSpec = { $: {} };
+ash.nearby.presence.mojom.ScanObserver_OnDeviceLost_ParamsSpec = { $: {} };
+ash.nearby.presence.mojom.NearbyPresence = {};
+ash.nearby.presence.mojom.NearbyPresence.$interfaceName = 'ash.nearby.presence.mojom.NearbyPresence';
+ash.nearby.presence.mojom.NearbyPresence_StartScan_ParamsSpec = { $: {} };
+ash.nearby.presence.mojom.NearbyPresence_StartScan_ResponseParamsSpec = { $: {} };
+ash.nearby.presence.mojom.NearbyPresence_SetScanObserver_ParamsSpec = { $: {} };
+ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadata_ParamsSpec = { $: {} };
+ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ParamsSpec = { $: {} };
+ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ResponseParamsSpec = { $: {} };
+ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ParamsSpec = { $: {} };
+ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ResponseParamsSpec = { $: {} };
+ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ParamsSpec = { $: {} };
+ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ResponseParamsSpec = { $: {} };
 
 // Enum: IdentityType
 ash.nearby.presence.mojom.IdentityType = {
@@ -18,7 +49,6 @@ ash.nearby.presence.mojom.IdentityType = {
   kIdentityTypeContactsGroup: 2,
   kIdentityTypePublic: 3,
 };
-ash.nearby.presence.mojom.IdentityTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PresenceDeviceType
 ash.nearby.presence.mojom.PresenceDeviceType = {
@@ -32,29 +62,26 @@ ash.nearby.presence.mojom.PresenceDeviceType = {
   kChromeos: 7,
   kFoldable: 8,
 };
-ash.nearby.presence.mojom.PresenceDeviceTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ActionType
 ash.nearby.presence.mojom.ActionType = {
-  kCallTransferAction: 0,
-  kActiveUnlockAction: 1,
-  kNearbyShareAction: 2,
-  kInstantTetheringAction: 3,
-  kPhoneHubAction: 4,
-  kPresenceManagerAction: 5,
-  kFinderAction: 6,
-  kFastPairSassAction: 7,
-  kTapToTransferAction: 8,
-  kLastAction: 9,
+  kCallTransferAction: 4,
+  kActiveUnlockAction: 8,
+  kNearbyShareAction: 9,
+  kInstantTetheringAction: 10,
+  kPhoneHubAction: 11,
+  kPresenceManagerAction: 12,
+  kFinderAction: 13,
+  kFastPairSassAction: 14,
+  kTapToTransferAction: 15,
+  kLastAction: 16,
 };
-ash.nearby.presence.mojom.ActionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PublicCredentialType
 ash.nearby.presence.mojom.PublicCredentialType = {
-  kLocalPublicCredential: 0,
-  kRemotePublicCredential: 1,
+  kLocalPublicCredential: 1,
+  kRemotePublicCredential: 2,
 };
-ash.nearby.presence.mojom.PublicCredentialTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CredentialType
 ash.nearby.presence.mojom.CredentialType = {
@@ -62,146 +89,94 @@ ash.nearby.presence.mojom.CredentialType = {
   kCredentialTypeDevice: 1,
   kCredentialTypeGaia: 2,
 };
-ash.nearby.presence.mojom.CredentialTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: ScanRequest
-ash.nearby.presence.mojom.ScanRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.ScanRequest',
-      packedSize: 32,
-      fields: [
-        { name: 'account_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'identity_types', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ash.nearby.presence.mojom.IdentityTypeSpec, false), nullable: false, minVersion: 0 },
-        { name: 'scan_filters', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(ash.nearby.presence.mojom.PresenceScanFilterSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.nearby.presence.mojom.ScanRequestSpec, 'ash.nearby.presence.mojom.ScanRequest', [
+      mojo.internal.StructField('account_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('identity_types', 8, 0, mojo.internal.Array(ash.nearby.presence.mojom.IdentityTypeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('scan_filters', 16, 0, mojo.internal.Array(ash.nearby.presence.mojom.PresenceScanFilterSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: PrivateKey
-ash.nearby.presence.mojom.PrivateKeySpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.PrivateKey',
-      packedSize: 24,
-      fields: [
-        { name: 'certificate_alias', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.nearby.presence.mojom.PrivateKeySpec, 'ash.nearby.presence.mojom.PrivateKey', [
+      mojo.internal.StructField('certificate_alias', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('key', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: PresenceScanFilter
-ash.nearby.presence.mojom.PresenceScanFilterSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.PresenceScanFilter',
-      packedSize: 16,
-      fields: [
-        { name: 'device_type', packedOffset: 0, packedBitOffset: 0, type: ash.nearby.presence.mojom.PresenceDeviceTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.nearby.presence.mojom.PresenceScanFilterSpec, 'ash.nearby.presence.mojom.PresenceScanFilter', [
+      mojo.internal.StructField('device_type', 0, 0, ash.nearby.presence.mojom.PresenceDeviceTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: Metadata
-ash.nearby.presence.mojom.MetadataSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.Metadata',
-      packedSize: 40,
-      fields: [
-        { name: 'device_type', packedOffset: 24, packedBitOffset: 0, type: ash.nearby.presence.mojom.PresenceDeviceTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'device_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'bluetooth_mac_address', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'device_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.nearby.presence.mojom.MetadataSpec, 'ash.nearby.presence.mojom.Metadata', [
+      mojo.internal.StructField('device_type', 24, 0, ash.nearby.presence.mojom.PresenceDeviceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('device_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('bluetooth_mac_address', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('device_id', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: SharedCredential
-ash.nearby.presence.mojom.SharedCredentialSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.SharedCredential',
-      packedSize: 136,
-      fields: [
-        { name: 'key_seed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
-        { name: 'start_time_millis', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'end_time_millis', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'encrypted_metadata_bytes_v0', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'metadata_encryption_key_tag_v0', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'connection_signature_verification_key', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'advertisement_signature_verification_key', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'identity_type', packedOffset: 120, packedBitOffset: 0, type: ash.nearby.presence.mojom.IdentityTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'version', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'credential_type', packedOffset: 124, packedBitOffset: 0, type: ash.nearby.presence.mojom.CredentialTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'encrypted_metadata_bytes_v1', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'identity_token_short_salt_adv_hmac_key_v1', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'id', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'dusi', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'signature_version', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'identity_token_extended_salt_adv_hmac_key_v1', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'identity_token_signed_adv_hmac_key_v1', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 136}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.nearby.presence.mojom.SharedCredentialSpec, 'ash.nearby.presence.mojom.SharedCredential', [
+      mojo.internal.StructField('key_seed', 0, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('start_time_millis', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('end_time_millis', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('encrypted_metadata_bytes_v0', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('metadata_encryption_key_tag_v0', 32, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('connection_signature_verification_key', 40, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('advertisement_signature_verification_key', 48, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('identity_type', 120, 0, ash.nearby.presence.mojom.IdentityTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('version', 56, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('credential_type', 124, 0, ash.nearby.presence.mojom.CredentialTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('encrypted_metadata_bytes_v1', 64, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('identity_token_short_salt_adv_hmac_key_v1', 72, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('id', 80, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('dusi', 88, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('signature_version', 96, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('identity_token_extended_salt_adv_hmac_key_v1', 104, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('identity_token_signed_adv_hmac_key_v1', 112, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 136]]);
 
 // Struct: PresenceDevice
-ash.nearby.presence.mojom.PresenceDeviceSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.PresenceDevice',
-      packedSize: 48,
-      fields: [
-        { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'actions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ash.nearby.presence.mojom.ActionTypeSpec, false), nullable: false, minVersion: 0 },
-        { name: 'stable_device_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'metadata', packedOffset: 24, packedBitOffset: 0, type: ash.nearby.presence.mojom.MetadataSpec, nullable: false, minVersion: 0 },
-        { name: 'decrypt_shared_credential', packedOffset: 32, packedBitOffset: 0, type: ash.nearby.presence.mojom.SharedCredentialSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.nearby.presence.mojom.PresenceDeviceSpec, 'ash.nearby.presence.mojom.PresenceDevice', [
+      mojo.internal.StructField('endpoint_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('actions', 8, 0, mojo.internal.Array(ash.nearby.presence.mojom.ActionTypeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('stable_device_id', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('metadata', 24, 0, ash.nearby.presence.mojom.MetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('decrypt_shared_credential', 32, 0, ash.nearby.presence.mojom.SharedCredentialSpec, null, true, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: LocalCredential
-ash.nearby.presence.mojom.LocalCredentialSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.LocalCredential',
-      packedSize: 104,
-      fields: [
-        { name: 'secret_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'key_seed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'start_time_millis', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'end_time_millis', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'metadata_encryption_key_v0', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'advertisement_signing_key', packedOffset: 40, packedBitOffset: 0, type: ash.nearby.presence.mojom.PrivateKeySpec, nullable: false, minVersion: 0 },
-        { name: 'connection_signing_key', packedOffset: 48, packedBitOffset: 0, type: ash.nearby.presence.mojom.PrivateKeySpec, nullable: false, minVersion: 0 },
-        { name: 'identity_type', packedOffset: 88, packedBitOffset: 0, type: ash.nearby.presence.mojom.IdentityTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'consumed_salts', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Uint32, mojo.internal.Bool, false), nullable: false, minVersion: 0 },
-        { name: 'identity_token_v1', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'id', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'signature_version', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 104}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.nearby.presence.mojom.LocalCredentialSpec, 'ash.nearby.presence.mojom.LocalCredential', [
+      mojo.internal.StructField('secret_id', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('key_seed', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('start_time_millis', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('end_time_millis', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('metadata_encryption_key_v0', 32, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('advertisement_signing_key', 40, 0, ash.nearby.presence.mojom.PrivateKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('connection_signing_key', 48, 0, ash.nearby.presence.mojom.PrivateKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('identity_type', 88, 0, ash.nearby.presence.mojom.IdentityTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('consumed_salts', 56, 0, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.Bool, false), null, false, 0, undefined),
+      mojo.internal.StructField('identity_token_v1', 64, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('id', 72, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('signature_version', 80, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 104]]);
 
 // Interface: ScanSession
-ash.nearby.presence.mojom.ScanSession = {};
-
 ash.nearby.presence.mojom.ScanSessionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -246,52 +221,28 @@ ash.nearby.presence.mojom.ScanSession.getRemote = function() {
   return remote.$;
 };
 
-// Legacy compatibility
 ash.nearby.presence.mojom.ScanSessionPtr = ash.nearby.presence.mojom.ScanSessionRemote;
 ash.nearby.presence.mojom.ScanSessionRequest = ash.nearby.presence.mojom.ScanSessionPendingReceiver;
 
 
 // Interface: ScanObserver
-ash.nearby.presence.mojom.ScanObserver = {};
+mojo.internal.Struct(
+    ash.nearby.presence.mojom.ScanObserver_OnDeviceFound_ParamsSpec, 'ash.nearby.presence.mojom.ScanObserver_OnDeviceFound_Params', [
+      mojo.internal.StructField('device', 0, 0, ash.nearby.presence.mojom.PresenceDeviceSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.nearby.presence.mojom.ScanObserver_OnDeviceFound_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.ScanObserver_OnDeviceFound_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'device', packedOffset: 0, packedBitOffset: 0, type: ash.nearby.presence.mojom.PresenceDeviceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.nearby.presence.mojom.ScanObserver_OnDeviceChanged_ParamsSpec, 'ash.nearby.presence.mojom.ScanObserver_OnDeviceChanged_Params', [
+      mojo.internal.StructField('device', 0, 0, ash.nearby.presence.mojom.PresenceDeviceSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.nearby.presence.mojom.ScanObserver_OnDeviceChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.ScanObserver_OnDeviceChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'device', packedOffset: 0, packedBitOffset: 0, type: ash.nearby.presence.mojom.PresenceDeviceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.nearby.presence.mojom.ScanObserver_OnDeviceLost_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.ScanObserver_OnDeviceLost_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'device', packedOffset: 0, packedBitOffset: 0, type: ash.nearby.presence.mojom.PresenceDeviceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.nearby.presence.mojom.ScanObserver_OnDeviceLost_ParamsSpec, 'ash.nearby.presence.mojom.ScanObserver_OnDeviceLost_Params', [
+      mojo.internal.StructField('device', 0, 0, ash.nearby.presence.mojom.PresenceDeviceSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.nearby.presence.mojom.ScanObserverPendingReceiver = class {
   constructor(handle) {
@@ -364,134 +315,74 @@ ash.nearby.presence.mojom.ScanObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnDeviceFound
-ash.nearby.presence.mojom.ScanObserver_OnDeviceFound_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.ScanObserver.OnDeviceFound_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'device', packedOffset: 0, packedBitOffset: 0, type: ash.nearby.presence.mojom.PresenceDeviceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnDeviceChanged
-ash.nearby.presence.mojom.ScanObserver_OnDeviceChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.ScanObserver.OnDeviceChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'device', packedOffset: 0, packedBitOffset: 0, type: ash.nearby.presence.mojom.PresenceDeviceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnDeviceLost
-ash.nearby.presence.mojom.ScanObserver_OnDeviceLost_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.ScanObserver.OnDeviceLost_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'device', packedOffset: 0, packedBitOffset: 0, type: ash.nearby.presence.mojom.PresenceDeviceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.nearby.presence.mojom.ScanObserverPtr = ash.nearby.presence.mojom.ScanObserverRemote;
 ash.nearby.presence.mojom.ScanObserverRequest = ash.nearby.presence.mojom.ScanObserverPendingReceiver;
 
 
 // Interface: NearbyPresence
-ash.nearby.presence.mojom.NearbyPresence = {};
+mojo.internal.Struct(
+    ash.nearby.presence.mojom.NearbyPresence_StartScan_ParamsSpec, 'ash.nearby.presence.mojom.NearbyPresence_StartScan_Params', [
+      mojo.internal.StructField('scan_request', 0, 0, ash.nearby.presence.mojom.ScanRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.nearby.presence.mojom.NearbyPresence_StartScan_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.NearbyPresence_StartScan_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'scan_request', packedOffset: 0, packedBitOffset: 0, type: ash.nearby.presence.mojom.ScanRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.nearby.presence.mojom.NearbyPresence_StartScan_ResponseParamsSpec, 'ash.nearby.presence.mojom.NearbyPresence_StartScan_ResponseParams', [
+      mojo.internal.StructField('scan_session', 0, 0, mojo.internal.InterfaceProxy(ash.nearby.presence.mojom.ScanSessionRemote), null, true, 0, undefined),
+      mojo.internal.StructField('status', 8, 0, mojo_base.mojom.AbslStatusCodeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.nearby.presence.mojom.NearbyPresence_SetScanObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.NearbyPresence_SetScanObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'scan_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.nearby.presence.mojom.ScanObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.nearby.presence.mojom.NearbyPresence_SetScanObserver_ParamsSpec, 'ash.nearby.presence.mojom.NearbyPresence_SetScanObserver_Params', [
+      mojo.internal.StructField('scan_observer', 0, 0, mojo.internal.InterfaceProxy(ash.nearby.presence.mojom.ScanObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadata_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadata_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: ash.nearby.presence.mojom.MetadataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadata_ParamsSpec, 'ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadata_Params', [
+      mojo.internal.StructField('metadata', 0, 0, ash.nearby.presence.mojom.MetadataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: ash.nearby.presence.mojom.MetadataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ParamsSpec, 'ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_Params', [
+      mojo.internal.StructField('metadata', 0, 0, ash.nearby.presence.mojom.MetadataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'shared_credentials', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.nearby.presence.mojom.SharedCredentialSpec, false), nullable: false, minVersion: 0 },
-        { name: 'account_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ResponseParamsSpec, 'ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ResponseParams', [
+      mojo.internal.StructField('shared_credentials', 0, 0, mojo.internal.Array(ash.nearby.presence.mojom.SharedCredentialSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('status', 8, 0, mojo_base.mojom.AbslStatusCodeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'account_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ParamsSpec, 'ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_Params', [
+      mojo.internal.StructField('shared_credentials', 0, 0, mojo.internal.Array(ash.nearby.presence.mojom.SharedCredentialSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('account_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ResponseParamsSpec, 'ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, mojo_base.mojom.AbslStatusCodeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ParamsSpec, 'ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_Params', [
+      mojo.internal.StructField('account_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ResponseParamsSpec, 'ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ResponseParams', [
+      mojo.internal.StructField('shared_credentials', 0, 0, mojo.internal.Array(ash.nearby.presence.mojom.SharedCredentialSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('status', 8, 0, mojo_base.mojom.AbslStatusCodeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 ash.nearby.presence.mojom.NearbyPresencePendingReceiver = class {
   constructor(handle) {
@@ -591,147 +482,6 @@ ash.nearby.presence.mojom.NearbyPresence.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for StartScan
-ash.nearby.presence.mojom.NearbyPresence_StartScan_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.NearbyPresence.StartScan_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'scan_request', packedOffset: 0, packedBitOffset: 0, type: ash.nearby.presence.mojom.ScanRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.nearby.presence.mojom.NearbyPresence_StartScan_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.NearbyPresence.StartScan_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'scan_session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.nearby.presence.mojom.ScanSessionRemote), nullable: true, minVersion: 0 },
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.AbslStatusCodeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SetScanObserver
-ash.nearby.presence.mojom.NearbyPresence_SetScanObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.NearbyPresence.SetScanObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'scan_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.nearby.presence.mojom.ScanObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateLocalDeviceMetadata
-ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadata_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.NearbyPresence.UpdateLocalDeviceMetadata_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: ash.nearby.presence.mojom.MetadataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateLocalDeviceMetadataAndGenerateCredentials
-ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.NearbyPresence.UpdateLocalDeviceMetadataAndGenerateCredentials_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: ash.nearby.presence.mojom.MetadataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.NearbyPresence.UpdateLocalDeviceMetadataAndGenerateCredentials_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'shared_credentials', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.nearby.presence.mojom.SharedCredentialSpec, false), nullable: false, minVersion: 0 },
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.AbslStatusCodeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateRemoteSharedCredentials
-ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.NearbyPresence.UpdateRemoteSharedCredentials_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'shared_credentials', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.nearby.presence.mojom.SharedCredentialSpec, false), nullable: false, minVersion: 0 },
-        { name: 'account_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.NearbyPresence.UpdateRemoteSharedCredentials_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.AbslStatusCodeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetLocalSharedCredentials
-ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.NearbyPresence.GetLocalSharedCredentials_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'account_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.NearbyPresence.GetLocalSharedCredentials_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'shared_credentials', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.nearby.presence.mojom.SharedCredentialSpec, false), nullable: false, minVersion: 0 },
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.AbslStatusCodeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.nearby.presence.mojom.NearbyPresencePtr = ash.nearby.presence.mojom.NearbyPresenceRemote;
 ash.nearby.presence.mojom.NearbyPresenceRequest = ash.nearby.presence.mojom.NearbyPresencePendingReceiver;
 

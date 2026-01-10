@@ -8,69 +8,55 @@
 var enterprise_reporting = enterprise_reporting || {};
 enterprise_reporting.mojom = enterprise_reporting.mojom || {};
 
+enterprise_reporting.mojom.ErpHistoryDataSpec = { $: {} };
+enterprise_reporting.mojom.ErpHistoryEventSpec = { $: {} };
+enterprise_reporting.mojom.ErpHistoryEventParameterSpec = { $: {} };
+enterprise_reporting.mojom.PageHandlerFactory = {};
+enterprise_reporting.mojom.PageHandlerFactory.$interfaceName = 'enterprise_reporting.mojom.PageHandlerFactory';
+enterprise_reporting.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+enterprise_reporting.mojom.PageHandler = {};
+enterprise_reporting.mojom.PageHandler.$interfaceName = 'enterprise_reporting.mojom.PageHandler';
+enterprise_reporting.mojom.PageHandler_RecordDebugState_ParamsSpec = { $: {} };
+enterprise_reporting.mojom.PageHandler_GetDebugState_ParamsSpec = { $: {} };
+enterprise_reporting.mojom.PageHandler_GetDebugState_ResponseParamsSpec = { $: {} };
+enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ParamsSpec = { $: {} };
+enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParamsSpec = { $: {} };
+enterprise_reporting.mojom.Page = {};
+enterprise_reporting.mojom.Page.$interfaceName = 'enterprise_reporting.mojom.Page';
+enterprise_reporting.mojom.Page_SetErpHistoryData_ParamsSpec = { $: {} };
 
 // Struct: ErpHistoryData
-enterprise_reporting.mojom.ErpHistoryDataSpec = {
-  $: {
-    structSpec: {
-      name: 'enterprise_reporting.mojom.ErpHistoryData',
-      packedSize: 16,
-      fields: [
-        { name: 'events', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(enterprise_reporting.mojom.ErpHistoryEventSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    enterprise_reporting.mojom.ErpHistoryDataSpec, 'enterprise_reporting.mojom.ErpHistoryData', [
+      mojo.internal.StructField('events', 0, 0, mojo.internal.Array(enterprise_reporting.mojom.ErpHistoryEventSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: ErpHistoryEvent
-enterprise_reporting.mojom.ErpHistoryEventSpec = {
-  $: {
-    structSpec: {
-      name: 'enterprise_reporting.mojom.ErpHistoryEvent',
-      packedSize: 40,
-      fields: [
-        { name: 'call', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'parameters', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(enterprise_reporting.mojom.ErpHistoryEventParameterSpec, false), nullable: false, minVersion: 0 },
-        { name: 'status', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    enterprise_reporting.mojom.ErpHistoryEventSpec, 'enterprise_reporting.mojom.ErpHistoryEvent', [
+      mojo.internal.StructField('call', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('parameters', 8, 0, mojo.internal.Array(enterprise_reporting.mojom.ErpHistoryEventParameterSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('status', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('time', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: ErpHistoryEventParameter
-enterprise_reporting.mojom.ErpHistoryEventParameterSpec = {
-  $: {
-    structSpec: {
-      name: 'enterprise_reporting.mojom.ErpHistoryEventParameter',
-      packedSize: 24,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    enterprise_reporting.mojom.ErpHistoryEventParameterSpec, 'enterprise_reporting.mojom.ErpHistoryEventParameter', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: PageHandlerFactory
-enterprise_reporting.mojom.PageHandlerFactory = {};
-
-enterprise_reporting.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'enterprise_reporting.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(enterprise_reporting.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(enterprise_reporting.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    enterprise_reporting.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'enterprise_reporting.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(enterprise_reporting.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(enterprise_reporting.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 enterprise_reporting.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -125,65 +111,38 @@ enterprise_reporting.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-enterprise_reporting.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'enterprise_reporting.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(enterprise_reporting.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(enterprise_reporting.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 enterprise_reporting.mojom.PageHandlerFactoryPtr = enterprise_reporting.mojom.PageHandlerFactoryRemote;
 enterprise_reporting.mojom.PageHandlerFactoryRequest = enterprise_reporting.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-enterprise_reporting.mojom.PageHandler = {};
+mojo.internal.Struct(
+    enterprise_reporting.mojom.PageHandler_RecordDebugState_ParamsSpec, 'enterprise_reporting.mojom.PageHandler_RecordDebugState_Params', [
+      mojo.internal.StructField('state', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-enterprise_reporting.mojom.PageHandler_RecordDebugState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'enterprise_reporting.mojom.PageHandler_RecordDebugState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    enterprise_reporting.mojom.PageHandler_GetDebugState_ParamsSpec, 'enterprise_reporting.mojom.PageHandler_GetDebugState_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-enterprise_reporting.mojom.PageHandler_GetDebugState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'enterprise_reporting.mojom.PageHandler_GetDebugState_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    enterprise_reporting.mojom.PageHandler_GetDebugState_ResponseParamsSpec, 'enterprise_reporting.mojom.PageHandler_GetDebugState_ResponseParams', [
+      mojo.internal.StructField('state', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'enterprise_reporting.mojom.PageHandler_GetErpHistoryData_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ParamsSpec, 'enterprise_reporting.mojom.PageHandler_GetErpHistoryData_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParamsSpec, 'enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParams', [
+      mojo.internal.StructField('history_data', 0, 0, enterprise_reporting.mojom.ErpHistoryDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 enterprise_reporting.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -256,92 +215,16 @@ enterprise_reporting.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RecordDebugState
-enterprise_reporting.mojom.PageHandler_RecordDebugState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'enterprise_reporting.mojom.PageHandler.RecordDebugState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetDebugState
-enterprise_reporting.mojom.PageHandler_GetDebugState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'enterprise_reporting.mojom.PageHandler.GetDebugState_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-enterprise_reporting.mojom.PageHandler_GetDebugState_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'enterprise_reporting.mojom.PageHandler.GetDebugState_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetErpHistoryData
-enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'enterprise_reporting.mojom.PageHandler.GetErpHistoryData_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'enterprise_reporting.mojom.PageHandler.GetErpHistoryData_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'history_data', packedOffset: 0, packedBitOffset: 0, type: enterprise_reporting.mojom.ErpHistoryDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 enterprise_reporting.mojom.PageHandlerPtr = enterprise_reporting.mojom.PageHandlerRemote;
 enterprise_reporting.mojom.PageHandlerRequest = enterprise_reporting.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-enterprise_reporting.mojom.Page = {};
-
-enterprise_reporting.mojom.Page_SetErpHistoryData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'enterprise_reporting.mojom.Page_SetErpHistoryData_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'history_data', packedOffset: 0, packedBitOffset: 0, type: enterprise_reporting.mojom.ErpHistoryDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    enterprise_reporting.mojom.Page_SetErpHistoryData_ParamsSpec, 'enterprise_reporting.mojom.Page_SetErpHistoryData_Params', [
+      mojo.internal.StructField('history_data', 0, 0, enterprise_reporting.mojom.ErpHistoryDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 enterprise_reporting.mojom.PagePendingReceiver = class {
   constructor(handle) {
@@ -396,21 +279,6 @@ enterprise_reporting.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetErpHistoryData
-enterprise_reporting.mojom.Page_SetErpHistoryData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'enterprise_reporting.mojom.Page.SetErpHistoryData_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'history_data', packedOffset: 0, packedBitOffset: 0, type: enterprise_reporting.mojom.ErpHistoryDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 enterprise_reporting.mojom.PagePtr = enterprise_reporting.mojom.PageRemote;
 enterprise_reporting.mojom.PageRequest = enterprise_reporting.mojom.PagePendingReceiver;
 

@@ -8,59 +8,35 @@
 var mojo_base = mojo_base || {};
 mojo_base.mojom = mojo_base.mojom || {};
 
+mojo_base.mojom.TimeSpec = { $: {} };
+mojo_base.mojom.JSTimeSpec = { $: {} };
+mojo_base.mojom.TimeDeltaSpec = { $: {} };
+mojo_base.mojom.TimeTicksSpec = { $: {} };
 
 // Struct: Time
-mojo_base.mojom.TimeSpec = {
-  $: {
-    structSpec: {
-      name: 'mojo_base.mojom.Time',
-      packedSize: 16,
-      fields: [
-        { name: 'internal_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojo_base.mojom.TimeSpec, 'mojo_base.mojom.Time', [
+      mojo.internal.StructField('internal_value', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: JSTime
-mojo_base.mojom.JSTimeSpec = {
-  $: {
-    structSpec: {
-      name: 'mojo_base.mojom.JSTime',
-      packedSize: 16,
-      fields: [
-        { name: 'msec', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojo_base.mojom.JSTimeSpec, 'mojo_base.mojom.JSTime', [
+      mojo.internal.StructField('msec', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: TimeDelta
-mojo_base.mojom.TimeDeltaSpec = {
-  $: {
-    structSpec: {
-      name: 'mojo_base.mojom.TimeDelta',
-      packedSize: 16,
-      fields: [
-        { name: 'microseconds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojo_base.mojom.TimeDeltaSpec, 'mojo_base.mojom.TimeDelta', [
+      mojo.internal.StructField('microseconds', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: TimeTicks
-mojo_base.mojom.TimeTicksSpec = {
-  $: {
-    structSpec: {
-      name: 'mojo_base.mojom.TimeTicks',
-      packedSize: 16,
-      fields: [
-        { name: 'internal_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojo_base.mojom.TimeTicksSpec, 'mojo_base.mojom.TimeTicks', [
+      mojo.internal.StructField('internal_value', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);

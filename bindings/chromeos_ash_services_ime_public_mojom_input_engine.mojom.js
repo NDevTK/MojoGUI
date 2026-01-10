@@ -9,22 +9,23 @@ var ash = ash || {};
 ash.ime = ash.ime || {};
 ash.ime.mojom = ash.ime.mojom || {};
 
+ash.ime.mojom.InputChannel = {};
+ash.ime.mojom.InputChannel.$interfaceName = 'ash.ime.mojom.InputChannel';
+ash.ime.mojom.InputChannel_ProcessMessage_ParamsSpec = { $: {} };
+ash.ime.mojom.InputChannel_ProcessMessage_ResponseParamsSpec = { $: {} };
 
 // Interface: InputChannel
-ash.ime.mojom.InputChannel = {};
+mojo.internal.Struct(
+    ash.ime.mojom.InputChannel_ProcessMessage_ParamsSpec, 'ash.ime.mojom.InputChannel_ProcessMessage_Params', [
+      mojo.internal.StructField('message', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.ime.mojom.InputChannel_ProcessMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputChannel_ProcessMessage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.InputChannel_ProcessMessage_ResponseParamsSpec, 'ash.ime.mojom.InputChannel_ProcessMessage_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.ime.mojom.InputChannelPendingReceiver = class {
   constructor(handle) {
@@ -79,34 +80,6 @@ ash.ime.mojom.InputChannel.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ProcessMessage
-ash.ime.mojom.InputChannel_ProcessMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputChannel.ProcessMessage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.ime.mojom.InputChannel_ProcessMessage_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputChannel.ProcessMessage_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.ime.mojom.InputChannelPtr = ash.ime.mojom.InputChannelRemote;
 ash.ime.mojom.InputChannelRequest = ash.ime.mojom.InputChannelPendingReceiver;
 

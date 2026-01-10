@@ -9,6 +9,12 @@ var chromecast = chromecast || {};
 chromecast.media = chromecast.media || {};
 chromecast.media.mojom = chromecast.media.mojom || {};
 
+chromecast.media.mojom.AudioCodecSpec = { $: mojo.internal.Enum() };
+chromecast.media.mojom.ChannelLayoutSpec = { $: mojo.internal.Enum() };
+chromecast.media.mojom.SampleFormatSpec = { $: mojo.internal.Enum() };
+chromecast.media.mojom.StreamIdSpec = { $: mojo.internal.Enum() };
+chromecast.media.mojom.EncryptionSchemeSpec = { $: mojo.internal.Enum() };
+chromecast.media.mojom.AudioConfigSpec = { $: {} };
 
 // Enum: AudioCodec
 chromecast.media.mojom.AudioCodec = {
@@ -27,7 +33,6 @@ chromecast.media.mojom.AudioCodec = {
   kCodecFLAC: 12,
   kCodecMpegHAudio: 13,
 };
-chromecast.media.mojom.AudioCodecSpec = { $: mojo.internal.Enum() };
 
 // Enum: ChannelLayout
 chromecast.media.mojom.ChannelLayout = {
@@ -38,7 +43,6 @@ chromecast.media.mojom.ChannelLayout = {
   kBitstream: 4,
   kDiscrete: 5,
 };
-chromecast.media.mojom.ChannelLayoutSpec = { $: mojo.internal.Enum() };
 
 // Enum: SampleFormat
 chromecast.media.mojom.SampleFormat = {
@@ -53,14 +57,12 @@ chromecast.media.mojom.SampleFormat = {
   kSampleFormatS24: 8,
   kSampleFormatPlanarU8: 9,
 };
-chromecast.media.mojom.SampleFormatSpec = { $: mojo.internal.Enum() };
 
 // Enum: StreamId
 chromecast.media.mojom.StreamId = {
   kPrimary: 0,
   kSecondary: 1,
 };
-chromecast.media.mojom.StreamIdSpec = { $: mojo.internal.Enum() };
 
 // Enum: EncryptionScheme
 chromecast.media.mojom.EncryptionScheme = {
@@ -68,26 +70,18 @@ chromecast.media.mojom.EncryptionScheme = {
   kAesCtr: 1,
   kAesCbc: 2,
 };
-chromecast.media.mojom.EncryptionSchemeSpec = { $: mojo.internal.Enum() };
 
 // Struct: AudioConfig
-chromecast.media.mojom.AudioConfigSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.media.mojom.AudioConfig',
-      packedSize: 48,
-      fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: chromecast.media.mojom.StreamIdSpec, nullable: false, minVersion: 0 },
-        { name: 'codec', packedOffset: 12, packedBitOffset: 0, type: chromecast.media.mojom.AudioCodecSpec, nullable: false, minVersion: 0 },
-        { name: 'channel_layout', packedOffset: 16, packedBitOffset: 0, type: chromecast.media.mojom.ChannelLayoutSpec, nullable: false, minVersion: 0 },
-        { name: 'sample_format', packedOffset: 20, packedBitOffset: 0, type: chromecast.media.mojom.SampleFormatSpec, nullable: false, minVersion: 0 },
-        { name: 'bytes_per_channel', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'channel_number', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'samples_per_second', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'extra_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'encryption_scheme', packedOffset: 36, packedBitOffset: 0, type: chromecast.media.mojom.EncryptionSchemeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.media.mojom.AudioConfigSpec, 'chromecast.media.mojom.AudioConfig', [
+      mojo.internal.StructField('id', 8, 0, chromecast.media.mojom.StreamIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('codec', 12, 0, chromecast.media.mojom.AudioCodecSpec, null, false, 0, undefined),
+      mojo.internal.StructField('channel_layout', 16, 0, chromecast.media.mojom.ChannelLayoutSpec, null, false, 0, undefined),
+      mojo.internal.StructField('sample_format', 20, 0, chromecast.media.mojom.SampleFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bytes_per_channel', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('channel_number', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('samples_per_second', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('extra_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('encryption_scheme', 36, 0, chromecast.media.mojom.EncryptionSchemeSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);

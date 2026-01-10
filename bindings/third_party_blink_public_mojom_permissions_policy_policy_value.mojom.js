@@ -8,6 +8,8 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.PolicyValueTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.PolicyValueSpec = { $: {} };
 
 // Enum: PolicyValueType
 blink.mojom.PolicyValueType = {
@@ -16,26 +18,28 @@ blink.mojom.PolicyValueType = {
   kDecDouble: 2,
   kEnum: 3,
 };
-blink.mojom.PolicyValueTypeSpec = { $: mojo.internal.Enum() };
 
 // Union: PolicyValue
-blink.mojom.PolicyValueSpec = { $: mojo.internal.Union(
-    'blink.mojom.PolicyValue', {
+mojo.internal.Union(
+    blink.mojom.PolicyValueSpec, 'blink.mojom.PolicyValue', {
       'null_value': {
         'ordinal': 0,
         'type': mojo.internal.Bool,
-      }},
+        'nullable': false,
+      },
       'bool_value': {
         'ordinal': 1,
         'type': mojo.internal.Bool,
-      }},
+        'nullable': false,
+      },
       'dec_double_value': {
         'ordinal': 2,
         'type': mojo.internal.Double,
-      }},
+        'nullable': false,
+      },
       'enum_value': {
         'ordinal': 3,
         'type': mojo.internal.Int32,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });

@@ -10,6 +10,17 @@ blink.mojom = blink.mojom || {};
 var blink = blink || {};
 var url = url || {};
 
+blink.mojom.PushErrorTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.PushSubscriptionOptionsSpec = { $: {} };
+blink.mojom.PushSubscriptionSpec = { $: {} };
+blink.mojom.PushMessaging = {};
+blink.mojom.PushMessaging.$interfaceName = 'blink.mojom.PushMessaging';
+blink.mojom.PushMessaging_Subscribe_ParamsSpec = { $: {} };
+blink.mojom.PushMessaging_Subscribe_ResponseParamsSpec = { $: {} };
+blink.mojom.PushMessaging_Unsubscribe_ParamsSpec = { $: {} };
+blink.mojom.PushMessaging_Unsubscribe_ResponseParamsSpec = { $: {} };
+blink.mojom.PushMessaging_GetSubscription_ParamsSpec = { $: {} };
+blink.mojom.PushMessaging_GetSubscription_ResponseParamsSpec = { $: {} };
 
 // Enum: PushErrorType
 blink.mojom.PushErrorType = {
@@ -21,84 +32,68 @@ blink.mojom.PushErrorType = {
   NOT_SUPPORTED: 5,
   INVALID_STATE: 6,
 };
-blink.mojom.PushErrorTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: PushSubscriptionOptions
-blink.mojom.PushSubscriptionOptionsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PushSubscriptionOptions',
-      packedSize: 24,
-      fields: [
-        { name: 'user_visible_only', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'application_server_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PushSubscriptionOptionsSpec, 'blink.mojom.PushSubscriptionOptions', [
+      mojo.internal.StructField('user_visible_only', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('application_server_key', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: PushSubscription
-blink.mojom.PushSubscriptionSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PushSubscription',
-      packedSize: 48,
-      fields: [
-        { name: 'endpoint', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'expirationTime', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true, minVersion: 0 },
-        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.PushSubscriptionOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'p256dh', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'auth', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PushSubscriptionSpec, 'blink.mojom.PushSubscription', [
+      mojo.internal.StructField('endpoint', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('expirationTime', 8, 0, mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('options', 16, 0, blink.mojom.PushSubscriptionOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('p256dh', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('auth', 32, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Interface: PushMessaging
-blink.mojom.PushMessaging = {};
+mojo.internal.Struct(
+    blink.mojom.PushMessaging_Subscribe_ParamsSpec, 'blink.mojom.PushMessaging_Subscribe_Params', [
+      mojo.internal.StructField('service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('options', 8, 0, blink.mojom.PushSubscriptionOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('user_gesture', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-blink.mojom.PushMessaging_Subscribe_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PushMessaging_Subscribe_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PushSubscriptionOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'user_gesture', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PushMessaging_Subscribe_ResponseParamsSpec, 'blink.mojom.PushMessaging_Subscribe_ResponseParams', [
+      mojo.internal.StructField('status', 8, 0, blink.mojom.PushRegistrationStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('subscription', 0, 0, blink.mojom.PushSubscriptionSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.PushMessaging_Unsubscribe_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PushMessaging_Unsubscribe_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PushMessaging_Unsubscribe_ParamsSpec, 'blink.mojom.PushMessaging_Unsubscribe_Params', [
+      mojo.internal.StructField('service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.PushMessaging_GetSubscription_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PushMessaging_GetSubscription_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PushMessaging_Unsubscribe_ResponseParamsSpec, 'blink.mojom.PushMessaging_Unsubscribe_ResponseParams', [
+      mojo.internal.StructField('error_type', 8, 0, blink.mojom.PushErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('did_unsubscribe', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('error_message', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    blink.mojom.PushMessaging_GetSubscription_ParamsSpec, 'blink.mojom.PushMessaging_GetSubscription_Params', [
+      mojo.internal.StructField('service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.PushMessaging_GetSubscription_ResponseParamsSpec, 'blink.mojom.PushMessaging_GetSubscription_ResponseParams', [
+      mojo.internal.StructField('status', 8, 0, blink.mojom.PushGetRegistrationStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('subscription', 0, 0, blink.mojom.PushSubscriptionSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 blink.mojom.PushMessagingPendingReceiver = class {
   constructor(handle) {
@@ -171,94 +166,6 @@ blink.mojom.PushMessaging.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Subscribe
-blink.mojom.PushMessaging_Subscribe_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PushMessaging.Subscribe_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PushSubscriptionOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'user_gesture', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-blink.mojom.PushMessaging_Subscribe_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PushMessaging.Subscribe_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PushRegistrationStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'subscription', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PushSubscriptionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for Unsubscribe
-blink.mojom.PushMessaging_Unsubscribe_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PushMessaging.Unsubscribe_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.PushMessaging_Unsubscribe_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PushMessaging.Unsubscribe_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'error_type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PushErrorTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'did_unsubscribe', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for GetSubscription
-blink.mojom.PushMessaging_GetSubscription_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PushMessaging.GetSubscription_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.PushMessaging_GetSubscription_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PushMessaging.GetSubscription_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PushGetRegistrationStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'subscription', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PushSubscriptionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.PushMessagingPtr = blink.mojom.PushMessagingRemote;
 blink.mojom.PushMessagingRequest = blink.mojom.PushMessagingPendingReceiver;
 

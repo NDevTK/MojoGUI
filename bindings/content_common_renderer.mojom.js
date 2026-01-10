@@ -9,311 +9,198 @@ var content = content || {};
 content.mojom = content.mojom || {};
 var content = content || {};
 var content = content || {};
+var services = services || {};
 var blink = blink || {};
 var blink = blink || {};
 var blink = blink || {};
 var blink = blink || {};
 var url = url || {};
 
+content.mojom.RenderProcessVisibleStateSpec = { $: mojo.internal.Enum() };
+content.mojom.UpdateScrollbarThemeParamsSpec = { $: {} };
+content.mojom.UpdateSystemColorInfoParamsSpec = { $: {} };
+content.mojom.Renderer = {};
+content.mojom.Renderer.$interfaceName = 'content.mojom.Renderer';
+content.mojom.Renderer_CreateAgentSchedulingGroup_ParamsSpec = { $: {} };
+content.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_ParamsSpec = { $: {} };
+content.mojom.Renderer_TransferSharedLastForegroundTime_ParamsSpec = { $: {} };
+content.mojom.Renderer_OnNetworkConnectionChanged_ParamsSpec = { $: {} };
+content.mojom.Renderer_OnNetworkQualityChanged_ParamsSpec = { $: {} };
+content.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec = { $: {} };
+content.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec = { $: {} };
+content.mojom.Renderer_OnSystemColorsChanged_ParamsSpec = { $: {} };
+content.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec = { $: {} };
+content.mojom.Renderer_PurgePluginListCache_ParamsSpec = { $: {} };
+content.mojom.Renderer_PurgeResourceCache_ParamsSpec = { $: {} };
+content.mojom.Renderer_PurgeResourceCache_ResponseParamsSpec = { $: {} };
+content.mojom.Renderer_SetProcessState_ParamsSpec = { $: {} };
+content.mojom.Renderer_SetIsLockedToSite_ParamsSpec = { $: {} };
+content.mojom.Renderer_WriteClangProfilingProfile_ParamsSpec = { $: {} };
+content.mojom.Renderer_WriteClangProfilingProfile_ResponseParamsSpec = { $: {} };
+content.mojom.Renderer_SetIsCrossOriginIsolated_ParamsSpec = { $: {} };
+content.mojom.Renderer_SetIsWebSecurityDisabled_ParamsSpec = { $: {} };
+content.mojom.Renderer_SetIsIsolatedContext_ParamsSpec = { $: {} };
+content.mojom.Renderer_SetWebUIResourceUrlToCodeCacheMap_ParamsSpec = { $: {} };
+content.mojom.Renderer_InitializeRenderer_ParamsSpec = { $: {} };
 
 // Enum: RenderProcessVisibleState
 content.mojom.RenderProcessVisibleState = {
   kVisible: 0,
   kHidden: 1,
 };
-content.mojom.RenderProcessVisibleStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: UpdateScrollbarThemeParams
-content.mojom.UpdateScrollbarThemeParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.UpdateScrollbarThemeParams',
-      packedSize: 32,
-      fields: [
-        { name: 'has_initial_button_delay', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'initial_button_delay', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'has_autoscroll_button_delay', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'autoscroll_button_delay', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'jump_on_track_click', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'preferred_scroller_style', packedOffset: 0, packedBitOffset: 0, type: content.mojom.ScrollerStyleSpec, nullable: false, minVersion: 0 },
-        { name: 'redraw', packedOffset: 16, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'scroll_view_rubber_banding', packedOffset: 16, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.UpdateScrollbarThemeParamsSpec, 'content.mojom.UpdateScrollbarThemeParams', [
+      mojo.internal.StructField('has_initial_button_delay', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('initial_button_delay', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('has_autoscroll_button_delay', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('autoscroll_button_delay', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('jump_on_track_click', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('preferred_scroller_style', 0, 0, content.mojom.ScrollerStyleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('redraw', 16, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('scroll_view_rubber_banding', 16, 4, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: UpdateSystemColorInfoParams
-content.mojom.UpdateSystemColorInfoParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.UpdateSystemColorInfoParams',
-      packedSize: 16,
-      fields: [
-        { name: 'accent_color_$flag', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'accent_color_$value', originalFieldName: 'accent_color' } },
-        { name: 'accent_color_$value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'accent_color_$flag', originalFieldName: 'accent_color' } },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.UpdateSystemColorInfoParamsSpec, 'content.mojom.UpdateSystemColorInfoParams', [
+      mojo.internal.StructField('accent_color_$flag', 4, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'accent_color_$value', originalFieldName: 'accent_color' }),
+      mojo.internal.StructField('accent_color_$value', 0, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'accent_color_$flag', originalFieldName: 'accent_color' }),
+    ],
+    [[0, 16]]);
 
 // Interface: Renderer
-content.mojom.Renderer = {};
+mojo.internal.Struct(
+    content.mojom.Renderer_CreateAgentSchedulingGroup_ParamsSpec, 'content.mojom.Renderer_CreateAgentSchedulingGroup_Params', [
+      mojo.internal.StructField('bootstrap', 0, 0, mojo.internal.InterfaceRequest(IPC.mojom.ChannelBootstrapRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.Renderer_CreateAgentSchedulingGroup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.Renderer_CreateAgentSchedulingGroup_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'bootstrap', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(IPC.mojom.ChannelBootstrapRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_ParamsSpec, 'content.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_Params', [
+      mojo.internal.StructField('agent_scheduling_group', 0, 0, mojo.internal.AssociatedInterfaceRequest(content.mojom.AgentSchedulingGroupRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'agent_scheduling_group', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(content.mojom.AgentSchedulingGroupRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.Renderer_TransferSharedLastForegroundTime_ParamsSpec, 'content.mojom.Renderer_TransferSharedLastForegroundTime_Params', [
+      mojo.internal.StructField('last_foreground_time_region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.Renderer_TransferSharedLastForegroundTime_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.Renderer_TransferSharedLastForegroundTime_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'last_foreground_time_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.Renderer_OnNetworkConnectionChanged_ParamsSpec, 'content.mojom.Renderer_OnNetworkConnectionChanged_Params', [
+      mojo.internal.StructField('connection_type', 0, 0, content.mojom.NetworkConnectionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('max_bandwidth_mbps', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-content.mojom.Renderer_OnNetworkConnectionChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.Renderer_OnNetworkConnectionChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'connection_type', packedOffset: 0, packedBitOffset: 0, type: content.mojom.NetworkConnectionTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'max_bandwidth_mbps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.Renderer_OnNetworkQualityChanged_ParamsSpec, 'content.mojom.Renderer_OnNetworkQualityChanged_Params', [
+      mojo.internal.StructField('effective_connection_type', 0, 0, network.mojom.EffectiveConnectionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('http_rtt', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('transport_rtt', 16, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bandwidth_kbps', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-content.mojom.Renderer_OnNetworkQualityChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.Renderer_OnNetworkQualityChanged_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'effective_connection_type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.EffectiveConnectionTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'http_rtt', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'transport_rtt', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'bandwidth_kbps', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec, 'content.mojom.Renderer_SetWebKitSharedTimersSuspended_Params', [
+      mojo.internal.StructField('suspend', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.Renderer_SetWebKitSharedTimersSuspended_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'suspend', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec, 'content.mojom.Renderer_UpdateScrollbarTheme_Params', [
+      mojo.internal.StructField('params', 0, 0, content.mojom.UpdateScrollbarThemeParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.Renderer_UpdateScrollbarTheme_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: content.mojom.UpdateScrollbarThemeParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.Renderer_OnSystemColorsChanged_ParamsSpec, 'content.mojom.Renderer_OnSystemColorsChanged_Params', [
+      mojo.internal.StructField('aqua_color_variant', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.Renderer_OnSystemColorsChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.Renderer_OnSystemColorsChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'aqua_color_variant', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec, 'content.mojom.Renderer_UpdateSystemColorInfo_Params', [
+      mojo.internal.StructField('params', 0, 0, content.mojom.UpdateSystemColorInfoParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.Renderer_UpdateSystemColorInfo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: content.mojom.UpdateSystemColorInfoParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.Renderer_PurgePluginListCache_ParamsSpec, 'content.mojom.Renderer_PurgePluginListCache_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.Renderer_PurgePluginListCache_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.Renderer_PurgePluginListCache_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.Renderer_PurgeResourceCache_ParamsSpec, 'content.mojom.Renderer_PurgeResourceCache_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.Renderer_PurgeResourceCache_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.Renderer_PurgeResourceCache_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.Renderer_PurgeResourceCache_ResponseParamsSpec, 'content.mojom.Renderer_PurgeResourceCache_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.Renderer_SetProcessState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.Renderer_SetProcessState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'process_priority', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ProcessPrioritySpec, nullable: false, minVersion: 0 },
-        { name: 'visible_state', packedOffset: 4, packedBitOffset: 0, type: content.mojom.RenderProcessVisibleStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.Renderer_SetProcessState_ParamsSpec, 'content.mojom.Renderer_SetProcessState_Params', [
+      mojo.internal.StructField('process_priority', 0, 0, mojo_base.mojom.ProcessPrioritySpec, null, false, 0, undefined),
+      mojo.internal.StructField('visible_state', 4, 0, content.mojom.RenderProcessVisibleStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.Renderer_SetIsLockedToSite_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.Renderer_SetIsLockedToSite_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.Renderer_SetIsLockedToSite_ParamsSpec, 'content.mojom.Renderer_SetIsLockedToSite_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.Renderer_WriteClangProfilingProfile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.Renderer_WriteClangProfilingProfile_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.Renderer_WriteClangProfilingProfile_ParamsSpec, 'content.mojom.Renderer_WriteClangProfilingProfile_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.Renderer_SetIsCrossOriginIsolated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.Renderer_SetIsCrossOriginIsolated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.Renderer_WriteClangProfilingProfile_ResponseParamsSpec, 'content.mojom.Renderer_WriteClangProfilingProfile_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.Renderer_SetIsWebSecurityDisabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.Renderer_SetIsWebSecurityDisabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.Renderer_SetIsCrossOriginIsolated_ParamsSpec, 'content.mojom.Renderer_SetIsCrossOriginIsolated_Params', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.Renderer_SetIsIsolatedContext_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.Renderer_SetIsIsolatedContext_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.Renderer_SetIsWebSecurityDisabled_ParamsSpec, 'content.mojom.Renderer_SetIsWebSecurityDisabled_Params', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.Renderer_SetWebUIResourceUrlToCodeCacheMap_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.Renderer_SetWebUIResourceUrlToCodeCacheMap_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'resource_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(url.mojom.UrlSpec, mojo.internal.Int32, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.Renderer_SetIsIsolatedContext_ParamsSpec, 'content.mojom.Renderer_SetIsIsolatedContext_Params', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.Renderer_InitializeRenderer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.Renderer_InitializeRenderer_Params',
-      packedSize: 56,
-      fields: [
-        { name: 'user_agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'metadata', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.UserAgentMetadataSpec, nullable: false, minVersion: 0 },
-        { name: 'cors_exempt_header_list', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'origin_trials_settings', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.OriginTrialsSettingsSpec, nullable: true, minVersion: 0 },
-        { name: 'cpu_performance_tier', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.PerformanceTierSpec, nullable: false, minVersion: 0 },
-        { name: 'trace_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.Renderer_SetWebUIResourceUrlToCodeCacheMap_ParamsSpec, 'content.mojom.Renderer_SetWebUIResourceUrlToCodeCacheMap_Params', [
+      mojo.internal.StructField('resource_map', 0, 0, mojo.internal.Map(url.mojom.UrlSpec, mojo.internal.Int32, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    content.mojom.Renderer_InitializeRenderer_ParamsSpec, 'content.mojom.Renderer_InitializeRenderer_Params', [
+      mojo.internal.StructField('user_agent', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('metadata', 8, 0, blink.mojom.UserAgentMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cors_exempt_header_list', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('origin_trials_settings', 24, 0, blink.mojom.OriginTrialsSettingsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('cpu_performance_tier', 40, 0, blink.mojom.PerformanceTierSpec, null, false, 0, undefined),
+      mojo.internal.StructField('trace_id', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
 content.mojom.RendererPendingReceiver = class {
   constructor(handle) {
@@ -442,7 +329,7 @@ content.mojom.RendererRemoteCallHandler = class {
     return this.proxy.sendMessage(
       10,  // ordinal
       content.mojom.Renderer_PurgeResourceCache_ParamsSpec,
-      null,
+      content.mojom.Renderer_PurgeResourceCache_ResponseParamsSpec,
       []);
   }
 
@@ -469,7 +356,7 @@ content.mojom.RendererRemoteCallHandler = class {
     return this.proxy.sendMessage(
       13,  // ordinal
       content.mojom.Renderer_WriteClangProfilingProfile_ParamsSpec,
-      null,
+      content.mojom.Renderer_WriteClangProfilingProfile_ResponseParamsSpec,
       []);
   }
 
@@ -530,279 +417,6 @@ content.mojom.Renderer.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateAgentSchedulingGroup
-content.mojom.Renderer_CreateAgentSchedulingGroup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.Renderer.CreateAgentSchedulingGroup_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'bootstrap', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(IPC.mojom.ChannelBootstrapRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CreateAssociatedAgentSchedulingGroup
-content.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.Renderer.CreateAssociatedAgentSchedulingGroup_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'agent_scheduling_group', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(content.mojom.AgentSchedulingGroupRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for TransferSharedLastForegroundTime
-content.mojom.Renderer_TransferSharedLastForegroundTime_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.Renderer.TransferSharedLastForegroundTime_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'last_foreground_time_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnNetworkConnectionChanged
-content.mojom.Renderer_OnNetworkConnectionChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.Renderer.OnNetworkConnectionChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'connection_type', packedOffset: 0, packedBitOffset: 0, type: content.mojom.NetworkConnectionTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'max_bandwidth_mbps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnNetworkQualityChanged
-content.mojom.Renderer_OnNetworkQualityChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.Renderer.OnNetworkQualityChanged_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'effective_connection_type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.EffectiveConnectionTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'http_rtt', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'transport_rtt', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'bandwidth_kbps', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for SetWebKitSharedTimersSuspended
-content.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.Renderer.SetWebKitSharedTimersSuspended_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'suspend', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateScrollbarTheme
-content.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.Renderer.UpdateScrollbarTheme_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: content.mojom.UpdateScrollbarThemeParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnSystemColorsChanged
-content.mojom.Renderer_OnSystemColorsChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.Renderer.OnSystemColorsChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'aqua_color_variant', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateSystemColorInfo
-content.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.Renderer.UpdateSystemColorInfo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: content.mojom.UpdateSystemColorInfoParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for PurgePluginListCache
-content.mojom.Renderer_PurgePluginListCache_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.Renderer.PurgePluginListCache_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for PurgeResourceCache
-content.mojom.Renderer_PurgeResourceCache_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.Renderer.PurgeResourceCache_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetProcessState
-content.mojom.Renderer_SetProcessState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.Renderer.SetProcessState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'process_priority', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ProcessPrioritySpec, nullable: false, minVersion: 0 },
-        { name: 'visible_state', packedOffset: 4, packedBitOffset: 0, type: content.mojom.RenderProcessVisibleStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetIsLockedToSite
-content.mojom.Renderer_SetIsLockedToSite_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.Renderer.SetIsLockedToSite_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for WriteClangProfilingProfile
-content.mojom.Renderer_WriteClangProfilingProfile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.Renderer.WriteClangProfilingProfile_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetIsCrossOriginIsolated
-content.mojom.Renderer_SetIsCrossOriginIsolated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.Renderer.SetIsCrossOriginIsolated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetIsWebSecurityDisabled
-content.mojom.Renderer_SetIsWebSecurityDisabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.Renderer.SetIsWebSecurityDisabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetIsIsolatedContext
-content.mojom.Renderer_SetIsIsolatedContext_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.Renderer.SetIsIsolatedContext_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetWebUIResourceUrlToCodeCacheMap
-content.mojom.Renderer_SetWebUIResourceUrlToCodeCacheMap_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.Renderer.SetWebUIResourceUrlToCodeCacheMap_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'resource_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(url.mojom.UrlSpec, mojo.internal.Int32, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for InitializeRenderer
-content.mojom.Renderer_InitializeRenderer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.Renderer.InitializeRenderer_Params',
-      packedSize: 56,
-      fields: [
-        { name: 'user_agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'metadata', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.UserAgentMetadataSpec, nullable: false, minVersion: 0 },
-        { name: 'cors_exempt_header_list', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'origin_trials_settings', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.OriginTrialsSettingsSpec, nullable: true, minVersion: 0 },
-        { name: 'cpu_performance_tier', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.PerformanceTierSpec, nullable: false, minVersion: 0 },
-        { name: 'trace_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
-
-// Legacy compatibility
 content.mojom.RendererPtr = content.mojom.RendererRemote;
 content.mojom.RendererRequest = content.mojom.RendererPendingReceiver;
 

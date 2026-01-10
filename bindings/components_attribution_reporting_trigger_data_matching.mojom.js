@@ -8,10 +8,10 @@
 var attribution_reporting = attribution_reporting || {};
 attribution_reporting.mojom = attribution_reporting.mojom || {};
 
+attribution_reporting.mojom.TriggerDataMatchingSpec = { $: mojo.internal.Enum() };
 
 // Enum: TriggerDataMatching
 attribution_reporting.mojom.TriggerDataMatching = {
   kModulus: 0,
   kExact: 1,
 };
-attribution_reporting.mojom.TriggerDataMatchingSpec = { $: mojo.internal.Enum() };

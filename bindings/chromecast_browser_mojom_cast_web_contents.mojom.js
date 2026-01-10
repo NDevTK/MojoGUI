@@ -7,8 +7,40 @@
 // Module namespace
 var chromecast = chromecast || {};
 chromecast.mojom = chromecast.mojom || {};
+var components = components || {};
 var url = url || {};
 
+chromecast.mojom.PageStateSpec = { $: mojo.internal.Enum() };
+chromecast.mojom.CastWebContentsObserver = {};
+chromecast.mojom.CastWebContentsObserver.$interfaceName = 'chromecast.mojom.CastWebContentsObserver';
+chromecast.mojom.CastWebContentsObserver_PageStateChanged_ParamsSpec = { $: {} };
+chromecast.mojom.CastWebContentsObserver_PageStopped_ParamsSpec = { $: {} };
+chromecast.mojom.CastWebContentsObserver_RenderFrameCreated_ParamsSpec = { $: {} };
+chromecast.mojom.CastWebContentsObserver_MainFrameFinishedNavigation_ParamsSpec = { $: {} };
+chromecast.mojom.CastWebContentsObserver_UpdateTitle_ParamsSpec = { $: {} };
+chromecast.mojom.CastWebContentsObserver_UpdateFaviconURL_ParamsSpec = { $: {} };
+chromecast.mojom.CastWebContentsObserver_DidFirstVisuallyNonEmptyPaint_ParamsSpec = { $: {} };
+chromecast.mojom.CastWebContentsObserver_ResourceLoadFailed_ParamsSpec = { $: {} };
+chromecast.mojom.CastWebContentsObserver_OnRenderProcessReady_ParamsSpec = { $: {} };
+chromecast.mojom.CastWebContentsObserver_MediaPlaybackChanged_ParamsSpec = { $: {} };
+chromecast.mojom.CastWebContentsObserver_InnerContentsCreated_ParamsSpec = { $: {} };
+chromecast.mojom.CastWebContents = {};
+chromecast.mojom.CastWebContents.$interfaceName = 'chromecast.mojom.CastWebContents';
+chromecast.mojom.CastWebContents_SetAppProperties_ParamsSpec = { $: {} };
+chromecast.mojom.CastWebContents_SetGroupInfo_ParamsSpec = { $: {} };
+chromecast.mojom.CastWebContents_AddRendererFeatures_ParamsSpec = { $: {} };
+chromecast.mojom.CastWebContents_SetInterfacesForRenderer_ParamsSpec = { $: {} };
+chromecast.mojom.CastWebContents_LoadUrl_ParamsSpec = { $: {} };
+chromecast.mojom.CastWebContents_ClosePage_ParamsSpec = { $: {} };
+chromecast.mojom.CastWebContents_SetWebVisibilityAndPaint_ParamsSpec = { $: {} };
+chromecast.mojom.CastWebContents_BlockMediaLoading_ParamsSpec = { $: {} };
+chromecast.mojom.CastWebContents_BlockMediaStarting_ParamsSpec = { $: {} };
+chromecast.mojom.CastWebContents_EnableBackgroundVideoPlayback_ParamsSpec = { $: {} };
+chromecast.mojom.CastWebContents_ConnectToBindingsService_ParamsSpec = { $: {} };
+chromecast.mojom.CastWebContents_AddObserver_ParamsSpec = { $: {} };
+chromecast.mojom.CastWebContents_SetEnabledForRemoteDebugging_ParamsSpec = { $: {} };
+chromecast.mojom.CastWebContents_GetMainFramePid_ParamsSpec = { $: {} };
+chromecast.mojom.CastWebContents_GetMainFramePid_ResponseParamsSpec = { $: {} };
 
 // Enum: PageState
 chromecast.mojom.PageState = {
@@ -19,152 +51,72 @@ chromecast.mojom.PageState = {
   DESTROYED: 4,
   ERROR: 5,
 };
-chromecast.mojom.PageStateSpec = { $: mojo.internal.Enum() };
 
 // Interface: CastWebContentsObserver
-chromecast.mojom.CastWebContentsObserver = {};
+mojo.internal.Struct(
+    chromecast.mojom.CastWebContentsObserver_PageStateChanged_ParamsSpec, 'chromecast.mojom.CastWebContentsObserver_PageStateChanged_Params', [
+      mojo.internal.StructField('state', 0, 0, chromecast.mojom.PageStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromecast.mojom.CastWebContentsObserver_PageStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContentsObserver_PageStateChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: chromecast.mojom.PageStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.CastWebContentsObserver_PageStopped_ParamsSpec, 'chromecast.mojom.CastWebContentsObserver_PageStopped_Params', [
+      mojo.internal.StructField('state', 0, 0, chromecast.mojom.PageStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error_code', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromecast.mojom.CastWebContentsObserver_PageStopped_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContentsObserver_PageStopped_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: chromecast.mojom.PageStateSpec, nullable: false, minVersion: 0 },
-        { name: 'error_code', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.CastWebContentsObserver_RenderFrameCreated_ParamsSpec, 'chromecast.mojom.CastWebContentsObserver_RenderFrameCreated_Params', [
+      mojo.internal.StructField('render_process_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('render_frame_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromecast.mojom.CastWebContentsObserver_RenderFrameCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContentsObserver_RenderFrameCreated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'render_process_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'render_frame_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.CastWebContentsObserver_MainFrameFinishedNavigation_ParamsSpec, 'chromecast.mojom.CastWebContentsObserver_MainFrameFinishedNavigation_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromecast.mojom.CastWebContentsObserver_MainFrameFinishedNavigation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContentsObserver_MainFrameFinishedNavigation_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.CastWebContentsObserver_UpdateTitle_ParamsSpec, 'chromecast.mojom.CastWebContentsObserver_UpdateTitle_Params', [
+      mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromecast.mojom.CastWebContentsObserver_UpdateTitle_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContentsObserver_UpdateTitle_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.CastWebContentsObserver_UpdateFaviconURL_ParamsSpec, 'chromecast.mojom.CastWebContentsObserver_UpdateFaviconURL_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromecast.mojom.CastWebContentsObserver_UpdateFaviconURL_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContentsObserver_UpdateFaviconURL_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.CastWebContentsObserver_DidFirstVisuallyNonEmptyPaint_ParamsSpec, 'chromecast.mojom.CastWebContentsObserver_DidFirstVisuallyNonEmptyPaint_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromecast.mojom.CastWebContentsObserver_DidFirstVisuallyNonEmptyPaint_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContentsObserver_DidFirstVisuallyNonEmptyPaint_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.CastWebContentsObserver_ResourceLoadFailed_ParamsSpec, 'chromecast.mojom.CastWebContentsObserver_ResourceLoadFailed_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromecast.mojom.CastWebContentsObserver_ResourceLoadFailed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContentsObserver_ResourceLoadFailed_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.CastWebContentsObserver_OnRenderProcessReady_ParamsSpec, 'chromecast.mojom.CastWebContentsObserver_OnRenderProcessReady_Params', [
+      mojo.internal.StructField('pid', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromecast.mojom.CastWebContentsObserver_OnRenderProcessReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContentsObserver_OnRenderProcessReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.CastWebContentsObserver_MediaPlaybackChanged_ParamsSpec, 'chromecast.mojom.CastWebContentsObserver_MediaPlaybackChanged_Params', [
+      mojo.internal.StructField('media_playing', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromecast.mojom.CastWebContentsObserver_MediaPlaybackChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContentsObserver_MediaPlaybackChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'media_playing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromecast.mojom.CastWebContentsObserver_InnerContentsCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContentsObserver_InnerContentsCreated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'web_contents', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.mojom.CastWebContentsRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.CastWebContentsObserver_InnerContentsCreated_ParamsSpec, 'chromecast.mojom.CastWebContentsObserver_InnerContentsCreated_Params', [
+      mojo.internal.StructField('web_contents', 0, 0, mojo.internal.InterfaceProxy(chromecast.mojom.CastWebContentsRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromecast.mojom.CastWebContentsObserverPendingReceiver = class {
   constructor(handle) {
@@ -309,353 +261,105 @@ chromecast.mojom.CastWebContentsObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for PageStateChanged
-chromecast.mojom.CastWebContentsObserver_PageStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContentsObserver.PageStateChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: chromecast.mojom.PageStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for PageStopped
-chromecast.mojom.CastWebContentsObserver_PageStopped_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContentsObserver.PageStopped_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: chromecast.mojom.PageStateSpec, nullable: false, minVersion: 0 },
-        { name: 'error_code', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RenderFrameCreated
-chromecast.mojom.CastWebContentsObserver_RenderFrameCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContentsObserver.RenderFrameCreated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'render_process_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'render_frame_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for MainFrameFinishedNavigation
-chromecast.mojom.CastWebContentsObserver_MainFrameFinishedNavigation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContentsObserver.MainFrameFinishedNavigation_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateTitle
-chromecast.mojom.CastWebContentsObserver_UpdateTitle_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContentsObserver.UpdateTitle_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateFaviconURL
-chromecast.mojom.CastWebContentsObserver_UpdateFaviconURL_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContentsObserver.UpdateFaviconURL_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DidFirstVisuallyNonEmptyPaint
-chromecast.mojom.CastWebContentsObserver_DidFirstVisuallyNonEmptyPaint_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContentsObserver.DidFirstVisuallyNonEmptyPaint_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for ResourceLoadFailed
-chromecast.mojom.CastWebContentsObserver_ResourceLoadFailed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContentsObserver.ResourceLoadFailed_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnRenderProcessReady
-chromecast.mojom.CastWebContentsObserver_OnRenderProcessReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContentsObserver.OnRenderProcessReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for MediaPlaybackChanged
-chromecast.mojom.CastWebContentsObserver_MediaPlaybackChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContentsObserver.MediaPlaybackChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'media_playing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for InnerContentsCreated
-chromecast.mojom.CastWebContentsObserver_InnerContentsCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContentsObserver.InnerContentsCreated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'web_contents', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.mojom.CastWebContentsRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromecast.mojom.CastWebContentsObserverPtr = chromecast.mojom.CastWebContentsObserverRemote;
 chromecast.mojom.CastWebContentsObserverRequest = chromecast.mojom.CastWebContentsObserverPendingReceiver;
 
 
 // Interface: CastWebContents
-chromecast.mojom.CastWebContents = {};
+mojo.internal.Struct(
+    chromecast.mojom.CastWebContents_SetAppProperties_ParamsSpec, 'chromecast.mojom.CastWebContents_SetAppProperties_Params', [
+      mojo.internal.StructField('app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('session_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('is_audio_app', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('app_web_url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('enforce_feature_permissions', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('feature_permissions', 24, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
+      mojo.internal.StructField('additional_feature_permission_origins', 32, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
-chromecast.mojom.CastWebContents_SetAppProperties_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContents_SetAppProperties_Params',
-      packedSize: 56,
-      fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_audio_app', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'app_web_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'enforce_feature_permissions', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'feature_permissions', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int32, false), nullable: false, minVersion: 0 },
-        { name: 'additional_feature_permission_origins', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.CastWebContents_SetGroupInfo_ParamsSpec, 'chromecast.mojom.CastWebContents_SetGroupInfo_Params', [
+      mojo.internal.StructField('session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('is_multizone_launch', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-chromecast.mojom.CastWebContents_SetGroupInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContents_SetGroupInfo_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_multizone_launch', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.CastWebContents_AddRendererFeatures_ParamsSpec, 'chromecast.mojom.CastWebContents_AddRendererFeatures_Params', [
+      mojo.internal.StructField('features', 0, 0, mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromecast.mojom.CastWebContents_AddRendererFeatures_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContents_AddRendererFeatures_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'features', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.CastWebContents_SetInterfacesForRenderer_ParamsSpec, 'chromecast.mojom.CastWebContents_SetInterfacesForRenderer_Params', [
+      mojo.internal.StructField('remote_interfaces', 0, 0, mojo.internal.InterfaceProxy(chromecast.mojom.RemoteInterfacesRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromecast.mojom.CastWebContents_SetInterfacesForRenderer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContents_SetInterfacesForRenderer_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'remote_interfaces', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.mojom.RemoteInterfacesRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.CastWebContents_LoadUrl_ParamsSpec, 'chromecast.mojom.CastWebContents_LoadUrl_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromecast.mojom.CastWebContents_LoadUrl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContents_LoadUrl_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.CastWebContents_ClosePage_ParamsSpec, 'chromecast.mojom.CastWebContents_ClosePage_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromecast.mojom.CastWebContents_ClosePage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContents_ClosePage_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.CastWebContents_SetWebVisibilityAndPaint_ParamsSpec, 'chromecast.mojom.CastWebContents_SetWebVisibilityAndPaint_Params', [
+      mojo.internal.StructField('visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromecast.mojom.CastWebContents_SetWebVisibilityAndPaint_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContents_SetWebVisibilityAndPaint_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.CastWebContents_BlockMediaLoading_ParamsSpec, 'chromecast.mojom.CastWebContents_BlockMediaLoading_Params', [
+      mojo.internal.StructField('blocked', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromecast.mojom.CastWebContents_BlockMediaLoading_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContents_BlockMediaLoading_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'blocked', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.CastWebContents_BlockMediaStarting_ParamsSpec, 'chromecast.mojom.CastWebContents_BlockMediaStarting_Params', [
+      mojo.internal.StructField('blocked', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromecast.mojom.CastWebContents_BlockMediaStarting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContents_BlockMediaStarting_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'blocked', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.CastWebContents_EnableBackgroundVideoPlayback_ParamsSpec, 'chromecast.mojom.CastWebContents_EnableBackgroundVideoPlayback_Params', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromecast.mojom.CastWebContents_EnableBackgroundVideoPlayback_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContents_EnableBackgroundVideoPlayback_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.CastWebContents_ConnectToBindingsService_ParamsSpec, 'chromecast.mojom.CastWebContents_ConnectToBindingsService_Params', [
+      mojo.internal.StructField('api_bindings_remote', 0, 0, mojo.internal.InterfaceProxy(chromecast.mojom.ApiBindingsRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromecast.mojom.CastWebContents_ConnectToBindingsService_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContents_ConnectToBindingsService_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'api_bindings_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.mojom.ApiBindingsRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.CastWebContents_AddObserver_ParamsSpec, 'chromecast.mojom.CastWebContents_AddObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(chromecast.mojom.CastWebContentsObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromecast.mojom.CastWebContents_AddObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContents_AddObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.mojom.CastWebContentsObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.CastWebContents_SetEnabledForRemoteDebugging_ParamsSpec, 'chromecast.mojom.CastWebContents_SetEnabledForRemoteDebugging_Params', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromecast.mojom.CastWebContents_SetEnabledForRemoteDebugging_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContents_SetEnabledForRemoteDebugging_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.CastWebContents_GetMainFramePid_ParamsSpec, 'chromecast.mojom.CastWebContents_GetMainFramePid_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromecast.mojom.CastWebContents_GetMainFramePid_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContents_GetMainFramePid_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.CastWebContents_GetMainFramePid_ResponseParamsSpec, 'chromecast.mojom.CastWebContents_GetMainFramePid_ResponseParams', [
+      mojo.internal.StructField('pid', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromecast.mojom.CastWebContentsPendingReceiver = class {
   constructor(handle) {
@@ -827,221 +531,6 @@ chromecast.mojom.CastWebContents.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetAppProperties
-chromecast.mojom.CastWebContents_SetAppProperties_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContents.SetAppProperties_Params',
-      packedSize: 56,
-      fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_audio_app', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'app_web_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'enforce_feature_permissions', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'feature_permissions', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int32, false), nullable: false, minVersion: 0 },
-        { name: 'additional_feature_permission_origins', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
-
-// ParamsSpec for SetGroupInfo
-chromecast.mojom.CastWebContents_SetGroupInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContents.SetGroupInfo_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_multizone_launch', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for AddRendererFeatures
-chromecast.mojom.CastWebContents_AddRendererFeatures_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContents.AddRendererFeatures_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'features', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetInterfacesForRenderer
-chromecast.mojom.CastWebContents_SetInterfacesForRenderer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContents.SetInterfacesForRenderer_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'remote_interfaces', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.mojom.RemoteInterfacesRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for LoadUrl
-chromecast.mojom.CastWebContents_LoadUrl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContents.LoadUrl_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ClosePage
-chromecast.mojom.CastWebContents_ClosePage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContents.ClosePage_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetWebVisibilityAndPaint
-chromecast.mojom.CastWebContents_SetWebVisibilityAndPaint_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContents.SetWebVisibilityAndPaint_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BlockMediaLoading
-chromecast.mojom.CastWebContents_BlockMediaLoading_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContents.BlockMediaLoading_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'blocked', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BlockMediaStarting
-chromecast.mojom.CastWebContents_BlockMediaStarting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContents.BlockMediaStarting_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'blocked', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EnableBackgroundVideoPlayback
-chromecast.mojom.CastWebContents_EnableBackgroundVideoPlayback_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContents.EnableBackgroundVideoPlayback_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ConnectToBindingsService
-chromecast.mojom.CastWebContents_ConnectToBindingsService_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContents.ConnectToBindingsService_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'api_bindings_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.mojom.ApiBindingsRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AddObserver
-chromecast.mojom.CastWebContents_AddObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContents.AddObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.mojom.CastWebContentsObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetEnabledForRemoteDebugging
-chromecast.mojom.CastWebContents_SetEnabledForRemoteDebugging_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContents.SetEnabledForRemoteDebugging_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetMainFramePid
-chromecast.mojom.CastWebContents_GetMainFramePid_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContents.GetMainFramePid_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chromecast.mojom.CastWebContents_GetMainFramePid_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.CastWebContents.GetMainFramePid_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromecast.mojom.CastWebContentsPtr = chromecast.mojom.CastWebContentsRemote;
 chromecast.mojom.CastWebContentsRequest = chromecast.mojom.CastWebContentsPendingReceiver;
 

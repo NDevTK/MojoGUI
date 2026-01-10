@@ -9,22 +9,16 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 var blink = blink || {};
 
+blink.mojom.KeepAliveHandleFactory = {};
+blink.mojom.KeepAliveHandleFactory.$interfaceName = 'blink.mojom.KeepAliveHandleFactory';
+blink.mojom.KeepAliveHandleFactory_IssueKeepAliveHandle_ParamsSpec = { $: {} };
 
 // Interface: KeepAliveHandleFactory
-blink.mojom.KeepAliveHandleFactory = {};
-
-blink.mojom.KeepAliveHandleFactory_IssueKeepAliveHandle_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.KeepAliveHandleFactory_IssueKeepAliveHandle_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'keep_alive_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.KeepAliveHandleRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.KeepAliveHandleFactory_IssueKeepAliveHandle_ParamsSpec, 'blink.mojom.KeepAliveHandleFactory_IssueKeepAliveHandle_Params', [
+      mojo.internal.StructField('keep_alive_handle', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.KeepAliveHandleRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.KeepAliveHandleFactoryPendingReceiver = class {
   constructor(handle) {
@@ -79,21 +73,6 @@ blink.mojom.KeepAliveHandleFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for IssueKeepAliveHandle
-blink.mojom.KeepAliveHandleFactory_IssueKeepAliveHandle_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.KeepAliveHandleFactory.IssueKeepAliveHandle_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'keep_alive_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.KeepAliveHandleRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.KeepAliveHandleFactoryPtr = blink.mojom.KeepAliveHandleFactoryRemote;
 blink.mojom.KeepAliveHandleFactoryRequest = blink.mojom.KeepAliveHandleFactoryPendingReceiver;
 

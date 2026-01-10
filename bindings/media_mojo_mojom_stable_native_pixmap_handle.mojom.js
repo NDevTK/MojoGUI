@@ -9,35 +9,23 @@ var media = media || {};
 media.stable = media.stable || {};
 media.stable.mojom = media.stable.mojom || {};
 
+media.stable.mojom.NativePixmapPlaneSpec = { $: {} };
+media.stable.mojom.NativePixmapHandleSpec = { $: {} };
 
 // Struct: NativePixmapPlane
-media.stable.mojom.NativePixmapPlaneSpec = {
-  $: {
-    structSpec: {
-      name: 'media.stable.mojom.NativePixmapPlane',
-      packedSize: 40,
-      fields: [
-        { name: 'stride', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'buffer_handle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.stable.mojom.NativePixmapPlaneSpec, 'media.stable.mojom.NativePixmapPlane', [
+      mojo.internal.StructField('stride', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('offset', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('size', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('buffer_handle', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: NativePixmapHandle
-media.stable.mojom.NativePixmapHandleSpec = {
-  $: {
-    structSpec: {
-      name: 'media.stable.mojom.NativePixmapHandle',
-      packedSize: 24,
-      fields: [
-        { name: 'planes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(media.stable.mojom.NativePixmapPlaneSpec, false), nullable: false, minVersion: 0 },
-        { name: 'modifier', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.stable.mojom.NativePixmapHandleSpec, 'media.stable.mojom.NativePixmapHandle', [
+      mojo.internal.StructField('planes', 0, 0, mojo.internal.Array(media.stable.mojom.NativePixmapPlaneSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('modifier', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);

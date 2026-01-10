@@ -8,21 +8,15 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.RecordContentToVisibleTimeRequestSpec = { $: {} };
 
 // Struct: RecordContentToVisibleTimeRequest
-blink.mojom.RecordContentToVisibleTimeRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.RecordContentToVisibleTimeRequest',
-      packedSize: 24,
-      fields: [
-        { name: 'event_start_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'destination_is_loaded', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'show_reason_tab_switching', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'show_reason_bfcache_restore', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'show_reason_unfolding', packedOffset: 8, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.RecordContentToVisibleTimeRequestSpec, 'blink.mojom.RecordContentToVisibleTimeRequest', [
+      mojo.internal.StructField('event_start_time', 0, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('destination_is_loaded', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('show_reason_tab_switching', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('show_reason_bfcache_restore', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('show_reason_unfolding', 8, 3, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);

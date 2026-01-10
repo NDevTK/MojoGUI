@@ -7,68 +7,62 @@
 // Module namespace
 var service_manager = service_manager || {};
 service_manager.mojom = service_manager.mojom || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 
+service_manager.mojom.BindSourceInfoSpec = { $: {} };
+service_manager.mojom.Service = {};
+service_manager.mojom.Service.$interfaceName = 'service_manager.mojom.Service';
+service_manager.mojom.Service_OnStart_ParamsSpec = { $: {} };
+service_manager.mojom.Service_OnStart_ResponseParamsSpec = { $: {} };
+service_manager.mojom.Service_OnBindInterface_ParamsSpec = { $: {} };
+service_manager.mojom.Service_OnBindInterface_ResponseParamsSpec = { $: {} };
+service_manager.mojom.Service_CreatePackagedServiceInstance_ParamsSpec = { $: {} };
 
 // Struct: BindSourceInfo
-service_manager.mojom.BindSourceInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.BindSourceInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: false, minVersion: 0 },
-        { name: 'required_capabilities', packedOffset: 8, packedBitOffset: 0, type: service_manager.mojom.CapabilitySetSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    service_manager.mojom.BindSourceInfoSpec, 'service_manager.mojom.BindSourceInfo', [
+      mojo.internal.StructField('identity', 0, 0, service_manager.mojom.IdentitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('required_capabilities', 8, 0, service_manager.mojom.CapabilitySetSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: Service
-service_manager.mojom.Service = {};
+mojo.internal.Struct(
+    service_manager.mojom.Service_OnStart_ParamsSpec, 'service_manager.mojom.Service_OnStart_Params', [
+      mojo.internal.StructField('identity', 0, 0, service_manager.mojom.IdentitySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-service_manager.mojom.Service_OnStart_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.Service_OnStart_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    service_manager.mojom.Service_OnStart_ResponseParamsSpec, 'service_manager.mojom.Service_OnStart_ResponseParams', [
+      mojo.internal.StructField('connector_receiver', 0, 0, mojo.internal.InterfaceRequest(service_manager.mojom.ConnectorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('control_receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(service_manager.mojom.ServiceControlRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-service_manager.mojom.Service_OnBindInterface_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.Service_OnBindInterface_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.BindSourceInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'interface_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'interface_pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    service_manager.mojom.Service_OnBindInterface_ParamsSpec, 'service_manager.mojom.Service_OnBindInterface_Params', [
+      mojo.internal.StructField('source', 0, 0, service_manager.mojom.BindSourceInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('interface_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('interface_pipe', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-service_manager.mojom.Service_CreatePackagedServiceInstance_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.Service_CreatePackagedServiceInstance_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(service_manager.mojom.ServiceRemote), nullable: false, minVersion: 0 },
-        { name: 'metadata', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(service_manager.mojom.ProcessMetadataRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    service_manager.mojom.Service_OnBindInterface_ResponseParamsSpec, 'service_manager.mojom.Service_OnBindInterface_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    service_manager.mojom.Service_CreatePackagedServiceInstance_ParamsSpec, 'service_manager.mojom.Service_CreatePackagedServiceInstance_Params', [
+      mojo.internal.StructField('identity', 0, 0, service_manager.mojom.IdentitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 8, 0, mojo.internal.InterfaceRequest(service_manager.mojom.ServiceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('metadata', 16, 0, mojo.internal.InterfaceProxy(service_manager.mojom.ProcessMetadataRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 service_manager.mojom.ServicePendingReceiver = class {
   constructor(handle) {
@@ -116,7 +110,7 @@ service_manager.mojom.ServiceRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       service_manager.mojom.Service_OnBindInterface_ParamsSpec,
-      null,
+      service_manager.mojom.Service_OnBindInterface_ResponseParamsSpec,
       [source, interface_name, interface_pipe]);
   }
 
@@ -141,67 +135,6 @@ service_manager.mojom.Service.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnStart
-service_manager.mojom.Service_OnStart_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.Service.OnStart_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-service_manager.mojom.Service_OnStart_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.Service.OnStart_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'connector_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(service_manager.mojom.ConnectorRemote), nullable: false, minVersion: 0 },
-        { name: 'control_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(service_manager.mojom.ServiceControlRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnBindInterface
-service_manager.mojom.Service_OnBindInterface_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.Service.OnBindInterface_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.BindSourceInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'interface_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'interface_pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for CreatePackagedServiceInstance
-service_manager.mojom.Service_CreatePackagedServiceInstance_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.Service.CreatePackagedServiceInstance_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(service_manager.mojom.ServiceRemote), nullable: false, minVersion: 0 },
-        { name: 'metadata', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(service_manager.mojom.ProcessMetadataRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 service_manager.mojom.ServicePtr = service_manager.mojom.ServiceRemote;
 service_manager.mojom.ServiceRequest = service_manager.mojom.ServicePendingReceiver;
 

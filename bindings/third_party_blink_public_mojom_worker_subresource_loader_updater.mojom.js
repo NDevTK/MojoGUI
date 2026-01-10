@@ -9,22 +9,16 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 var blink = blink || {};
 
+blink.mojom.SubresourceLoaderUpdater = {};
+blink.mojom.SubresourceLoaderUpdater.$interfaceName = 'blink.mojom.SubresourceLoaderUpdater';
+blink.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoaderFactories_ParamsSpec = { $: {} };
 
 // Interface: SubresourceLoaderUpdater
-blink.mojom.SubresourceLoaderUpdater = {};
-
-blink.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoaderFactories_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoaderFactories_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'subresource_loader_factories', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.URLLoaderFactoryBundleSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoaderFactories_ParamsSpec, 'blink.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoaderFactories_Params', [
+      mojo.internal.StructField('subresource_loader_factories', 0, 0, blink.mojom.URLLoaderFactoryBundleSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.SubresourceLoaderUpdaterPendingReceiver = class {
   constructor(handle) {
@@ -79,21 +73,6 @@ blink.mojom.SubresourceLoaderUpdater.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for UpdateSubresourceLoaderFactories
-blink.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoaderFactories_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SubresourceLoaderUpdater.UpdateSubresourceLoaderFactories_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'subresource_loader_factories', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.URLLoaderFactoryBundleSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.SubresourceLoaderUpdaterPtr = blink.mojom.SubresourceLoaderUpdaterRemote;
 blink.mojom.SubresourceLoaderUpdaterRequest = blink.mojom.SubresourceLoaderUpdaterPendingReceiver;
 

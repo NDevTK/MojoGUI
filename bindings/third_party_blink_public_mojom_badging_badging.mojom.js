@@ -8,48 +8,38 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.BadgeValueSpec = { $: {} };
+blink.mojom.BadgeService = {};
+blink.mojom.BadgeService.$interfaceName = 'blink.mojom.BadgeService';
+blink.mojom.BadgeService_SetBadge_ParamsSpec = { $: {} };
+blink.mojom.BadgeService_ClearBadge_ParamsSpec = { $: {} };
 
 // Union: BadgeValue
-blink.mojom.BadgeValueSpec = { $: mojo.internal.Union(
-    'blink.mojom.BadgeValue', {
+mojo.internal.Union(
+    blink.mojom.BadgeValueSpec, 'blink.mojom.BadgeValue', {
       'flag': {
         'ordinal': 0,
         'type': mojo.internal.Uint8,
-      }},
+        'nullable': false,
+      },
       'number': {
         'ordinal': 1,
         'type': mojo.internal.Uint64,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Interface: BadgeService
-blink.mojom.BadgeService = {};
+mojo.internal.Struct(
+    blink.mojom.BadgeService_SetBadge_ParamsSpec, 'blink.mojom.BadgeService_SetBadge_Params', [
+      mojo.internal.StructField('value', 0, 0, blink.mojom.BadgeValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.BadgeService_SetBadge_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BadgeService_SetBadge_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BadgeValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.BadgeService_ClearBadge_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BadgeService_ClearBadge_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.BadgeService_ClearBadge_ParamsSpec, 'blink.mojom.BadgeService_ClearBadge_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 blink.mojom.BadgeServicePendingReceiver = class {
   constructor(handle) {
@@ -113,34 +103,6 @@ blink.mojom.BadgeService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetBadge
-blink.mojom.BadgeService_SetBadge_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BadgeService.SetBadge_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BadgeValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ClearBadge
-blink.mojom.BadgeService_ClearBadge_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BadgeService.ClearBadge_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.BadgeServicePtr = blink.mojom.BadgeServiceRemote;
 blink.mojom.BadgeServiceRequest = blink.mojom.BadgeServicePendingReceiver;
 

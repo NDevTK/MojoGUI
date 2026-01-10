@@ -10,44 +10,32 @@ ax.mojom = ax.mojom || {};
 var ui = ui || {};
 var ui = ui || {};
 
+ax.mojom.AXBitsetDataSpec = { $: {} };
+ax.mojom.AXNodeDataSpec = { $: {} };
 
 // Struct: AXBitsetData
-ax.mojom.AXBitsetDataSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AXBitsetData',
-      packedSize: 16,
-      fields: [
-        { name: 'set_bits', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'values', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.AXBitsetDataSpec, 'ax.mojom.AXBitsetData', [
+      mojo.internal.StructField('set_bits', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('values', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: AXNodeData
-ax.mojom.AXNodeDataSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AXNodeData',
-      packedSize: 104,
-      fields: [
-        { name: 'id', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'role', packedOffset: 84, packedBitOffset: 0, type: ax.mojom.RoleSpec, nullable: false, minVersion: 0 },
-        { name: 'state', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'actions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'string_attributes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(ax.mojom.StringAttributeSpec, mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'int_attributes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(ax.mojom.IntAttributeSpec, mojo.internal.Int32, false), nullable: false, minVersion: 0 },
-        { name: 'float_attributes', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map(ax.mojom.FloatAttributeSpec, mojo.internal.Float, false), nullable: false, minVersion: 0 },
-        { name: 'intlist_attributes', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Map(ax.mojom.IntListAttributeSpec, mojo.internal.Array(mojo.internal.Int32, false), false), nullable: false, minVersion: 0 },
-        { name: 'stringlist_attributes', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Map(ax.mojom.StringListAttributeSpec, mojo.internal.Array(mojo.internal.String, false), false), nullable: false, minVersion: 0 },
-        { name: 'html_attributes', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'child_ids', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int32, false), nullable: false, minVersion: 0 },
-        { name: 'relative_bounds', packedOffset: 64, packedBitOffset: 0, type: ax.mojom.AXRelativeBoundsSpec, nullable: false, minVersion: 0 },
-        { name: 'bool_attributes_data', packedOffset: 72, packedBitOffset: 0, type: ax.mojom.AXBitsetDataSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 104}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.AXNodeDataSpec, 'ax.mojom.AXNodeData', [
+      mojo.internal.StructField('id', 80, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('role', 84, 0, ax.mojom.RoleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 88, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('actions', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('string_attributes', 8, 0, mojo.internal.Map(ax.mojom.StringAttributeSpec, mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('int_attributes', 16, 0, mojo.internal.Map(ax.mojom.IntAttributeSpec, mojo.internal.Int32, false), null, false, 0, undefined),
+      mojo.internal.StructField('float_attributes', 24, 0, mojo.internal.Map(ax.mojom.FloatAttributeSpec, mojo.internal.Float, false), null, false, 0, undefined),
+      mojo.internal.StructField('intlist_attributes', 32, 0, mojo.internal.Map(ax.mojom.IntListAttributeSpec, mojo.internal.Array(mojo.internal.Int32, false), false), null, false, 0, undefined),
+      mojo.internal.StructField('stringlist_attributes', 40, 0, mojo.internal.Map(ax.mojom.StringListAttributeSpec, mojo.internal.Array(mojo.internal.String, false), false), null, false, 0, undefined),
+      mojo.internal.StructField('html_attributes', 48, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('child_ids', 56, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
+      mojo.internal.StructField('relative_bounds', 64, 0, ax.mojom.AXRelativeBoundsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bool_attributes_data', 72, 0, ax.mojom.AXBitsetDataSpec, null, true, 0, undefined),
+    ],
+    [[0, 104]]);

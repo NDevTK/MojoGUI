@@ -8,61 +8,65 @@
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
+arc.mojom.ProtectedBufferManager = {};
+arc.mojom.ProtectedBufferManager.$interfaceName = 'arc.mojom.ProtectedBufferManager';
+arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ParamsSpec = { $: {} };
+arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ResponseParamsSpec = { $: {} };
+arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ParamsSpec = { $: {} };
+arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ResponseParamsSpec = { $: {} };
+arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ParamsSpec = { $: {} };
+arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ResponseParamsSpec = { $: {} };
+arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ParamsSpec = { $: {} };
+arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ResponseParamsSpec = { $: {} };
 
 // Interface: ProtectedBufferManager
-arc.mojom.ProtectedBufferManager = {};
+mojo.internal.Struct(
+    arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ParamsSpec, 'arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_Params', [
+      mojo.internal.StructField('dummy_handle', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'dummy_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ResponseParamsSpec, 'arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ResponseParams', [
+      mojo.internal.StructField('shared_memory_handle', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'dummy_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ParamsSpec, 'arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_Params', [
+      mojo.internal.StructField('dummy_handle', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'dummy_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ResponseParamsSpec, 'arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ResponseParams', [
+      mojo.internal.StructField('unsafe_region', 0, 0, mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'dummy_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ParamsSpec, 'arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_Params', [
+      mojo.internal.StructField('dummy_handle', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ResponseParamsSpec, 'arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ResponseParams', [
+      mojo.internal.StructField('native_pixmap_handle', 0, 0, media.stable.mojom.NativePixmapHandleSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ParamsSpec, 'arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_Params', [
+      mojo.internal.StructField('dummy_handle', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ResponseParamsSpec, 'arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ResponseParams', [
+      mojo.internal.StructField('is_protected', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.ProtectedBufferManagerPendingReceiver = class {
   constructor(handle) {
@@ -144,115 +148,6 @@ arc.mojom.ProtectedBufferManager.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for DeprecatedGetProtectedSharedMemoryFromHandle
-arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ProtectedBufferManager.DeprecatedGetProtectedSharedMemoryFromHandle_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'dummy_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ProtectedBufferManager.DeprecatedGetProtectedSharedMemoryFromHandle_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'shared_memory_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetProtectedSharedMemoryFromHandle
-arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ProtectedBufferManager.GetProtectedSharedMemoryFromHandle_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'dummy_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ProtectedBufferManager.GetProtectedSharedMemoryFromHandle_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'unsafe_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetProtectedNativePixmapHandleFromHandle
-arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ProtectedBufferManager.GetProtectedNativePixmapHandleFromHandle_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'dummy_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ProtectedBufferManager.GetProtectedNativePixmapHandleFromHandle_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'native_pixmap_handle', packedOffset: 0, packedBitOffset: 0, type: media.stable.mojom.NativePixmapHandleSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for IsProtectedNativePixmapHandle
-arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ProtectedBufferManager.IsProtectedNativePixmapHandle_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'dummy_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ProtectedBufferManager.IsProtectedNativePixmapHandle_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'is_protected', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.ProtectedBufferManagerPtr = arc.mojom.ProtectedBufferManagerRemote;
 arc.mojom.ProtectedBufferManagerRequest = arc.mojom.ProtectedBufferManagerPendingReceiver;
 

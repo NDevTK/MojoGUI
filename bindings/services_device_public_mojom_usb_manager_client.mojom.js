@@ -7,36 +7,25 @@
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
+var services = services || {};
 
+device.mojom.UsbDeviceManagerClient = {};
+device.mojom.UsbDeviceManagerClient.$interfaceName = 'device.mojom.UsbDeviceManagerClient';
+device.mojom.UsbDeviceManagerClient_OnDeviceAdded_ParamsSpec = { $: {} };
+device.mojom.UsbDeviceManagerClient_OnDeviceRemoved_ParamsSpec = { $: {} };
 
 // Interface: UsbDeviceManagerClient
-device.mojom.UsbDeviceManagerClient = {};
+mojo.internal.Struct(
+    device.mojom.UsbDeviceManagerClient_OnDeviceAdded_ParamsSpec, 'device.mojom.UsbDeviceManagerClient_OnDeviceAdded_Params', [
+      mojo.internal.StructField('device_info', 0, 0, device.mojom.UsbDeviceInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.UsbDeviceManagerClient_OnDeviceAdded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.UsbDeviceManagerClient_OnDeviceAdded_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: device.mojom.UsbDeviceInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-device.mojom.UsbDeviceManagerClient_OnDeviceRemoved_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.UsbDeviceManagerClient_OnDeviceRemoved_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: device.mojom.UsbDeviceInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.UsbDeviceManagerClient_OnDeviceRemoved_ParamsSpec, 'device.mojom.UsbDeviceManagerClient_OnDeviceRemoved_Params', [
+      mojo.internal.StructField('device_info', 0, 0, device.mojom.UsbDeviceInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 device.mojom.UsbDeviceManagerClientPendingReceiver = class {
   constructor(handle) {
@@ -100,35 +89,6 @@ device.mojom.UsbDeviceManagerClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnDeviceAdded
-device.mojom.UsbDeviceManagerClient_OnDeviceAdded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.UsbDeviceManagerClient.OnDeviceAdded_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: device.mojom.UsbDeviceInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnDeviceRemoved
-device.mojom.UsbDeviceManagerClient_OnDeviceRemoved_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.UsbDeviceManagerClient.OnDeviceRemoved_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: device.mojom.UsbDeviceInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 device.mojom.UsbDeviceManagerClientPtr = device.mojom.UsbDeviceManagerClientRemote;
 device.mojom.UsbDeviceManagerClientRequest = device.mojom.UsbDeviceManagerClientPendingReceiver;
 

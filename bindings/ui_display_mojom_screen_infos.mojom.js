@@ -11,19 +11,13 @@ var ui = ui || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+display.mojom.ScreenInfosSpec = { $: {} };
 
 // Struct: ScreenInfos
-display.mojom.ScreenInfosSpec = {
-  $: {
-    structSpec: {
-      name: 'display.mojom.ScreenInfos',
-      packedSize: 32,
-      fields: [
-        { name: 'screen_infos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(display.mojom.ScreenInfoSpec, false), nullable: false, minVersion: 0 },
-        { name: 'current_display_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'system_cursor_size', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    display.mojom.ScreenInfosSpec, 'display.mojom.ScreenInfos', [
+      mojo.internal.StructField('screen_infos', 0, 0, mojo.internal.Array(display.mojom.ScreenInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('current_display_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('system_cursor_size', 16, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);

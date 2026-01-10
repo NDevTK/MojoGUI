@@ -8,25 +8,27 @@
 var ash = ash || {};
 ash.common = ash.common || {};
 ash.common.mojom = ash.common.mojom || {};
+var ash = ash || {};
+var ash = ash || {};
 var ui = ui || {};
+var ash = ash || {};
 
+ash.common.mojom.AcceleratorFetcherObserver = {};
+ash.common.mojom.AcceleratorFetcherObserver.$interfaceName = 'ash.common.mojom.AcceleratorFetcherObserver';
+ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_ParamsSpec = { $: {} };
+ash.common.mojom.AcceleratorFetcher = {};
+ash.common.mojom.AcceleratorFetcher.$interfaceName = 'ash.common.mojom.AcceleratorFetcher';
+ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_ParamsSpec = { $: {} };
+ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ParamsSpec = { $: {} };
+ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ResponseParamsSpec = { $: {} };
 
 // Interface: AcceleratorFetcherObserver
-ash.common.mojom.AcceleratorFetcherObserver = {};
-
-ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'actionId', packedOffset: 8, packedBitOffset: 0, type: ash.mojom.AcceleratorActionSpec, nullable: false, minVersion: 0 },
-        { name: 'accelerators', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.mojom.StandardAcceleratorPropertiesSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_ParamsSpec, 'ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_Params', [
+      mojo.internal.StructField('actionId', 8, 0, ash.mojom.AcceleratorActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('accelerators', 0, 0, mojo.internal.Array(ash.mojom.StandardAcceleratorPropertiesSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 ash.common.mojom.AcceleratorFetcherObserverPendingReceiver = class {
   constructor(handle) {
@@ -81,54 +83,28 @@ ash.common.mojom.AcceleratorFetcherObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnAcceleratorsUpdated
-ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.common.mojom.AcceleratorFetcherObserver.OnAcceleratorsUpdated_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'actionId', packedOffset: 8, packedBitOffset: 0, type: ash.mojom.AcceleratorActionSpec, nullable: false, minVersion: 0 },
-        { name: 'accelerators', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.mojom.StandardAcceleratorPropertiesSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.common.mojom.AcceleratorFetcherObserverPtr = ash.common.mojom.AcceleratorFetcherObserverRemote;
 ash.common.mojom.AcceleratorFetcherObserverRequest = ash.common.mojom.AcceleratorFetcherObserverPendingReceiver;
 
 
 // Interface: AcceleratorFetcher
-ash.common.mojom.AcceleratorFetcher = {};
+mojo.internal.Struct(
+    ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_ParamsSpec, 'ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_Params', [
+      mojo.internal.StructField('actionIds', 0, 0, mojo.internal.Array(ash.mojom.AcceleratorActionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 8, 0, mojo.internal.InterfaceProxy(ash.common.mojom.AcceleratorFetcherObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'actionIds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.mojom.AcceleratorActionSpec, false), nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.common.mojom.AcceleratorFetcherObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ParamsSpec, 'ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ResponseParamsSpec, 'ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ResponseParams', [
+      mojo.internal.StructField('meta_key', 0, 0, ui.mojom.MetaKeySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.common.mojom.AcceleratorFetcherPendingReceiver = class {
   constructor(handle) {
@@ -192,48 +168,6 @@ ash.common.mojom.AcceleratorFetcher.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ObserveAcceleratorChanges
-ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.common.mojom.AcceleratorFetcher.ObserveAcceleratorChanges_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'actionIds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.mojom.AcceleratorActionSpec, false), nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.common.mojom.AcceleratorFetcherObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for GetMetaKeyToDisplay
-ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.common.mojom.AcceleratorFetcher.GetMetaKeyToDisplay_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.common.mojom.AcceleratorFetcher.GetMetaKeyToDisplay_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'meta_key', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.MetaKeySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.common.mojom.AcceleratorFetcherPtr = ash.common.mojom.AcceleratorFetcherRemote;
 ash.common.mojom.AcceleratorFetcherRequest = ash.common.mojom.AcceleratorFetcherPendingReceiver;
 

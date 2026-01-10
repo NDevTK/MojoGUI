@@ -8,45 +8,34 @@
 var file_suggestion = file_suggestion || {};
 file_suggestion.mojom = file_suggestion.mojom || {};
 
+file_suggestion.mojom.DriveSuggestionHandler = {};
+file_suggestion.mojom.DriveSuggestionHandler.$interfaceName = 'file_suggestion.mojom.DriveSuggestionHandler';
+file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ParamsSpec = { $: {} };
+file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ResponseParamsSpec = { $: {} };
+file_suggestion.mojom.DriveSuggestionHandler_DismissModule_ParamsSpec = { $: {} };
+file_suggestion.mojom.DriveSuggestionHandler_RestoreModule_ParamsSpec = { $: {} };
 
 // Interface: DriveSuggestionHandler
-file_suggestion.mojom.DriveSuggestionHandler = {};
+mojo.internal.Struct(
+    file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ParamsSpec, 'file_suggestion.mojom.DriveSuggestionHandler_GetFiles_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'file_suggestion.mojom.DriveSuggestionHandler_GetFiles_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ResponseParamsSpec, 'file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ResponseParams', [
+      mojo.internal.StructField('files', 0, 0, mojo.internal.Array(file_suggestion.mojom.FileSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-file_suggestion.mojom.DriveSuggestionHandler_DismissModule_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'file_suggestion.mojom.DriveSuggestionHandler_DismissModule_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    file_suggestion.mojom.DriveSuggestionHandler_DismissModule_ParamsSpec, 'file_suggestion.mojom.DriveSuggestionHandler_DismissModule_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-file_suggestion.mojom.DriveSuggestionHandler_RestoreModule_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'file_suggestion.mojom.DriveSuggestionHandler_RestoreModule_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    file_suggestion.mojom.DriveSuggestionHandler_RestoreModule_ParamsSpec, 'file_suggestion.mojom.DriveSuggestionHandler_RestoreModule_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 file_suggestion.mojom.DriveSuggestionHandlerPendingReceiver = class {
   constructor(handle) {
@@ -119,59 +108,6 @@ file_suggestion.mojom.DriveSuggestionHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetFiles
-file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'file_suggestion.mojom.DriveSuggestionHandler.GetFiles_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'file_suggestion.mojom.DriveSuggestionHandler.GetFiles_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'files', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(file_suggestion.mojom.FileSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DismissModule
-file_suggestion.mojom.DriveSuggestionHandler_DismissModule_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'file_suggestion.mojom.DriveSuggestionHandler.DismissModule_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for RestoreModule
-file_suggestion.mojom.DriveSuggestionHandler_RestoreModule_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'file_suggestion.mojom.DriveSuggestionHandler.RestoreModule_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 file_suggestion.mojom.DriveSuggestionHandlerPtr = file_suggestion.mojom.DriveSuggestionHandlerRemote;
 file_suggestion.mojom.DriveSuggestionHandlerRequest = file_suggestion.mojom.DriveSuggestionHandlerPendingReceiver;
 

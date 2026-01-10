@@ -8,61 +8,37 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.AudioContextManager = {};
+blink.mojom.AudioContextManager.$interfaceName = 'blink.mojom.AudioContextManager';
+blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStarted_ParamsSpec = { $: {} };
+blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStopped_ParamsSpec = { $: {} };
+blink.mojom.AudioContextManager_AudioContextCreated_ParamsSpec = { $: {} };
+blink.mojom.AudioContextManager_AudioContextClosed_ParamsSpec = { $: {} };
 
 // Interface: AudioContextManager
-blink.mojom.AudioContextManager = {};
+mojo.internal.Struct(
+    blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStarted_ParamsSpec, 'blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStarted_Params', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStarted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStarted_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStopped_ParamsSpec, 'blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStopped_Params', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStopped_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStopped_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.AudioContextManager_AudioContextCreated_ParamsSpec, 'blink.mojom.AudioContextManager_AudioContextCreated_Params', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.AudioContextManager_AudioContextCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AudioContextManager_AudioContextCreated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.AudioContextManager_AudioContextClosed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AudioContextManager_AudioContextClosed_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.AudioContextManager_AudioContextClosed_ParamsSpec, 'blink.mojom.AudioContextManager_AudioContextClosed_Params', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.AudioContextManagerPendingReceiver = class {
   constructor(handle) {
@@ -144,63 +120,6 @@ blink.mojom.AudioContextManager.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AudioContextAudiblePlaybackStarted
-blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStarted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AudioContextManager.AudioContextAudiblePlaybackStarted_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AudioContextAudiblePlaybackStopped
-blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStopped_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AudioContextManager.AudioContextAudiblePlaybackStopped_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AudioContextCreated
-blink.mojom.AudioContextManager_AudioContextCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AudioContextManager.AudioContextCreated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AudioContextClosed
-blink.mojom.AudioContextManager_AudioContextClosed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AudioContextManager.AudioContextClosed_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.AudioContextManagerPtr = blink.mojom.AudioContextManagerRemote;
 blink.mojom.AudioContextManagerRequest = blink.mojom.AudioContextManagerPendingReceiver;
 

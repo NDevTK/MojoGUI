@@ -10,22 +10,23 @@ ash.mall = ash.mall || {};
 ash.mall.mojom = ash.mall.mojom || {};
 var url = url || {};
 
+ash.mall.mojom.PageHandler = {};
+ash.mall.mojom.PageHandler.$interfaceName = 'ash.mall.mojom.PageHandler';
+ash.mall.mojom.PageHandler_GetMallEmbedUrl_ParamsSpec = { $: {} };
+ash.mall.mojom.PageHandler_GetMallEmbedUrl_ResponseParamsSpec = { $: {} };
 
 // Interface: PageHandler
-ash.mall.mojom.PageHandler = {};
+mojo.internal.Struct(
+    ash.mall.mojom.PageHandler_GetMallEmbedUrl_ParamsSpec, 'ash.mall.mojom.PageHandler_GetMallEmbedUrl_Params', [
+      mojo.internal.StructField('path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.mall.mojom.PageHandler_GetMallEmbedUrl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.mall.mojom.PageHandler_GetMallEmbedUrl_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.mall.mojom.PageHandler_GetMallEmbedUrl_ResponseParamsSpec, 'ash.mall.mojom.PageHandler_GetMallEmbedUrl_ResponseParams', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.mall.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -80,34 +81,6 @@ ash.mall.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetMallEmbedUrl
-ash.mall.mojom.PageHandler_GetMallEmbedUrl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.mall.mojom.PageHandler.GetMallEmbedUrl_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.mall.mojom.PageHandler_GetMallEmbedUrl_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.mall.mojom.PageHandler.GetMallEmbedUrl_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.mall.mojom.PageHandlerPtr = ash.mall.mojom.PageHandlerRemote;
 ash.mall.mojom.PageHandlerRequest = ash.mall.mojom.PageHandlerPendingReceiver;
 

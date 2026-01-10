@@ -9,177 +9,129 @@ var url_rewrite = url_rewrite || {};
 url_rewrite.mojom = url_rewrite.mojom || {};
 var url = url || {};
 
+url_rewrite.mojom.UrlRequestAccessPolicySpec = { $: mojo.internal.Enum() };
+url_rewrite.mojom.UrlRequestActionSpec = { $: {} };
+url_rewrite.mojom.UrlRequestRewriteRulesSpec = { $: {} };
+url_rewrite.mojom.UrlRequestRuleSpec = { $: {} };
+url_rewrite.mojom.UrlRequestRewriteAddHeadersSpec = { $: {} };
+url_rewrite.mojom.UrlHeaderSpec = { $: {} };
+url_rewrite.mojom.UrlRequestRewriteRemoveHeaderSpec = { $: {} };
+url_rewrite.mojom.UrlRequestRewriteSubstituteQueryPatternSpec = { $: {} };
+url_rewrite.mojom.UrlRequestRewriteReplaceUrlSpec = { $: {} };
+url_rewrite.mojom.UrlRequestRewriteAppendToQuerySpec = { $: {} };
+url_rewrite.mojom.UrlRequestRulesReceiver = {};
+url_rewrite.mojom.UrlRequestRulesReceiver.$interfaceName = 'url_rewrite.mojom.UrlRequestRulesReceiver';
+url_rewrite.mojom.UrlRequestRulesReceiver_OnRulesUpdated_ParamsSpec = { $: {} };
 
 // Enum: UrlRequestAccessPolicy
 url_rewrite.mojom.UrlRequestAccessPolicy = {
   kAllow: 0,
   kDeny: 1,
 };
-url_rewrite.mojom.UrlRequestAccessPolicySpec = { $: mojo.internal.Enum() };
 
 // Union: UrlRequestAction
-url_rewrite.mojom.UrlRequestActionSpec = { $: mojo.internal.Union(
-    'url_rewrite.mojom.UrlRequestAction', {
+mojo.internal.Union(
+    url_rewrite.mojom.UrlRequestActionSpec, 'url_rewrite.mojom.UrlRequestAction', {
       'add_headers': {
         'ordinal': 0,
         'type': url_rewrite.mojom.UrlRequestRewriteAddHeadersSpec,
-      }},
+        'nullable': false,
+      },
       'remove_header': {
         'ordinal': 1,
         'type': url_rewrite.mojom.UrlRequestRewriteRemoveHeaderSpec,
-      }},
+        'nullable': false,
+      },
       'substitute_query_pattern': {
         'ordinal': 2,
         'type': url_rewrite.mojom.UrlRequestRewriteSubstituteQueryPatternSpec,
-      }},
+        'nullable': false,
+      },
       'replace_url': {
         'ordinal': 3,
         'type': url_rewrite.mojom.UrlRequestRewriteReplaceUrlSpec,
-      }},
+        'nullable': false,
+      },
       'append_to_query': {
         'ordinal': 4,
         'type': url_rewrite.mojom.UrlRequestRewriteAppendToQuerySpec,
-      }},
+        'nullable': false,
+      },
       'policy': {
         'ordinal': 5,
         'type': url_rewrite.mojom.UrlRequestAccessPolicySpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: UrlRequestRewriteRules
-url_rewrite.mojom.UrlRequestRewriteRulesSpec = {
-  $: {
-    structSpec: {
-      name: 'url_rewrite.mojom.UrlRequestRewriteRules',
-      packedSize: 16,
-      fields: [
-        { name: 'rules', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(url_rewrite.mojom.UrlRequestRuleSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    url_rewrite.mojom.UrlRequestRewriteRulesSpec, 'url_rewrite.mojom.UrlRequestRewriteRules', [
+      mojo.internal.StructField('rules', 0, 0, mojo.internal.Array(url_rewrite.mojom.UrlRequestRuleSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: UrlRequestRule
-url_rewrite.mojom.UrlRequestRuleSpec = {
-  $: {
-    structSpec: {
-      name: 'url_rewrite.mojom.UrlRequestRule',
-      packedSize: 32,
-      fields: [
-        { name: 'hosts_filter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
-        { name: 'schemes_filter', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
-        { name: 'actions', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(url_rewrite.mojom.UrlRequestActionSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    url_rewrite.mojom.UrlRequestRuleSpec, 'url_rewrite.mojom.UrlRequestRule', [
+      mojo.internal.StructField('hosts_filter', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('schemes_filter', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('actions', 16, 0, mojo.internal.Array(url_rewrite.mojom.UrlRequestActionSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: UrlRequestRewriteAddHeaders
-url_rewrite.mojom.UrlRequestRewriteAddHeadersSpec = {
-  $: {
-    structSpec: {
-      name: 'url_rewrite.mojom.UrlRequestRewriteAddHeaders',
-      packedSize: 16,
-      fields: [
-        { name: 'headers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(url_rewrite.mojom.UrlHeaderSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    url_rewrite.mojom.UrlRequestRewriteAddHeadersSpec, 'url_rewrite.mojom.UrlRequestRewriteAddHeaders', [
+      mojo.internal.StructField('headers', 0, 0, mojo.internal.Array(url_rewrite.mojom.UrlHeaderSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: UrlHeader
-url_rewrite.mojom.UrlHeaderSpec = {
-  $: {
-    structSpec: {
-      name: 'url_rewrite.mojom.UrlHeader',
-      packedSize: 24,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    url_rewrite.mojom.UrlHeaderSpec, 'url_rewrite.mojom.UrlHeader', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: UrlRequestRewriteRemoveHeader
-url_rewrite.mojom.UrlRequestRewriteRemoveHeaderSpec = {
-  $: {
-    structSpec: {
-      name: 'url_rewrite.mojom.UrlRequestRewriteRemoveHeader',
-      packedSize: 24,
-      fields: [
-        { name: 'query_pattern', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'header_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    url_rewrite.mojom.UrlRequestRewriteRemoveHeaderSpec, 'url_rewrite.mojom.UrlRequestRewriteRemoveHeader', [
+      mojo.internal.StructField('query_pattern', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('header_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: UrlRequestRewriteSubstituteQueryPattern
-url_rewrite.mojom.UrlRequestRewriteSubstituteQueryPatternSpec = {
-  $: {
-    structSpec: {
-      name: 'url_rewrite.mojom.UrlRequestRewriteSubstituteQueryPattern',
-      packedSize: 24,
-      fields: [
-        { name: 'pattern', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'substitution', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    url_rewrite.mojom.UrlRequestRewriteSubstituteQueryPatternSpec, 'url_rewrite.mojom.UrlRequestRewriteSubstituteQueryPattern', [
+      mojo.internal.StructField('pattern', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('substitution', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: UrlRequestRewriteReplaceUrl
-url_rewrite.mojom.UrlRequestRewriteReplaceUrlSpec = {
-  $: {
-    structSpec: {
-      name: 'url_rewrite.mojom.UrlRequestRewriteReplaceUrl',
-      packedSize: 24,
-      fields: [
-        { name: 'url_ends_with', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'new_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    url_rewrite.mojom.UrlRequestRewriteReplaceUrlSpec, 'url_rewrite.mojom.UrlRequestRewriteReplaceUrl', [
+      mojo.internal.StructField('url_ends_with', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('new_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: UrlRequestRewriteAppendToQuery
-url_rewrite.mojom.UrlRequestRewriteAppendToQuerySpec = {
-  $: {
-    structSpec: {
-      name: 'url_rewrite.mojom.UrlRequestRewriteAppendToQuery',
-      packedSize: 16,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    url_rewrite.mojom.UrlRequestRewriteAppendToQuerySpec, 'url_rewrite.mojom.UrlRequestRewriteAppendToQuery', [
+      mojo.internal.StructField('query', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: UrlRequestRulesReceiver
-url_rewrite.mojom.UrlRequestRulesReceiver = {};
-
-url_rewrite.mojom.UrlRequestRulesReceiver_OnRulesUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'url_rewrite.mojom.UrlRequestRulesReceiver_OnRulesUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'rules', packedOffset: 0, packedBitOffset: 0, type: url_rewrite.mojom.UrlRequestRewriteRulesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    url_rewrite.mojom.UrlRequestRulesReceiver_OnRulesUpdated_ParamsSpec, 'url_rewrite.mojom.UrlRequestRulesReceiver_OnRulesUpdated_Params', [
+      mojo.internal.StructField('rules', 0, 0, url_rewrite.mojom.UrlRequestRewriteRulesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 url_rewrite.mojom.UrlRequestRulesReceiverPendingReceiver = class {
   constructor(handle) {
@@ -234,21 +186,6 @@ url_rewrite.mojom.UrlRequestRulesReceiver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnRulesUpdated
-url_rewrite.mojom.UrlRequestRulesReceiver_OnRulesUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'url_rewrite.mojom.UrlRequestRulesReceiver.OnRulesUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'rules', packedOffset: 0, packedBitOffset: 0, type: url_rewrite.mojom.UrlRequestRewriteRulesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 url_rewrite.mojom.UrlRequestRulesReceiverPtr = url_rewrite.mojom.UrlRequestRulesReceiverRemote;
 url_rewrite.mojom.UrlRequestRulesReceiverRequest = url_rewrite.mojom.UrlRequestRulesReceiverPendingReceiver;
 

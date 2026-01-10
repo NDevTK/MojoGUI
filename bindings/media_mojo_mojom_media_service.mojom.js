@@ -8,6 +8,9 @@
 var media = media || {};
 media.mojom = media.mojom || {};
 
+media.mojom.MediaService = {};
+media.mojom.MediaService.$interfaceName = 'media.mojom.MediaService';
+media.mojom.MediaService_CreateInterfaceFactory_ParamsSpec = { $: {} };
 
 media.mojom.kMediaSandbox = sandbox.mojom.Sandbox.kNoSandbox;
 
@@ -16,21 +19,12 @@ media.mojom.kMediaSandbox = sandbox.mojom.Sandbox.kGpu;
 media.mojom.kMediaSandbox = sandbox.mojom.Sandbox.kService;
 
 // Interface: MediaService
-media.mojom.MediaService = {};
-
-media.mojom.MediaService_CreateInterfaceFactory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaService_CreateInterfaceFactory_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.InterfaceFactoryRemote), nullable: false, minVersion: 0 },
-        { name: 'frame_interfaces', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.FrameInterfaceFactoryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaService_CreateInterfaceFactory_ParamsSpec, 'media.mojom.MediaService_CreateInterfaceFactory_Params', [
+      mojo.internal.StructField('factory', 0, 0, mojo.internal.InterfaceRequest(media.mojom.InterfaceFactoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('frame_interfaces', 8, 0, mojo.internal.InterfaceProxy(media.mojom.FrameInterfaceFactoryRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 media.mojom.MediaServicePendingReceiver = class {
   constructor(handle) {
@@ -85,22 +79,6 @@ media.mojom.MediaService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateInterfaceFactory
-media.mojom.MediaService_CreateInterfaceFactory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaService.CreateInterfaceFactory_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.InterfaceFactoryRemote), nullable: false, minVersion: 0 },
-        { name: 'frame_interfaces', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.FrameInterfaceFactoryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.MediaServicePtr = media.mojom.MediaServiceRemote;
 media.mojom.MediaServiceRequest = media.mojom.MediaServicePendingReceiver;
 

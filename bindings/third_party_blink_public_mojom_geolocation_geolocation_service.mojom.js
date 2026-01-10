@@ -7,25 +7,27 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var services = services || {};
 var blink = blink || {};
 
+blink.mojom.GeolocationService = {};
+blink.mojom.GeolocationService.$interfaceName = 'blink.mojom.GeolocationService';
+blink.mojom.GeolocationService_CreateGeolocation_ParamsSpec = { $: {} };
+blink.mojom.GeolocationService_CreateGeolocation_ResponseParamsSpec = { $: {} };
 
 // Interface: GeolocationService
-blink.mojom.GeolocationService = {};
+mojo.internal.Struct(
+    blink.mojom.GeolocationService_CreateGeolocation_ParamsSpec, 'blink.mojom.GeolocationService_CreateGeolocation_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(device.mojom.GeolocationRemote), null, false, 0, undefined),
+      mojo.internal.StructField('user_gesture', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.GeolocationService_CreateGeolocation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.GeolocationService_CreateGeolocation_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.GeolocationRemote), nullable: false, minVersion: 0 },
-        { name: 'user_gesture', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.GeolocationService_CreateGeolocation_ResponseParamsSpec, 'blink.mojom.GeolocationService_CreateGeolocation_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, blink.mojom.PermissionStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.GeolocationServicePendingReceiver = class {
   constructor(handle) {
@@ -80,35 +82,6 @@ blink.mojom.GeolocationService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateGeolocation
-blink.mojom.GeolocationService_CreateGeolocation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.GeolocationService.CreateGeolocation_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.GeolocationRemote), nullable: false, minVersion: 0 },
-        { name: 'user_gesture', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.GeolocationService_CreateGeolocation_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.GeolocationService.CreateGeolocation_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.GeolocationServicePtr = blink.mojom.GeolocationServiceRemote;
 blink.mojom.GeolocationServiceRequest = blink.mojom.GeolocationServicePendingReceiver;
 

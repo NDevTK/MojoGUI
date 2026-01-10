@@ -7,19 +7,14 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
 
+network.mojom.SiteForCookiesSpec = { $: {} };
 
 // Struct: SiteForCookies
-network.mojom.SiteForCookiesSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.SiteForCookies',
-      packedSize: 24,
-      fields: [
-        { name: 'site', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SchemefulSiteSpec, nullable: false, minVersion: 0 },
-        { name: 'schemefully_same', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.SiteForCookiesSpec, 'network.mojom.SiteForCookies', [
+      mojo.internal.StructField('site', 0, 0, network.mojom.SchemefulSiteSpec, null, false, 0, undefined),
+      mojo.internal.StructField('schemefully_same', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);

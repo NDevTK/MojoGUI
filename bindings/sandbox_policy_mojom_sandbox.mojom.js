@@ -8,6 +8,7 @@
 var sandbox = sandbox || {};
 sandbox.mojom = sandbox.mojom || {};
 
+sandbox.mojom.SandboxSpec = { $: mojo.internal.Enum() };
 
 // Enum: Sandbox
 sandbox.mojom.Sandbox = {
@@ -23,5 +24,22 @@ sandbox.mojom.Sandbox = {
   kPrintCompositor: 9,
   kRenderer: 10,
   kSpeechRecognition: 11,
+  EnableIf: 11,
+  EnableIf: 11,
+  EnableIf: 11,
+  EnableIf: 11,
+  EnableIf: 11,
+  EnableIf: 11,
+  EnableIf: 11,
+  EnableIf: 11,
+  EnableIf: 11,
+  EnableIf: 11,
+  EnableIf: 11,
+  EnableIf: 11,
+  EnableIf: 11,
+  EnableIf: 11,
+  EnableIf: 11,
+  EnableIf: 11,
+  EnableIf: 11,
+  EnableIf: 11,
 };
-sandbox.mojom.SandboxSpec = { $: mojo.internal.Enum() };

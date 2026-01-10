@@ -7,6 +7,7 @@
 // Module namespace
 var gpu = gpu || {};
 gpu.mojom = gpu.mojom || {};
+var services = services || {};
 var ui = ui || {};
 var gfx = gfx || {};
 var ui = ui || {};
@@ -14,22 +15,16 @@ var gfx = gfx || {};
 var skia = skia || {};
 var skia = skia || {};
 
+gpu.mojom.SharedImageMetadataSpec = { $: {} };
 
 // Struct: SharedImageMetadata
-gpu.mojom.SharedImageMetadataSpec = {
-  $: {
-    structSpec: {
-      name: 'gpu.mojom.SharedImageMetadata',
-      packedSize: 56,
-      fields: [
-        { name: 'format', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.SharedImageFormatSpec, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'color_space', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.ColorSpaceSpec, nullable: false, minVersion: 0 },
-        { name: 'surface_origin', packedOffset: 32, packedBitOffset: 0, type: skia.mojom.SurfaceOriginSpec, nullable: false, minVersion: 0 },
-        { name: 'alpha_type', packedOffset: 36, packedBitOffset: 0, type: skia.mojom.AlphaTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'usage', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gpu.mojom.SharedImageMetadataSpec, 'gpu.mojom.SharedImageMetadata', [
+      mojo.internal.StructField('format', 0, 0, viz.mojom.SharedImageFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('size', 16, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('color_space', 24, 0, gfx.mojom.ColorSpaceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('surface_origin', 32, 0, skia.mojom.SurfaceOriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('alpha_type', 36, 0, skia.mojom.AlphaTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('usage', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 56]]);

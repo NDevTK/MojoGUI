@@ -9,23 +9,17 @@ var chromecast = chromecast || {};
 chromecast.shell = chromecast.shell || {};
 chromecast.shell.mojom = chromecast.shell.mojom || {};
 
+chromecast.shell.mojom.QueryableDataStore = {};
+chromecast.shell.mojom.QueryableDataStore.$interfaceName = 'chromecast.shell.mojom.QueryableDataStore';
+chromecast.shell.mojom.QueryableDataStore_Set_ParamsSpec = { $: {} };
 
 // Interface: QueryableDataStore
-chromecast.shell.mojom.QueryableDataStore = {};
-
-chromecast.shell.mojom.QueryableDataStore_Set_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.shell.mojom.QueryableDataStore_Set_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.shell.mojom.QueryableDataStore_Set_ParamsSpec, 'chromecast.shell.mojom.QueryableDataStore_Set_Params', [
+      mojo.internal.StructField('key', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 chromecast.shell.mojom.QueryableDataStorePendingReceiver = class {
   constructor(handle) {
@@ -80,22 +74,6 @@ chromecast.shell.mojom.QueryableDataStore.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Set
-chromecast.shell.mojom.QueryableDataStore_Set_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.shell.mojom.QueryableDataStore.Set_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromecast.shell.mojom.QueryableDataStorePtr = chromecast.shell.mojom.QueryableDataStoreRemote;
 chromecast.shell.mojom.QueryableDataStoreRequest = chromecast.shell.mojom.QueryableDataStorePendingReceiver;
 

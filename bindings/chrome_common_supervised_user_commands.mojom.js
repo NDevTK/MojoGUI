@@ -8,57 +8,53 @@
 var supervised_user = supervised_user || {};
 supervised_user.mojom = supervised_user.mojom || {};
 
+supervised_user.mojom.SupervisedUserCommands = {};
+supervised_user.mojom.SupervisedUserCommands.$interfaceName = 'supervised_user.mojom.SupervisedUserCommands';
+supervised_user.mojom.SupervisedUserCommands_GoBack_ParamsSpec = { $: {} };
+supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ParamsSpec = { $: {} };
+supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ResponseParamsSpec = { $: {} };
+supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ParamsSpec = { $: {} };
+supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ResponseParamsSpec = { $: {} };
+supervised_user.mojom.SupervisedUserCommands_LearnMore_ParamsSpec = { $: {} };
+supervised_user.mojom.SupervisedUserCommands_LearnMore_ResponseParamsSpec = { $: {} };
 
 // Interface: SupervisedUserCommands
-supervised_user.mojom.SupervisedUserCommands = {};
+mojo.internal.Struct(
+    supervised_user.mojom.SupervisedUserCommands_GoBack_ParamsSpec, 'supervised_user.mojom.SupervisedUserCommands_GoBack_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-supervised_user.mojom.SupervisedUserCommands_GoBack_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'supervised_user.mojom.SupervisedUserCommands_GoBack_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ParamsSpec, 'supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ResponseParamsSpec, 'supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ResponseParams', [
+      mojo.internal.StructField('request_issued', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ParamsSpec, 'supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-supervised_user.mojom.SupervisedUserCommands_LearnMore_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'supervised_user.mojom.SupervisedUserCommands_LearnMore_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ResponseParamsSpec, 'supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ResponseParams', [
+      mojo.internal.StructField('request_issued', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    supervised_user.mojom.SupervisedUserCommands_LearnMore_ParamsSpec, 'supervised_user.mojom.SupervisedUserCommands_LearnMore_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    supervised_user.mojom.SupervisedUserCommands_LearnMore_ResponseParamsSpec, 'supervised_user.mojom.SupervisedUserCommands_LearnMore_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 supervised_user.mojom.SupervisedUserCommandsPendingReceiver = class {
   constructor(handle) {
@@ -124,7 +120,7 @@ supervised_user.mojom.SupervisedUserCommandsRemoteCallHandler = class {
     return this.proxy.sendMessage(
       3,  // ordinal
       supervised_user.mojom.SupervisedUserCommands_LearnMore_ParamsSpec,
-      null,
+      supervised_user.mojom.SupervisedUserCommands_LearnMore_ResponseParamsSpec,
       []);
   }
 
@@ -140,85 +136,6 @@ supervised_user.mojom.SupervisedUserCommands.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GoBack
-supervised_user.mojom.SupervisedUserCommands_GoBack_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'supervised_user.mojom.SupervisedUserCommands.GoBack_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for RequestUrlAccessRemote
-supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'supervised_user.mojom.SupervisedUserCommands.RequestUrlAccessRemote_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'supervised_user.mojom.SupervisedUserCommands.RequestUrlAccessRemote_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'request_issued', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestUrlAccessLocal
-supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'supervised_user.mojom.SupervisedUserCommands.RequestUrlAccessLocal_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'supervised_user.mojom.SupervisedUserCommands.RequestUrlAccessLocal_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'request_issued', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for LearnMore
-supervised_user.mojom.SupervisedUserCommands_LearnMore_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'supervised_user.mojom.SupervisedUserCommands.LearnMore_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 supervised_user.mojom.SupervisedUserCommandsPtr = supervised_user.mojom.SupervisedUserCommandsRemote;
 supervised_user.mojom.SupervisedUserCommandsRequest = supervised_user.mojom.SupervisedUserCommandsPendingReceiver;
 

@@ -8,6 +8,7 @@
 var mojo_base = mojo_base || {};
 mojo_base.mojom = mojo_base.mojom || {};
 
+mojo_base.mojom.MemoryPressureLevelSpec = { $: mojo.internal.Enum() };
 
 // Enum: MemoryPressureLevel
 mojo_base.mojom.MemoryPressureLevel = {
@@ -15,4 +16,3 @@ mojo_base.mojom.MemoryPressureLevel = {
   MODERATE: 1,
   CRITICAL: 2,
 };
-mojo_base.mojom.MemoryPressureLevelSpec = { $: mojo.internal.Enum() };

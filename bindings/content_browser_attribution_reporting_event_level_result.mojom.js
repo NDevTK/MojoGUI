@@ -8,6 +8,7 @@
 var attribution_reporting = attribution_reporting || {};
 attribution_reporting.mojom = attribution_reporting.mojom || {};
 
+attribution_reporting.mojom.EventLevelResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: EventLevelResult
 attribution_reporting.mojom.EventLevelResult = {
@@ -31,4 +32,3 @@ attribution_reporting.mojom.EventLevelResult = {
   kReportWindowNotStarted: 17,
   kNoMatchingTriggerData: 18,
 };
-attribution_reporting.mojom.EventLevelResultSpec = { $: mojo.internal.Enum() };

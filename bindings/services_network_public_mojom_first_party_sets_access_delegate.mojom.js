@@ -7,65 +7,43 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
+var services = services || {};
 
+network.mojom.FirstPartySetsAccessDelegateParamsSpec = { $: {} };
+network.mojom.FirstPartySetsReadyEventSpec = { $: {} };
+network.mojom.FirstPartySetsAccessDelegate = {};
+network.mojom.FirstPartySetsAccessDelegate.$interfaceName = 'network.mojom.FirstPartySetsAccessDelegate';
+network.mojom.FirstPartySetsAccessDelegate_NotifyReady_ParamsSpec = { $: {} };
+network.mojom.FirstPartySetsAccessDelegate_SetEnabled_ParamsSpec = { $: {} };
 
 // Struct: FirstPartySetsAccessDelegateParams
-network.mojom.FirstPartySetsAccessDelegateParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.FirstPartySetsAccessDelegateParams',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.FirstPartySetsAccessDelegateParamsSpec, 'network.mojom.FirstPartySetsAccessDelegateParams', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: FirstPartySetsReadyEvent
-network.mojom.FirstPartySetsReadyEventSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.FirstPartySetsReadyEvent',
-      packedSize: 24,
-      fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: network.mojom.FirstPartySetsContextConfigSpec, nullable: false, minVersion: 0 },
-        { name: 'cache_filter', packedOffset: 8, packedBitOffset: 0, type: network.mojom.FirstPartySetsCacheFilterSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.FirstPartySetsReadyEventSpec, 'network.mojom.FirstPartySetsReadyEvent', [
+      mojo.internal.StructField('config', 0, 0, network.mojom.FirstPartySetsContextConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cache_filter', 8, 0, network.mojom.FirstPartySetsCacheFilterSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: FirstPartySetsAccessDelegate
-network.mojom.FirstPartySetsAccessDelegate = {};
+mojo.internal.Struct(
+    network.mojom.FirstPartySetsAccessDelegate_NotifyReady_ParamsSpec, 'network.mojom.FirstPartySetsAccessDelegate_NotifyReady_Params', [
+      mojo.internal.StructField('ready_event', 0, 0, network.mojom.FirstPartySetsReadyEventSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.FirstPartySetsAccessDelegate_NotifyReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.FirstPartySetsAccessDelegate_NotifyReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'ready_event', packedOffset: 0, packedBitOffset: 0, type: network.mojom.FirstPartySetsReadyEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-network.mojom.FirstPartySetsAccessDelegate_SetEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.FirstPartySetsAccessDelegate_SetEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.FirstPartySetsAccessDelegate_SetEnabled_ParamsSpec, 'network.mojom.FirstPartySetsAccessDelegate_SetEnabled_Params', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 network.mojom.FirstPartySetsAccessDelegatePendingReceiver = class {
   constructor(handle) {
@@ -129,35 +107,6 @@ network.mojom.FirstPartySetsAccessDelegate.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for NotifyReady
-network.mojom.FirstPartySetsAccessDelegate_NotifyReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.FirstPartySetsAccessDelegate.NotifyReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'ready_event', packedOffset: 0, packedBitOffset: 0, type: network.mojom.FirstPartySetsReadyEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetEnabled
-network.mojom.FirstPartySetsAccessDelegate_SetEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.FirstPartySetsAccessDelegate.SetEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.FirstPartySetsAccessDelegatePtr = network.mojom.FirstPartySetsAccessDelegateRemote;
 network.mojom.FirstPartySetsAccessDelegateRequest = network.mojom.FirstPartySetsAccessDelegatePendingReceiver;
 

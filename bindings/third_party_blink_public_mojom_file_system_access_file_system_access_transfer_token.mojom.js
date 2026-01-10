@@ -8,34 +8,29 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.FileSystemAccessTransferToken = {};
+blink.mojom.FileSystemAccessTransferToken.$interfaceName = 'blink.mojom.FileSystemAccessTransferToken';
+blink.mojom.FileSystemAccessTransferToken_GetInternalID_ParamsSpec = { $: {} };
+blink.mojom.FileSystemAccessTransferToken_GetInternalID_ResponseParamsSpec = { $: {} };
+blink.mojom.FileSystemAccessTransferToken_Clone_ParamsSpec = { $: {} };
 
 // Interface: FileSystemAccessTransferToken
-blink.mojom.FileSystemAccessTransferToken = {};
+mojo.internal.Struct(
+    blink.mojom.FileSystemAccessTransferToken_GetInternalID_ParamsSpec, 'blink.mojom.FileSystemAccessTransferToken_GetInternalID_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.FileSystemAccessTransferToken_GetInternalID_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessTransferToken_GetInternalID_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FileSystemAccessTransferToken_GetInternalID_ResponseParamsSpec, 'blink.mojom.FileSystemAccessTransferToken_GetInternalID_ResponseParams', [
+      mojo.internal.StructField('id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.FileSystemAccessTransferToken_Clone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessTransferToken_Clone_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'token_clone', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.FileSystemAccessTransferTokenRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FileSystemAccessTransferToken_Clone_ParamsSpec, 'blink.mojom.FileSystemAccessTransferToken_Clone_Params', [
+      mojo.internal.StructField('token_clone', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.FileSystemAccessTransferTokenRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.FileSystemAccessTransferTokenPendingReceiver = class {
   constructor(handle) {
@@ -99,47 +94,6 @@ blink.mojom.FileSystemAccessTransferToken.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetInternalID
-blink.mojom.FileSystemAccessTransferToken_GetInternalID_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessTransferToken.GetInternalID_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.FileSystemAccessTransferToken_GetInternalID_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessTransferToken.GetInternalID_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Clone
-blink.mojom.FileSystemAccessTransferToken_Clone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessTransferToken.Clone_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'token_clone', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.FileSystemAccessTransferTokenRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.FileSystemAccessTransferTokenPtr = blink.mojom.FileSystemAccessTransferTokenRemote;
 blink.mojom.FileSystemAccessTransferTokenRequest = blink.mojom.FileSystemAccessTransferTokenPendingReceiver;
 

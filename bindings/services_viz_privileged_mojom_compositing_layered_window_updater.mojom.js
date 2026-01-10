@@ -10,35 +10,29 @@ viz.mojom = viz.mojom || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+viz.mojom.LayeredWindowUpdater = {};
+viz.mojom.LayeredWindowUpdater.$interfaceName = 'viz.mojom.LayeredWindowUpdater';
+viz.mojom.LayeredWindowUpdater_OnAllocatedSharedMemory_ParamsSpec = { $: {} };
+viz.mojom.LayeredWindowUpdater_Draw_ParamsSpec = { $: {} };
+viz.mojom.LayeredWindowUpdater_Draw_ResponseParamsSpec = { $: {} };
 
 // Interface: LayeredWindowUpdater
-viz.mojom.LayeredWindowUpdater = {};
+mojo.internal.Struct(
+    viz.mojom.LayeredWindowUpdater_OnAllocatedSharedMemory_ParamsSpec, 'viz.mojom.LayeredWindowUpdater_OnAllocatedSharedMemory_Params', [
+      mojo.internal.StructField('pixel_size', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('region', 8, 0, mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-viz.mojom.LayeredWindowUpdater_OnAllocatedSharedMemory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.LayeredWindowUpdater_OnAllocatedSharedMemory_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'pixel_size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.LayeredWindowUpdater_Draw_ParamsSpec, 'viz.mojom.LayeredWindowUpdater_Draw_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-viz.mojom.LayeredWindowUpdater_Draw_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.LayeredWindowUpdater_Draw_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.LayeredWindowUpdater_Draw_ResponseParamsSpec, 'viz.mojom.LayeredWindowUpdater_Draw_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 viz.mojom.LayeredWindowUpdaterPendingReceiver = class {
   constructor(handle) {
@@ -86,7 +80,7 @@ viz.mojom.LayeredWindowUpdaterRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       viz.mojom.LayeredWindowUpdater_Draw_ParamsSpec,
-      null,
+      viz.mojom.LayeredWindowUpdater_Draw_ResponseParamsSpec,
       []);
   }
 
@@ -102,35 +96,6 @@ viz.mojom.LayeredWindowUpdater.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnAllocatedSharedMemory
-viz.mojom.LayeredWindowUpdater_OnAllocatedSharedMemory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.LayeredWindowUpdater.OnAllocatedSharedMemory_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'pixel_size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for Draw
-viz.mojom.LayeredWindowUpdater_Draw_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.LayeredWindowUpdater.Draw_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 viz.mojom.LayeredWindowUpdaterPtr = viz.mojom.LayeredWindowUpdaterRemote;
 viz.mojom.LayeredWindowUpdaterRequest = viz.mojom.LayeredWindowUpdaterPendingReceiver;
 

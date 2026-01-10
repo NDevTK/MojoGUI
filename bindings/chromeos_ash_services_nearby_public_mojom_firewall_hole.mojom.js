@@ -7,11 +7,18 @@
 // Module namespace
 var sharing = sharing || {};
 sharing.mojom = sharing.mojom || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var services = services || {};
 
+sharing.mojom.FirewallHole = {};
+sharing.mojom.FirewallHole.$interfaceName = 'sharing.mojom.FirewallHole';
+sharing.mojom.FirewallHoleFactory = {};
+sharing.mojom.FirewallHoleFactory.$interfaceName = 'sharing.mojom.FirewallHoleFactory';
+sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ParamsSpec = { $: {} };
+sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ResponseParamsSpec = { $: {} };
 
 // Interface: FirewallHole
-sharing.mojom.FirewallHole = {};
-
 sharing.mojom.FirewallHolePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -56,26 +63,22 @@ sharing.mojom.FirewallHole.getRemote = function() {
   return remote.$;
 };
 
-// Legacy compatibility
 sharing.mojom.FirewallHolePtr = sharing.mojom.FirewallHoleRemote;
 sharing.mojom.FirewallHoleRequest = sharing.mojom.FirewallHolePendingReceiver;
 
 
 // Interface: FirewallHoleFactory
-sharing.mojom.FirewallHoleFactory = {};
+mojo.internal.Struct(
+    sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ParamsSpec, 'sharing.mojom.FirewallHoleFactory_OpenFirewallHole_Params', [
+      mojo.internal.StructField('port', 0, 0, sharing.mojom.TcpServerSocketPortSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.FirewallHoleFactory_OpenFirewallHole_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'port', packedOffset: 0, packedBitOffset: 0, type: sharing.mojom.TcpServerSocketPortSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ResponseParamsSpec, 'sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ResponseParams', [
+      mojo.internal.StructField('firewall_hole', 0, 0, mojo.internal.InterfaceProxy(sharing.mojom.FirewallHoleRemote), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 sharing.mojom.FirewallHoleFactoryPendingReceiver = class {
   constructor(handle) {
@@ -130,34 +133,6 @@ sharing.mojom.FirewallHoleFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OpenFirewallHole
-sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.FirewallHoleFactory.OpenFirewallHole_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'port', packedOffset: 0, packedBitOffset: 0, type: sharing.mojom.TcpServerSocketPortSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.FirewallHoleFactory.OpenFirewallHole_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'firewall_hole', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(sharing.mojom.FirewallHoleRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 sharing.mojom.FirewallHoleFactoryPtr = sharing.mojom.FirewallHoleFactoryRemote;
 sharing.mojom.FirewallHoleFactoryRequest = sharing.mojom.FirewallHoleFactoryPendingReceiver;
 

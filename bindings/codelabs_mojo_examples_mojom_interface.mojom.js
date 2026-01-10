@@ -8,21 +8,27 @@
 var codelabs = codelabs || {};
 codelabs.mojom = codelabs.mojom || {};
 
+codelabs.mojom.ObjectA = {};
+codelabs.mojom.ObjectA.$interfaceName = 'codelabs.mojom.ObjectA';
+codelabs.mojom.ObjectA_DoA_ParamsSpec = { $: {} };
+codelabs.mojom.ObjectB = {};
+codelabs.mojom.ObjectB.$interfaceName = 'codelabs.mojom.ObjectB';
+codelabs.mojom.ObjectB_DoB_ParamsSpec = { $: {} };
+codelabs.mojom.AssociatedProcess = {};
+codelabs.mojom.AssociatedProcess.$interfaceName = 'codelabs.mojom.AssociatedProcess';
+codelabs.mojom.AssociatedProcess_SetProcess_ParamsSpec = { $: {} };
+codelabs.mojom.GenericInterface = {};
+codelabs.mojom.GenericInterface.$interfaceName = 'codelabs.mojom.GenericInterface';
+codelabs.mojom.Process = {};
+codelabs.mojom.Process.$interfaceName = 'codelabs.mojom.Process';
+codelabs.mojom.Process_SayHello_ParamsSpec = { $: {} };
+codelabs.mojom.Process_GetAssociatedInterface_ParamsSpec = { $: {} };
 
 // Interface: ObjectA
-codelabs.mojom.ObjectA = {};
-
-codelabs.mojom.ObjectA_DoA_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'codelabs.mojom.ObjectA_DoA_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    codelabs.mojom.ObjectA_DoA_ParamsSpec, 'codelabs.mojom.ObjectA_DoA_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 codelabs.mojom.ObjectAPendingReceiver = class {
   constructor(handle) {
@@ -77,38 +83,15 @@ codelabs.mojom.ObjectA.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for DoA
-codelabs.mojom.ObjectA_DoA_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'codelabs.mojom.ObjectA.DoA_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 codelabs.mojom.ObjectAPtr = codelabs.mojom.ObjectARemote;
 codelabs.mojom.ObjectARequest = codelabs.mojom.ObjectAPendingReceiver;
 
 
 // Interface: ObjectB
-codelabs.mojom.ObjectB = {};
-
-codelabs.mojom.ObjectB_DoB_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'codelabs.mojom.ObjectB_DoB_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    codelabs.mojom.ObjectB_DoB_ParamsSpec, 'codelabs.mojom.ObjectB_DoB_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 codelabs.mojom.ObjectBPendingReceiver = class {
   constructor(handle) {
@@ -163,39 +146,16 @@ codelabs.mojom.ObjectB.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for DoB
-codelabs.mojom.ObjectB_DoB_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'codelabs.mojom.ObjectB.DoB_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 codelabs.mojom.ObjectBPtr = codelabs.mojom.ObjectBRemote;
 codelabs.mojom.ObjectBRequest = codelabs.mojom.ObjectBPendingReceiver;
 
 
 // Interface: AssociatedProcess
-codelabs.mojom.AssociatedProcess = {};
-
-codelabs.mojom.AssociatedProcess_SetProcess_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'codelabs.mojom.AssociatedProcess_SetProcess_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'process', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(codelabs.mojom.ProcessRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    codelabs.mojom.AssociatedProcess_SetProcess_ParamsSpec, 'codelabs.mojom.AssociatedProcess_SetProcess_Params', [
+      mojo.internal.StructField('process', 0, 0, mojo.internal.InterfaceRequest(codelabs.mojom.ProcessRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 codelabs.mojom.AssociatedProcessPendingReceiver = class {
   constructor(handle) {
@@ -250,28 +210,11 @@ codelabs.mojom.AssociatedProcess.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetProcess
-codelabs.mojom.AssociatedProcess_SetProcess_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'codelabs.mojom.AssociatedProcess.SetProcess_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'process', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(codelabs.mojom.ProcessRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 codelabs.mojom.AssociatedProcessPtr = codelabs.mojom.AssociatedProcessRemote;
 codelabs.mojom.AssociatedProcessRequest = codelabs.mojom.AssociatedProcessPendingReceiver;
 
 
 // Interface: GenericInterface
-codelabs.mojom.GenericInterface = {};
-
 codelabs.mojom.GenericInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -316,39 +259,22 @@ codelabs.mojom.GenericInterface.getRemote = function() {
   return remote.$;
 };
 
-// Legacy compatibility
 codelabs.mojom.GenericInterfacePtr = codelabs.mojom.GenericInterfaceRemote;
 codelabs.mojom.GenericInterfaceRequest = codelabs.mojom.GenericInterfacePendingReceiver;
 
 
 // Interface: Process
-codelabs.mojom.Process = {};
+mojo.internal.Struct(
+    codelabs.mojom.Process_SayHello_ParamsSpec, 'codelabs.mojom.Process_SayHello_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-codelabs.mojom.Process_SayHello_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'codelabs.mojom.Process_SayHello_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-codelabs.mojom.Process_GetAssociatedInterface_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'codelabs.mojom.Process_GetAssociatedInterface_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(codelabs.mojom.GenericInterfaceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    codelabs.mojom.Process_GetAssociatedInterface_ParamsSpec, 'codelabs.mojom.Process_GetAssociatedInterface_Params', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(codelabs.mojom.GenericInterfaceRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 codelabs.mojom.ProcessPendingReceiver = class {
   constructor(handle) {
@@ -412,35 +338,6 @@ codelabs.mojom.Process.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SayHello
-codelabs.mojom.Process_SayHello_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'codelabs.mojom.Process.SayHello_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for GetAssociatedInterface
-codelabs.mojom.Process_GetAssociatedInterface_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'codelabs.mojom.Process.GetAssociatedInterface_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(codelabs.mojom.GenericInterfaceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 codelabs.mojom.ProcessPtr = codelabs.mojom.ProcessRemote;
 codelabs.mojom.ProcessRequest = codelabs.mojom.ProcessPendingReceiver;
 

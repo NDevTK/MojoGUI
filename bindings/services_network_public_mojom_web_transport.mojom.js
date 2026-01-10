@@ -7,207 +7,177 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
+var services = services || {};
 
+network.mojom.WebTransportErrorSpec = { $: {} };
+network.mojom.WebTransportCertificateFingerprintSpec = { $: {} };
+network.mojom.WebTransportCloseInfoSpec = { $: {} };
+network.mojom.WebTransportStatsSpec = { $: {} };
+network.mojom.WebTransport = {};
+network.mojom.WebTransport.$interfaceName = 'network.mojom.WebTransport';
+network.mojom.WebTransport_SendDatagram_ParamsSpec = { $: {} };
+network.mojom.WebTransport_SendDatagram_ResponseParamsSpec = { $: {} };
+network.mojom.WebTransport_CreateStream_ParamsSpec = { $: {} };
+network.mojom.WebTransport_CreateStream_ResponseParamsSpec = { $: {} };
+network.mojom.WebTransport_AcceptBidirectionalStream_ParamsSpec = { $: {} };
+network.mojom.WebTransport_AcceptBidirectionalStream_ResponseParamsSpec = { $: {} };
+network.mojom.WebTransport_AcceptUnidirectionalStream_ParamsSpec = { $: {} };
+network.mojom.WebTransport_AcceptUnidirectionalStream_ResponseParamsSpec = { $: {} };
+network.mojom.WebTransport_SendFin_ParamsSpec = { $: {} };
+network.mojom.WebTransport_AbortStream_ParamsSpec = { $: {} };
+network.mojom.WebTransport_StopSending_ParamsSpec = { $: {} };
+network.mojom.WebTransport_SetOutgoingDatagramExpirationDuration_ParamsSpec = { $: {} };
+network.mojom.WebTransport_GetStats_ParamsSpec = { $: {} };
+network.mojom.WebTransport_GetStats_ResponseParamsSpec = { $: {} };
+network.mojom.WebTransport_Close_ParamsSpec = { $: {} };
+network.mojom.WebTransportClient = {};
+network.mojom.WebTransportClient.$interfaceName = 'network.mojom.WebTransportClient';
+network.mojom.WebTransportClient_OnDatagramReceived_ParamsSpec = { $: {} };
+network.mojom.WebTransportClient_OnIncomingStreamClosed_ParamsSpec = { $: {} };
+network.mojom.WebTransportClient_OnOutgoingStreamClosed_ParamsSpec = { $: {} };
+network.mojom.WebTransportClient_OnReceivedStopSending_ParamsSpec = { $: {} };
+network.mojom.WebTransportClient_OnReceivedResetStream_ParamsSpec = { $: {} };
+network.mojom.WebTransportClient_OnClosed_ParamsSpec = { $: {} };
+network.mojom.WebTransportHandshakeClient = {};
+network.mojom.WebTransportHandshakeClient.$interfaceName = 'network.mojom.WebTransportHandshakeClient';
+network.mojom.WebTransportHandshakeClient_OnBeforeConnect_ParamsSpec = { $: {} };
+network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_ParamsSpec = { $: {} };
+network.mojom.WebTransportHandshakeClient_OnHandshakeFailed_ParamsSpec = { $: {} };
 
 // Struct: WebTransportError
-network.mojom.WebTransportErrorSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransportError',
-      packedSize: 32,
-      fields: [
-        { name: 'net_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'quic_error', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'safe_to_report_details', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.WebTransportErrorSpec, 'network.mojom.WebTransportError', [
+      mojo.internal.StructField('net_error', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('quic_error', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('details', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('safe_to_report_details', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: WebTransportCertificateFingerprint
-network.mojom.WebTransportCertificateFingerprintSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransportCertificateFingerprint',
-      packedSize: 24,
-      fields: [
-        { name: 'algorithm', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'fingerprint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.WebTransportCertificateFingerprintSpec, 'network.mojom.WebTransportCertificateFingerprint', [
+      mojo.internal.StructField('algorithm', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('fingerprint', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: WebTransportCloseInfo
-network.mojom.WebTransportCloseInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransportCloseInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.WebTransportCloseInfoSpec, 'network.mojom.WebTransportCloseInfo', [
+      mojo.internal.StructField('code', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('reason', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: WebTransportStats
-network.mojom.WebTransportStatsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransportStats',
-      packedSize: 64,
-      fields: [
-        { name: 'timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'min_rtt', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'smoothed_rtt', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'rtt_variation', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'estimated_send_rate_bps', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'datagrams_expired_outgoing', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'datagrams_lost_outgoing', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.WebTransportStatsSpec, 'network.mojom.WebTransportStats', [
+      mojo.internal.StructField('timestamp', 0, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('min_rtt', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('smoothed_rtt', 16, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('rtt_variation', 24, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('estimated_send_rate_bps', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('datagrams_expired_outgoing', 40, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('datagrams_lost_outgoing', 48, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 64]]);
 
 // Interface: WebTransport
-network.mojom.WebTransport = {};
+mojo.internal.Struct(
+    network.mojom.WebTransport_SendDatagram_ParamsSpec, 'network.mojom.WebTransport_SendDatagram_Params', [
+      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.ReadOnlyBufferSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.WebTransport_SendDatagram_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransport_SendDatagram_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.WebTransport_SendDatagram_ResponseParamsSpec, 'network.mojom.WebTransport_SendDatagram_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.WebTransport_CreateStream_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransport_CreateStream_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'readable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'writable', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.WebTransport_CreateStream_ParamsSpec, 'network.mojom.WebTransport_CreateStream_Params', [
+      mojo.internal.StructField('readable', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('writable', 8, 0, mojo.internal.Pointer, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-network.mojom.WebTransport_AcceptBidirectionalStream_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransport_AcceptBidirectionalStream_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.WebTransport_CreateStream_ResponseParamsSpec, 'network.mojom.WebTransport_CreateStream_ResponseParams', [
+      mojo.internal.StructField('succeeded', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('stream_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.WebTransport_AcceptUnidirectionalStream_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransport_AcceptUnidirectionalStream_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.WebTransport_AcceptBidirectionalStream_ParamsSpec, 'network.mojom.WebTransport_AcceptBidirectionalStream_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-network.mojom.WebTransport_SendFin_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransport_SendFin_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.WebTransport_AcceptBidirectionalStream_ResponseParamsSpec, 'network.mojom.WebTransport_AcceptBidirectionalStream_ResponseParams', [
+      mojo.internal.StructField('stream_id', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('readable', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('writable', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-network.mojom.WebTransport_AbortStream_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransport_AbortStream_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'code', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.WebTransport_AcceptUnidirectionalStream_ParamsSpec, 'network.mojom.WebTransport_AcceptUnidirectionalStream_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-network.mojom.WebTransport_StopSending_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransport_StopSending_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'code', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.WebTransport_AcceptUnidirectionalStream_ResponseParamsSpec, 'network.mojom.WebTransport_AcceptUnidirectionalStream_ResponseParams', [
+      mojo.internal.StructField('stream_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('readable', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-network.mojom.WebTransport_SetOutgoingDatagramExpirationDuration_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransport_SetOutgoingDatagramExpirationDuration_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'duration', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.WebTransport_SendFin_ParamsSpec, 'network.mojom.WebTransport_SendFin_Params', [
+      mojo.internal.StructField('stream_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.WebTransport_GetStats_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransport_GetStats_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.WebTransport_AbortStream_ParamsSpec, 'network.mojom.WebTransport_AbortStream_Params', [
+      mojo.internal.StructField('stream_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('code', 4, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.WebTransport_Close_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransport_Close_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'close_info', packedOffset: 0, packedBitOffset: 0, type: network.mojom.WebTransportCloseInfoSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.WebTransport_StopSending_ParamsSpec, 'network.mojom.WebTransport_StopSending_Params', [
+      mojo.internal.StructField('stream_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('code', 4, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    network.mojom.WebTransport_SetOutgoingDatagramExpirationDuration_ParamsSpec, 'network.mojom.WebTransport_SetOutgoingDatagramExpirationDuration_Params', [
+      mojo.internal.StructField('duration', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    network.mojom.WebTransport_GetStats_ParamsSpec, 'network.mojom.WebTransport_GetStats_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    network.mojom.WebTransport_GetStats_ResponseParamsSpec, 'network.mojom.WebTransport_GetStats_ResponseParams', [
+      mojo.internal.StructField('stats', 0, 0, network.mojom.WebTransportStatsSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    network.mojom.WebTransport_Close_ParamsSpec, 'network.mojom.WebTransport_Close_Params', [
+      mojo.internal.StructField('close_info', 0, 0, network.mojom.WebTransportCloseInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 network.mojom.WebTransportPendingReceiver = class {
   constructor(handle) {
@@ -343,304 +313,50 @@ network.mojom.WebTransport.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SendDatagram
-network.mojom.WebTransport_SendDatagram_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransport.SendDatagram_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-network.mojom.WebTransport_SendDatagram_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransport.SendDatagram_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CreateStream
-network.mojom.WebTransport_CreateStream_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransport.CreateStream_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'readable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'writable', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-network.mojom.WebTransport_CreateStream_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransport.CreateStream_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'succeeded', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AcceptBidirectionalStream
-network.mojom.WebTransport_AcceptBidirectionalStream_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransport.AcceptBidirectionalStream_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-network.mojom.WebTransport_AcceptBidirectionalStream_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransport.AcceptBidirectionalStream_ResponseParams',
-      packedSize: 32,
-      fields: [
-        { name: 'stream_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'readable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'writable', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for AcceptUnidirectionalStream
-network.mojom.WebTransport_AcceptUnidirectionalStream_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransport.AcceptUnidirectionalStream_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-network.mojom.WebTransport_AcceptUnidirectionalStream_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransport.AcceptUnidirectionalStream_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'stream_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'readable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SendFin
-network.mojom.WebTransport_SendFin_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransport.SendFin_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AbortStream
-network.mojom.WebTransport_AbortStream_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransport.AbortStream_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'code', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StopSending
-network.mojom.WebTransport_StopSending_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransport.StopSending_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'code', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetOutgoingDatagramExpirationDuration
-network.mojom.WebTransport_SetOutgoingDatagramExpirationDuration_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransport.SetOutgoingDatagramExpirationDuration_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'duration', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetStats
-network.mojom.WebTransport_GetStats_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransport.GetStats_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-network.mojom.WebTransport_GetStats_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransport.GetStats_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'stats', packedOffset: 0, packedBitOffset: 0, type: network.mojom.WebTransportStatsSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Close
-network.mojom.WebTransport_Close_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransport.Close_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'close_info', packedOffset: 0, packedBitOffset: 0, type: network.mojom.WebTransportCloseInfoSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.WebTransportPtr = network.mojom.WebTransportRemote;
 network.mojom.WebTransportRequest = network.mojom.WebTransportPendingReceiver;
 
 
 // Interface: WebTransportClient
-network.mojom.WebTransportClient = {};
+mojo.internal.Struct(
+    network.mojom.WebTransportClient_OnDatagramReceived_ParamsSpec, 'network.mojom.WebTransportClient_OnDatagramReceived_Params', [
+      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.ReadOnlyBufferSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.WebTransportClient_OnDatagramReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransportClient_OnDatagramReceived_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.WebTransportClient_OnIncomingStreamClosed_ParamsSpec, 'network.mojom.WebTransportClient_OnIncomingStreamClosed_Params', [
+      mojo.internal.StructField('stream_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('fin_received', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.WebTransportClient_OnIncomingStreamClosed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransportClient_OnIncomingStreamClosed_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'fin_received', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.WebTransportClient_OnOutgoingStreamClosed_ParamsSpec, 'network.mojom.WebTransportClient_OnOutgoingStreamClosed_Params', [
+      mojo.internal.StructField('stream_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.WebTransportClient_OnOutgoingStreamClosed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransportClient_OnOutgoingStreamClosed_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.WebTransportClient_OnReceivedStopSending_ParamsSpec, 'network.mojom.WebTransportClient_OnReceivedStopSending_Params', [
+      mojo.internal.StructField('stream_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('stream_error_code', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.WebTransportClient_OnReceivedStopSending_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransportClient_OnReceivedStopSending_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'stream_error_code', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.WebTransportClient_OnReceivedResetStream_ParamsSpec, 'network.mojom.WebTransportClient_OnReceivedResetStream_Params', [
+      mojo.internal.StructField('stream_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('stream_error_code', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.WebTransportClient_OnReceivedResetStream_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransportClient_OnReceivedResetStream_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'stream_error_code', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-network.mojom.WebTransportClient_OnClosed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransportClient_OnClosed_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'close_info', packedOffset: 0, packedBitOffset: 0, type: network.mojom.WebTransportCloseInfoSpec, nullable: true, minVersion: 0 },
-        { name: 'final_stats', packedOffset: 8, packedBitOffset: 0, type: network.mojom.WebTransportStatsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.WebTransportClient_OnClosed_ParamsSpec, 'network.mojom.WebTransportClient_OnClosed_Params', [
+      mojo.internal.StructField('close_info', 0, 0, network.mojom.WebTransportCloseInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('final_stats', 8, 0, network.mojom.WebTransportStatsSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 network.mojom.WebTransportClientPendingReceiver = class {
   constructor(handle) {
@@ -740,144 +456,32 @@ network.mojom.WebTransportClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnDatagramReceived
-network.mojom.WebTransportClient_OnDatagramReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransportClient.OnDatagramReceived_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnIncomingStreamClosed
-network.mojom.WebTransportClient_OnIncomingStreamClosed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransportClient.OnIncomingStreamClosed_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'fin_received', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnOutgoingStreamClosed
-network.mojom.WebTransportClient_OnOutgoingStreamClosed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransportClient.OnOutgoingStreamClosed_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnReceivedStopSending
-network.mojom.WebTransportClient_OnReceivedStopSending_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransportClient.OnReceivedStopSending_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'stream_error_code', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnReceivedResetStream
-network.mojom.WebTransportClient_OnReceivedResetStream_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransportClient.OnReceivedResetStream_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'stream_error_code', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnClosed
-network.mojom.WebTransportClient_OnClosed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransportClient.OnClosed_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'close_info', packedOffset: 0, packedBitOffset: 0, type: network.mojom.WebTransportCloseInfoSpec, nullable: true, minVersion: 0 },
-        { name: 'final_stats', packedOffset: 8, packedBitOffset: 0, type: network.mojom.WebTransportStatsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.WebTransportClientPtr = network.mojom.WebTransportClientRemote;
 network.mojom.WebTransportClientRequest = network.mojom.WebTransportClientPendingReceiver;
 
 
 // Interface: WebTransportHandshakeClient
-network.mojom.WebTransportHandshakeClient = {};
+mojo.internal.Struct(
+    network.mojom.WebTransportHandshakeClient_OnBeforeConnect_ParamsSpec, 'network.mojom.WebTransportHandshakeClient_OnBeforeConnect_Params', [
+      mojo.internal.StructField('server_address', 0, 0, network.mojom.IPEndPointSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.WebTransportHandshakeClient_OnBeforeConnect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransportHandshakeClient_OnBeforeConnect_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'server_address', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_ParamsSpec, 'network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_Params', [
+      mojo.internal.StructField('transport', 0, 0, mojo.internal.InterfaceProxy(network.mojom.WebTransportRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceRequest(network.mojom.WebTransportClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('response_headers', 16, 0, network.mojom.HttpResponseHeadersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('selected_application_protocol', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('initial_stats', 32, 0, network.mojom.WebTransportStatsSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
-network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'transport', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.WebTransportRemote), nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.WebTransportClientRemote), nullable: false, minVersion: 0 },
-        { name: 'response_headers', packedOffset: 16, packedBitOffset: 0, type: network.mojom.HttpResponseHeadersSpec, nullable: false, minVersion: 0 },
-        { name: 'selected_application_protocol', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'initial_stats', packedOffset: 32, packedBitOffset: 0, type: network.mojom.WebTransportStatsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
-
-network.mojom.WebTransportHandshakeClient_OnHandshakeFailed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransportHandshakeClient_OnHandshakeFailed_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: network.mojom.WebTransportErrorSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.WebTransportHandshakeClient_OnHandshakeFailed_ParamsSpec, 'network.mojom.WebTransportHandshakeClient_OnHandshakeFailed_Params', [
+      mojo.internal.StructField('error', 0, 0, network.mojom.WebTransportErrorSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 network.mojom.WebTransportHandshakeClientPendingReceiver = class {
   constructor(handle) {
@@ -950,53 +554,6 @@ network.mojom.WebTransportHandshakeClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnBeforeConnect
-network.mojom.WebTransportHandshakeClient_OnBeforeConnect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransportHandshakeClient.OnBeforeConnect_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'server_address', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnConnectionEstablished
-network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransportHandshakeClient.OnConnectionEstablished_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'transport', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.WebTransportRemote), nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.WebTransportClientRemote), nullable: false, minVersion: 0 },
-        { name: 'response_headers', packedOffset: 16, packedBitOffset: 0, type: network.mojom.HttpResponseHeadersSpec, nullable: false, minVersion: 0 },
-        { name: 'selected_application_protocol', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'initial_stats', packedOffset: 32, packedBitOffset: 0, type: network.mojom.WebTransportStatsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
-
-// ParamsSpec for OnHandshakeFailed
-network.mojom.WebTransportHandshakeClient_OnHandshakeFailed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebTransportHandshakeClient.OnHandshakeFailed_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: network.mojom.WebTransportErrorSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.WebTransportHandshakeClientPtr = network.mojom.WebTransportHandshakeClientRemote;
 network.mojom.WebTransportHandshakeClientRequest = network.mojom.WebTransportHandshakeClientPendingReceiver;
 

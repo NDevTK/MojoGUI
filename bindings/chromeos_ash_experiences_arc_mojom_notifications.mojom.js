@@ -7,7 +7,56 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
 
+arc.mojom.ArcNotificationEventSpec = { $: mojo.internal.Enum() };
+arc.mojom.ArcNotificationTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.ArcNotificationPrioritySpec = { $: mojo.internal.Enum() };
+arc.mojom.ArcNotificationExpandStateSpec = { $: mojo.internal.Enum() };
+arc.mojom.ArcNotificationRemoteInputStateSpec = { $: mojo.internal.Enum() };
+arc.mojom.ArcNotificationShownContentsSpec = { $: mojo.internal.Enum() };
+arc.mojom.ArcNotificationStyleSpec = { $: mojo.internal.Enum() };
+arc.mojom.MessageCenterVisibilitySpec = { $: mojo.internal.Enum() };
+arc.mojom.ArcNotificationButtonSpec = { $: {} };
+arc.mojom.ArcNotificationFlagsSpec = { $: {} };
+arc.mojom.ArcNotificationDataSpec = { $: {} };
+arc.mojom.ArcDoNotDisturbStatusSpec = { $: {} };
+arc.mojom.ArcNotificationUserActionDataSpec = { $: {} };
+arc.mojom.ArcLockScreenNotificationSettingSpec = { $: {} };
+arc.mojom.NotificationConfigurationSpec = { $: {} };
+arc.mojom.ArcNotificationMessageSpec = { $: {} };
+arc.mojom.NotificationsHost = {};
+arc.mojom.NotificationsHost.$interfaceName = 'arc.mojom.NotificationsHost';
+arc.mojom.NotificationsHost_OnDoNotDisturbStatusUpdated_ParamsSpec = { $: {} };
+arc.mojom.NotificationsHost_OnNotificationPosted_ParamsSpec = { $: {} };
+arc.mojom.NotificationsHost_OnNotificationRemoved_ParamsSpec = { $: {} };
+arc.mojom.NotificationsHost_OnNotificationUpdated_ParamsSpec = { $: {} };
+arc.mojom.NotificationsHost_OpenMessageCenter_ParamsSpec = { $: {} };
+arc.mojom.NotificationsHost_CloseMessageCenter_ParamsSpec = { $: {} };
+arc.mojom.NotificationsHost_ProcessUserAction_ParamsSpec = { $: {} };
+arc.mojom.NotificationsHost_OnLockScreenSettingUpdated_ParamsSpec = { $: {} };
+arc.mojom.NotificationsHost_LogInlineReplySent_ParamsSpec = { $: {} };
+arc.mojom.NotificationsInstance = {};
+arc.mojom.NotificationsInstance.$interfaceName = 'arc.mojom.NotificationsInstance';
+arc.mojom.NotificationsInstance_Init_ParamsSpec = { $: {} };
+arc.mojom.NotificationsInstance_Init_ResponseParamsSpec = { $: {} };
+arc.mojom.NotificationsInstance_SendNotificationEventToAndroid_ParamsSpec = { $: {} };
+arc.mojom.NotificationsInstance_CreateNotificationWindow_ParamsSpec = { $: {} };
+arc.mojom.NotificationsInstance_CloseNotificationWindow_ParamsSpec = { $: {} };
+arc.mojom.NotificationsInstance_OpenNotificationSettings_ParamsSpec = { $: {} };
+arc.mojom.NotificationsInstance_OpenNotificationSnoozeSettings_ParamsSpec = { $: {} };
+arc.mojom.NotificationsInstance_SetDoNotDisturbStatusOnAndroid_ParamsSpec = { $: {} };
+arc.mojom.NotificationsInstance_CancelPress_ParamsSpec = { $: {} };
+arc.mojom.NotificationsInstance_PerformDeferredUserAction_ParamsSpec = { $: {} };
+arc.mojom.NotificationsInstance_CancelDeferredUserAction_ParamsSpec = { $: {} };
+arc.mojom.NotificationsInstance_SetLockScreenSettingOnAndroid_ParamsSpec = { $: {} };
+arc.mojom.NotificationsInstance_SetNotificationConfiguration_ParamsSpec = { $: {} };
+arc.mojom.NotificationsInstance_OnMessageCenterVisibilityChanged_ParamsSpec = { $: {} };
+arc.mojom.NotificationsInstance_SendNotificationButtonClickToAndroid_ParamsSpec = { $: {} };
+arc.mojom.NotificationsInstance_PopUpAppNotificationSettings_ParamsSpec = { $: {} };
 
 arc.mojom.SUPPORT_SNOOZE = 1;
 
@@ -20,8 +69,10 @@ arc.mojom.ArcNotificationEvent = {
   DEPRECATED_BUTTON_3_CLICKED: 4,
   DEPRECATED_BUTTON_4_CLICKED: 5,
   DEPRECATED_BUTTON_5_CLICKED: 6,
+  MinVersion: 6,
+  MinVersion: 6,
+  MinVersion: 6,
 };
-arc.mojom.ArcNotificationEventSpec = { $: mojo.internal.Enum() };
 
 // Enum: ArcNotificationType
 arc.mojom.ArcNotificationType = {
@@ -31,18 +82,16 @@ arc.mojom.ArcNotificationType = {
   DEPRECATED_LIST: 3,
   BUNDLED: 4,
 };
-arc.mojom.ArcNotificationTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ArcNotificationPriority
 arc.mojom.ArcNotificationPriority = {
-  NONE: 0,
-  MIN: 1,
-  LOW: 2,
-  DEFAULT: 3,
-  HIGH: 4,
-  MAX: 5,
+  NONE: -3,
+  MIN: -2,
+  LOW: -1,
+  DEFAULT: 0,
+  HIGH: 1,
+  MAX: 2,
 };
-arc.mojom.ArcNotificationPrioritySpec = { $: mojo.internal.Enum() };
 
 // Enum: ArcNotificationExpandState
 arc.mojom.ArcNotificationExpandState = {
@@ -50,21 +99,19 @@ arc.mojom.ArcNotificationExpandState = {
   COLLAPSED: 1,
   EXPANDED: 2,
 };
-arc.mojom.ArcNotificationExpandStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: ArcNotificationRemoteInputState
 arc.mojom.ArcNotificationRemoteInputState = {
   CLOSED: 0,
   OPENED: 1,
 };
-arc.mojom.ArcNotificationRemoteInputStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: ArcNotificationShownContents
 arc.mojom.ArcNotificationShownContents = {
   CONTENTS_SHOWN: 0,
   SETTINGS_SHOWN: 1,
+  SNOOZE_SHOWN: 2,
 };
-arc.mojom.ArcNotificationShownContentsSpec = { $: mojo.internal.Enum() };
 
 // Enum: ArcNotificationStyle
 arc.mojom.ArcNotificationStyle = {
@@ -76,289 +123,167 @@ arc.mojom.ArcNotificationStyle = {
   MEDIA_STYLE: 5,
   DECORATED_CUSTOM_VIEW_STYLE: 6,
   DECORATED_MEDIA_CUSTOM_VIEW_STYLE: 7,
+  MinVersion: 7,
 };
-arc.mojom.ArcNotificationStyleSpec = { $: mojo.internal.Enum() };
 
 // Enum: MessageCenterVisibility
 arc.mojom.MessageCenterVisibility = {
   VISIBILITY_TRANSIENT: 0,
   VISIBILITY_MESSAGE_CENTER: 1,
 };
-arc.mojom.MessageCenterVisibilitySpec = { $: mojo.internal.Enum() };
 
 // Struct: ArcNotificationButton
-arc.mojom.ArcNotificationButtonSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcNotificationButton',
-      packedSize: 24,
-      fields: [
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'buttonPlaceholder', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 31 },
-      ],
-      versions: [{version: 0, packedSize: 16}, {version: 31, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcNotificationButtonSpec, 'arc.mojom.ArcNotificationButton', [
+      mojo.internal.StructField('label', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('buttonPlaceholder', 8, 0, mojo.internal.String, null, true, 31, undefined),
+    ],
+    [[0, 16], [31, 24]]);
 
 // Struct: ArcNotificationFlags
-arc.mojom.ArcNotificationFlagsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcNotificationFlags',
-      packedSize: 24,
-      fields: [
-        { name: 'SUPPORT_SNOOZE', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcNotificationFlagsSpec, 'arc.mojom.ArcNotificationFlags', [
+      mojo.internal.StructField('SUPPORT_SNOOZE', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: ArcNotificationData
-arc.mojom.ArcNotificationDataSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcNotificationData',
-      packedSize: 208,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 56, packedBitOffset: 0, type: arc.mojom.ArcNotificationTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'app_display_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'deprecated_icon_data', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
-        { name: 'priority', packedOffset: 60, packedBitOffset: 0, type: arc.mojom.ArcNotificationPrioritySpec, nullable: false, minVersion: 0 },
-        { name: 'time', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'progress_current', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'progress_max', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'buttons', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.ArcNotificationButtonSpec, false), nullable: true, minVersion: 0 },
-        { name: 'no_clear', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 1 },
-        { name: 'ongoing_event', packedOffset: 72, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 1 },
-        { name: 'texts', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 3 },
-        { name: 'big_picture', packedOffset: 88, packedBitOffset: 0, type: arc.mojom.ArcBitmapSpec, nullable: true, minVersion: 3 },
-        { name: 'is_custom_notification', packedOffset: 72, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 5 },
-        { name: 'small_icon', packedOffset: 96, packedBitOffset: 0, type: arc.mojom.ArcBitmapSpec, nullable: true, minVersion: 6 },
-        { name: 'snapshot_image', packedOffset: 104, packedBitOffset: 0, type: arc.mojom.ArcBitmapSpec, nullable: true, minVersion: 7 },
-        { name: 'snapshot_image_scale', packedOffset: 76, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 7 },
-        { name: 'accessible_name', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 8 },
-        { name: 'expand_state', packedOffset: 120, packedBitOffset: 0, type: arc.mojom.ArcNotificationExpandStateSpec, nullable: false, minVersion: 10 },
-        { name: 'shown_contents', packedOffset: 124, packedBitOffset: 0, type: arc.mojom.ArcNotificationShownContentsSpec, nullable: false, minVersion: 11 },
-        { name: 'remote_input_state', packedOffset: 128, packedBitOffset: 0, type: arc.mojom.ArcNotificationRemoteInputStateSpec, nullable: false, minVersion: 12 },
-        { name: 'swipe_input_rect', packedOffset: 136, packedBitOffset: 0, type: arc.mojom.RectSpec, nullable: true, minVersion: 14 },
-        { name: 'package_name', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 15 },
-        { name: 'flags', packedOffset: 152, packedBitOffset: 0, type: arc.mojom.ArcNotificationFlagsSpec, nullable: true, minVersion: 17 },
-        { name: 'indeterminate_progress', packedOffset: 72, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 21 },
-        { name: 'snapshot_image_public', packedOffset: 160, packedBitOffset: 0, type: arc.mojom.ArcBitmapSpec, nullable: true, minVersion: 21 },
-        { name: 'is_media_notification', packedOffset: 72, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 23 },
-        { name: 'style', packedOffset: 132, packedBitOffset: 0, type: arc.mojom.ArcNotificationStyleSpec, nullable: false, minVersion: 26 },
-        { name: 'is_action_enabled', packedOffset: 72, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 26 },
-        { name: 'is_inline_reply_enabled', packedOffset: 72, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 27 },
-        { name: 'render_on_chrome', packedOffset: 72, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 28 },
-        { name: 'group_key', packedOffset: 168, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 29 },
-        { name: 'reply_button_index', packedOffset: 176, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 30 },
-        { name: 'children_data', packedOffset: 184, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.ArcNotificationDataSpec, false), nullable: true, minVersion: 34 },
-        { name: 'messages', packedOffset: 192, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.ArcNotificationMessageSpec, false), nullable: true, minVersion: 35 },
-      ],
-      versions: [{version: 0, packedSize: 80}, {version: 1, packedSize: 88}, {version: 3, packedSize: 104}, {version: 5, packedSize: 104}, {version: 6, packedSize: 112}, {version: 7, packedSize: 120}, {version: 8, packedSize: 128}, {version: 10, packedSize: 136}, {version: 11, packedSize: 136}, {version: 12, packedSize: 144}, {version: 14, packedSize: 152}, {version: 15, packedSize: 160}, {version: 17, packedSize: 168}, {version: 21, packedSize: 176}, {version: 23, packedSize: 176}, {version: 26, packedSize: 176}, {version: 27, packedSize: 176}, {version: 28, packedSize: 176}, {version: 29, packedSize: 184}, {version: 30, packedSize: 192}, {version: 34, packedSize: 200}, {version: 35, packedSize: 208}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcNotificationDataSpec, 'arc.mojom.ArcNotificationData', [
+      mojo.internal.StructField('key', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('type', 56, 0, arc.mojom.ArcNotificationTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('title', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('app_display_name', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('deprecated_icon_data', 32, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('priority', 60, 0, arc.mojom.ArcNotificationPrioritySpec, null, false, 0, undefined),
+      mojo.internal.StructField('time', 40, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('progress_current', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('progress_max', 68, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('buttons', 48, 0, mojo.internal.Array(arc.mojom.ArcNotificationButtonSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('no_clear', 72, 0, mojo.internal.Bool, false, false, 1, undefined),
+      mojo.internal.StructField('ongoing_event', 72, 1, mojo.internal.Bool, false, false, 1, undefined),
+      mojo.internal.StructField('texts', 80, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 3, undefined),
+      mojo.internal.StructField('big_picture', 88, 0, arc.mojom.ArcBitmapSpec, null, true, 3, undefined),
+      mojo.internal.StructField('is_custom_notification', 72, 2, mojo.internal.Bool, false, false, 5, undefined),
+      mojo.internal.StructField('small_icon', 96, 0, arc.mojom.ArcBitmapSpec, null, true, 6, undefined),
+      mojo.internal.StructField('snapshot_image', 104, 0, arc.mojom.ArcBitmapSpec, null, true, 7, undefined),
+      mojo.internal.StructField('snapshot_image_scale', 76, 0, mojo.internal.Float, 0, false, 7, undefined),
+      mojo.internal.StructField('accessible_name', 112, 0, mojo.internal.String, null, true, 8, undefined),
+      mojo.internal.StructField('expand_state', 120, 0, arc.mojom.ArcNotificationExpandStateSpec, null, false, 10, undefined),
+      mojo.internal.StructField('shown_contents', 124, 0, arc.mojom.ArcNotificationShownContentsSpec, null, false, 11, undefined),
+      mojo.internal.StructField('remote_input_state', 128, 0, arc.mojom.ArcNotificationRemoteInputStateSpec, null, false, 12, undefined),
+      mojo.internal.StructField('swipe_input_rect', 136, 0, arc.mojom.RectSpec, null, true, 14, undefined),
+      mojo.internal.StructField('package_name', 144, 0, mojo.internal.String, null, true, 15, undefined),
+      mojo.internal.StructField('flags', 152, 0, arc.mojom.ArcNotificationFlagsSpec, null, true, 17, undefined),
+      mojo.internal.StructField('indeterminate_progress', 72, 3, mojo.internal.Bool, false, false, 21, undefined),
+      mojo.internal.StructField('snapshot_image_public', 160, 0, arc.mojom.ArcBitmapSpec, null, true, 21, undefined),
+      mojo.internal.StructField('is_media_notification', 72, 4, mojo.internal.Bool, false, false, 23, undefined),
+      mojo.internal.StructField('style', 132, 0, arc.mojom.ArcNotificationStyleSpec, null, false, 26, undefined),
+      mojo.internal.StructField('is_action_enabled', 72, 5, mojo.internal.Bool, false, false, 26, undefined),
+      mojo.internal.StructField('is_inline_reply_enabled', 72, 6, mojo.internal.Bool, false, false, 27, undefined),
+      mojo.internal.StructField('render_on_chrome', 72, 7, mojo.internal.Bool, false, false, 28, undefined),
+      mojo.internal.StructField('group_key', 168, 0, mojo.internal.String, null, true, 29, undefined),
+      mojo.internal.StructField('reply_button_index', 176, 0, mojo.internal.Int32, 0, false, 30, undefined),
+      mojo.internal.StructField('children_data', 184, 0, mojo.internal.Array(arc.mojom.ArcNotificationDataSpec, false), null, true, 34, undefined),
+      mojo.internal.StructField('messages', 192, 0, mojo.internal.Array(arc.mojom.ArcNotificationMessageSpec, false), null, true, 35, undefined),
+    ],
+    [[0, 80], [1, 88], [3, 104], [5, 88], [6, 112], [7, 120], [8, 128], [10, 136], [11, 136], [12, 144], [14, 152], [15, 160], [17, 168], [21, 176], [23, 88], [26, 144], [27, 88], [28, 88], [29, 184], [30, 192], [34, 200], [35, 208]]);
 
 // Struct: ArcDoNotDisturbStatus
-arc.mojom.ArcDoNotDisturbStatusSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcDoNotDisturbStatus',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcDoNotDisturbStatusSpec, 'arc.mojom.ArcDoNotDisturbStatus', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: ArcNotificationUserActionData
-arc.mojom.ArcNotificationUserActionDataSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcNotificationUserActionData',
-      packedSize: 24,
-      fields: [
-        { name: 'action_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'top_level_notification_key_deprecated', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'defer_until_unlock', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'to_be_focused_after_unlock', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcNotificationUserActionDataSpec, 'arc.mojom.ArcNotificationUserActionData', [
+      mojo.internal.StructField('action_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('top_level_notification_key_deprecated', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('defer_until_unlock', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('to_be_focused_after_unlock', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: ArcLockScreenNotificationSetting
-arc.mojom.ArcLockScreenNotificationSettingSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcLockScreenNotificationSetting',
-      packedSize: 16,
-      fields: [
-        { name: 'show_notification', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'show_private_notification', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcLockScreenNotificationSettingSpec, 'arc.mojom.ArcLockScreenNotificationSetting', [
+      mojo.internal.StructField('show_notification', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('show_private_notification', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: NotificationConfiguration
-arc.mojom.NotificationConfigurationSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationConfiguration',
-      packedSize: 16,
-      fields: [
-        { name: 'expansion_animation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NotificationConfigurationSpec, 'arc.mojom.NotificationConfiguration', [
+      mojo.internal.StructField('expansion_animation', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: ArcNotificationMessage
-arc.mojom.ArcNotificationMessageSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcNotificationMessage',
-      packedSize: 32,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'sender_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'sender_icon', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.ArcBitmapSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcNotificationMessageSpec, 'arc.mojom.ArcNotificationMessage', [
+      mojo.internal.StructField('message', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('sender_name', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('sender_icon', 16, 0, arc.mojom.ArcBitmapSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: NotificationsHost
-arc.mojom.NotificationsHost = {};
+mojo.internal.Struct(
+    arc.mojom.NotificationsHost_OnDoNotDisturbStatusUpdated_ParamsSpec, 'arc.mojom.NotificationsHost_OnDoNotDisturbStatusUpdated_Params', [
+      mojo.internal.StructField('status', 0, 0, arc.mojom.ArcDoNotDisturbStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.NotificationsHost_OnDoNotDisturbStatusUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsHost_OnDoNotDisturbStatusUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcDoNotDisturbStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NotificationsHost_OnNotificationPosted_ParamsSpec, 'arc.mojom.NotificationsHost_OnNotificationPosted_Params', [
+      mojo.internal.StructField('notification_data', 0, 0, arc.mojom.ArcNotificationDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.NotificationsHost_OnNotificationPosted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsHost_OnNotificationPosted_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'notification_data', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcNotificationDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NotificationsHost_OnNotificationRemoved_ParamsSpec, 'arc.mojom.NotificationsHost_OnNotificationRemoved_Params', [
+      mojo.internal.StructField('key', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.NotificationsHost_OnNotificationRemoved_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsHost_OnNotificationRemoved_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NotificationsHost_OnNotificationUpdated_ParamsSpec, 'arc.mojom.NotificationsHost_OnNotificationUpdated_Params', [
+      mojo.internal.StructField('notification_data', 0, 0, arc.mojom.ArcNotificationDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.NotificationsHost_OnNotificationUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsHost_OnNotificationUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'notification_data', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcNotificationDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NotificationsHost_OpenMessageCenter_ParamsSpec, 'arc.mojom.NotificationsHost_OpenMessageCenter_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.NotificationsHost_OpenMessageCenter_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsHost_OpenMessageCenter_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NotificationsHost_CloseMessageCenter_ParamsSpec, 'arc.mojom.NotificationsHost_CloseMessageCenter_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.NotificationsHost_CloseMessageCenter_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsHost_CloseMessageCenter_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NotificationsHost_ProcessUserAction_ParamsSpec, 'arc.mojom.NotificationsHost_ProcessUserAction_Params', [
+      mojo.internal.StructField('data', 0, 0, arc.mojom.ArcNotificationUserActionDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.NotificationsHost_ProcessUserAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsHost_ProcessUserAction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcNotificationUserActionDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NotificationsHost_OnLockScreenSettingUpdated_ParamsSpec, 'arc.mojom.NotificationsHost_OnLockScreenSettingUpdated_Params', [
+      mojo.internal.StructField('setting', 0, 0, arc.mojom.ArcLockScreenNotificationSettingSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.NotificationsHost_OnLockScreenSettingUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsHost_OnLockScreenSettingUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'setting', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcLockScreenNotificationSettingSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.NotificationsHost_LogInlineReplySent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsHost_LogInlineReplySent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NotificationsHost_LogInlineReplySent_ParamsSpec, 'arc.mojom.NotificationsHost_LogInlineReplySent_Params', [
+      mojo.internal.StructField('key', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.NotificationsHostPendingReceiver = class {
   constructor(handle) {
@@ -485,335 +410,108 @@ arc.mojom.NotificationsHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnDoNotDisturbStatusUpdated
-arc.mojom.NotificationsHost_OnDoNotDisturbStatusUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsHost.OnDoNotDisturbStatusUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcDoNotDisturbStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnNotificationPosted
-arc.mojom.NotificationsHost_OnNotificationPosted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsHost.OnNotificationPosted_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'notification_data', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcNotificationDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnNotificationRemoved
-arc.mojom.NotificationsHost_OnNotificationRemoved_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsHost.OnNotificationRemoved_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnNotificationUpdated
-arc.mojom.NotificationsHost_OnNotificationUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsHost.OnNotificationUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'notification_data', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcNotificationDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OpenMessageCenter
-arc.mojom.NotificationsHost_OpenMessageCenter_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsHost.OpenMessageCenter_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for CloseMessageCenter
-arc.mojom.NotificationsHost_CloseMessageCenter_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsHost.CloseMessageCenter_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for ProcessUserAction
-arc.mojom.NotificationsHost_ProcessUserAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsHost.ProcessUserAction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcNotificationUserActionDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnLockScreenSettingUpdated
-arc.mojom.NotificationsHost_OnLockScreenSettingUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsHost.OnLockScreenSettingUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'setting', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcLockScreenNotificationSettingSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for LogInlineReplySent
-arc.mojom.NotificationsHost_LogInlineReplySent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsHost.LogInlineReplySent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.NotificationsHostPtr = arc.mojom.NotificationsHostRemote;
 arc.mojom.NotificationsHostRequest = arc.mojom.NotificationsHostPendingReceiver;
 
 
 // Interface: NotificationsInstance
-arc.mojom.NotificationsInstance = {};
+mojo.internal.Struct(
+    arc.mojom.NotificationsInstance_Init_ParamsSpec, 'arc.mojom.NotificationsInstance_Init_Params', [
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.NotificationsHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.NotificationsInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsInstance_Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.NotificationsHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NotificationsInstance_Init_ResponseParamsSpec, 'arc.mojom.NotificationsInstance_Init_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.NotificationsInstance_SendNotificationEventToAndroid_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsInstance_SendNotificationEventToAndroid_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'event', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.ArcNotificationEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NotificationsInstance_SendNotificationEventToAndroid_ParamsSpec, 'arc.mojom.NotificationsInstance_SendNotificationEventToAndroid_Params', [
+      mojo.internal.StructField('key', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('event', 8, 0, arc.mojom.ArcNotificationEventSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.NotificationsInstance_CreateNotificationWindow_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsInstance_CreateNotificationWindow_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NotificationsInstance_CreateNotificationWindow_ParamsSpec, 'arc.mojom.NotificationsInstance_CreateNotificationWindow_Params', [
+      mojo.internal.StructField('key', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.NotificationsInstance_CloseNotificationWindow_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsInstance_CloseNotificationWindow_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NotificationsInstance_CloseNotificationWindow_ParamsSpec, 'arc.mojom.NotificationsInstance_CloseNotificationWindow_Params', [
+      mojo.internal.StructField('key', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.NotificationsInstance_OpenNotificationSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsInstance_OpenNotificationSettings_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NotificationsInstance_OpenNotificationSettings_ParamsSpec, 'arc.mojom.NotificationsInstance_OpenNotificationSettings_Params', [
+      mojo.internal.StructField('key', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.NotificationsInstance_OpenNotificationSnoozeSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsInstance_OpenNotificationSnoozeSettings_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NotificationsInstance_OpenNotificationSnoozeSettings_ParamsSpec, 'arc.mojom.NotificationsInstance_OpenNotificationSnoozeSettings_Params', [
+      mojo.internal.StructField('key', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.NotificationsInstance_SetDoNotDisturbStatusOnAndroid_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsInstance_SetDoNotDisturbStatusOnAndroid_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcDoNotDisturbStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NotificationsInstance_SetDoNotDisturbStatusOnAndroid_ParamsSpec, 'arc.mojom.NotificationsInstance_SetDoNotDisturbStatusOnAndroid_Params', [
+      mojo.internal.StructField('status', 0, 0, arc.mojom.ArcDoNotDisturbStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.NotificationsInstance_CancelPress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsInstance_CancelPress_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NotificationsInstance_CancelPress_ParamsSpec, 'arc.mojom.NotificationsInstance_CancelPress_Params', [
+      mojo.internal.StructField('key', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.NotificationsInstance_PerformDeferredUserAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsInstance_PerformDeferredUserAction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'action_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NotificationsInstance_PerformDeferredUserAction_ParamsSpec, 'arc.mojom.NotificationsInstance_PerformDeferredUserAction_Params', [
+      mojo.internal.StructField('action_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.NotificationsInstance_CancelDeferredUserAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsInstance_CancelDeferredUserAction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'action_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NotificationsInstance_CancelDeferredUserAction_ParamsSpec, 'arc.mojom.NotificationsInstance_CancelDeferredUserAction_Params', [
+      mojo.internal.StructField('action_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.NotificationsInstance_SetLockScreenSettingOnAndroid_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsInstance_SetLockScreenSettingOnAndroid_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'setting', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcLockScreenNotificationSettingSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NotificationsInstance_SetLockScreenSettingOnAndroid_ParamsSpec, 'arc.mojom.NotificationsInstance_SetLockScreenSettingOnAndroid_Params', [
+      mojo.internal.StructField('setting', 0, 0, arc.mojom.ArcLockScreenNotificationSettingSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.NotificationsInstance_SetNotificationConfiguration_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsInstance_SetNotificationConfiguration_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'configuration', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.NotificationConfigurationSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NotificationsInstance_SetNotificationConfiguration_ParamsSpec, 'arc.mojom.NotificationsInstance_SetNotificationConfiguration_Params', [
+      mojo.internal.StructField('configuration', 0, 0, arc.mojom.NotificationConfigurationSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.NotificationsInstance_OnMessageCenterVisibilityChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsInstance_OnMessageCenterVisibilityChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'visibility', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.MessageCenterVisibilitySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NotificationsInstance_OnMessageCenterVisibilityChanged_ParamsSpec, 'arc.mojom.NotificationsInstance_OnMessageCenterVisibilityChanged_Params', [
+      mojo.internal.StructField('visibility', 0, 0, arc.mojom.MessageCenterVisibilitySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.NotificationsInstance_SendNotificationButtonClickToAndroid_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsInstance_SendNotificationButtonClickToAndroid_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'action_button_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'input', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NotificationsInstance_SendNotificationButtonClickToAndroid_ParamsSpec, 'arc.mojom.NotificationsInstance_SendNotificationButtonClickToAndroid_Params', [
+      mojo.internal.StructField('key', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('action_button_index', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('input', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-arc.mojom.NotificationsInstance_PopUpAppNotificationSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsInstance_PopUpAppNotificationSettings_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NotificationsInstance_PopUpAppNotificationSettings_ParamsSpec, 'arc.mojom.NotificationsInstance_PopUpAppNotificationSettings_Params', [
+      mojo.internal.StructField('key', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.NotificationsInstancePendingReceiver = class {
   constructor(handle) {
@@ -852,7 +550,7 @@ arc.mojom.NotificationsInstanceRemoteCallHandler = class {
     return this.proxy.sendMessage(
       5,  // ordinal
       arc.mojom.NotificationsInstance_Init_ParamsSpec,
-      null,
+      arc.mojom.NotificationsInstance_Init_ResponseParamsSpec,
       [host_remote]);
   }
 
@@ -994,220 +692,6 @@ arc.mojom.NotificationsInstance.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Init
-arc.mojom.NotificationsInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsInstance.Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.NotificationsHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SendNotificationEventToAndroid
-arc.mojom.NotificationsInstance_SendNotificationEventToAndroid_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsInstance.SendNotificationEventToAndroid_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'event', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.ArcNotificationEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for CreateNotificationWindow
-arc.mojom.NotificationsInstance_CreateNotificationWindow_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsInstance.CreateNotificationWindow_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CloseNotificationWindow
-arc.mojom.NotificationsInstance_CloseNotificationWindow_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsInstance.CloseNotificationWindow_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OpenNotificationSettings
-arc.mojom.NotificationsInstance_OpenNotificationSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsInstance.OpenNotificationSettings_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OpenNotificationSnoozeSettings
-arc.mojom.NotificationsInstance_OpenNotificationSnoozeSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsInstance.OpenNotificationSnoozeSettings_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetDoNotDisturbStatusOnAndroid
-arc.mojom.NotificationsInstance_SetDoNotDisturbStatusOnAndroid_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsInstance.SetDoNotDisturbStatusOnAndroid_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcDoNotDisturbStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CancelPress
-arc.mojom.NotificationsInstance_CancelPress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsInstance.CancelPress_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for PerformDeferredUserAction
-arc.mojom.NotificationsInstance_PerformDeferredUserAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsInstance.PerformDeferredUserAction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'action_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CancelDeferredUserAction
-arc.mojom.NotificationsInstance_CancelDeferredUserAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsInstance.CancelDeferredUserAction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'action_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetLockScreenSettingOnAndroid
-arc.mojom.NotificationsInstance_SetLockScreenSettingOnAndroid_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsInstance.SetLockScreenSettingOnAndroid_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'setting', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcLockScreenNotificationSettingSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetNotificationConfiguration
-arc.mojom.NotificationsInstance_SetNotificationConfiguration_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsInstance.SetNotificationConfiguration_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'configuration', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.NotificationConfigurationSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnMessageCenterVisibilityChanged
-arc.mojom.NotificationsInstance_OnMessageCenterVisibilityChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsInstance.OnMessageCenterVisibilityChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'visibility', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.MessageCenterVisibilitySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SendNotificationButtonClickToAndroid
-arc.mojom.NotificationsInstance_SendNotificationButtonClickToAndroid_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsInstance.SendNotificationButtonClickToAndroid_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'action_button_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'input', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for PopUpAppNotificationSettings
-arc.mojom.NotificationsInstance_PopUpAppNotificationSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NotificationsInstance.PopUpAppNotificationSettings_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.NotificationsInstancePtr = arc.mojom.NotificationsInstanceRemote;
 arc.mojom.NotificationsInstanceRequest = arc.mojom.NotificationsInstancePendingReceiver;
 

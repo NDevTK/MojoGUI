@@ -10,34 +10,30 @@ gfx.mojom = gfx.mojom || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+gfx.mojom.CALayerContentSpec = { $: {} };
+gfx.mojom.CALayerParamsSpec = { $: {} };
 
 // Union: CALayerContent
-gfx.mojom.CALayerContentSpec = { $: mojo.internal.Union(
-    'gfx.mojom.CALayerContent', {
+mojo.internal.Union(
+    gfx.mojom.CALayerContentSpec, 'gfx.mojom.CALayerContent', {
       'ca_context_id': {
         'ordinal': 0,
         'type': mojo.internal.Uint32,
-      }},
+        'nullable': false,
+      },
       'io_surface_mach_port': {
         'ordinal': 1,
         'type': mojo.internal.Pointer,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: CALayerParams
-gfx.mojom.CALayerParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.CALayerParams',
-      packedSize: 40,
-      fields: [
-        { name: 'is_empty', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'content', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.CALayerContentSpec, nullable: false, minVersion: 0 },
-        { name: 'pixel_size', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'scale_factor', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.CALayerParamsSpec, 'gfx.mojom.CALayerParams', [
+      mojo.internal.StructField('is_empty', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('content', 0, 0, gfx.mojom.CALayerContentSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pixel_size', 16, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scale_factor', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);

@@ -8,17 +8,11 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.OriginTrialsSettingsSpec = { $: {} };
 
 // Struct: OriginTrialsSettings
-blink.mojom.OriginTrialsSettingsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.OriginTrialsSettings',
-      packedSize: 16,
-      fields: [
-        { name: 'disabled_tokens', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.OriginTrialsSettingsSpec, 'blink.mojom.OriginTrialsSettings', [
+      mojo.internal.StructField('disabled_tokens', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);

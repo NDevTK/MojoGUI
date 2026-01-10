@@ -8,57 +8,42 @@
 var content = content || {};
 content.mojom = content.mojom || {};
 
+content.mojom.MemoryConsumerTraitsSpec = { $: {} };
+content.mojom.ChildMemoryConsumer = {};
+content.mojom.ChildMemoryConsumer.$interfaceName = 'content.mojom.ChildMemoryConsumer';
+content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec = { $: {} };
+content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec = { $: {} };
+content.mojom.BrowserMemoryConsumerRegistry = {};
+content.mojom.BrowserMemoryConsumerRegistry.$interfaceName = 'content.mojom.BrowserMemoryConsumerRegistry';
+content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec = { $: {} };
 
 // Struct: MemoryConsumerTraits
-content.mojom.MemoryConsumerTraitsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MemoryConsumerTraits',
-      packedSize: 24,
-      fields: [
-        { name: 'supports_memory_limit', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'in_process', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'estimated_memory_usage', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'release_memory_cost', packedOffset: 3, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'recreate_memory_cost', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'information_retention', packedOffset: 5, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'memory_release_behavior', packedOffset: 6, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'execution_type', packedOffset: 7, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'release_gc_references', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'garbage_collects_v8_heap', packedOffset: 9, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.MemoryConsumerTraitsSpec, 'content.mojom.MemoryConsumerTraits', [
+      mojo.internal.StructField('supports_memory_limit', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('in_process', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('estimated_memory_usage', 2, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('release_memory_cost', 3, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('recreate_memory_cost', 4, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('information_retention', 5, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('memory_release_behavior', 6, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('execution_type', 7, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('release_gc_references', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('garbage_collects_v8_heap', 9, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: ChildMemoryConsumer
-content.mojom.ChildMemoryConsumer = {};
+mojo.internal.Struct(
+    content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec, 'content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'percentage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec, 'content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_Params', [
+      mojo.internal.StructField('percentage', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 content.mojom.ChildMemoryConsumerPendingReceiver = class {
   constructor(handle) {
@@ -122,55 +107,18 @@ content.mojom.ChildMemoryConsumer.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for NotifyReleaseMemory
-content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ChildMemoryConsumer.NotifyReleaseMemory_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for NotifyUpdateMemoryLimit
-content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ChildMemoryConsumer.NotifyUpdateMemoryLimit_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'percentage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 content.mojom.ChildMemoryConsumerPtr = content.mojom.ChildMemoryConsumerRemote;
 content.mojom.ChildMemoryConsumerRequest = content.mojom.ChildMemoryConsumerPendingReceiver;
 
 
 // Interface: BrowserMemoryConsumerRegistry
-content.mojom.BrowserMemoryConsumerRegistry = {};
-
-content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'consumer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'traits', packedOffset: 8, packedBitOffset: 0, type: content.mojom.MemoryConsumerTraitsSpec, nullable: false, minVersion: 0 },
-        { name: 'child_consumer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(content.mojom.ChildMemoryConsumerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec, 'content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_Params', [
+      mojo.internal.StructField('consumer_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('traits', 8, 0, content.mojom.MemoryConsumerTraitsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('child_consumer', 16, 0, mojo.internal.InterfaceProxy(content.mojom.ChildMemoryConsumerRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 content.mojom.BrowserMemoryConsumerRegistryPendingReceiver = class {
   constructor(handle) {
@@ -225,23 +173,6 @@ content.mojom.BrowserMemoryConsumerRegistry.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RegisterChildMemoryConsumer
-content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.BrowserMemoryConsumerRegistry.RegisterChildMemoryConsumer_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'consumer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'traits', packedOffset: 8, packedBitOffset: 0, type: content.mojom.MemoryConsumerTraitsSpec, nullable: false, minVersion: 0 },
-        { name: 'child_consumer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(content.mojom.ChildMemoryConsumerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 content.mojom.BrowserMemoryConsumerRegistryPtr = content.mojom.BrowserMemoryConsumerRegistryRemote;
 content.mojom.BrowserMemoryConsumerRegistryRequest = content.mojom.BrowserMemoryConsumerRegistryPendingReceiver;
 

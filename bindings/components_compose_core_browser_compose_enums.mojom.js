@@ -8,24 +8,24 @@
 var compose = compose || {};
 compose.mojom = compose.mojom || {};
 
+compose.mojom.ComposeStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: ComposeStatus
 compose.mojom.ComposeStatus = {
   kOk: 0,
   kClientError: 1,
-  kMisconfiguration: 2,
-  kPermissionDenied: 3,
-  kServerError: 4,
-  kInvalidRequest: 5,
-  kRequestThrottled: 6,
-  kRetryableError: 7,
-  kNonRetryableError: 8,
-  kUnsupportedLanguage: 9,
-  kFiltered: 10,
-  kDisabled: 11,
-  kCancelled: 12,
-  kNoResponse: 13,
-  kOffline: 14,
-  kRequestTimeout: 15,
+  kMisconfiguration: 5,
+  kPermissionDenied: 6,
+  kServerError: 7,
+  kInvalidRequest: 8,
+  kRequestThrottled: 9,
+  kRetryableError: 10,
+  kNonRetryableError: 11,
+  kUnsupportedLanguage: 12,
+  kFiltered: 13,
+  kDisabled: 14,
+  kCancelled: 15,
+  kNoResponse: 16,
+  kOffline: 17,
+  kRequestTimeout: 18,
 };
-compose.mojom.ComposeStatusSpec = { $: mojo.internal.Enum() };

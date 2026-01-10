@@ -8,34 +8,29 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.FileSystemAccessFileModificationHost = {};
+blink.mojom.FileSystemAccessFileModificationHost.$interfaceName = 'blink.mojom.FileSystemAccessFileModificationHost';
+blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ParamsSpec = { $: {} };
+blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ResponseParamsSpec = { $: {} };
+blink.mojom.FileSystemAccessFileModificationHost_OnContentsModified_ParamsSpec = { $: {} };
 
 // Interface: FileSystemAccessFileModificationHost
-blink.mojom.FileSystemAccessFileModificationHost = {};
+mojo.internal.Struct(
+    blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ParamsSpec, 'blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_Params', [
+      mojo.internal.StructField('capacity_delta', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'capacity_delta', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ResponseParamsSpec, 'blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ResponseParams', [
+      mojo.internal.StructField('granted_capacity_delta', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.FileSystemAccessFileModificationHost_OnContentsModified_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileModificationHost_OnContentsModified_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FileSystemAccessFileModificationHost_OnContentsModified_ParamsSpec, 'blink.mojom.FileSystemAccessFileModificationHost_OnContentsModified_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 blink.mojom.FileSystemAccessFileModificationHostPendingReceiver = class {
   constructor(handle) {
@@ -99,47 +94,6 @@ blink.mojom.FileSystemAccessFileModificationHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RequestCapacityChange
-blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileModificationHost.RequestCapacityChange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'capacity_delta', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileModificationHost.RequestCapacityChange_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'granted_capacity_delta', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnContentsModified
-blink.mojom.FileSystemAccessFileModificationHost_OnContentsModified_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileModificationHost.OnContentsModified_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.FileSystemAccessFileModificationHostPtr = blink.mojom.FileSystemAccessFileModificationHostRemote;
 blink.mojom.FileSystemAccessFileModificationHostRequest = blink.mojom.FileSystemAccessFileModificationHostPendingReceiver;
 

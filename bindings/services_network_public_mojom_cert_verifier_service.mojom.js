@@ -7,57 +7,54 @@
 // Module namespace
 var cert_verifier = cert_verifier || {};
 cert_verifier.mojom = cert_verifier.mojom || {};
+var services = services || {};
+var services = services || {};
 
+cert_verifier.mojom.RequestParamsSpec = { $: {} };
+cert_verifier.mojom.CertVerifierConfigSpec = { $: {} };
+cert_verifier.mojom.URLLoaderFactoryConnector = {};
+cert_verifier.mojom.URLLoaderFactoryConnector.$interfaceName = 'cert_verifier.mojom.URLLoaderFactoryConnector';
+cert_verifier.mojom.URLLoaderFactoryConnector_CreateURLLoaderFactory_ParamsSpec = { $: {} };
+cert_verifier.mojom.CertVerifierService = {};
+cert_verifier.mojom.CertVerifierService.$interfaceName = 'cert_verifier.mojom.CertVerifierService';
+cert_verifier.mojom.CertVerifierService_EnableNetworkAccess_ParamsSpec = { $: {} };
+cert_verifier.mojom.CertVerifierService_Verify_ParamsSpec = { $: {} };
+cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ParamsSpec = { $: {} };
+cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ResponseParamsSpec = { $: {} };
+cert_verifier.mojom.CertVerifierService_SetConfig_ParamsSpec = { $: {} };
+cert_verifier.mojom.CertVerifierServiceClient = {};
+cert_verifier.mojom.CertVerifierServiceClient.$interfaceName = 'cert_verifier.mojom.CertVerifierServiceClient';
+cert_verifier.mojom.CertVerifierServiceClient_OnCertVerifierChanged_ParamsSpec = { $: {} };
+cert_verifier.mojom.CertVerifierRequest = {};
+cert_verifier.mojom.CertVerifierRequest.$interfaceName = 'cert_verifier.mojom.CertVerifierRequest';
+cert_verifier.mojom.CertVerifierRequest_Complete_ParamsSpec = { $: {} };
 
 // Struct: RequestParams
-cert_verifier.mojom.RequestParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cert_verifier.mojom.RequestParams',
-      packedSize: 48,
-      fields: [
-        { name: 'certificate', packedOffset: 0, packedBitOffset: 0, type: network.mojom.X509CertificateSpec, nullable: false, minVersion: 0 },
-        { name: 'hostname', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'flags', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'ocsp_response', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false, minVersion: 0 },
-        { name: 'sct_list', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cert_verifier.mojom.RequestParamsSpec, 'cert_verifier.mojom.RequestParams', [
+      mojo.internal.StructField('certificate', 0, 0, network.mojom.X509CertificateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('hostname', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('flags', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('ocsp_response', 16, 0, mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('sct_list', 24, 0, mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: CertVerifierConfig
-cert_verifier.mojom.CertVerifierConfigSpec = {
-  $: {
-    structSpec: {
-      name: 'cert_verifier.mojom.CertVerifierConfig',
-      packedSize: 16,
-      fields: [
-        { name: 'enable_rev_checking', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'require_rev_checking_local_anchors', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'enable_sha1_local_anchors', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cert_verifier.mojom.CertVerifierConfigSpec, 'cert_verifier.mojom.CertVerifierConfig', [
+      mojo.internal.StructField('enable_rev_checking', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('require_rev_checking_local_anchors', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable_sha1_local_anchors', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: URLLoaderFactoryConnector
-cert_verifier.mojom.URLLoaderFactoryConnector = {};
-
-cert_verifier.mojom.URLLoaderFactoryConnector_CreateURLLoaderFactory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cert_verifier.mojom.URLLoaderFactoryConnector_CreateURLLoaderFactory_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url_loader_factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.URLLoaderFactoryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cert_verifier.mojom.URLLoaderFactoryConnector_CreateURLLoaderFactory_ParamsSpec, 'cert_verifier.mojom.URLLoaderFactoryConnector_CreateURLLoaderFactory_Params', [
+      mojo.internal.StructField('url_loader_factory', 0, 0, mojo.internal.InterfaceRequest(network.mojom.URLLoaderFactoryRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 cert_verifier.mojom.URLLoaderFactoryConnectorPendingReceiver = class {
   constructor(handle) {
@@ -112,85 +109,46 @@ cert_verifier.mojom.URLLoaderFactoryConnector.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateURLLoaderFactory
-cert_verifier.mojom.URLLoaderFactoryConnector_CreateURLLoaderFactory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cert_verifier.mojom.URLLoaderFactoryConnector.CreateURLLoaderFactory_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url_loader_factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.URLLoaderFactoryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 cert_verifier.mojom.URLLoaderFactoryConnectorPtr = cert_verifier.mojom.URLLoaderFactoryConnectorRemote;
 cert_verifier.mojom.URLLoaderFactoryConnectorRequest = cert_verifier.mojom.URLLoaderFactoryConnectorPendingReceiver;
 
 
 // Interface: CertVerifierService
-cert_verifier.mojom.CertVerifierService = {};
+mojo.internal.Struct(
+    cert_verifier.mojom.CertVerifierService_EnableNetworkAccess_ParamsSpec, 'cert_verifier.mojom.CertVerifierService_EnableNetworkAccess_Params', [
+      mojo.internal.StructField('url_loader_factory', 0, 0, mojo.internal.InterfaceProxy(network.mojom.URLLoaderFactoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('reconnector', 8, 0, mojo.internal.InterfaceProxy(cert_verifier.mojom.URLLoaderFactoryConnectorRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-cert_verifier.mojom.CertVerifierService_EnableNetworkAccess_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cert_verifier.mojom.CertVerifierService_EnableNetworkAccess_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'url_loader_factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.URLLoaderFactoryRemote), nullable: false, minVersion: 0 },
-        { name: 'reconnector', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(cert_verifier.mojom.URLLoaderFactoryConnectorRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cert_verifier.mojom.CertVerifierService_Verify_ParamsSpec, 'cert_verifier.mojom.CertVerifierService_Verify_Params', [
+      mojo.internal.StructField('params', 0, 0, cert_verifier.mojom.RequestParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('net_log_source', 8, 0, network.mojom.NetLogSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cert_verifier_request', 16, 0, mojo.internal.InterfaceProxy(cert_verifier.mojom.CertVerifierRequestRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-cert_verifier.mojom.CertVerifierService_Verify_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cert_verifier.mojom.CertVerifierService_Verify_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: cert_verifier.mojom.RequestParamsSpec, nullable: false, minVersion: 0 },
-        { name: 'net_log_source', packedOffset: 8, packedBitOffset: 0, type: network.mojom.NetLogSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'cert_verifier_request', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(cert_verifier.mojom.CertVerifierRequestRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ParamsSpec, 'cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_Params', [
+      mojo.internal.StructField('binding', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('hostname', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('tls_certificate', 16, 0, network.mojom.X509CertificateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('net_log_source', 24, 0, network.mojom.NetLogSourceSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'binding', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'hostname', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'tls_certificate', packedOffset: 16, packedBitOffset: 0, type: network.mojom.X509CertificateSpec, nullable: false, minVersion: 0 },
-        { name: 'net_log_source', packedOffset: 24, packedBitOffset: 0, type: network.mojom.NetLogSourceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ResponseParamsSpec, 'cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ResponseParams', [
+      mojo.internal.StructField('verified_cert', 0, 0, network.mojom.X509CertificateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-cert_verifier.mojom.CertVerifierService_SetConfig_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cert_verifier.mojom.CertVerifierService_SetConfig_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: cert_verifier.mojom.CertVerifierConfigSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cert_verifier.mojom.CertVerifierService_SetConfig_ParamsSpec, 'cert_verifier.mojom.CertVerifierService_SetConfig_Params', [
+      mojo.internal.StructField('config', 0, 0, cert_verifier.mojom.CertVerifierConfigSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 cert_verifier.mojom.CertVerifierServicePendingReceiver = class {
   constructor(handle) {
@@ -272,100 +230,15 @@ cert_verifier.mojom.CertVerifierService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for EnableNetworkAccess
-cert_verifier.mojom.CertVerifierService_EnableNetworkAccess_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cert_verifier.mojom.CertVerifierService.EnableNetworkAccess_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'url_loader_factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.URLLoaderFactoryRemote), nullable: false, minVersion: 0 },
-        { name: 'reconnector', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(cert_verifier.mojom.URLLoaderFactoryConnectorRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for Verify
-cert_verifier.mojom.CertVerifierService_Verify_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cert_verifier.mojom.CertVerifierService.Verify_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: cert_verifier.mojom.RequestParamsSpec, nullable: false, minVersion: 0 },
-        { name: 'net_log_source', packedOffset: 8, packedBitOffset: 0, type: network.mojom.NetLogSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'cert_verifier_request', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(cert_verifier.mojom.CertVerifierRequestRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for Verify2QwacBinding
-cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cert_verifier.mojom.CertVerifierService.Verify2QwacBinding_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'binding', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'hostname', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'tls_certificate', packedOffset: 16, packedBitOffset: 0, type: network.mojom.X509CertificateSpec, nullable: false, minVersion: 0 },
-        { name: 'net_log_source', packedOffset: 24, packedBitOffset: 0, type: network.mojom.NetLogSourceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cert_verifier.mojom.CertVerifierService.Verify2QwacBinding_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'verified_cert', packedOffset: 0, packedBitOffset: 0, type: network.mojom.X509CertificateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetConfig
-cert_verifier.mojom.CertVerifierService_SetConfig_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cert_verifier.mojom.CertVerifierService.SetConfig_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: cert_verifier.mojom.CertVerifierConfigSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 cert_verifier.mojom.CertVerifierServicePtr = cert_verifier.mojom.CertVerifierServiceRemote;
 cert_verifier.mojom.CertVerifierServiceRequest = cert_verifier.mojom.CertVerifierServicePendingReceiver;
 
 
 // Interface: CertVerifierServiceClient
-cert_verifier.mojom.CertVerifierServiceClient = {};
-
-cert_verifier.mojom.CertVerifierServiceClient_OnCertVerifierChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cert_verifier.mojom.CertVerifierServiceClient_OnCertVerifierChanged_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cert_verifier.mojom.CertVerifierServiceClient_OnCertVerifierChanged_ParamsSpec, 'cert_verifier.mojom.CertVerifierServiceClient_OnCertVerifierChanged_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 cert_verifier.mojom.CertVerifierServiceClientPendingReceiver = class {
   constructor(handle) {
@@ -420,40 +293,17 @@ cert_verifier.mojom.CertVerifierServiceClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnCertVerifierChanged
-cert_verifier.mojom.CertVerifierServiceClient_OnCertVerifierChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cert_verifier.mojom.CertVerifierServiceClient.OnCertVerifierChanged_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 cert_verifier.mojom.CertVerifierServiceClientPtr = cert_verifier.mojom.CertVerifierServiceClientRemote;
 cert_verifier.mojom.CertVerifierServiceClientRequest = cert_verifier.mojom.CertVerifierServiceClientPendingReceiver;
 
 
 // Interface: CertVerifierRequest
-cert_verifier.mojom.CertVerifierRequest = {};
-
-cert_verifier.mojom.CertVerifierRequest_Complete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cert_verifier.mojom.CertVerifierRequest_Complete_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CertVerifyResultSpec, nullable: false, minVersion: 0 },
-        { name: 'net_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cert_verifier.mojom.CertVerifierRequest_Complete_ParamsSpec, 'cert_verifier.mojom.CertVerifierRequest_Complete_Params', [
+      mojo.internal.StructField('result', 0, 0, network.mojom.CertVerifyResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('net_error', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 cert_verifier.mojom.CertVerifierRequestPendingReceiver = class {
   constructor(handle) {
@@ -508,22 +358,6 @@ cert_verifier.mojom.CertVerifierRequest.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Complete
-cert_verifier.mojom.CertVerifierRequest_Complete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cert_verifier.mojom.CertVerifierRequest.Complete_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CertVerifyResultSpec, nullable: false, minVersion: 0 },
-        { name: 'net_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 cert_verifier.mojom.CertVerifierRequestPtr = cert_verifier.mojom.CertVerifierRequestRemote;
 cert_verifier.mojom.CertVerifierRequestRequest = cert_verifier.mojom.CertVerifierRequestPendingReceiver;
 

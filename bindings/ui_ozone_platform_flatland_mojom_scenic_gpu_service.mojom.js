@@ -9,22 +9,16 @@ var ui = ui || {};
 ui.mojom = ui.mojom || {};
 var ui = ui || {};
 
+ui.mojom.ScenicGpuService = {};
+ui.mojom.ScenicGpuService.$interfaceName = 'ui.mojom.ScenicGpuService';
+ui.mojom.ScenicGpuService_Initialize_ParamsSpec = { $: {} };
 
 // Interface: ScenicGpuService
-ui.mojom.ScenicGpuService = {};
-
-ui.mojom.ScenicGpuService_Initialize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.mojom.ScenicGpuService_Initialize_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'scenic_gpu_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ui.mojom.ScenicGpuHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ui.mojom.ScenicGpuService_Initialize_ParamsSpec, 'ui.mojom.ScenicGpuService_Initialize_Params', [
+      mojo.internal.StructField('scenic_gpu_host', 0, 0, mojo.internal.InterfaceProxy(ui.mojom.ScenicGpuHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ui.mojom.ScenicGpuServicePendingReceiver = class {
   constructor(handle) {
@@ -79,21 +73,6 @@ ui.mojom.ScenicGpuService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Initialize
-ui.mojom.ScenicGpuService_Initialize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.mojom.ScenicGpuService.Initialize_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'scenic_gpu_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ui.mojom.ScenicGpuHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ui.mojom.ScenicGpuServicePtr = ui.mojom.ScenicGpuServiceRemote;
 ui.mojom.ScenicGpuServiceRequest = ui.mojom.ScenicGpuServicePendingReceiver;
 

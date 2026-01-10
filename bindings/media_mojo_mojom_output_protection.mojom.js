@@ -8,54 +8,58 @@
 var media = media || {};
 media.mojom = media.mojom || {};
 
+media.mojom.ProtectionTypeSpec = { $: mojo.internal.Enum() };
+media.mojom.LinkTypeSpec = { $: mojo.internal.Enum() };
+media.mojom.OutputProtection = {};
+media.mojom.OutputProtection.$interfaceName = 'media.mojom.OutputProtection';
+media.mojom.OutputProtection_QueryStatus_ParamsSpec = { $: {} };
+media.mojom.OutputProtection_QueryStatus_ResponseParamsSpec = { $: {} };
+media.mojom.OutputProtection_EnableProtection_ParamsSpec = { $: {} };
+media.mojom.OutputProtection_EnableProtection_ResponseParamsSpec = { $: {} };
 
 // Enum: ProtectionType
 media.mojom.ProtectionType = {
   NONE: 0,
   HDCP: 1,
 };
-media.mojom.ProtectionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: LinkType
 media.mojom.LinkType = {
   NONE: 0,
   UNKNOWN: 1,
   INTERNAL: 2,
-  VGA: 3,
-  HDMI: 4,
-  DVI: 5,
-  DISPLAYPORT: 6,
-  NETWORK: 7,
+  VGA: 4,
+  HDMI: 8,
+  DVI: 16,
+  DISPLAYPORT: 32,
+  NETWORK: 64,
 };
-media.mojom.LinkTypeSpec = { $: mojo.internal.Enum() };
 
 // Interface: OutputProtection
-media.mojom.OutputProtection = {};
+mojo.internal.Struct(
+    media.mojom.OutputProtection_QueryStatus_ParamsSpec, 'media.mojom.OutputProtection_QueryStatus_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media.mojom.OutputProtection_QueryStatus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.OutputProtection_QueryStatus_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.OutputProtection_QueryStatus_ResponseParamsSpec, 'media.mojom.OutputProtection_QueryStatus_ResponseParams', [
+      mojo.internal.StructField('success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('link_mask', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('protection_mask', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-media.mojom.OutputProtection_EnableProtection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.OutputProtection_EnableProtection_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'desired_protection_mask', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.OutputProtection_EnableProtection_ParamsSpec, 'media.mojom.OutputProtection_EnableProtection_Params', [
+      mojo.internal.StructField('desired_protection_mask', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    media.mojom.OutputProtection_EnableProtection_ResponseParamsSpec, 'media.mojom.OutputProtection_EnableProtection_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media.mojom.OutputProtectionPendingReceiver = class {
   constructor(handle) {
@@ -119,62 +123,6 @@ media.mojom.OutputProtection.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for QueryStatus
-media.mojom.OutputProtection_QueryStatus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.OutputProtection.QueryStatus_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-media.mojom.OutputProtection_QueryStatus_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.OutputProtection.QueryStatus_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'link_mask', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'protection_mask', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for EnableProtection
-media.mojom.OutputProtection_EnableProtection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.OutputProtection.EnableProtection_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'desired_protection_mask', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-media.mojom.OutputProtection_EnableProtection_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.OutputProtection.EnableProtection_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.OutputProtectionPtr = media.mojom.OutputProtectionRemote;
 media.mojom.OutputProtectionRequest = media.mojom.OutputProtectionPendingReceiver;
 

@@ -7,62 +7,43 @@
 // Module namespace
 var content_capture = content_capture || {};
 content_capture.mojom = content_capture.mojom || {};
+var components = components || {};
 
+content_capture.mojom.ContentCaptureReceiver = {};
+content_capture.mojom.ContentCaptureReceiver.$interfaceName = 'content_capture.mojom.ContentCaptureReceiver';
+content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_ParamsSpec = { $: {} };
+content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec = { $: {} };
+content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec = { $: {} };
+content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec = { $: {} };
+content_capture.mojom.ContentCaptureSender = {};
+content_capture.mojom.ContentCaptureSender.$interfaceName = 'content_capture.mojom.ContentCaptureSender';
+content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec = { $: {} };
+content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec = { $: {} };
 
 // Interface: ContentCaptureReceiver
-content_capture.mojom.ContentCaptureReceiver = {};
+mojo.internal.Struct(
+    content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_ParamsSpec, 'content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec, 'content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_Params', [
+      mojo.internal.StructField('data', 0, 0, content_capture.mojom.ContentCaptureDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('first_data', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: content_capture.mojom.ContentCaptureDataSpec, nullable: false, minVersion: 0 },
-        { name: 'first_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec, 'content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_Params', [
+      mojo.internal.StructField('data', 0, 0, content_capture.mojom.ContentCaptureDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: content_capture.mojom.ContentCaptureDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int64, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec, 'content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_Params', [
+      mojo.internal.StructField('ids', 0, 0, mojo.internal.Array(mojo.internal.Int64, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 content_capture.mojom.ContentCaptureReceiverPendingReceiver = class {
   constructor(handle) {
@@ -144,93 +125,20 @@ content_capture.mojom.ContentCaptureReceiver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for DidCompleteBatchCaptureContent
-content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content_capture.mojom.ContentCaptureReceiver.DidCompleteBatchCaptureContent_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for DidCaptureContent
-content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content_capture.mojom.ContentCaptureReceiver.DidCaptureContent_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: content_capture.mojom.ContentCaptureDataSpec, nullable: false, minVersion: 0 },
-        { name: 'first_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for DidUpdateContent
-content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content_capture.mojom.ContentCaptureReceiver.DidUpdateContent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: content_capture.mojom.ContentCaptureDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DidRemoveContent
-content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content_capture.mojom.ContentCaptureReceiver.DidRemoveContent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int64, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 content_capture.mojom.ContentCaptureReceiverPtr = content_capture.mojom.ContentCaptureReceiverRemote;
 content_capture.mojom.ContentCaptureReceiverRequest = content_capture.mojom.ContentCaptureReceiverPendingReceiver;
 
 
 // Interface: ContentCaptureSender
-content_capture.mojom.ContentCaptureSender = {};
+mojo.internal.Struct(
+    content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec, 'content_capture.mojom.ContentCaptureSender_StartCapture_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content_capture.mojom.ContentCaptureSender_StartCapture_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content_capture.mojom.ContentCaptureSender_StopCapture_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec, 'content_capture.mojom.ContentCaptureSender_StopCapture_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 content_capture.mojom.ContentCaptureSenderPendingReceiver = class {
   constructor(handle) {
@@ -294,33 +202,6 @@ content_capture.mojom.ContentCaptureSender.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for StartCapture
-content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content_capture.mojom.ContentCaptureSender.StartCapture_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for StopCapture
-content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content_capture.mojom.ContentCaptureSender.StopCapture_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 content_capture.mojom.ContentCaptureSenderPtr = content_capture.mojom.ContentCaptureSenderRemote;
 content_capture.mojom.ContentCaptureSenderRequest = content_capture.mojom.ContentCaptureSenderPendingReceiver;
 

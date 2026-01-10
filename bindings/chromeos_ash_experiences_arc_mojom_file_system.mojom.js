@@ -7,15 +7,115 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
 var url = url || {};
 
+arc.mojom.ChangeTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.SelectFilesActionTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.FileSelectorEventTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.MediaStoreMetadataSpec = { $: {} };
+arc.mojom.DocumentSpec = { $: {} };
+arc.mojom.RootSpec = { $: {} };
+arc.mojom.ContentUrlWithMimeTypeSpec = { $: {} };
+arc.mojom.OpenUrlsRequestSpec = { $: {} };
+arc.mojom.SelectFilesRequestSpec = { $: {} };
+arc.mojom.DocumentPathSpec = { $: {} };
+arc.mojom.SelectFilesResultSpec = { $: {} };
+arc.mojom.FileSelectorEventSpec = { $: {} };
+arc.mojom.GetFileSelectorElementsRequestSpec = { $: {} };
+arc.mojom.FileSelectorElementSpec = { $: {} };
+arc.mojom.FileSelectorElementsSpec = { $: {} };
+arc.mojom.RootSizeSpec = { $: {} };
+arc.mojom.FileSessionSpec = { $: {} };
+arc.mojom.MediaStoreDownloadMetadataSpec = { $: {} };
+arc.mojom.FileSystemHost = {};
+arc.mojom.FileSystemHost.$interfaceName = 'arc.mojom.FileSystemHost';
+arc.mojom.FileSystemHost_GetFileName_ParamsSpec = { $: {} };
+arc.mojom.FileSystemHost_GetFileName_ResponseParamsSpec = { $: {} };
+arc.mojom.FileSystemHost_GetFileSize_ParamsSpec = { $: {} };
+arc.mojom.FileSystemHost_GetFileSize_ResponseParamsSpec = { $: {} };
+arc.mojom.FileSystemHost_GetLastModified_ParamsSpec = { $: {} };
+arc.mojom.FileSystemHost_GetLastModified_ResponseParamsSpec = { $: {} };
+arc.mojom.FileSystemHost_GetFileType_ParamsSpec = { $: {} };
+arc.mojom.FileSystemHost_GetFileType_ResponseParamsSpec = { $: {} };
+arc.mojom.FileSystemHost_OnDocumentChanged_ParamsSpec = { $: {} };
+arc.mojom.FileSystemHost_OnRootsChanged_ParamsSpec = { $: {} };
+arc.mojom.FileSystemHost_GetVirtualFileId_ParamsSpec = { $: {} };
+arc.mojom.FileSystemHost_GetVirtualFileId_ResponseParamsSpec = { $: {} };
+arc.mojom.FileSystemHost_HandleIdReleased_ParamsSpec = { $: {} };
+arc.mojom.FileSystemHost_HandleIdReleased_ResponseParamsSpec = { $: {} };
+arc.mojom.FileSystemHost_OpenFileToRead_ParamsSpec = { $: {} };
+arc.mojom.FileSystemHost_OpenFileToRead_ResponseParamsSpec = { $: {} };
+arc.mojom.FileSystemHost_SelectFiles_ParamsSpec = { $: {} };
+arc.mojom.FileSystemHost_SelectFiles_ResponseParamsSpec = { $: {} };
+arc.mojom.FileSystemHost_OnFileSelectorEvent_ParamsSpec = { $: {} };
+arc.mojom.FileSystemHost_OnFileSelectorEvent_ResponseParamsSpec = { $: {} };
+arc.mojom.FileSystemHost_GetFileSelectorElements_ParamsSpec = { $: {} };
+arc.mojom.FileSystemHost_GetFileSelectorElements_ResponseParamsSpec = { $: {} };
+arc.mojom.FileSystemHost_OnMediaStoreUriAdded_ParamsSpec = { $: {} };
+arc.mojom.FileSystemHost_CreateMoniker_ParamsSpec = { $: {} };
+arc.mojom.FileSystemHost_CreateMoniker_ResponseParamsSpec = { $: {} };
+arc.mojom.FileSystemHost_DestroyMoniker_ParamsSpec = { $: {} };
+arc.mojom.FileSystemHost_DestroyMoniker_ResponseParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance = {};
+arc.mojom.FileSystemInstance.$interfaceName = 'arc.mojom.FileSystemInstance';
+arc.mojom.FileSystemInstance_AddWatcher_ParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_AddWatcher_ResponseParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_GetChildDocuments_ParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_GetChildDocuments_ResponseParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_GetDocument_ParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_GetDocument_ResponseParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_GetFileSize_ParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_GetFileSize_ResponseParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_GetMimeType_ParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_GetMimeType_ResponseParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_GetRecentDocuments_ParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_GetRecentDocuments_ResponseParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_GetRoots_ParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_GetRoots_ResponseParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_GetRootSize_ParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_GetRootSize_ResponseParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_DeleteDocument_ParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_DeleteDocument_ResponseParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_RenameDocument_ParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_RenameDocument_ResponseParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_CreateDocument_ParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_CreateDocument_ResponseParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_CopyDocument_ParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_CopyDocument_ResponseParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_MoveDocument_ParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_MoveDocument_ResponseParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_Init_ParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_Init_ResponseParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_OpenThumbnail_ParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_OpenThumbnail_ResponseParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_CloseFileSession_ParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_OpenFileSessionToWrite_ParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_OpenFileSessionToWrite_ResponseParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_OpenFileSessionToRead_ParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_OpenFileSessionToRead_ResponseParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_RemoveWatcher_ParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_RemoveWatcher_ResponseParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_RequestMediaScan_ParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_ReindexDirectory_ParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_RequestFileRemovalScan_ParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_OpenUrlsWithPermissionAndWindowInfo_ParamsSpec = { $: {} };
+arc.mojom.FileSystemInstance_OpenUrlsWithPermissionAndWindowInfo_ResponseParamsSpec = { $: {} };
 
 // Enum: ChangeType
 arc.mojom.ChangeType = {
   CHANGED: 0,
   DELETED: 1,
 };
-arc.mojom.ChangeTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SelectFilesActionType
 arc.mojom.SelectFilesActionType = {
@@ -23,8 +123,8 @@ arc.mojom.SelectFilesActionType = {
   OPEN_DOCUMENT: 1,
   OPEN_DOCUMENT_TREE: 2,
   CREATE_DOCUMENT: 3,
+  MinVersion: 3,
 };
-arc.mojom.SelectFilesActionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: FileSelectorEventType
 arc.mojom.FileSelectorEventType = {
@@ -33,459 +133,325 @@ arc.mojom.FileSelectorEventType = {
   CLICK_FILE: 2,
   CLICK_CANCEL: 3,
 };
-arc.mojom.FileSelectorEventTypeSpec = { $: mojo.internal.Enum() };
 
 // Union: MediaStoreMetadata
-arc.mojom.MediaStoreMetadataSpec = { $: mojo.internal.Union(
-    'arc.mojom.MediaStoreMetadata', {
+mojo.internal.Union(
+    arc.mojom.MediaStoreMetadataSpec, 'arc.mojom.MediaStoreMetadata', {
       'unknown': {
         'ordinal': 0,
         'type': mojo.internal.Uint8,
-      }},
+        'nullable': false,
+      },
       'download': {
         'ordinal': 1,
         'type': arc.mojom.MediaStoreDownloadMetadataSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: Document
-arc.mojom.DocumentSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.Document',
-      packedSize: 64,
-      fields: [
-        { name: 'document_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'display_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'mime_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'last_modified', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'android_file_system_path', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 5 },
-        { name: 'supports_delete', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 12 },
-        { name: 'supports_rename', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 12 },
-        { name: 'supports_write', packedOffset: 48, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 12 },
-        { name: 'dir_supports_create', packedOffset: 48, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 12 },
-        { name: 'supports_copy', packedOffset: 48, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 12 },
-        { name: 'supports_move', packedOffset: 48, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 12 },
-        { name: 'supports_thumbnail', packedOffset: 48, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 15 },
-      ],
-      versions: [{version: 0, packedSize: 48}, {version: 5, packedSize: 56}, {version: 12, packedSize: 64}, {version: 15, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.DocumentSpec, 'arc.mojom.Document', [
+      mojo.internal.StructField('document_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('display_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('mime_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('size', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('last_modified', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('android_file_system_path', 40, 0, mojo.internal.String, null, true, 5, undefined),
+      mojo.internal.StructField('supports_delete', 48, 0, mojo.internal.Bool, false, false, 12, undefined),
+      mojo.internal.StructField('supports_rename', 48, 1, mojo.internal.Bool, false, false, 12, undefined),
+      mojo.internal.StructField('supports_write', 48, 2, mojo.internal.Bool, false, false, 12, undefined),
+      mojo.internal.StructField('dir_supports_create', 48, 3, mojo.internal.Bool, false, false, 12, undefined),
+      mojo.internal.StructField('supports_copy', 48, 4, mojo.internal.Bool, false, false, 12, undefined),
+      mojo.internal.StructField('supports_move', 48, 5, mojo.internal.Bool, false, false, 12, undefined),
+      mojo.internal.StructField('supports_thumbnail', 48, 6, mojo.internal.Bool, false, false, 15, undefined),
+    ],
+    [[0, 48], [5, 56], [12, 64], [15, 64]]);
 
 // Struct: Root
-arc.mojom.RootSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.Root',
-      packedSize: 72,
-      fields: [
-        { name: 'authority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'root_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'document_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'title', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'summary', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'icon', packedOffset: 40, packedBitOffset: 0, type: arc.mojom.ArcBitmapSpec, nullable: true, minVersion: 0 },
-        { name: 'supports_create', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 12 },
-        { name: 'mime_types', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 12 },
-      ],
-      versions: [{version: 0, packedSize: 56}, {version: 12, packedSize: 72}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.RootSpec, 'arc.mojom.Root', [
+      mojo.internal.StructField('authority', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('root_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('document_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('title', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('summary', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('icon', 40, 0, arc.mojom.ArcBitmapSpec, null, true, 0, undefined),
+      mojo.internal.StructField('supports_create', 56, 0, mojo.internal.Bool, false, false, 12, undefined),
+      mojo.internal.StructField('mime_types', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 12, undefined),
+    ],
+    [[0, 56], [12, 72]]);
 
 // Struct: ContentUrlWithMimeType
-arc.mojom.ContentUrlWithMimeTypeSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ContentUrlWithMimeType',
-      packedSize: 24,
-      fields: [
-        { name: 'content_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'mime_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ContentUrlWithMimeTypeSpec, 'arc.mojom.ContentUrlWithMimeType', [
+      mojo.internal.StructField('content_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mime_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: OpenUrlsRequest
-arc.mojom.OpenUrlsRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.OpenUrlsRequest',
-      packedSize: 40,
-      fields: [
-        { name: 'action_type', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.ActionTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'activity_name', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ActivityNameSpec, nullable: false, minVersion: 0 },
-        { name: 'urls', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.ContentUrlWithMimeTypeSpec, false), nullable: false, minVersion: 0 },
-        { name: 'extras', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: true, minVersion: 17 },
-      ],
-      versions: [{version: 0, packedSize: 32}, {version: 17, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.OpenUrlsRequestSpec, 'arc.mojom.OpenUrlsRequest', [
+      mojo.internal.StructField('action_type', 16, 0, arc.mojom.ActionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('activity_name', 0, 0, arc.mojom.ActivityNameSpec, null, false, 0, undefined),
+      mojo.internal.StructField('urls', 8, 0, mojo.internal.Array(arc.mojom.ContentUrlWithMimeTypeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('extras', 24, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, true, 17, undefined),
+    ],
+    [[0, 32], [17, 40]]);
 
 // Struct: SelectFilesRequest
-arc.mojom.SelectFilesRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.SelectFilesRequest',
-      packedSize: 64,
-      fields: [
-        { name: 'action_type', packedOffset: 40, packedBitOffset: 0, type: arc.mojom.SelectFilesActionTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'mime_types', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'openable_only', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'allow_multiple', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'default_file_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'initial_content_uri', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'initial_document_path', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.DocumentPathSpec, nullable: true, minVersion: 0 },
-        { name: 'task_id', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'search_query', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.SelectFilesRequestSpec, 'arc.mojom.SelectFilesRequest', [
+      mojo.internal.StructField('action_type', 40, 0, arc.mojom.SelectFilesActionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mime_types', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('openable_only', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('allow_multiple', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('default_file_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('initial_content_uri', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('initial_document_path', 24, 0, arc.mojom.DocumentPathSpec, null, true, 0, undefined),
+      mojo.internal.StructField('task_id', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('search_query', 32, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 64]]);
 
 // Struct: DocumentPath
-arc.mojom.DocumentPathSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.DocumentPath',
-      packedSize: 32,
-      fields: [
-        { name: 'authority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'root_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 24 },
-      ],
-      versions: [{version: 0, packedSize: 24}, {version: 24, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.DocumentPathSpec, 'arc.mojom.DocumentPath', [
+      mojo.internal.StructField('authority', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('path', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('root_id', 16, 0, mojo.internal.String, null, true, 24, undefined),
+    ],
+    [[0, 24], [24, 32]]);
 
 // Struct: SelectFilesResult
-arc.mojom.SelectFilesResultSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.SelectFilesResult',
-      packedSize: 24,
-      fields: [
-        { name: 'urls', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
-        { name: 'picker_activity', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.SelectFilesResultSpec, 'arc.mojom.SelectFilesResult', [
+      mojo.internal.StructField('urls', 0, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('picker_activity', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: FileSelectorEvent
-arc.mojom.FileSelectorEventSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSelectorEvent',
-      packedSize: 24,
-      fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.FileSelectorEventTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'click_target', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.FileSelectorElementSpec, nullable: false, minVersion: 0 },
-        { name: 'creator_task_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSelectorEventSpec, 'arc.mojom.FileSelectorEvent', [
+      mojo.internal.StructField('type', 8, 0, arc.mojom.FileSelectorEventTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('click_target', 0, 0, arc.mojom.FileSelectorElementSpec, null, false, 0, undefined),
+      mojo.internal.StructField('creator_task_id', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: GetFileSelectorElementsRequest
-arc.mojom.GetFileSelectorElementsRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.GetFileSelectorElementsRequest',
-      packedSize: 16,
-      fields: [
-        { name: 'creator_task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.GetFileSelectorElementsRequestSpec, 'arc.mojom.GetFileSelectorElementsRequest', [
+      mojo.internal.StructField('creator_task_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: FileSelectorElement
-arc.mojom.FileSelectorElementSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSelectorElement',
-      packedSize: 16,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSelectorElementSpec, 'arc.mojom.FileSelectorElement', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: FileSelectorElements
-arc.mojom.FileSelectorElementsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSelectorElements',
-      packedSize: 32,
-      fields: [
-        { name: 'directory_elements', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.FileSelectorElementSpec, false), nullable: false, minVersion: 0 },
-        { name: 'file_elements', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.FileSelectorElementSpec, false), nullable: false, minVersion: 0 },
-        { name: 'search_query', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSelectorElementsSpec, 'arc.mojom.FileSelectorElements', [
+      mojo.internal.StructField('directory_elements', 0, 0, mojo.internal.Array(arc.mojom.FileSelectorElementSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('file_elements', 8, 0, mojo.internal.Array(arc.mojom.FileSelectorElementSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('search_query', 16, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: RootSize
-arc.mojom.RootSizeSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.RootSize',
-      packedSize: 24,
-      fields: [
-        { name: 'available_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'capacity_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.RootSizeSpec, 'arc.mojom.RootSize', [
+      mojo.internal.StructField('available_bytes', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('capacity_bytes', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: FileSession
-arc.mojom.FileSessionSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSession',
-      packedSize: 24,
-      fields: [
-        { name: 'url_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'fd', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSessionSpec, 'arc.mojom.FileSession', [
+      mojo.internal.StructField('url_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('fd', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: MediaStoreDownloadMetadata
-arc.mojom.MediaStoreDownloadMetadataSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MediaStoreDownloadMetadata',
-      packedSize: 32,
-      fields: [
-        { name: 'display_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'owner_package_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'relative_path', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MediaStoreDownloadMetadataSpec, 'arc.mojom.MediaStoreDownloadMetadata', [
+      mojo.internal.StructField('display_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('owner_package_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('relative_path', 16, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: FileSystemHost
-arc.mojom.FileSystemHost = {};
+mojo.internal.Struct(
+    arc.mojom.FileSystemHost_GetFileName_ParamsSpec, 'arc.mojom.FileSystemHost_GetFileName_Params', [
+      mojo.internal.StructField('url', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.FileSystemHost_GetFileName_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost_GetFileName_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSystemHost_GetFileName_ResponseParamsSpec, 'arc.mojom.FileSystemHost_GetFileName_ResponseParams', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.FileSystemHost_GetFileSize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost_GetFileSize_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSystemHost_GetFileSize_ParamsSpec, 'arc.mojom.FileSystemHost_GetFileSize_Params', [
+      mojo.internal.StructField('url', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.FileSystemHost_GetLastModified_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost_GetLastModified_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSystemHost_GetFileSize_ResponseParamsSpec, 'arc.mojom.FileSystemHost_GetFileSize_ResponseParams', [
+      mojo.internal.StructField('size', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.FileSystemHost_GetFileType_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost_GetFileType_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSystemHost_GetLastModified_ParamsSpec, 'arc.mojom.FileSystemHost_GetLastModified_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.FileSystemHost_OnDocumentChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost_OnDocumentChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'watcher_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.ChangeTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSystemHost_GetLastModified_ResponseParamsSpec, 'arc.mojom.FileSystemHost_GetLastModified_ResponseParams', [
+      mojo.internal.StructField('last_modified', 0, 0, mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.FileSystemHost_OnRootsChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost_OnRootsChanged_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSystemHost_GetFileType_ParamsSpec, 'arc.mojom.FileSystemHost_GetFileType_Params', [
+      mojo.internal.StructField('url', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.FileSystemHost_GetVirtualFileId_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost_GetVirtualFileId_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSystemHost_GetFileType_ResponseParamsSpec, 'arc.mojom.FileSystemHost_GetFileType_ResponseParams', [
+      mojo.internal.StructField('mime_type', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.FileSystemHost_HandleIdReleased_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost_HandleIdReleased_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSystemHost_OnDocumentChanged_ParamsSpec, 'arc.mojom.FileSystemHost_OnDocumentChanged_Params', [
+      mojo.internal.StructField('watcher_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, arc.mojom.ChangeTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.FileSystemHost_OpenFileToRead_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost_OpenFileToRead_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSystemHost_OnRootsChanged_ParamsSpec, 'arc.mojom.FileSystemHost_OnRootsChanged_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.FileSystemHost_SelectFiles_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost_SelectFiles_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.SelectFilesRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSystemHost_GetVirtualFileId_ParamsSpec, 'arc.mojom.FileSystemHost_GetVirtualFileId_Params', [
+      mojo.internal.StructField('url', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.FileSystemHost_OnFileSelectorEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost_OnFileSelectorEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.FileSelectorEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSystemHost_GetVirtualFileId_ResponseParamsSpec, 'arc.mojom.FileSystemHost_GetVirtualFileId_ResponseParams', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.FileSystemHost_GetFileSelectorElements_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost_GetFileSelectorElements_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.GetFileSelectorElementsRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSystemHost_HandleIdReleased_ParamsSpec, 'arc.mojom.FileSystemHost_HandleIdReleased_Params', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.FileSystemHost_OnMediaStoreUriAdded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost_OnMediaStoreUriAdded_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'uri', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.MediaStoreMetadataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSystemHost_HandleIdReleased_ResponseParamsSpec, 'arc.mojom.FileSystemHost_HandleIdReleased_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.FileSystemHost_CreateMoniker_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost_CreateMoniker_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'content_uri', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'read_only', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSystemHost_OpenFileToRead_ParamsSpec, 'arc.mojom.FileSystemHost_OpenFileToRead_Params', [
+      mojo.internal.StructField('url', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.FileSystemHost_DestroyMoniker_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost_DestroyMoniker_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'moniker', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSystemHost_OpenFileToRead_ResponseParamsSpec, 'arc.mojom.FileSystemHost_OpenFileToRead_ResponseParams', [
+      mojo.internal.StructField('fd', 0, 0, mojo.internal.Handle, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.FileSystemHost_SelectFiles_ParamsSpec, 'arc.mojom.FileSystemHost_SelectFiles_Params', [
+      mojo.internal.StructField('request', 0, 0, arc.mojom.SelectFilesRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.FileSystemHost_SelectFiles_ResponseParamsSpec, 'arc.mojom.FileSystemHost_SelectFiles_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, arc.mojom.SelectFilesResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.FileSystemHost_OnFileSelectorEvent_ParamsSpec, 'arc.mojom.FileSystemHost_OnFileSelectorEvent_Params', [
+      mojo.internal.StructField('event', 0, 0, arc.mojom.FileSelectorEventSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.FileSystemHost_OnFileSelectorEvent_ResponseParamsSpec, 'arc.mojom.FileSystemHost_OnFileSelectorEvent_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    arc.mojom.FileSystemHost_GetFileSelectorElements_ParamsSpec, 'arc.mojom.FileSystemHost_GetFileSelectorElements_Params', [
+      mojo.internal.StructField('request', 0, 0, arc.mojom.GetFileSelectorElementsRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.FileSystemHost_GetFileSelectorElements_ResponseParamsSpec, 'arc.mojom.FileSystemHost_GetFileSelectorElements_ResponseParams', [
+      mojo.internal.StructField('elements', 0, 0, arc.mojom.FileSelectorElementsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.FileSystemHost_OnMediaStoreUriAdded_ParamsSpec, 'arc.mojom.FileSystemHost_OnMediaStoreUriAdded_Params', [
+      mojo.internal.StructField('uri', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('metadata', 0, 0, arc.mojom.MediaStoreMetadataSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    arc.mojom.FileSystemHost_CreateMoniker_ParamsSpec, 'arc.mojom.FileSystemHost_CreateMoniker_Params', [
+      mojo.internal.StructField('content_uri', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('read_only', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    arc.mojom.FileSystemHost_CreateMoniker_ResponseParamsSpec, 'arc.mojom.FileSystemHost_CreateMoniker_ResponseParams', [
+      mojo.internal.StructField('moniker', 0, 0, mojo_base.mojom.TokenSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.FileSystemHost_DestroyMoniker_ParamsSpec, 'arc.mojom.FileSystemHost_DestroyMoniker_Params', [
+      mojo.internal.StructField('moniker', 0, 0, mojo_base.mojom.TokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.FileSystemHost_DestroyMoniker_ResponseParamsSpec, 'arc.mojom.FileSystemHost_DestroyMoniker_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.FileSystemHostPendingReceiver = class {
   constructor(handle) {
@@ -614,7 +580,7 @@ arc.mojom.FileSystemHostRemoteCallHandler = class {
     return this.proxy.sendMessage(
       7,  // ordinal
       arc.mojom.FileSystemHost_OnFileSelectorEvent_ParamsSpec,
-      null,
+      arc.mojom.FileSystemHost_OnFileSelectorEvent_ResponseParamsSpec,
       [event]);
   }
 
@@ -666,685 +632,278 @@ arc.mojom.FileSystemHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetFileName
-arc.mojom.FileSystemHost_GetFileName_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost.GetFileName_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.FileSystemHost_GetFileName_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost.GetFileName_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetFileSize
-arc.mojom.FileSystemHost_GetFileSize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost.GetFileSize_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.FileSystemHost_GetFileSize_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost.GetFileSize_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetLastModified
-arc.mojom.FileSystemHost_GetLastModified_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost.GetLastModified_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.FileSystemHost_GetLastModified_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost.GetLastModified_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'last_modified', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetFileType
-arc.mojom.FileSystemHost_GetFileType_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost.GetFileType_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.FileSystemHost_GetFileType_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost.GetFileType_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'mime_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnDocumentChanged
-arc.mojom.FileSystemHost_OnDocumentChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost.OnDocumentChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'watcher_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.ChangeTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnRootsChanged
-arc.mojom.FileSystemHost_OnRootsChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost.OnRootsChanged_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for GetVirtualFileId
-arc.mojom.FileSystemHost_GetVirtualFileId_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost.GetVirtualFileId_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.FileSystemHost_GetVirtualFileId_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost.GetVirtualFileId_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for HandleIdReleased
-arc.mojom.FileSystemHost_HandleIdReleased_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost.HandleIdReleased_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.FileSystemHost_HandleIdReleased_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost.HandleIdReleased_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OpenFileToRead
-arc.mojom.FileSystemHost_OpenFileToRead_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost.OpenFileToRead_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.FileSystemHost_OpenFileToRead_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost.OpenFileToRead_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'fd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SelectFiles
-arc.mojom.FileSystemHost_SelectFiles_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost.SelectFiles_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.SelectFilesRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.FileSystemHost_SelectFiles_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost.SelectFiles_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.SelectFilesResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnFileSelectorEvent
-arc.mojom.FileSystemHost_OnFileSelectorEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost.OnFileSelectorEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.FileSelectorEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetFileSelectorElements
-arc.mojom.FileSystemHost_GetFileSelectorElements_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost.GetFileSelectorElements_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.GetFileSelectorElementsRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.FileSystemHost_GetFileSelectorElements_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost.GetFileSelectorElements_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'elements', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.FileSelectorElementsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnMediaStoreUriAdded
-arc.mojom.FileSystemHost_OnMediaStoreUriAdded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost.OnMediaStoreUriAdded_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'uri', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.MediaStoreMetadataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for CreateMoniker
-arc.mojom.FileSystemHost_CreateMoniker_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost.CreateMoniker_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'content_uri', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'read_only', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-arc.mojom.FileSystemHost_CreateMoniker_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost.CreateMoniker_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'moniker', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DestroyMoniker
-arc.mojom.FileSystemHost_DestroyMoniker_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost.DestroyMoniker_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'moniker', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.FileSystemHost_DestroyMoniker_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemHost.DestroyMoniker_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.FileSystemHostPtr = arc.mojom.FileSystemHostRemote;
 arc.mojom.FileSystemHostRequest = arc.mojom.FileSystemHostPendingReceiver;
 
 
 // Interface: FileSystemInstance
-arc.mojom.FileSystemInstance = {};
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_AddWatcher_ParamsSpec, 'arc.mojom.FileSystemInstance_AddWatcher_Params', [
+      mojo.internal.StructField('authority', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('document_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.FileSystemInstance_AddWatcher_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance_AddWatcher_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'authority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'document_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_AddWatcher_ResponseParamsSpec, 'arc.mojom.FileSystemInstance_AddWatcher_ResponseParams', [
+      mojo.internal.StructField('watcher_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.FileSystemInstance_GetChildDocuments_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance_GetChildDocuments_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'authority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'parent_document_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_GetChildDocuments_ParamsSpec, 'arc.mojom.FileSystemInstance_GetChildDocuments_Params', [
+      mojo.internal.StructField('authority', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('parent_document_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.FileSystemInstance_GetDocument_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance_GetDocument_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'authority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'document_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_GetChildDocuments_ResponseParamsSpec, 'arc.mojom.FileSystemInstance_GetChildDocuments_ResponseParams', [
+      mojo.internal.StructField('documents', 0, 0, mojo.internal.Array(arc.mojom.DocumentSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.FileSystemInstance_GetFileSize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance_GetFileSize_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_GetDocument_ParamsSpec, 'arc.mojom.FileSystemInstance_GetDocument_Params', [
+      mojo.internal.StructField('authority', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('document_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.FileSystemInstance_GetMimeType_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance_GetMimeType_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_GetDocument_ResponseParamsSpec, 'arc.mojom.FileSystemInstance_GetDocument_ResponseParams', [
+      mojo.internal.StructField('document', 0, 0, arc.mojom.DocumentSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.FileSystemInstance_GetRecentDocuments_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance_GetRecentDocuments_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'authority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'root_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_GetFileSize_ParamsSpec, 'arc.mojom.FileSystemInstance_GetFileSize_Params', [
+      mojo.internal.StructField('url', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.FileSystemInstance_GetRoots_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance_GetRoots_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_GetFileSize_ResponseParamsSpec, 'arc.mojom.FileSystemInstance_GetFileSize_ResponseParams', [
+      mojo.internal.StructField('size', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.FileSystemInstance_GetRootSize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance_GetRootSize_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'authority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'root_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_GetMimeType_ParamsSpec, 'arc.mojom.FileSystemInstance_GetMimeType_Params', [
+      mojo.internal.StructField('url', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.FileSystemInstance_DeleteDocument_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance_DeleteDocument_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'authority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'document_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_GetMimeType_ResponseParamsSpec, 'arc.mojom.FileSystemInstance_GetMimeType_ResponseParams', [
+      mojo.internal.StructField('mime_type', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.FileSystemInstance_RenameDocument_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance_RenameDocument_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'authority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'document_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'display_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_GetRecentDocuments_ParamsSpec, 'arc.mojom.FileSystemInstance_GetRecentDocuments_Params', [
+      mojo.internal.StructField('authority', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('root_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.FileSystemInstance_CreateDocument_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance_CreateDocument_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'authority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'parent_document_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'mime_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'display_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_GetRecentDocuments_ResponseParamsSpec, 'arc.mojom.FileSystemInstance_GetRecentDocuments_ResponseParams', [
+      mojo.internal.StructField('documents', 0, 0, mojo.internal.Array(arc.mojom.DocumentSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.FileSystemInstance_CopyDocument_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance_CopyDocument_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'authority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'source_document_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'target_parent_document_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_GetRoots_ParamsSpec, 'arc.mojom.FileSystemInstance_GetRoots_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.FileSystemInstance_MoveDocument_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance_MoveDocument_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'authority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'source_document_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'source_parent_document_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'target_parent_document_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_GetRoots_ResponseParamsSpec, 'arc.mojom.FileSystemInstance_GetRoots_ResponseParams', [
+      mojo.internal.StructField('roots', 0, 0, mojo.internal.Array(arc.mojom.RootSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.FileSystemInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance_Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.FileSystemHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_GetRootSize_ParamsSpec, 'arc.mojom.FileSystemInstance_GetRootSize_Params', [
+      mojo.internal.StructField('authority', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('root_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.FileSystemInstance_OpenThumbnail_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance_OpenThumbnail_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'size_hint', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.SizeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_GetRootSize_ResponseParamsSpec, 'arc.mojom.FileSystemInstance_GetRootSize_ResponseParams', [
+      mojo.internal.StructField('root_size', 0, 0, arc.mojom.RootSizeSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.FileSystemInstance_CloseFileSession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance_CloseFileSession_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'url_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_DeleteDocument_ParamsSpec, 'arc.mojom.FileSystemInstance_DeleteDocument_Params', [
+      mojo.internal.StructField('authority', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('document_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.FileSystemInstance_OpenFileSessionToWrite_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance_OpenFileSessionToWrite_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_DeleteDocument_ResponseParamsSpec, 'arc.mojom.FileSystemInstance_DeleteDocument_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.FileSystemInstance_OpenFileSessionToRead_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance_OpenFileSessionToRead_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_RenameDocument_ParamsSpec, 'arc.mojom.FileSystemInstance_RenameDocument_Params', [
+      mojo.internal.StructField('authority', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('document_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('display_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-arc.mojom.FileSystemInstance_RemoveWatcher_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance_RemoveWatcher_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'watcher_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_RenameDocument_ResponseParamsSpec, 'arc.mojom.FileSystemInstance_RenameDocument_ResponseParams', [
+      mojo.internal.StructField('document', 0, 0, arc.mojom.DocumentSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.FileSystemInstance_RequestMediaScan_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance_RequestMediaScan_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'paths', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_CreateDocument_ParamsSpec, 'arc.mojom.FileSystemInstance_CreateDocument_Params', [
+      mojo.internal.StructField('authority', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('parent_document_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('mime_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('display_name', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-arc.mojom.FileSystemInstance_ReindexDirectory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance_ReindexDirectory_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'directory_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_CreateDocument_ResponseParamsSpec, 'arc.mojom.FileSystemInstance_CreateDocument_ResponseParams', [
+      mojo.internal.StructField('document', 0, 0, arc.mojom.DocumentSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.FileSystemInstance_RequestFileRemovalScan_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance_RequestFileRemovalScan_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'directory_paths', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_CopyDocument_ParamsSpec, 'arc.mojom.FileSystemInstance_CopyDocument_Params', [
+      mojo.internal.StructField('authority', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('source_document_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('target_parent_document_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-arc.mojom.FileSystemInstance_OpenUrlsWithPermissionAndWindowInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance_OpenUrlsWithPermissionAndWindowInfo_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.OpenUrlsRequestSpec, nullable: false, minVersion: 0 },
-        { name: 'window_info', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.WindowInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_CopyDocument_ResponseParamsSpec, 'arc.mojom.FileSystemInstance_CopyDocument_ResponseParams', [
+      mojo.internal.StructField('document', 0, 0, arc.mojom.DocumentSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_MoveDocument_ParamsSpec, 'arc.mojom.FileSystemInstance_MoveDocument_Params', [
+      mojo.internal.StructField('authority', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('source_document_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('source_parent_document_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('target_parent_document_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_MoveDocument_ResponseParamsSpec, 'arc.mojom.FileSystemInstance_MoveDocument_ResponseParams', [
+      mojo.internal.StructField('document', 0, 0, arc.mojom.DocumentSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_Init_ParamsSpec, 'arc.mojom.FileSystemInstance_Init_Params', [
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.FileSystemHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_Init_ResponseParamsSpec, 'arc.mojom.FileSystemInstance_Init_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_OpenThumbnail_ParamsSpec, 'arc.mojom.FileSystemInstance_OpenThumbnail_Params', [
+      mojo.internal.StructField('url', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('size_hint', 8, 0, arc.mojom.SizeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_OpenThumbnail_ResponseParamsSpec, 'arc.mojom.FileSystemInstance_OpenThumbnail_ResponseParams', [
+      mojo.internal.StructField('fd', 0, 0, mojo.internal.Handle, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_CloseFileSession_ParamsSpec, 'arc.mojom.FileSystemInstance_CloseFileSession_Params', [
+      mojo.internal.StructField('url_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('error_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_OpenFileSessionToWrite_ParamsSpec, 'arc.mojom.FileSystemInstance_OpenFileSessionToWrite_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_OpenFileSessionToWrite_ResponseParamsSpec, 'arc.mojom.FileSystemInstance_OpenFileSessionToWrite_ResponseParams', [
+      mojo.internal.StructField('file_session', 0, 0, arc.mojom.FileSessionSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_OpenFileSessionToRead_ParamsSpec, 'arc.mojom.FileSystemInstance_OpenFileSessionToRead_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_OpenFileSessionToRead_ResponseParamsSpec, 'arc.mojom.FileSystemInstance_OpenFileSessionToRead_ResponseParams', [
+      mojo.internal.StructField('file_session', 0, 0, arc.mojom.FileSessionSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_RemoveWatcher_ParamsSpec, 'arc.mojom.FileSystemInstance_RemoveWatcher_Params', [
+      mojo.internal.StructField('watcher_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_RemoveWatcher_ResponseParamsSpec, 'arc.mojom.FileSystemInstance_RemoveWatcher_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_RequestMediaScan_ParamsSpec, 'arc.mojom.FileSystemInstance_RequestMediaScan_Params', [
+      mojo.internal.StructField('paths', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_ReindexDirectory_ParamsSpec, 'arc.mojom.FileSystemInstance_ReindexDirectory_Params', [
+      mojo.internal.StructField('directory_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_RequestFileRemovalScan_ParamsSpec, 'arc.mojom.FileSystemInstance_RequestFileRemovalScan_Params', [
+      mojo.internal.StructField('directory_paths', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_OpenUrlsWithPermissionAndWindowInfo_ParamsSpec, 'arc.mojom.FileSystemInstance_OpenUrlsWithPermissionAndWindowInfo_Params', [
+      mojo.internal.StructField('request', 0, 0, arc.mojom.OpenUrlsRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('window_info', 8, 0, arc.mojom.WindowInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    arc.mojom.FileSystemInstance_OpenUrlsWithPermissionAndWindowInfo_ResponseParamsSpec, 'arc.mojom.FileSystemInstance_OpenUrlsWithPermissionAndWindowInfo_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 arc.mojom.FileSystemInstancePendingReceiver = class {
   constructor(handle) {
@@ -1500,7 +1059,7 @@ arc.mojom.FileSystemInstanceRemoteCallHandler = class {
     return this.proxy.sendMessage(
       10,  // ordinal
       arc.mojom.FileSystemInstance_Init_ParamsSpec,
-      null,
+      arc.mojom.FileSystemInstance_Init_ResponseParamsSpec,
       [host_remote]);
   }
 
@@ -1581,7 +1140,7 @@ arc.mojom.FileSystemInstanceRemoteCallHandler = class {
     return this.proxy.sendMessage(
       23,  // ordinal
       arc.mojom.FileSystemInstance_OpenUrlsWithPermissionAndWindowInfo_ParamsSpec,
-      null,
+      arc.mojom.FileSystemInstance_OpenUrlsWithPermissionAndWindowInfo_ResponseParamsSpec,
       [request, window_info]);
   }
 
@@ -1597,568 +1156,6 @@ arc.mojom.FileSystemInstance.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddWatcher
-arc.mojom.FileSystemInstance_AddWatcher_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance.AddWatcher_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'authority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'document_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-arc.mojom.FileSystemInstance_AddWatcher_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance.AddWatcher_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'watcher_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetChildDocuments
-arc.mojom.FileSystemInstance_GetChildDocuments_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance.GetChildDocuments_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'authority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'parent_document_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-arc.mojom.FileSystemInstance_GetChildDocuments_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance.GetChildDocuments_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'documents', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.DocumentSpec, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetDocument
-arc.mojom.FileSystemInstance_GetDocument_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance.GetDocument_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'authority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'document_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-arc.mojom.FileSystemInstance_GetDocument_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance.GetDocument_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'document', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.DocumentSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetFileSize
-arc.mojom.FileSystemInstance_GetFileSize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance.GetFileSize_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.FileSystemInstance_GetFileSize_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance.GetFileSize_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetMimeType
-arc.mojom.FileSystemInstance_GetMimeType_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance.GetMimeType_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.FileSystemInstance_GetMimeType_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance.GetMimeType_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'mime_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetRecentDocuments
-arc.mojom.FileSystemInstance_GetRecentDocuments_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance.GetRecentDocuments_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'authority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'root_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-arc.mojom.FileSystemInstance_GetRecentDocuments_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance.GetRecentDocuments_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'documents', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.DocumentSpec, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetRoots
-arc.mojom.FileSystemInstance_GetRoots_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance.GetRoots_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-arc.mojom.FileSystemInstance_GetRoots_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance.GetRoots_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'roots', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.RootSpec, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetRootSize
-arc.mojom.FileSystemInstance_GetRootSize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance.GetRootSize_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'authority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'root_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-arc.mojom.FileSystemInstance_GetRootSize_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance.GetRootSize_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'root_size', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.RootSizeSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DeleteDocument
-arc.mojom.FileSystemInstance_DeleteDocument_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance.DeleteDocument_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'authority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'document_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-arc.mojom.FileSystemInstance_DeleteDocument_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance.DeleteDocument_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RenameDocument
-arc.mojom.FileSystemInstance_RenameDocument_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance.RenameDocument_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'authority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'document_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'display_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-arc.mojom.FileSystemInstance_RenameDocument_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance.RenameDocument_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'document', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.DocumentSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CreateDocument
-arc.mojom.FileSystemInstance_CreateDocument_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance.CreateDocument_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'authority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'parent_document_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'mime_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'display_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-arc.mojom.FileSystemInstance_CreateDocument_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance.CreateDocument_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'document', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.DocumentSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CopyDocument
-arc.mojom.FileSystemInstance_CopyDocument_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance.CopyDocument_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'authority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'source_document_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'target_parent_document_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-arc.mojom.FileSystemInstance_CopyDocument_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance.CopyDocument_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'document', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.DocumentSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for MoveDocument
-arc.mojom.FileSystemInstance_MoveDocument_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance.MoveDocument_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'authority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'source_document_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'source_parent_document_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'target_parent_document_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-arc.mojom.FileSystemInstance_MoveDocument_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance.MoveDocument_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'document', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.DocumentSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Init
-arc.mojom.FileSystemInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance.Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.FileSystemHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OpenThumbnail
-arc.mojom.FileSystemInstance_OpenThumbnail_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance.OpenThumbnail_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'size_hint', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.SizeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-arc.mojom.FileSystemInstance_OpenThumbnail_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance.OpenThumbnail_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'fd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CloseFileSession
-arc.mojom.FileSystemInstance_CloseFileSession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance.CloseFileSession_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'url_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OpenFileSessionToWrite
-arc.mojom.FileSystemInstance_OpenFileSessionToWrite_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance.OpenFileSessionToWrite_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.FileSystemInstance_OpenFileSessionToWrite_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance.OpenFileSessionToWrite_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'file_session', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.FileSessionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OpenFileSessionToRead
-arc.mojom.FileSystemInstance_OpenFileSessionToRead_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance.OpenFileSessionToRead_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.FileSystemInstance_OpenFileSessionToRead_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance.OpenFileSessionToRead_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'file_session', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.FileSessionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RemoveWatcher
-arc.mojom.FileSystemInstance_RemoveWatcher_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance.RemoveWatcher_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'watcher_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.FileSystemInstance_RemoveWatcher_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance.RemoveWatcher_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestMediaScan
-arc.mojom.FileSystemInstance_RequestMediaScan_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance.RequestMediaScan_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'paths', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReindexDirectory
-arc.mojom.FileSystemInstance_ReindexDirectory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance.ReindexDirectory_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'directory_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestFileRemovalScan
-arc.mojom.FileSystemInstance_RequestFileRemovalScan_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance.RequestFileRemovalScan_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'directory_paths', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OpenUrlsWithPermissionAndWindowInfo
-arc.mojom.FileSystemInstance_OpenUrlsWithPermissionAndWindowInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.FileSystemInstance.OpenUrlsWithPermissionAndWindowInfo_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.OpenUrlsRequestSpec, nullable: false, minVersion: 0 },
-        { name: 'window_info', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.WindowInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.FileSystemInstancePtr = arc.mojom.FileSystemInstanceRemote;
 arc.mojom.FileSystemInstanceRequest = arc.mojom.FileSystemInstancePendingReceiver;
 

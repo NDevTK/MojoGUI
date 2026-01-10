@@ -8,22 +8,19 @@
 var lens = lens || {};
 lens.mojom = lens.mojom || {};
 
+lens.mojom.LensGhostLoaderPageHandlerFactory = {};
+lens.mojom.LensGhostLoaderPageHandlerFactory.$interfaceName = 'lens.mojom.LensGhostLoaderPageHandlerFactory';
+lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_ParamsSpec = { $: {} };
+lens.mojom.LensGhostLoaderPage = {};
+lens.mojom.LensGhostLoaderPage.$interfaceName = 'lens.mojom.LensGhostLoaderPage';
+lens.mojom.LensGhostLoaderPage_ShowErrorState_ParamsSpec = { $: {} };
 
 // Interface: LensGhostLoaderPageHandlerFactory
-lens.mojom.LensGhostLoaderPageHandlerFactory = {};
-
-lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(lens.mojom.LensGhostLoaderPageRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_ParamsSpec, 'lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(lens.mojom.LensGhostLoaderPageRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 lens.mojom.LensGhostLoaderPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -78,39 +75,15 @@ lens.mojom.LensGhostLoaderPageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateGhostLoaderPage
-lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensGhostLoaderPageHandlerFactory.CreateGhostLoaderPage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(lens.mojom.LensGhostLoaderPageRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 lens.mojom.LensGhostLoaderPageHandlerFactoryPtr = lens.mojom.LensGhostLoaderPageHandlerFactoryRemote;
 lens.mojom.LensGhostLoaderPageHandlerFactoryRequest = lens.mojom.LensGhostLoaderPageHandlerFactoryPendingReceiver;
 
 
 // Interface: LensGhostLoaderPage
-lens.mojom.LensGhostLoaderPage = {};
-
-lens.mojom.LensGhostLoaderPage_ShowErrorState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensGhostLoaderPage_ShowErrorState_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LensGhostLoaderPage_ShowErrorState_ParamsSpec, 'lens.mojom.LensGhostLoaderPage_ShowErrorState_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 lens.mojom.LensGhostLoaderPagePendingReceiver = class {
   constructor(handle) {
@@ -165,20 +138,6 @@ lens.mojom.LensGhostLoaderPage.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ShowErrorState
-lens.mojom.LensGhostLoaderPage_ShowErrorState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.LensGhostLoaderPage.ShowErrorState_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 lens.mojom.LensGhostLoaderPagePtr = lens.mojom.LensGhostLoaderPageRemote;
 lens.mojom.LensGhostLoaderPageRequest = lens.mojom.LensGhostLoaderPagePendingReceiver;
 

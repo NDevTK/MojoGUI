@@ -8,17 +8,19 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+network.mojom.TransferableDirectorySpec = { $: {} };
 
 // Union: TransferableDirectory
-network.mojom.TransferableDirectorySpec = { $: mojo.internal.Union(
-    'network.mojom.TransferableDirectory', {
+mojo.internal.Union(
+    network.mojom.TransferableDirectorySpec, 'network.mojom.TransferableDirectory', {
       'handle_for_ipc': {
         'ordinal': 0,
         'type': mojo.internal.Pointer,
-      }},
+        'nullable': false,
+      },
       'path': {
         'ordinal': 1,
         'type': mojo_base.mojom.FilePathSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });

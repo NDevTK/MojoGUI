@@ -8,6 +8,7 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.DelegatedCapabilitySpec = { $: mojo.internal.Enum() };
 
 // Enum: DelegatedCapability
 blink.mojom.DelegatedCapability = {
@@ -16,4 +17,3 @@ blink.mojom.DelegatedCapability = {
   kFullscreenRequest: 2,
   kDisplayCaptureRequest: 3,
 };
-blink.mojom.DelegatedCapabilitySpec = { $: mojo.internal.Enum() };

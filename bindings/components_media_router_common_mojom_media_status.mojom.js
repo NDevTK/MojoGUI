@@ -11,6 +11,12 @@ var ui = ui || {};
 var gfx = gfx || {};
 var url = url || {};
 
+media_router.mojom.PlayStateSpec = { $: mojo.internal.Enum() };
+media_router.mojom.MediaImageSpec = { $: {} };
+media_router.mojom.MediaStatusSpec = { $: {} };
+media_router.mojom.MediaStatusObserver = {};
+media_router.mojom.MediaStatusObserver.$interfaceName = 'media_router.mojom.MediaStatusObserver';
+media_router.mojom.MediaStatusObserver_OnMediaStatusUpdated_ParamsSpec = { $: {} };
 
 // Enum: PlayState
 media_router.mojom.PlayState = {
@@ -18,52 +24,28 @@ media_router.mojom.PlayState = {
   PAUSED: 1,
   BUFFERING: 2,
 };
-media_router.mojom.PlayStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: MediaImage
-media_router.mojom.MediaImageSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaImage',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.MediaImageSpec, 'media_router.mojom.MediaImage', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('size', 8, 0, gfx.mojom.SizeSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: MediaStatus
-media_router.mojom.MediaStatusSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaStatus',
-      packedSize: 16,
-      fields: [
-        { name: 'PLAYING', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.MediaStatusSpec, 'media_router.mojom.MediaStatus', [
+      mojo.internal.StructField('PLAYING', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: MediaStatusObserver
-media_router.mojom.MediaStatusObserver = {};
-
-media_router.mojom.MediaStatusObserver_OnMediaStatusUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaStatusObserver_OnMediaStatusUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media_router.mojom.MediaStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.MediaStatusObserver_OnMediaStatusUpdated_ParamsSpec, 'media_router.mojom.MediaStatusObserver_OnMediaStatusUpdated_Params', [
+      mojo.internal.StructField('status', 0, 0, media_router.mojom.MediaStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media_router.mojom.MediaStatusObserverPendingReceiver = class {
   constructor(handle) {
@@ -118,21 +100,6 @@ media_router.mojom.MediaStatusObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnMediaStatusUpdated
-media_router.mojom.MediaStatusObserver_OnMediaStatusUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaStatusObserver.OnMediaStatusUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media_router.mojom.MediaStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media_router.mojom.MediaStatusObserverPtr = media_router.mojom.MediaStatusObserverRemote;
 media_router.mojom.MediaStatusObserverRequest = media_router.mojom.MediaStatusObserverPendingReceiver;
 

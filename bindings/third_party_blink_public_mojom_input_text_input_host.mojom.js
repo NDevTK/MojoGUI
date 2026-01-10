@@ -10,35 +10,23 @@ blink.mojom = blink.mojom || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+blink.mojom.TextInputHost = {};
+blink.mojom.TextInputHost.$interfaceName = 'blink.mojom.TextInputHost';
+blink.mojom.TextInputHost_GotCharacterIndexAtPoint_ParamsSpec = { $: {} };
+blink.mojom.TextInputHost_GotFirstRectForRange_ParamsSpec = { $: {} };
 
 // Interface: TextInputHost
-blink.mojom.TextInputHost = {};
+mojo.internal.Struct(
+    blink.mojom.TextInputHost_GotCharacterIndexAtPoint_ParamsSpec, 'blink.mojom.TextInputHost_GotCharacterIndexAtPoint_Params', [
+      mojo.internal.StructField('index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.TextInputHost_GotCharacterIndexAtPoint_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TextInputHost_GotCharacterIndexAtPoint_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.TextInputHost_GotFirstRectForRange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TextInputHost_GotFirstRectForRange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'rect', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.TextInputHost_GotFirstRectForRange_ParamsSpec, 'blink.mojom.TextInputHost_GotFirstRectForRange_Params', [
+      mojo.internal.StructField('rect', 0, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.TextInputHostPendingReceiver = class {
   constructor(handle) {
@@ -102,35 +90,6 @@ blink.mojom.TextInputHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GotCharacterIndexAtPoint
-blink.mojom.TextInputHost_GotCharacterIndexAtPoint_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TextInputHost.GotCharacterIndexAtPoint_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GotFirstRectForRange
-blink.mojom.TextInputHost_GotFirstRectForRange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TextInputHost.GotFirstRectForRange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'rect', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.TextInputHostPtr = blink.mojom.TextInputHostRemote;
 blink.mojom.TextInputHostRequest = blink.mojom.TextInputHostPendingReceiver;
 

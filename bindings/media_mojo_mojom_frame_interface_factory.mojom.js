@@ -9,22 +9,25 @@ var media = media || {};
 media.mojom = media.mojom || {};
 var url = url || {};
 
+media.mojom.MuteStateObserver = {};
+media.mojom.MuteStateObserver.$interfaceName = 'media.mojom.MuteStateObserver';
+media.mojom.MuteStateObserver_OnMuteStateChange_ParamsSpec = { $: {} };
+media.mojom.FrameInterfaceFactory = {};
+media.mojom.FrameInterfaceFactory.$interfaceName = 'media.mojom.FrameInterfaceFactory';
+media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_ParamsSpec = { $: {} };
+media.mojom.FrameInterfaceFactory_CreateCdmStorage_ParamsSpec = { $: {} };
+media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_ParamsSpec = { $: {} };
+media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_ParamsSpec = { $: {} };
+media.mojom.FrameInterfaceFactory_GetCdmOrigin_ParamsSpec = { $: {} };
+media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParamsSpec = { $: {} };
+media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec = { $: {} };
 
 // Interface: MuteStateObserver
-media.mojom.MuteStateObserver = {};
-
-media.mojom.MuteStateObserver_OnMuteStateChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MuteStateObserver_OnMuteStateChange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'muted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MuteStateObserver_OnMuteStateChange_ParamsSpec, 'media.mojom.MuteStateObserver_OnMuteStateChange_Params', [
+      mojo.internal.StructField('muted', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media.mojom.MuteStateObserverPendingReceiver = class {
   constructor(handle) {
@@ -79,104 +82,51 @@ media.mojom.MuteStateObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnMuteStateChange
-media.mojom.MuteStateObserver_OnMuteStateChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MuteStateObserver.OnMuteStateChange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'muted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.MuteStateObserverPtr = media.mojom.MuteStateObserverRemote;
 media.mojom.MuteStateObserverRequest = media.mojom.MuteStateObserverPendingReceiver;
 
 
 // Interface: FrameInterfaceFactory
-media.mojom.FrameInterfaceFactory = {};
+mojo.internal.Struct(
+    media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_ParamsSpec, 'media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_Params', [
+      mojo.internal.StructField('provision_fetcher', 0, 0, mojo.internal.InterfaceRequest(media.mojom.ProvisionFetcherRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'provision_fetcher', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.ProvisionFetcherRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.FrameInterfaceFactory_CreateCdmStorage_ParamsSpec, 'media.mojom.FrameInterfaceFactory_CreateCdmStorage_Params', [
+      mojo.internal.StructField('cdm_storage', 0, 0, mojo.internal.InterfaceRequest(media.mojom.CdmStorageRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.FrameInterfaceFactory_CreateCdmStorage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.FrameInterfaceFactory_CreateCdmStorage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'cdm_storage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.CdmStorageRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_ParamsSpec, 'media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_Params', [
+      mojo.internal.StructField('site_mute_observer', 0, 0, mojo.internal.InterfaceProxy(media.mojom.MuteStateObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'site_mute_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.MuteStateObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_ParamsSpec, 'media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_Params', [
+      mojo.internal.StructField('registry', 0, 0, mojo.internal.InterfaceRequest(media.mojom.DCOMPSurfaceRegistryRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'registry', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.DCOMPSurfaceRegistryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.FrameInterfaceFactory_GetCdmOrigin_ParamsSpec, 'media.mojom.FrameInterfaceFactory_GetCdmOrigin_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media.mojom.FrameInterfaceFactory_GetCdmOrigin_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.FrameInterfaceFactory_GetCdmOrigin_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParamsSpec, 'media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParams', [
+      mojo.internal.StructField('cdm_origin', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.GenericPendingReceiverSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec, 'media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo_base.mojom.GenericPendingReceiverSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media.mojom.FrameInterfaceFactoryPendingReceiver = class {
   constructor(handle) {
@@ -276,103 +226,6 @@ media.mojom.FrameInterfaceFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateProvisionFetcher
-media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.FrameInterfaceFactory.CreateProvisionFetcher_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'provision_fetcher', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.ProvisionFetcherRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CreateCdmStorage
-media.mojom.FrameInterfaceFactory_CreateCdmStorage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.FrameInterfaceFactory.CreateCdmStorage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'cdm_storage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.CdmStorageRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RegisterMuteStateObserver
-media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.FrameInterfaceFactory.RegisterMuteStateObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'site_mute_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.MuteStateObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CreateDCOMPSurfaceRegistry
-media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.FrameInterfaceFactory.CreateDCOMPSurfaceRegistry_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'registry', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.DCOMPSurfaceRegistryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetCdmOrigin
-media.mojom.FrameInterfaceFactory_GetCdmOrigin_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.FrameInterfaceFactory.GetCdmOrigin_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.FrameInterfaceFactory.GetCdmOrigin_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'cdm_origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindEmbedderReceiver
-media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.FrameInterfaceFactory.BindEmbedderReceiver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.GenericPendingReceiverSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.FrameInterfaceFactoryPtr = media.mojom.FrameInterfaceFactoryRemote;
 media.mojom.FrameInterfaceFactoryRequest = media.mojom.FrameInterfaceFactoryPendingReceiver;
 

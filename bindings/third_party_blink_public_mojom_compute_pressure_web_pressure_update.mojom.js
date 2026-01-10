@@ -7,21 +7,16 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var services = services || {};
 
+blink.mojom.WebPressureUpdateSpec = { $: {} };
 
 // Struct: WebPressureUpdate
-blink.mojom.WebPressureUpdateSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebPressureUpdate',
-      packedSize: 32,
-      fields: [
-        { name: 'source', packedOffset: 16, packedBitOffset: 0, type: device.mojom.PressureSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'state', packedOffset: 20, packedBitOffset: 0, type: device.mojom.PressureStateSpec, nullable: false, minVersion: 0 },
-        { name: 'own_contribution_estimate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WebPressureUpdateSpec, 'blink.mojom.WebPressureUpdate', [
+      mojo.internal.StructField('source', 16, 0, device.mojom.PressureSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 20, 0, device.mojom.PressureStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('own_contribution_estimate', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 8, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);

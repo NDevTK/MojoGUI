@@ -8,33 +8,21 @@
 var gfx = gfx || {};
 gfx.mojom = gfx.mojom || {};
 
+gfx.mojom.ANGLEFeatureSpec = { $: {} };
+gfx.mojom.GpuExtraInfoSpec = { $: {} };
 
 // Struct: ANGLEFeature
-gfx.mojom.ANGLEFeatureSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.ANGLEFeature',
-      packedSize: 32,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'category', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'status', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.ANGLEFeatureSpec, 'gfx.mojom.ANGLEFeature', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('category', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('status', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: GpuExtraInfo
-gfx.mojom.GpuExtraInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.GpuExtraInfo',
-      packedSize: 16,
-      fields: [
-        { name: 'angle_features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.ANGLEFeatureSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.GpuExtraInfoSpec, 'gfx.mojom.GpuExtraInfo', [
+      mojo.internal.StructField('angle_features', 0, 0, mojo.internal.Array(gfx.mojom.ANGLEFeatureSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);

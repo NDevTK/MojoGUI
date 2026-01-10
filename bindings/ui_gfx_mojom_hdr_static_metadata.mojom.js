@@ -8,20 +8,14 @@
 var gfx = gfx || {};
 gfx.mojom = gfx.mojom || {};
 
+gfx.mojom.HDRStaticMetadataSpec = { $: {} };
 
 // Struct: HDRStaticMetadata
-gfx.mojom.HDRStaticMetadataSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.HDRStaticMetadata',
-      packedSize: 24,
-      fields: [
-        { name: 'max', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'max_avg', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'min', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'supported_eotf_mask', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.HDRStaticMetadataSpec, 'gfx.mojom.HDRStaticMetadata', [
+      mojo.internal.StructField('max', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('max_avg', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('min', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('supported_eotf_mask', 12, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);

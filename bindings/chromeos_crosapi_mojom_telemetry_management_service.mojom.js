@@ -8,38 +8,40 @@
 var crosapi = crosapi || {};
 crosapi.mojom = crosapi.mojom || {};
 
+crosapi.mojom.TelemetryManagementService = {};
+crosapi.mojom.TelemetryManagementService.$interfaceName = 'crosapi.mojom.TelemetryManagementService';
+crosapi.mojom.TelemetryManagementService_SetAudioGain_ParamsSpec = { $: {} };
+crosapi.mojom.TelemetryManagementService_SetAudioGain_ResponseParamsSpec = { $: {} };
+crosapi.mojom.TelemetryManagementService_SetAudioVolume_ParamsSpec = { $: {} };
+crosapi.mojom.TelemetryManagementService_SetAudioVolume_ResponseParamsSpec = { $: {} };
 
 // Interface: TelemetryManagementService
-crosapi.mojom.TelemetryManagementService = {};
+mojo.internal.Struct(
+    crosapi.mojom.TelemetryManagementService_SetAudioGain_ParamsSpec, 'crosapi.mojom.TelemetryManagementService_SetAudioGain_Params', [
+      mojo.internal.StructField('node_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('gain', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-crosapi.mojom.TelemetryManagementService_SetAudioGain_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.TelemetryManagementService_SetAudioGain_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'gain', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.TelemetryManagementService_SetAudioGain_ResponseParamsSpec, 'crosapi.mojom.TelemetryManagementService_SetAudioGain_ResponseParams', [
+      mojo.internal.StructField('is_success', 0, 0, mojo.internal.Bool, false, false, 2, undefined),
+    ],
+    [[0, 8], [2, 16]]);
 
-crosapi.mojom.TelemetryManagementService_SetAudioVolume_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.TelemetryManagementService_SetAudioVolume_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'volume', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'is_muted', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.TelemetryManagementService_SetAudioVolume_ParamsSpec, 'crosapi.mojom.TelemetryManagementService_SetAudioVolume_Params', [
+      mojo.internal.StructField('node_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('volume', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_muted', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    crosapi.mojom.TelemetryManagementService_SetAudioVolume_ResponseParamsSpec, 'crosapi.mojom.TelemetryManagementService_SetAudioVolume_ResponseParams', [
+      mojo.internal.StructField('is_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 crosapi.mojom.TelemetryManagementServicePendingReceiver = class {
   constructor(handle) {
@@ -103,64 +105,6 @@ crosapi.mojom.TelemetryManagementService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetAudioGain
-crosapi.mojom.TelemetryManagementService_SetAudioGain_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.TelemetryManagementService.SetAudioGain_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'gain', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-crosapi.mojom.TelemetryManagementService_SetAudioGain_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.TelemetryManagementService.SetAudioGain_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'is_success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 2 },
-      ],
-      versions: [{version: 2, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetAudioVolume
-crosapi.mojom.TelemetryManagementService_SetAudioVolume_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.TelemetryManagementService.SetAudioVolume_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'volume', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'is_muted', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-crosapi.mojom.TelemetryManagementService_SetAudioVolume_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.TelemetryManagementService.SetAudioVolume_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'is_success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 crosapi.mojom.TelemetryManagementServicePtr = crosapi.mojom.TelemetryManagementServiceRemote;
 crosapi.mojom.TelemetryManagementServiceRequest = crosapi.mojom.TelemetryManagementServicePendingReceiver;
 

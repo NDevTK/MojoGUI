@@ -9,6 +9,38 @@ var ash = ash || {};
 ash.screens_login = ash.screens_login || {};
 ash.screens_login.mojom = ash.screens_login.mojom || {};
 
+ash.screens_login.mojom.ArcVmUIStateSpec = { $: mojo.internal.Enum() };
+ash.screens_login.mojom.UIStateSpec = { $: mojo.internal.Enum() };
+ash.screens_login.mojom.ArcVmDataMigrationPageHandler = {};
+ash.screens_login.mojom.ArcVmDataMigrationPageHandler.$interfaceName = 'ash.screens_login.mojom.ArcVmDataMigrationPageHandler';
+ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnResumeClicked_ParamsSpec = { $: {} };
+ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnUpdateClicked_ParamsSpec = { $: {} };
+ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnFinishClicked_ParamsSpec = { $: {} };
+ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnSkipClicked_ParamsSpec = { $: {} };
+ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnReportClicked_ParamsSpec = { $: {} };
+ash.screens_login.mojom.ArcVmDataMigrationPage = {};
+ash.screens_login.mojom.ArcVmDataMigrationPage.$interfaceName = 'ash.screens_login.mojom.ArcVmDataMigrationPage';
+ash.screens_login.mojom.ArcVmDataMigrationPage_SetUIState_ParamsSpec = { $: {} };
+ash.screens_login.mojom.ArcVmDataMigrationPage_SetRequiredFreeDiskSpace_ParamsSpec = { $: {} };
+ash.screens_login.mojom.ArcVmDataMigrationPage_SetMinimumBatteryPercent_ParamsSpec = { $: {} };
+ash.screens_login.mojom.ArcVmDataMigrationPage_SetBatteryState_ParamsSpec = { $: {} };
+ash.screens_login.mojom.ArcVmDataMigrationPage_SetMigrationProgress_ParamsSpec = { $: {} };
+ash.screens_login.mojom.ArcVmDataMigrationPage_SetEstimatedRemainingTime_ParamsSpec = { $: {} };
+ash.screens_login.mojom.EncryptionMigrationPageHandler = {};
+ash.screens_login.mojom.EncryptionMigrationPageHandler.$interfaceName = 'ash.screens_login.mojom.EncryptionMigrationPageHandler';
+ash.screens_login.mojom.EncryptionMigrationPageHandler_OnStartMigration_ParamsSpec = { $: {} };
+ash.screens_login.mojom.EncryptionMigrationPageHandler_OnSkipMigration_ParamsSpec = { $: {} };
+ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnLowStorage_ParamsSpec = { $: {} };
+ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnFailure_ParamsSpec = { $: {} };
+ash.screens_login.mojom.EncryptionMigrationPageHandler_OnOpenFeedbackDialog_ParamsSpec = { $: {} };
+ash.screens_login.mojom.EncryptionMigrationPage = {};
+ash.screens_login.mojom.EncryptionMigrationPage.$interfaceName = 'ash.screens_login.mojom.EncryptionMigrationPage';
+ash.screens_login.mojom.EncryptionMigrationPage_SetUIState_ParamsSpec = { $: {} };
+ash.screens_login.mojom.EncryptionMigrationPage_SetMigrationProgress_ParamsSpec = { $: {} };
+ash.screens_login.mojom.EncryptionMigrationPage_SetIsResuming_ParamsSpec = { $: {} };
+ash.screens_login.mojom.EncryptionMigrationPage_SetBatteryState_ParamsSpec = { $: {} };
+ash.screens_login.mojom.EncryptionMigrationPage_SetNecessaryBatteryPercent_ParamsSpec = { $: {} };
+ash.screens_login.mojom.EncryptionMigrationPage_SetSpaceInfoInString_ParamsSpec = { $: {} };
 
 // Enum: ArcVmUIState
 ash.screens_login.mojom.ArcVmUIState = {
@@ -19,7 +51,6 @@ ash.screens_login.mojom.ArcVmUIState = {
   kSuccess: 4,
   kFailure: 5,
 };
-ash.screens_login.mojom.ArcVmUIStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: UIState
 ash.screens_login.mojom.UIState = {
@@ -29,70 +60,32 @@ ash.screens_login.mojom.UIState = {
   kMigratingFailed: 3,
   kNotEnoughStorage: 4,
 };
-ash.screens_login.mojom.UIStateSpec = { $: mojo.internal.Enum() };
 
 // Interface: ArcVmDataMigrationPageHandler
-ash.screens_login.mojom.ArcVmDataMigrationPageHandler = {};
+mojo.internal.Struct(
+    ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnResumeClicked_ParamsSpec, 'ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnResumeClicked_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnResumeClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnResumeClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnUpdateClicked_ParamsSpec, 'ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnUpdateClicked_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnUpdateClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnUpdateClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnFinishClicked_ParamsSpec, 'ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnFinishClicked_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnFinishClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnFinishClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnSkipClicked_ParamsSpec, 'ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnSkipClicked_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnSkipClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnSkipClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnReportClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnReportClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnReportClicked_ParamsSpec, 'ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnReportClicked_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 ash.screens_login.mojom.ArcVmDataMigrationPageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -183,157 +176,47 @@ ash.screens_login.mojom.ArcVmDataMigrationPageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnResumeClicked
-ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnResumeClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.ArcVmDataMigrationPageHandler.OnResumeClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnUpdateClicked
-ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnUpdateClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.ArcVmDataMigrationPageHandler.OnUpdateClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnFinishClicked
-ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnFinishClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.ArcVmDataMigrationPageHandler.OnFinishClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnSkipClicked
-ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnSkipClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.ArcVmDataMigrationPageHandler.OnSkipClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnReportClicked
-ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnReportClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.ArcVmDataMigrationPageHandler.OnReportClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.screens_login.mojom.ArcVmDataMigrationPageHandlerPtr = ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRemote;
 ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRequest = ash.screens_login.mojom.ArcVmDataMigrationPageHandlerPendingReceiver;
 
 
 // Interface: ArcVmDataMigrationPage
-ash.screens_login.mojom.ArcVmDataMigrationPage = {};
+mojo.internal.Struct(
+    ash.screens_login.mojom.ArcVmDataMigrationPage_SetUIState_ParamsSpec, 'ash.screens_login.mojom.ArcVmDataMigrationPage_SetUIState_Params', [
+      mojo.internal.StructField('state', 0, 0, ash.screens_login.mojom.ArcVmUIStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.screens_login.mojom.ArcVmDataMigrationPage_SetUIState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.ArcVmDataMigrationPage_SetUIState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: ash.screens_login.mojom.ArcVmUIStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_login.mojom.ArcVmDataMigrationPage_SetRequiredFreeDiskSpace_ParamsSpec, 'ash.screens_login.mojom.ArcVmDataMigrationPage_SetRequiredFreeDiskSpace_Params', [
+      mojo.internal.StructField('required_space', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.screens_login.mojom.ArcVmDataMigrationPage_SetRequiredFreeDiskSpace_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.ArcVmDataMigrationPage_SetRequiredFreeDiskSpace_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'required_space', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_login.mojom.ArcVmDataMigrationPage_SetMinimumBatteryPercent_ParamsSpec, 'ash.screens_login.mojom.ArcVmDataMigrationPage_SetMinimumBatteryPercent_Params', [
+      mojo.internal.StructField('percent', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.screens_login.mojom.ArcVmDataMigrationPage_SetMinimumBatteryPercent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.ArcVmDataMigrationPage_SetMinimumBatteryPercent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_login.mojom.ArcVmDataMigrationPage_SetBatteryState_ParamsSpec, 'ash.screens_login.mojom.ArcVmDataMigrationPage_SetBatteryState_Params', [
+      mojo.internal.StructField('enough', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('connected', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.screens_login.mojom.ArcVmDataMigrationPage_SetBatteryState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.ArcVmDataMigrationPage_SetBatteryState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enough', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'connected', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_login.mojom.ArcVmDataMigrationPage_SetMigrationProgress_ParamsSpec, 'ash.screens_login.mojom.ArcVmDataMigrationPage_SetMigrationProgress_Params', [
+      mojo.internal.StructField('progress', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.screens_login.mojom.ArcVmDataMigrationPage_SetMigrationProgress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.ArcVmDataMigrationPage_SetMigrationProgress_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'progress', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.screens_login.mojom.ArcVmDataMigrationPage_SetEstimatedRemainingTime_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.ArcVmDataMigrationPage_SetEstimatedRemainingTime_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'remaining_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_login.mojom.ArcVmDataMigrationPage_SetEstimatedRemainingTime_ParamsSpec, 'ash.screens_login.mojom.ArcVmDataMigrationPage_SetEstimatedRemainingTime_Params', [
+      mojo.internal.StructField('remaining_time', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.screens_login.mojom.ArcVmDataMigrationPagePendingReceiver = class {
   constructor(handle) {
@@ -433,158 +316,35 @@ ash.screens_login.mojom.ArcVmDataMigrationPage.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetUIState
-ash.screens_login.mojom.ArcVmDataMigrationPage_SetUIState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.ArcVmDataMigrationPage.SetUIState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: ash.screens_login.mojom.ArcVmUIStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetRequiredFreeDiskSpace
-ash.screens_login.mojom.ArcVmDataMigrationPage_SetRequiredFreeDiskSpace_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.ArcVmDataMigrationPage.SetRequiredFreeDiskSpace_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'required_space', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetMinimumBatteryPercent
-ash.screens_login.mojom.ArcVmDataMigrationPage_SetMinimumBatteryPercent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.ArcVmDataMigrationPage.SetMinimumBatteryPercent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetBatteryState
-ash.screens_login.mojom.ArcVmDataMigrationPage_SetBatteryState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.ArcVmDataMigrationPage.SetBatteryState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enough', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'connected', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetMigrationProgress
-ash.screens_login.mojom.ArcVmDataMigrationPage_SetMigrationProgress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.ArcVmDataMigrationPage.SetMigrationProgress_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'progress', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetEstimatedRemainingTime
-ash.screens_login.mojom.ArcVmDataMigrationPage_SetEstimatedRemainingTime_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.ArcVmDataMigrationPage.SetEstimatedRemainingTime_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'remaining_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.screens_login.mojom.ArcVmDataMigrationPagePtr = ash.screens_login.mojom.ArcVmDataMigrationPageRemote;
 ash.screens_login.mojom.ArcVmDataMigrationPageRequest = ash.screens_login.mojom.ArcVmDataMigrationPagePendingReceiver;
 
 
 // Interface: EncryptionMigrationPageHandler
-ash.screens_login.mojom.EncryptionMigrationPageHandler = {};
+mojo.internal.Struct(
+    ash.screens_login.mojom.EncryptionMigrationPageHandler_OnStartMigration_ParamsSpec, 'ash.screens_login.mojom.EncryptionMigrationPageHandler_OnStartMigration_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.screens_login.mojom.EncryptionMigrationPageHandler_OnStartMigration_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.EncryptionMigrationPageHandler_OnStartMigration_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_login.mojom.EncryptionMigrationPageHandler_OnSkipMigration_ParamsSpec, 'ash.screens_login.mojom.EncryptionMigrationPageHandler_OnSkipMigration_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.screens_login.mojom.EncryptionMigrationPageHandler_OnSkipMigration_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.EncryptionMigrationPageHandler_OnSkipMigration_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnLowStorage_ParamsSpec, 'ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnLowStorage_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnLowStorage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnLowStorage_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnFailure_ParamsSpec, 'ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnFailure_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnFailure_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnFailure_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.screens_login.mojom.EncryptionMigrationPageHandler_OnOpenFeedbackDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.EncryptionMigrationPageHandler_OnOpenFeedbackDialog_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_login.mojom.EncryptionMigrationPageHandler_OnOpenFeedbackDialog_ParamsSpec, 'ash.screens_login.mojom.EncryptionMigrationPageHandler_OnOpenFeedbackDialog_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 ash.screens_login.mojom.EncryptionMigrationPageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -675,159 +435,49 @@ ash.screens_login.mojom.EncryptionMigrationPageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnStartMigration
-ash.screens_login.mojom.EncryptionMigrationPageHandler_OnStartMigration_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.EncryptionMigrationPageHandler.OnStartMigration_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnSkipMigration
-ash.screens_login.mojom.EncryptionMigrationPageHandler_OnSkipMigration_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.EncryptionMigrationPageHandler.OnSkipMigration_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnRequestRestartOnLowStorage
-ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnLowStorage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.EncryptionMigrationPageHandler.OnRequestRestartOnLowStorage_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnRequestRestartOnFailure
-ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnFailure_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.EncryptionMigrationPageHandler.OnRequestRestartOnFailure_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnOpenFeedbackDialog
-ash.screens_login.mojom.EncryptionMigrationPageHandler_OnOpenFeedbackDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.EncryptionMigrationPageHandler.OnOpenFeedbackDialog_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.screens_login.mojom.EncryptionMigrationPageHandlerPtr = ash.screens_login.mojom.EncryptionMigrationPageHandlerRemote;
 ash.screens_login.mojom.EncryptionMigrationPageHandlerRequest = ash.screens_login.mojom.EncryptionMigrationPageHandlerPendingReceiver;
 
 
 // Interface: EncryptionMigrationPage
-ash.screens_login.mojom.EncryptionMigrationPage = {};
+mojo.internal.Struct(
+    ash.screens_login.mojom.EncryptionMigrationPage_SetUIState_ParamsSpec, 'ash.screens_login.mojom.EncryptionMigrationPage_SetUIState_Params', [
+      mojo.internal.StructField('state', 0, 0, ash.screens_login.mojom.UIStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.screens_login.mojom.EncryptionMigrationPage_SetUIState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.EncryptionMigrationPage_SetUIState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: ash.screens_login.mojom.UIStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_login.mojom.EncryptionMigrationPage_SetMigrationProgress_ParamsSpec, 'ash.screens_login.mojom.EncryptionMigrationPage_SetMigrationProgress_Params', [
+      mojo.internal.StructField('progress', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.screens_login.mojom.EncryptionMigrationPage_SetMigrationProgress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.EncryptionMigrationPage_SetMigrationProgress_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'progress', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_login.mojom.EncryptionMigrationPage_SetIsResuming_ParamsSpec, 'ash.screens_login.mojom.EncryptionMigrationPage_SetIsResuming_Params', [
+      mojo.internal.StructField('is_resuming', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.screens_login.mojom.EncryptionMigrationPage_SetIsResuming_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.EncryptionMigrationPage_SetIsResuming_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_resuming', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_login.mojom.EncryptionMigrationPage_SetBatteryState_ParamsSpec, 'ash.screens_login.mojom.EncryptionMigrationPage_SetBatteryState_Params', [
+      mojo.internal.StructField('percent', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('is_enough', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_charging', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.screens_login.mojom.EncryptionMigrationPage_SetBatteryState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.EncryptionMigrationPage_SetBatteryState_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'is_enough', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_charging', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_login.mojom.EncryptionMigrationPage_SetNecessaryBatteryPercent_ParamsSpec, 'ash.screens_login.mojom.EncryptionMigrationPage_SetNecessaryBatteryPercent_Params', [
+      mojo.internal.StructField('percent', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.screens_login.mojom.EncryptionMigrationPage_SetNecessaryBatteryPercent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.EncryptionMigrationPage_SetNecessaryBatteryPercent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.screens_login.mojom.EncryptionMigrationPage_SetSpaceInfoInString_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.EncryptionMigrationPage_SetSpaceInfoInString_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'available_space', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'required_space', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_login.mojom.EncryptionMigrationPage_SetSpaceInfoInString_ParamsSpec, 'ash.screens_login.mojom.EncryptionMigrationPage_SetSpaceInfoInString_Params', [
+      mojo.internal.StructField('available_space', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('required_space', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 ash.screens_login.mojom.EncryptionMigrationPagePendingReceiver = class {
   constructor(handle) {
@@ -927,94 +577,6 @@ ash.screens_login.mojom.EncryptionMigrationPage.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetUIState
-ash.screens_login.mojom.EncryptionMigrationPage_SetUIState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.EncryptionMigrationPage.SetUIState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: ash.screens_login.mojom.UIStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetMigrationProgress
-ash.screens_login.mojom.EncryptionMigrationPage_SetMigrationProgress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.EncryptionMigrationPage.SetMigrationProgress_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'progress', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetIsResuming
-ash.screens_login.mojom.EncryptionMigrationPage_SetIsResuming_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.EncryptionMigrationPage.SetIsResuming_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_resuming', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetBatteryState
-ash.screens_login.mojom.EncryptionMigrationPage_SetBatteryState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.EncryptionMigrationPage.SetBatteryState_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'is_enough', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_charging', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SetNecessaryBatteryPercent
-ash.screens_login.mojom.EncryptionMigrationPage_SetNecessaryBatteryPercent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.EncryptionMigrationPage.SetNecessaryBatteryPercent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetSpaceInfoInString
-ash.screens_login.mojom.EncryptionMigrationPage_SetSpaceInfoInString_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_login.mojom.EncryptionMigrationPage.SetSpaceInfoInString_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'available_space', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'required_space', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.screens_login.mojom.EncryptionMigrationPagePtr = ash.screens_login.mojom.EncryptionMigrationPageRemote;
 ash.screens_login.mojom.EncryptionMigrationPageRequest = ash.screens_login.mojom.EncryptionMigrationPagePendingReceiver;
 

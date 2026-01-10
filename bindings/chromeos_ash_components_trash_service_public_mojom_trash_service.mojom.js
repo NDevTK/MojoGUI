@@ -9,22 +9,25 @@ var ash = ash || {};
 ash.trash_service = ash.trash_service || {};
 ash.trash_service.mojom = ash.trash_service.mojom || {};
 
+ash.trash_service.mojom.TrashService = {};
+ash.trash_service.mojom.TrashService.$interfaceName = 'ash.trash_service.mojom.TrashService';
+ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ParamsSpec = { $: {} };
+ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ResponseParamsSpec = { $: {} };
 
 // Interface: TrashService
-ash.trash_service.mojom.TrashService = {};
+mojo.internal.Struct(
+    ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ParamsSpec, 'ash.trash_service.mojom.TrashService_ParseTrashInfoFile_Params', [
+      mojo.internal.StructField('trash_info_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.trash_service.mojom.TrashService_ParseTrashInfoFile_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'trash_info_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ResponseParamsSpec, 'ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ResponseParams', [
+      mojo.internal.StructField('error', 16, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('restore_path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('deletion_date', 8, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 ash.trash_service.mojom.TrashServicePendingReceiver = class {
   constructor(handle) {
@@ -79,36 +82,6 @@ ash.trash_service.mojom.TrashService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ParseTrashInfoFile
-ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.trash_service.mojom.TrashService.ParseTrashInfoFile_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'trash_info_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.trash_service.mojom.TrashService.ParseTrashInfoFile_ResponseParams',
-      packedSize: 32,
-      fields: [
-        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'restore_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'deletion_date', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.trash_service.mojom.TrashServicePtr = ash.trash_service.mojom.TrashServiceRemote;
 ash.trash_service.mojom.TrashServiceRequest = ash.trash_service.mojom.TrashServicePendingReceiver;
 

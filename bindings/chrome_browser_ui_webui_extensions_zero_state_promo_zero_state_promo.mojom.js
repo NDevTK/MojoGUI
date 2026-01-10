@@ -8,6 +8,13 @@
 var zero_state_promo = zero_state_promo || {};
 zero_state_promo.mojom = zero_state_promo.mojom || {};
 
+zero_state_promo.mojom.WebStoreLinkClickedSpec = { $: mojo.internal.Enum() };
+zero_state_promo.mojom.PageHandlerFactory = {};
+zero_state_promo.mojom.PageHandlerFactory.$interfaceName = 'zero_state_promo.mojom.PageHandlerFactory';
+zero_state_promo.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+zero_state_promo.mojom.PageHandler = {};
+zero_state_promo.mojom.PageHandler.$interfaceName = 'zero_state_promo.mojom.PageHandler';
+zero_state_promo.mojom.PageHandler_LaunchWebStoreLink_ParamsSpec = { $: {} };
 
 zero_state_promo.mojom.kDiscoverExtensionWebStoreUrl = "https:
 const string kCouponWebStoreUrl = "https:
@@ -28,23 +35,13 @@ zero_state_promo.mojom.WebStoreLinkClicked = {
   kProductivity: 3,
   kAi: 4,
 };
-zero_state_promo.mojom.WebStoreLinkClickedSpec = { $: mojo.internal.Enum() };
 
 // Interface: PageHandlerFactory
-zero_state_promo.mojom.PageHandlerFactory = {};
-
-zero_state_promo.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'zero_state_promo.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(zero_state_promo.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    zero_state_promo.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'zero_state_promo.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(zero_state_promo.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 zero_state_promo.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -99,40 +96,16 @@ zero_state_promo.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-zero_state_promo.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'zero_state_promo.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(zero_state_promo.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 zero_state_promo.mojom.PageHandlerFactoryPtr = zero_state_promo.mojom.PageHandlerFactoryRemote;
 zero_state_promo.mojom.PageHandlerFactoryRequest = zero_state_promo.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-zero_state_promo.mojom.PageHandler = {};
-
-zero_state_promo.mojom.PageHandler_LaunchWebStoreLink_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'zero_state_promo.mojom.PageHandler_LaunchWebStoreLink_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'link', packedOffset: 0, packedBitOffset: 0, type: zero_state_promo.mojom.WebStoreLinkClickedSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    zero_state_promo.mojom.PageHandler_LaunchWebStoreLink_ParamsSpec, 'zero_state_promo.mojom.PageHandler_LaunchWebStoreLink_Params', [
+      mojo.internal.StructField('link', 0, 0, zero_state_promo.mojom.WebStoreLinkClickedSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 zero_state_promo.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -187,21 +160,6 @@ zero_state_promo.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for LaunchWebStoreLink
-zero_state_promo.mojom.PageHandler_LaunchWebStoreLink_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'zero_state_promo.mojom.PageHandler.LaunchWebStoreLink_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'link', packedOffset: 0, packedBitOffset: 0, type: zero_state_promo.mojom.WebStoreLinkClickedSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 zero_state_promo.mojom.PageHandlerPtr = zero_state_promo.mojom.PageHandlerRemote;
 zero_state_promo.mojom.PageHandlerRequest = zero_state_promo.mojom.PageHandlerPendingReceiver;
 

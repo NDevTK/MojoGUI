@@ -9,6 +9,33 @@ var app_home = app_home || {};
 app_home.mojom = app_home.mojom || {};
 var url = url || {};
 
+app_home.mojom.RunOnOsLoginModeSpec = { $: mojo.internal.Enum() };
+app_home.mojom.AppTypeSpec = { $: mojo.internal.Enum() };
+app_home.mojom.AppInfoSpec = { $: {} };
+app_home.mojom.ClickEventSpec = { $: {} };
+app_home.mojom.PageHandlerFactory = {};
+app_home.mojom.PageHandlerFactory.$interfaceName = 'app_home.mojom.PageHandlerFactory';
+app_home.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+app_home.mojom.PageHandler = {};
+app_home.mojom.PageHandler.$interfaceName = 'app_home.mojom.PageHandler';
+app_home.mojom.PageHandler_GetApps_ParamsSpec = { $: {} };
+app_home.mojom.PageHandler_GetApps_ResponseParamsSpec = { $: {} };
+app_home.mojom.PageHandler_GetDeprecationLinkString_ParamsSpec = { $: {} };
+app_home.mojom.PageHandler_GetDeprecationLinkString_ResponseParamsSpec = { $: {} };
+app_home.mojom.PageHandler_UninstallApp_ParamsSpec = { $: {} };
+app_home.mojom.PageHandler_ShowAppSettings_ParamsSpec = { $: {} };
+app_home.mojom.PageHandler_CreateAppShortcut_ParamsSpec = { $: {} };
+app_home.mojom.PageHandler_CreateAppShortcut_ResponseParamsSpec = { $: {} };
+app_home.mojom.PageHandler_LaunchApp_ParamsSpec = { $: {} };
+app_home.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec = { $: {} };
+app_home.mojom.PageHandler_LaunchDeprecatedAppDialog_ParamsSpec = { $: {} };
+app_home.mojom.PageHandler_InstallAppLocally_ParamsSpec = { $: {} };
+app_home.mojom.PageHandler_SetUserDisplayMode_ParamsSpec = { $: {} };
+app_home.mojom.Page = {};
+app_home.mojom.Page.$interfaceName = 'app_home.mojom.Page';
+app_home.mojom.Page_AddApp_ParamsSpec = { $: {} };
+app_home.mojom.Page_RemoveApp_ParamsSpec = { $: {} };
+app_home.mojom.Page_UpdateApp_ParamsSpec = { $: {} };
 
 // Enum: RunOnOsLoginMode
 app_home.mojom.RunOnOsLoginMode = {
@@ -16,7 +43,6 @@ app_home.mojom.RunOnOsLoginMode = {
   kWindowed: 1,
   kMinimized: 2,
 };
-app_home.mojom.RunOnOsLoginModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AppType
 app_home.mojom.AppType = {
@@ -24,67 +50,43 @@ app_home.mojom.AppType = {
   kIsolatedWebApp: 1,
   kDeprecatedChromeApp: 2,
 };
-app_home.mojom.AppTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: AppInfo
-app_home.mojom.AppInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'app_home.mojom.AppInfo',
-      packedSize: 64,
-      fields: [
-        { name: 'app_type', packedOffset: 40, packedBitOffset: 0, type: app_home.mojom.AppTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'start_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'icon_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'may_show_run_on_os_login_mode', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'may_toggle_run_on_os_login_mode', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'run_on_os_login_mode', packedOffset: 44, packedBitOffset: 0, type: app_home.mojom.RunOnOsLoginModeSpec, nullable: false, minVersion: 0 },
-        { name: 'is_locally_installed', packedOffset: 48, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'open_in_window', packedOffset: 48, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'may_uninstall', packedOffset: 48, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'store_page_url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    app_home.mojom.AppInfoSpec, 'app_home.mojom.AppInfo', [
+      mojo.internal.StructField('app_type', 40, 0, app_home.mojom.AppTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('start_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('icon_url', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('may_show_run_on_os_login_mode', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('may_toggle_run_on_os_login_mode', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('run_on_os_login_mode', 44, 0, app_home.mojom.RunOnOsLoginModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_locally_installed', 48, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('open_in_window', 48, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('may_uninstall', 48, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('store_page_url', 32, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+    ],
+    [[0, 64]]);
 
 // Struct: ClickEvent
-app_home.mojom.ClickEventSpec = {
-  $: {
-    structSpec: {
-      name: 'app_home.mojom.ClickEvent',
-      packedSize: 24,
-      fields: [
-        { name: 'button', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'alt_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'ctrl_key', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'meta_key', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'shift_key', packedOffset: 8, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    app_home.mojom.ClickEventSpec, 'app_home.mojom.ClickEvent', [
+      mojo.internal.StructField('button', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('alt_key', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('ctrl_key', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('meta_key', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('shift_key', 8, 3, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: PageHandlerFactory
-app_home.mojom.PageHandlerFactory = {};
-
-app_home.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'app_home.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(app_home.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(app_home.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    app_home.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'app_home.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(app_home.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(app_home.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 app_home.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -139,158 +141,87 @@ app_home.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-app_home.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'app_home.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(app_home.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(app_home.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 app_home.mojom.PageHandlerFactoryPtr = app_home.mojom.PageHandlerFactoryRemote;
 app_home.mojom.PageHandlerFactoryRequest = app_home.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-app_home.mojom.PageHandler = {};
+mojo.internal.Struct(
+    app_home.mojom.PageHandler_GetApps_ParamsSpec, 'app_home.mojom.PageHandler_GetApps_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-app_home.mojom.PageHandler_GetApps_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'app_home.mojom.PageHandler_GetApps_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    app_home.mojom.PageHandler_GetApps_ResponseParamsSpec, 'app_home.mojom.PageHandler_GetApps_ResponseParams', [
+      mojo.internal.StructField('app_list', 0, 0, mojo.internal.Array(app_home.mojom.AppInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-app_home.mojom.PageHandler_GetDeprecationLinkString_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'app_home.mojom.PageHandler_GetDeprecationLinkString_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    app_home.mojom.PageHandler_GetDeprecationLinkString_ParamsSpec, 'app_home.mojom.PageHandler_GetDeprecationLinkString_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-app_home.mojom.PageHandler_UninstallApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'app_home.mojom.PageHandler_UninstallApp_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    app_home.mojom.PageHandler_GetDeprecationLinkString_ResponseParamsSpec, 'app_home.mojom.PageHandler_GetDeprecationLinkString_ResponseParams', [
+      mojo.internal.StructField('link_string', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-app_home.mojom.PageHandler_ShowAppSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'app_home.mojom.PageHandler_ShowAppSettings_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    app_home.mojom.PageHandler_UninstallApp_ParamsSpec, 'app_home.mojom.PageHandler_UninstallApp_Params', [
+      mojo.internal.StructField('app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-app_home.mojom.PageHandler_CreateAppShortcut_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'app_home.mojom.PageHandler_CreateAppShortcut_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    app_home.mojom.PageHandler_ShowAppSettings_ParamsSpec, 'app_home.mojom.PageHandler_ShowAppSettings_Params', [
+      mojo.internal.StructField('app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-app_home.mojom.PageHandler_LaunchApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'app_home.mojom.PageHandler_LaunchApp_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'click_event', packedOffset: 8, packedBitOffset: 0, type: app_home.mojom.ClickEventSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    app_home.mojom.PageHandler_CreateAppShortcut_ParamsSpec, 'app_home.mojom.PageHandler_CreateAppShortcut_Params', [
+      mojo.internal.StructField('app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-app_home.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'app_home.mojom.PageHandler_SetRunOnOsLoginMode_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'run_on_os_login_mode', packedOffset: 8, packedBitOffset: 0, type: app_home.mojom.RunOnOsLoginModeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    app_home.mojom.PageHandler_CreateAppShortcut_ResponseParamsSpec, 'app_home.mojom.PageHandler_CreateAppShortcut_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-app_home.mojom.PageHandler_LaunchDeprecatedAppDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'app_home.mojom.PageHandler_LaunchDeprecatedAppDialog_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    app_home.mojom.PageHandler_LaunchApp_ParamsSpec, 'app_home.mojom.PageHandler_LaunchApp_Params', [
+      mojo.internal.StructField('app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('click_event', 8, 0, app_home.mojom.ClickEventSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-app_home.mojom.PageHandler_InstallAppLocally_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'app_home.mojom.PageHandler_InstallAppLocally_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    app_home.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec, 'app_home.mojom.PageHandler_SetRunOnOsLoginMode_Params', [
+      mojo.internal.StructField('app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('run_on_os_login_mode', 8, 0, app_home.mojom.RunOnOsLoginModeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-app_home.mojom.PageHandler_SetUserDisplayMode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'app_home.mojom.PageHandler_SetUserDisplayMode_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'display_mode', packedOffset: 8, packedBitOffset: 0, type: web_app.mojom.UserDisplayModeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    app_home.mojom.PageHandler_LaunchDeprecatedAppDialog_ParamsSpec, 'app_home.mojom.PageHandler_LaunchDeprecatedAppDialog_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    app_home.mojom.PageHandler_InstallAppLocally_ParamsSpec, 'app_home.mojom.PageHandler_InstallAppLocally_Params', [
+      mojo.internal.StructField('app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    app_home.mojom.PageHandler_SetUserDisplayMode_ParamsSpec, 'app_home.mojom.PageHandler_SetUserDisplayMode_Params', [
+      mojo.internal.StructField('app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('display_mode', 8, 0, web_app.mojom.UserDisplayModeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 app_home.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -365,7 +296,7 @@ app_home.mojom.PageHandlerRemoteCallHandler = class {
     return this.proxy.sendMessage(
       4,  // ordinal
       app_home.mojom.PageHandler_CreateAppShortcut_ParamsSpec,
-      null,
+      app_home.mojom.PageHandler_CreateAppShortcut_ResponseParamsSpec,
       [app_id]);
   }
 
@@ -426,218 +357,28 @@ app_home.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetApps
-app_home.mojom.PageHandler_GetApps_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'app_home.mojom.PageHandler.GetApps_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-app_home.mojom.PageHandler_GetApps_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'app_home.mojom.PageHandler.GetApps_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'app_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(app_home.mojom.AppInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetDeprecationLinkString
-app_home.mojom.PageHandler_GetDeprecationLinkString_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'app_home.mojom.PageHandler.GetDeprecationLinkString_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-app_home.mojom.PageHandler_GetDeprecationLinkString_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'app_home.mojom.PageHandler.GetDeprecationLinkString_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'link_string', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for UninstallApp
-app_home.mojom.PageHandler_UninstallApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'app_home.mojom.PageHandler.UninstallApp_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ShowAppSettings
-app_home.mojom.PageHandler_ShowAppSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'app_home.mojom.PageHandler.ShowAppSettings_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CreateAppShortcut
-app_home.mojom.PageHandler_CreateAppShortcut_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'app_home.mojom.PageHandler.CreateAppShortcut_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for LaunchApp
-app_home.mojom.PageHandler_LaunchApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'app_home.mojom.PageHandler.LaunchApp_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'click_event', packedOffset: 8, packedBitOffset: 0, type: app_home.mojom.ClickEventSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SetRunOnOsLoginMode
-app_home.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'app_home.mojom.PageHandler.SetRunOnOsLoginMode_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'run_on_os_login_mode', packedOffset: 8, packedBitOffset: 0, type: app_home.mojom.RunOnOsLoginModeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for LaunchDeprecatedAppDialog
-app_home.mojom.PageHandler_LaunchDeprecatedAppDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'app_home.mojom.PageHandler.LaunchDeprecatedAppDialog_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for InstallAppLocally
-app_home.mojom.PageHandler_InstallAppLocally_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'app_home.mojom.PageHandler.InstallAppLocally_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetUserDisplayMode
-app_home.mojom.PageHandler_SetUserDisplayMode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'app_home.mojom.PageHandler.SetUserDisplayMode_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'display_mode', packedOffset: 8, packedBitOffset: 0, type: web_app.mojom.UserDisplayModeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 app_home.mojom.PageHandlerPtr = app_home.mojom.PageHandlerRemote;
 app_home.mojom.PageHandlerRequest = app_home.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-app_home.mojom.Page = {};
+mojo.internal.Struct(
+    app_home.mojom.Page_AddApp_ParamsSpec, 'app_home.mojom.Page_AddApp_Params', [
+      mojo.internal.StructField('app_info', 0, 0, app_home.mojom.AppInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-app_home.mojom.Page_AddApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'app_home.mojom.Page_AddApp_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'app_info', packedOffset: 0, packedBitOffset: 0, type: app_home.mojom.AppInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    app_home.mojom.Page_RemoveApp_ParamsSpec, 'app_home.mojom.Page_RemoveApp_Params', [
+      mojo.internal.StructField('app_info', 0, 0, app_home.mojom.AppInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-app_home.mojom.Page_RemoveApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'app_home.mojom.Page_RemoveApp_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'app_info', packedOffset: 0, packedBitOffset: 0, type: app_home.mojom.AppInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-app_home.mojom.Page_UpdateApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'app_home.mojom.Page_UpdateApp_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'app_info', packedOffset: 0, packedBitOffset: 0, type: app_home.mojom.AppInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    app_home.mojom.Page_UpdateApp_ParamsSpec, 'app_home.mojom.Page_UpdateApp_Params', [
+      mojo.internal.StructField('app_info', 0, 0, app_home.mojom.AppInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 app_home.mojom.PagePendingReceiver = class {
   constructor(handle) {
@@ -710,49 +451,6 @@ app_home.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddApp
-app_home.mojom.Page_AddApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'app_home.mojom.Page.AddApp_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'app_info', packedOffset: 0, packedBitOffset: 0, type: app_home.mojom.AppInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RemoveApp
-app_home.mojom.Page_RemoveApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'app_home.mojom.Page.RemoveApp_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'app_info', packedOffset: 0, packedBitOffset: 0, type: app_home.mojom.AppInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateApp
-app_home.mojom.Page_UpdateApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'app_home.mojom.Page.UpdateApp_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'app_info', packedOffset: 0, packedBitOffset: 0, type: app_home.mojom.AppInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 app_home.mojom.PagePtr = app_home.mojom.PageRemote;
 app_home.mojom.PageRequest = app_home.mojom.PagePendingReceiver;
 

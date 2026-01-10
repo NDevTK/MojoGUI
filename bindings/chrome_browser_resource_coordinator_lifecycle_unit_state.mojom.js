@@ -7,14 +7,16 @@
 // Module namespace
 var mojom = mojom || {};
 
+mojom.LifecycleUnitStateSpec = { $: mojo.internal.Enum() };
+mojom.LifecycleUnitLoadingStateSpec = { $: mojo.internal.Enum() };
+mojom.LifecycleUnitDiscardReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: LifecycleUnitState
 mojom.LifecycleUnitState = {
   ACTIVE: 0,
-  FROZEN: 1,
-  DISCARDED: 2,
+  FROZEN: 3,
+  DISCARDED: 5,
 };
-mojom.LifecycleUnitStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: LifecycleUnitLoadingState
 mojom.LifecycleUnitLoadingState = {
@@ -22,7 +24,6 @@ mojom.LifecycleUnitLoadingState = {
   LOADING: 1,
   LOADED: 2,
 };
-mojom.LifecycleUnitLoadingStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: LifecycleUnitDiscardReason
 mojom.LifecycleUnitDiscardReason = {
@@ -32,4 +33,3 @@ mojom.LifecycleUnitDiscardReason = {
   SUGGESTED: 3,
   FROZEN_WITH_GROWING_MEMORY: 4,
 };
-mojom.LifecycleUnitDiscardReasonSpec = { $: mojo.internal.Enum() };

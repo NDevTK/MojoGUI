@@ -8,22 +8,23 @@
 var ai = ai || {};
 ai.mojom = ai.mojom || {};
 
+ai.mojom.TabOrganizationService = {};
+ai.mojom.TabOrganizationService.$interfaceName = 'ai.mojom.TabOrganizationService';
+ai.mojom.TabOrganizationService_ExecuteGroupTabs_ParamsSpec = { $: {} };
+ai.mojom.TabOrganizationService_ExecuteGroupTabs_ResponseParamsSpec = { $: {} };
 
 // Interface: TabOrganizationService
-ai.mojom.TabOrganizationService = {};
+mojo.internal.Struct(
+    ai.mojom.TabOrganizationService_ExecuteGroupTabs_ParamsSpec, 'ai.mojom.TabOrganizationService_ExecuteGroupTabs_Params', [
+      mojo.internal.StructField('request', 0, 0, mojo_base.mojom.ProtoWrapperSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ai.mojom.TabOrganizationService_ExecuteGroupTabs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ai.mojom.TabOrganizationService_ExecuteGroupTabs_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ProtoWrapperSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ai.mojom.TabOrganizationService_ExecuteGroupTabs_ResponseParamsSpec, 'ai.mojom.TabOrganizationService_ExecuteGroupTabs_ResponseParams', [
+      mojo.internal.StructField('output', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ai.mojom.TabOrganizationServicePendingReceiver = class {
   constructor(handle) {
@@ -78,34 +79,6 @@ ai.mojom.TabOrganizationService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ExecuteGroupTabs
-ai.mojom.TabOrganizationService_ExecuteGroupTabs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ai.mojom.TabOrganizationService.ExecuteGroupTabs_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ProtoWrapperSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ai.mojom.TabOrganizationService_ExecuteGroupTabs_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ai.mojom.TabOrganizationService.ExecuteGroupTabs_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'output', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ai.mojom.TabOrganizationServicePtr = ai.mojom.TabOrganizationServiceRemote;
 ai.mojom.TabOrganizationServiceRequest = ai.mojom.TabOrganizationServicePendingReceiver;
 

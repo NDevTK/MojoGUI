@@ -10,34 +10,22 @@ gfx.mojom = gfx.mojom || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+gfx.mojom.DelegatedInkPointRenderer = {};
+gfx.mojom.DelegatedInkPointRenderer.$interfaceName = 'gfx.mojom.DelegatedInkPointRenderer';
+gfx.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_ParamsSpec = { $: {} };
+gfx.mojom.DelegatedInkPointRenderer_ResetPrediction_ParamsSpec = { $: {} };
 
 // Interface: DelegatedInkPointRenderer
-gfx.mojom.DelegatedInkPointRenderer = {};
+mojo.internal.Struct(
+    gfx.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_ParamsSpec, 'gfx.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_Params', [
+      mojo.internal.StructField('point', 0, 0, gfx.mojom.DelegatedInkPointSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-gfx.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.DelegatedInkPointSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-gfx.mojom.DelegatedInkPointRenderer_ResetPrediction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.DelegatedInkPointRenderer_ResetPrediction_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.DelegatedInkPointRenderer_ResetPrediction_ParamsSpec, 'gfx.mojom.DelegatedInkPointRenderer_ResetPrediction_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 gfx.mojom.DelegatedInkPointRendererPendingReceiver = class {
   constructor(handle) {
@@ -101,34 +89,6 @@ gfx.mojom.DelegatedInkPointRenderer.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for StoreDelegatedInkPoint
-gfx.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.DelegatedInkPointRenderer.StoreDelegatedInkPoint_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.DelegatedInkPointSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ResetPrediction
-gfx.mojom.DelegatedInkPointRenderer_ResetPrediction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.DelegatedInkPointRenderer.ResetPrediction_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 gfx.mojom.DelegatedInkPointRendererPtr = gfx.mojom.DelegatedInkPointRendererRemote;
 gfx.mojom.DelegatedInkPointRendererRequest = gfx.mojom.DelegatedInkPointRendererPendingReceiver;
 

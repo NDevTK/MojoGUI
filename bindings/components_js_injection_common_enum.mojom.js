@@ -8,9 +8,9 @@
 var js_injection = js_injection || {};
 js_injection.mojom = js_injection.mojom || {};
 
+js_injection.mojom.DocumentInjectionTimeSpec = { $: mojo.internal.Enum() };
 
 // Enum: DocumentInjectionTime
 js_injection.mojom.DocumentInjectionTime = {
   kDocumentStart: 0,
 };
-js_injection.mojom.DocumentInjectionTimeSpec = { $: mojo.internal.Enum() };

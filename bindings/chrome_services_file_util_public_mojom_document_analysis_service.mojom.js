@@ -7,23 +7,18 @@
 // Module namespace
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
+var services = services || {};
 
+chrome.mojom.DocumentAnalysisService = {};
+chrome.mojom.DocumentAnalysisService.$interfaceName = 'chrome.mojom.DocumentAnalysisService';
+chrome.mojom.DocumentAnalysisService_BindSafeDocumentAnalyzer_ParamsSpec = { $: {} };
 
 // Interface: DocumentAnalysisService
-chrome.mojom.DocumentAnalysisService = {};
-
-chrome.mojom.DocumentAnalysisService_BindSafeDocumentAnalyzer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.DocumentAnalysisService_BindSafeDocumentAnalyzer_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chrome.mojom.SafeDocumentAnalyzerSpec), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.DocumentAnalysisService_BindSafeDocumentAnalyzer_ParamsSpec, 'chrome.mojom.DocumentAnalysisService_BindSafeDocumentAnalyzer_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(chrome.mojom.SafeDocumentAnalyzerSpec), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chrome.mojom.DocumentAnalysisServicePendingReceiver = class {
   constructor(handle) {
@@ -78,21 +73,6 @@ chrome.mojom.DocumentAnalysisService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for BindSafeDocumentAnalyzer
-chrome.mojom.DocumentAnalysisService_BindSafeDocumentAnalyzer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.DocumentAnalysisService.BindSafeDocumentAnalyzer_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chrome.mojom.SafeDocumentAnalyzerSpec), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chrome.mojom.DocumentAnalysisServicePtr = chrome.mojom.DocumentAnalysisServiceRemote;
 chrome.mojom.DocumentAnalysisServiceRequest = chrome.mojom.DocumentAnalysisServicePendingReceiver;
 

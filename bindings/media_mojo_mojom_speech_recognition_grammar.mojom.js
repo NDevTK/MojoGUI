@@ -9,18 +9,12 @@ var media = media || {};
 media.mojom = media.mojom || {};
 var url = url || {};
 
+media.mojom.SpeechRecognitionGrammarSpec = { $: {} };
 
 // Struct: SpeechRecognitionGrammar
-media.mojom.SpeechRecognitionGrammarSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.SpeechRecognitionGrammar',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'weight', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.SpeechRecognitionGrammarSpec, 'media.mojom.SpeechRecognitionGrammar', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('weight', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);

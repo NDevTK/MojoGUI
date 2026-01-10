@@ -8,18 +8,12 @@
 var media = media || {};
 media.mojom = media.mojom || {};
 
+media.mojom.ReadWriteAudioDataPipeSpec = { $: {} };
 
 // Struct: ReadWriteAudioDataPipe
-media.mojom.ReadWriteAudioDataPipeSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.ReadWriteAudioDataPipe',
-      packedSize: 24,
-      fields: [
-        { name: 'shared_memory', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false, minVersion: 0 },
-        { name: 'socket', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.ReadWriteAudioDataPipeSpec, 'media.mojom.ReadWriteAudioDataPipe', [
+      mojo.internal.StructField('shared_memory', 0, 0, mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('socket', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 24]]);

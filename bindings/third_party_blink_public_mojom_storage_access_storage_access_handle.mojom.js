@@ -16,111 +16,80 @@ var blink = blink || {};
 var blink = blink || {};
 var blink = blink || {};
 
+blink.mojom.StorageAccessHandle = {};
+blink.mojom.StorageAccessHandle.$interfaceName = 'blink.mojom.StorageAccessHandle';
+blink.mojom.StorageAccessHandle_BindIndexedDB_ParamsSpec = { $: {} };
+blink.mojom.StorageAccessHandle_BindLocks_ParamsSpec = { $: {} };
+blink.mojom.StorageAccessHandle_BindCaches_ParamsSpec = { $: {} };
+blink.mojom.StorageAccessHandle_GetDirectory_ParamsSpec = { $: {} };
+blink.mojom.StorageAccessHandle_GetDirectory_ResponseParamsSpec = { $: {} };
+blink.mojom.StorageAccessHandle_Estimate_ParamsSpec = { $: {} };
+blink.mojom.StorageAccessHandle_Estimate_ResponseParamsSpec = { $: {} };
+blink.mojom.StorageAccessHandle_BindBlobStorage_ParamsSpec = { $: {} };
+blink.mojom.StorageAccessHandle_BindBroadcastChannel_ParamsSpec = { $: {} };
+blink.mojom.StorageAccessHandle_BindSharedWorker_ParamsSpec = { $: {} };
 
 // Interface: StorageAccessHandle
-blink.mojom.StorageAccessHandle = {};
+mojo.internal.Struct(
+    blink.mojom.StorageAccessHandle_BindIndexedDB_ParamsSpec, 'blink.mojom.StorageAccessHandle_BindIndexedDB_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.IDBFactoryRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.StorageAccessHandle_BindIndexedDB_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageAccessHandle_BindIndexedDB_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.IDBFactoryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.StorageAccessHandle_BindLocks_ParamsSpec, 'blink.mojom.StorageAccessHandle_BindLocks_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.LockManagerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.StorageAccessHandle_BindLocks_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageAccessHandle_BindLocks_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.LockManagerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.StorageAccessHandle_BindCaches_ParamsSpec, 'blink.mojom.StorageAccessHandle_BindCaches_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.CacheStorageRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.StorageAccessHandle_BindCaches_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageAccessHandle_BindCaches_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.CacheStorageRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.StorageAccessHandle_GetDirectory_ParamsSpec, 'blink.mojom.StorageAccessHandle_GetDirectory_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.StorageAccessHandle_GetDirectory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageAccessHandle_GetDirectory_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.StorageAccessHandle_GetDirectory_ResponseParamsSpec, 'blink.mojom.StorageAccessHandle_GetDirectory_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('directory', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessDirectoryHandleRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.StorageAccessHandle_Estimate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageAccessHandle_Estimate_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.StorageAccessHandle_Estimate_ParamsSpec, 'blink.mojom.StorageAccessHandle_Estimate_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.StorageAccessHandle_BindBlobStorage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageAccessHandle_BindBlobStorage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(blink.mojom.BlobURLStoreRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.StorageAccessHandle_Estimate_ResponseParamsSpec, 'blink.mojom.StorageAccessHandle_Estimate_ResponseParams', [
+      mojo.internal.StructField('current_usage', 0, 0, mojo_base.mojom.ByteCountSpec, null, false, 0, undefined),
+      mojo.internal.StructField('current_quota', 8, 0, mojo_base.mojom.ByteCountSpec, null, false, 0, undefined),
+      mojo.internal.StructField('success', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-blink.mojom.StorageAccessHandle_BindBroadcastChannel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageAccessHandle_BindBroadcastChannel_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(blink.mojom.BroadcastChannelProviderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.StorageAccessHandle_BindBlobStorage_ParamsSpec, 'blink.mojom.StorageAccessHandle_BindBlobStorage_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.BlobURLStoreRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.StorageAccessHandle_BindSharedWorker_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageAccessHandle_BindSharedWorker_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.SharedWorkerConnectorRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.StorageAccessHandle_BindBroadcastChannel_ParamsSpec, 'blink.mojom.StorageAccessHandle_BindBroadcastChannel_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.BroadcastChannelProviderRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.StorageAccessHandle_BindSharedWorker_ParamsSpec, 'blink.mojom.StorageAccessHandle_BindSharedWorker_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.SharedWorkerConnectorRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.StorageAccessHandlePendingReceiver = class {
   constructor(handle) {
@@ -238,146 +207,6 @@ blink.mojom.StorageAccessHandle.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for BindIndexedDB
-blink.mojom.StorageAccessHandle_BindIndexedDB_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageAccessHandle.BindIndexedDB_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.IDBFactoryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindLocks
-blink.mojom.StorageAccessHandle_BindLocks_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageAccessHandle.BindLocks_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.LockManagerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindCaches
-blink.mojom.StorageAccessHandle_BindCaches_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageAccessHandle.BindCaches_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.CacheStorageRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetDirectory
-blink.mojom.StorageAccessHandle_GetDirectory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageAccessHandle.GetDirectory_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.StorageAccessHandle_GetDirectory_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageAccessHandle.GetDirectory_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'directory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessDirectoryHandleRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for Estimate
-blink.mojom.StorageAccessHandle_Estimate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageAccessHandle.Estimate_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.StorageAccessHandle_Estimate_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageAccessHandle.Estimate_ResponseParams',
-      packedSize: 32,
-      fields: [
-        { name: 'current_usage', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ByteCountSpec, nullable: false, minVersion: 0 },
-        { name: 'current_quota', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ByteCountSpec, nullable: false, minVersion: 0 },
-        { name: 'success', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for BindBlobStorage
-blink.mojom.StorageAccessHandle_BindBlobStorage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageAccessHandle.BindBlobStorage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(blink.mojom.BlobURLStoreRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindBroadcastChannel
-blink.mojom.StorageAccessHandle_BindBroadcastChannel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageAccessHandle.BindBroadcastChannel_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(blink.mojom.BroadcastChannelProviderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindSharedWorker
-blink.mojom.StorageAccessHandle_BindSharedWorker_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageAccessHandle.BindSharedWorker_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.SharedWorkerConnectorRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.StorageAccessHandlePtr = blink.mojom.StorageAccessHandleRemote;
 blink.mojom.StorageAccessHandleRequest = blink.mojom.StorageAccessHandlePendingReceiver;
 

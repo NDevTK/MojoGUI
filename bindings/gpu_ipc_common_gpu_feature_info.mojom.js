@@ -10,6 +10,8 @@ gpu.mojom = gpu.mojom || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+gpu.mojom.GpuFeatureStatusSpec = { $: mojo.internal.Enum() };
+gpu.mojom.GpuFeatureInfoSpec = { $: {} };
 
 // Enum: GpuFeatureStatus
 gpu.mojom.GpuFeatureStatus = {
@@ -20,24 +22,16 @@ gpu.mojom.GpuFeatureStatus = {
   Undefined: 4,
   Max: 5,
 };
-gpu.mojom.GpuFeatureStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: GpuFeatureInfo
-gpu.mojom.GpuFeatureInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'gpu.mojom.GpuFeatureInfo',
-      packedSize: 64,
-      fields: [
-        { name: 'status_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(gpu.mojom.GpuFeatureStatus, 13Spec, false), nullable: false, minVersion: 0 },
-        { name: 'enabled_gpu_driver_bug_workarounds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int32, false), nullable: false, minVersion: 0 },
-        { name: 'disabled_extensions', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'disabled_webgl_extensions', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'applied_gpu_blocklist_entries', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: false, minVersion: 0 },
-        { name: 'applied_gpu_driver_bug_list_entries', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: false, minVersion: 0 },
-        { name: 'supported_buffer_formats_for_allocation_and_texturing', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.BufferFormatSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gpu.mojom.GpuFeatureInfoSpec, 'gpu.mojom.GpuFeatureInfo', [
+      mojo.internal.StructField('status_values', 0, 0, mojo.internal.Array(gpu.mojom.GpuFeatureStatus, 13Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('enabled_gpu_driver_bug_workarounds', 8, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
+      mojo.internal.StructField('disabled_extensions', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('disabled_webgl_extensions', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('applied_gpu_blocklist_entries', 32, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+      mojo.internal.StructField('applied_gpu_driver_bug_list_entries', 40, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+      mojo.internal.StructField('supported_buffer_formats_for_allocation_and_texturing', 48, 0, mojo.internal.Array(gfx.mojom.BufferFormatSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 64]]);

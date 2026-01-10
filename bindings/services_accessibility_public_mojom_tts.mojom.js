@@ -8,6 +8,26 @@
 var ax = ax || {};
 ax.mojom = ax.mojom || {};
 
+ax.mojom.TtsEventTypeSpec = { $: mojo.internal.Enum() };
+ax.mojom.TtsErrorSpec = { $: mojo.internal.Enum() };
+ax.mojom.TtsVoiceSpec = { $: {} };
+ax.mojom.TtsOptionsSpec = { $: {} };
+ax.mojom.TtsEventSpec = { $: {} };
+ax.mojom.TtsSpeakResultSpec = { $: {} };
+ax.mojom.TtsUtteranceClient = {};
+ax.mojom.TtsUtteranceClient.$interfaceName = 'ax.mojom.TtsUtteranceClient';
+ax.mojom.TtsUtteranceClient_OnEvent_ParamsSpec = { $: {} };
+ax.mojom.Tts = {};
+ax.mojom.Tts.$interfaceName = 'ax.mojom.Tts';
+ax.mojom.Tts_Speak_ParamsSpec = { $: {} };
+ax.mojom.Tts_Speak_ResponseParamsSpec = { $: {} };
+ax.mojom.Tts_Stop_ParamsSpec = { $: {} };
+ax.mojom.Tts_Pause_ParamsSpec = { $: {} };
+ax.mojom.Tts_Resume_ParamsSpec = { $: {} };
+ax.mojom.Tts_IsSpeaking_ParamsSpec = { $: {} };
+ax.mojom.Tts_IsSpeaking_ResponseParamsSpec = { $: {} };
+ax.mojom.Tts_GetVoices_ParamsSpec = { $: {} };
+ax.mojom.Tts_GetVoices_ResponseParamsSpec = { $: {} };
 
 // Enum: TtsEventType
 ax.mojom.TtsEventType = {
@@ -22,7 +42,6 @@ ax.mojom.TtsEventType = {
   kPause: 8,
   kResume: 9,
 };
-ax.mojom.TtsEventTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: TtsError
 ax.mojom.TtsError = {
@@ -36,95 +55,57 @@ ax.mojom.TtsError = {
   kErrorUndeclaredEventType: 7,
   kErrorUtteranceTooLong: 8,
 };
-ax.mojom.TtsErrorSpec = { $: mojo.internal.Enum() };
 
 // Struct: TtsVoice
-ax.mojom.TtsVoiceSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.TtsVoice',
-      packedSize: 48,
-      fields: [
-        { name: 'voice_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'lang', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'remote', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'engine_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'event_types', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(ax.mojom.TtsEventTypeSpec, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.TtsVoiceSpec, 'ax.mojom.TtsVoice', [
+      mojo.internal.StructField('voice_name', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('lang', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('remote', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('engine_id', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('event_types', 24, 0, mojo.internal.Array(ax.mojom.TtsEventTypeSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: TtsOptions
-ax.mojom.TtsOptionsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.TtsOptions',
-      packedSize: 64,
-      fields: [
-        { name: 'pitch', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'rate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'volume', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'enqueue', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'voice_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'engine_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'lang', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'on_event', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.TtsOptionsSpec, 'ax.mojom.TtsOptions', [
+      mojo.internal.StructField('pitch', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('rate', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('volume', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('enqueue', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('voice_name', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('engine_id', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('lang', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('on_event', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 64]]);
 
 // Struct: TtsEvent
-ax.mojom.TtsEventSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.TtsEvent',
-      packedSize: 32,
-      fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.TtsEventTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'char_index', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'is_final', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.TtsEventSpec, 'ax.mojom.TtsEvent', [
+      mojo.internal.StructField('type', 8, 0, ax.mojom.TtsEventTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('char_index', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('error_message', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('length', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_final', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: TtsSpeakResult
-ax.mojom.TtsSpeakResultSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.TtsSpeakResult',
-      packedSize: 24,
-      fields: [
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.TtsErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'utterance_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ax.mojom.TtsUtteranceClientRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.TtsSpeakResultSpec, 'ax.mojom.TtsSpeakResult', [
+      mojo.internal.StructField('error', 8, 0, ax.mojom.TtsErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('utterance_client', 0, 0, mojo.internal.InterfaceRequest(ax.mojom.TtsUtteranceClientRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: TtsUtteranceClient
-ax.mojom.TtsUtteranceClient = {};
-
-ax.mojom.TtsUtteranceClient_OnEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.TtsUtteranceClient_OnEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.TtsEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.TtsUtteranceClient_OnEvent_ParamsSpec, 'ax.mojom.TtsUtteranceClient_OnEvent_Params', [
+      mojo.internal.StructField('event', 0, 0, ax.mojom.TtsEventSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ax.mojom.TtsUtteranceClientPendingReceiver = class {
   constructor(handle) {
@@ -179,101 +160,60 @@ ax.mojom.TtsUtteranceClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnEvent
-ax.mojom.TtsUtteranceClient_OnEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.TtsUtteranceClient.OnEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.TtsEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ax.mojom.TtsUtteranceClientPtr = ax.mojom.TtsUtteranceClientRemote;
 ax.mojom.TtsUtteranceClientRequest = ax.mojom.TtsUtteranceClientPendingReceiver;
 
 
 // Interface: Tts
-ax.mojom.Tts = {};
+mojo.internal.Struct(
+    ax.mojom.Tts_Speak_ParamsSpec, 'ax.mojom.Tts_Speak_Params', [
+      mojo.internal.StructField('utterance', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('options', 8, 0, ax.mojom.TtsOptionsSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ax.mojom.Tts_Speak_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.Tts_Speak_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'utterance', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.TtsOptionsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.Tts_Speak_ResponseParamsSpec, 'ax.mojom.Tts_Speak_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, ax.mojom.TtsSpeakResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ax.mojom.Tts_Stop_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.Tts_Stop_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.Tts_Stop_ParamsSpec, 'ax.mojom.Tts_Stop_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ax.mojom.Tts_Pause_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.Tts_Pause_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.Tts_Pause_ParamsSpec, 'ax.mojom.Tts_Pause_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ax.mojom.Tts_Resume_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.Tts_Resume_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.Tts_Resume_ParamsSpec, 'ax.mojom.Tts_Resume_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ax.mojom.Tts_IsSpeaking_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.Tts_IsSpeaking_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.Tts_IsSpeaking_ParamsSpec, 'ax.mojom.Tts_IsSpeaking_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ax.mojom.Tts_GetVoices_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.Tts_GetVoices_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.Tts_IsSpeaking_ResponseParamsSpec, 'ax.mojom.Tts_IsSpeaking_ResponseParams', [
+      mojo.internal.StructField('speaking', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ax.mojom.Tts_GetVoices_ParamsSpec, 'ax.mojom.Tts_GetVoices_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    ax.mojom.Tts_GetVoices_ResponseParamsSpec, 'ax.mojom.Tts_GetVoices_ResponseParams', [
+      mojo.internal.StructField('voices', 0, 0, mojo.internal.Array(ax.mojom.TtsVoiceSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ax.mojom.TtsPendingReceiver = class {
   constructor(handle) {
@@ -373,126 +313,6 @@ ax.mojom.Tts.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Speak
-ax.mojom.Tts_Speak_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.Tts.Speak_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'utterance', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.TtsOptionsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-ax.mojom.Tts_Speak_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.Tts.Speak_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.TtsSpeakResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Stop
-ax.mojom.Tts_Stop_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.Tts.Stop_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for Pause
-ax.mojom.Tts_Pause_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.Tts.Pause_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for Resume
-ax.mojom.Tts_Resume_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.Tts.Resume_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for IsSpeaking
-ax.mojom.Tts_IsSpeaking_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.Tts.IsSpeaking_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ax.mojom.Tts_IsSpeaking_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.Tts.IsSpeaking_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'speaking', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetVoices
-ax.mojom.Tts_GetVoices_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.Tts.GetVoices_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ax.mojom.Tts_GetVoices_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.Tts.GetVoices_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'voices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ax.mojom.TtsVoiceSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ax.mojom.TtsPtr = ax.mojom.TtsRemote;
 ax.mojom.TtsRequest = ax.mojom.TtsPendingReceiver;
 

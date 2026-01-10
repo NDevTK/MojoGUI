@@ -10,24 +10,25 @@ blink.mojom = blink.mojom || {};
 var blink = blink || {};
 var url = url || {};
 
+blink.mojom.InstalledAppProvider = {};
+blink.mojom.InstalledAppProvider.$interfaceName = 'blink.mojom.InstalledAppProvider';
+blink.mojom.InstalledAppProvider_FilterInstalledApps_ParamsSpec = { $: {} };
+blink.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParamsSpec = { $: {} };
 
 // Interface: InstalledAppProvider
-blink.mojom.InstalledAppProvider = {};
+mojo.internal.Struct(
+    blink.mojom.InstalledAppProvider_FilterInstalledApps_ParamsSpec, 'blink.mojom.InstalledAppProvider_FilterInstalledApps_Params', [
+      mojo.internal.StructField('related_apps', 0, 0, mojo.internal.Array(blink.mojom.RelatedApplicationSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('manifest_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('add_saved_related_applications', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-blink.mojom.InstalledAppProvider_FilterInstalledApps_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.InstalledAppProvider_FilterInstalledApps_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'related_apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.RelatedApplicationSpec, false), nullable: false, minVersion: 0 },
-        { name: 'manifest_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'add_saved_related_applications', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParamsSpec, 'blink.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParams', [
+      mojo.internal.StructField('installed_apps', 0, 0, mojo.internal.Array(blink.mojom.RelatedApplicationSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.InstalledAppProviderPendingReceiver = class {
   constructor(handle) {
@@ -82,36 +83,6 @@ blink.mojom.InstalledAppProvider.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for FilterInstalledApps
-blink.mojom.InstalledAppProvider_FilterInstalledApps_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.InstalledAppProvider.FilterInstalledApps_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'related_apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.RelatedApplicationSpec, false), nullable: false, minVersion: 0 },
-        { name: 'manifest_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'add_saved_related_applications', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-blink.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.InstalledAppProvider.FilterInstalledApps_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'installed_apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.RelatedApplicationSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.InstalledAppProviderPtr = blink.mojom.InstalledAppProviderRemote;
 blink.mojom.InstalledAppProviderRequest = blink.mojom.InstalledAppProviderPendingReceiver;
 

@@ -7,10 +7,15 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
+var services = services || {};
+var services = services || {};
 var blink = blink || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+viz.mojom.CompositorFrameTransitionDirectiveTypeSpec = { $: mojo.internal.Enum() };
+viz.mojom.CompositorFrameTransitionDirectiveSharedElementSpec = { $: {} };
+viz.mojom.CompositorFrameTransitionDirectiveSpec = { $: {} };
 
 // Enum: CompositorFrameTransitionDirectiveType
 viz.mojom.CompositorFrameTransitionDirectiveType = {
@@ -18,39 +23,24 @@ viz.mojom.CompositorFrameTransitionDirectiveType = {
   kAnimateRenderer: 1,
   kRelease: 2,
 };
-viz.mojom.CompositorFrameTransitionDirectiveTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: CompositorFrameTransitionDirectiveSharedElement
-viz.mojom.CompositorFrameTransitionDirectiveSharedElementSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.CompositorFrameTransitionDirectiveSharedElement',
-      packedSize: 24,
-      fields: [
-        { name: 'render_pass_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.CompositorRenderPassIdSpec, nullable: false, minVersion: 0 },
-        { name: 'view_transition_element_resource_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.ViewTransitionElementResourceIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.CompositorFrameTransitionDirectiveSharedElementSpec, 'viz.mojom.CompositorFrameTransitionDirectiveSharedElement', [
+      mojo.internal.StructField('render_pass_id', 0, 0, viz.mojom.CompositorRenderPassIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('view_transition_element_resource_id', 8, 0, viz.mojom.ViewTransitionElementResourceIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: CompositorFrameTransitionDirective
-viz.mojom.CompositorFrameTransitionDirectiveSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.CompositorFrameTransitionDirective',
-      packedSize: 48,
-      fields: [
-        { name: 'transition_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ViewTransitionTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'maybe_cross_frame_sink', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'sequence_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 28, packedBitOffset: 0, type: viz.mojom.CompositorFrameTransitionDirectiveTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'shared_elements', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.CompositorFrameTransitionDirectiveSharedElementSpec, false), nullable: false, minVersion: 0 },
-        { name: 'display_color_spaces', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.DisplayColorSpacesSpec, nullable: false, minVersion: 0 },
-        { name: 'delay_layer_tree_view_deletion', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.CompositorFrameTransitionDirectiveSpec, 'viz.mojom.CompositorFrameTransitionDirective', [
+      mojo.internal.StructField('transition_token', 0, 0, blink.mojom.ViewTransitionTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('maybe_cross_frame_sink', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('sequence_id', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('type', 28, 0, viz.mojom.CompositorFrameTransitionDirectiveTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('shared_elements', 8, 0, mojo.internal.Array(viz.mojom.CompositorFrameTransitionDirectiveSharedElementSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('display_color_spaces', 16, 0, gfx.mojom.DisplayColorSpacesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('delay_layer_tree_view_deletion', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 48]]);

@@ -8,6 +8,7 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.TriggeringEventInfoSpec = { $: mojo.internal.Enum() };
 
 // Enum: TriggeringEventInfo
 blink.mojom.TriggeringEventInfo = {
@@ -16,4 +17,3 @@ blink.mojom.TriggeringEventInfo = {
   kFromTrustedEvent: 2,
   kFromUntrustedEvent: 3,
 };
-blink.mojom.TriggeringEventInfoSpec = { $: mojo.internal.Enum() };

@@ -10,6 +10,18 @@ blink.mojom = blink.mojom || {};
 var url = url || {};
 var url = url || {};
 
+blink.mojom.CredentialTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.CredentialMediationRequirementSpec = { $: mojo.internal.Enum() };
+blink.mojom.CredentialManagerErrorSpec = { $: mojo.internal.Enum() };
+blink.mojom.CredentialInfoSpec = { $: {} };
+blink.mojom.CredentialManager = {};
+blink.mojom.CredentialManager.$interfaceName = 'blink.mojom.CredentialManager';
+blink.mojom.CredentialManager_Store_ParamsSpec = { $: {} };
+blink.mojom.CredentialManager_Store_ResponseParamsSpec = { $: {} };
+blink.mojom.CredentialManager_PreventSilentAccess_ParamsSpec = { $: {} };
+blink.mojom.CredentialManager_PreventSilentAccess_ResponseParamsSpec = { $: {} };
+blink.mojom.CredentialManager_Get_ParamsSpec = { $: {} };
+blink.mojom.CredentialManager_Get_ResponseParamsSpec = { $: {} };
 
 // Enum: CredentialType
 blink.mojom.CredentialType = {
@@ -17,7 +29,6 @@ blink.mojom.CredentialType = {
   PASSWORD: 1,
   FEDERATED: 2,
 };
-blink.mojom.CredentialTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CredentialMediationRequirement
 blink.mojom.CredentialMediationRequirement = {
@@ -26,7 +37,6 @@ blink.mojom.CredentialMediationRequirement = {
   kRequired: 2,
   kConditional: 3,
 };
-blink.mojom.CredentialMediationRequirementSpec = { $: mojo.internal.Enum() };
 
 // Enum: CredentialManagerError
 blink.mojom.CredentialManagerError = {
@@ -35,69 +45,55 @@ blink.mojom.CredentialManagerError = {
   PASSWORD_STORE_UNAVAILABLE: 2,
   UNKNOWN: 3,
 };
-blink.mojom.CredentialManagerErrorSpec = { $: mojo.internal.Enum() };
 
 // Struct: CredentialInfo
-blink.mojom.CredentialInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CredentialInfo',
-      packedSize: 56,
-      fields: [
-        { name: 'type', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.CredentialTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
-        { name: 'icon', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'password', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
-        { name: 'federation', packedOffset: 32, packedBitOffset: 0, type: url.mojom.SchemeHostPortSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.CredentialInfoSpec, 'blink.mojom.CredentialInfo', [
+      mojo.internal.StructField('type', 40, 0, blink.mojom.CredentialTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('name', 8, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('icon', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('password', 24, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('federation', 32, 0, url.mojom.SchemeHostPortSpec, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Interface: CredentialManager
-blink.mojom.CredentialManager = {};
+mojo.internal.Struct(
+    blink.mojom.CredentialManager_Store_ParamsSpec, 'blink.mojom.CredentialManager_Store_Params', [
+      mojo.internal.StructField('credential', 0, 0, blink.mojom.CredentialInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.CredentialManager_Store_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CredentialManager_Store_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'credential', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CredentialInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.CredentialManager_Store_ResponseParamsSpec, 'blink.mojom.CredentialManager_Store_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.CredentialManager_PreventSilentAccess_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CredentialManager_PreventSilentAccess_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.CredentialManager_PreventSilentAccess_ParamsSpec, 'blink.mojom.CredentialManager_PreventSilentAccess_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.CredentialManager_Get_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CredentialManager_Get_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'mediation', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CredentialMediationRequirementSpec, nullable: false, minVersion: 0 },
-        { name: 'include_passwords', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'federations', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.CredentialManager_PreventSilentAccess_ResponseParamsSpec, 'blink.mojom.CredentialManager_PreventSilentAccess_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    blink.mojom.CredentialManager_Get_ParamsSpec, 'blink.mojom.CredentialManager_Get_Params', [
+      mojo.internal.StructField('mediation', 8, 0, blink.mojom.CredentialMediationRequirementSpec, null, false, 0, undefined),
+      mojo.internal.StructField('include_passwords', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('federations', 0, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    blink.mojom.CredentialManager_Get_ResponseParamsSpec, 'blink.mojom.CredentialManager_Get_ResponseParams', [
+      mojo.internal.StructField('error', 8, 0, blink.mojom.CredentialManagerErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('credential', 0, 0, blink.mojom.CredentialInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 blink.mojom.CredentialManagerPendingReceiver = class {
   constructor(handle) {
@@ -136,7 +132,7 @@ blink.mojom.CredentialManagerRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       blink.mojom.CredentialManager_Store_ParamsSpec,
-      null,
+      blink.mojom.CredentialManager_Store_ResponseParamsSpec,
       [credential]);
   }
 
@@ -145,7 +141,7 @@ blink.mojom.CredentialManagerRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       blink.mojom.CredentialManager_PreventSilentAccess_ParamsSpec,
-      null,
+      blink.mojom.CredentialManager_PreventSilentAccess_ResponseParamsSpec,
       []);
   }
 
@@ -170,64 +166,6 @@ blink.mojom.CredentialManager.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Store
-blink.mojom.CredentialManager_Store_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CredentialManager.Store_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'credential', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CredentialInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for PreventSilentAccess
-blink.mojom.CredentialManager_PreventSilentAccess_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CredentialManager.PreventSilentAccess_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for Get
-blink.mojom.CredentialManager_Get_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CredentialManager.Get_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'mediation', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CredentialMediationRequirementSpec, nullable: false, minVersion: 0 },
-        { name: 'include_passwords', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'federations', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.CredentialManager_Get_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CredentialManager.Get_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CredentialManagerErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'credential', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CredentialInfoSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.CredentialManagerPtr = blink.mojom.CredentialManagerRemote;
 blink.mojom.CredentialManagerRequest = blink.mojom.CredentialManagerPendingReceiver;
 

@@ -8,57 +8,48 @@
 var sharing = sharing || {};
 sharing.mojom = sharing.mojom || {};
 
+sharing.mojom.LocationStandardFormatSpec = { $: mojo.internal.Enum() };
+sharing.mojom.LocationHintSpec = { $: {} };
+sharing.mojom.IncomingMessagesListener = {};
+sharing.mojom.IncomingMessagesListener.$interfaceName = 'sharing.mojom.IncomingMessagesListener';
+sharing.mojom.IncomingMessagesListener_OnMessage_ParamsSpec = { $: {} };
+sharing.mojom.IncomingMessagesListener_OnComplete_ParamsSpec = { $: {} };
+sharing.mojom.ReceiveMessagesSession = {};
+sharing.mojom.ReceiveMessagesSession.$interfaceName = 'sharing.mojom.ReceiveMessagesSession';
+sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec = { $: {} };
+sharing.mojom.WebRtcSignalingMessenger = {};
+sharing.mojom.WebRtcSignalingMessenger.$interfaceName = 'sharing.mojom.WebRtcSignalingMessenger';
+sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec = { $: {} };
+sharing.mojom.WebRtcSignalingMessenger_SendMessage_ResponseParamsSpec = { $: {} };
+sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec = { $: {} };
+sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParamsSpec = { $: {} };
 
 // Enum: LocationStandardFormat
 sharing.mojom.LocationStandardFormat = {
-  E164_CALLING: 0,
-  ISO_3166_1_ALPHA_2: 1,
+  E164_CALLING: 1,
+  ISO_3166_1_ALPHA_2: 2,
 };
-sharing.mojom.LocationStandardFormatSpec = { $: mojo.internal.Enum() };
 
 // Struct: LocationHint
-sharing.mojom.LocationHintSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.LocationHint',
-      packedSize: 24,
-      fields: [
-        { name: 'location', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'format', packedOffset: 8, packedBitOffset: 0, type: sharing.mojom.LocationStandardFormatSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    sharing.mojom.LocationHintSpec, 'sharing.mojom.LocationHint', [
+      mojo.internal.StructField('location', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('format', 8, 0, sharing.mojom.LocationStandardFormatSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: IncomingMessagesListener
-sharing.mojom.IncomingMessagesListener = {};
+mojo.internal.Struct(
+    sharing.mojom.IncomingMessagesListener_OnMessage_ParamsSpec, 'sharing.mojom.IncomingMessagesListener_OnMessage_Params', [
+      mojo.internal.StructField('message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-sharing.mojom.IncomingMessagesListener_OnMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.IncomingMessagesListener_OnMessage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-sharing.mojom.IncomingMessagesListener_OnComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.IncomingMessagesListener_OnComplete_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    sharing.mojom.IncomingMessagesListener_OnComplete_ParamsSpec, 'sharing.mojom.IncomingMessagesListener_OnComplete_Params', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 sharing.mojom.IncomingMessagesListenerPendingReceiver = class {
   constructor(handle) {
@@ -122,53 +113,15 @@ sharing.mojom.IncomingMessagesListener.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnMessage
-sharing.mojom.IncomingMessagesListener_OnMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.IncomingMessagesListener.OnMessage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnComplete
-sharing.mojom.IncomingMessagesListener_OnComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.IncomingMessagesListener.OnComplete_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 sharing.mojom.IncomingMessagesListenerPtr = sharing.mojom.IncomingMessagesListenerRemote;
 sharing.mojom.IncomingMessagesListenerRequest = sharing.mojom.IncomingMessagesListenerPendingReceiver;
 
 
 // Interface: ReceiveMessagesSession
-sharing.mojom.ReceiveMessagesSession = {};
-
-sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec, 'sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 sharing.mojom.ReceiveMessagesSessionPendingReceiver = class {
   constructor(handle) {
@@ -223,57 +176,40 @@ sharing.mojom.ReceiveMessagesSession.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for StopReceivingMessages
-sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.ReceiveMessagesSession.StopReceivingMessages_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 sharing.mojom.ReceiveMessagesSessionPtr = sharing.mojom.ReceiveMessagesSessionRemote;
 sharing.mojom.ReceiveMessagesSessionRequest = sharing.mojom.ReceiveMessagesSessionPendingReceiver;
 
 
 // Interface: WebRtcSignalingMessenger
-sharing.mojom.WebRtcSignalingMessenger = {};
+mojo.internal.Struct(
+    sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec, 'sharing.mojom.WebRtcSignalingMessenger_SendMessage_Params', [
+      mojo.internal.StructField('self_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('peer_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('location_hint', 16, 0, sharing.mojom.LocationHintSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.WebRtcSignalingMessenger_SendMessage_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'self_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'peer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'location_hint', packedOffset: 16, packedBitOffset: 0, type: sharing.mojom.LocationHintSpec, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    sharing.mojom.WebRtcSignalingMessenger_SendMessage_ResponseParamsSpec, 'sharing.mojom.WebRtcSignalingMessenger_SendMessage_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'self_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'location_hint', packedOffset: 8, packedBitOffset: 0, type: sharing.mojom.LocationHintSpec, nullable: false, minVersion: 0 },
-        { name: 'listener', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(sharing.mojom.IncomingMessagesListenerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec, 'sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_Params', [
+      mojo.internal.StructField('self_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('location_hint', 8, 0, sharing.mojom.LocationHintSpec, null, false, 0, undefined),
+      mojo.internal.StructField('listener', 16, 0, mojo.internal.InterfaceProxy(sharing.mojom.IncomingMessagesListenerRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParamsSpec, 'sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParams', [
+      mojo.internal.StructField('success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('session', 0, 0, mojo.internal.InterfaceProxy(sharing.mojom.ReceiveMessagesSessionRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 sharing.mojom.WebRtcSignalingMessengerPendingReceiver = class {
   constructor(handle) {
@@ -337,67 +273,6 @@ sharing.mojom.WebRtcSignalingMessenger.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SendMessage
-sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.WebRtcSignalingMessenger.SendMessage_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'self_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'peer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'location_hint', packedOffset: 16, packedBitOffset: 0, type: sharing.mojom.LocationHintSpec, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-sharing.mojom.WebRtcSignalingMessenger_SendMessage_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.WebRtcSignalingMessenger.SendMessage_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StartReceivingMessages
-sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.WebRtcSignalingMessenger.StartReceivingMessages_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'self_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'location_hint', packedOffset: 8, packedBitOffset: 0, type: sharing.mojom.LocationHintSpec, nullable: false, minVersion: 0 },
-        { name: 'listener', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(sharing.mojom.IncomingMessagesListenerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.WebRtcSignalingMessenger.StartReceivingMessages_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(sharing.mojom.ReceiveMessagesSessionRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 sharing.mojom.WebRtcSignalingMessengerPtr = sharing.mojom.WebRtcSignalingMessengerRemote;
 sharing.mojom.WebRtcSignalingMessengerRequest = sharing.mojom.WebRtcSignalingMessengerPendingReceiver;
 

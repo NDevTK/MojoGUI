@@ -7,12 +7,37 @@
 // Module namespace
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
+var components = components || {};
 var skia = skia || {};
 var blink = blink || {};
 var ui = ui || {};
 var gfx = gfx || {};
 var url = url || {};
 
+chrome.mojom.ImageFormatSpec = { $: mojo.internal.Enum() };
+chrome.mojom.ChromeRenderFrame = {};
+chrome.mojom.ChromeRenderFrame.$interfaceName = 'chrome.mojom.ChromeRenderFrame';
+chrome.mojom.ChromeRenderFrame_SetWindowFeatures_ParamsSpec = { $: {} };
+chrome.mojom.ChromeRenderFrame_RequestReloadImageForContextNode_ParamsSpec = { $: {} };
+chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ParamsSpec = { $: {} };
+chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ResponseParamsSpec = { $: {} };
+chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ParamsSpec = { $: {} };
+chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ResponseParamsSpec = { $: {} };
+chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ParamsSpec = { $: {} };
+chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ResponseParamsSpec = { $: {} };
+chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ParamsSpec = { $: {} };
+chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ResponseParamsSpec = { $: {} };
+chrome.mojom.ChromeRenderFrame_ExecuteWebUIJavaScript_ParamsSpec = { $: {} };
+chrome.mojom.ChromeRenderFrame_SetCCTClientHeader_ParamsSpec = { $: {} };
+chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ParamsSpec = { $: {} };
+chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ResponseParamsSpec = { $: {} };
+chrome.mojom.ChromeRenderFrame_LoadBlockedPlugins_ParamsSpec = { $: {} };
+chrome.mojom.ChromeRenderFrame_SetShouldDeferMediaLoad_ParamsSpec = { $: {} };
+chrome.mojom.ChromeRenderFrame_InvokeTool_ParamsSpec = { $: {} };
+chrome.mojom.ChromeRenderFrame_InvokeTool_ResponseParamsSpec = { $: {} };
+chrome.mojom.ChromeRenderFrame_CancelTool_ParamsSpec = { $: {} };
+chrome.mojom.ChromeRenderFrame_StartActorJournal_ParamsSpec = { $: {} };
+chrome.mojom.ChromeRenderFrame_CreatePageStabilityMonitor_ParamsSpec = { $: {} };
 
 chrome.mojom.kDefaultQuality = 90;
 
@@ -23,205 +48,138 @@ chrome.mojom.ImageFormat = {
   WEBP: 2,
   ORIGINAL: 3,
 };
-chrome.mojom.ImageFormatSpec = { $: mojo.internal.Enum() };
 
 // Interface: ChromeRenderFrame
-chrome.mojom.ChromeRenderFrame = {};
+mojo.internal.Struct(
+    chrome.mojom.ChromeRenderFrame_SetWindowFeatures_ParamsSpec, 'chrome.mojom.ChromeRenderFrame_SetWindowFeatures_Params', [
+      mojo.internal.StructField('window_features', 0, 0, blink.mojom.WindowFeaturesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chrome.mojom.ChromeRenderFrame_SetWindowFeatures_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame_SetWindowFeatures_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'window_features', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WindowFeaturesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.ChromeRenderFrame_RequestReloadImageForContextNode_ParamsSpec, 'chrome.mojom.ChromeRenderFrame_RequestReloadImageForContextNode_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chrome.mojom.ChromeRenderFrame_RequestReloadImageForContextNode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame_RequestReloadImageForContextNode_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ParamsSpec, 'chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ResponseParamsSpec, 'chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ResponseParams', [
+      mojo.internal.StructField('bitmap', 0, 0, skia.mojom.BitmapN32Spec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ParamsSpec, 'chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ResponseParamsSpec, 'chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ResponseParams', [
+      mojo.internal.StructField('bitmap', 0, 0, skia.mojom.BitmapN32Spec, null, true, 0, undefined),
+      mojo.internal.StructField('bounds', 8, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'image_min_area_pixels', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'image_max_size_pixels', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'image_format', packedOffset: 12, packedBitOffset: 0, type: chrome.mojom.ImageFormatSpec, nullable: false, minVersion: 0 },
-        { name: 'quality', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ParamsSpec, 'chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chrome.mojom.ChromeRenderFrame_ExecuteWebUIJavaScript_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame_ExecuteWebUIJavaScript_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'javascript', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ResponseParamsSpec, 'chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ResponseParams', [
+      mojo.internal.StructField('all_bounds', 0, 0, mojo.internal.Array(gfx.mojom.RectSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chrome.mojom.ChromeRenderFrame_SetCCTClientHeader_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame_SetCCTClientHeader_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'header', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ParamsSpec, 'chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_Params', [
+      mojo.internal.StructField('image_min_area_pixels', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('image_max_size_pixels', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('image_format', 12, 0, chrome.mojom.ImageFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('quality', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ResponseParamsSpec, 'chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ResponseParams', [
+      mojo.internal.StructField('image_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('original_size', 8, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('downscaled_size', 16, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mime_type', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('log_data', 32, 0, mojo.internal.Array(lens.mojom.LatencyLogSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
-chrome.mojom.ChromeRenderFrame_LoadBlockedPlugins_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame_LoadBlockedPlugins_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.ChromeRenderFrame_ExecuteWebUIJavaScript_ParamsSpec, 'chrome.mojom.ChromeRenderFrame_ExecuteWebUIJavaScript_Params', [
+      mojo.internal.StructField('javascript', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chrome.mojom.ChromeRenderFrame_SetShouldDeferMediaLoad_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame_SetShouldDeferMediaLoad_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'should_defer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.ChromeRenderFrame_SetCCTClientHeader_ParamsSpec, 'chrome.mojom.ChromeRenderFrame_SetCCTClientHeader_Params', [
+      mojo.internal.StructField('header', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chrome.mojom.ChromeRenderFrame_InvokeTool_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame_InvokeTool_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: actor.mojom.ToolInvocationSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ParamsSpec, 'chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chrome.mojom.ChromeRenderFrame_CancelTool_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame_CancelTool_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: actor.mojom.TaskIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ResponseParamsSpec, 'chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ResponseParams', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chrome.mojom.ChromeRenderFrame_StartActorJournal_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame_StartActorJournal_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(actor.mojom.JournalClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.ChromeRenderFrame_LoadBlockedPlugins_ParamsSpec, 'chrome.mojom.ChromeRenderFrame_LoadBlockedPlugins_Params', [
+      mojo.internal.StructField('identifier', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chrome.mojom.ChromeRenderFrame_CreatePageStabilityMonitor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame_CreatePageStabilityMonitor_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(actor.mojom.PageStabilityMonitorRemote), nullable: false, minVersion: 0 },
-        { name: 'task_id', packedOffset: 8, packedBitOffset: 0, type: actor.mojom.TaskIdSpec, nullable: false, minVersion: 0 },
-        { name: 'supports_paint_stability', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.ChromeRenderFrame_SetShouldDeferMediaLoad_ParamsSpec, 'chrome.mojom.ChromeRenderFrame_SetShouldDeferMediaLoad_Params', [
+      mojo.internal.StructField('should_defer', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chrome.mojom.ChromeRenderFrame_InvokeTool_ParamsSpec, 'chrome.mojom.ChromeRenderFrame_InvokeTool_Params', [
+      mojo.internal.StructField('request', 0, 0, actor.mojom.ToolInvocationSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chrome.mojom.ChromeRenderFrame_InvokeTool_ResponseParamsSpec, 'chrome.mojom.ChromeRenderFrame_InvokeTool_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, actor.mojom.ActionResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chrome.mojom.ChromeRenderFrame_CancelTool_ParamsSpec, 'chrome.mojom.ChromeRenderFrame_CancelTool_Params', [
+      mojo.internal.StructField('task_id', 0, 0, actor.mojom.TaskIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chrome.mojom.ChromeRenderFrame_StartActorJournal_ParamsSpec, 'chrome.mojom.ChromeRenderFrame_StartActorJournal_Params', [
+      mojo.internal.StructField('client', 0, 0, mojo.internal.AssociatedInterfaceProxy(actor.mojom.JournalClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chrome.mojom.ChromeRenderFrame_CreatePageStabilityMonitor_ParamsSpec, 'chrome.mojom.ChromeRenderFrame_CreatePageStabilityMonitor_Params', [
+      mojo.internal.StructField('monitor', 0, 0, mojo.internal.InterfaceRequest(actor.mojom.PageStabilityMonitorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('task_id', 8, 0, actor.mojom.TaskIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('supports_paint_stability', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 chrome.mojom.ChromeRenderFramePendingReceiver = class {
   constructor(handle) {
@@ -402,300 +360,6 @@ chrome.mojom.ChromeRenderFrame.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetWindowFeatures
-chrome.mojom.ChromeRenderFrame_SetWindowFeatures_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame.SetWindowFeatures_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'window_features', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WindowFeaturesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestReloadImageForContextNode
-chrome.mojom.ChromeRenderFrame_RequestReloadImageForContextNode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame.RequestReloadImageForContextNode_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for RequestBitmapForContextNode
-chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame.RequestBitmapForContextNode_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame.RequestBitmapForContextNode_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestBitmapForContextNodeWithBoundsHint
-chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame.RequestBitmapForContextNodeWithBoundsHint_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame.RequestBitmapForContextNodeWithBoundsHint_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true, minVersion: 0 },
-        { name: 'bounds', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for RequestBoundsHintForAllImages
-chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame.RequestBoundsHintForAllImages_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame.RequestBoundsHintForAllImages_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'all_bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.RectSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestImageForContextNode
-chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame.RequestImageForContextNode_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'image_min_area_pixels', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'image_max_size_pixels', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'image_format', packedOffset: 12, packedBitOffset: 0, type: chrome.mojom.ImageFormatSpec, nullable: false, minVersion: 0 },
-        { name: 'quality', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame.RequestImageForContextNode_ResponseParams',
-      packedSize: 48,
-      fields: [
-        { name: 'image_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'original_size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'downscaled_size', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'mime_type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'log_data', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(lens.mojom.LatencyLogSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
-
-// ParamsSpec for ExecuteWebUIJavaScript
-chrome.mojom.ChromeRenderFrame_ExecuteWebUIJavaScript_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame.ExecuteWebUIJavaScript_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'javascript', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetCCTClientHeader
-chrome.mojom.ChromeRenderFrame_SetCCTClientHeader_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame.SetCCTClientHeader_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'header', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetMediaFeedURL
-chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame.GetMediaFeedURL_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame.GetMediaFeedURL_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for LoadBlockedPlugins
-chrome.mojom.ChromeRenderFrame_LoadBlockedPlugins_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame.LoadBlockedPlugins_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetShouldDeferMediaLoad
-chrome.mojom.ChromeRenderFrame_SetShouldDeferMediaLoad_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame.SetShouldDeferMediaLoad_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'should_defer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for InvokeTool
-chrome.mojom.ChromeRenderFrame_InvokeTool_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame.InvokeTool_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: actor.mojom.ToolInvocationSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chrome.mojom.ChromeRenderFrame_InvokeTool_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame.InvokeTool_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: actor.mojom.ActionResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CancelTool
-chrome.mojom.ChromeRenderFrame_CancelTool_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame.CancelTool_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: actor.mojom.TaskIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StartActorJournal
-chrome.mojom.ChromeRenderFrame_StartActorJournal_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame.StartActorJournal_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(actor.mojom.JournalClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CreatePageStabilityMonitor
-chrome.mojom.ChromeRenderFrame_CreatePageStabilityMonitor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame.CreatePageStabilityMonitor_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(actor.mojom.PageStabilityMonitorRemote), nullable: false, minVersion: 0 },
-        { name: 'task_id', packedOffset: 8, packedBitOffset: 0, type: actor.mojom.TaskIdSpec, nullable: false, minVersion: 0 },
-        { name: 'supports_paint_stability', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 chrome.mojom.ChromeRenderFramePtr = chrome.mojom.ChromeRenderFrameRemote;
 chrome.mojom.ChromeRenderFrameRequest = chrome.mojom.ChromeRenderFramePendingReceiver;
 

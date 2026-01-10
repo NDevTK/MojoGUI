@@ -10,21 +10,22 @@ content.mojom = content.mojom || {};
 var blink = blink || {};
 var blink = blink || {};
 
+content.mojom.RenderFrameTestHelper = {};
+content.mojom.RenderFrameTestHelper.$interfaceName = 'content.mojom.RenderFrameTestHelper';
+content.mojom.RenderFrameTestHelper_GetDocumentToken_ParamsSpec = { $: {} };
+content.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParamsSpec = { $: {} };
 
 // Interface: RenderFrameTestHelper
-content.mojom.RenderFrameTestHelper = {};
+mojo.internal.Struct(
+    content.mojom.RenderFrameTestHelper_GetDocumentToken_ParamsSpec, 'content.mojom.RenderFrameTestHelper_GetDocumentToken_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.RenderFrameTestHelper_GetDocumentToken_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.RenderFrameTestHelper_GetDocumentToken_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParamsSpec, 'content.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParams', [
+      mojo.internal.StructField('token', 0, 0, blink.mojom.DocumentTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 content.mojom.RenderFrameTestHelperPendingReceiver = class {
   constructor(handle) {
@@ -79,33 +80,6 @@ content.mojom.RenderFrameTestHelper.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetDocumentToken
-content.mojom.RenderFrameTestHelper_GetDocumentToken_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.RenderFrameTestHelper.GetDocumentToken_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-content.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.RenderFrameTestHelper.GetDocumentToken_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DocumentTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 content.mojom.RenderFrameTestHelperPtr = content.mojom.RenderFrameTestHelperRemote;
 content.mojom.RenderFrameTestHelperRequest = content.mojom.RenderFrameTestHelperPendingReceiver;
 

@@ -8,6 +8,15 @@
 var auction_worklet = auction_worklet || {};
 auction_worklet.mojom = auction_worklet.mojom || {};
 
+auction_worklet.mojom.TrustedSignalsCompressionSchemeSpec = { $: mojo.internal.Enum() };
+auction_worklet.mojom.TrustedSignalsCacheKeySpec = { $: {} };
+auction_worklet.mojom.TrustedSignalsCacheClient = {};
+auction_worklet.mojom.TrustedSignalsCacheClient.$interfaceName = 'auction_worklet.mojom.TrustedSignalsCacheClient';
+auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_ParamsSpec = { $: {} };
+auction_worklet.mojom.TrustedSignalsCacheClient_OnError_ParamsSpec = { $: {} };
+auction_worklet.mojom.TrustedSignalsCache = {};
+auction_worklet.mojom.TrustedSignalsCache.$interfaceName = 'auction_worklet.mojom.TrustedSignalsCache';
+auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec = { $: {} };
 
 // Enum: TrustedSignalsCompressionScheme
 auction_worklet.mojom.TrustedSignalsCompressionScheme = {
@@ -15,52 +24,28 @@ auction_worklet.mojom.TrustedSignalsCompressionScheme = {
   kGzip: 1,
   kBrotli: 2,
 };
-auction_worklet.mojom.TrustedSignalsCompressionSchemeSpec = { $: mojo.internal.Enum() };
 
 // Struct: TrustedSignalsCacheKey
-auction_worklet.mojom.TrustedSignalsCacheKeySpec = {
-  $: {
-    structSpec: {
-      name: 'auction_worklet.mojom.TrustedSignalsCacheKey',
-      packedSize: 24,
-      fields: [
-        { name: 'compression_group_token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'partition_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    auction_worklet.mojom.TrustedSignalsCacheKeySpec, 'auction_worklet.mojom.TrustedSignalsCacheKey', [
+      mojo.internal.StructField('compression_group_token', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('partition_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: TrustedSignalsCacheClient
-auction_worklet.mojom.TrustedSignalsCacheClient = {};
+mojo.internal.Struct(
+    auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_ParamsSpec, 'auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_Params', [
+      mojo.internal.StructField('compression_scheme', 16, 0, auction_worklet.mojom.TrustedSignalsCompressionSchemeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('compression_group_data', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'compression_scheme', packedOffset: 16, packedBitOffset: 0, type: auction_worklet.mojom.TrustedSignalsCompressionSchemeSpec, nullable: false, minVersion: 0 },
-        { name: 'compression_group_data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-auction_worklet.mojom.TrustedSignalsCacheClient_OnError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'auction_worklet.mojom.TrustedSignalsCacheClient_OnError_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    auction_worklet.mojom.TrustedSignalsCacheClient_OnError_ParamsSpec, 'auction_worklet.mojom.TrustedSignalsCacheClient_OnError_Params', [
+      mojo.internal.StructField('error_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 auction_worklet.mojom.TrustedSignalsCacheClientPendingReceiver = class {
   constructor(handle) {
@@ -124,56 +109,17 @@ auction_worklet.mojom.TrustedSignalsCacheClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnSuccess
-auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'auction_worklet.mojom.TrustedSignalsCacheClient.OnSuccess_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'compression_scheme', packedOffset: 16, packedBitOffset: 0, type: auction_worklet.mojom.TrustedSignalsCompressionSchemeSpec, nullable: false, minVersion: 0 },
-        { name: 'compression_group_data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for OnError
-auction_worklet.mojom.TrustedSignalsCacheClient_OnError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'auction_worklet.mojom.TrustedSignalsCacheClient.OnError_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 auction_worklet.mojom.TrustedSignalsCacheClientPtr = auction_worklet.mojom.TrustedSignalsCacheClientRemote;
 auction_worklet.mojom.TrustedSignalsCacheClientRequest = auction_worklet.mojom.TrustedSignalsCacheClientPendingReceiver;
 
 
 // Interface: TrustedSignalsCache
-auction_worklet.mojom.TrustedSignalsCache = {};
-
-auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'compression_group_token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(auction_worklet.mojom.TrustedSignalsCacheClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec, 'auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_Params', [
+      mojo.internal.StructField('compression_group_token', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(auction_worklet.mojom.TrustedSignalsCacheClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 auction_worklet.mojom.TrustedSignalsCachePendingReceiver = class {
   constructor(handle) {
@@ -228,22 +174,6 @@ auction_worklet.mojom.TrustedSignalsCache.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetTrustedSignals
-auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'auction_worklet.mojom.TrustedSignalsCache.GetTrustedSignals_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'compression_group_token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(auction_worklet.mojom.TrustedSignalsCacheClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 auction_worklet.mojom.TrustedSignalsCachePtr = auction_worklet.mojom.TrustedSignalsCacheRemote;
 auction_worklet.mojom.TrustedSignalsCacheRequest = auction_worklet.mojom.TrustedSignalsCachePendingReceiver;
 

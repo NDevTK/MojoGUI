@@ -7,6 +7,7 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
+var services = services || {};
 var ui = ui || {};
 var gfx = gfx || {};
 var ui = ui || {};
@@ -16,28 +17,22 @@ var gfx = gfx || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+viz.mojom.SharedQuadStateSpec = { $: {} };
 
 // Struct: SharedQuadState
-viz.mojom.SharedQuadStateSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.SharedQuadState',
-      packedSize: 80,
-      fields: [
-        { name: 'quad_to_target_transform', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: false, minVersion: 0 },
-        { name: 'quad_layer_rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'visible_quad_layer_rect', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'mask_filter_info', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.MaskFilterInfoSpec, nullable: true, minVersion: 0 },
-        { name: 'clip_rect', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true, minVersion: 0 },
-        { name: 'are_contents_opaque', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'opacity', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'blend_mode', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'sorting_context_id', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'layer_id', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'is_fast_rounded_corner', packedOffset: 64, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'offset_tag', packedOffset: 40, packedBitOffset: 0, type: viz.mojom.OffsetTagSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 80}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.SharedQuadStateSpec, 'viz.mojom.SharedQuadState', [
+      mojo.internal.StructField('quad_to_target_transform', 0, 0, gfx.mojom.TransformSpec, null, false, 0, undefined),
+      mojo.internal.StructField('quad_layer_rect', 8, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('visible_quad_layer_rect', 16, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mask_filter_info', 24, 0, gfx.mojom.MaskFilterInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('clip_rect', 32, 0, gfx.mojom.RectSpec, null, true, 0, undefined),
+      mojo.internal.StructField('are_contents_opaque', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('opacity', 48, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('blend_mode', 52, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('sorting_context_id', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('layer_id', 60, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_fast_rounded_corner', 64, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('offset_tag', 40, 0, viz.mojom.OffsetTagSpec, null, false, 0, undefined),
+    ],
+    [[0, 80]]);

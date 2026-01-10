@@ -8,34 +8,22 @@
 var on_load_script_injector = on_load_script_injector || {};
 on_load_script_injector.mojom = on_load_script_injector.mojom || {};
 
+on_load_script_injector.mojom.OnLoadScriptInjector = {};
+on_load_script_injector.mojom.OnLoadScriptInjector.$interfaceName = 'on_load_script_injector.mojom.OnLoadScriptInjector';
+on_load_script_injector.mojom.OnLoadScriptInjector_AddOnLoadScript_ParamsSpec = { $: {} };
+on_load_script_injector.mojom.OnLoadScriptInjector_ClearOnLoadScripts_ParamsSpec = { $: {} };
 
 // Interface: OnLoadScriptInjector
-on_load_script_injector.mojom.OnLoadScriptInjector = {};
+mojo.internal.Struct(
+    on_load_script_injector.mojom.OnLoadScriptInjector_AddOnLoadScript_ParamsSpec, 'on_load_script_injector.mojom.OnLoadScriptInjector_AddOnLoadScript_Params', [
+      mojo.internal.StructField('script', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-on_load_script_injector.mojom.OnLoadScriptInjector_AddOnLoadScript_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_load_script_injector.mojom.OnLoadScriptInjector_AddOnLoadScript_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'script', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-on_load_script_injector.mojom.OnLoadScriptInjector_ClearOnLoadScripts_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_load_script_injector.mojom.OnLoadScriptInjector_ClearOnLoadScripts_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    on_load_script_injector.mojom.OnLoadScriptInjector_ClearOnLoadScripts_ParamsSpec, 'on_load_script_injector.mojom.OnLoadScriptInjector_ClearOnLoadScripts_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 on_load_script_injector.mojom.OnLoadScriptInjectorPendingReceiver = class {
   constructor(handle) {
@@ -99,34 +87,6 @@ on_load_script_injector.mojom.OnLoadScriptInjector.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddOnLoadScript
-on_load_script_injector.mojom.OnLoadScriptInjector_AddOnLoadScript_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_load_script_injector.mojom.OnLoadScriptInjector.AddOnLoadScript_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'script', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ClearOnLoadScripts
-on_load_script_injector.mojom.OnLoadScriptInjector_ClearOnLoadScripts_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_load_script_injector.mojom.OnLoadScriptInjector.ClearOnLoadScripts_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 on_load_script_injector.mojom.OnLoadScriptInjectorPtr = on_load_script_injector.mojom.OnLoadScriptInjectorRemote;
 on_load_script_injector.mojom.OnLoadScriptInjectorRequest = on_load_script_injector.mojom.OnLoadScriptInjectorPendingReceiver;
 

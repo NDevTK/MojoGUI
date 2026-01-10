@@ -8,38 +8,30 @@
 var watermark = watermark || {};
 watermark.mojom = watermark.mojom || {};
 
+watermark.mojom.WatermarkStyleSpec = { $: {} };
+watermark.mojom.PageHandlerFactory = {};
+watermark.mojom.PageHandlerFactory.$interfaceName = 'watermark.mojom.PageHandlerFactory';
+watermark.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+watermark.mojom.PageHandler = {};
+watermark.mojom.PageHandler.$interfaceName = 'watermark.mojom.PageHandler';
+watermark.mojom.PageHandler_SetWatermarkStyle_ParamsSpec = { $: {} };
+watermark.mojom.PageHandler_ShowNotificationToast_ParamsSpec = { $: {} };
 
 // Struct: WatermarkStyle
-watermark.mojom.WatermarkStyleSpec = {
-  $: {
-    structSpec: {
-      name: 'watermark.mojom.WatermarkStyle',
-      packedSize: 24,
-      fields: [
-        { name: 'fill_opacity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'outline_opacity', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'font_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    watermark.mojom.WatermarkStyleSpec, 'watermark.mojom.WatermarkStyle', [
+      mojo.internal.StructField('fill_opacity', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('outline_opacity', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('font_size', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: PageHandlerFactory
-watermark.mojom.PageHandlerFactory = {};
-
-watermark.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'watermark.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(watermark.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    watermark.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'watermark.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(watermark.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 watermark.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -94,52 +86,21 @@ watermark.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-watermark.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'watermark.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(watermark.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 watermark.mojom.PageHandlerFactoryPtr = watermark.mojom.PageHandlerFactoryRemote;
 watermark.mojom.PageHandlerFactoryRequest = watermark.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-watermark.mojom.PageHandler = {};
+mojo.internal.Struct(
+    watermark.mojom.PageHandler_SetWatermarkStyle_ParamsSpec, 'watermark.mojom.PageHandler_SetWatermarkStyle_Params', [
+      mojo.internal.StructField('style', 0, 0, watermark.mojom.WatermarkStyleSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-watermark.mojom.PageHandler_SetWatermarkStyle_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'watermark.mojom.PageHandler_SetWatermarkStyle_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'style', packedOffset: 0, packedBitOffset: 0, type: watermark.mojom.WatermarkStyleSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-watermark.mojom.PageHandler_ShowNotificationToast_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'watermark.mojom.PageHandler_ShowNotificationToast_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    watermark.mojom.PageHandler_ShowNotificationToast_ParamsSpec, 'watermark.mojom.PageHandler_ShowNotificationToast_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 watermark.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -203,34 +164,6 @@ watermark.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetWatermarkStyle
-watermark.mojom.PageHandler_SetWatermarkStyle_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'watermark.mojom.PageHandler.SetWatermarkStyle_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'style', packedOffset: 0, packedBitOffset: 0, type: watermark.mojom.WatermarkStyleSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ShowNotificationToast
-watermark.mojom.PageHandler_ShowNotificationToast_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'watermark.mojom.PageHandler.ShowNotificationToast_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 watermark.mojom.PageHandlerPtr = watermark.mojom.PageHandlerRemote;
 watermark.mojom.PageHandlerRequest = watermark.mojom.PageHandlerPendingReceiver;
 

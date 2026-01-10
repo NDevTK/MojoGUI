@@ -8,6 +8,7 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+network.mojom.BlockedByResponseReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: BlockedByResponseReason
 network.mojom.BlockedByResponseReason = {
@@ -20,4 +21,3 @@ network.mojom.BlockedByResponseReason = {
   kCorpNotSameSite: 6,
   kSRIMessageSignatureMismatch: 7,
 };
-network.mojom.BlockedByResponseReasonSpec = { $: mojo.internal.Enum() };

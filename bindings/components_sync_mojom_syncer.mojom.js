@@ -8,17 +8,11 @@
 var syncer = syncer || {};
 syncer.mojom = syncer.mojom || {};
 
+syncer.mojom.StringOrdinalSpec = { $: {} };
 
 // Struct: StringOrdinal
-syncer.mojom.StringOrdinalSpec = {
-  $: {
-    structSpec: {
-      name: 'syncer.mojom.StringOrdinal',
-      packedSize: 16,
-      fields: [
-        { name: 'bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    syncer.mojom.StringOrdinalSpec, 'syncer.mojom.StringOrdinal', [
+      mojo.internal.StructField('bytes', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);

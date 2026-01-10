@@ -7,35 +7,24 @@
 // Module namespace
 var content_settings = content_settings || {};
 content_settings.mojom = content_settings.mojom || {};
+var components = components || {};
 
+content_settings.mojom.ContentSettingsAgent = {};
+content_settings.mojom.ContentSettingsAgent.$interfaceName = 'content_settings.mojom.ContentSettingsAgent';
+content_settings.mojom.ContentSettingsAgent_SetAllowRunningInsecureContent_ParamsSpec = { $: {} };
+content_settings.mojom.ContentSettingsAgent_SendRendererContentSettingRules_ParamsSpec = { $: {} };
 
 // Interface: ContentSettingsAgent
-content_settings.mojom.ContentSettingsAgent = {};
+mojo.internal.Struct(
+    content_settings.mojom.ContentSettingsAgent_SetAllowRunningInsecureContent_ParamsSpec, 'content_settings.mojom.ContentSettingsAgent_SetAllowRunningInsecureContent_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content_settings.mojom.ContentSettingsAgent_SetAllowRunningInsecureContent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content_settings.mojom.ContentSettingsAgent_SetAllowRunningInsecureContent_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-content_settings.mojom.ContentSettingsAgent_SendRendererContentSettingRules_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content_settings.mojom.ContentSettingsAgent_SendRendererContentSettingRules_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'renderer_settings', packedOffset: 0, packedBitOffset: 0, type: content_settings.mojom.RendererContentSettingRulesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content_settings.mojom.ContentSettingsAgent_SendRendererContentSettingRules_ParamsSpec, 'content_settings.mojom.ContentSettingsAgent_SendRendererContentSettingRules_Params', [
+      mojo.internal.StructField('renderer_settings', 0, 0, content_settings.mojom.RendererContentSettingRulesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 content_settings.mojom.ContentSettingsAgentPendingReceiver = class {
   constructor(handle) {
@@ -99,34 +88,6 @@ content_settings.mojom.ContentSettingsAgent.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetAllowRunningInsecureContent
-content_settings.mojom.ContentSettingsAgent_SetAllowRunningInsecureContent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content_settings.mojom.ContentSettingsAgent.SetAllowRunningInsecureContent_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SendRendererContentSettingRules
-content_settings.mojom.ContentSettingsAgent_SendRendererContentSettingRules_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content_settings.mojom.ContentSettingsAgent.SendRendererContentSettingRules_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'renderer_settings', packedOffset: 0, packedBitOffset: 0, type: content_settings.mojom.RendererContentSettingRulesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 content_settings.mojom.ContentSettingsAgentPtr = content_settings.mojom.ContentSettingsAgentRemote;
 content_settings.mojom.ContentSettingsAgentRequest = content_settings.mojom.ContentSettingsAgentPendingReceiver;
 

@@ -8,6 +8,7 @@
 var mojo_base = mojo_base || {};
 mojo_base.mojom = mojo_base.mojom || {};
 
+mojo_base.mojom.TextDirectionSpec = { $: mojo.internal.Enum() };
 
 // Enum: TextDirection
 mojo_base.mojom.TextDirection = {
@@ -15,4 +16,3 @@ mojo_base.mojom.TextDirection = {
   RIGHT_TO_LEFT: 1,
   LEFT_TO_RIGHT: 2,
 };
-mojo_base.mojom.TextDirectionSpec = { $: mojo.internal.Enum() };

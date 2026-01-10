@@ -13,22 +13,22 @@ var blink = blink || {};
 var blink = blink || {};
 var url = url || {};
 
+blink.mojom.ProgressClient = {};
+blink.mojom.ProgressClient.$interfaceName = 'blink.mojom.ProgressClient';
+blink.mojom.ProgressClient_OnProgress_ParamsSpec = { $: {} };
+blink.mojom.BlobRegistry = {};
+blink.mojom.BlobRegistry.$interfaceName = 'blink.mojom.BlobRegistry';
+blink.mojom.BlobRegistry_Register_ParamsSpec = { $: {} };
+blink.mojom.BlobRegistry_Register_ResponseParamsSpec = { $: {} };
+blink.mojom.BlobRegistry_RegisterFromStream_ParamsSpec = { $: {} };
+blink.mojom.BlobRegistry_RegisterFromStream_ResponseParamsSpec = { $: {} };
 
 // Interface: ProgressClient
-blink.mojom.ProgressClient = {};
-
-blink.mojom.ProgressClient_OnProgress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ProgressClient_OnProgress_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'delta', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ProgressClient_OnProgress_ParamsSpec, 'blink.mojom.ProgressClient_OnProgress_Params', [
+      mojo.internal.StructField('delta', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.ProgressClientPendingReceiver = class {
   constructor(handle) {
@@ -83,61 +83,41 @@ blink.mojom.ProgressClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnProgress
-blink.mojom.ProgressClient_OnProgress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ProgressClient.OnProgress_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'delta', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.ProgressClientPtr = blink.mojom.ProgressClientRemote;
 blink.mojom.ProgressClientRequest = blink.mojom.ProgressClientPendingReceiver;
 
 
 // Interface: BlobRegistry
-blink.mojom.BlobRegistry = {};
+mojo.internal.Struct(
+    blink.mojom.BlobRegistry_Register_ParamsSpec, 'blink.mojom.BlobRegistry_Register_Params', [
+      mojo.internal.StructField('blob', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.BlobRemote), null, false, 0, undefined),
+      mojo.internal.StructField('uuid', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('content_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('content_disposition', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('elements', 32, 0, mojo.internal.Array(blink.mojom.DataElementSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
-blink.mojom.BlobRegistry_Register_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BlobRegistry_Register_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.BlobRemote), nullable: false, minVersion: 0 },
-        { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'content_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'content_disposition', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'elements', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.DataElementSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.BlobRegistry_Register_ResponseParamsSpec, 'blink.mojom.BlobRegistry_Register_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.BlobRegistry_RegisterFromStream_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BlobRegistry_RegisterFromStream_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'content_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'content_disposition', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'length_hint', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'progress_client', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(blink.mojom.ProgressClientRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.BlobRegistry_RegisterFromStream_ParamsSpec, 'blink.mojom.BlobRegistry_RegisterFromStream_Params', [
+      mojo.internal.StructField('content_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('content_disposition', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('length_hint', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('data', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('progress_client', 32, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.ProgressClientRemote), null, true, 0, undefined),
+    ],
+    [[0, 48]]);
+
+mojo.internal.Struct(
+    blink.mojom.BlobRegistry_RegisterFromStream_ResponseParamsSpec, 'blink.mojom.BlobRegistry_RegisterFromStream_ResponseParams', [
+      mojo.internal.StructField('blob', 0, 0, blink.mojom.SerializedBlobSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.BlobRegistryPendingReceiver = class {
   constructor(handle) {
@@ -176,7 +156,7 @@ blink.mojom.BlobRegistryRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       blink.mojom.BlobRegistry_Register_ParamsSpec,
-      null,
+      blink.mojom.BlobRegistry_Register_ResponseParamsSpec,
       [blob, uuid, content_type, content_disposition, elements]);
   }
 
@@ -201,56 +181,6 @@ blink.mojom.BlobRegistry.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Register
-blink.mojom.BlobRegistry_Register_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BlobRegistry.Register_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.BlobRemote), nullable: false, minVersion: 0 },
-        { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'content_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'content_disposition', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'elements', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.DataElementSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
-
-// ParamsSpec for RegisterFromStream
-blink.mojom.BlobRegistry_RegisterFromStream_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BlobRegistry.RegisterFromStream_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'content_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'content_disposition', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'length_hint', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'progress_client', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(blink.mojom.ProgressClientRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
-
-blink.mojom.BlobRegistry_RegisterFromStream_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BlobRegistry.RegisterFromStream_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SerializedBlobSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.BlobRegistryPtr = blink.mojom.BlobRegistryRemote;
 blink.mojom.BlobRegistryRequest = blink.mojom.BlobRegistryPendingReceiver;
 

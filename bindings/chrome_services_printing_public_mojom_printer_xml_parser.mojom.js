@@ -8,22 +8,16 @@
 var printing = printing || {};
 printing.mojom = printing.mojom || {};
 
+printing.mojom.PrinterXmlParser = {};
+printing.mojom.PrinterXmlParser.$interfaceName = 'printing.mojom.PrinterXmlParser';
+printing.mojom.PrinterXmlParser_ParseXmlForPrinterCapabilities_ParamsSpec = { $: {} };
 
 // Interface: PrinterXmlParser
-printing.mojom.PrinterXmlParser = {};
-
-printing.mojom.PrinterXmlParser_ParseXmlForPrinterCapabilities_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PrinterXmlParser_ParseXmlForPrinterCapabilities_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'capabilities_xml', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    printing.mojom.PrinterXmlParser_ParseXmlForPrinterCapabilities_ParamsSpec, 'printing.mojom.PrinterXmlParser_ParseXmlForPrinterCapabilities_Params', [
+      mojo.internal.StructField('capabilities_xml', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 printing.mojom.PrinterXmlParserPendingReceiver = class {
   constructor(handle) {
@@ -78,21 +72,6 @@ printing.mojom.PrinterXmlParser.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ParseXmlForPrinterCapabilities
-printing.mojom.PrinterXmlParser_ParseXmlForPrinterCapabilities_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PrinterXmlParser.ParseXmlForPrinterCapabilities_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'capabilities_xml', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 printing.mojom.PrinterXmlParserPtr = printing.mojom.PrinterXmlParserRemote;
 printing.mojom.PrinterXmlParserRequest = printing.mojom.PrinterXmlParserPendingReceiver;
 

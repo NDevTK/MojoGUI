@@ -8,47 +8,36 @@
 var media_router = media_router || {};
 media_router.mojom = media_router.mojom || {};
 
+media_router.mojom.Debugger = {};
+media_router.mojom.Debugger.$interfaceName = 'media_router.mojom.Debugger';
+media_router.mojom.Debugger_ShouldFetchMirroringStats_ParamsSpec = { $: {} };
+media_router.mojom.Debugger_ShouldFetchMirroringStats_ResponseParamsSpec = { $: {} };
+media_router.mojom.Debugger_OnMirroringStats_ParamsSpec = { $: {} };
+media_router.mojom.Debugger_BindReceiver_ParamsSpec = { $: {} };
 
 // Interface: Debugger
-media_router.mojom.Debugger = {};
+mojo.internal.Struct(
+    media_router.mojom.Debugger_ShouldFetchMirroringStats_ParamsSpec, 'media_router.mojom.Debugger_ShouldFetchMirroringStats_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media_router.mojom.Debugger_ShouldFetchMirroringStats_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.Debugger_ShouldFetchMirroringStats_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.Debugger_ShouldFetchMirroringStats_ResponseParamsSpec, 'media_router.mojom.Debugger_ShouldFetchMirroringStats_ResponseParams', [
+      mojo.internal.StructField('should_fetch', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media_router.mojom.Debugger_OnMirroringStats_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.Debugger_OnMirroringStats_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'json_stats', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.Debugger_OnMirroringStats_ParamsSpec, 'media_router.mojom.Debugger_OnMirroringStats_Params', [
+      mojo.internal.StructField('json_stats', 0, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-media_router.mojom.Debugger_BindReceiver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.Debugger_BindReceiver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_router.mojom.DebuggerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.Debugger_BindReceiver_ParamsSpec, 'media_router.mojom.Debugger_BindReceiver_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(media_router.mojom.DebuggerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media_router.mojom.DebuggerPendingReceiver = class {
   constructor(handle) {
@@ -121,61 +110,6 @@ media_router.mojom.Debugger.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ShouldFetchMirroringStats
-media_router.mojom.Debugger_ShouldFetchMirroringStats_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.Debugger.ShouldFetchMirroringStats_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-media_router.mojom.Debugger_ShouldFetchMirroringStats_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.Debugger.ShouldFetchMirroringStats_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'should_fetch', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnMirroringStats
-media_router.mojom.Debugger_OnMirroringStats_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.Debugger.OnMirroringStats_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'json_stats', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for BindReceiver
-media_router.mojom.Debugger_BindReceiver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.Debugger.BindReceiver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_router.mojom.DebuggerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media_router.mojom.DebuggerPtr = media_router.mojom.DebuggerRemote;
 media_router.mojom.DebuggerRequest = media_router.mojom.DebuggerPendingReceiver;
 

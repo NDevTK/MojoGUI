@@ -9,6 +9,25 @@ var private_aggregation_internals = private_aggregation_internals || {};
 private_aggregation_internals.mojom = private_aggregation_internals.mojom || {};
 var url = url || {};
 
+private_aggregation_internals.mojom.ReportStatusSpec = { $: mojo.internal.Enum() };
+private_aggregation_internals.mojom.AggregatableReportRequestIDSpec = { $: {} };
+private_aggregation_internals.mojom.AggregatableHistogramContributionSpec = { $: {} };
+private_aggregation_internals.mojom.WebUIAggregatableReportSpec = { $: {} };
+private_aggregation_internals.mojom.Observer = {};
+private_aggregation_internals.mojom.Observer.$interfaceName = 'private_aggregation_internals.mojom.Observer';
+private_aggregation_internals.mojom.Observer_OnRequestStorageModified_ParamsSpec = { $: {} };
+private_aggregation_internals.mojom.Observer_OnReportHandled_ParamsSpec = { $: {} };
+private_aggregation_internals.mojom.Handler = {};
+private_aggregation_internals.mojom.Handler.$interfaceName = 'private_aggregation_internals.mojom.Handler';
+private_aggregation_internals.mojom.Handler_GetReports_ParamsSpec = { $: {} };
+private_aggregation_internals.mojom.Handler_GetReports_ResponseParamsSpec = { $: {} };
+private_aggregation_internals.mojom.Handler_SendReports_ParamsSpec = { $: {} };
+private_aggregation_internals.mojom.Handler_SendReports_ResponseParamsSpec = { $: {} };
+private_aggregation_internals.mojom.Handler_ClearStorage_ParamsSpec = { $: {} };
+private_aggregation_internals.mojom.Handler_ClearStorage_ResponseParamsSpec = { $: {} };
+private_aggregation_internals.mojom.Factory = {};
+private_aggregation_internals.mojom.Factory.$interfaceName = 'private_aggregation_internals.mojom.Factory';
+private_aggregation_internals.mojom.Factory_Create_ParamsSpec = { $: {} };
 
 // Enum: ReportStatus
 private_aggregation_internals.mojom.ReportStatus = {
@@ -17,85 +36,47 @@ private_aggregation_internals.mojom.ReportStatus = {
   kFailedToAssemble: 2,
   kFailedToSend: 3,
 };
-private_aggregation_internals.mojom.ReportStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: AggregatableReportRequestID
-private_aggregation_internals.mojom.AggregatableReportRequestIDSpec = {
-  $: {
-    structSpec: {
-      name: 'private_aggregation_internals.mojom.AggregatableReportRequestID',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    private_aggregation_internals.mojom.AggregatableReportRequestIDSpec, 'private_aggregation_internals.mojom.AggregatableReportRequestID', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: AggregatableHistogramContribution
-private_aggregation_internals.mojom.AggregatableHistogramContributionSpec = {
-  $: {
-    structSpec: {
-      name: 'private_aggregation_internals.mojom.AggregatableHistogramContribution',
-      packedSize: 24,
-      fields: [
-        { name: 'bucket', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.Uint128Spec, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    private_aggregation_internals.mojom.AggregatableHistogramContributionSpec, 'private_aggregation_internals.mojom.AggregatableHistogramContribution', [
+      mojo.internal.StructField('bucket', 0, 0, mojo_base.mojom.Uint128Spec, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: WebUIAggregatableReport
-private_aggregation_internals.mojom.WebUIAggregatableReportSpec = {
-  $: {
-    structSpec: {
-      name: 'private_aggregation_internals.mojom.WebUIAggregatableReport',
-      packedSize: 72,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: private_aggregation_internals.mojom.AggregatableReportRequestIDSpec, nullable: true, minVersion: 0 },
-        { name: 'report_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'api_identifier', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'api_version', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'report_url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'contributions', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(private_aggregation_internals.mojom.AggregatableHistogramContributionSpec, false), nullable: false, minVersion: 0 },
-        { name: 'status', packedOffset: 56, packedBitOffset: 0, type: private_aggregation_internals.mojom.ReportStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'report_body', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 72}]
-    }
-  }
-};
+mojo.internal.Struct(
+    private_aggregation_internals.mojom.WebUIAggregatableReportSpec, 'private_aggregation_internals.mojom.WebUIAggregatableReport', [
+      mojo.internal.StructField('id', 0, 0, private_aggregation_internals.mojom.AggregatableReportRequestIDSpec, null, true, 0, undefined),
+      mojo.internal.StructField('report_time', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('api_identifier', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('api_version', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('report_url', 32, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('contributions', 40, 0, mojo.internal.Array(private_aggregation_internals.mojom.AggregatableHistogramContributionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('status', 56, 0, private_aggregation_internals.mojom.ReportStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('report_body', 48, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 72]]);
 
 // Interface: Observer
-private_aggregation_internals.mojom.Observer = {};
+mojo.internal.Struct(
+    private_aggregation_internals.mojom.Observer_OnRequestStorageModified_ParamsSpec, 'private_aggregation_internals.mojom.Observer_OnRequestStorageModified_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-private_aggregation_internals.mojom.Observer_OnRequestStorageModified_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'private_aggregation_internals.mojom.Observer_OnRequestStorageModified_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-private_aggregation_internals.mojom.Observer_OnReportHandled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'private_aggregation_internals.mojom.Observer_OnReportHandled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: private_aggregation_internals.mojom.WebUIAggregatableReportSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    private_aggregation_internals.mojom.Observer_OnReportHandled_ParamsSpec, 'private_aggregation_internals.mojom.Observer_OnReportHandled_Params', [
+      mojo.internal.StructField('report', 0, 0, private_aggregation_internals.mojom.WebUIAggregatableReportSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 private_aggregation_internals.mojom.ObserverPendingReceiver = class {
   constructor(handle) {
@@ -159,77 +140,42 @@ private_aggregation_internals.mojom.Observer.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnRequestStorageModified
-private_aggregation_internals.mojom.Observer_OnRequestStorageModified_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'private_aggregation_internals.mojom.Observer.OnRequestStorageModified_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnReportHandled
-private_aggregation_internals.mojom.Observer_OnReportHandled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'private_aggregation_internals.mojom.Observer.OnReportHandled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: private_aggregation_internals.mojom.WebUIAggregatableReportSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 private_aggregation_internals.mojom.ObserverPtr = private_aggregation_internals.mojom.ObserverRemote;
 private_aggregation_internals.mojom.ObserverRequest = private_aggregation_internals.mojom.ObserverPendingReceiver;
 
 
 // Interface: Handler
-private_aggregation_internals.mojom.Handler = {};
+mojo.internal.Struct(
+    private_aggregation_internals.mojom.Handler_GetReports_ParamsSpec, 'private_aggregation_internals.mojom.Handler_GetReports_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-private_aggregation_internals.mojom.Handler_GetReports_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'private_aggregation_internals.mojom.Handler_GetReports_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    private_aggregation_internals.mojom.Handler_GetReports_ResponseParamsSpec, 'private_aggregation_internals.mojom.Handler_GetReports_ResponseParams', [
+      mojo.internal.StructField('reports', 0, 0, mojo.internal.Array(private_aggregation_internals.mojom.WebUIAggregatableReportSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-private_aggregation_internals.mojom.Handler_SendReports_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'private_aggregation_internals.mojom.Handler_SendReports_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(private_aggregation_internals.mojom.AggregatableReportRequestIDSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    private_aggregation_internals.mojom.Handler_SendReports_ParamsSpec, 'private_aggregation_internals.mojom.Handler_SendReports_Params', [
+      mojo.internal.StructField('ids', 0, 0, mojo.internal.Array(private_aggregation_internals.mojom.AggregatableReportRequestIDSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-private_aggregation_internals.mojom.Handler_ClearStorage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'private_aggregation_internals.mojom.Handler_ClearStorage_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    private_aggregation_internals.mojom.Handler_SendReports_ResponseParamsSpec, 'private_aggregation_internals.mojom.Handler_SendReports_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    private_aggregation_internals.mojom.Handler_ClearStorage_ParamsSpec, 'private_aggregation_internals.mojom.Handler_ClearStorage_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    private_aggregation_internals.mojom.Handler_ClearStorage_ResponseParamsSpec, 'private_aggregation_internals.mojom.Handler_ClearStorage_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 private_aggregation_internals.mojom.HandlerPendingReceiver = class {
   constructor(handle) {
@@ -277,7 +223,7 @@ private_aggregation_internals.mojom.HandlerRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       private_aggregation_internals.mojom.Handler_SendReports_ParamsSpec,
-      null,
+      private_aggregation_internals.mojom.Handler_SendReports_ResponseParamsSpec,
       [ids]);
   }
 
@@ -286,7 +232,7 @@ private_aggregation_internals.mojom.HandlerRemoteCallHandler = class {
     return this.proxy.sendMessage(
       2,  // ordinal
       private_aggregation_internals.mojom.Handler_ClearStorage_ParamsSpec,
-      null,
+      private_aggregation_internals.mojom.Handler_ClearStorage_ResponseParamsSpec,
       []);
   }
 
@@ -302,80 +248,17 @@ private_aggregation_internals.mojom.Handler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetReports
-private_aggregation_internals.mojom.Handler_GetReports_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'private_aggregation_internals.mojom.Handler.GetReports_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-private_aggregation_internals.mojom.Handler_GetReports_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'private_aggregation_internals.mojom.Handler.GetReports_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'reports', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(private_aggregation_internals.mojom.WebUIAggregatableReportSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SendReports
-private_aggregation_internals.mojom.Handler_SendReports_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'private_aggregation_internals.mojom.Handler.SendReports_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(private_aggregation_internals.mojom.AggregatableReportRequestIDSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ClearStorage
-private_aggregation_internals.mojom.Handler_ClearStorage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'private_aggregation_internals.mojom.Handler.ClearStorage_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 private_aggregation_internals.mojom.HandlerPtr = private_aggregation_internals.mojom.HandlerRemote;
 private_aggregation_internals.mojom.HandlerRequest = private_aggregation_internals.mojom.HandlerPendingReceiver;
 
 
 // Interface: Factory
-private_aggregation_internals.mojom.Factory = {};
-
-private_aggregation_internals.mojom.Factory_Create_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'private_aggregation_internals.mojom.Factory_Create_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(private_aggregation_internals.mojom.ObserverRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(private_aggregation_internals.mojom.HandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    private_aggregation_internals.mojom.Factory_Create_ParamsSpec, 'private_aggregation_internals.mojom.Factory_Create_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(private_aggregation_internals.mojom.ObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(private_aggregation_internals.mojom.HandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 private_aggregation_internals.mojom.FactoryPendingReceiver = class {
   constructor(handle) {
@@ -430,22 +313,6 @@ private_aggregation_internals.mojom.Factory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Create
-private_aggregation_internals.mojom.Factory_Create_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'private_aggregation_internals.mojom.Factory.Create_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(private_aggregation_internals.mojom.ObserverRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(private_aggregation_internals.mojom.HandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 private_aggregation_internals.mojom.FactoryPtr = private_aggregation_internals.mojom.FactoryRemote;
 private_aggregation_internals.mojom.FactoryRequest = private_aggregation_internals.mojom.FactoryPendingReceiver;
 

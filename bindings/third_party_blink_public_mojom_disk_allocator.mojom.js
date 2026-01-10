@@ -8,22 +8,16 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.DiskAllocator = {};
+blink.mojom.DiskAllocator.$interfaceName = 'blink.mojom.DiskAllocator';
+blink.mojom.DiskAllocator_ProvideTemporaryFile_ParamsSpec = { $: {} };
 
 // Interface: DiskAllocator
-blink.mojom.DiskAllocator = {};
-
-blink.mojom.DiskAllocator_ProvideTemporaryFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DiskAllocator_ProvideTemporaryFile_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.DiskAllocator_ProvideTemporaryFile_ParamsSpec, 'blink.mojom.DiskAllocator_ProvideTemporaryFile_Params', [
+      mojo.internal.StructField('file', 0, 0, mojo_base.mojom.FileSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.DiskAllocatorPendingReceiver = class {
   constructor(handle) {
@@ -78,21 +72,6 @@ blink.mojom.DiskAllocator.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ProvideTemporaryFile
-blink.mojom.DiskAllocator_ProvideTemporaryFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DiskAllocator.ProvideTemporaryFile_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.DiskAllocatorPtr = blink.mojom.DiskAllocatorRemote;
 blink.mojom.DiskAllocatorRequest = blink.mojom.DiskAllocatorPendingReceiver;
 

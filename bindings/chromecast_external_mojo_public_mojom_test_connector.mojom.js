@@ -9,24 +9,18 @@ var chromecast = chromecast || {};
 chromecast.external_mojo = chromecast.external_mojo || {};
 chromecast.external_mojo.mojom = chromecast.external_mojo.mojom || {};
 
+chromecast.external_mojo.mojom.TestExternalConnector = {};
+chromecast.external_mojo.mojom.TestExternalConnector.$interfaceName = 'chromecast.external_mojo.mojom.TestExternalConnector';
+chromecast.external_mojo.mojom.TestExternalConnector_BindInterfaceInternal_ParamsSpec = { $: {} };
 
 // Interface: TestExternalConnector
-chromecast.external_mojo.mojom.TestExternalConnector = {};
-
-chromecast.external_mojo.mojom.TestExternalConnector_BindInterfaceInternal_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.external_mojo.mojom.TestExternalConnector_BindInterfaceInternal_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'service_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'interface_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'interface_pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.external_mojo.mojom.TestExternalConnector_BindInterfaceInternal_ParamsSpec, 'chromecast.external_mojo.mojom.TestExternalConnector_BindInterfaceInternal_Params', [
+      mojo.internal.StructField('service_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('interface_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('interface_pipe', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 chromecast.external_mojo.mojom.TestExternalConnectorPendingReceiver = class {
   constructor(handle) {
@@ -81,23 +75,6 @@ chromecast.external_mojo.mojom.TestExternalConnector.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for BindInterfaceInternal
-chromecast.external_mojo.mojom.TestExternalConnector_BindInterfaceInternal_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.external_mojo.mojom.TestExternalConnector.BindInterfaceInternal_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'service_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'interface_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'interface_pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromecast.external_mojo.mojom.TestExternalConnectorPtr = chromecast.external_mojo.mojom.TestExternalConnectorRemote;
 chromecast.external_mojo.mojom.TestExternalConnectorRequest = chromecast.external_mojo.mojom.TestExternalConnectorPendingReceiver;
 

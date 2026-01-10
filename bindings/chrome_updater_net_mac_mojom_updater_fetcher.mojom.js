@@ -9,71 +9,58 @@ var updater = updater || {};
 updater.mojom = updater.mojom || {};
 var url = url || {};
 
+updater.mojom.HttpHeaderSpec = { $: {} };
+updater.mojom.PostRequestObserver = {};
+updater.mojom.PostRequestObserver.$interfaceName = 'updater.mojom.PostRequestObserver';
+updater.mojom.PostRequestObserver_OnResponseStarted_ParamsSpec = { $: {} };
+updater.mojom.PostRequestObserver_OnProgress_ParamsSpec = { $: {} };
+updater.mojom.PostRequestObserver_OnRequestComplete_ParamsSpec = { $: {} };
+updater.mojom.FileDownloadObserver = {};
+updater.mojom.FileDownloadObserver.$interfaceName = 'updater.mojom.FileDownloadObserver';
+updater.mojom.FileDownloadObserver_OnResponseStarted_ParamsSpec = { $: {} };
+updater.mojom.FileDownloadObserver_OnProgress_ParamsSpec = { $: {} };
+updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec = { $: {} };
+updater.mojom.FetchService = {};
+updater.mojom.FetchService.$interfaceName = 'updater.mojom.FetchService';
+updater.mojom.FetchService_PostRequest_ParamsSpec = { $: {} };
+updater.mojom.FetchService_PostRequest_ResponseParamsSpec = { $: {} };
+updater.mojom.FetchService_DownloadToFile_ParamsSpec = { $: {} };
+updater.mojom.FetchService_DownloadToFile_ResponseParamsSpec = { $: {} };
 
 // Struct: HttpHeader
-updater.mojom.HttpHeaderSpec = {
-  $: {
-    structSpec: {
-      name: 'updater.mojom.HttpHeader',
-      packedSize: 24,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    updater.mojom.HttpHeaderSpec, 'updater.mojom.HttpHeader', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: PostRequestObserver
-updater.mojom.PostRequestObserver = {};
+mojo.internal.Struct(
+    updater.mojom.PostRequestObserver_OnResponseStarted_ParamsSpec, 'updater.mojom.PostRequestObserver_OnResponseStarted_Params', [
+      mojo.internal.StructField('http_status_code', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('content_length_$flag', 12, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'content_length_$value', originalFieldName: 'content_length' }),
+      mojo.internal.StructField('content_length_$value', 0, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'content_length_$flag', originalFieldName: 'content_length' }),
+    ],
+    [[0, 24]]);
 
-updater.mojom.PostRequestObserver_OnResponseStarted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'updater.mojom.PostRequestObserver_OnResponseStarted_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'http_status_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'content_length_$flag', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'content_length_$value', originalFieldName: 'content_length' } },
-        { name: 'content_length_$value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'content_length_$flag', originalFieldName: 'content_length' } },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    updater.mojom.PostRequestObserver_OnProgress_ParamsSpec, 'updater.mojom.PostRequestObserver_OnProgress_Params', [
+      mojo.internal.StructField('current', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-updater.mojom.PostRequestObserver_OnProgress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'updater.mojom.PostRequestObserver_OnProgress_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'current', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-updater.mojom.PostRequestObserver_OnRequestComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'updater.mojom.PostRequestObserver_OnRequestComplete_Params',
-      packedSize: 56,
-      fields: [
-        { name: 'response_body', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'net_error', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'header_etag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'header_x_cup_server_proof', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'header_set_cookie', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'xheader_retry_after_sec_$flag', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'xheader_retry_after_sec_$value', originalFieldName: 'xheader_retry_after_sec' } },
-        { name: 'xheader_retry_after_sec_$value', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'xheader_retry_after_sec_$flag', originalFieldName: 'xheader_retry_after_sec' } },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    updater.mojom.PostRequestObserver_OnRequestComplete_ParamsSpec, 'updater.mojom.PostRequestObserver_OnRequestComplete_Params', [
+      mojo.internal.StructField('response_body', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('net_error', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('header_etag', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('header_x_cup_server_proof', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('header_set_cookie', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('xheader_retry_after_sec_$flag', 44, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'xheader_retry_after_sec_$value', originalFieldName: 'xheader_retry_after_sec' }),
+      mojo.internal.StructField('xheader_retry_after_sec_$value', 32, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'xheader_retry_after_sec_$flag', originalFieldName: 'xheader_retry_after_sec' }),
+    ],
+    [[0, 56]]);
 
 updater.mojom.PostRequestObserverPendingReceiver = class {
   constructor(handle) {
@@ -146,106 +133,32 @@ updater.mojom.PostRequestObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnResponseStarted
-updater.mojom.PostRequestObserver_OnResponseStarted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'updater.mojom.PostRequestObserver.OnResponseStarted_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'http_status_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'content_length_$flag', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'content_length_$value', originalFieldName: 'content_length' } },
-        { name: 'content_length_$value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'content_length_$flag', originalFieldName: 'content_length' } },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnProgress
-updater.mojom.PostRequestObserver_OnProgress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'updater.mojom.PostRequestObserver.OnProgress_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'current', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnRequestComplete
-updater.mojom.PostRequestObserver_OnRequestComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'updater.mojom.PostRequestObserver.OnRequestComplete_Params',
-      packedSize: 56,
-      fields: [
-        { name: 'response_body', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'net_error', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'header_etag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'header_x_cup_server_proof', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'header_set_cookie', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'xheader_retry_after_sec_$flag', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'xheader_retry_after_sec_$value', originalFieldName: 'xheader_retry_after_sec' } },
-        { name: 'xheader_retry_after_sec_$value', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'xheader_retry_after_sec_$flag', originalFieldName: 'xheader_retry_after_sec' } },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
-
-// Legacy compatibility
 updater.mojom.PostRequestObserverPtr = updater.mojom.PostRequestObserverRemote;
 updater.mojom.PostRequestObserverRequest = updater.mojom.PostRequestObserverPendingReceiver;
 
 
 // Interface: FileDownloadObserver
-updater.mojom.FileDownloadObserver = {};
+mojo.internal.Struct(
+    updater.mojom.FileDownloadObserver_OnResponseStarted_ParamsSpec, 'updater.mojom.FileDownloadObserver_OnResponseStarted_Params', [
+      mojo.internal.StructField('http_status_code', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('content_length_$flag', 12, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'content_length_$value', originalFieldName: 'content_length' }),
+      mojo.internal.StructField('content_length_$value', 0, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'content_length_$flag', originalFieldName: 'content_length' }),
+    ],
+    [[0, 24]]);
 
-updater.mojom.FileDownloadObserver_OnResponseStarted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'updater.mojom.FileDownloadObserver_OnResponseStarted_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'http_status_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'content_length_$flag', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'content_length_$value', originalFieldName: 'content_length' } },
-        { name: 'content_length_$value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'content_length_$flag', originalFieldName: 'content_length' } },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    updater.mojom.FileDownloadObserver_OnProgress_ParamsSpec, 'updater.mojom.FileDownloadObserver_OnProgress_Params', [
+      mojo.internal.StructField('current', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-updater.mojom.FileDownloadObserver_OnProgress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'updater.mojom.FileDownloadObserver_OnProgress_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'current', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'updater.mojom.FileDownloadObserver_OnDownloadComplete_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'net_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'content_size_$flag', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'content_size_$value', originalFieldName: 'content_size' } },
-        { name: 'content_size_$value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'content_size_$flag', originalFieldName: 'content_size' } },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec, 'updater.mojom.FileDownloadObserver_OnDownloadComplete_Params', [
+      mojo.internal.StructField('net_error', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('content_size_$flag', 12, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'content_size_$value', originalFieldName: 'content_size' }),
+      mojo.internal.StructField('content_size_$value', 0, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'content_size_$flag', originalFieldName: 'content_size' }),
+    ],
+    [[0, 24]]);
 
 updater.mojom.FileDownloadObserverPendingReceiver = class {
   constructor(handle) {
@@ -318,89 +231,38 @@ updater.mojom.FileDownloadObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnResponseStarted
-updater.mojom.FileDownloadObserver_OnResponseStarted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'updater.mojom.FileDownloadObserver.OnResponseStarted_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'http_status_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'content_length_$flag', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'content_length_$value', originalFieldName: 'content_length' } },
-        { name: 'content_length_$value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'content_length_$flag', originalFieldName: 'content_length' } },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnProgress
-updater.mojom.FileDownloadObserver_OnProgress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'updater.mojom.FileDownloadObserver.OnProgress_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'current', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnDownloadComplete
-updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'updater.mojom.FileDownloadObserver.OnDownloadComplete_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'net_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'content_size_$flag', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'content_size_$value', originalFieldName: 'content_size' } },
-        { name: 'content_size_$value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'content_size_$flag', originalFieldName: 'content_size' } },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 updater.mojom.FileDownloadObserverPtr = updater.mojom.FileDownloadObserverRemote;
 updater.mojom.FileDownloadObserverRequest = updater.mojom.FileDownloadObserverPendingReceiver;
 
 
 // Interface: FetchService
-updater.mojom.FetchService = {};
+mojo.internal.Struct(
+    updater.mojom.FetchService_PostRequest_ParamsSpec, 'updater.mojom.FetchService_PostRequest_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('post_data', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('content_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('additional_headers', 24, 0, mojo.internal.Array(updater.mojom.HttpHeaderSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-updater.mojom.FetchService_PostRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'updater.mojom.FetchService_PostRequest_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'post_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'content_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'additional_headers', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(updater.mojom.HttpHeaderSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    updater.mojom.FetchService_PostRequest_ResponseParamsSpec, 'updater.mojom.FetchService_PostRequest_ResponseParams', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceRequest(updater.mojom.PostRequestObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-updater.mojom.FetchService_DownloadToFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'updater.mojom.FetchService_DownloadToFile_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'output_file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    updater.mojom.FetchService_DownloadToFile_ParamsSpec, 'updater.mojom.FetchService_DownloadToFile_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('output_file', 8, 0, mojo_base.mojom.FileSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    updater.mojom.FetchService_DownloadToFile_ResponseParamsSpec, 'updater.mojom.FetchService_DownloadToFile_ResponseParams', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceRequest(updater.mojom.FileDownloadObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 updater.mojom.FetchServicePendingReceiver = class {
   constructor(handle) {
@@ -464,65 +326,6 @@ updater.mojom.FetchService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for PostRequest
-updater.mojom.FetchService_PostRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'updater.mojom.FetchService.PostRequest_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'post_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'content_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'additional_headers', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(updater.mojom.HttpHeaderSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-updater.mojom.FetchService_PostRequest_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'updater.mojom.FetchService.PostRequest_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(updater.mojom.PostRequestObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DownloadToFile
-updater.mojom.FetchService_DownloadToFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'updater.mojom.FetchService.DownloadToFile_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'output_file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-updater.mojom.FetchService_DownloadToFile_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'updater.mojom.FetchService.DownloadToFile_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(updater.mojom.FileDownloadObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 updater.mojom.FetchServicePtr = updater.mojom.FetchServiceRemote;
 updater.mojom.FetchServiceRequest = updater.mojom.FetchServicePendingReceiver;
 

@@ -8,6 +8,7 @@
 var cc = cc || {};
 cc.mojom = cc.mojom || {};
 
+cc.mojom.LayerTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: LayerType
 cc.mojom.LayerType = {
@@ -27,4 +28,3 @@ cc.mojom.LayerType = {
   kVideo: 13,
   kViewTransitionContent: 14,
 };
-cc.mojom.LayerTypeSpec = { $: mojo.internal.Enum() };

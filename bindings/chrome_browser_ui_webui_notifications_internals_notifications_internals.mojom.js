@@ -8,22 +8,16 @@
 var notifications_internals = notifications_internals || {};
 notifications_internals.mojom = notifications_internals.mojom || {};
 
+notifications_internals.mojom.PageHandler = {};
+notifications_internals.mojom.PageHandler.$interfaceName = 'notifications_internals.mojom.PageHandler';
+notifications_internals.mojom.PageHandler_ScheduleNotification_ParamsSpec = { $: {} };
 
 // Interface: PageHandler
-notifications_internals.mojom.PageHandler = {};
-
-notifications_internals.mojom.PageHandler_ScheduleNotification_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'notifications_internals.mojom.PageHandler_ScheduleNotification_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    notifications_internals.mojom.PageHandler_ScheduleNotification_ParamsSpec, 'notifications_internals.mojom.PageHandler_ScheduleNotification_Params', [
+      mojo.internal.StructField('feature', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 notifications_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -78,21 +72,6 @@ notifications_internals.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ScheduleNotification
-notifications_internals.mojom.PageHandler_ScheduleNotification_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'notifications_internals.mojom.PageHandler.ScheduleNotification_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 notifications_internals.mojom.PageHandlerPtr = notifications_internals.mojom.PageHandlerRemote;
 notifications_internals.mojom.PageHandlerRequest = notifications_internals.mojom.PageHandlerPendingReceiver;
 

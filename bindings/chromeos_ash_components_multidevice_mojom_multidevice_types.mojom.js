@@ -9,27 +9,30 @@ var ash = ash || {};
 ash.multidevice = ash.multidevice || {};
 ash.multidevice.mojom = ash.multidevice.mojom || {};
 
+ash.multidevice.mojom.SoftwareFeatureSpec = { $: mojo.internal.Enum() };
+ash.multidevice.mojom.SoftwareFeatureStateSpec = { $: mojo.internal.Enum() };
+ash.multidevice.mojom.BeaconSeedSpec = { $: {} };
+ash.multidevice.mojom.RemoteDeviceSpec = { $: {} };
 
 // Enum: SoftwareFeature
 ash.multidevice.mojom.SoftwareFeature = {
-  BETTER_TOGETHER_HOST: 0,
-  BETTER_TOGETHER_CLIENT: 1,
-  EASY_UNLOCK_HOST: 2,
-  EASY_UNLOCK_CLIENT: 3,
-  MAGIC_TETHER_HOST: 4,
-  MAGIC_TETHER_CLIENT: 5,
-  SMS_CONNECT_HOST: 6,
-  SMS_CONNECT_CLIENT: 7,
-  PHONE_HUB_HOST: 8,
-  PHONE_HUB_CLIENT: 9,
-  WIFI_SYNC_HOST: 10,
-  WIFI_SYNC_CLIENT: 11,
-  ECHE_HOST: 12,
-  ECHE_CLIENT: 13,
-  PHONE_HUB_CAMERA_ROLL_HOST: 14,
-  PHONE_HUB_CAMERA_ROLL_CLIENT: 15,
+  BETTER_TOGETHER_HOST: 1,
+  BETTER_TOGETHER_CLIENT: 2,
+  EASY_UNLOCK_HOST: 3,
+  EASY_UNLOCK_CLIENT: 4,
+  MAGIC_TETHER_HOST: 5,
+  MAGIC_TETHER_CLIENT: 6,
+  SMS_CONNECT_HOST: 7,
+  SMS_CONNECT_CLIENT: 8,
+  PHONE_HUB_HOST: 9,
+  PHONE_HUB_CLIENT: 10,
+  WIFI_SYNC_HOST: 11,
+  WIFI_SYNC_CLIENT: 12,
+  ECHE_HOST: 13,
+  ECHE_CLIENT: 14,
+  PHONE_HUB_CAMERA_ROLL_HOST: 15,
+  PHONE_HUB_CAMERA_ROLL_CLIENT: 16,
 };
-ash.multidevice.mojom.SoftwareFeatureSpec = { $: mojo.internal.Enum() };
 
 // Enum: SoftwareFeatureState
 ash.multidevice.mojom.SoftwareFeatureState = {
@@ -37,43 +40,28 @@ ash.multidevice.mojom.SoftwareFeatureState = {
   kSupported: 1,
   kEnabled: 2,
 };
-ash.multidevice.mojom.SoftwareFeatureStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: BeaconSeed
-ash.multidevice.mojom.BeaconSeedSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.multidevice.mojom.BeaconSeed',
-      packedSize: 32,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'start_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'end_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.multidevice.mojom.BeaconSeedSpec, 'ash.multidevice.mojom.BeaconSeed', [
+      mojo.internal.StructField('data', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('start_time', 8, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('end_time', 16, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: RemoteDevice
-ash.multidevice.mojom.RemoteDeviceSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.multidevice.mojom.RemoteDevice',
-      packedSize: 88,
-      fields: [
-        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'user_email', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'instance_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'device_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pii_free_device_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'persistent_symmetric_key', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'last_update_time', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'software_features', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Map(ash.multidevice.mojom.SoftwareFeatureSpec, ash.multidevice.mojom.SoftwareFeatureStateSpec, false), nullable: false, minVersion: 0 },
-        { name: 'beacon_seeds', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array(ash.multidevice.mojom.BeaconSeedSpec, false), nullable: false, minVersion: 0 },
-        { name: 'bluetooth_public_address', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 88}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.multidevice.mojom.RemoteDeviceSpec, 'ash.multidevice.mojom.RemoteDevice', [
+      mojo.internal.StructField('device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('user_email', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('instance_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('device_name', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('pii_free_device_name', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('persistent_symmetric_key', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('last_update_time', 48, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('software_features', 56, 0, mojo.internal.Map(ash.multidevice.mojom.SoftwareFeatureSpec, ash.multidevice.mojom.SoftwareFeatureStateSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('beacon_seeds', 64, 0, mojo.internal.Array(ash.multidevice.mojom.BeaconSeedSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('bluetooth_public_address', 72, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 88]]);

@@ -8,23 +8,17 @@
 var cc = cc || {};
 cc.mojom = cc.mojom || {};
 
+cc.mojom.BrowserControlsParamsSpec = { $: {} };
 
 // Struct: BrowserControlsParams
-cc.mojom.BrowserControlsParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cc.mojom.BrowserControlsParams',
-      packedSize: 32,
-      fields: [
-        { name: 'top_controls_height', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'top_controls_min_height', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'bottom_controls_height', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'bottom_controls_min_height', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'animate_browser_controls_height_changes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'browser_controls_shrink_blink_size', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'only_expand_top_controls_at_page_top', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cc.mojom.BrowserControlsParamsSpec, 'cc.mojom.BrowserControlsParams', [
+      mojo.internal.StructField('top_controls_height', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('top_controls_min_height', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('bottom_controls_height', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('bottom_controls_min_height', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('animate_browser_controls_height_changes', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('browser_controls_shrink_blink_size', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('only_expand_top_controls_at_page_top', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);

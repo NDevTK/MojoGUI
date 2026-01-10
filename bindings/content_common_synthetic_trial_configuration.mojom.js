@@ -8,50 +8,32 @@
 var content = content || {};
 content.mojom = content.mojom || {};
 
+content.mojom.SyntheticTrialGroupSpec = { $: {} };
+content.mojom.SyntheticTrialConfiguration = {};
+content.mojom.SyntheticTrialConfiguration.$interfaceName = 'content.mojom.SyntheticTrialConfiguration';
+content.mojom.SyntheticTrialConfiguration_AddOrUpdateSyntheticTrialGroups_ParamsSpec = { $: {} };
+content.mojom.SyntheticTrialConfiguration_RemoveSyntheticTrialGroups_ParamsSpec = { $: {} };
 
 // Struct: SyntheticTrialGroup
-content.mojom.SyntheticTrialGroupSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.SyntheticTrialGroup',
-      packedSize: 24,
-      fields: [
-        { name: 'trial_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'group_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.SyntheticTrialGroupSpec, 'content.mojom.SyntheticTrialGroup', [
+      mojo.internal.StructField('trial_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('group_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: SyntheticTrialConfiguration
-content.mojom.SyntheticTrialConfiguration = {};
+mojo.internal.Struct(
+    content.mojom.SyntheticTrialConfiguration_AddOrUpdateSyntheticTrialGroups_ParamsSpec, 'content.mojom.SyntheticTrialConfiguration_AddOrUpdateSyntheticTrialGroups_Params', [
+      mojo.internal.StructField('groups', 0, 0, mojo.internal.Array(content.mojom.SyntheticTrialGroupSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.SyntheticTrialConfiguration_AddOrUpdateSyntheticTrialGroups_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.SyntheticTrialConfiguration_AddOrUpdateSyntheticTrialGroups_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'groups', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(content.mojom.SyntheticTrialGroupSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-content.mojom.SyntheticTrialConfiguration_RemoveSyntheticTrialGroups_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.SyntheticTrialConfiguration_RemoveSyntheticTrialGroups_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'groups', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(content.mojom.SyntheticTrialGroupSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.SyntheticTrialConfiguration_RemoveSyntheticTrialGroups_ParamsSpec, 'content.mojom.SyntheticTrialConfiguration_RemoveSyntheticTrialGroups_Params', [
+      mojo.internal.StructField('groups', 0, 0, mojo.internal.Array(content.mojom.SyntheticTrialGroupSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 content.mojom.SyntheticTrialConfigurationPendingReceiver = class {
   constructor(handle) {
@@ -115,35 +97,6 @@ content.mojom.SyntheticTrialConfiguration.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddOrUpdateSyntheticTrialGroups
-content.mojom.SyntheticTrialConfiguration_AddOrUpdateSyntheticTrialGroups_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.SyntheticTrialConfiguration.AddOrUpdateSyntheticTrialGroups_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'groups', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(content.mojom.SyntheticTrialGroupSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RemoveSyntheticTrialGroups
-content.mojom.SyntheticTrialConfiguration_RemoveSyntheticTrialGroups_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.SyntheticTrialConfiguration.RemoveSyntheticTrialGroups_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'groups', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(content.mojom.SyntheticTrialGroupSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 content.mojom.SyntheticTrialConfigurationPtr = content.mojom.SyntheticTrialConfigurationRemote;
 content.mojom.SyntheticTrialConfigurationRequest = content.mojom.SyntheticTrialConfigurationPendingReceiver;
 

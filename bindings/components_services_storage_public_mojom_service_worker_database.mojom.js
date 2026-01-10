@@ -7,6 +7,7 @@
 // Module namespace
 var storage = storage || {};
 storage.mojom = storage.mojom || {};
+var services = services || {};
 var blink = blink || {};
 var blink = blink || {};
 var blink = blink || {};
@@ -19,6 +20,9 @@ var blink = blink || {};
 var blink = blink || {};
 var url = url || {};
 
+storage.mojom.ServiceWorkerDatabaseStatusSpec = { $: mojo.internal.Enum() };
+storage.mojom.ServiceWorkerRegistrationDataSpec = { $: {} };
+storage.mojom.ServiceWorkerResourceRecordSpec = { $: {} };
 
 // Enum: ServiceWorkerDatabaseStatus
 storage.mojom.ServiceWorkerDatabaseStatus = {
@@ -31,52 +35,37 @@ storage.mojom.ServiceWorkerDatabaseStatus = {
   kErrorDisabled: 6,
   kErrorStorageDisconnected: 7,
 };
-storage.mojom.ServiceWorkerDatabaseStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: ServiceWorkerRegistrationData
-storage.mojom.ServiceWorkerRegistrationDataSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.ServiceWorkerRegistrationData',
-      packedSize: 128,
-      fields: [
-        { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'scope', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'key', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
-        { name: 'script', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'script_type', packedOffset: 104, packedBitOffset: 0, type: blink.mojom.ScriptTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'version_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'is_active', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'last_update_check', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'script_response_time', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'origin_trial_tokens', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.Array(mojo.internal.String, false), false), nullable: true, minVersion: 0 },
-        { name: 'navigation_preload_state', packedOffset: 64, packedBitOffset: 0, type: blink.mojom.NavigationPreloadStateSpec, nullable: false, minVersion: 0 },
-        { name: 'used_features', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.WebFeatureSpec, false), nullable: false, minVersion: 0 },
-        { name: 'resources_total_size_bytes', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'policy_container_policies', packedOffset: 88, packedBitOffset: 0, type: blink.mojom.PolicyContainerPoliciesSpec, nullable: true, minVersion: 0 },
-        { name: 'ancestor_frame_type', packedOffset: 108, packedBitOffset: 0, type: blink.mojom.AncestorFrameTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'router_rules', packedOffset: 96, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterRulesSpec, nullable: true, minVersion: 0 },
-        { name: 'has_hid_event_handlers', packedOffset: 112, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_usb_event_handlers', packedOffset: 112, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 128}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.ServiceWorkerRegistrationDataSpec, 'storage.mojom.ServiceWorkerRegistrationData', [
+      mojo.internal.StructField('registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('scope', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('key', 16, 0, blink.mojom.StorageKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('script', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('script_type', 104, 0, blink.mojom.ScriptTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('version_id', 32, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('is_active', 112, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('last_update_check', 40, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('script_response_time', 48, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('origin_trial_tokens', 56, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Array(mojo.internal.String, false), false), null, true, 0, undefined),
+      mojo.internal.StructField('navigation_preload_state', 64, 0, blink.mojom.NavigationPreloadStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('used_features', 72, 0, mojo.internal.Array(blink.mojom.WebFeatureSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('resources_total_size_bytes', 80, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('policy_container_policies', 88, 0, blink.mojom.PolicyContainerPoliciesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('ancestor_frame_type', 108, 0, blink.mojom.AncestorFrameTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('router_rules', 96, 0, blink.mojom.ServiceWorkerRouterRulesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('has_hid_event_handlers', 112, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_usb_event_handlers', 112, 2, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 128]]);
 
 // Struct: ServiceWorkerResourceRecord
-storage.mojom.ServiceWorkerResourceRecordSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.ServiceWorkerResourceRecord',
-      packedSize: 40,
-      fields: [
-        { name: 'resource_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'size_bytes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'sha256_checksum', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.ServiceWorkerResourceRecordSpec, 'storage.mojom.ServiceWorkerResourceRecord', [
+      mojo.internal.StructField('resource_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('size_bytes', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('sha256_checksum', 24, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 40]]);

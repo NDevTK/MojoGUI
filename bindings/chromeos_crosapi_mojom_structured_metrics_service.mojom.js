@@ -7,23 +7,18 @@
 // Module namespace
 var crosapi = crosapi || {};
 crosapi.mojom = crosapi.mojom || {};
+var components = components || {};
 
+crosapi.mojom.StructuredMetricsService = {};
+crosapi.mojom.StructuredMetricsService.$interfaceName = 'crosapi.mojom.StructuredMetricsService';
+crosapi.mojom.StructuredMetricsService_Record_ParamsSpec = { $: {} };
 
 // Interface: StructuredMetricsService
-crosapi.mojom.StructuredMetricsService = {};
-
-crosapi.mojom.StructuredMetricsService_Record_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.StructuredMetricsService_Record_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'events', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(metrics.structured.mojom.EventSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.StructuredMetricsService_Record_ParamsSpec, 'crosapi.mojom.StructuredMetricsService_Record_Params', [
+      mojo.internal.StructField('events', 0, 0, mojo.internal.Array(metrics.structured.mojom.EventSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 crosapi.mojom.StructuredMetricsServicePendingReceiver = class {
   constructor(handle) {
@@ -78,21 +73,6 @@ crosapi.mojom.StructuredMetricsService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Record
-crosapi.mojom.StructuredMetricsService_Record_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.StructuredMetricsService.Record_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'events', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(metrics.structured.mojom.EventSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 crosapi.mojom.StructuredMetricsServicePtr = crosapi.mojom.StructuredMetricsServiceRemote;
 crosapi.mojom.StructuredMetricsServiceRequest = crosapi.mojom.StructuredMetricsServicePendingReceiver;
 

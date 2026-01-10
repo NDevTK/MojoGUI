@@ -9,6 +9,24 @@ var ash = ash || {};
 ash.screens_oobe = ash.screens_oobe || {};
 ash.screens_oobe.mojom = ash.screens_oobe.mojom || {};
 
+ash.screens_oobe.mojom.ConsumerUpdateStepSpec = { $: mojo.internal.Enum() };
+ash.screens_oobe.mojom.ConsumerUpdatePageHandler = {};
+ash.screens_oobe.mojom.ConsumerUpdatePageHandler.$interfaceName = 'ash.screens_oobe.mojom.ConsumerUpdatePageHandler';
+ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnDeclineCellularClicked_ParamsSpec = { $: {} };
+ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnAcceptCellularClicked_ParamsSpec = { $: {} };
+ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnSkipClicked_ParamsSpec = { $: {} };
+ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnBackClicked_ParamsSpec = { $: {} };
+ash.screens_oobe.mojom.ConsumerUpdatePage = {};
+ash.screens_oobe.mojom.ConsumerUpdatePage.$interfaceName = 'ash.screens_oobe.mojom.ConsumerUpdatePage';
+ash.screens_oobe.mojom.ConsumerUpdatePage_ShowSkipButton_ParamsSpec = { $: {} };
+ash.screens_oobe.mojom.ConsumerUpdatePage_SetLowBatteryWarningVisible_ParamsSpec = { $: {} };
+ash.screens_oobe.mojom.ConsumerUpdatePage_SetScreenStep_ParamsSpec = { $: {} };
+ash.screens_oobe.mojom.ConsumerUpdatePage_SetUpdateStatusMessage_ParamsSpec = { $: {} };
+ash.screens_oobe.mojom.ConsumerUpdatePage_SetAutoTransition_ParamsSpec = { $: {} };
+ash.screens_oobe.mojom.PackagedLicensePageHandler = {};
+ash.screens_oobe.mojom.PackagedLicensePageHandler.$interfaceName = 'ash.screens_oobe.mojom.PackagedLicensePageHandler';
+ash.screens_oobe.mojom.PackagedLicensePageHandler_OnDontEnrollClicked_ParamsSpec = { $: {} };
+ash.screens_oobe.mojom.PackagedLicensePageHandler_OnEnrollClicked_ParamsSpec = { $: {} };
 
 // Enum: ConsumerUpdateStep
 ash.screens_oobe.mojom.ConsumerUpdateStep = {
@@ -18,58 +36,27 @@ ash.screens_oobe.mojom.ConsumerUpdateStep = {
   kManualReboot: 3,
   kCellularPermission: 4,
 };
-ash.screens_oobe.mojom.ConsumerUpdateStepSpec = { $: mojo.internal.Enum() };
 
 // Interface: ConsumerUpdatePageHandler
-ash.screens_oobe.mojom.ConsumerUpdatePageHandler = {};
+mojo.internal.Struct(
+    ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnDeclineCellularClicked_ParamsSpec, 'ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnDeclineCellularClicked_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnDeclineCellularClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnDeclineCellularClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnAcceptCellularClicked_ParamsSpec, 'ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnAcceptCellularClicked_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnAcceptCellularClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnAcceptCellularClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnSkipClicked_ParamsSpec, 'ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnSkipClicked_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnSkipClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnSkipClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnBackClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnBackClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnBackClicked_ParamsSpec, 'ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnBackClicked_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 ash.screens_oobe.mojom.ConsumerUpdatePageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -151,131 +138,41 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnDeclineCellularClicked
-ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnDeclineCellularClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_oobe.mojom.ConsumerUpdatePageHandler.OnDeclineCellularClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnAcceptCellularClicked
-ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnAcceptCellularClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_oobe.mojom.ConsumerUpdatePageHandler.OnAcceptCellularClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnSkipClicked
-ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnSkipClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_oobe.mojom.ConsumerUpdatePageHandler.OnSkipClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnBackClicked
-ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnBackClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_oobe.mojom.ConsumerUpdatePageHandler.OnBackClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.screens_oobe.mojom.ConsumerUpdatePageHandlerPtr = ash.screens_oobe.mojom.ConsumerUpdatePageHandlerRemote;
 ash.screens_oobe.mojom.ConsumerUpdatePageHandlerRequest = ash.screens_oobe.mojom.ConsumerUpdatePageHandlerPendingReceiver;
 
 
 // Interface: ConsumerUpdatePage
-ash.screens_oobe.mojom.ConsumerUpdatePage = {};
+mojo.internal.Struct(
+    ash.screens_oobe.mojom.ConsumerUpdatePage_ShowSkipButton_ParamsSpec, 'ash.screens_oobe.mojom.ConsumerUpdatePage_ShowSkipButton_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.screens_oobe.mojom.ConsumerUpdatePage_ShowSkipButton_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_oobe.mojom.ConsumerUpdatePage_ShowSkipButton_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_oobe.mojom.ConsumerUpdatePage_SetLowBatteryWarningVisible_ParamsSpec, 'ash.screens_oobe.mojom.ConsumerUpdatePage_SetLowBatteryWarningVisible_Params', [
+      mojo.internal.StructField('visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.screens_oobe.mojom.ConsumerUpdatePage_SetLowBatteryWarningVisible_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_oobe.mojom.ConsumerUpdatePage_SetLowBatteryWarningVisible_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_oobe.mojom.ConsumerUpdatePage_SetScreenStep_ParamsSpec, 'ash.screens_oobe.mojom.ConsumerUpdatePage_SetScreenStep_Params', [
+      mojo.internal.StructField('step', 0, 0, ash.screens_oobe.mojom.ConsumerUpdateStepSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.screens_oobe.mojom.ConsumerUpdatePage_SetScreenStep_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_oobe.mojom.ConsumerUpdatePage_SetScreenStep_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'step', packedOffset: 0, packedBitOffset: 0, type: ash.screens_oobe.mojom.ConsumerUpdateStepSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_oobe.mojom.ConsumerUpdatePage_SetUpdateStatusMessage_ParamsSpec, 'ash.screens_oobe.mojom.ConsumerUpdatePage_SetUpdateStatusMessage_Params', [
+      mojo.internal.StructField('percent', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('percent_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('time_left_message', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-ash.screens_oobe.mojom.ConsumerUpdatePage_SetUpdateStatusMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_oobe.mojom.ConsumerUpdatePage_SetUpdateStatusMessage_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'percent_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'time_left_message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-ash.screens_oobe.mojom.ConsumerUpdatePage_SetAutoTransition_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_oobe.mojom.ConsumerUpdatePage_SetAutoTransition_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_oobe.mojom.ConsumerUpdatePage_SetAutoTransition_ParamsSpec, 'ash.screens_oobe.mojom.ConsumerUpdatePage_SetAutoTransition_Params', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.screens_oobe.mojom.ConsumerUpdatePagePendingReceiver = class {
   constructor(handle) {
@@ -366,108 +263,20 @@ ash.screens_oobe.mojom.ConsumerUpdatePage.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ShowSkipButton
-ash.screens_oobe.mojom.ConsumerUpdatePage_ShowSkipButton_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_oobe.mojom.ConsumerUpdatePage.ShowSkipButton_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetLowBatteryWarningVisible
-ash.screens_oobe.mojom.ConsumerUpdatePage_SetLowBatteryWarningVisible_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_oobe.mojom.ConsumerUpdatePage.SetLowBatteryWarningVisible_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetScreenStep
-ash.screens_oobe.mojom.ConsumerUpdatePage_SetScreenStep_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_oobe.mojom.ConsumerUpdatePage.SetScreenStep_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'step', packedOffset: 0, packedBitOffset: 0, type: ash.screens_oobe.mojom.ConsumerUpdateStepSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetUpdateStatusMessage
-ash.screens_oobe.mojom.ConsumerUpdatePage_SetUpdateStatusMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_oobe.mojom.ConsumerUpdatePage.SetUpdateStatusMessage_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'percent_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'time_left_message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for SetAutoTransition
-ash.screens_oobe.mojom.ConsumerUpdatePage_SetAutoTransition_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_oobe.mojom.ConsumerUpdatePage.SetAutoTransition_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.screens_oobe.mojom.ConsumerUpdatePagePtr = ash.screens_oobe.mojom.ConsumerUpdatePageRemote;
 ash.screens_oobe.mojom.ConsumerUpdatePageRequest = ash.screens_oobe.mojom.ConsumerUpdatePagePendingReceiver;
 
 
 // Interface: PackagedLicensePageHandler
-ash.screens_oobe.mojom.PackagedLicensePageHandler = {};
+mojo.internal.Struct(
+    ash.screens_oobe.mojom.PackagedLicensePageHandler_OnDontEnrollClicked_ParamsSpec, 'ash.screens_oobe.mojom.PackagedLicensePageHandler_OnDontEnrollClicked_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.screens_oobe.mojom.PackagedLicensePageHandler_OnDontEnrollClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_oobe.mojom.PackagedLicensePageHandler_OnDontEnrollClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.screens_oobe.mojom.PackagedLicensePageHandler_OnEnrollClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_oobe.mojom.PackagedLicensePageHandler_OnEnrollClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_oobe.mojom.PackagedLicensePageHandler_OnEnrollClicked_ParamsSpec, 'ash.screens_oobe.mojom.PackagedLicensePageHandler_OnEnrollClicked_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 ash.screens_oobe.mojom.PackagedLicensePageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -531,33 +340,6 @@ ash.screens_oobe.mojom.PackagedLicensePageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnDontEnrollClicked
-ash.screens_oobe.mojom.PackagedLicensePageHandler_OnDontEnrollClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_oobe.mojom.PackagedLicensePageHandler.OnDontEnrollClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnEnrollClicked
-ash.screens_oobe.mojom.PackagedLicensePageHandler_OnEnrollClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_oobe.mojom.PackagedLicensePageHandler.OnEnrollClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.screens_oobe.mojom.PackagedLicensePageHandlerPtr = ash.screens_oobe.mojom.PackagedLicensePageHandlerRemote;
 ash.screens_oobe.mojom.PackagedLicensePageHandlerRequest = ash.screens_oobe.mojom.PackagedLicensePageHandlerPendingReceiver;
 

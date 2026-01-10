@@ -8,23 +8,17 @@
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
 
+viz.mojom.VSyncParameterObserver = {};
+viz.mojom.VSyncParameterObserver.$interfaceName = 'viz.mojom.VSyncParameterObserver';
+viz.mojom.VSyncParameterObserver_OnUpdateVSyncParameters_ParamsSpec = { $: {} };
 
 // Interface: VSyncParameterObserver
-viz.mojom.VSyncParameterObserver = {};
-
-viz.mojom.VSyncParameterObserver_OnUpdateVSyncParameters_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.VSyncParameterObserver_OnUpdateVSyncParameters_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'timebase', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'interval', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.VSyncParameterObserver_OnUpdateVSyncParameters_ParamsSpec, 'viz.mojom.VSyncParameterObserver_OnUpdateVSyncParameters_Params', [
+      mojo.internal.StructField('timebase', 0, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('interval', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 viz.mojom.VSyncParameterObserverPendingReceiver = class {
   constructor(handle) {
@@ -79,22 +73,6 @@ viz.mojom.VSyncParameterObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnUpdateVSyncParameters
-viz.mojom.VSyncParameterObserver_OnUpdateVSyncParameters_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.VSyncParameterObserver.OnUpdateVSyncParameters_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'timebase', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'interval', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 viz.mojom.VSyncParameterObserverPtr = viz.mojom.VSyncParameterObserverRemote;
 viz.mojom.VSyncParameterObserverRequest = viz.mojom.VSyncParameterObserverPendingReceiver;
 

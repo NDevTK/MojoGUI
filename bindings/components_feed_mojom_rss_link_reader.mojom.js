@@ -9,36 +9,31 @@ var feed = feed || {};
 feed.mojom = feed.mojom || {};
 var url = url || {};
 
+feed.mojom.RssLinksSpec = { $: {} };
+feed.mojom.RssLinkReader = {};
+feed.mojom.RssLinkReader.$interfaceName = 'feed.mojom.RssLinkReader';
+feed.mojom.RssLinkReader_GetRssLinks_ParamsSpec = { $: {} };
+feed.mojom.RssLinkReader_GetRssLinks_ResponseParamsSpec = { $: {} };
 
 // Struct: RssLinks
-feed.mojom.RssLinksSpec = {
-  $: {
-    structSpec: {
-      name: 'feed.mojom.RssLinks',
-      packedSize: 24,
-      fields: [
-        { name: 'page_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'links', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    feed.mojom.RssLinksSpec, 'feed.mojom.RssLinks', [
+      mojo.internal.StructField('page_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('links', 8, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: RssLinkReader
-feed.mojom.RssLinkReader = {};
+mojo.internal.Struct(
+    feed.mojom.RssLinkReader_GetRssLinks_ParamsSpec, 'feed.mojom.RssLinkReader_GetRssLinks_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-feed.mojom.RssLinkReader_GetRssLinks_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'feed.mojom.RssLinkReader_GetRssLinks_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    feed.mojom.RssLinkReader_GetRssLinks_ResponseParamsSpec, 'feed.mojom.RssLinkReader_GetRssLinks_ResponseParams', [
+      mojo.internal.StructField('rss_links', 0, 0, feed.mojom.RssLinksSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 feed.mojom.RssLinkReaderPendingReceiver = class {
   constructor(handle) {
@@ -93,33 +88,6 @@ feed.mojom.RssLinkReader.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetRssLinks
-feed.mojom.RssLinkReader_GetRssLinks_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'feed.mojom.RssLinkReader.GetRssLinks_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-feed.mojom.RssLinkReader_GetRssLinks_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'feed.mojom.RssLinkReader.GetRssLinks_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'rss_links', packedOffset: 0, packedBitOffset: 0, type: feed.mojom.RssLinksSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 feed.mojom.RssLinkReaderPtr = feed.mojom.RssLinkReaderRemote;
 feed.mojom.RssLinkReaderRequest = feed.mojom.RssLinkReaderPendingReceiver;
 

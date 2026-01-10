@@ -8,6 +8,18 @@
 var reload_button = reload_button || {};
 reload_button.mojom = reload_button.mojom || {};
 
+reload_button.mojom.ClickDispositionFlagSpec = { $: mojo.internal.Enum() };
+reload_button.mojom.PageHandlerFactory = {};
+reload_button.mojom.PageHandlerFactory.$interfaceName = 'reload_button.mojom.PageHandlerFactory';
+reload_button.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+reload_button.mojom.PageHandler = {};
+reload_button.mojom.PageHandler.$interfaceName = 'reload_button.mojom.PageHandler';
+reload_button.mojom.PageHandler_Reload_ParamsSpec = { $: {} };
+reload_button.mojom.PageHandler_StopReload_ParamsSpec = { $: {} };
+reload_button.mojom.PageHandler_ShowContextMenu_ParamsSpec = { $: {} };
+reload_button.mojom.Page = {};
+reload_button.mojom.Page.$interfaceName = 'reload_button.mojom.Page';
+reload_button.mojom.Page_SetReloadButtonState_ParamsSpec = { $: {} };
 
 // Enum: ClickDispositionFlag
 reload_button.mojom.ClickDispositionFlag = {
@@ -15,24 +27,14 @@ reload_button.mojom.ClickDispositionFlag = {
   kAltKeyDown: 1,
   kMetaKeyDown: 2,
 };
-reload_button.mojom.ClickDispositionFlagSpec = { $: mojo.internal.Enum() };
 
 // Interface: PageHandlerFactory
-reload_button.mojom.PageHandlerFactory = {};
-
-reload_button.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'reload_button.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(reload_button.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(reload_button.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    reload_button.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'reload_button.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(reload_button.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(reload_button.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 reload_button.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -87,68 +89,29 @@ reload_button.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-reload_button.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'reload_button.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(reload_button.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(reload_button.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 reload_button.mojom.PageHandlerFactoryPtr = reload_button.mojom.PageHandlerFactoryRemote;
 reload_button.mojom.PageHandlerFactoryRequest = reload_button.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-reload_button.mojom.PageHandler = {};
+mojo.internal.Struct(
+    reload_button.mojom.PageHandler_Reload_ParamsSpec, 'reload_button.mojom.PageHandler_Reload_Params', [
+      mojo.internal.StructField('ignore_cache', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('flags', 0, 0, mojo.internal.Array(reload_button.mojom.ClickDispositionFlagSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-reload_button.mojom.PageHandler_Reload_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'reload_button.mojom.PageHandler_Reload_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'ignore_cache', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'flags', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(reload_button.mojom.ClickDispositionFlagSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    reload_button.mojom.PageHandler_StopReload_ParamsSpec, 'reload_button.mojom.PageHandler_StopReload_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-reload_button.mojom.PageHandler_StopReload_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'reload_button.mojom.PageHandler_StopReload_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-reload_button.mojom.PageHandler_ShowContextMenu_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'reload_button.mojom.PageHandler_ShowContextMenu_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'offset_x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'offset_y', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    reload_button.mojom.PageHandler_ShowContextMenu_ParamsSpec, 'reload_button.mojom.PageHandler_ShowContextMenu_Params', [
+      mojo.internal.StructField('offset_x', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('offset_y', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 reload_button.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -221,70 +184,17 @@ reload_button.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Reload
-reload_button.mojom.PageHandler_Reload_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'reload_button.mojom.PageHandler.Reload_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'ignore_cache', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'flags', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(reload_button.mojom.ClickDispositionFlagSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for StopReload
-reload_button.mojom.PageHandler_StopReload_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'reload_button.mojom.PageHandler.StopReload_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for ShowContextMenu
-reload_button.mojom.PageHandler_ShowContextMenu_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'reload_button.mojom.PageHandler.ShowContextMenu_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'offset_x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'offset_y', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 reload_button.mojom.PageHandlerPtr = reload_button.mojom.PageHandlerRemote;
 reload_button.mojom.PageHandlerRequest = reload_button.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-reload_button.mojom.Page = {};
-
-reload_button.mojom.Page_SetReloadButtonState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'reload_button.mojom.Page_SetReloadButtonState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_loading', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_menu_enabled', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    reload_button.mojom.Page_SetReloadButtonState_ParamsSpec, 'reload_button.mojom.Page_SetReloadButtonState_Params', [
+      mojo.internal.StructField('is_loading', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_menu_enabled', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 reload_button.mojom.PagePendingReceiver = class {
   constructor(handle) {
@@ -339,22 +249,6 @@ reload_button.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetReloadButtonState
-reload_button.mojom.Page_SetReloadButtonState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'reload_button.mojom.Page.SetReloadButtonState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_loading', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_menu_enabled', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 reload_button.mojom.PagePtr = reload_button.mojom.PageRemote;
 reload_button.mojom.PageRequest = reload_button.mojom.PagePendingReceiver;
 

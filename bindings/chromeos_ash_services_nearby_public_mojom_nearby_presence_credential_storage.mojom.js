@@ -9,63 +9,72 @@ var ash = ash || {};
 ash.nearby = ash.nearby || {};
 ash.nearby.presence = ash.nearby.presence || {};
 ash.nearby.presence.mojom = ash.nearby.presence.mojom || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var services = services || {};
 
+ash.nearby.presence.mojom.NearbyPresenceCredentialStorage = {};
+ash.nearby.presence.mojom.NearbyPresenceCredentialStorage.$interfaceName = 'ash.nearby.presence.mojom.NearbyPresenceCredentialStorage';
+ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ParamsSpec = { $: {} };
+ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ResponseParamsSpec = { $: {} };
+ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ParamsSpec = { $: {} };
+ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ResponseParamsSpec = { $: {} };
+ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ParamsSpec = { $: {} };
+ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ResponseParamsSpec = { $: {} };
+ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ParamsSpec = { $: {} };
+ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ResponseParamsSpec = { $: {} };
 
 // Interface: NearbyPresenceCredentialStorage
-ash.nearby.presence.mojom.NearbyPresenceCredentialStorage = {};
+mojo.internal.Struct(
+    ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ParamsSpec, 'ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_Params', [
+      mojo.internal.StructField('local_credentials', 0, 0, mojo.internal.Array(ash.nearby.presence.mojom.LocalCredentialSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('shared_credentials', 8, 0, mojo.internal.Array(ash.nearby.presence.mojom.SharedCredentialSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('public_credential_type', 16, 0, ash.nearby.presence.mojom.PublicCredentialTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'local_credentials', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.nearby.presence.mojom.LocalCredentialSpec, false), nullable: false, minVersion: 0 },
-        { name: 'shared_credentials', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ash.nearby.presence.mojom.SharedCredentialSpec, false), nullable: false, minVersion: 0 },
-        { name: 'public_credential_type', packedOffset: 16, packedBitOffset: 0, type: ash.nearby.presence.mojom.PublicCredentialTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ResponseParamsSpec, 'ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, mojo_base.mojom.AbslStatusCodeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'public_credential_type', packedOffset: 0, packedBitOffset: 0, type: ash.nearby.presence.mojom.PublicCredentialTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ParamsSpec, 'ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_Params', [
+      mojo.internal.StructField('public_credential_type', 0, 0, ash.nearby.presence.mojom.PublicCredentialTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ResponseParamsSpec, 'ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ResponseParams', [
+      mojo.internal.StructField('status', 8, 0, mojo_base.mojom.AbslStatusCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('shared_credentials', 0, 0, mojo.internal.Array(ash.nearby.presence.mojom.SharedCredentialSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'local_credential', packedOffset: 0, packedBitOffset: 0, type: ash.nearby.presence.mojom.LocalCredentialSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ParamsSpec, 'ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ResponseParamsSpec, 'ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ResponseParams', [
+      mojo.internal.StructField('status', 8, 0, mojo_base.mojom.AbslStatusCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('local_credentials', 0, 0, mojo.internal.Array(ash.nearby.presence.mojom.LocalCredentialSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ParamsSpec, 'ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_Params', [
+      mojo.internal.StructField('local_credential', 0, 0, ash.nearby.presence.mojom.LocalCredentialSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ResponseParamsSpec, 'ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, mojo_base.mojom.AbslStatusCodeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.nearby.presence.mojom.NearbyPresenceCredentialStoragePendingReceiver = class {
   constructor(handle) {
@@ -147,118 +156,6 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorage.getRemote = function()
   return remote.$;
 };
 
-// ParamsSpec for SaveCredentials
-ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.NearbyPresenceCredentialStorage.SaveCredentials_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'local_credentials', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.nearby.presence.mojom.LocalCredentialSpec, false), nullable: false, minVersion: 0 },
-        { name: 'shared_credentials', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ash.nearby.presence.mojom.SharedCredentialSpec, false), nullable: false, minVersion: 0 },
-        { name: 'public_credential_type', packedOffset: 16, packedBitOffset: 0, type: ash.nearby.presence.mojom.PublicCredentialTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.NearbyPresenceCredentialStorage.SaveCredentials_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.AbslStatusCodeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetPublicCredentials
-ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.NearbyPresenceCredentialStorage.GetPublicCredentials_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'public_credential_type', packedOffset: 0, packedBitOffset: 0, type: ash.nearby.presence.mojom.PublicCredentialTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.NearbyPresenceCredentialStorage.GetPublicCredentials_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.AbslStatusCodeSpec, nullable: false, minVersion: 0 },
-        { name: 'shared_credentials', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.nearby.presence.mojom.SharedCredentialSpec, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for GetPrivateCredentials
-ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.NearbyPresenceCredentialStorage.GetPrivateCredentials_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.NearbyPresenceCredentialStorage.GetPrivateCredentials_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.AbslStatusCodeSpec, nullable: false, minVersion: 0 },
-        { name: 'local_credentials', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.nearby.presence.mojom.LocalCredentialSpec, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateLocalCredential
-ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.NearbyPresenceCredentialStorage.UpdateLocalCredential_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'local_credential', packedOffset: 0, packedBitOffset: 0, type: ash.nearby.presence.mojom.LocalCredentialSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.nearby.presence.mojom.NearbyPresenceCredentialStorage.UpdateLocalCredential_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.AbslStatusCodeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.nearby.presence.mojom.NearbyPresenceCredentialStoragePtr = ash.nearby.presence.mojom.NearbyPresenceCredentialStorageRemote;
 ash.nearby.presence.mojom.NearbyPresenceCredentialStorageRequest = ash.nearby.presence.mojom.NearbyPresenceCredentialStoragePendingReceiver;
 

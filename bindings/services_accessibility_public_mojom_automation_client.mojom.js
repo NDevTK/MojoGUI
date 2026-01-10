@@ -10,59 +10,42 @@ ax.mojom = ax.mojom || {};
 var ui = ui || {};
 var ui = ui || {};
 
+ax.mojom.AutomationClient = {};
+ax.mojom.AutomationClient.$interfaceName = 'ax.mojom.AutomationClient';
+ax.mojom.AutomationClient_Enable_ParamsSpec = { $: {} };
+ax.mojom.AutomationClient_Enable_ResponseParamsSpec = { $: {} };
+ax.mojom.AutomationClient_Disable_ParamsSpec = { $: {} };
+ax.mojom.AutomationClient_EnableChildTree_ParamsSpec = { $: {} };
+ax.mojom.AutomationClient_PerformAction_ParamsSpec = { $: {} };
 
 // Interface: AutomationClient
-ax.mojom.AutomationClient = {};
+mojo.internal.Struct(
+    ax.mojom.AutomationClient_Enable_ParamsSpec, 'ax.mojom.AutomationClient_Enable_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ax.mojom.AutomationClient_Enable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AutomationClient_Enable_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.AutomationClient_Enable_ResponseParamsSpec, 'ax.mojom.AutomationClient_Enable_ResponseParams', [
+      mojo.internal.StructField('desktop_id', 0, 0, ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ax.mojom.AutomationClient_Disable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AutomationClient_Disable_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.AutomationClient_Disable_ParamsSpec, 'ax.mojom.AutomationClient_Disable_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ax.mojom.AutomationClient_EnableChildTree_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AutomationClient_EnableChildTree_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'tree_id', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXTreeIDSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.AutomationClient_EnableChildTree_ParamsSpec, 'ax.mojom.AutomationClient_EnableChildTree_Params', [
+      mojo.internal.StructField('tree_id', 0, 0, ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ax.mojom.AutomationClient_PerformAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AutomationClient_PerformAction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'action_data', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXActionDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.AutomationClient_PerformAction_ParamsSpec, 'ax.mojom.AutomationClient_PerformAction_Params', [
+      mojo.internal.StructField('action_data', 0, 0, ax.mojom.AXActionDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ax.mojom.AutomationClientPendingReceiver = class {
   constructor(handle) {
@@ -144,74 +127,6 @@ ax.mojom.AutomationClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Enable
-ax.mojom.AutomationClient_Enable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AutomationClient.Enable_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ax.mojom.AutomationClient_Enable_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AutomationClient.Enable_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'desktop_id', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXTreeIDSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for Disable
-ax.mojom.AutomationClient_Disable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AutomationClient.Disable_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for EnableChildTree
-ax.mojom.AutomationClient_EnableChildTree_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AutomationClient.EnableChildTree_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'tree_id', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXTreeIDSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for PerformAction
-ax.mojom.AutomationClient_PerformAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AutomationClient.PerformAction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'action_data', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXActionDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ax.mojom.AutomationClientPtr = ax.mojom.AutomationClientRemote;
 ax.mojom.AutomationClientRequest = ax.mojom.AutomationClientPendingReceiver;
 

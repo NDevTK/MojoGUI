@@ -10,22 +10,16 @@ ax.mojom = ax.mojom || {};
 var ui = ui || {};
 var ui = ui || {};
 
+ax.mojom.AXEventSpec = { $: {} };
 
 // Struct: AXEvent
-ax.mojom.AXEventSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AXEvent',
-      packedSize: 40,
-      fields: [
-        { name: 'event_type', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.EventSpec, nullable: false, minVersion: 0 },
-        { name: 'id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'event_from', packedOffset: 16, packedBitOffset: 0, type: ax.mojom.EventFromSpec, nullable: false, minVersion: 0 },
-        { name: 'event_from_action', packedOffset: 20, packedBitOffset: 0, type: ax.mojom.ActionSpec, nullable: false, minVersion: 0 },
-        { name: 'event_intents', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ax.mojom.EventIntentSpec, false), nullable: false, minVersion: 0 },
-        { name: 'action_request_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.AXEventSpec, 'ax.mojom.AXEvent', [
+      mojo.internal.StructField('event_type', 8, 0, ax.mojom.EventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('event_from', 16, 0, ax.mojom.EventFromSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event_from_action', 20, 0, ax.mojom.ActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event_intents', 0, 0, mojo.internal.Array(ax.mojom.EventIntentSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('action_request_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);

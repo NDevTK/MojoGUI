@@ -8,32 +8,20 @@
 var extensions = extensions || {};
 extensions.mojom = extensions.mojom || {};
 
+extensions.mojom.URLPatternSpec = { $: {} };
+extensions.mojom.URLPatternSetSpec = { $: {} };
 
 // Struct: URLPattern
-extensions.mojom.URLPatternSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.URLPattern',
-      packedSize: 24,
-      fields: [
-        { name: 'valid_schemes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'pattern', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions.mojom.URLPatternSpec, 'extensions.mojom.URLPattern', [
+      mojo.internal.StructField('valid_schemes', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('pattern', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: URLPatternSet
-extensions.mojom.URLPatternSetSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.URLPatternSet',
-      packedSize: 16,
-      fields: [
-        { name: 'patterns', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions.mojom.URLPatternSetSpec, 'extensions.mojom.URLPatternSet', [
+      mojo.internal.StructField('patterns', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);

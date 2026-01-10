@@ -8,6 +8,9 @@
 var crosapi = crosapi || {};
 crosapi.mojom = crosapi.mojom || {};
 
+crosapi.mojom.ClipboardHistoryControllerShowSourceSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.ClipboardHistoryDisplayFormatSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.ClipboardHistoryItemDescriptorSpec = { $: {} };
 
 // Enum: ClipboardHistoryControllerShowSource
 crosapi.mojom.ClipboardHistoryControllerShowSource = {
@@ -15,31 +18,28 @@ crosapi.mojom.ClipboardHistoryControllerShowSource = {
   kRenderViewContextMenu: 1,
   kTextfieldContextMenu: 2,
   kVirtualKeyboard: 3,
+  kUnknown: 4,
+  MinVersion: 4,
+  MinVersion: 4,
+  MinVersion: 4,
+  MinVersion: 4,
 };
-crosapi.mojom.ClipboardHistoryControllerShowSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: ClipboardHistoryDisplayFormat
 crosapi.mojom.ClipboardHistoryDisplayFormat = {
+  kUnknown: -1,
   kText: 0,
   kPng: 1,
   kHtml: 2,
   kFile: 3,
 };
-crosapi.mojom.ClipboardHistoryDisplayFormatSpec = { $: mojo.internal.Enum() };
 
 // Struct: ClipboardHistoryItemDescriptor
-crosapi.mojom.ClipboardHistoryItemDescriptorSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.ClipboardHistoryItemDescriptor',
-      packedSize: 32,
-      fields: [
-        { name: 'item_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'display_format', packedOffset: 16, packedBitOffset: 0, type: crosapi.mojom.ClipboardHistoryDisplayFormatSpec, nullable: false, minVersion: 0 },
-        { name: 'display_text', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'file_count', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.ClipboardHistoryItemDescriptorSpec, 'crosapi.mojom.ClipboardHistoryItemDescriptor', [
+      mojo.internal.StructField('item_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('display_format', 16, 0, crosapi.mojom.ClipboardHistoryDisplayFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('display_text', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('file_count', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);

@@ -8,19 +8,13 @@
 var ui = ui || {};
 ui.mojom = ui.mojom || {};
 
+ui.mojom.EventLatencyMetadataSpec = { $: {} };
 
 // Struct: EventLatencyMetadata
-ui.mojom.EventLatencyMetadataSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.mojom.EventLatencyMetadata',
-      packedSize: 32,
-      fields: [
-        { name: 'arrived_in_browser_main_timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'scrolls_blocking_touch_dispatched_to_renderer', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'dispatched_to_renderer', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ui.mojom.EventLatencyMetadataSpec, 'ui.mojom.EventLatencyMetadata', [
+      mojo.internal.StructField('arrived_in_browser_main_timestamp', 0, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scrolls_blocking_touch_dispatched_to_renderer', 8, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('dispatched_to_renderer', 16, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);

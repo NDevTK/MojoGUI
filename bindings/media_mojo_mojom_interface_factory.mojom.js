@@ -8,10 +8,22 @@
 var media = media || {};
 media.mojom = media.mojom || {};
 
+media.mojom.VideoDecoderTracker = {};
+media.mojom.VideoDecoderTracker.$interfaceName = 'media.mojom.VideoDecoderTracker';
+media.mojom.InterfaceFactory = {};
+media.mojom.InterfaceFactory.$interfaceName = 'media.mojom.InterfaceFactory';
+media.mojom.InterfaceFactory_CreateAudioDecoder_ParamsSpec = { $: {} };
+media.mojom.InterfaceFactory_CreateVideoDecoder_ParamsSpec = { $: {} };
+media.mojom.InterfaceFactory_CreateVideoDecoderWithTracker_ParamsSpec = { $: {} };
+media.mojom.InterfaceFactory_CreateAudioEncoder_ParamsSpec = { $: {} };
+media.mojom.InterfaceFactory_CreateDefaultRenderer_ParamsSpec = { $: {} };
+media.mojom.InterfaceFactory_CreateCastRenderer_ParamsSpec = { $: {} };
+media.mojom.InterfaceFactory_CreateMediaFoundationRenderer_ParamsSpec = { $: {} };
+media.mojom.InterfaceFactory_CreateFlingingRenderer_ParamsSpec = { $: {} };
+media.mojom.InterfaceFactory_CreateCdm_ParamsSpec = { $: {} };
+media.mojom.InterfaceFactory_CreateCdm_ResponseParamsSpec = { $: {} };
 
 // Interface: VideoDecoderTracker
-media.mojom.VideoDecoderTracker = {};
-
 media.mojom.VideoDecoderTrackerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -56,138 +68,80 @@ media.mojom.VideoDecoderTracker.getRemote = function() {
   return remote.$;
 };
 
-// Legacy compatibility
 media.mojom.VideoDecoderTrackerPtr = media.mojom.VideoDecoderTrackerRemote;
 media.mojom.VideoDecoderTrackerRequest = media.mojom.VideoDecoderTrackerPendingReceiver;
 
 
 // Interface: InterfaceFactory
-media.mojom.InterfaceFactory = {};
+mojo.internal.Struct(
+    media.mojom.InterfaceFactory_CreateAudioDecoder_ParamsSpec, 'media.mojom.InterfaceFactory_CreateAudioDecoder_Params', [
+      mojo.internal.StructField('audio_decoder', 0, 0, mojo.internal.InterfaceRequest(media.mojom.AudioDecoderRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.InterfaceFactory_CreateAudioDecoder_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.InterfaceFactory_CreateAudioDecoder_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'audio_decoder', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.AudioDecoderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.InterfaceFactory_CreateVideoDecoder_ParamsSpec, 'media.mojom.InterfaceFactory_CreateVideoDecoder_Params', [
+      mojo.internal.StructField('video_decoder', 0, 0, mojo.internal.InterfaceRequest(media.mojom.VideoDecoderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('dst_video_decoder', 8, 0, mojo.internal.InterfaceProxy(media.mojom.VideoDecoderRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-media.mojom.InterfaceFactory_CreateVideoDecoder_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.InterfaceFactory_CreateVideoDecoder_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'video_decoder', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.VideoDecoderRemote), nullable: false, minVersion: 0 },
-        { name: 'dst_video_decoder', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.VideoDecoderRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.InterfaceFactory_CreateVideoDecoderWithTracker_ParamsSpec, 'media.mojom.InterfaceFactory_CreateVideoDecoderWithTracker_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(media.mojom.VideoDecoderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('tracker', 8, 0, mojo.internal.InterfaceProxy(media.mojom.VideoDecoderTrackerRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-media.mojom.InterfaceFactory_CreateVideoDecoderWithTracker_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.InterfaceFactory_CreateVideoDecoderWithTracker_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.VideoDecoderRemote), nullable: false, minVersion: 0 },
-        { name: 'tracker', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.VideoDecoderTrackerRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.InterfaceFactory_CreateAudioEncoder_ParamsSpec, 'media.mojom.InterfaceFactory_CreateAudioEncoder_Params', [
+      mojo.internal.StructField('audio_encoder', 0, 0, mojo.internal.InterfaceRequest(media.mojom.AudioEncoderRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.InterfaceFactory_CreateAudioEncoder_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.InterfaceFactory_CreateAudioEncoder_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'audio_encoder', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.AudioEncoderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.InterfaceFactory_CreateDefaultRenderer_ParamsSpec, 'media.mojom.InterfaceFactory_CreateDefaultRenderer_Params', [
+      mojo.internal.StructField('audio_device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('renderer', 8, 0, mojo.internal.InterfaceRequest(media.mojom.RendererRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-media.mojom.InterfaceFactory_CreateDefaultRenderer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.InterfaceFactory_CreateDefaultRenderer_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'audio_device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'renderer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.RendererRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.InterfaceFactory_CreateCastRenderer_ParamsSpec, 'media.mojom.InterfaceFactory_CreateCastRenderer_Params', [
+      mojo.internal.StructField('overlay_plane_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('renderer', 8, 0, mojo.internal.InterfaceRequest(media.mojom.RendererRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-media.mojom.InterfaceFactory_CreateCastRenderer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.InterfaceFactory_CreateCastRenderer_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'overlay_plane_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'renderer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.RendererRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.InterfaceFactory_CreateMediaFoundationRenderer_ParamsSpec, 'media.mojom.InterfaceFactory_CreateMediaFoundationRenderer_Params', [
+      mojo.internal.StructField('media_log', 0, 0, mojo.internal.InterfaceProxy(media.mojom.MediaLogRemote), null, false, 0, undefined),
+      mojo.internal.StructField('renderer', 8, 0, mojo.internal.InterfaceRequest(media.mojom.RendererRemote), null, false, 0, undefined),
+      mojo.internal.StructField('renderer_extension', 16, 0, mojo.internal.InterfaceRequest(media.mojom.MediaFoundationRendererExtensionRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-media.mojom.InterfaceFactory_CreateMediaFoundationRenderer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.InterfaceFactory_CreateMediaFoundationRenderer_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'media_log', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.MediaLogRemote), nullable: false, minVersion: 0 },
-        { name: 'renderer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.RendererRemote), nullable: false, minVersion: 0 },
-        { name: 'renderer_extension', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.MediaFoundationRendererExtensionRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.InterfaceFactory_CreateFlingingRenderer_ParamsSpec, 'media.mojom.InterfaceFactory_CreateFlingingRenderer_Params', [
+      mojo.internal.StructField('presentation_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('client_extension', 8, 0, mojo.internal.InterfaceProxy(media.mojom.FlingingRendererClientExtensionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('renderer', 16, 0, mojo.internal.InterfaceRequest(media.mojom.RendererRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-media.mojom.InterfaceFactory_CreateFlingingRenderer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.InterfaceFactory_CreateFlingingRenderer_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'presentation_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'client_extension', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.FlingingRendererClientExtensionRemote), nullable: false, minVersion: 0 },
-        { name: 'renderer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.RendererRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.InterfaceFactory_CreateCdm_ParamsSpec, 'media.mojom.InterfaceFactory_CreateCdm_Params', [
+      mojo.internal.StructField('cdm_config', 0, 0, media.mojom.CdmConfigSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.InterfaceFactory_CreateCdm_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.InterfaceFactory_CreateCdm_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'cdm_config', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CdmConfigSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.InterfaceFactory_CreateCdm_ResponseParamsSpec, 'media.mojom.InterfaceFactory_CreateCdm_ResponseParams', [
+      mojo.internal.StructField('cdm', 0, 0, mojo.internal.InterfaceProxy(media.mojom.ContentDecryptionModuleRemote), null, true, 0, undefined),
+      mojo.internal.StructField('cdm_context', 8, 0, media.mojom.CdmContextSpec, null, true, 0, undefined),
+      mojo.internal.StructField('status', 16, 0, media.mojom.CreateCdmStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 media.mojom.InterfaceFactoryPendingReceiver = class {
   constructor(handle) {
@@ -314,156 +268,6 @@ media.mojom.InterfaceFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateAudioDecoder
-media.mojom.InterfaceFactory_CreateAudioDecoder_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.InterfaceFactory.CreateAudioDecoder_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'audio_decoder', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.AudioDecoderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CreateVideoDecoder
-media.mojom.InterfaceFactory_CreateVideoDecoder_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.InterfaceFactory.CreateVideoDecoder_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'video_decoder', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.VideoDecoderRemote), nullable: false, minVersion: 0 },
-        { name: 'dst_video_decoder', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.VideoDecoderRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for CreateVideoDecoderWithTracker
-media.mojom.InterfaceFactory_CreateVideoDecoderWithTracker_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.InterfaceFactory.CreateVideoDecoderWithTracker_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.VideoDecoderRemote), nullable: false, minVersion: 0 },
-        { name: 'tracker', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.VideoDecoderTrackerRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for CreateAudioEncoder
-media.mojom.InterfaceFactory_CreateAudioEncoder_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.InterfaceFactory.CreateAudioEncoder_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'audio_encoder', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.AudioEncoderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CreateDefaultRenderer
-media.mojom.InterfaceFactory_CreateDefaultRenderer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.InterfaceFactory.CreateDefaultRenderer_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'audio_device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'renderer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.RendererRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for CreateCastRenderer
-media.mojom.InterfaceFactory_CreateCastRenderer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.InterfaceFactory.CreateCastRenderer_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'overlay_plane_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'renderer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.RendererRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for CreateMediaFoundationRenderer
-media.mojom.InterfaceFactory_CreateMediaFoundationRenderer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.InterfaceFactory.CreateMediaFoundationRenderer_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'media_log', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.MediaLogRemote), nullable: false, minVersion: 0 },
-        { name: 'renderer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.RendererRemote), nullable: false, minVersion: 0 },
-        { name: 'renderer_extension', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.MediaFoundationRendererExtensionRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for CreateFlingingRenderer
-media.mojom.InterfaceFactory_CreateFlingingRenderer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.InterfaceFactory.CreateFlingingRenderer_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'presentation_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'client_extension', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.FlingingRendererClientExtensionRemote), nullable: false, minVersion: 0 },
-        { name: 'renderer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.RendererRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for CreateCdm
-media.mojom.InterfaceFactory_CreateCdm_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.InterfaceFactory.CreateCdm_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'cdm_config', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CdmConfigSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-media.mojom.InterfaceFactory_CreateCdm_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.InterfaceFactory.CreateCdm_ResponseParams',
-      packedSize: 32,
-      fields: [
-        { name: 'cdm', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.ContentDecryptionModuleRemote), nullable: true, minVersion: 0 },
-        { name: 'cdm_context', packedOffset: 8, packedBitOffset: 0, type: media.mojom.CdmContextSpec, nullable: true, minVersion: 0 },
-        { name: 'status', packedOffset: 16, packedBitOffset: 0, type: media.mojom.CreateCdmStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.InterfaceFactoryPtr = media.mojom.InterfaceFactoryRemote;
 media.mojom.InterfaceFactoryRequest = media.mojom.InterfaceFactoryPendingReceiver;
 

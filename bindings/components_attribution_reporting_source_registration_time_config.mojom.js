@@ -8,10 +8,10 @@
 var attribution_reporting = attribution_reporting || {};
 attribution_reporting.mojom = attribution_reporting.mojom || {};
 
+attribution_reporting.mojom.SourceRegistrationTimeConfigSpec = { $: mojo.internal.Enum() };
 
 // Enum: SourceRegistrationTimeConfig
 attribution_reporting.mojom.SourceRegistrationTimeConfig = {
   kInclude: 0,
   kExclude: 1,
 };
-attribution_reporting.mojom.SourceRegistrationTimeConfigSpec = { $: mojo.internal.Enum() };

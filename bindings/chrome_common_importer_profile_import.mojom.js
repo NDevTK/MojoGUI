@@ -9,228 +9,137 @@ var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
 var url = url || {};
 
+chrome.mojom.SchemeSpec = { $: mojo.internal.Enum() };
+chrome.mojom.ImportedPasswordFormSpec = { $: {} };
+chrome.mojom.ProfileImportObserver = {};
+chrome.mojom.ProfileImportObserver.$interfaceName = 'chrome.mojom.ProfileImportObserver';
+chrome.mojom.ProfileImportObserver_OnImportStart_ParamsSpec = { $: {} };
+chrome.mojom.ProfileImportObserver_OnImportFinished_ParamsSpec = { $: {} };
+chrome.mojom.ProfileImportObserver_OnImportItemStart_ParamsSpec = { $: {} };
+chrome.mojom.ProfileImportObserver_OnImportItemFinished_ParamsSpec = { $: {} };
+chrome.mojom.ProfileImportObserver_OnHistoryImportStart_ParamsSpec = { $: {} };
+chrome.mojom.ProfileImportObserver_OnHistoryImportGroup_ParamsSpec = { $: {} };
+chrome.mojom.ProfileImportObserver_OnHomePageImportReady_ParamsSpec = { $: {} };
+chrome.mojom.ProfileImportObserver_OnBookmarksImportStart_ParamsSpec = { $: {} };
+chrome.mojom.ProfileImportObserver_OnBookmarksImportGroup_ParamsSpec = { $: {} };
+chrome.mojom.ProfileImportObserver_OnFaviconsImportStart_ParamsSpec = { $: {} };
+chrome.mojom.ProfileImportObserver_OnFaviconsImportGroup_ParamsSpec = { $: {} };
+chrome.mojom.ProfileImportObserver_OnPasswordFormImportReady_ParamsSpec = { $: {} };
+chrome.mojom.ProfileImportObserver_OnKeywordsImportReady_ParamsSpec = { $: {} };
+chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportStart_ParamsSpec = { $: {} };
+chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportGroup_ParamsSpec = { $: {} };
+chrome.mojom.ProfileImport = {};
+chrome.mojom.ProfileImport.$interfaceName = 'chrome.mojom.ProfileImport';
+chrome.mojom.ProfileImport_StartImport_ParamsSpec = { $: {} };
+chrome.mojom.ProfileImport_CancelImport_ParamsSpec = { $: {} };
+chrome.mojom.ProfileImport_ReportImportItemFinished_ParamsSpec = { $: {} };
 
 // Enum: Scheme
 chrome.mojom.Scheme = {
   kHtml: 0,
   kBasic: 1,
 };
-chrome.mojom.SchemeSpec = { $: mojo.internal.Enum() };
 
 // Struct: ImportedPasswordForm
-chrome.mojom.ImportedPasswordFormSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ImportedPasswordForm',
-      packedSize: 16,
-      fields: [
-        { name: 'kHtml', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.ImportedPasswordFormSpec, 'chrome.mojom.ImportedPasswordForm', [
+      mojo.internal.StructField('kHtml', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: ProfileImportObserver
-chrome.mojom.ProfileImportObserver = {};
+mojo.internal.Struct(
+    chrome.mojom.ProfileImportObserver_OnImportStart_ParamsSpec, 'chrome.mojom.ProfileImportObserver_OnImportStart_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chrome.mojom.ProfileImportObserver_OnImportStart_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ProfileImportObserver_OnImportStart_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.ProfileImportObserver_OnImportFinished_ParamsSpec, 'chrome.mojom.ProfileImportObserver_OnImportFinished_Params', [
+      mojo.internal.StructField('succeeded', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('error_msg', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-chrome.mojom.ProfileImportObserver_OnImportFinished_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ProfileImportObserver_OnImportFinished_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'succeeded', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'error_msg', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.ProfileImportObserver_OnImportItemStart_ParamsSpec, 'chrome.mojom.ProfileImportObserver_OnImportItemStart_Params', [
+      mojo.internal.StructField('item', 0, 0, chrome.mojom.ImportItemSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chrome.mojom.ProfileImportObserver_OnImportItemStart_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ProfileImportObserver_OnImportItemStart_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'item', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.ImportItemSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.ProfileImportObserver_OnImportItemFinished_ParamsSpec, 'chrome.mojom.ProfileImportObserver_OnImportItemFinished_Params', [
+      mojo.internal.StructField('item', 0, 0, chrome.mojom.ImportItemSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chrome.mojom.ProfileImportObserver_OnImportItemFinished_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ProfileImportObserver_OnImportItemFinished_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'item', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.ImportItemSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.ProfileImportObserver_OnHistoryImportStart_ParamsSpec, 'chrome.mojom.ProfileImportObserver_OnHistoryImportStart_Params', [
+      mojo.internal.StructField('total_history_rows_count', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chrome.mojom.ProfileImportObserver_OnHistoryImportStart_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ProfileImportObserver_OnHistoryImportStart_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'total_history_rows_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.ProfileImportObserver_OnHistoryImportGroup_ParamsSpec, 'chrome.mojom.ProfileImportObserver_OnHistoryImportGroup_Params', [
+      mojo.internal.StructField('history_rows_group', 0, 0, mojo.internal.Array(chrome.mojom.ImporterURLRowSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('visit_source', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-chrome.mojom.ProfileImportObserver_OnHistoryImportGroup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ProfileImportObserver_OnHistoryImportGroup_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'history_rows_group', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chrome.mojom.ImporterURLRowSpec, false), nullable: false, minVersion: 0 },
-        { name: 'visit_source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.ProfileImportObserver_OnHomePageImportReady_ParamsSpec, 'chrome.mojom.ProfileImportObserver_OnHomePageImportReady_Params', [
+      mojo.internal.StructField('home_page', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chrome.mojom.ProfileImportObserver_OnHomePageImportReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ProfileImportObserver_OnHomePageImportReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'home_page', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.ProfileImportObserver_OnBookmarksImportStart_ParamsSpec, 'chrome.mojom.ProfileImportObserver_OnBookmarksImportStart_Params', [
+      mojo.internal.StructField('first_folder_name', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('total_bookmarks_count', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-chrome.mojom.ProfileImportObserver_OnBookmarksImportStart_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ProfileImportObserver_OnBookmarksImportStart_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'first_folder_name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'total_bookmarks_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.ProfileImportObserver_OnBookmarksImportGroup_ParamsSpec, 'chrome.mojom.ProfileImportObserver_OnBookmarksImportGroup_Params', [
+      mojo.internal.StructField('bookmarks_group', 0, 0, mojo.internal.Array(chrome.mojom.ImportedBookmarkEntrySpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chrome.mojom.ProfileImportObserver_OnBookmarksImportGroup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ProfileImportObserver_OnBookmarksImportGroup_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'bookmarks_group', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chrome.mojom.ImportedBookmarkEntrySpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.ProfileImportObserver_OnFaviconsImportStart_ParamsSpec, 'chrome.mojom.ProfileImportObserver_OnFaviconsImportStart_Params', [
+      mojo.internal.StructField('total_favicons_count', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chrome.mojom.ProfileImportObserver_OnFaviconsImportStart_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ProfileImportObserver_OnFaviconsImportStart_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'total_favicons_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.ProfileImportObserver_OnFaviconsImportGroup_ParamsSpec, 'chrome.mojom.ProfileImportObserver_OnFaviconsImportGroup_Params', [
+      mojo.internal.StructField('favicons_group', 0, 0, chrome.mojom.FaviconUsageDataListSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chrome.mojom.ProfileImportObserver_OnFaviconsImportGroup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ProfileImportObserver_OnFaviconsImportGroup_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'favicons_group', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.FaviconUsageDataListSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.ProfileImportObserver_OnPasswordFormImportReady_ParamsSpec, 'chrome.mojom.ProfileImportObserver_OnPasswordFormImportReady_Params', [
+      mojo.internal.StructField('form', 0, 0, chrome.mojom.ImportedPasswordFormSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chrome.mojom.ProfileImportObserver_OnPasswordFormImportReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ProfileImportObserver_OnPasswordFormImportReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'form', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.ImportedPasswordFormSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.ProfileImportObserver_OnKeywordsImportReady_ParamsSpec, 'chrome.mojom.ProfileImportObserver_OnKeywordsImportReady_Params', [
+      mojo.internal.StructField('search_engines', 0, 0, mojo.internal.Array(chrome.mojom.SearchEngineInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('unique_on_host_and_path', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-chrome.mojom.ProfileImportObserver_OnKeywordsImportReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ProfileImportObserver_OnKeywordsImportReady_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'search_engines', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chrome.mojom.SearchEngineInfoSpec, false), nullable: false, minVersion: 0 },
-        { name: 'unique_on_host_and_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportStart_ParamsSpec, 'chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportStart_Params', [
+      mojo.internal.StructField('total_autofill_form_data_entry_count', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportStart_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportStart_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'total_autofill_form_data_entry_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportGroup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportGroup_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'autofill_form_data_entry_group', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chrome.mojom.ImporterAutofillFormDataEntrySpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportGroup_ParamsSpec, 'chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportGroup_Params', [
+      mojo.internal.StructField('autofill_form_data_entry_group', 0, 0, mojo.internal.Array(chrome.mojom.ImporterAutofillFormDataEntrySpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chrome.mojom.ProfileImportObserverPendingReceiver = class {
   constructor(handle) {
@@ -411,267 +320,30 @@ chrome.mojom.ProfileImportObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnImportStart
-chrome.mojom.ProfileImportObserver_OnImportStart_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ProfileImportObserver.OnImportStart_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnImportFinished
-chrome.mojom.ProfileImportObserver_OnImportFinished_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ProfileImportObserver.OnImportFinished_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'succeeded', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'error_msg', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnImportItemStart
-chrome.mojom.ProfileImportObserver_OnImportItemStart_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ProfileImportObserver.OnImportItemStart_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'item', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.ImportItemSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnImportItemFinished
-chrome.mojom.ProfileImportObserver_OnImportItemFinished_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ProfileImportObserver.OnImportItemFinished_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'item', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.ImportItemSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnHistoryImportStart
-chrome.mojom.ProfileImportObserver_OnHistoryImportStart_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ProfileImportObserver.OnHistoryImportStart_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'total_history_rows_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnHistoryImportGroup
-chrome.mojom.ProfileImportObserver_OnHistoryImportGroup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ProfileImportObserver.OnHistoryImportGroup_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'history_rows_group', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chrome.mojom.ImporterURLRowSpec, false), nullable: false, minVersion: 0 },
-        { name: 'visit_source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnHomePageImportReady
-chrome.mojom.ProfileImportObserver_OnHomePageImportReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ProfileImportObserver.OnHomePageImportReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'home_page', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnBookmarksImportStart
-chrome.mojom.ProfileImportObserver_OnBookmarksImportStart_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ProfileImportObserver.OnBookmarksImportStart_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'first_folder_name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'total_bookmarks_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnBookmarksImportGroup
-chrome.mojom.ProfileImportObserver_OnBookmarksImportGroup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ProfileImportObserver.OnBookmarksImportGroup_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'bookmarks_group', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chrome.mojom.ImportedBookmarkEntrySpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnFaviconsImportStart
-chrome.mojom.ProfileImportObserver_OnFaviconsImportStart_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ProfileImportObserver.OnFaviconsImportStart_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'total_favicons_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnFaviconsImportGroup
-chrome.mojom.ProfileImportObserver_OnFaviconsImportGroup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ProfileImportObserver.OnFaviconsImportGroup_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'favicons_group', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.FaviconUsageDataListSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnPasswordFormImportReady
-chrome.mojom.ProfileImportObserver_OnPasswordFormImportReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ProfileImportObserver.OnPasswordFormImportReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'form', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.ImportedPasswordFormSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnKeywordsImportReady
-chrome.mojom.ProfileImportObserver_OnKeywordsImportReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ProfileImportObserver.OnKeywordsImportReady_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'search_engines', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chrome.mojom.SearchEngineInfoSpec, false), nullable: false, minVersion: 0 },
-        { name: 'unique_on_host_and_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnAutofillFormDataImportStart
-chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportStart_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ProfileImportObserver.OnAutofillFormDataImportStart_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'total_autofill_form_data_entry_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnAutofillFormDataImportGroup
-chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportGroup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ProfileImportObserver.OnAutofillFormDataImportGroup_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'autofill_form_data_entry_group', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chrome.mojom.ImporterAutofillFormDataEntrySpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chrome.mojom.ProfileImportObserverPtr = chrome.mojom.ProfileImportObserverRemote;
 chrome.mojom.ProfileImportObserverRequest = chrome.mojom.ProfileImportObserverPendingReceiver;
 
 
 // Interface: ProfileImport
-chrome.mojom.ProfileImport = {};
+mojo.internal.Struct(
+    chrome.mojom.ProfileImport_StartImport_ParamsSpec, 'chrome.mojom.ProfileImport_StartImport_Params', [
+      mojo.internal.StructField('source_profile', 0, 0, chrome.mojom.SourceProfileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('items', 24, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('localized_strings', 8, 0, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 16, 0, mojo.internal.InterfaceProxy(chrome.mojom.ProfileImportObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-chrome.mojom.ProfileImport_StartImport_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ProfileImport_StartImport_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'source_profile', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.SourceProfileSpec, nullable: false, minVersion: 0 },
-        { name: 'items', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'localized_strings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Uint32, mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chrome.mojom.ProfileImportObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.ProfileImport_CancelImport_ParamsSpec, 'chrome.mojom.ProfileImport_CancelImport_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chrome.mojom.ProfileImport_CancelImport_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ProfileImport_CancelImport_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chrome.mojom.ProfileImport_ReportImportItemFinished_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ProfileImport_ReportImportItemFinished_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'item', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.ImportItemSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.ProfileImport_ReportImportItemFinished_ParamsSpec, 'chrome.mojom.ProfileImport_ReportImportItemFinished_Params', [
+      mojo.internal.StructField('item', 0, 0, chrome.mojom.ImportItemSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chrome.mojom.ProfileImportPendingReceiver = class {
   constructor(handle) {
@@ -744,51 +416,6 @@ chrome.mojom.ProfileImport.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for StartImport
-chrome.mojom.ProfileImport_StartImport_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ProfileImport.StartImport_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'source_profile', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.SourceProfileSpec, nullable: false, minVersion: 0 },
-        { name: 'items', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'localized_strings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Uint32, mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chrome.mojom.ProfileImportObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for CancelImport
-chrome.mojom.ProfileImport_CancelImport_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ProfileImport.CancelImport_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for ReportImportItemFinished
-chrome.mojom.ProfileImport_ReportImportItemFinished_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ProfileImport.ReportImportItemFinished_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'item', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.ImportItemSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chrome.mojom.ProfileImportPtr = chrome.mojom.ProfileImportRemote;
 chrome.mojom.ProfileImportRequest = chrome.mojom.ProfileImportPendingReceiver;
 

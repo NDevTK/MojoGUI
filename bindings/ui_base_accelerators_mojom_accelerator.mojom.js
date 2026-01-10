@@ -10,27 +10,21 @@ ui.mojom = ui.mojom || {};
 var ui = ui || {};
 var ui = ui || {};
 
+ui.mojom.AcceleratorKeyStateSpec = { $: mojo.internal.Enum() };
+ui.mojom.AcceleratorSpec = { $: {} };
 
 // Enum: AcceleratorKeyState
 ui.mojom.AcceleratorKeyState = {
   PRESSED: 0,
   RELEASED: 1,
 };
-ui.mojom.AcceleratorKeyStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: Accelerator
-ui.mojom.AcceleratorSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.mojom.Accelerator',
-      packedSize: 32,
-      fields: [
-        { name: 'key_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'key_state', packedOffset: 12, packedBitOffset: 0, type: ui.mojom.AcceleratorKeyStateSpec, nullable: false, minVersion: 0 },
-        { name: 'modifiers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'time_stamp', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ui.mojom.AcceleratorSpec, 'ui.mojom.Accelerator', [
+      mojo.internal.StructField('key_code', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('key_state', 12, 0, ui.mojom.AcceleratorKeyStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('modifiers', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('time_stamp', 0, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);

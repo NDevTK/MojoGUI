@@ -7,8 +7,21 @@
 // Module namespace
 var storage = storage || {};
 storage.mojom = storage.mojom || {};
+var components = components || {};
+var services = services || {};
+var components = components || {};
+var services = services || {};
+var services = services || {};
 var url = url || {};
 
+storage.mojom.IdbTransactionModeSpec = { $: mojo.internal.Enum() };
+storage.mojom.IdbTransactionStateSpec = { $: mojo.internal.Enum() };
+storage.mojom.IdbOriginMetadataSpec = { $: {} };
+storage.mojom.IdbStorageKeyMetadataSpec = { $: {} };
+storage.mojom.IdbBucketMetadataSpec = { $: {} };
+storage.mojom.IdbDatabaseMetadataSpec = { $: {} };
+storage.mojom.IdbTransactionMetadataSpec = { $: {} };
+storage.mojom.IdbTransactionMetadataStateHistorySpec = { $: {} };
 
 // Enum: IdbTransactionMode
 storage.mojom.IdbTransactionMode = {
@@ -16,7 +29,6 @@ storage.mojom.IdbTransactionMode = {
   kReadWrite: 1,
   kVersionChange: 2,
 };
-storage.mojom.IdbTransactionModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: IdbTransactionState
 storage.mojom.IdbTransactionState = {
@@ -26,114 +38,71 @@ storage.mojom.IdbTransactionState = {
   kCommitting: 3,
   kFinished: 4,
 };
-storage.mojom.IdbTransactionStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: IdbOriginMetadata
-storage.mojom.IdbOriginMetadataSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IdbOriginMetadata',
-      packedSize: 24,
-      fields: [
-        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-        { name: 'storage_keys', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(storage.mojom.IdbStorageKeyMetadataSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.IdbOriginMetadataSpec, 'storage.mojom.IdbOriginMetadata', [
+      mojo.internal.StructField('origin', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('storage_keys', 8, 0, mojo.internal.Array(storage.mojom.IdbStorageKeyMetadataSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: IdbStorageKeyMetadata
-storage.mojom.IdbStorageKeyMetadataSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IdbStorageKeyMetadata',
-      packedSize: 32,
-      fields: [
-        { name: 'top_level_site', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SchemefulSiteSpec, nullable: false, minVersion: 0 },
-        { name: 'serialized_storage_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'buckets', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(storage.mojom.IdbBucketMetadataSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.IdbStorageKeyMetadataSpec, 'storage.mojom.IdbStorageKeyMetadata', [
+      mojo.internal.StructField('top_level_site', 0, 0, network.mojom.SchemefulSiteSpec, null, false, 0, undefined),
+      mojo.internal.StructField('serialized_storage_key', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('buckets', 16, 0, mojo.internal.Array(storage.mojom.IdbBucketMetadataSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: IdbBucketMetadata
-storage.mojom.IdbBucketMetadataSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IdbBucketMetadata',
-      packedSize: 80,
-      fields: [
-        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'last_modified', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'paths', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), nullable: false, minVersion: 0 },
-        { name: 'connection_count', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'databases', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(storage.mojom.IdbDatabaseMetadataSpec, false), nullable: false, minVersion: 0 },
-        { name: 'clients', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array(storage.mojom.BucketClientInfoSpec, false), nullable: false, minVersion: 0 },
-        { name: 'delta_recording_start_ms', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 80}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.IdbBucketMetadataSpec, 'storage.mojom.IdbBucketMetadata', [
+      mojo.internal.StructField('bucket_locator', 0, 0, storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('size', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('last_modified', 24, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('paths', 32, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('connection_count', 40, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('databases', 48, 0, mojo.internal.Array(storage.mojom.IdbDatabaseMetadataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('clients', 56, 0, mojo.internal.Array(storage.mojom.BucketClientInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('delta_recording_start_ms', 64, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 80]]);
 
 // Struct: IdbDatabaseMetadata
-storage.mojom.IdbDatabaseMetadataSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IdbDatabaseMetadata',
-      packedSize: 48,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'connection_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'active_open_delete', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'pending_open_delete', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'transactions', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(storage.mojom.IdbTransactionMetadataSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.IdbDatabaseMetadataSpec, 'storage.mojom.IdbDatabaseMetadata', [
+      mojo.internal.StructField('name', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('connection_count', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('active_open_delete', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('pending_open_delete', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('transactions', 32, 0, mojo.internal.Array(storage.mojom.IdbTransactionMetadataSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: IdbTransactionMetadata
-storage.mojom.IdbTransactionMetadataSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IdbTransactionMetadata',
-      packedSize: 88,
-      fields: [
-        { name: 'mode', packedOffset: 64, packedBitOffset: 0, type: storage.mojom.IdbTransactionModeSpec, nullable: false, minVersion: 0 },
-        { name: 'state', packedOffset: 68, packedBitOffset: 0, type: storage.mojom.IdbTransactionStateSpec, nullable: false, minVersion: 0 },
-        { name: 'tid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'connection_id', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'client_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'age', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'runtime', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'tasks_scheduled', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'tasks_completed', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'scope', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.String16Spec, false), nullable: false, minVersion: 0 },
-        { name: 'state_history', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array(storage.mojom.IdbTransactionMetadataStateHistorySpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 88}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.IdbTransactionMetadataSpec, 'storage.mojom.IdbTransactionMetadata', [
+      mojo.internal.StructField('mode', 64, 0, storage.mojom.IdbTransactionModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 68, 0, storage.mojom.IdbTransactionStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tid', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('connection_id', 72, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('client_token', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('age', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('runtime', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('tasks_scheduled', 32, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('tasks_completed', 40, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('scope', 48, 0, mojo.internal.Array(mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('state_history', 56, 0, mojo.internal.Array(storage.mojom.IdbTransactionMetadataStateHistorySpec, false), null, false, 0, undefined),
+    ],
+    [[0, 88]]);
 
 // Struct: IdbTransactionMetadataStateHistory
-storage.mojom.IdbTransactionMetadataStateHistorySpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IdbTransactionMetadataStateHistory',
-      packedSize: 24,
-      fields: [
-        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.IdbTransactionStateSpec, nullable: false, minVersion: 0 },
-        { name: 'duration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.IdbTransactionMetadataStateHistorySpec, 'storage.mojom.IdbTransactionMetadataStateHistory', [
+      mojo.internal.StructField('state', 8, 0, storage.mojom.IdbTransactionStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('duration', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);

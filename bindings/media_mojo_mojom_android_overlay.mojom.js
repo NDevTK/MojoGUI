@@ -10,41 +10,39 @@ media.mojom = media.mojom || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+media.mojom.AndroidOverlayConfigSpec = { $: {} };
+media.mojom.AndroidOverlayProvider = {};
+media.mojom.AndroidOverlayProvider.$interfaceName = 'media.mojom.AndroidOverlayProvider';
+media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec = { $: {} };
+media.mojom.AndroidOverlay = {};
+media.mojom.AndroidOverlay.$interfaceName = 'media.mojom.AndroidOverlay';
+media.mojom.AndroidOverlay_ScheduleLayout_ParamsSpec = { $: {} };
+media.mojom.AndroidOverlayClient = {};
+media.mojom.AndroidOverlayClient.$interfaceName = 'media.mojom.AndroidOverlayClient';
+media.mojom.AndroidOverlayClient_OnSurfaceReady_ParamsSpec = { $: {} };
+media.mojom.AndroidOverlayClient_OnDestroyed_ParamsSpec = { $: {} };
+media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ParamsSpec = { $: {} };
+media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ResponseParamsSpec = { $: {} };
+media.mojom.AndroidOverlayClient_OnPowerEfficientState_ParamsSpec = { $: {} };
 
 // Struct: AndroidOverlayConfig
-media.mojom.AndroidOverlayConfigSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AndroidOverlayConfig',
-      packedSize: 32,
-      fields: [
-        { name: 'routing_token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'secure', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'power_efficient', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.AndroidOverlayConfigSpec, 'media.mojom.AndroidOverlayConfig', [
+      mojo.internal.StructField('routing_token', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('rect', 8, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('secure', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('power_efficient', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: AndroidOverlayProvider
-media.mojom.AndroidOverlayProvider = {};
-
-media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AndroidOverlayProvider_CreateOverlay_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'overlay', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.AndroidOverlayRemote), nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.AndroidOverlayClientRemote), nullable: false, minVersion: 0 },
-        { name: 'config', packedOffset: 16, packedBitOffset: 0, type: media.mojom.AndroidOverlayConfigSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec, 'media.mojom.AndroidOverlayProvider_CreateOverlay_Params', [
+      mojo.internal.StructField('overlay', 0, 0, mojo.internal.InterfaceRequest(media.mojom.AndroidOverlayRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(media.mojom.AndroidOverlayClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('config', 16, 0, media.mojom.AndroidOverlayConfigSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 media.mojom.AndroidOverlayProviderPendingReceiver = class {
   constructor(handle) {
@@ -99,42 +97,16 @@ media.mojom.AndroidOverlayProvider.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateOverlay
-media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AndroidOverlayProvider.CreateOverlay_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'overlay', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.AndroidOverlayRemote), nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.AndroidOverlayClientRemote), nullable: false, minVersion: 0 },
-        { name: 'config', packedOffset: 16, packedBitOffset: 0, type: media.mojom.AndroidOverlayConfigSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.AndroidOverlayProviderPtr = media.mojom.AndroidOverlayProviderRemote;
 media.mojom.AndroidOverlayProviderRequest = media.mojom.AndroidOverlayProviderPendingReceiver;
 
 
 // Interface: AndroidOverlay
-media.mojom.AndroidOverlay = {};
-
-media.mojom.AndroidOverlay_ScheduleLayout_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AndroidOverlay_ScheduleLayout_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'rect', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.AndroidOverlay_ScheduleLayout_ParamsSpec, 'media.mojom.AndroidOverlay_ScheduleLayout_Params', [
+      mojo.internal.StructField('rect', 0, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media.mojom.AndroidOverlayPendingReceiver = class {
   constructor(handle) {
@@ -189,77 +161,37 @@ media.mojom.AndroidOverlay.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ScheduleLayout
-media.mojom.AndroidOverlay_ScheduleLayout_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AndroidOverlay.ScheduleLayout_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'rect', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.AndroidOverlayPtr = media.mojom.AndroidOverlayRemote;
 media.mojom.AndroidOverlayRequest = media.mojom.AndroidOverlayPendingReceiver;
 
 
 // Interface: AndroidOverlayClient
-media.mojom.AndroidOverlayClient = {};
+mojo.internal.Struct(
+    media.mojom.AndroidOverlayClient_OnSurfaceReady_ParamsSpec, 'media.mojom.AndroidOverlayClient_OnSurfaceReady_Params', [
+      mojo.internal.StructField('surface_key', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.AndroidOverlayClient_OnSurfaceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AndroidOverlayClient_OnSurfaceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'surface_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.AndroidOverlayClient_OnDestroyed_ParamsSpec, 'media.mojom.AndroidOverlayClient_OnDestroyed_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media.mojom.AndroidOverlayClient_OnDestroyed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AndroidOverlayClient_OnDestroyed_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ParamsSpec, 'media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ResponseParamsSpec, 'media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media.mojom.AndroidOverlayClient_OnPowerEfficientState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AndroidOverlayClient_OnPowerEfficientState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_power_efficient', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.AndroidOverlayClient_OnPowerEfficientState_ParamsSpec, 'media.mojom.AndroidOverlayClient_OnPowerEfficientState_Params', [
+      mojo.internal.StructField('is_power_efficient', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media.mojom.AndroidOverlayClientPendingReceiver = class {
   constructor(handle) {
@@ -316,7 +248,7 @@ media.mojom.AndroidOverlayClientRemoteCallHandler = class {
     return this.proxy.sendMessage(
       2,  // ordinal
       media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ParamsSpec,
-      null,
+      media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ResponseParamsSpec,
       []);
   }
 
@@ -341,61 +273,6 @@ media.mojom.AndroidOverlayClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnSurfaceReady
-media.mojom.AndroidOverlayClient_OnSurfaceReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AndroidOverlayClient.OnSurfaceReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'surface_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnDestroyed
-media.mojom.AndroidOverlayClient_OnDestroyed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AndroidOverlayClient.OnDestroyed_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnSynchronouslyDestroyed
-media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AndroidOverlayClient.OnSynchronouslyDestroyed_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnPowerEfficientState
-media.mojom.AndroidOverlayClient_OnPowerEfficientState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AndroidOverlayClient.OnPowerEfficientState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_power_efficient', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.AndroidOverlayClientPtr = media.mojom.AndroidOverlayClientRemote;
 media.mojom.AndroidOverlayClientRequest = media.mojom.AndroidOverlayClientPendingReceiver;
 

@@ -8,21 +8,22 @@
 var wallet = wallet || {};
 wallet.mojom = wallet.mojom || {};
 
+wallet.mojom.BoardingPassExtractor = {};
+wallet.mojom.BoardingPassExtractor.$interfaceName = 'wallet.mojom.BoardingPassExtractor';
+wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ParamsSpec = { $: {} };
+wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ResponseParamsSpec = { $: {} };
 
 // Interface: BoardingPassExtractor
-wallet.mojom.BoardingPassExtractor = {};
+mojo.internal.Struct(
+    wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ParamsSpec, 'wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ResponseParamsSpec, 'wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ResponseParams', [
+      mojo.internal.StructField('boarding_passes', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 wallet.mojom.BoardingPassExtractorPendingReceiver = class {
   constructor(handle) {
@@ -77,33 +78,6 @@ wallet.mojom.BoardingPassExtractor.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ExtractBoardingPass
-wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'wallet.mojom.BoardingPassExtractor.ExtractBoardingPass_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'wallet.mojom.BoardingPassExtractor.ExtractBoardingPass_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'boarding_passes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 wallet.mojom.BoardingPassExtractorPtr = wallet.mojom.BoardingPassExtractorRemote;
 wallet.mojom.BoardingPassExtractorRequest = wallet.mojom.BoardingPassExtractorPendingReceiver;
 

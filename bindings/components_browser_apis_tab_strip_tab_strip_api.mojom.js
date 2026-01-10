@@ -7,145 +7,108 @@
 // Module namespace
 var tabs_api = tabs_api || {};
 tabs_api.mojom = tabs_api.mojom || {};
+var components = components || {};
+var components = components || {};
+var components = components || {};
 var url = url || {};
 
+tabs_api.mojom.TabsEventSpec = { $: {} };
+tabs_api.mojom.TabsSnapshotSpec = { $: {} };
+tabs_api.mojom.TabStripService = {};
+tabs_api.mojom.TabStripService.$interfaceName = 'tabs_api.mojom.TabStripService';
+tabs_api.mojom.TabStripService_GetTabs_ParamsSpec = { $: {} };
+tabs_api.mojom.TabStripService_GetTab_ParamsSpec = { $: {} };
+tabs_api.mojom.TabStripService_CreateTabAt_ParamsSpec = { $: {} };
+tabs_api.mojom.TabStripService_CloseTabs_ParamsSpec = { $: {} };
+tabs_api.mojom.TabStripService_ActivateTab_ParamsSpec = { $: {} };
+tabs_api.mojom.TabStripService_SetSelectedTabs_ParamsSpec = { $: {} };
+tabs_api.mojom.TabStripService_MoveNode_ParamsSpec = { $: {} };
+tabs_api.mojom.TabsObserver = {};
+tabs_api.mojom.TabsObserver.$interfaceName = 'tabs_api.mojom.TabsObserver';
+tabs_api.mojom.TabsObserver_OnTabEvents_ParamsSpec = { $: {} };
 
 // Union: TabsEvent
-tabs_api.mojom.TabsEventSpec = { $: mojo.internal.Union(
-    'tabs_api.mojom.TabsEvent', {
+mojo.internal.Union(
+    tabs_api.mojom.TabsEventSpec, 'tabs_api.mojom.TabsEvent', {
       'tabs_created_event': {
         'ordinal': 0,
         'type': tabs_api.mojom.OnTabsCreatedEventSpec,
-      }},
+        'nullable': false,
+      },
       'tabs_closed_event': {
         'ordinal': 1,
         'type': tabs_api.mojom.OnTabsClosedEventSpec,
-      }},
+        'nullable': false,
+      },
       'node_moved_event': {
         'ordinal': 2,
         'type': tabs_api.mojom.OnNodeMovedEventSpec,
-      }},
+        'nullable': false,
+      },
       'data_changed_event': {
         'ordinal': 3,
         'type': tabs_api.mojom.OnDataChangedEventSpec,
-      }},
+        'nullable': false,
+      },
       'collection_created_event': {
         'ordinal': 4,
         'type': tabs_api.mojom.OnCollectionCreatedEventSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: TabsSnapshot
-tabs_api.mojom.TabsSnapshotSpec = {
-  $: {
-    structSpec: {
-      name: 'tabs_api.mojom.TabsSnapshot',
-      packedSize: 24,
-      fields: [
-        { name: 'tab_strip', packedOffset: 0, packedBitOffset: 0, type: tabs_api.mojom.ContainerSpec, nullable: false, minVersion: 0 },
-        { name: 'stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(tabs_api.mojom.TabsObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tabs_api.mojom.TabsSnapshotSpec, 'tabs_api.mojom.TabsSnapshot', [
+      mojo.internal.StructField('tab_strip', 0, 0, tabs_api.mojom.ContainerSpec, null, false, 0, undefined),
+      mojo.internal.StructField('stream', 8, 0, mojo.internal.AssociatedInterfaceRequest(tabs_api.mojom.TabsObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: TabStripService
-tabs_api.mojom.TabStripService = {};
+mojo.internal.Struct(
+    tabs_api.mojom.TabStripService_GetTabs_ParamsSpec, 'tabs_api.mojom.TabStripService_GetTabs_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-tabs_api.mojom.TabStripService_GetTabs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tabs_api.mojom.TabStripService_GetTabs_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tabs_api.mojom.TabStripService_GetTab_ParamsSpec, 'tabs_api.mojom.TabStripService_GetTab_Params', [
+      mojo.internal.StructField('id', 0, 0, tabs_api.mojom.NodeIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-tabs_api.mojom.TabStripService_GetTab_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tabs_api.mojom.TabStripService_GetTab_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tabs_api.mojom.TabStripService_CreateTabAt_ParamsSpec, 'tabs_api.mojom.TabStripService_CreateTabAt_Params', [
+      mojo.internal.StructField('pos', 0, 0, tabs_api.mojom.PositionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-tabs_api.mojom.TabStripService_CreateTabAt_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tabs_api.mojom.TabStripService_CreateTabAt_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'pos', packedOffset: 0, packedBitOffset: 0, type: tabs_api.mojom.PositionSpec, nullable: true, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tabs_api.mojom.TabStripService_CloseTabs_ParamsSpec, 'tabs_api.mojom.TabStripService_CloseTabs_Params', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Array(tabs_api.mojom.NodeIdSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-tabs_api.mojom.TabStripService_CloseTabs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tabs_api.mojom.TabStripService_CloseTabs_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(tabs_api.mojom.NodeIdSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tabs_api.mojom.TabStripService_ActivateTab_ParamsSpec, 'tabs_api.mojom.TabStripService_ActivateTab_Params', [
+      mojo.internal.StructField('id', 0, 0, tabs_api.mojom.NodeIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-tabs_api.mojom.TabStripService_ActivateTab_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tabs_api.mojom.TabStripService_ActivateTab_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tabs_api.mojom.TabStripService_SetSelectedTabs_ParamsSpec, 'tabs_api.mojom.TabStripService_SetSelectedTabs_Params', [
+      mojo.internal.StructField('selection', 0, 0, mojo.internal.Array(tabs_api.mojom.NodeIdSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('tab_to_activate', 8, 0, tabs_api.mojom.NodeIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-tabs_api.mojom.TabStripService_SetSelectedTabs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tabs_api.mojom.TabStripService_SetSelectedTabs_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'selection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(tabs_api.mojom.NodeIdSpec, false), nullable: false, minVersion: 0 },
-        { name: 'tab_to_activate', packedOffset: 8, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-tabs_api.mojom.TabStripService_MoveNode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tabs_api.mojom.TabStripService_MoveNode_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: false, minVersion: 0 },
-        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: tabs_api.mojom.PositionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tabs_api.mojom.TabStripService_MoveNode_ParamsSpec, 'tabs_api.mojom.TabStripService_MoveNode_Params', [
+      mojo.internal.StructField('id', 0, 0, tabs_api.mojom.NodeIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('position', 8, 0, tabs_api.mojom.PositionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 tabs_api.mojom.TabStripServicePendingReceiver = class {
   constructor(handle) {
@@ -254,126 +217,16 @@ tabs_api.mojom.TabStripService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetTabs
-tabs_api.mojom.TabStripService_GetTabs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tabs_api.mojom.TabStripService.GetTabs_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for GetTab
-tabs_api.mojom.TabStripService_GetTab_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tabs_api.mojom.TabStripService.GetTab_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CreateTabAt
-tabs_api.mojom.TabStripService_CreateTabAt_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tabs_api.mojom.TabStripService.CreateTabAt_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'pos', packedOffset: 0, packedBitOffset: 0, type: tabs_api.mojom.PositionSpec, nullable: true, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for CloseTabs
-tabs_api.mojom.TabStripService_CloseTabs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tabs_api.mojom.TabStripService.CloseTabs_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(tabs_api.mojom.NodeIdSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ActivateTab
-tabs_api.mojom.TabStripService_ActivateTab_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tabs_api.mojom.TabStripService.ActivateTab_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetSelectedTabs
-tabs_api.mojom.TabStripService_SetSelectedTabs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tabs_api.mojom.TabStripService.SetSelectedTabs_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'selection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(tabs_api.mojom.NodeIdSpec, false), nullable: false, minVersion: 0 },
-        { name: 'tab_to_activate', packedOffset: 8, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for MoveNode
-tabs_api.mojom.TabStripService_MoveNode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tabs_api.mojom.TabStripService.MoveNode_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: false, minVersion: 0 },
-        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: tabs_api.mojom.PositionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 tabs_api.mojom.TabStripServicePtr = tabs_api.mojom.TabStripServiceRemote;
 tabs_api.mojom.TabStripServiceRequest = tabs_api.mojom.TabStripServicePendingReceiver;
 
 
 // Interface: TabsObserver
-tabs_api.mojom.TabsObserver = {};
-
-tabs_api.mojom.TabsObserver_OnTabEvents_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tabs_api.mojom.TabsObserver_OnTabEvents_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'events', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(tabs_api.mojom.TabsEventSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tabs_api.mojom.TabsObserver_OnTabEvents_ParamsSpec, 'tabs_api.mojom.TabsObserver_OnTabEvents_Params', [
+      mojo.internal.StructField('events', 0, 0, mojo.internal.Array(tabs_api.mojom.TabsEventSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 tabs_api.mojom.TabsObserverPendingReceiver = class {
   constructor(handle) {
@@ -428,21 +281,6 @@ tabs_api.mojom.TabsObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnTabEvents
-tabs_api.mojom.TabsObserver_OnTabEvents_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tabs_api.mojom.TabsObserver.OnTabEvents_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'events', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(tabs_api.mojom.TabsEventSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 tabs_api.mojom.TabsObserverPtr = tabs_api.mojom.TabsObserverRemote;
 tabs_api.mojom.TabsObserverRequest = tabs_api.mojom.TabsObserverPendingReceiver;
 

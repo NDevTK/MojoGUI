@@ -8,22 +8,16 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.CrashMemoryMetricsReporter = {};
+blink.mojom.CrashMemoryMetricsReporter.$interfaceName = 'blink.mojom.CrashMemoryMetricsReporter';
+blink.mojom.CrashMemoryMetricsReporter_SetSharedMemory_ParamsSpec = { $: {} };
 
 // Interface: CrashMemoryMetricsReporter
-blink.mojom.CrashMemoryMetricsReporter = {};
-
-blink.mojom.CrashMemoryMetricsReporter_SetSharedMemory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CrashMemoryMetricsReporter_SetSharedMemory_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'shared_metrics_buffer', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.CrashMemoryMetricsReporter_SetSharedMemory_ParamsSpec, 'blink.mojom.CrashMemoryMetricsReporter_SetSharedMemory_Params', [
+      mojo.internal.StructField('shared_metrics_buffer', 0, 0, mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.CrashMemoryMetricsReporterPendingReceiver = class {
   constructor(handle) {
@@ -78,21 +72,6 @@ blink.mojom.CrashMemoryMetricsReporter.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetSharedMemory
-blink.mojom.CrashMemoryMetricsReporter_SetSharedMemory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CrashMemoryMetricsReporter.SetSharedMemory_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'shared_metrics_buffer', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.CrashMemoryMetricsReporterPtr = blink.mojom.CrashMemoryMetricsReporterRemote;
 blink.mojom.CrashMemoryMetricsReporterRequest = blink.mojom.CrashMemoryMetricsReporterPendingReceiver;
 

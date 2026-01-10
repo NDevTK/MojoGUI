@@ -8,21 +8,15 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.RendererContentSettingsSpec = { $: {} };
 
 // Struct: RendererContentSettings
-blink.mojom.RendererContentSettingsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.RendererContentSettings',
-      packedSize: 16,
-      fields: [
-        { name: 'allow_script', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'allow_image', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'allow_popup', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'allow_mixed_content', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'allow_controlled_frame', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.RendererContentSettingsSpec, 'blink.mojom.RendererContentSettings', [
+      mojo.internal.StructField('allow_script', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('allow_image', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('allow_popup', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('allow_mixed_content', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('allow_controlled_frame', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);

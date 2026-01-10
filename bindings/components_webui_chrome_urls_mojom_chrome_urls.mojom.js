@@ -9,55 +9,45 @@ var chrome_urls = chrome_urls || {};
 chrome_urls.mojom = chrome_urls.mojom || {};
 var url = url || {};
 
+chrome_urls.mojom.WebuiUrlInfoSpec = { $: {} };
+chrome_urls.mojom.ChromeUrlsDataSpec = { $: {} };
+chrome_urls.mojom.PageHandlerFactory = {};
+chrome_urls.mojom.PageHandlerFactory.$interfaceName = 'chrome_urls.mojom.PageHandlerFactory';
+chrome_urls.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+chrome_urls.mojom.PageHandler = {};
+chrome_urls.mojom.PageHandler.$interfaceName = 'chrome_urls.mojom.PageHandler';
+chrome_urls.mojom.PageHandler_GetUrls_ParamsSpec = { $: {} };
+chrome_urls.mojom.PageHandler_GetUrls_ResponseParamsSpec = { $: {} };
+chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ParamsSpec = { $: {} };
+chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ResponseParamsSpec = { $: {} };
+chrome_urls.mojom.Page = {};
+chrome_urls.mojom.Page.$interfaceName = 'chrome_urls.mojom.Page';
 
 // Struct: WebuiUrlInfo
-chrome_urls.mojom.WebuiUrlInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome_urls.mojom.WebuiUrlInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'internal', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome_urls.mojom.WebuiUrlInfoSpec, 'chrome_urls.mojom.WebuiUrlInfo', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('internal', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: ChromeUrlsData
-chrome_urls.mojom.ChromeUrlsDataSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome_urls.mojom.ChromeUrlsData',
-      packedSize: 32,
-      fields: [
-        { name: 'webui_urls', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chrome_urls.mojom.WebuiUrlInfoSpec, false), nullable: false, minVersion: 0 },
-        { name: 'command_urls', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
-        { name: 'internal_debugging_uis_enabled', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome_urls.mojom.ChromeUrlsDataSpec, 'chrome_urls.mojom.ChromeUrlsData', [
+      mojo.internal.StructField('webui_urls', 0, 0, mojo.internal.Array(chrome_urls.mojom.WebuiUrlInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('command_urls', 8, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('internal_debugging_uis_enabled', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: PageHandlerFactory
-chrome_urls.mojom.PageHandlerFactory = {};
-
-chrome_urls.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome_urls.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chrome_urls.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chrome_urls.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome_urls.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'chrome_urls.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(chrome_urls.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(chrome_urls.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 chrome_urls.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -112,53 +102,32 @@ chrome_urls.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-chrome_urls.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome_urls.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chrome_urls.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chrome_urls.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 chrome_urls.mojom.PageHandlerFactoryPtr = chrome_urls.mojom.PageHandlerFactoryRemote;
 chrome_urls.mojom.PageHandlerFactoryRequest = chrome_urls.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-chrome_urls.mojom.PageHandler = {};
+mojo.internal.Struct(
+    chrome_urls.mojom.PageHandler_GetUrls_ParamsSpec, 'chrome_urls.mojom.PageHandler_GetUrls_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chrome_urls.mojom.PageHandler_GetUrls_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome_urls.mojom.PageHandler_GetUrls_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome_urls.mojom.PageHandler_GetUrls_ResponseParamsSpec, 'chrome_urls.mojom.PageHandler_GetUrls_ResponseParams', [
+      mojo.internal.StructField('urls_data', 0, 0, chrome_urls.mojom.ChromeUrlsDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ParamsSpec, 'chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_Params', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ResponseParamsSpec, 'chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 chrome_urls.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -206,7 +175,7 @@ chrome_urls.mojom.PageHandlerRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ParamsSpec,
-      null,
+      chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ResponseParamsSpec,
       [enabled]);
   }
 
@@ -222,54 +191,11 @@ chrome_urls.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetUrls
-chrome_urls.mojom.PageHandler_GetUrls_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome_urls.mojom.PageHandler.GetUrls_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chrome_urls.mojom.PageHandler_GetUrls_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome_urls.mojom.PageHandler.GetUrls_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'urls_data', packedOffset: 0, packedBitOffset: 0, type: chrome_urls.mojom.ChromeUrlsDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetDebugPagesEnabled
-chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome_urls.mojom.PageHandler.SetDebugPagesEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chrome_urls.mojom.PageHandlerPtr = chrome_urls.mojom.PageHandlerRemote;
 chrome_urls.mojom.PageHandlerRequest = chrome_urls.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-chrome_urls.mojom.Page = {};
-
 chrome_urls.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -314,7 +240,6 @@ chrome_urls.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// Legacy compatibility
 chrome_urls.mojom.PagePtr = chrome_urls.mojom.PageRemote;
 chrome_urls.mojom.PageRequest = chrome_urls.mojom.PagePendingReceiver;
 

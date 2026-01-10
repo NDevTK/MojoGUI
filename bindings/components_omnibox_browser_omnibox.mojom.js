@@ -8,14 +8,15 @@
 var omnibox = omnibox || {};
 omnibox.mojom = omnibox.mojom || {};
 
+omnibox.mojom.NavigationPredictorSpec = { $: mojo.internal.Enum() };
+omnibox.mojom.PageClassificationSpec = { $: mojo.internal.Enum() };
 
 // Enum: NavigationPredictor
 omnibox.mojom.NavigationPredictor = {
-  kMouseDown: 0,
-  kUpOrDownArrowButton: 1,
-  kTouchDown: 2,
+  kMouseDown: 1,
+  kUpOrDownArrowButton: 2,
+  kTouchDown: 3,
 };
-omnibox.mojom.NavigationPredictorSpec = { $: mojo.internal.Enum() };
 
 // Enum: PageClassification
 omnibox.mojom.PageClassification = {
@@ -24,25 +25,24 @@ omnibox.mojom.PageClassification = {
   BLANK: 2,
   HOME_PAGE: 3,
   OTHER: 4,
-  SEARCH_RESULT_PAGE_DOING_SEARCH_TERM_REPLACEMENT: 5,
-  INSTANT_NTP_WITH_OMNIBOX_AS_STARTING_FOCUS: 6,
-  SEARCH_RESULT_PAGE_NO_SEARCH_TERM_REPLACEMENT: 7,
-  APP_HOME: 8,
-  APP_SEARCH: 9,
-  APP_MAPS: 10,
-  SEARCH_BUTTON_AS_STARTING_FOCUS: 11,
-  CHROMEOS_APP_LIST: 12,
-  NTP_REALBOX: 13,
-  ANDROID_SEARCH_WIDGET: 14,
-  ANDROID_SHORTCUTS_WIDGET: 15,
-  NTP_ZPS_PREFETCH: 16,
-  JOURNEYS: 17,
-  SRP_ZPS_PREFETCH: 18,
-  OTHER_ZPS_PREFETCH: 19,
-  CONTEXTUAL_SEARCHBOX: 20,
-  SEARCH_SIDE_PANEL_SEARCHBOX: 21,
-  LENS_SIDE_PANEL_SEARCHBOX: 22,
-  SEARCH_RESULT_PAGE_ON_CCT: 23,
-  OTHER_ON_CCT: 24,
+  SEARCH_RESULT_PAGE_DOING_SEARCH_TERM_REPLACEMENT: 6,
+  INSTANT_NTP_WITH_OMNIBOX_AS_STARTING_FOCUS: 7,
+  SEARCH_RESULT_PAGE_NO_SEARCH_TERM_REPLACEMENT: 9,
+  APP_HOME: 10,
+  APP_SEARCH: 11,
+  APP_MAPS: 12,
+  SEARCH_BUTTON_AS_STARTING_FOCUS: 13,
+  CHROMEOS_APP_LIST: 14,
+  NTP_REALBOX: 15,
+  ANDROID_SEARCH_WIDGET: 16,
+  ANDROID_SHORTCUTS_WIDGET: 19,
+  NTP_ZPS_PREFETCH: 20,
+  JOURNEYS: 21,
+  SRP_ZPS_PREFETCH: 22,
+  OTHER_ZPS_PREFETCH: 23,
+  CONTEXTUAL_SEARCHBOX: 24,
+  SEARCH_SIDE_PANEL_SEARCHBOX: 25,
+  LENS_SIDE_PANEL_SEARCHBOX: 26,
+  SEARCH_RESULT_PAGE_ON_CCT: 27,
+  OTHER_ON_CCT: 28,
 };
-omnibox.mojom.PageClassificationSpec = { $: mojo.internal.Enum() };

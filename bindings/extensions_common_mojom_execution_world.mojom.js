@@ -8,6 +8,7 @@
 var extensions = extensions || {};
 extensions.mojom = extensions.mojom || {};
 
+extensions.mojom.ExecutionWorldSpec = { $: mojo.internal.Enum() };
 
 // Enum: ExecutionWorld
 extensions.mojom.ExecutionWorld = {
@@ -15,4 +16,3 @@ extensions.mojom.ExecutionWorld = {
   kMain: 1,
   kUserScript: 2,
 };
-extensions.mojom.ExecutionWorldSpec = { $: mojo.internal.Enum() };

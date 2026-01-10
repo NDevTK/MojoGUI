@@ -9,6 +9,34 @@ var ash = ash || {};
 ash.hotspot_config = ash.hotspot_config || {};
 ash.hotspot_config.mojom = ash.hotspot_config.mojom || {};
 
+ash.hotspot_config.mojom.HotspotStateSpec = { $: mojo.internal.Enum() };
+ash.hotspot_config.mojom.WiFiSecurityModeSpec = { $: mojo.internal.Enum() };
+ash.hotspot_config.mojom.WiFiBandSpec = { $: mojo.internal.Enum() };
+ash.hotspot_config.mojom.SetHotspotConfigResultSpec = { $: mojo.internal.Enum() };
+ash.hotspot_config.mojom.HotspotAllowStatusSpec = { $: mojo.internal.Enum() };
+ash.hotspot_config.mojom.HotspotControlResultSpec = { $: mojo.internal.Enum() };
+ash.hotspot_config.mojom.DisableReasonSpec = { $: mojo.internal.Enum() };
+ash.hotspot_config.mojom.HotspotConfigSpec = { $: {} };
+ash.hotspot_config.mojom.HotspotInfoSpec = { $: {} };
+ash.hotspot_config.mojom.CrosHotspotConfig = {};
+ash.hotspot_config.mojom.CrosHotspotConfig.$interfaceName = 'ash.hotspot_config.mojom.CrosHotspotConfig';
+ash.hotspot_config.mojom.CrosHotspotConfig_AddObserver_ParamsSpec = { $: {} };
+ash.hotspot_config.mojom.CrosHotspotConfig_ObserveEnabledStateChanges_ParamsSpec = { $: {} };
+ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ParamsSpec = { $: {} };
+ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ResponseParamsSpec = { $: {} };
+ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ParamsSpec = { $: {} };
+ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ResponseParamsSpec = { $: {} };
+ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ParamsSpec = { $: {} };
+ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ResponseParamsSpec = { $: {} };
+ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ParamsSpec = { $: {} };
+ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ResponseParamsSpec = { $: {} };
+ash.hotspot_config.mojom.CrosHotspotConfigObserver = {};
+ash.hotspot_config.mojom.CrosHotspotConfigObserver.$interfaceName = 'ash.hotspot_config.mojom.CrosHotspotConfigObserver';
+ash.hotspot_config.mojom.CrosHotspotConfigObserver_OnHotspotInfoChanged_ParamsSpec = { $: {} };
+ash.hotspot_config.mojom.HotspotEnabledStateObserver = {};
+ash.hotspot_config.mojom.HotspotEnabledStateObserver.$interfaceName = 'ash.hotspot_config.mojom.HotspotEnabledStateObserver';
+ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOn_ParamsSpec = { $: {} };
+ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOff_ParamsSpec = { $: {} };
 
 // Enum: HotspotState
 ash.hotspot_config.mojom.HotspotState = {
@@ -17,7 +45,6 @@ ash.hotspot_config.mojom.HotspotState = {
   kEnabling: 2,
   kDisabling: 3,
 };
-ash.hotspot_config.mojom.HotspotStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: WiFiSecurityMode
 ash.hotspot_config.mojom.WiFiSecurityMode = {
@@ -25,14 +52,12 @@ ash.hotspot_config.mojom.WiFiSecurityMode = {
   kWpa3: 1,
   kWpa2Wpa3: 2,
 };
-ash.hotspot_config.mojom.WiFiSecurityModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: WiFiBand
 ash.hotspot_config.mojom.WiFiBand = {
   k2_4GHz: 0,
   kAutoChoose: 1,
 };
-ash.hotspot_config.mojom.WiFiBandSpec = { $: mojo.internal.Enum() };
 
 // Enum: SetHotspotConfigResult
 ash.hotspot_config.mojom.SetHotspotConfigResult = {
@@ -41,7 +66,6 @@ ash.hotspot_config.mojom.SetHotspotConfigResult = {
   kFailedInvalidConfiguration: 2,
   kFailedShillOperation: 3,
 };
-ash.hotspot_config.mojom.SetHotspotConfigResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: HotspotAllowStatus
 ash.hotspot_config.mojom.HotspotAllowStatus = {
@@ -53,7 +77,6 @@ ash.hotspot_config.mojom.HotspotAllowStatus = {
   kDisallowedByPolicy: 5,
   kAllowed: 6,
 };
-ash.hotspot_config.mojom.HotspotAllowStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: HotspotControlResult
 ash.hotspot_config.mojom.HotspotControlResult = {
@@ -75,7 +98,6 @@ ash.hotspot_config.mojom.HotspotControlResult = {
   kOperationFailure: 15,
   kUnknownFailure: 16,
 };
-ash.hotspot_config.mojom.HotspotControlResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: DisableReason
 ash.hotspot_config.mojom.DisableReason = {
@@ -95,122 +117,87 @@ ash.hotspot_config.mojom.DisableReason = {
   kResourceBusy: 13,
   kUnknownError: 14,
 };
-ash.hotspot_config.mojom.DisableReasonSpec = { $: mojo.internal.Enum() };
 
 // Struct: HotspotConfig
-ash.hotspot_config.mojom.HotspotConfigSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.hotspot_config.mojom.HotspotConfig',
-      packedSize: 40,
-      fields: [
-        { name: 'auto_disable', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'security', packedOffset: 16, packedBitOffset: 0, type: ash.hotspot_config.mojom.WiFiSecurityModeSpec, nullable: false, minVersion: 0 },
-        { name: 'band', packedOffset: 20, packedBitOffset: 0, type: ash.hotspot_config.mojom.WiFiBandSpec, nullable: false, minVersion: 0 },
-        { name: 'ssid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'passphrase', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'bssid_randomization', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.hotspot_config.mojom.HotspotConfigSpec, 'ash.hotspot_config.mojom.HotspotConfig', [
+      mojo.internal.StructField('auto_disable', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('security', 16, 0, ash.hotspot_config.mojom.WiFiSecurityModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('band', 20, 0, ash.hotspot_config.mojom.WiFiBandSpec, null, false, 0, undefined),
+      mojo.internal.StructField('ssid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('passphrase', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('bssid_randomization', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: HotspotInfo
-ash.hotspot_config.mojom.HotspotInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.hotspot_config.mojom.HotspotInfo',
-      packedSize: 40,
-      fields: [
-        { name: 'state', packedOffset: 16, packedBitOffset: 0, type: ash.hotspot_config.mojom.HotspotStateSpec, nullable: false, minVersion: 0 },
-        { name: 'client_count', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'allow_status', packedOffset: 24, packedBitOffset: 0, type: ash.hotspot_config.mojom.HotspotAllowStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'allowed_wifi_security_modes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.hotspot_config.mojom.WiFiSecurityModeSpec, false), nullable: false, minVersion: 0 },
-        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: ash.hotspot_config.mojom.HotspotConfigSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.hotspot_config.mojom.HotspotInfoSpec, 'ash.hotspot_config.mojom.HotspotInfo', [
+      mojo.internal.StructField('state', 16, 0, ash.hotspot_config.mojom.HotspotStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('client_count', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('allow_status', 24, 0, ash.hotspot_config.mojom.HotspotAllowStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('allowed_wifi_security_modes', 0, 0, mojo.internal.Array(ash.hotspot_config.mojom.WiFiSecurityModeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('config', 8, 0, ash.hotspot_config.mojom.HotspotConfigSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Interface: CrosHotspotConfig
-ash.hotspot_config.mojom.CrosHotspotConfig = {};
+mojo.internal.Struct(
+    ash.hotspot_config.mojom.CrosHotspotConfig_AddObserver_ParamsSpec, 'ash.hotspot_config.mojom.CrosHotspotConfig_AddObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.hotspot_config.mojom.CrosHotspotConfigObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.hotspot_config.mojom.CrosHotspotConfig_AddObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.hotspot_config.mojom.CrosHotspotConfig_AddObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.hotspot_config.mojom.CrosHotspotConfigObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.hotspot_config.mojom.CrosHotspotConfig_ObserveEnabledStateChanges_ParamsSpec, 'ash.hotspot_config.mojom.CrosHotspotConfig_ObserveEnabledStateChanges_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.hotspot_config.mojom.HotspotEnabledStateObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.hotspot_config.mojom.CrosHotspotConfig_ObserveEnabledStateChanges_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.hotspot_config.mojom.CrosHotspotConfig_ObserveEnabledStateChanges_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.hotspot_config.mojom.HotspotEnabledStateObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ParamsSpec, 'ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ResponseParamsSpec, 'ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ResponseParams', [
+      mojo.internal.StructField('hotspot_info', 0, 0, ash.hotspot_config.mojom.HotspotInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: ash.hotspot_config.mojom.HotspotConfigSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ParamsSpec, 'ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_Params', [
+      mojo.internal.StructField('config', 0, 0, ash.hotspot_config.mojom.HotspotConfigSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ResponseParamsSpec, 'ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, ash.hotspot_config.mojom.SetHotspotConfigResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ParamsSpec, 'ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ResponseParamsSpec, 'ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, ash.hotspot_config.mojom.HotspotControlResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ParamsSpec, 'ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ResponseParamsSpec, 'ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, ash.hotspot_config.mojom.HotspotControlResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.hotspot_config.mojom.CrosHotspotConfigPendingReceiver = class {
   constructor(handle) {
@@ -310,158 +297,15 @@ ash.hotspot_config.mojom.CrosHotspotConfig.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddObserver
-ash.hotspot_config.mojom.CrosHotspotConfig_AddObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.hotspot_config.mojom.CrosHotspotConfig.AddObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.hotspot_config.mojom.CrosHotspotConfigObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ObserveEnabledStateChanges
-ash.hotspot_config.mojom.CrosHotspotConfig_ObserveEnabledStateChanges_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.hotspot_config.mojom.CrosHotspotConfig.ObserveEnabledStateChanges_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.hotspot_config.mojom.HotspotEnabledStateObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetHotspotInfo
-ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.hotspot_config.mojom.CrosHotspotConfig.GetHotspotInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.hotspot_config.mojom.CrosHotspotConfig.GetHotspotInfo_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'hotspot_info', packedOffset: 0, packedBitOffset: 0, type: ash.hotspot_config.mojom.HotspotInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetHotspotConfig
-ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.hotspot_config.mojom.CrosHotspotConfig.SetHotspotConfig_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: ash.hotspot_config.mojom.HotspotConfigSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.hotspot_config.mojom.CrosHotspotConfig.SetHotspotConfig_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.hotspot_config.mojom.SetHotspotConfigResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EnableHotspot
-ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.hotspot_config.mojom.CrosHotspotConfig.EnableHotspot_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.hotspot_config.mojom.CrosHotspotConfig.EnableHotspot_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.hotspot_config.mojom.HotspotControlResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DisableHotspot
-ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.hotspot_config.mojom.CrosHotspotConfig.DisableHotspot_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.hotspot_config.mojom.CrosHotspotConfig.DisableHotspot_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.hotspot_config.mojom.HotspotControlResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.hotspot_config.mojom.CrosHotspotConfigPtr = ash.hotspot_config.mojom.CrosHotspotConfigRemote;
 ash.hotspot_config.mojom.CrosHotspotConfigRequest = ash.hotspot_config.mojom.CrosHotspotConfigPendingReceiver;
 
 
 // Interface: CrosHotspotConfigObserver
-ash.hotspot_config.mojom.CrosHotspotConfigObserver = {};
-
-ash.hotspot_config.mojom.CrosHotspotConfigObserver_OnHotspotInfoChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.hotspot_config.mojom.CrosHotspotConfigObserver_OnHotspotInfoChanged_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.hotspot_config.mojom.CrosHotspotConfigObserver_OnHotspotInfoChanged_ParamsSpec, 'ash.hotspot_config.mojom.CrosHotspotConfigObserver_OnHotspotInfoChanged_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 ash.hotspot_config.mojom.CrosHotspotConfigObserverPendingReceiver = class {
   constructor(handle) {
@@ -516,51 +360,21 @@ ash.hotspot_config.mojom.CrosHotspotConfigObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnHotspotInfoChanged
-ash.hotspot_config.mojom.CrosHotspotConfigObserver_OnHotspotInfoChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.hotspot_config.mojom.CrosHotspotConfigObserver.OnHotspotInfoChanged_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.hotspot_config.mojom.CrosHotspotConfigObserverPtr = ash.hotspot_config.mojom.CrosHotspotConfigObserverRemote;
 ash.hotspot_config.mojom.CrosHotspotConfigObserverRequest = ash.hotspot_config.mojom.CrosHotspotConfigObserverPendingReceiver;
 
 
 // Interface: HotspotEnabledStateObserver
-ash.hotspot_config.mojom.HotspotEnabledStateObserver = {};
+mojo.internal.Struct(
+    ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOn_ParamsSpec, 'ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOn_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOn_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOn_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOff_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOff_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: ash.hotspot_config.mojom.DisableReasonSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOff_ParamsSpec, 'ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOff_Params', [
+      mojo.internal.StructField('reason', 0, 0, ash.hotspot_config.mojom.DisableReasonSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.hotspot_config.mojom.HotspotEnabledStateObserverPendingReceiver = class {
   constructor(handle) {
@@ -624,34 +438,6 @@ ash.hotspot_config.mojom.HotspotEnabledStateObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnHotspotTurnedOn
-ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOn_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.hotspot_config.mojom.HotspotEnabledStateObserver.OnHotspotTurnedOn_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnHotspotTurnedOff
-ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOff_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.hotspot_config.mojom.HotspotEnabledStateObserver.OnHotspotTurnedOff_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: ash.hotspot_config.mojom.DisableReasonSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.hotspot_config.mojom.HotspotEnabledStateObserverPtr = ash.hotspot_config.mojom.HotspotEnabledStateObserverRemote;
 ash.hotspot_config.mojom.HotspotEnabledStateObserverRequest = ash.hotspot_config.mojom.HotspotEnabledStateObserverPendingReceiver;
 

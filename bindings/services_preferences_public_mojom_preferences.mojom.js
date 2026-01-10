@@ -7,79 +7,62 @@
 // Module namespace
 var prefs = prefs || {};
 prefs.mojom = prefs.mojom || {};
+var services = services || {};
 
+prefs.mojom.EnforcementLevelSpec = { $: mojo.internal.Enum() };
+prefs.mojom.PrefTrackingStrategySpec = { $: mojo.internal.Enum() };
+prefs.mojom.ValueTypeSpec = { $: mojo.internal.Enum() };
+prefs.mojom.TrackedPersistentPrefStoreConfigurationSpec = { $: {} };
+prefs.mojom.TrackedPreferenceMetadataSpec = { $: {} };
+prefs.mojom.ResetOnLoadObserver = {};
+prefs.mojom.ResetOnLoadObserver.$interfaceName = 'prefs.mojom.ResetOnLoadObserver';
+prefs.mojom.ResetOnLoadObserver_OnResetOnLoad_ParamsSpec = { $: {} };
 
 // Enum: EnforcementLevel
 prefs.mojom.EnforcementLevel = {
   NO_ENFORCEMENT: 0,
   ENFORCE_ON_LOAD: 1,
 };
-prefs.mojom.EnforcementLevelSpec = { $: mojo.internal.Enum() };
 
 // Enum: PrefTrackingStrategy
 prefs.mojom.PrefTrackingStrategy = {
   ATOMIC: 0,
   SPLIT: 1,
 };
-prefs.mojom.PrefTrackingStrategySpec = { $: mojo.internal.Enum() };
 
 // Enum: ValueType
 prefs.mojom.ValueType = {
   IMPERSONAL: 0,
   PERSONAL: 1,
 };
-prefs.mojom.ValueTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: TrackedPersistentPrefStoreConfiguration
-prefs.mojom.TrackedPersistentPrefStoreConfigurationSpec = {
-  $: {
-    structSpec: {
-      name: 'prefs.mojom.TrackedPersistentPrefStoreConfiguration',
-      packedSize: 80,
-      fields: [
-        { name: 'unprotected_pref_filename', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'protected_pref_filename', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'tracking_configuration', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(prefs.mojom.TrackedPreferenceMetadataSpec, false), nullable: false, minVersion: 0 },
-        { name: 'reporting_ids_count', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'seed', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'registry_seed', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'registry_path', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'validation_delegate', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(prefs.mojom.TrackedPreferenceValidationDelegateRemote), nullable: true, minVersion: 0 },
-        { name: 'reset_on_load_observer', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(prefs.mojom.ResetOnLoadObserverRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 80}]
-    }
-  }
-};
+mojo.internal.Struct(
+    prefs.mojom.TrackedPersistentPrefStoreConfigurationSpec, 'prefs.mojom.TrackedPersistentPrefStoreConfiguration', [
+      mojo.internal.StructField('unprotected_pref_filename', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('protected_pref_filename', 8, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tracking_configuration', 16, 0, mojo.internal.Array(prefs.mojom.TrackedPreferenceMetadataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('reporting_ids_count', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('seed', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('registry_seed', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('registry_path', 48, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('validation_delegate', 56, 0, mojo.internal.InterfaceProxy(prefs.mojom.TrackedPreferenceValidationDelegateRemote), null, true, 0, undefined),
+      mojo.internal.StructField('reset_on_load_observer', 64, 0, mojo.internal.InterfaceProxy(prefs.mojom.ResetOnLoadObserverRemote), null, true, 0, undefined),
+    ],
+    [[0, 80]]);
 
 // Struct: TrackedPreferenceMetadata
-prefs.mojom.TrackedPreferenceMetadataSpec = {
-  $: {
-    structSpec: {
-      name: 'prefs.mojom.TrackedPreferenceMetadata',
-      packedSize: 16,
-      fields: [
-        { name: 'NO_ENFORCEMENT', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    prefs.mojom.TrackedPreferenceMetadataSpec, 'prefs.mojom.TrackedPreferenceMetadata', [
+      mojo.internal.StructField('NO_ENFORCEMENT', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: ResetOnLoadObserver
-prefs.mojom.ResetOnLoadObserver = {};
-
-prefs.mojom.ResetOnLoadObserver_OnResetOnLoad_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'prefs.mojom.ResetOnLoadObserver_OnResetOnLoad_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    prefs.mojom.ResetOnLoadObserver_OnResetOnLoad_ParamsSpec, 'prefs.mojom.ResetOnLoadObserver_OnResetOnLoad_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 prefs.mojom.ResetOnLoadObserverPendingReceiver = class {
   constructor(handle) {
@@ -134,20 +117,6 @@ prefs.mojom.ResetOnLoadObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnResetOnLoad
-prefs.mojom.ResetOnLoadObserver_OnResetOnLoad_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'prefs.mojom.ResetOnLoadObserver.OnResetOnLoad_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 prefs.mojom.ResetOnLoadObserverPtr = prefs.mojom.ResetOnLoadObserverRemote;
 prefs.mojom.ResetOnLoadObserverRequest = prefs.mojom.ResetOnLoadObserverPendingReceiver;
 

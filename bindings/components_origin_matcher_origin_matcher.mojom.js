@@ -8,47 +8,29 @@
 var origin_matcher = origin_matcher || {};
 origin_matcher.mojom = origin_matcher.mojom || {};
 
+origin_matcher.mojom.SubdomainMatchingRuleSpec = { $: {} };
+origin_matcher.mojom.OriginMatcherRuleSpec = { $: {} };
+origin_matcher.mojom.OriginMatcherSpec = { $: {} };
 
 // Struct: SubdomainMatchingRule
-origin_matcher.mojom.SubdomainMatchingRuleSpec = {
-  $: {
-    structSpec: {
-      name: 'origin_matcher.mojom.SubdomainMatchingRule',
-      packedSize: 32,
-      fields: [
-        { name: 'scheme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'optional_host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'optional_port', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    origin_matcher.mojom.SubdomainMatchingRuleSpec, 'origin_matcher.mojom.SubdomainMatchingRule', [
+      mojo.internal.StructField('scheme', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('optional_host', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('optional_port', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: OriginMatcherRule
-origin_matcher.mojom.OriginMatcherRuleSpec = {
-  $: {
-    structSpec: {
-      name: 'origin_matcher.mojom.OriginMatcherRule',
-      packedSize: 16,
-      fields: [
-        { name: 'subdomain_matching_rule', packedOffset: 0, packedBitOffset: 0, type: origin_matcher.mojom.SubdomainMatchingRuleSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    origin_matcher.mojom.OriginMatcherRuleSpec, 'origin_matcher.mojom.OriginMatcherRule', [
+      mojo.internal.StructField('subdomain_matching_rule', 0, 0, origin_matcher.mojom.SubdomainMatchingRuleSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: OriginMatcher
-origin_matcher.mojom.OriginMatcherSpec = {
-  $: {
-    structSpec: {
-      name: 'origin_matcher.mojom.OriginMatcher',
-      packedSize: 16,
-      fields: [
-        { name: 'rules', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(origin_matcher.mojom.OriginMatcherRuleSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    origin_matcher.mojom.OriginMatcherSpec, 'origin_matcher.mojom.OriginMatcher', [
+      mojo.internal.StructField('rules', 0, 0, mojo.internal.Array(origin_matcher.mojom.OriginMatcherRuleSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);

@@ -9,52 +9,41 @@ var site_engagement = site_engagement || {};
 site_engagement.mojom = site_engagement.mojom || {};
 var url = url || {};
 
+site_engagement.mojom.SiteEngagementDetailsSpec = { $: {} };
+site_engagement.mojom.SiteEngagementDetailsProvider = {};
+site_engagement.mojom.SiteEngagementDetailsProvider.$interfaceName = 'site_engagement.mojom.SiteEngagementDetailsProvider';
+site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ParamsSpec = { $: {} };
+site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ResponseParamsSpec = { $: {} };
+site_engagement.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreForUrl_ParamsSpec = { $: {} };
 
 // Struct: SiteEngagementDetails
-site_engagement.mojom.SiteEngagementDetailsSpec = {
-  $: {
-    structSpec: {
-      name: 'site_engagement.mojom.SiteEngagementDetails',
-      packedSize: 40,
-      fields: [
-        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'total_score', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'base_score', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'installed_bonus', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    site_engagement.mojom.SiteEngagementDetailsSpec, 'site_engagement.mojom.SiteEngagementDetails', [
+      mojo.internal.StructField('origin', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('total_score', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('base_score', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('installed_bonus', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Interface: SiteEngagementDetailsProvider
-site_engagement.mojom.SiteEngagementDetailsProvider = {};
+mojo.internal.Struct(
+    site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ParamsSpec, 'site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ResponseParamsSpec, 'site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ResponseParams', [
+      mojo.internal.StructField('info', 0, 0, mojo.internal.Array(site_engagement.mojom.SiteEngagementDetailsSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-site_engagement.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreForUrl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'site_engagement.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreForUrl_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'score', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    site_engagement.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreForUrl_ParamsSpec, 'site_engagement.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreForUrl_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('score', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 site_engagement.mojom.SiteEngagementDetailsProviderPendingReceiver = class {
   constructor(handle) {
@@ -118,48 +107,6 @@ site_engagement.mojom.SiteEngagementDetailsProvider.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetSiteEngagementDetails
-site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'site_engagement.mojom.SiteEngagementDetailsProvider.GetSiteEngagementDetails_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'site_engagement.mojom.SiteEngagementDetailsProvider.GetSiteEngagementDetails_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(site_engagement.mojom.SiteEngagementDetailsSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetSiteEngagementBaseScoreForUrl
-site_engagement.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreForUrl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'site_engagement.mojom.SiteEngagementDetailsProvider.SetSiteEngagementBaseScoreForUrl_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'score', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 site_engagement.mojom.SiteEngagementDetailsProviderPtr = site_engagement.mojom.SiteEngagementDetailsProviderRemote;
 site_engagement.mojom.SiteEngagementDetailsProviderRequest = site_engagement.mojom.SiteEngagementDetailsProviderPendingReceiver;
 

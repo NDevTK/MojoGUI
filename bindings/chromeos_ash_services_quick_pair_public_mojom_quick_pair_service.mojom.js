@@ -8,23 +8,20 @@
 var ash = ash || {};
 ash.quick_pair = ash.quick_pair || {};
 ash.quick_pair.mojom = ash.quick_pair.mojom || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var services = services || {};
 
+ash.quick_pair.mojom.QuickPairService = {};
+ash.quick_pair.mojom.QuickPairService.$interfaceName = 'ash.quick_pair.mojom.QuickPairService';
+ash.quick_pair.mojom.QuickPairService_Connect_ParamsSpec = { $: {} };
 
 // Interface: QuickPairService
-ash.quick_pair.mojom.QuickPairService = {};
-
-ash.quick_pair.mojom.QuickPairService_Connect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.quick_pair.mojom.QuickPairService_Connect_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'fast_pair_data_parser', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.quick_pair.mojom.FastPairDataParserRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.quick_pair.mojom.QuickPairService_Connect_ParamsSpec, 'ash.quick_pair.mojom.QuickPairService_Connect_Params', [
+      mojo.internal.StructField('fast_pair_data_parser', 0, 0, mojo.internal.InterfaceRequest(ash.quick_pair.mojom.FastPairDataParserRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.quick_pair.mojom.QuickPairServicePendingReceiver = class {
   constructor(handle) {
@@ -79,21 +76,6 @@ ash.quick_pair.mojom.QuickPairService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Connect
-ash.quick_pair.mojom.QuickPairService_Connect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.quick_pair.mojom.QuickPairService.Connect_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'fast_pair_data_parser', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.quick_pair.mojom.FastPairDataParserRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.quick_pair.mojom.QuickPairServicePtr = ash.quick_pair.mojom.QuickPairServiceRemote;
 ash.quick_pair.mojom.QuickPairServiceRequest = ash.quick_pair.mojom.QuickPairServicePendingReceiver;
 

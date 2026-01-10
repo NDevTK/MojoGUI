@@ -9,18 +9,12 @@ var storage = storage || {};
 storage.mojom = storage.mojom || {};
 var url = url || {};
 
+storage.mojom.StoragePolicyUpdateSpec = { $: {} };
 
 // Struct: StoragePolicyUpdate
-storage.mojom.StoragePolicyUpdateSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.StoragePolicyUpdate',
-      packedSize: 24,
-      fields: [
-        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-        { name: 'purge_on_shutdown', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.StoragePolicyUpdateSpec, 'storage.mojom.StoragePolicyUpdate', [
+      mojo.internal.StructField('origin', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('purge_on_shutdown', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);

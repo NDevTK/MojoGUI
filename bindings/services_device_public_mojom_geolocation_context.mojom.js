@@ -7,9 +7,19 @@
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 var url = url || {};
 var url = url || {};
 
+device.mojom.GeolocationPermissionLevelSpec = { $: mojo.internal.Enum() };
+device.mojom.GeolocationContext = {};
+device.mojom.GeolocationContext.$interfaceName = 'device.mojom.GeolocationContext';
+device.mojom.GeolocationContext_BindGeolocation_ParamsSpec = { $: {} };
+device.mojom.GeolocationContext_OnPermissionUpdated_ParamsSpec = { $: {} };
+device.mojom.GeolocationContext_SetOverride_ParamsSpec = { $: {} };
+device.mojom.GeolocationContext_ClearOverride_ParamsSpec = { $: {} };
 
 // Enum: GeolocationPermissionLevel
 device.mojom.GeolocationPermissionLevel = {
@@ -17,65 +27,34 @@ device.mojom.GeolocationPermissionLevel = {
   kApproximate: 1,
   kPrecise: 2,
 };
-device.mojom.GeolocationPermissionLevelSpec = { $: mojo.internal.Enum() };
 
 // Interface: GeolocationContext
-device.mojom.GeolocationContext = {};
+mojo.internal.Struct(
+    device.mojom.GeolocationContext_BindGeolocation_ParamsSpec, 'device.mojom.GeolocationContext_BindGeolocation_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(device.mojom.GeolocationRemote), null, false, 0, undefined),
+      mojo.internal.StructField('requesting_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('client_id', 16, 0, device.mojom.GeolocationClientIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('has_precise_permission', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-device.mojom.GeolocationContext_BindGeolocation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.GeolocationContext_BindGeolocation_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.GeolocationRemote), nullable: false, minVersion: 0 },
-        { name: 'requesting_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'client_id', packedOffset: 16, packedBitOffset: 0, type: device.mojom.GeolocationClientIdSpec, nullable: false, minVersion: 0 },
-        { name: 'has_precise_permission', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.GeolocationContext_OnPermissionUpdated_ParamsSpec, 'device.mojom.GeolocationContext_OnPermissionUpdated_Params', [
+      mojo.internal.StructField('origin', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('permission_level', 8, 0, device.mojom.GeolocationPermissionLevelSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-device.mojom.GeolocationContext_OnPermissionUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.GeolocationContext_OnPermissionUpdated_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-        { name: 'permission_level', packedOffset: 8, packedBitOffset: 0, type: device.mojom.GeolocationPermissionLevelSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.GeolocationContext_SetOverride_ParamsSpec, 'device.mojom.GeolocationContext_SetOverride_Params', [
+      mojo.internal.StructField('result', 0, 0, device.mojom.GeopositionResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-device.mojom.GeolocationContext_SetOverride_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.GeolocationContext_SetOverride_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.GeopositionResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-device.mojom.GeolocationContext_ClearOverride_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.GeolocationContext_ClearOverride_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.GeolocationContext_ClearOverride_ParamsSpec, 'device.mojom.GeolocationContext_ClearOverride_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 device.mojom.GeolocationContextPendingReceiver = class {
   constructor(handle) {
@@ -157,66 +136,6 @@ device.mojom.GeolocationContext.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for BindGeolocation
-device.mojom.GeolocationContext_BindGeolocation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.GeolocationContext.BindGeolocation_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.GeolocationRemote), nullable: false, minVersion: 0 },
-        { name: 'requesting_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'client_id', packedOffset: 16, packedBitOffset: 0, type: device.mojom.GeolocationClientIdSpec, nullable: false, minVersion: 0 },
-        { name: 'has_precise_permission', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for OnPermissionUpdated
-device.mojom.GeolocationContext_OnPermissionUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.GeolocationContext.OnPermissionUpdated_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-        { name: 'permission_level', packedOffset: 8, packedBitOffset: 0, type: device.mojom.GeolocationPermissionLevelSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SetOverride
-device.mojom.GeolocationContext_SetOverride_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.GeolocationContext.SetOverride_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.GeopositionResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ClearOverride
-device.mojom.GeolocationContext_ClearOverride_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.GeolocationContext.ClearOverride_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 device.mojom.GeolocationContextPtr = device.mojom.GeolocationContextRemote;
 device.mojom.GeolocationContextRequest = device.mojom.GeolocationContextPendingReceiver;
 

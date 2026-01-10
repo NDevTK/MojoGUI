@@ -10,6 +10,10 @@ blink.mojom = blink.mojom || {};
 var blink = blink || {};
 var url = url || {};
 
+blink.mojom.ServiceWorkerClientTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.ServiceWorkerClientLifecycleStateSpec = { $: mojo.internal.Enum() };
+blink.mojom.ServiceWorkerClientQueryOptionsSpec = { $: {} };
+blink.mojom.ServiceWorkerClientInfoSpec = { $: {} };
 
 // Enum: ServiceWorkerClientType
 blink.mojom.ServiceWorkerClientType = {
@@ -18,48 +22,32 @@ blink.mojom.ServiceWorkerClientType = {
   kSharedWorker: 2,
   kAll: 3,
 };
-blink.mojom.ServiceWorkerClientTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ServiceWorkerClientLifecycleState
 blink.mojom.ServiceWorkerClientLifecycleState = {
   kActive: 0,
   kFrozen: 1,
 };
-blink.mojom.ServiceWorkerClientLifecycleStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: ServiceWorkerClientQueryOptions
-blink.mojom.ServiceWorkerClientQueryOptionsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerClientQueryOptions',
-      packedSize: 16,
-      fields: [
-        { name: 'include_uncontrolled', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'client_type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerClientTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerClientQueryOptionsSpec, 'blink.mojom.ServiceWorkerClientQueryOptions', [
+      mojo.internal.StructField('include_uncontrolled', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('client_type', 0, 0, blink.mojom.ServiceWorkerClientTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: ServiceWorkerClientInfo
-blink.mojom.ServiceWorkerClientInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerClientInfo',
-      packedSize: 56,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'frame_type', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.RequestContextFrameTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'client_uuid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'client_type', packedOffset: 36, packedBitOffset: 0, type: blink.mojom.ServiceWorkerClientTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'page_hidden', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_focused', packedOffset: 44, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'lifecycle_state', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.ServiceWorkerClientLifecycleStateSpec, nullable: false, minVersion: 0 },
-        { name: 'last_focus_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'creation_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerClientInfoSpec, 'blink.mojom.ServiceWorkerClientInfo', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame_type', 32, 0, blink.mojom.RequestContextFrameTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('client_uuid', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('client_type', 36, 0, blink.mojom.ServiceWorkerClientTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('page_hidden', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_focused', 44, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('lifecycle_state', 40, 0, blink.mojom.ServiceWorkerClientLifecycleStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('last_focus_time', 16, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('creation_time', 24, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+    ],
+    [[0, 56]]);

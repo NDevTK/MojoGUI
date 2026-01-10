@@ -9,21 +9,23 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 var blink = blink || {};
 
+blink.mojom.CallStackGenerator = {};
+blink.mojom.CallStackGenerator.$interfaceName = 'blink.mojom.CallStackGenerator';
+blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ParamsSpec = { $: {} };
+blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ResponseParamsSpec = { $: {} };
 
 // Interface: CallStackGenerator
-blink.mojom.CallStackGenerator = {};
+mojo.internal.Struct(
+    blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ParamsSpec, 'blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ResponseParamsSpec, 'blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ResponseParams', [
+      mojo.internal.StructField('javascript_call_stack', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('frame_token', 8, 0, blink.mojom.LocalFrameTokenSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 blink.mojom.CallStackGeneratorPendingReceiver = class {
   constructor(handle) {
@@ -78,34 +80,6 @@ blink.mojom.CallStackGenerator.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CollectJavaScriptCallStack
-blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CallStackGenerator.CollectJavaScriptCallStack_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CallStackGenerator.CollectJavaScriptCallStack_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'javascript_call_stack', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'frame_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.CallStackGeneratorPtr = blink.mojom.CallStackGeneratorRemote;
 blink.mojom.CallStackGeneratorRequest = blink.mojom.CallStackGeneratorPendingReceiver;
 

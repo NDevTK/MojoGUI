@@ -9,6 +9,17 @@ var ash = ash || {};
 ash.graduation_ui = ash.graduation_ui || {};
 ash.graduation_ui.mojom = ash.graduation_ui.mojom || {};
 
+ash.graduation_ui.mojom.GraduationScreenSpec = { $: mojo.internal.Enum() };
+ash.graduation_ui.mojom.AuthResultSpec = { $: mojo.internal.Enum() };
+ash.graduation_ui.mojom.ProfileInfoSpec = { $: {} };
+ash.graduation_ui.mojom.GraduationUiHandler = {};
+ash.graduation_ui.mojom.GraduationUiHandler.$interfaceName = 'ash.graduation_ui.mojom.GraduationUiHandler';
+ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ParamsSpec = { $: {} };
+ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParamsSpec = { $: {} };
+ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ParamsSpec = { $: {} };
+ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ResponseParamsSpec = { $: {} };
+ash.graduation_ui.mojom.GraduationUiHandler_OnScreenSwitched_ParamsSpec = { $: {} };
+ash.graduation_ui.mojom.GraduationUiHandler_OnTransferComplete_ParamsSpec = { $: {} };
 
 // Enum: GraduationScreen
 ash.graduation_ui.mojom.GraduationScreen = {
@@ -16,81 +27,54 @@ ash.graduation_ui.mojom.GraduationScreen = {
   kTakeoutUi: 1,
   kError: 2,
 };
-ash.graduation_ui.mojom.GraduationScreenSpec = { $: mojo.internal.Enum() };
 
 // Enum: AuthResult
 ash.graduation_ui.mojom.AuthResult = {
   kSuccess: 0,
   kError: 1,
 };
-ash.graduation_ui.mojom.AuthResultSpec = { $: mojo.internal.Enum() };
 
 // Struct: ProfileInfo
-ash.graduation_ui.mojom.ProfileInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.graduation_ui.mojom.ProfileInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'email', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'photo_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.graduation_ui.mojom.ProfileInfoSpec, 'ash.graduation_ui.mojom.ProfileInfo', [
+      mojo.internal.StructField('email', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('photo_url', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: GraduationUiHandler
-ash.graduation_ui.mojom.GraduationUiHandler = {};
+mojo.internal.Struct(
+    ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ParamsSpec, 'ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParamsSpec, 'ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, ash.graduation_ui.mojom.AuthResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ParamsSpec, 'ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.graduation_ui.mojom.GraduationUiHandler_OnScreenSwitched_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.graduation_ui.mojom.GraduationUiHandler_OnScreenSwitched_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'screen', packedOffset: 0, packedBitOffset: 0, type: ash.graduation_ui.mojom.GraduationScreenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ResponseParamsSpec, 'ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ResponseParams', [
+      mojo.internal.StructField('profile_info', 0, 0, ash.graduation_ui.mojom.ProfileInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.graduation_ui.mojom.GraduationUiHandler_OnTransferComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.graduation_ui.mojom.GraduationUiHandler_OnTransferComplete_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.graduation_ui.mojom.GraduationUiHandler_OnScreenSwitched_ParamsSpec, 'ash.graduation_ui.mojom.GraduationUiHandler_OnScreenSwitched_Params', [
+      mojo.internal.StructField('screen', 0, 0, ash.graduation_ui.mojom.GraduationScreenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.graduation_ui.mojom.GraduationUiHandler_OnTransferComplete_ParamsSpec, 'ash.graduation_ui.mojom.GraduationUiHandler_OnTransferComplete_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 ash.graduation_ui.mojom.GraduationUiHandlerPendingReceiver = class {
   constructor(handle) {
@@ -172,86 +156,6 @@ ash.graduation_ui.mojom.GraduationUiHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AuthenticateWebview
-ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.graduation_ui.mojom.GraduationUiHandler.AuthenticateWebview_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.graduation_ui.mojom.GraduationUiHandler.AuthenticateWebview_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.graduation_ui.mojom.AuthResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetProfileInfo
-ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.graduation_ui.mojom.GraduationUiHandler.GetProfileInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.graduation_ui.mojom.GraduationUiHandler.GetProfileInfo_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'profile_info', packedOffset: 0, packedBitOffset: 0, type: ash.graduation_ui.mojom.ProfileInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnScreenSwitched
-ash.graduation_ui.mojom.GraduationUiHandler_OnScreenSwitched_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.graduation_ui.mojom.GraduationUiHandler.OnScreenSwitched_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'screen', packedOffset: 0, packedBitOffset: 0, type: ash.graduation_ui.mojom.GraduationScreenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnTransferComplete
-ash.graduation_ui.mojom.GraduationUiHandler_OnTransferComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.graduation_ui.mojom.GraduationUiHandler.OnTransferComplete_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.graduation_ui.mojom.GraduationUiHandlerPtr = ash.graduation_ui.mojom.GraduationUiHandlerRemote;
 ash.graduation_ui.mojom.GraduationUiHandlerRequest = ash.graduation_ui.mojom.GraduationUiHandlerPendingReceiver;
 

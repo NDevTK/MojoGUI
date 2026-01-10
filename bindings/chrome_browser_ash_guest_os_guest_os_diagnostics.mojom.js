@@ -9,6 +9,10 @@ var guest_os = guest_os || {};
 guest_os.mojom = guest_os.mojom || {};
 var url = url || {};
 
+guest_os.mojom.StatusSpec = { $: mojo.internal.Enum() };
+guest_os.mojom.DiagnosticMessageSpec = { $: {} };
+guest_os.mojom.DiagnosticEntrySpec = { $: {} };
+guest_os.mojom.DiagnosticsSpec = { $: {} };
 
 // Enum: Status
 guest_os.mojom.Status = {
@@ -16,48 +20,26 @@ guest_os.mojom.Status = {
   kFail: 1,
   kNotApplicable: 2,
 };
-guest_os.mojom.StatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: DiagnosticMessage
-guest_os.mojom.DiagnosticMessageSpec = {
-  $: {
-    structSpec: {
-      name: 'guest_os.mojom.DiagnosticMessage',
-      packedSize: 24,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'learn_more_link', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    guest_os.mojom.DiagnosticMessageSpec, 'guest_os.mojom.DiagnosticMessage', [
+      mojo.internal.StructField('message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('learn_more_link', 8, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: DiagnosticEntry
-guest_os.mojom.DiagnosticEntrySpec = {
-  $: {
-    structSpec: {
-      name: 'guest_os.mojom.DiagnosticEntry',
-      packedSize: 16,
-      fields: [
-        { name: 'kPass', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    guest_os.mojom.DiagnosticEntrySpec, 'guest_os.mojom.DiagnosticEntry', [
+      mojo.internal.StructField('kPass', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: Diagnostics
-guest_os.mojom.DiagnosticsSpec = {
-  $: {
-    structSpec: {
-      name: 'guest_os.mojom.Diagnostics',
-      packedSize: 24,
-      fields: [
-        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(guest_os.mojom.DiagnosticEntrySpec, false), nullable: false, minVersion: 0 },
-        { name: 'top_error', packedOffset: 8, packedBitOffset: 0, type: guest_os.mojom.DiagnosticMessageSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    guest_os.mojom.DiagnosticsSpec, 'guest_os.mojom.Diagnostics', [
+      mojo.internal.StructField('entries', 0, 0, mojo.internal.Array(guest_os.mojom.DiagnosticEntrySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('top_error', 8, 0, guest_os.mojom.DiagnosticMessageSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);

@@ -8,22 +8,22 @@
 var cast_streaming = cast_streaming || {};
 cast_streaming.mojom = cast_streaming.mojom || {};
 
+cast_streaming.mojom.RendererController = {};
+cast_streaming.mojom.RendererController.$interfaceName = 'cast_streaming.mojom.RendererController';
+cast_streaming.mojom.RendererController_SetPlaybackController_ParamsSpec = { $: {} };
+cast_streaming.mojom.RendererController_SetPlaybackController_ResponseParamsSpec = { $: {} };
 
 // Interface: RendererController
-cast_streaming.mojom.RendererController = {};
+mojo.internal.Struct(
+    cast_streaming.mojom.RendererController_SetPlaybackController_ParamsSpec, 'cast_streaming.mojom.RendererController_SetPlaybackController_Params', [
+      mojo.internal.StructField('renderer', 0, 0, mojo.internal.InterfaceRequest(media.mojom.RendererRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-cast_streaming.mojom.RendererController_SetPlaybackController_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cast_streaming.mojom.RendererController_SetPlaybackController_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'renderer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.RendererRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cast_streaming.mojom.RendererController_SetPlaybackController_ResponseParamsSpec, 'cast_streaming.mojom.RendererController_SetPlaybackController_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 cast_streaming.mojom.RendererControllerPendingReceiver = class {
   constructor(handle) {
@@ -62,7 +62,7 @@ cast_streaming.mojom.RendererControllerRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       cast_streaming.mojom.RendererController_SetPlaybackController_ParamsSpec,
-      null,
+      cast_streaming.mojom.RendererController_SetPlaybackController_ResponseParamsSpec,
       [renderer]);
   }
 
@@ -78,21 +78,6 @@ cast_streaming.mojom.RendererController.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetPlaybackController
-cast_streaming.mojom.RendererController_SetPlaybackController_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cast_streaming.mojom.RendererController.SetPlaybackController_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'renderer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.RendererRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 cast_streaming.mojom.RendererControllerPtr = cast_streaming.mojom.RendererControllerRemote;
 cast_streaming.mojom.RendererControllerRequest = cast_streaming.mojom.RendererControllerPendingReceiver;
 

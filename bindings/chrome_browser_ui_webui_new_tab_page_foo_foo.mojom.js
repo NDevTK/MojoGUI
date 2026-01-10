@@ -8,37 +8,32 @@
 var foo = foo || {};
 foo.mojom = foo.mojom || {};
 
+foo.mojom.FooDataItemSpec = { $: {} };
+foo.mojom.FooHandler = {};
+foo.mojom.FooHandler.$interfaceName = 'foo.mojom.FooHandler';
+foo.mojom.FooHandler_GetData_ParamsSpec = { $: {} };
+foo.mojom.FooHandler_GetData_ResponseParamsSpec = { $: {} };
 
 // Struct: FooDataItem
-foo.mojom.FooDataItemSpec = {
-  $: {
-    structSpec: {
-      name: 'foo.mojom.FooDataItem',
-      packedSize: 32,
-      fields: [
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'imageUrl', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    foo.mojom.FooDataItemSpec, 'foo.mojom.FooDataItem', [
+      mojo.internal.StructField('label', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('imageUrl', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: FooHandler
-foo.mojom.FooHandler = {};
+mojo.internal.Struct(
+    foo.mojom.FooHandler_GetData_ParamsSpec, 'foo.mojom.FooHandler_GetData_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-foo.mojom.FooHandler_GetData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'foo.mojom.FooHandler_GetData_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    foo.mojom.FooHandler_GetData_ResponseParamsSpec, 'foo.mojom.FooHandler_GetData_ResponseParams', [
+      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(foo.mojom.FooDataItemSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 foo.mojom.FooHandlerPendingReceiver = class {
   constructor(handle) {
@@ -93,33 +88,6 @@ foo.mojom.FooHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetData
-foo.mojom.FooHandler_GetData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'foo.mojom.FooHandler.GetData_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-foo.mojom.FooHandler_GetData_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'foo.mojom.FooHandler.GetData_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(foo.mojom.FooDataItemSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 foo.mojom.FooHandlerPtr = foo.mojom.FooHandlerRemote;
 foo.mojom.FooHandlerRequest = foo.mojom.FooHandlerPendingReceiver;
 

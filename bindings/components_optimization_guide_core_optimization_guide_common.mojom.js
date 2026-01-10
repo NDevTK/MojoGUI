@@ -8,6 +8,7 @@
 var optimization_guide_common = optimization_guide_common || {};
 optimization_guide_common.mojom = optimization_guide_common.mojom || {};
 
+optimization_guide_common.mojom.LogSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: LogSource
 optimization_guide_common.mojom.LogSource = {
@@ -21,4 +22,3 @@ optimization_guide_common.mojom.LogSource = {
   NTP_MODULE: 7,
   CONTEXTUAL_TASKS_CONTEXT: 8,
 };
-optimization_guide_common.mojom.LogSourceSpec = { $: mojo.internal.Enum() };

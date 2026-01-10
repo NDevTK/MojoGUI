@@ -8,6 +8,8 @@
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
 
+viz.mojom.ThreadTypeSpec = { $: mojo.internal.Enum() };
+viz.mojom.ThreadSpec = { $: {} };
 
 // Enum: ThreadType
 viz.mojom.ThreadType = {
@@ -17,20 +19,12 @@ viz.mojom.ThreadType = {
   kVideo: 3,
   kOther: 4,
 };
-viz.mojom.ThreadTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: Thread
-viz.mojom.ThreadSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.Thread',
-      packedSize: 24,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 12, packedBitOffset: 0, type: viz.mojom.ThreadTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.ThreadSpec, 'viz.mojom.Thread', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('type', 12, 0, viz.mojom.ThreadTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);

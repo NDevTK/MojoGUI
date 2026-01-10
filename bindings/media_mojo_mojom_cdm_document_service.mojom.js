@@ -8,103 +8,93 @@
 var media = media || {};
 media.mojom = media.mojom || {};
 
+media.mojom.MediaFoundationCdmDataSpec = { $: {} };
+media.mojom.CdmDocumentService = {};
+media.mojom.CdmDocumentService.$interfaceName = 'media.mojom.CdmDocumentService';
+media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec = { $: {} };
+media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec = { $: {} };
+media.mojom.CdmDocumentService_GetStorageId_ParamsSpec = { $: {} };
+media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec = { $: {} };
+media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ParamsSpec = { $: {} };
+media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ResponseParamsSpec = { $: {} };
+media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec = { $: {} };
+media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec = { $: {} };
+media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec = { $: {} };
+media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec = { $: {} };
 
 // Struct: MediaFoundationCdmData
-media.mojom.MediaFoundationCdmDataSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaFoundationCdmData',
-      packedSize: 32,
-      fields: [
-        { name: 'origin_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'client_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
-        { name: 'cdm_store_path_root', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaFoundationCdmDataSpec, 'media.mojom.MediaFoundationCdmData', [
+      mojo.internal.StructField('origin_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('client_token', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('cdm_store_path_root', 16, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: CdmDocumentService
-media.mojom.CdmDocumentService = {};
+mojo.internal.Struct(
+    media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec, 'media.mojom.CdmDocumentService_ChallengePlatform_Params', [
+      mojo.internal.StructField('service_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('challenge', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CdmDocumentService_ChallengePlatform_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'challenge', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec, 'media.mojom.CdmDocumentService_ChallengePlatform_ResponseParams', [
+      mojo.internal.StructField('success', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('signed_data', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('signed_data_signature', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('platform_key_certificate', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-media.mojom.CdmDocumentService_GetStorageId_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CdmDocumentService_GetStorageId_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.CdmDocumentService_GetStorageId_ParamsSpec, 'media.mojom.CdmDocumentService_GetStorageId_Params', [
+      mojo.internal.StructField('version', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec, 'media.mojom.CdmDocumentService_GetStorageId_ResponseParams', [
+      mojo.internal.StructField('version', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('storage_id', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CdmDocumentService_GetMediaFoundationCdmData_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ParamsSpec, 'media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CdmDocumentService_SetCdmClientToken_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ResponseParamsSpec, 'media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ResponseParams', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CdmDocumentService_OnCdmEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CdmEventSpec, nullable: false, minVersion: 0 },
-        { name: 'hresult', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec, 'media.mojom.CdmDocumentService_GetMediaFoundationCdmData_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec, 'media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParams', [
+      mojo.internal.StructField('cdm_data', 0, 0, media.mojom.MediaFoundationCdmDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec, 'media.mojom.CdmDocumentService_SetCdmClientToken_Params', [
+      mojo.internal.StructField('client_token', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec, 'media.mojom.CdmDocumentService_OnCdmEvent_Params', [
+      mojo.internal.StructField('event', 0, 0, media.mojom.CdmEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('hresult', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media.mojom.CdmDocumentServicePendingReceiver = class {
   constructor(handle) {
@@ -204,147 +194,6 @@ media.mojom.CdmDocumentService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ChallengePlatform
-media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CdmDocumentService.ChallengePlatform_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'challenge', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CdmDocumentService.ChallengePlatform_ResponseParams',
-      packedSize: 40,
-      fields: [
-        { name: 'success', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'signed_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'signed_data_signature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'platform_key_certificate', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for GetStorageId
-media.mojom.CdmDocumentService_GetStorageId_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CdmDocumentService.GetStorageId_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CdmDocumentService.GetStorageId_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'storage_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for IsVerifiedAccessEnabled
-media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CdmDocumentService.IsVerifiedAccessEnabled_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CdmDocumentService.IsVerifiedAccessEnabled_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetMediaFoundationCdmData
-media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CdmDocumentService.GetMediaFoundationCdmData_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CdmDocumentService.GetMediaFoundationCdmData_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'cdm_data', packedOffset: 0, packedBitOffset: 0, type: media.mojom.MediaFoundationCdmDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetCdmClientToken
-media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CdmDocumentService.SetCdmClientToken_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnCdmEvent
-media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CdmDocumentService.OnCdmEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CdmEventSpec, nullable: false, minVersion: 0 },
-        { name: 'hresult', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.CdmDocumentServicePtr = media.mojom.CdmDocumentServiceRemote;
 media.mojom.CdmDocumentServiceRequest = media.mojom.CdmDocumentServicePendingReceiver;
 
