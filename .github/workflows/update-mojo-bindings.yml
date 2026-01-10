@@ -676,17 +676,61 @@ jobs:
                       else:
                           max_end = 0
                           for f in fields_in_v:
-                              end = f['offset'] + f['size']
-                              if end > max_end: max_end = end
-                          
-                          # Align to 8 bytes
-                          if max_end % 8 != 0:
-                              max_end += (8 - (max_end % 8))
-                          sz = 8 + max_end
-                      
-                      versions_info.append(f"{{version: {v}, packedSize: {sz}}}")
+                  # The logic for versions needs to be based on the *packed* fields,
+                  # and their final offsets.
                   
-                  versions_code = "[" + ", ".join(versions_info) + "]"
+                  # Sort fields by min_version to determine version boundaries
+                  # and then by offset to correctly calculate packedSize for each version.
+                  sorted_fields_for_versions = sorted(packed_fields, key=lambda x: (x['min_version'], x['offset']))
+                  
+                  versions = []
+                  current_version = -1
+                  current_max_offset = 0
+                  
+                  # Ensure version 0 is always present, even if no fields.
+                  # The base size is 8 bytes for the struct header.
+                  versions.append([0, 8]) 
+                  
+                  for field in sorted_fields_for_versions:
+                      field_ver = field.get('min_version', 0)
+                      field_end_offset = field['offset'] + field['size']
+                      
+                      # If this field introduces a new version
+                      if field_ver > current_version:
+                          # Finalize the previous version's size if it exists and was updated
+                          if current_version != -1:
+                              # Align previous version's max_offset to 8 bytes
+                              aligned_max_offset = current_max_offset
+                              if aligned_max_offset % 8 != 0:
+                                  aligned_max_offset += (8 - (aligned_max_offset % 8))
+                              versions[-1][1] = 8 + aligned_max_offset # Header + aligned size
+                          
+                          # Start a new version entry
+                          versions.append([field_ver, 0]) # Placeholder for size
+                          current_version = field_ver
+                          current_max_offset = field_end_offset
+                      else:
+                          # Continue with the current version, update max offset if needed
+                          if field_end_offset > current_max_offset:
+                              current_max_offset = field_end_offset
+                  
+                  # Finalize the last version's size
+                  if versions:
+                      aligned_max_offset = current_max_offset
+                      if aligned_max_offset % 8 != 0:
+                          aligned_max_offset += (8 - (aligned_max_offset % 8))
+                      versions[-1][1] = 8 + aligned_max_offset # Header + aligned size
+                  
+                  # Remove duplicate version 0 if it was added twice (once initially, once by loop)
+                  if len(versions) > 1 and versions[0][0] == 0 and versions[1][0] == 0:
+                      versions.pop(0)
+                  
+                  # If no fields, ensure version 0, size 8
+                  if not sorted_fields_for_versions and not versions:
+                      versions = [[0, 8]]
+                  
+                  # Format versions as JS array of arrays (e.g. [[0, 40]])
+                  versions_code = "[" + ", ".join([f"[{v[0]}, {v[1]}]" for v in versions]) + "]"
 
                   # Align struct size to 8 bytes (Global)
                   if offset % 8 != 0:
@@ -730,6 +774,22 @@ jobs:
               
               js_code += "\n"
               
+              # Pre-declare all Spec objects to handle circular dependencies
+              for enum in parsed.get('enums', []):
+                  js_code += f"{current_ns}.{enum['name']}Spec = {{ $: mojo.internal.Enum() }};\n"
+              for union in parsed.get('unions', []):
+                  js_code += f"{current_ns}.{union['name']}Spec = {{ $: {{}} }};\n"
+              for struct in parsed.get('structs', []):
+                  js_code += f"{current_ns}.{struct['name']}Spec = {{ $: {{}} }};\n"
+              for interface in parsed.get('interfaces', []):
+                  iface_name = interface['name']
+                  js_code += f"{current_ns}.{iface_name} = {{}};\n"
+                  js_code += f"{current_ns}.{iface_name}.$interfaceName = '{module}.{iface_name}';\n"
+                  for method in interface.get('methods', []):
+                      js_code += f"{current_ns}.{iface_name}_{method['name']}_ParamsSpec = {{ $: {{}} }};\n"
+                      if method.get('returns') or method.get('response_params') is not None:
+                          js_code += f"{current_ns}.{iface_name}_{method['name']}_ResponseParamsSpec = {{ $: {{}} }};\n"
+
               # Generate constants
               for const in parsed.get('constants', []):
                   js_code += f"\n{current_ns}.{const['name']} = {const['value']};\n"
@@ -741,10 +801,8 @@ jobs:
                   for i, value in enumerate(enum['values']):
                       js_code += f"  {value}: {i},\n"
                   js_code += "};\n"
-                  
-                  # Generate EnumSpec (critical for array<Enum> validation)
-                  js_code += f"{current_ns}.{enum['name']}Spec = {{ $: mojo.internal.Enum() }};\n"
-                  
+                  # EnumSpec already pre-declared
+
 
 
               # Generate unions
@@ -753,8 +811,8 @@ jobs:
                   full_name = f"{current_ns}.{union_name}"
                   
                   js_code += f"\n// Union: {union_name}\n"
-                  js_code += f"{full_name}Spec = {{ $: mojo.internal.Union(\n"
-                  js_code += f"    '{module}.{union_name}', {{\n"
+                  js_code += f"mojo.internal.Union(\n"
+                  js_code += f"    {full_name}Spec, '{module}.{union_name}', {{\n"
                   
                   for i, field in enumerate(union['fields']):
                       f_type = resolve_mojo_type(field['type'])
@@ -768,7 +826,7 @@ jobs:
                           js_code += "        'nullable': true,\n"
                       js_code += "      },\n"
                       
-                  js_code += "    })\n};\n"
+                  js_code += "    });\n"
 
               # Generate structs
               for struct in parsed.get('structs', []):
@@ -777,19 +835,12 @@ jobs:
                   fields_code, packed_size, versions_code = get_struct_layout(struct.get('fields', []))
                   
                   js_code += f"\n// Struct: {struct_name}\n"
-                  js_code += f"{full_name}Spec = {{\n"
-                  js_code += "  $: {\n"
-                  js_code += "    structSpec: {\n"
-                  js_code += f"      name: '{module}.{struct_name}',\n"
-                  js_code += f"      packedSize: {packed_size},\n"
-                  js_code += "      fields: [\n"
+                  js_code += f"mojo.internal.Struct(\n"
+                  js_code += f"    {full_name}Spec, '{module}.{struct_name}', [\n"
                   for field in fields_code:
-                      js_code += f"        {field},\n"
-                  js_code += "      ],\n"
-                  js_code += f"      versions: {versions_code}\n"
-                  js_code += "    }\n"
-                  js_code += "  }\n"
-                  js_code += "};\n"
+                      js_code += f"      mojo.internal.StructField({field[1:-1]}),\n"
+                  js_code += f"    ],\n"
+                  js_code += f"    {versions_code});\n"
               
               # Generate interface classes with proper getRemote() method
               for interface in parsed.get('interfaces', []):
@@ -797,9 +848,8 @@ jobs:
                   full_name = f"{current_ns}.{iface_name}"
                   interface_string = f"{module}.{iface_name}"
                   
-                  # Create the interface namespace object
+                  # Interface object already pre-declared bit metadata added
                   js_code += f"\n// Interface: {iface_name}\n"
-                  js_code += f"{full_name} = {{}};\n\n"
                   
                   # Generate Method Structs (Params & Responses)
                   for method in interface.get('methods', []):
@@ -810,19 +860,12 @@ jobs:
                       param_struct_name = f"{iface_name}_{method_name}_Params"
                       p_fields, p_size, p_versions = get_struct_layout(params)
                       
-                      js_code += f"{current_ns}.{param_struct_name}Spec = {{\n"
-                      js_code += "  $: {\n"
-                      js_code += "    structSpec: {\n"
-                      js_code += f"      name: '{module}.{param_struct_name}',\n"
-                      js_code += f"      packedSize: {p_size},\n"
-                      js_code += "      fields: [\n"
+                      js_code += f"mojo.internal.Struct(\n"
+                      js_code += f"    {current_ns}.{param_struct_name}Spec, '{module}.{param_struct_name}', [\n"
                       for field in p_fields:
-                          js_code += f"        {field},\n"
-                      js_code += "      ],\n"
-                      js_code += f"      versions: {p_versions}\n"
-                      js_code += "    }\n"
-                      js_code += "  }\n"
-                      js_code += "};\n\n"
+                          js_code += f"      mojo.internal.StructField({field[1:-1]}),\n"
+                      js_code += f"    ],\n"
+                      js_code += f"    {p_versions});\n\n"
 
                       # Response Params
                       if method.get('response_params') is not None: # Check if response exists (even if empty)
@@ -830,19 +873,12 @@ jobs:
                           resp_struct_name = f"{iface_name}_{method_name}_ResponseParams"
                           r_fields, r_size, r_versions = get_struct_layout(resp_params)
                           
-                          js_code += f"{current_ns}.{resp_struct_name}Spec = {{\n"
-                          js_code += "  $: {\n"
-                          js_code += "    structSpec: {\n"
-                          js_code += f"      name: '{module}.{resp_struct_name}',\n"
-                          js_code += f"      packedSize: {r_size},\n"
-                          js_code += "      fields: [\n"
+                          js_code += f"mojo.internal.Struct(\n"
+                          js_code += f"    {current_ns}.{resp_struct_name}Spec, '{module}.{resp_struct_name}', [\n"
                           for field in r_fields:
-                              js_code += f"        {field},\n"
-                          js_code += "      ],\n"
-                          js_code += f"      versions: {r_versions}\n"
-                          js_code += "    }\n"
-                          js_code += "  }\n"
-                          js_code += "};\n\n"
+                              js_code += f"      mojo.internal.StructField({field[1:-1]}),\n"
+                          js_code += f"    ],\n"
+                          js_code += f"    {r_versions});\n\n"
 
                   # Generate PendingReceiver class first (needed by Remote)
                   
