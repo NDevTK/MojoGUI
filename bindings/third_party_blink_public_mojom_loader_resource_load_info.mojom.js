@@ -49,9 +49,9 @@ blink.mojom.ResourceType = {
 // Struct: CommonNetworkInfo
 mojo.internal.Struct(
     blink.mojom.CommonNetworkInfoSpec, 'blink.mojom.CommonNetworkInfo', [
-      mojo.internal.StructField('network_accessed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('always_access_network', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('remote_endpoint', 8, 0, network.mojom.IPEndPointSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('remote_endpoint', 0, 0, network.mojom.IPEndPointSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('network_accessed', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('always_access_network', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -74,15 +74,15 @@ mojo.internal.Struct(
       mojo.internal.StructField('request_destination', 40, 0, network.mojom.RequestDestinationSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('request_priority', 48, 0, network.mojom.RequestPrioritySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('mime_type', 56, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('was_cached', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('network_info', 72, 0, blink.mojom.CommonNetworkInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('net_error', 80, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('proxy_chain', 88, 0, network.mojom.ProxyChainSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('load_timing_info', 96, 0, network.mojom.LoadTimingInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('raw_body_bytes', 104, 0, mojo_base.mojom.ByteCountSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('total_received_bytes', 112, 0, mojo_base.mojom.ByteCountSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('redirect_info_chain', 120, 0, mojo.internal.Array(blink.mojom.RedirectInfoSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('http_status_code', 128, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('did_use_server_http_auth', 132, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('network_info', 64, 0, blink.mojom.CommonNetworkInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('proxy_chain', 72, 0, network.mojom.ProxyChainSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('load_timing_info', 80, 0, network.mojom.LoadTimingInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('raw_body_bytes', 88, 0, mojo_base.mojom.ByteCountSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('total_received_bytes', 96, 0, mojo_base.mojom.ByteCountSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('redirect_info_chain', 104, 0, mojo.internal.Array(blink.mojom.RedirectInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('net_error', 112, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('http_status_code', 116, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('was_cached', 120, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('did_use_server_http_auth', 120, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 144]]);
+    [[0, 136]]);

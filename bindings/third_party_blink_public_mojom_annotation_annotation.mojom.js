@@ -206,8 +206,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('agent_receiver', 8, 0, mojo.internal.InterfaceRequest(blink.mojom.AnnotationAgentRemote), null, false, 0, undefined),
       mojo.internal.StructField('type', 16, 0, blink.mojom.AnnotationTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('selector', 24, 0, blink.mojom.SelectorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('search_range_start_node_id_$flag', 32, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'search_range_start_node_id_$value', originalFieldName: 'search_range_start_node_id' }),
-      mojo.internal.StructField('search_range_start_node_id_$value', 36, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'search_range_start_node_id_$flag', originalFieldName: 'search_range_start_node_id' }),
+      mojo.internal.StructField('search_range_start_node_id_$value', 32, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'search_range_start_node_id_$flag', originalFieldName: 'search_range_start_node_id' }),
+      mojo.internal.StructField('search_range_start_node_id_$flag', 36, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'search_range_start_node_id_$value', originalFieldName: 'search_range_start_node_id' }),
     ],
     [[0, 48]]);
 

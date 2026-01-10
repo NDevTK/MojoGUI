@@ -67,22 +67,22 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chrome.mojom.MediaMetadataSpec, 'chrome.mojom.MediaMetadata', [
       mojo.internal.StructField('mime_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('height', 8, 0, mojo.internal.Int32, -1, false, 0, undefined),
-      mojo.internal.StructField('width', 12, 0, mojo.internal.Int32, -1, false, 0, undefined),
-      mojo.internal.StructField('duration', 16, 0, mojo.internal.Double, -1, false, 0, undefined),
-      mojo.internal.StructField('rotation', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('album', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('artist', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('comment', 48, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('copyright', 56, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('disc', 64, 0, mojo.internal.Int32, -1, false, 0, undefined),
-      mojo.internal.StructField('genre', 72, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('language', 80, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('title', 88, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('duration', 8, 0, mojo.internal.Double, -1, false, 0, undefined),
+      mojo.internal.StructField('album', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('artist', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('comment', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('copyright', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('genre', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('language', 56, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('title', 64, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('raw_tags', 72, 0, mojo.internal.Array(chrome.mojom.MediaStreamInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('height', 80, 0, mojo.internal.Int32, -1, false, 0, undefined),
+      mojo.internal.StructField('width', 84, 0, mojo.internal.Int32, -1, false, 0, undefined),
+      mojo.internal.StructField('rotation', 88, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('disc', 92, 0, mojo.internal.Int32, -1, false, 0, undefined),
       mojo.internal.StructField('track', 96, 0, mojo.internal.Int32, -1, false, 0, undefined),
-      mojo.internal.StructField('raw_tags', 104, 0, mojo.internal.Array(chrome.mojom.MediaStreamInfoSpec.$, false), null, false, 0, undefined),
     ],
-    [[0, 120]]);
+    [[0, 112]]);
 
 // Struct: AttachedImage
 mojo.internal.Struct(
@@ -97,24 +97,24 @@ mojo.internal.Struct(
     chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec, 'chrome.mojom.MediaParser_ParseMediaMetadata_Params', [
       mojo.internal.StructField('mime_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('total_size', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('get_attached_images', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('media_data_source', 24, 0, mojo.internal.InterfaceProxy(chrome.mojom.MediaDataSourceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('media_data_source', 16, 0, mojo.internal.InterfaceProxy(chrome.mojom.MediaDataSourceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('get_attached_images', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParamsSpec, 'chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParams', [
-      mojo.internal.StructField('parse_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('metadata', 8, 0, chrome.mojom.MediaMetadataSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('attached_images', 16, 0, mojo.internal.Array(chrome.mojom.AttachedImageSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('metadata', 0, 0, chrome.mojom.MediaMetadataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('attached_images', 8, 0, mojo.internal.Array(chrome.mojom.AttachedImageSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('parse_success', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     chrome.mojom.MediaParser_ExtractVideoFrame_ParamsSpec, 'chrome.mojom.MediaParser_ExtractVideoFrame_Params', [
       mojo.internal.StructField('mime_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('total_size', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('media_data_source', 16, 0, mojo.internal.InterfaceProxy(chrome.mojom.MediaDataSourceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('media_data_source', 8, 0, mojo.internal.InterfaceProxy(chrome.mojom.MediaDataSourceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('total_size', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 

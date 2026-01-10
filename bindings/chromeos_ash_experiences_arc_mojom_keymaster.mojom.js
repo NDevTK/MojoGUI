@@ -118,8 +118,8 @@ mojo.internal.Union(
 // Struct: KeyParameter
 mojo.internal.Struct(
     arc.mojom.KeyParameterSpec, 'arc.mojom.KeyParameter', [
-      mojo.internal.StructField('tag', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('param', 8, 0, arc.mojom.IntegerKeyParamSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('param', 0, 0, arc.mojom.IntegerKeyParamSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('tag', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -255,12 +255,12 @@ mojo.internal.Struct(
 // Struct: UpdateResult
 mojo.internal.Struct(
     arc.mojom.UpdateResultSpec, 'arc.mojom.UpdateResult', [
-      mojo.internal.StructField('input_consumed', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('out_params', 8, 0, mojo.internal.Array(arc.mojom.KeyParameterSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('output', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('error', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('out_params', 0, 0, mojo.internal.Array(arc.mojom.KeyParameterSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('output', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('input_consumed', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('error', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 // Struct: FinishRequest
 mojo.internal.Struct(

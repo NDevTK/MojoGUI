@@ -29,15 +29,15 @@ content_settings.mojom.ContentSetting = {
 mojo.internal.Struct(
     content_settings.mojom.PatternPartsSpec, 'content_settings.mojom.PatternParts', [
       mojo.internal.StructField('scheme', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('is_scheme_wildcard', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('host', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('has_domain_wildcard', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('port', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('is_port_wildcard', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('path', 48, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('is_path_wildcard', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('host', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('port', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('path', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('is_scheme_wildcard', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_domain_wildcard', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_port_wildcard', 32, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_path_wildcard', 32, 3, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 48]]);
 
 // Struct: ContentSettingsPattern
 mojo.internal.Struct(
@@ -58,8 +58,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('lifetime', 40, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('tpcd_metadata_rule_source', 48, 0, content_settings.mojom.TpcdMetadataRuleSourceSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('tpcd_metadata_cohort', 56, 0, content_settings.mojom.TpcdMetadataCohortSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('decided_by_related_website_sets', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('rule_options', 72, 0, mojo_base.mojom.ValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('rule_options', 64, 0, mojo_base.mojom.ValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('decided_by_related_website_sets', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 88]]);
 

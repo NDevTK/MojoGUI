@@ -50,14 +50,14 @@ mojo.internal.Struct(
       mojo.internal.StructField('tab_specific_permissions', 40, 0, mojo.internal.Map(mojo.internal.Int32, extensions.mojom.PermissionSetSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('policy_blocked_hosts', 48, 0, extensions.mojom.URLPatternSetSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('policy_allowed_hosts', 56, 0, extensions.mojom.URLPatternSetSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('uses_default_policy_blocked_allowed_hosts', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('user_scripts_allowed', 64, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('id', 72, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('worker_activation_token', 80, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('id', 64, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('worker_activation_token', 72, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('guid', 80, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('creation_flags', 88, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('guid', 96, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('uses_default_policy_blocked_allowed_hosts', 92, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('user_scripts_allowed', 92, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 112]]);
+    [[0, 104]]);
 
 // Struct: UserScriptWorldInfo
 mojo.internal.Struct(

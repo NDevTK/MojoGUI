@@ -254,8 +254,8 @@ blink.mojom.PermissionObserverRequest = blink.mojom.PermissionObserverPendingRec
 // Interface: EmbeddedPermissionControlClient
 mojo.internal.Struct(
     blink.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistered_ParamsSpec, 'blink.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistered_Params', [
-      mojo.internal.StructField('allow', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('statuses', 8, 0, mojo.internal.Array(blink.mojom.PermissionStatusSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('statuses', 0, 0, mojo.internal.Array(blink.mojom.PermissionStatusSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('allow', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -38,8 +38,8 @@ content.mojom.ChildProcess_SetBatterySaverMode_ParamsSpec = { $: {} };
 // Struct: LoggingSettings
 mojo.internal.Struct(
     content.mojom.LoggingSettingsSpec, 'content.mojom.LoggingSettings', [
-      mojo.internal.StructField('logging_dest', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('log_file_descriptor', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('log_file_descriptor', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('logging_dest', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 

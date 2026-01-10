@@ -427,20 +427,20 @@ mojo.internal.Union(
 mojo.internal.Struct(
     chromeos.network_config.mojom.SIMLockStatusSpec, 'chromeos.network_config.mojom.SIMLockStatus', [
       mojo.internal.StructField('lock_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('lock_enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('retries_left', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('retries_left', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('lock_enabled', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: SIMInfo
 mojo.internal.Struct(
     chromeos.network_config.mojom.SIMInfoSpec, 'chromeos.network_config.mojom.SIMInfo', [
-      mojo.internal.StructField('slot_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('eid', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('iccid', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('is_primary', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('eid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('iccid', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('slot_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_primary', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 // Struct: CellularStateProperties
 mojo.internal.Struct(
@@ -449,16 +449,16 @@ mojo.internal.Struct(
       mojo.internal.StructField('eid', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('activation_state', 16, 0, chromeos.network_config.mojom.ActivationStateTypeSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('network_technology', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('roaming', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('signal_strength', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('sim_lock_enabled', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('sim_locked', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('sim_lock_type', 48, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('has_nick_name', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('network_operator', 64, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('payment_portal', 72, 0, chromeos.network_config.mojom.PaymentPortalPropertiesSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('sim_lock_type', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('network_operator', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('payment_portal', 48, 0, chromeos.network_config.mojom.PaymentPortalPropertiesSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('signal_strength', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('roaming', 60, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('sim_lock_enabled', 60, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('sim_locked', 60, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_nick_name', 60, 3, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 88]]);
+    [[0, 72]]);
 
 // Struct: EthernetStateProperties
 mojo.internal.Struct(
@@ -470,10 +470,10 @@ mojo.internal.Struct(
 // Struct: TetherStateProperties
 mojo.internal.Struct(
     chromeos.network_config.mojom.TetherStatePropertiesSpec, 'chromeos.network_config.mojom.TetherStateProperties', [
-      mojo.internal.StructField('battery_percentage', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('carrier', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('carrier', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('battery_percentage', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('signal_strength', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('has_connected_to_host', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('signal_strength', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -490,36 +490,36 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.network_config.mojom.WiFiStatePropertiesSpec, 'chromeos.network_config.mojom.WiFiStateProperties', [
       mojo.internal.StructField('bssid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('frequency', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('hex_ssid', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('security', 24, 0, chromeos.network_config.mojom.SecurityTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('signal_strength', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('ssid', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('hex_ssid', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('security', 16, 0, chromeos.network_config.mojom.SecurityTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('ssid', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('passpoint_id', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('frequency', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('signal_strength', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('visible', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('hidden_ssid', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('passpoint_id', 56, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 64]]);
 
 // Struct: NetworkStateProperties
 mojo.internal.Struct(
     chromeos.network_config.mojom.NetworkStatePropertiesSpec, 'chromeos.network_config.mojom.NetworkStateProperties', [
-      mojo.internal.StructField('connectable', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('connect_requested', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('connection_state', 8, 0, chromeos.network_config.mojom.ConnectionStateTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('error_state', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('guid', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('name', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('portal_state', 40, 0, chromeos.network_config.mojom.PortalStateSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('portal_probe_url', 48, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('priority', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('proxy_mode', 64, 0, chromeos.network_config.mojom.ProxyModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('prohibited_by_policy', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('source', 80, 0, chromeos.network_config.mojom.OncSourceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('type', 88, 0, chromeos.network_config.mojom.NetworkTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('type_state', 96, 0, chromeos.network_config.mojom.NetworkTypeStatePropertiesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('connection_state', 0, 0, chromeos.network_config.mojom.ConnectionStateTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('error_state', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('guid', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('name', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('portal_state', 32, 0, chromeos.network_config.mojom.PortalStateSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('portal_probe_url', 40, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('proxy_mode', 48, 0, chromeos.network_config.mojom.ProxyModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('source', 56, 0, chromeos.network_config.mojom.OncSourceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('type', 64, 0, chromeos.network_config.mojom.NetworkTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('type_state', 72, 0, chromeos.network_config.mojom.NetworkTypeStatePropertiesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('priority', 80, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('connectable', 84, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('connect_requested', 84, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('prohibited_by_policy', 84, 2, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 112]]);
+    [[0, 96]]);
 
 // Struct: DeviceStateProperties
 mojo.internal.Struct(
@@ -528,19 +528,19 @@ mojo.internal.Struct(
       mojo.internal.StructField('ipv6_address', 8, 0, network.mojom.IPAddressSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('imei', 16, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('mac_address', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('scanning', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('sim_lock_status', 40, 0, chromeos.network_config.mojom.SIMLockStatusSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('sim_infos', 48, 0, mojo.internal.Array(chromeos.network_config.mojom.SIMInfoSpec.$, false), null, true, 0, undefined),
-      mojo.internal.StructField('inhibit_reason', 56, 0, chromeos.network_config.mojom.InhibitReasonSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('sim_absent', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('device_state', 72, 0, chromeos.network_config.mojom.DeviceStateTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('type', 80, 0, chromeos.network_config.mojom.NetworkTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('managed_network_available', 88, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('serial', 96, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('is_carrier_locked', 104, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_flashing', 104, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('sim_lock_status', 32, 0, chromeos.network_config.mojom.SIMLockStatusSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('sim_infos', 40, 0, mojo.internal.Array(chromeos.network_config.mojom.SIMInfoSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('inhibit_reason', 48, 0, chromeos.network_config.mojom.InhibitReasonSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('device_state', 56, 0, chromeos.network_config.mojom.DeviceStateTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('type', 64, 0, chromeos.network_config.mojom.NetworkTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('serial', 72, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('scanning', 80, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('sim_absent', 80, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('managed_network_available', 80, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_carrier_locked', 80, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_flashing', 80, 4, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 120]]);
+    [[0, 96]]);
 
 // Struct: NetworkFilter
 mojo.internal.Struct(
@@ -606,9 +606,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('included_routes', 24, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
       mojo.internal.StructField('name_servers', 32, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
       mojo.internal.StructField('search_domains', 40, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('routing_prefix', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('type', 56, 0, chromeos.network_config.mojom.IPConfigTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('web_proxy_auto_discovery_url', 64, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('type', 48, 0, chromeos.network_config.mojom.IPConfigTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('web_proxy_auto_discovery_url', 56, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('routing_prefix', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 80]]);
 
@@ -635,20 +635,20 @@ mojo.internal.Struct(
 // Struct: ManagedBoolean
 mojo.internal.Struct(
     chromeos.network_config.mojom.ManagedBooleanSpec, 'chromeos.network_config.mojom.ManagedBoolean', [
-      mojo.internal.StructField('active_value', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('policy_source', 8, 0, chromeos.network_config.mojom.PolicySourceSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('policy_value', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('policy_source', 0, 0, chromeos.network_config.mojom.PolicySourceSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('active_value', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('policy_value', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: ManagedInt32
 mojo.internal.Struct(
     chromeos.network_config.mojom.ManagedInt32Spec, 'chromeos.network_config.mojom.ManagedInt32', [
-      mojo.internal.StructField('active_value', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('policy_source', 8, 0, chromeos.network_config.mojom.PolicySourceSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('policy_value', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('policy_source', 0, 0, chromeos.network_config.mojom.PolicySourceSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('active_value', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('policy_value', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: ManagedString
 mojo.internal.Struct(
@@ -890,38 +890,38 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.network_config.mojom.ManagedCellularPropertiesSpec, 'chromeos.network_config.mojom.ManagedCellularProperties', [
       mojo.internal.StructField('activation_state', 0, 0, chromeos.network_config.mojom.ActivationStateTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('sim_locked', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('allow_roaming', 16, 0, chromeos.network_config.mojom.ManagedBooleanSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('allow_text_messages', 24, 0, chromeos.network_config.mojom.ManagedBooleanSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('apn_list', 32, 0, chromeos.network_config.mojom.ManagedApnListSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('auto_connect', 40, 0, chromeos.network_config.mojom.ManagedBooleanSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('custom_apn_list', 48, 0, mojo.internal.Array(chromeos.network_config.mojom.ApnPropertiesSpec.$, false), null, true, 0, undefined),
-      mojo.internal.StructField('eid', 56, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('esn', 64, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('family', 72, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('firmware_revision', 80, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('found_networks', 88, 0, mojo.internal.Array(chromeos.network_config.mojom.FoundNetworkPropertiesSpec.$, false), null, true, 0, undefined),
-      mojo.internal.StructField('hardware_revision', 96, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('home_provider', 104, 0, chromeos.network_config.mojom.CellularProviderPropertiesSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('iccid', 112, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('imei', 120, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('last_good_apn', 128, 0, chromeos.network_config.mojom.ApnPropertiesSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('connected_apn', 136, 0, chromeos.network_config.mojom.ApnPropertiesSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('manufacturer', 144, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('mdn', 152, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('meid', 160, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('min', 168, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('model_id', 176, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('network_technology', 184, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('sim_lock_type', 192, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('payment_portal', 200, 0, chromeos.network_config.mojom.PaymentPortalPropertiesSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('roaming_state', 208, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('selected_apn', 216, 0, chromeos.network_config.mojom.ManagedApnPropertiesSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('serving_operator', 224, 0, chromeos.network_config.mojom.CellularProviderPropertiesSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('signal_strength', 232, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('support_network_scan', 236, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('allow_roaming', 8, 0, chromeos.network_config.mojom.ManagedBooleanSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('allow_text_messages', 16, 0, chromeos.network_config.mojom.ManagedBooleanSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('apn_list', 24, 0, chromeos.network_config.mojom.ManagedApnListSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('auto_connect', 32, 0, chromeos.network_config.mojom.ManagedBooleanSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('custom_apn_list', 40, 0, mojo.internal.Array(chromeos.network_config.mojom.ApnPropertiesSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('eid', 48, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('esn', 56, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('family', 64, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('firmware_revision', 72, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('found_networks', 80, 0, mojo.internal.Array(chromeos.network_config.mojom.FoundNetworkPropertiesSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('hardware_revision', 88, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('home_provider', 96, 0, chromeos.network_config.mojom.CellularProviderPropertiesSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('iccid', 104, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('imei', 112, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('last_good_apn', 120, 0, chromeos.network_config.mojom.ApnPropertiesSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('connected_apn', 128, 0, chromeos.network_config.mojom.ApnPropertiesSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('manufacturer', 136, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('mdn', 144, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('meid', 152, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('min', 160, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('model_id', 168, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('network_technology', 176, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('sim_lock_type', 184, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('payment_portal', 192, 0, chromeos.network_config.mojom.PaymentPortalPropertiesSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('roaming_state', 200, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('selected_apn', 208, 0, chromeos.network_config.mojom.ManagedApnPropertiesSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('serving_operator', 216, 0, chromeos.network_config.mojom.CellularProviderPropertiesSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('signal_strength', 224, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('sim_locked', 228, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('support_network_scan', 228, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 248]]);
+    [[0, 240]]);
 
 // Struct: ManagedEthernetProperties
 mojo.internal.Struct(
@@ -953,18 +953,18 @@ mojo.internal.Struct(
       mojo.internal.StructField('auto_connect', 8, 0, chromeos.network_config.mojom.ManagedBooleanSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('bssid', 16, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('eap', 24, 0, chromeos.network_config.mojom.ManagedEAPPropertiesSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('frequency', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('frequency_list', 40, 0, mojo.internal.Array(mojo.internal.Int32, false), null, true, 0, undefined),
-      mojo.internal.StructField('hex_ssid', 48, 0, chromeos.network_config.mojom.ManagedStringSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('hidden_ssid', 56, 0, chromeos.network_config.mojom.ManagedBooleanSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('passphrase', 64, 0, chromeos.network_config.mojom.ManagedStringSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('ssid', 72, 0, chromeos.network_config.mojom.ManagedStringSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('security', 80, 0, chromeos.network_config.mojom.SecurityTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('signal_strength', 88, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('is_syncable', 92, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_configured_by_active_user', 92, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('passpoint_id', 96, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('passpoint_match_type', 104, 0, chromeos.network_config.mojom.MatchTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('frequency_list', 32, 0, mojo.internal.Array(mojo.internal.Int32, false), null, true, 0, undefined),
+      mojo.internal.StructField('hex_ssid', 40, 0, chromeos.network_config.mojom.ManagedStringSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('hidden_ssid', 48, 0, chromeos.network_config.mojom.ManagedBooleanSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('passphrase', 56, 0, chromeos.network_config.mojom.ManagedStringSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('ssid', 64, 0, chromeos.network_config.mojom.ManagedStringSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('security', 72, 0, chromeos.network_config.mojom.SecurityTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('passpoint_id', 80, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('passpoint_match_type', 88, 0, chromeos.network_config.mojom.MatchTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('frequency', 96, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('signal_strength', 100, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_syncable', 104, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_configured_by_active_user', 104, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 120]]);
 
@@ -980,8 +980,8 @@ mojo.internal.Struct(
     chromeos.network_config.mojom.TrafficCounterPropertiesSpec, 'chromeos.network_config.mojom.TrafficCounterProperties', [
       mojo.internal.StructField('last_reset_time', 0, 0, mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('friendly_date', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('auto_reset', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('user_specified_reset_day', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('user_specified_reset_day', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('auto_reset', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -990,22 +990,22 @@ mojo.internal.Struct(
     chromeos.network_config.mojom.ManagedPropertiesSpec, 'chromeos.network_config.mojom.ManagedProperties', [
       mojo.internal.StructField('connection_state', 0, 0, chromeos.network_config.mojom.ConnectionStateTypeSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('source', 8, 0, chromeos.network_config.mojom.OncSourceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('connectable', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('error_state', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('guid', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('ip_address_config_type', 40, 0, chromeos.network_config.mojom.ManagedStringSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('ip_configs', 48, 0, mojo.internal.Array(chromeos.network_config.mojom.IPConfigPropertiesSpec.$, false), null, true, 0, undefined),
-      mojo.internal.StructField('metered', 56, 0, chromeos.network_config.mojom.ManagedBooleanSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('name', 64, 0, chromeos.network_config.mojom.ManagedStringSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('name_servers_config_type', 72, 0, chromeos.network_config.mojom.ManagedStringSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('priority', 80, 0, chromeos.network_config.mojom.ManagedInt32Spec.$, null, true, 0, undefined),
-      mojo.internal.StructField('proxy_settings', 88, 0, chromeos.network_config.mojom.ManagedProxySettingsSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('portal_state', 96, 0, chromeos.network_config.mojom.PortalStateSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('static_ip_config', 104, 0, chromeos.network_config.mojom.ManagedIPConfigPropertiesSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('saved_ip_config', 112, 0, chromeos.network_config.mojom.IPConfigPropertiesSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('type', 120, 0, chromeos.network_config.mojom.NetworkTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('type_properties', 128, 0, chromeos.network_config.mojom.NetworkTypeManagedPropertiesSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('traffic_counter_properties', 136, 0, chromeos.network_config.mojom.TrafficCounterPropertiesSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('error_state', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('guid', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('ip_address_config_type', 32, 0, chromeos.network_config.mojom.ManagedStringSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('ip_configs', 40, 0, mojo.internal.Array(chromeos.network_config.mojom.IPConfigPropertiesSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('metered', 48, 0, chromeos.network_config.mojom.ManagedBooleanSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('name', 56, 0, chromeos.network_config.mojom.ManagedStringSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('name_servers_config_type', 64, 0, chromeos.network_config.mojom.ManagedStringSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('priority', 72, 0, chromeos.network_config.mojom.ManagedInt32Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('proxy_settings', 80, 0, chromeos.network_config.mojom.ManagedProxySettingsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('portal_state', 88, 0, chromeos.network_config.mojom.PortalStateSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('static_ip_config', 96, 0, chromeos.network_config.mojom.ManagedIPConfigPropertiesSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('saved_ip_config', 104, 0, chromeos.network_config.mojom.IPConfigPropertiesSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('type', 112, 0, chromeos.network_config.mojom.NetworkTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('type_properties', 120, 0, chromeos.network_config.mojom.NetworkTypeManagedPropertiesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('traffic_counter_properties', 128, 0, chromeos.network_config.mojom.TrafficCounterPropertiesSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('connectable', 136, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 152]]);
 
@@ -1076,13 +1076,13 @@ mojo.internal.Struct(
       mojo.internal.StructField('inner', 40, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('outer', 48, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('password', 56, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('save_credentials', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('server_ca_pems', 72, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('subject_alt_name_match', 80, 0, mojo.internal.Array(chromeos.network_config.mojom.SubjectAltNameSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('subject_match', 88, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('use_system_cas', 96, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('server_ca_pems', 64, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('subject_alt_name_match', 72, 0, mojo.internal.Array(chromeos.network_config.mojom.SubjectAltNameSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('subject_match', 80, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('save_credentials', 88, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('use_system_cas', 88, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 112]]);
+    [[0, 104]]);
 
 // Struct: SubjectAltName
 mojo.internal.Struct(
@@ -1099,25 +1099,25 @@ mojo.internal.Struct(
       mojo.internal.StructField('client_cert_type', 16, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('eap', 24, 0, chromeos.network_config.mojom.EAPConfigPropertiesSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('group', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('ike_version', 40, 0, mojo.internal.Int32, 1, false, 0, undefined),
-      mojo.internal.StructField('local_identity', 48, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('psk', 56, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('remote_identity', 64, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('save_credentials', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('server_ca_pems', 80, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('server_ca_refs', 88, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('local_identity', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('psk', 48, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('remote_identity', 56, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('server_ca_pems', 64, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('server_ca_refs', 72, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('ike_version', 80, 0, mojo.internal.Int32, 1, false, 0, undefined),
+      mojo.internal.StructField('save_credentials', 84, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 104]]);
+    [[0, 96]]);
 
 // Struct: L2TPConfigProperties
 mojo.internal.Struct(
     chromeos.network_config.mojom.L2TPConfigPropertiesSpec, 'chromeos.network_config.mojom.L2TPConfigProperties', [
-      mojo.internal.StructField('lcp_echo_disabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('password', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('save_credentials', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('username', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('password', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('username', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('lcp_echo_disabled', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('save_credentials', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 // Struct: OpenVPNConfigProperties
 mojo.internal.Struct(
@@ -1127,11 +1127,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('extra_hosts', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
       mojo.internal.StructField('otp', 24, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('password', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('save_credentials', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('server_ca_pems', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('server_ca_refs', 56, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('username', 64, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('user_authentication_type', 72, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('server_ca_pems', 40, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('server_ca_refs', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('username', 56, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('user_authentication_type', 64, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('save_credentials', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 88]]);
 
@@ -1219,21 +1219,21 @@ mojo.internal.Struct(
 // Struct: GlobalPolicy
 mojo.internal.Struct(
     chromeos.network_config.mojom.GlobalPolicySpec, 'chromeos.network_config.mojom.GlobalPolicy', [
-      mojo.internal.StructField('allow_apn_modification', 0, 0, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('allow_cellular_sim_lock', 0, 1, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('allow_cellular_hotspot', 0, 2, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('allow_only_policy_cellular_networks', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('allow_only_policy_networks_to_autoconnect', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('allow_only_policy_wifi_networks_to_connect', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('allow_only_policy_wifi_networks_to_connect_if_available', 0, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('dns_queries_monitored', 0, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('report_xdr_events_enabled', 1, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('blocked_hex_ssids', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('recommended_values_are_ephemeral', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('user_created_network_configurations_are_ephemeral', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('allow_text_messages', 24, 0, chromeos.network_config.mojom.SuppressionTypeSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('blocked_hex_ssids', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('allow_text_messages', 8, 0, chromeos.network_config.mojom.SuppressionTypeSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('allow_apn_modification', 16, 0, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('allow_cellular_sim_lock', 16, 1, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('allow_cellular_hotspot', 16, 2, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('allow_only_policy_cellular_networks', 16, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('allow_only_policy_networks_to_autoconnect', 16, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('allow_only_policy_wifi_networks_to_connect', 16, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('allow_only_policy_wifi_networks_to_connect_if_available', 16, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('dns_queries_monitored', 16, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('report_xdr_events_enabled', 17, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('recommended_values_are_ephemeral', 17, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('user_created_network_configurations_are_ephemeral', 17, 2, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 // Struct: VpnProvider
 mojo.internal.Struct(
@@ -1340,8 +1340,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromeos.network_config.mojom.CrosNetworkConfig_SetProperties_ResponseParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_SetProperties_ResponseParams', [
-      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('error_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('error_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 

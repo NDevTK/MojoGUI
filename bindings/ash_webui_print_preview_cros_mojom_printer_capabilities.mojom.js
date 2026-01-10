@@ -135,25 +135,25 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.printing.print_preview.mojom.MediaSizeOptionSpec, 'ash.printing.print_preview.mojom.MediaSizeOption', [
       mojo.internal.StructField('vendor_id', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('height_microns', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('width_microns', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('imageable_area_left_microns_$flag', 16, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'imageable_area_left_microns_$value', originalFieldName: 'imageable_area_left_microns' }),
-      mojo.internal.StructField('imageable_area_left_microns_$value', 20, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'imageable_area_left_microns_$flag', originalFieldName: 'imageable_area_left_microns' }),
-      mojo.internal.StructField('imageable_area_bottom_microns_$flag', 24, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'imageable_area_bottom_microns_$value', originalFieldName: 'imageable_area_bottom_microns' }),
-      mojo.internal.StructField('imageable_area_bottom_microns_$value', 28, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'imageable_area_bottom_microns_$flag', originalFieldName: 'imageable_area_bottom_microns' }),
-      mojo.internal.StructField('imageable_area_right_microns_$flag', 32, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'imageable_area_right_microns_$value', originalFieldName: 'imageable_area_right_microns' }),
-      mojo.internal.StructField('imageable_area_right_microns_$value', 36, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'imageable_area_right_microns_$flag', originalFieldName: 'imageable_area_right_microns' }),
-      mojo.internal.StructField('imageable_area_top_microns_$flag', 40, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'imageable_area_top_microns_$value', originalFieldName: 'imageable_area_top_microns' }),
-      mojo.internal.StructField('imageable_area_top_microns_$value', 44, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'imageable_area_top_microns_$flag', originalFieldName: 'imageable_area_top_microns' }),
-      mojo.internal.StructField('has_borderless_variant_$flag', 48, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'has_borderless_variant_$value', originalFieldName: 'has_borderless_variant' }),
-      mojo.internal.StructField('has_borderless_variant_$value', 48, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'has_borderless_variant_$flag', originalFieldName: 'has_borderless_variant' }),
-      mojo.internal.StructField('custom_display_name', 56, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('custom_display_name_localized', 64, 0, mojo.internal.Array(ash.printing.print_preview.mojom.LocalizedStringSpec.$, false), null, true, 0, undefined),
-      mojo.internal.StructField('name', 72, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('is_default_$flag', 80, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'is_default_$value', originalFieldName: 'is_default' }),
-      mojo.internal.StructField('is_default_$value', 80, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'is_default_$flag', originalFieldName: 'is_default' }),
+      mojo.internal.StructField('custom_display_name', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('custom_display_name_localized', 16, 0, mojo.internal.Array(ash.printing.print_preview.mojom.LocalizedStringSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('name', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('height_microns', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('width_microns', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('imageable_area_left_microns_$value', 40, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'imageable_area_left_microns_$flag', originalFieldName: 'imageable_area_left_microns' }),
+      mojo.internal.StructField('imageable_area_bottom_microns_$value', 44, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'imageable_area_bottom_microns_$flag', originalFieldName: 'imageable_area_bottom_microns' }),
+      mojo.internal.StructField('imageable_area_right_microns_$value', 48, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'imageable_area_right_microns_$flag', originalFieldName: 'imageable_area_right_microns' }),
+      mojo.internal.StructField('imageable_area_top_microns_$value', 52, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'imageable_area_top_microns_$flag', originalFieldName: 'imageable_area_top_microns' }),
+      mojo.internal.StructField('imageable_area_left_microns_$flag', 56, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'imageable_area_left_microns_$value', originalFieldName: 'imageable_area_left_microns' }),
+      mojo.internal.StructField('imageable_area_bottom_microns_$flag', 56, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'imageable_area_bottom_microns_$value', originalFieldName: 'imageable_area_bottom_microns' }),
+      mojo.internal.StructField('imageable_area_right_microns_$flag', 56, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'imageable_area_right_microns_$value', originalFieldName: 'imageable_area_right_microns' }),
+      mojo.internal.StructField('imageable_area_top_microns_$flag', 56, 3, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'imageable_area_top_microns_$value', originalFieldName: 'imageable_area_top_microns' }),
+      mojo.internal.StructField('has_borderless_variant_$flag', 56, 4, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'has_borderless_variant_$value', originalFieldName: 'has_borderless_variant' }),
+      mojo.internal.StructField('has_borderless_variant_$value', 56, 5, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'has_borderless_variant_$flag', originalFieldName: 'has_borderless_variant' }),
+      mojo.internal.StructField('is_default_$flag', 56, 6, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'is_default_$value', originalFieldName: 'is_default' }),
+      mojo.internal.StructField('is_default_$value', 56, 7, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'is_default_$flag', originalFieldName: 'is_default' }),
     ],
-    [[0, 96]]);
+    [[0, 72]]);
 
 // Struct: MediaSizeCapability
 mojo.internal.Struct(

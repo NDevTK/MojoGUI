@@ -164,20 +164,20 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.VideoDecoder_Initialize_ParamsSpec, 'media.mojom.VideoDecoder_Initialize_Params', [
       mojo.internal.StructField('config', 0, 0, media.mojom.VideoDecoderConfigSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('low_delay', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('cdm', 16, 0, media.mojom.CdmSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('cdm', 8, 0, media.mojom.CdmSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('low_delay', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     media.mojom.VideoDecoder_Initialize_ResponseParamsSpec, 'media.mojom.VideoDecoder_Initialize_ResponseParams', [
       mojo.internal.StructField('status', 0, 0, media.mojom.DecoderStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('needs_bitstream_conversion', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('max_decode_requests', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('decoder_type', 16, 0, media.mojom.VideoDecoderTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('needs_transcryption', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('decoder_type', 8, 0, media.mojom.VideoDecoderTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('max_decode_requests', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('needs_bitstream_conversion', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('needs_transcryption', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     media.mojom.VideoDecoder_Decode_ParamsSpec, 'media.mojom.VideoDecoder_Decode_Params', [
@@ -319,8 +319,8 @@ media.mojom.VideoDecoderRequest = media.mojom.VideoDecoderPendingReceiver;
 mojo.internal.Struct(
     media.mojom.VideoDecoderClient_OnVideoFrameDecoded_ParamsSpec, 'media.mojom.VideoDecoderClient_OnVideoFrameDecoded_Params', [
       mojo.internal.StructField('frame', 0, 0, media.mojom.VideoFrameSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('can_read_without_stalling', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('release_token', 16, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('release_token', 8, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('can_read_without_stalling', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 

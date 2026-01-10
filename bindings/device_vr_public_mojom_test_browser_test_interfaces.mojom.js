@@ -111,17 +111,17 @@ mojo.internal.Struct(
 // Struct: ControllerFrameData
 mojo.internal.Struct(
     device_test.mojom.ControllerFrameDataSpec, 'device_test.mojom.ControllerFrameData', [
-      mojo.internal.StructField('packet_number', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('buttons_pressed', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('buttons_touched', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('supported_buttons', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('axis_data', 32, 0, mojo.internal.Array(device_test.mojom.ControllerAxisDataSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('pose_data', 40, 0, gfx.mojom.TransformSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('role', 48, 0, device_test.mojom.ControllerRoleSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('hand_data', 56, 0, device.mojom.XRHandTrackingDataSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('is_valid', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('buttons_pressed', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('buttons_touched', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('supported_buttons', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('axis_data', 24, 0, mojo.internal.Array(device_test.mojom.ControllerAxisDataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('pose_data', 32, 0, gfx.mojom.TransformSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('role', 40, 0, device_test.mojom.ControllerRoleSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('hand_data', 48, 0, device.mojom.XRHandTrackingDataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('packet_number', 56, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_valid', 60, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 80]]);
+    [[0, 72]]);
 
 // Struct: EventData
 mojo.internal.Struct(

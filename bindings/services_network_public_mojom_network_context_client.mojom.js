@@ -27,17 +27,17 @@ network.mojom.NetworkContextClient_OnNewSCTAuditingReportSent_ParamsSpec = { $: 
 // Interface: NetworkContextClient
 mojo.internal.Struct(
     network.mojom.NetworkContextClient_OnFileUploadRequested_ParamsSpec, 'network.mojom.NetworkContextClient_OnFileUploadRequested_Params', [
-      mojo.internal.StructField('process_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('async', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('file_paths', 8, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('destination_url', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('file_paths', 0, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('destination_url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('process_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('async', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     network.mojom.NetworkContextClient_OnFileUploadRequested_ResponseParamsSpec, 'network.mojom.NetworkContextClient_OnFileUploadRequested_ResponseParams', [
-      mojo.internal.StructField('net_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('files', 8, 0, mojo.internal.Array(mojo_base.mojom.ReadOnlyFileSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('files', 0, 0, mojo.internal.Array(mojo_base.mojom.ReadOnlyFileSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('net_error', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -68,16 +68,16 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ParamsSpec, 'network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_Params', [
       mojo.internal.StructField('server_auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('can_delegate', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('auth_negotiate_android_account_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('spn', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('auth_negotiate_android_account_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('spn', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('can_delegate', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ResponseParamsSpec, 'network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('auth_token', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('result', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 

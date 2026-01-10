@@ -13,7 +13,7 @@ content.mojom.AlternativeErrorPageOverrideInfoSpec = { $: {} };
 // Struct: AlternativeErrorPageOverrideInfo
 mojo.internal.Struct(
     content.mojom.AlternativeErrorPageOverrideInfoSpec, 'content.mojom.AlternativeErrorPageOverrideInfo', [
-      mojo.internal.StructField('resource_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('alternative_error_page_params', 8, 0, mojo_base.mojom.DictionaryValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('alternative_error_page_params', 0, 0, mojo_base.mojom.DictionaryValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('resource_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);

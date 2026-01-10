@@ -142,10 +142,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('method', 8, 0, ash.projector.mojom.RequestTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('request_body', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('use_credentials', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('use_api_key', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('headers', 32, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('account_email', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('headers', 24, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('account_email', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('use_credentials', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('use_api_key', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 56]]);
 

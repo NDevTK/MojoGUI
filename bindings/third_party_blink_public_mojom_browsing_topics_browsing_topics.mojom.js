@@ -16,11 +16,11 @@ blink.mojom.BrowsingTopicsDocumentService_GetBrowsingTopics_ParamsSpec = { $: {}
 // Struct: EpochTopic
 mojo.internal.Struct(
     blink.mojom.EpochTopicSpec, 'blink.mojom.EpochTopic', [
-      mojo.internal.StructField('topic', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('version', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('config_version', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('model_version', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('taxonomy_version', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('version', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('config_version', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('model_version', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('taxonomy_version', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('topic', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 48]]);
 

@@ -67,11 +67,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('duplicates', 56, 0, mojo.internal.Array(history_clusters.mojom.RawVisitDataSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('relative_date', 64, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('annotations', 72, 0, mojo.internal.Array(history_clusters.mojom.AnnotationSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('is_known_to_sync', 80, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('debug_info', 88, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('has_url_keyed_image', 96, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('debug_info', 80, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('is_known_to_sync', 88, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_url_keyed_image', 88, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 112]]);
+    [[0, 104]]);
 
 // Struct: Cluster
 mojo.internal.Struct(
@@ -83,7 +83,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('label_match_positions', 32, 0, mojo.internal.Array(history_clusters.mojom.MatchPositionSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('related_searches', 40, 0, mojo.internal.Array(history_clusters.mojom.SearchQuerySpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('image_url', 48, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('from_persistence', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('debug_info', 64, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('debug_info', 56, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('from_persistence', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 80]]);

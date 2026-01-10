@@ -317,11 +317,11 @@ mojo.internal.Union(
 // Struct: TabInfo
 mojo.internal.Struct(
     ash.boca.mojom.TabInfoSpec, 'ash.boca.mojom.TabInfo', [
-      mojo.internal.StructField('id_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'id_$value', originalFieldName: 'id' }),
-      mojo.internal.StructField('id_$value', 4, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'id_$flag', originalFieldName: 'id' }),
-      mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('favicon', 24, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('favicon', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('id_$value', 24, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'id_$flag', originalFieldName: 'id' }),
+      mojo.internal.StructField('id_$flag', 28, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'id_$value', originalFieldName: 'id' }),
     ],
     [[0, 40]]);
 
@@ -415,9 +415,9 @@ mojo.internal.Struct(
 // Struct: OnTaskConfig
 mojo.internal.Struct(
     ash.boca.mojom.OnTaskConfigSpec, 'ash.boca.mojom.OnTaskConfig', [
-      mojo.internal.StructField('is_locked', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_paused', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('tabs', 8, 0, mojo.internal.Array(ash.boca.mojom.ControlledTabSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('tabs', 0, 0, mojo.internal.Array(ash.boca.mojom.ControlledTabSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('is_locked', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_paused', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -433,14 +433,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.boca.mojom.StudentActivitySpec, 'ash.boca.mojom.StudentActivity', [
       mojo.internal.StructField('student_status_detail', 0, 0, ash.boca.mojom.StudentStatusDetailSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('is_active', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('active_tab', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('is_caption_enabled', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_hand_raised', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('join_method', 32, 0, ash.boca.mojom.JoinMethodSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('view_screen_session_code', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('active_tab', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('join_method', 16, 0, ash.boca.mojom.JoinMethodSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('view_screen_session_code', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('is_active', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_caption_enabled', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_hand_raised', 32, 2, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 48]]);
 
 // Struct: IdentifiedActivity
 mojo.internal.Struct(

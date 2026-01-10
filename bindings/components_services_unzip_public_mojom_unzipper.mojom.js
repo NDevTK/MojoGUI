@@ -41,12 +41,12 @@ mojo.internal.Struct(
 // Struct: Info
 mojo.internal.Struct(
     unzip.mojom.InfoSpec, 'unzip.mojom.Info', [
-      mojo.internal.StructField('size_is_valid', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('size', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('is_encrypted', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('uses_aes_encryption', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('size', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('size_is_valid', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_encrypted', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('uses_aes_encryption', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Interface: UnzipFilter
 mojo.internal.Struct(

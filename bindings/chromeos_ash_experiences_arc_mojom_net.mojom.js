@@ -266,9 +266,9 @@ mojo.internal.Union(
 // Struct: VisibleNetworkDetails
 mojo.internal.Struct(
     arc.mojom.VisibleNetworkDetailsSpec, 'arc.mojom.VisibleNetworkDetails', [
-      mojo.internal.StructField('frequency', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('signal_strength', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('bssid', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('bssid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('frequency', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('signal_strength', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -290,8 +290,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('required_home_ois', 24, 0, mojo.internal.Array(mojo.internal.Uint64, false), null, false, 0, undefined),
       mojo.internal.StructField('roaming_consortium_ois', 32, 0, mojo.internal.Array(mojo.internal.Uint64, false), null, false, 0, undefined),
       mojo.internal.StructField('eap', 40, 0, arc.mojom.EapCredentialsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('metered', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('package_name', 56, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('package_name', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('metered', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('friendly_name', 64, 0, mojo.internal.String, null, true, 22, undefined),
       mojo.internal.StructField('subscription_expiration_time_ms', 72, 0, mojo.internal.Int64, 0, false, 22, undefined),
     ],
@@ -333,8 +333,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('gateway', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('ip_address', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('name_servers', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('routing_prefix', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('type', 32, 0, arc.mojom.IPAddressTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('type', 24, 0, arc.mojom.IPAddressTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('routing_prefix', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -342,16 +342,16 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.WiFiSpec, 'arc.mojom.WiFi', [
       mojo.internal.StructField('bssid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('frequency', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('hex_ssid', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('hidden_ssid', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('security', 32, 0, arc.mojom.SecurityTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('signal_strength', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('is_passpoint', 44, 0, mojo.internal.Bool, false, false, 16, undefined),
-      mojo.internal.StructField('fqdn', 48, 0, mojo.internal.String, null, true, 16, undefined),
-      mojo.internal.StructField('rssi', 56, 0, mojo.internal.Int16, 0, false, 23, undefined),
+      mojo.internal.StructField('hex_ssid', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('security', 16, 0, arc.mojom.SecurityTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('frequency', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('signal_strength', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('hidden_ssid', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('fqdn', 40, 0, mojo.internal.String, null, true, 16, undefined),
+      mojo.internal.StructField('is_passpoint', 48, 0, mojo.internal.Bool, false, false, 16, undefined),
+      mojo.internal.StructField('rssi', 50, 0, mojo.internal.Int16, 0, false, 23, undefined),
     ],
-    [[0, 56], [16, 64], [23, 72]]);
+    [[0, 48], [16, 64], [23, 64]]);
 
 // Struct: NetworkConfiguration
 mojo.internal.Struct(
@@ -366,26 +366,26 @@ mojo.internal.Struct(
       mojo.internal.StructField('network_interface', 56, 0, mojo.internal.String, null, true, 10, undefined),
       mojo.internal.StructField('is_default_network', 64, 0, mojo.internal.Bool, false, false, 11, undefined),
       mojo.internal.StructField('service_name', 72, 0, mojo.internal.String, null, true, 12, undefined),
-      mojo.internal.StructField('host_mtu', 80, 0, mojo.internal.Uint32, 0, false, 13, undefined),
-      mojo.internal.StructField('host_ipv4_prefix_length', 84, 0, mojo.internal.Uint32, 0, false, 13, undefined),
-      mojo.internal.StructField('host_ipv4_address', 88, 0, mojo.internal.String, null, true, 13, undefined),
-      mojo.internal.StructField('host_ipv4_gateway', 96, 0, mojo.internal.String, null, true, 13, undefined),
-      mojo.internal.StructField('host_ipv6_prefix_length', 104, 0, mojo.internal.Uint32, 0, false, 13, undefined),
-      mojo.internal.StructField('host_ipv6_global_addresses', 112, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 13, undefined),
-      mojo.internal.StructField('host_ipv6_gateway', 120, 0, mojo.internal.String, null, true, 13, undefined),
-      mojo.internal.StructField('host_dns_addresses', 128, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 13, undefined),
-      mojo.internal.StructField('host_search_domains', 136, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 13, undefined),
-      mojo.internal.StructField('arc_ipv4_prefix_length', 144, 0, mojo.internal.Uint32, 0, false, 13, undefined),
-      mojo.internal.StructField('arc_ipv4_address', 152, 0, mojo.internal.String, null, true, 13, undefined),
-      mojo.internal.StructField('arc_ipv4_gateway', 160, 0, mojo.internal.String, null, true, 13, undefined),
-      mojo.internal.StructField('arc_network_interface', 168, 0, mojo.internal.String, null, true, 13, undefined),
-      mojo.internal.StructField('is_metered', 176, 0, mojo.internal.Bool, false, false, 14, undefined),
-      mojo.internal.StructField('include_routes', 184, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 15, undefined),
-      mojo.internal.StructField('exclude_routes', 192, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 15, undefined),
-      mojo.internal.StructField('dns_proxy_addresses', 200, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 19, undefined),
-      mojo.internal.StructField('link_speed', 208, 0, arc.mojom.LinkSpeedSpec.$, null, true, 28, undefined),
+      mojo.internal.StructField('host_ipv4_address', 80, 0, mojo.internal.String, null, true, 13, undefined),
+      mojo.internal.StructField('host_ipv4_gateway', 88, 0, mojo.internal.String, null, true, 13, undefined),
+      mojo.internal.StructField('host_ipv6_global_addresses', 96, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 13, undefined),
+      mojo.internal.StructField('host_ipv6_gateway', 104, 0, mojo.internal.String, null, true, 13, undefined),
+      mojo.internal.StructField('host_dns_addresses', 112, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 13, undefined),
+      mojo.internal.StructField('host_search_domains', 120, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 13, undefined),
+      mojo.internal.StructField('arc_ipv4_address', 128, 0, mojo.internal.String, null, true, 13, undefined),
+      mojo.internal.StructField('arc_ipv4_gateway', 136, 0, mojo.internal.String, null, true, 13, undefined),
+      mojo.internal.StructField('arc_network_interface', 144, 0, mojo.internal.String, null, true, 13, undefined),
+      mojo.internal.StructField('host_mtu', 152, 0, mojo.internal.Uint32, 0, false, 13, undefined),
+      mojo.internal.StructField('host_ipv4_prefix_length', 156, 0, mojo.internal.Uint32, 0, false, 13, undefined),
+      mojo.internal.StructField('host_ipv6_prefix_length', 160, 0, mojo.internal.Uint32, 0, false, 13, undefined),
+      mojo.internal.StructField('arc_ipv4_prefix_length', 164, 0, mojo.internal.Uint32, 0, false, 13, undefined),
+      mojo.internal.StructField('is_metered', 168, 0, mojo.internal.Bool, false, false, 14, undefined),
+      mojo.internal.StructField('include_routes', 176, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 15, undefined),
+      mojo.internal.StructField('exclude_routes', 184, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 15, undefined),
+      mojo.internal.StructField('dns_proxy_addresses', 192, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 19, undefined),
+      mojo.internal.StructField('link_speed', 200, 0, arc.mojom.LinkSpeedSpec.$, null, true, 28, undefined),
     ],
-    [[0, 56], [8, 64], [10, 72], [11, 80], [12, 88], [13, 184], [14, 192], [15, 208], [19, 216], [28, 224]]);
+    [[0, 56], [8, 64], [10, 72], [11, 80], [12, 88], [13, 176], [14, 184], [15, 200], [19, 208], [28, 216]]);
 
 // Struct: LinkSpeed
 mojo.internal.Struct(
@@ -399,10 +399,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.WifiConfigurationSpec, 'arc.mojom.WifiConfiguration', [
       mojo.internal.StructField('ssid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('frequency', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('signal_strength', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('bssid', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('security', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('bssid', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('security', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('frequency', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('signal_strength', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('guid', 32, 0, mojo.internal.String, null, true, 1, undefined),
       mojo.internal.StructField('hexssid', 40, 0, mojo.internal.String, null, true, 2, undefined),
       mojo.internal.StructField('details', 48, 0, arc.mojom.NetworkDetailsSpec.$, null, true, 2, undefined),
@@ -436,8 +436,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.ManualProxyConfigSpec, 'arc.mojom.ManualProxyConfig', [
       mojo.internal.StructField('host', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('port', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('exclusion_list', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('exclusion_list', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('port', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -455,12 +455,12 @@ mojo.internal.Struct(
       mojo.internal.StructField('app_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('app_label', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('session_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('tunnel_chrome_traffic', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('ipv4_gateway', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('split_include', 40, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('split_exclude', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('nameservers', 56, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('domains', 64, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('ipv4_gateway', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('split_include', 32, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('split_exclude', 40, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('nameservers', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('domains', 56, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('tunnel_chrome_traffic', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('http_proxy', 72, 0, arc.mojom.ArcProxyInfoSpec.$, null, true, 21, undefined),
       mojo.internal.StructField('mtu', 80, 0, mojo.internal.Int32, 0, false, 38, undefined),
     ],
@@ -469,27 +469,27 @@ mojo.internal.Struct(
 // Struct: ArcDnsResolutionTestResult
 mojo.internal.Struct(
     arc.mojom.ArcDnsResolutionTestResultSpec, 'arc.mojom.ArcDnsResolutionTestResult', [
-      mojo.internal.StructField('is_successful', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('response_code', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('duration_ms', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('duration_ms', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('response_code', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_successful', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: ArcHttpTestResult
 mojo.internal.Struct(
     arc.mojom.ArcHttpTestResultSpec, 'arc.mojom.ArcHttpTestResult', [
-      mojo.internal.StructField('is_successful', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('status_code', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('response_header_fields', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('duration_ms', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('response_header_fields', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('duration_ms', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('status_code', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_successful', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: ArcPingTestResult
 mojo.internal.Struct(
     arc.mojom.ArcPingTestResultSpec, 'arc.mojom.ArcPingTestResult', [
-      mojo.internal.StructField('is_successful', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('duration_ms', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('duration_ms', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('is_successful', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -525,12 +525,12 @@ mojo.internal.Struct(
     arc.mojom.SocketConnectionEventSpec, 'arc.mojom.SocketConnectionEvent', [
       mojo.internal.StructField('src_addr', 0, 0, network.mojom.IPAddressSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('dst_addr', 8, 0, network.mojom.IPAddressSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('src_port', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('dst_port', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('proto', 24, 0, arc.mojom.IpProtocolSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('event', 32, 0, arc.mojom.SocketEventSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('app_category', 40, 0, arc.mojom.AppCategorySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('qos_category', 48, 0, arc.mojom.QosCategorySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('proto', 16, 0, arc.mojom.IpProtocolSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('event', 24, 0, arc.mojom.SocketEventSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('app_category', 32, 0, arc.mojom.AppCategorySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('qos_category', 40, 0, arc.mojom.QosCategorySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('src_port', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('dst_port', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 64]]);
 

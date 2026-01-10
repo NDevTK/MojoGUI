@@ -32,8 +32,8 @@ blink.mojom.ServiceWorkerClientLifecycleState = {
 // Struct: ServiceWorkerClientQueryOptions
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerClientQueryOptionsSpec, 'blink.mojom.ServiceWorkerClientQueryOptions', [
-      mojo.internal.StructField('include_uncontrolled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('client_type', 8, 0, blink.mojom.ServiceWorkerClientTypeSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('client_type', 0, 0, blink.mojom.ServiceWorkerClientTypeSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('include_uncontrolled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -44,10 +44,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('frame_type', 8, 0, blink.mojom.RequestContextFrameTypeSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('client_uuid', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('client_type', 24, 0, blink.mojom.ServiceWorkerClientTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('page_hidden', 32, 0, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('is_focused', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('lifecycle_state', 40, 0, blink.mojom.ServiceWorkerClientLifecycleStateSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('last_focus_time', 48, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('creation_time', 56, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('lifecycle_state', 32, 0, blink.mojom.ServiceWorkerClientLifecycleStateSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('last_focus_time', 40, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('creation_time', 48, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('page_hidden', 56, 0, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('is_focused', 56, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 72]]);

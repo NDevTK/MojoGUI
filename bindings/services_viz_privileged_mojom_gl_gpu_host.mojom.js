@@ -115,8 +115,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     viz.mojom.GpuHost_GetIsolationKey_ParamsSpec, 'viz.mojom.GpuHost_GetIsolationKey_Params', [
-      mojo.internal.StructField('client_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('wgpu_context_token', 8, 0, blink.mojom.WebGPUExecutionContextTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('wgpu_context_token', 0, 0, blink.mojom.WebGPUExecutionContextTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('client_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 

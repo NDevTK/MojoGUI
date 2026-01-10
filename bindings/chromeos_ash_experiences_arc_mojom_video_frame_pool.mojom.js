@@ -26,12 +26,12 @@ arc.mojom.VideoFramePoolClient_RequestVideoFrames_ResponseParamsSpec = { $: {} }
 // Struct: VideoFrame
 mojo.internal.Struct(
     arc.mojom.VideoFrameSpec, 'arc.mojom.VideoFrame', [
-      mojo.internal.StructField('id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('handle_fd', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('coded_size', 16, 0, arc.mojom.SizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('format', 24, 0, arc.mojom.HalPixelFormatSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('planes', 32, 0, mojo.internal.Array(arc.mojom.VideoFramePlaneSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('modifier', 40, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('handle_fd', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('coded_size', 8, 0, arc.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('format', 16, 0, arc.mojom.HalPixelFormatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('planes', 24, 0, mojo.internal.Array(arc.mojom.VideoFramePlaneSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('modifier', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('id', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 56]]);
 

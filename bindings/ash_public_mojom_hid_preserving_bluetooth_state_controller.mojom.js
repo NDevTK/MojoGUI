@@ -22,8 +22,8 @@ ash.mojom.HidWarningDialogSource = {
 // Interface: HidPreservingBluetoothStateController
 mojo.internal.Struct(
     ash.mojom.HidPreservingBluetoothStateController_TryToSetBluetoothEnabledState_ParamsSpec, 'ash.mojom.HidPreservingBluetoothStateController_TryToSetBluetoothEnabledState_Params', [
-      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('source', 8, 0, ash.mojom.HidWarningDialogSourceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('source', 0, 0, ash.mojom.HidWarningDialogSourceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 

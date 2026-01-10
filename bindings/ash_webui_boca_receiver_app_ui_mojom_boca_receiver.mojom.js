@@ -51,9 +51,9 @@ mojo.internal.Struct(
 // Struct: DecodedAudioPacket
 mojo.internal.Struct(
     ash.boca_receiver.mojom.DecodedAudioPacketSpec, 'ash.boca_receiver.mojom.DecodedAudioPacket', [
-      mojo.internal.StructField('sample_rate', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('channels', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('data', 8, 0, mojo.internal.Array(mojo.internal.Int16, false), null, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(mojo.internal.Int16, false), null, false, 0, undefined),
+      mojo.internal.StructField('sample_rate', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('channels', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 

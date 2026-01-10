@@ -49,10 +49,10 @@ mojo.internal.Union(
 // Struct: NativePixmapPlane
 mojo.internal.Struct(
     gfx.mojom.NativePixmapPlaneSpec, 'gfx.mojom.NativePixmapPlane', [
-      mojo.internal.StructField('stride', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('offset', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('size', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('buffer_handle', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('offset', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('size', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('buffer_handle', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('stride', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -61,12 +61,12 @@ mojo.internal.Struct(
     gfx.mojom.NativePixmapHandleSpec, 'gfx.mojom.NativePixmapHandle', [
       mojo.internal.StructField('planes', 0, 0, mojo.internal.Array(gfx.mojom.NativePixmapPlaneSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('modifier', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('supports_zero_copy_webgpu_import', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('buffer_collection_handle', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('buffer_index', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('ram_coherency', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('buffer_collection_handle', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('buffer_index', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('supports_zero_copy_webgpu_import', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('ram_coherency', 28, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 40]]);
 
 // Struct: AHardwareBufferHandle
 mojo.internal.Struct(

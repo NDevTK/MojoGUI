@@ -97,10 +97,10 @@ mojo.internal.Struct(
 // Struct: KioskVisionTrack
 mojo.internal.Struct(
     cros.mojom.KioskVisionTrackSpec, 'cros.mojom.KioskVisionTrack', [
-      mojo.internal.StructField('person_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('start_timestamp_in_us', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('end_timestamp_in_us', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('appearances', 24, 0, mojo.internal.Array(cros.mojom.KioskVisionAppearanceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('start_timestamp_in_us', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('end_timestamp_in_us', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('appearances', 16, 0, mojo.internal.Array(cros.mojom.KioskVisionAppearanceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('person_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -108,9 +108,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     cros.mojom.KioskVisionAppearanceSpec, 'cros.mojom.KioskVisionAppearance', [
       mojo.internal.StructField('timestamp_in_us', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('person_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('face', 16, 0, cros.mojom.KioskVisionFaceDetectionSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('body', 24, 0, cros.mojom.KioskVisionBodyDetectionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('face', 8, 0, cros.mojom.KioskVisionFaceDetectionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('body', 16, 0, cros.mojom.KioskVisionBodyDetectionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('person_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -118,10 +118,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     cros.mojom.KioskVisionFaceDetectionSpec, 'cros.mojom.KioskVisionFaceDetection', [
       mojo.internal.StructField('confidence', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('roll', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('pan', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('tilt', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('box', 24, 0, cros.mojom.KioskVisionBoundingBoxSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('box', 8, 0, cros.mojom.KioskVisionBoundingBoxSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('roll', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('pan', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('tilt', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -316,9 +316,9 @@ cros.mojom.CameraHalDispatcherRequest = cros.mojom.CameraHalDispatcherPendingRec
 // Interface: CrosCameraServiceObserver
 mojo.internal.Struct(
     cros.mojom.CrosCameraServiceObserver_CameraDeviceActivityChange_ParamsSpec, 'cros.mojom.CrosCameraServiceObserver_CameraDeviceActivityChange_Params', [
-      mojo.internal.StructField('camera_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('opened', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('type', 8, 0, cros.mojom.CameraClientTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, cros.mojom.CameraClientTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('camera_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('opened', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -127,9 +127,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.FileSystemAccessFileHandle_CreateFileWriter_ParamsSpec, 'blink.mojom.FileSystemAccessFileHandle_CreateFileWriter_Params', [
-      mojo.internal.StructField('keep_existing_data', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('auto_close', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('mode', 8, 0, blink.mojom.FileSystemAccessWritableFileStreamLockModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('mode', 0, 0, blink.mojom.FileSystemAccessWritableFileStreamLockModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('keep_existing_data', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('auto_close', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 

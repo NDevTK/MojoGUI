@@ -28,12 +28,12 @@ mojo.internal.Struct(
       mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('update_time', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('device_name', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('total_tab_count', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('color', 40, 0, tab_groups.mojom.ColorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('favicon_urls', 48, 0, mojo.internal.Array(url.mojom.UrlSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('is_shared_tab_group', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('color', 32, 0, tab_groups.mojom.ColorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('favicon_urls', 40, 0, mojo.internal.Array(url.mojom.UrlSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('total_tab_count', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_shared_tab_group', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 64]]);
 
 // Interface: PageHandler
 mojo.internal.Struct(

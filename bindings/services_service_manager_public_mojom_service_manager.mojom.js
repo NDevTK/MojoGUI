@@ -34,8 +34,8 @@ service_manager.mojom.InstanceState = {
 mojo.internal.Struct(
     service_manager.mojom.RunningServiceInfoSpec, 'service_manager.mojom.RunningServiceInfo', [
       mojo.internal.StructField('identity', 0, 0, service_manager.mojom.IdentitySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('pid', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('state', 16, 0, service_manager.mojom.InstanceStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('state', 8, 0, service_manager.mojom.InstanceStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('pid', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 

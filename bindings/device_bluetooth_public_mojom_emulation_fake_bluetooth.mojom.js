@@ -168,8 +168,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     bluetooth.mojom.ScanResultSpec, 'bluetooth.mojom.ScanResult', [
       mojo.internal.StructField('device_address', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('rssi', 8, 0, mojo.internal.Int8, 0, false, 0, undefined),
-      mojo.internal.StructField('scan_record', 16, 0, bluetooth.mojom.ScanRecordSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('scan_record', 8, 0, bluetooth.mojom.ScanRecordSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('rssi', 16, 0, mojo.internal.Int8, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -407,8 +407,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('characteristic_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('service_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('peripheral_address', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('code', 32, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('data', 40, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('data', 32, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('code', 40, 0, mojo.internal.Uint16, 0, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -425,8 +425,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('characteristic_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('service_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('peripheral_address', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('code', 40, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('data', 48, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('data', 40, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('code', 48, 0, mojo.internal.Uint16, 0, false, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -523,11 +523,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     bluetooth.mojom.FakeCentral_SetNextReadCharacteristicResponse_ParamsSpec, 'bluetooth.mojom.FakeCentral_SetNextReadCharacteristicResponse_Params', [
-      mojo.internal.StructField('gatt_code', 0, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('value', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
-      mojo.internal.StructField('characteristic_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('service_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('peripheral_address', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('characteristic_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('service_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('peripheral_address', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('gatt_code', 32, 0, mojo.internal.Uint16, 0, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -539,10 +539,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     bluetooth.mojom.FakeCentral_SetNextWriteCharacteristicResponse_ParamsSpec, 'bluetooth.mojom.FakeCentral_SetNextWriteCharacteristicResponse_Params', [
-      mojo.internal.StructField('gatt_code', 0, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('characteristic_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('service_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('peripheral_address', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('characteristic_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('service_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('peripheral_address', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('gatt_code', 24, 0, mojo.internal.Uint16, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -554,10 +554,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     bluetooth.mojom.FakeCentral_SetNextSubscribeToNotificationsResponse_ParamsSpec, 'bluetooth.mojom.FakeCentral_SetNextSubscribeToNotificationsResponse_Params', [
-      mojo.internal.StructField('gatt_code', 0, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('characteristic_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('service_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('peripheral_address', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('characteristic_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('service_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('peripheral_address', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('gatt_code', 24, 0, mojo.internal.Uint16, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -569,10 +569,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     bluetooth.mojom.FakeCentral_SetNextUnsubscribeFromNotificationsResponse_ParamsSpec, 'bluetooth.mojom.FakeCentral_SetNextUnsubscribeFromNotificationsResponse_Params', [
-      mojo.internal.StructField('gatt_code', 0, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('characteristic_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('service_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('peripheral_address', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('characteristic_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('service_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('peripheral_address', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('gatt_code', 24, 0, mojo.internal.Uint16, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -607,20 +607,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     bluetooth.mojom.FakeCentral_GetLastWrittenCharacteristicValue_ResponseParamsSpec, 'bluetooth.mojom.FakeCentral_GetLastWrittenCharacteristicValue_ResponseParams', [
-      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('value', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
-      mojo.internal.StructField('write_type', 16, 0, bluetooth.mojom.WriteTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('write_type', 8, 0, bluetooth.mojom.WriteTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('success', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     bluetooth.mojom.FakeCentral_SetNextReadDescriptorResponse_ParamsSpec, 'bluetooth.mojom.FakeCentral_SetNextReadDescriptorResponse_Params', [
-      mojo.internal.StructField('gatt_code', 0, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('value', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
-      mojo.internal.StructField('descriptor_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('characteristic_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('service_id', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('peripheral_address', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('descriptor_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('characteristic_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('service_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('peripheral_address', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('gatt_code', 40, 0, mojo.internal.Uint16, 0, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -632,11 +632,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     bluetooth.mojom.FakeCentral_SetNextWriteDescriptorResponse_ParamsSpec, 'bluetooth.mojom.FakeCentral_SetNextWriteDescriptorResponse_Params', [
-      mojo.internal.StructField('gatt_code', 0, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('descriptor_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('characteristic_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('service_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('peripheral_address', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('descriptor_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('characteristic_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('service_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('peripheral_address', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('gatt_code', 32, 0, mojo.internal.Uint16, 0, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -657,8 +657,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     bluetooth.mojom.FakeCentral_GetLastWrittenDescriptorValue_ResponseParamsSpec, 'bluetooth.mojom.FakeCentral_GetLastWrittenDescriptorValue_ResponseParams', [
-      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('value', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 

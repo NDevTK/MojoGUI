@@ -36,8 +36,8 @@ blink.mojom.PushErrorType = {
 // Struct: PushSubscriptionOptions
 mojo.internal.Struct(
     blink.mojom.PushSubscriptionOptionsSpec, 'blink.mojom.PushSubscriptionOptions', [
-      mojo.internal.StructField('user_visible_only', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('application_server_key', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('application_server_key', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('user_visible_only', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -77,8 +77,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.PushMessaging_Unsubscribe_ResponseParamsSpec, 'blink.mojom.PushMessaging_Unsubscribe_ResponseParams', [
       mojo.internal.StructField('error_type', 0, 0, blink.mojom.PushErrorTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('did_unsubscribe', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('error_message', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('error_message', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('did_unsubscribe', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 

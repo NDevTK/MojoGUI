@@ -51,9 +51,9 @@ mojo.internal.Union(
 // Struct: TypefaceStyle
 mojo.internal.Struct(
     font_data_service.mojom.TypefaceStyleSpec, 'font_data_service.mojom.TypefaceStyle', [
-      mojo.internal.StructField('weight', 0, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('width', 2, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('slant', 8, 0, font_data_service.mojom.TypefaceSlantSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('slant', 0, 0, font_data_service.mojom.TypefaceSlantSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('weight', 8, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('width', 10, 0, mojo.internal.Uint8, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -85,8 +85,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     font_data_service.mojom.MatchFamilyNameResultSpec, 'font_data_service.mojom.MatchFamilyNameResult', [
       mojo.internal.StructField('typeface_data', 0, 0, font_data_service.mojom.TypefaceDataSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('ttc_index', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('variation_position', 16, 0, font_data_service.mojom.VariationPositionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('variation_position', 8, 0, font_data_service.mojom.VariationPositionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('ttc_index', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 

@@ -90,11 +90,11 @@ mojo.internal.Struct(
 // Struct: CertManagementMetadata
 mojo.internal.Struct(
     certificate_manager.mojom.CertManagementMetadataSpec, 'certificate_manager.mojom.CertManagementMetadata', [
-      mojo.internal.StructField('include_system_trust_store', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('num_user_added_system_certs', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('is_include_system_trust_store_managed', 2, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('num_policy_certs', 3, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('num_user_certs', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('num_user_certs', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('include_system_trust_store', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('num_user_added_system_certs', 5, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('is_include_system_trust_store_managed', 6, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('num_policy_certs', 7, 0, mojo.internal.Uint8, 0, false, 0, undefined),
       mojo.internal.StructField('show_user_certs_ui', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);

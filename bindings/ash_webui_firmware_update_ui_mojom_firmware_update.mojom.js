@@ -83,20 +83,20 @@ mojo.internal.Struct(
     ash.firmware_update.mojom.FirmwareUpdateSpec, 'ash.firmware_update.mojom.FirmwareUpdate', [
       mojo.internal.StructField('device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('device_name', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('needs_reboot', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('device_version', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('device_description', 32, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('priority', 40, 0, ash.firmware_update.mojom.UpdatePrioritySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('filepath', 48, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('checksum', 56, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('device_version', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('device_description', 24, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('priority', 32, 0, ash.firmware_update.mojom.UpdatePrioritySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('filepath', 40, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('checksum', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('needs_reboot', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 72]]);
 
 // Struct: InstallationProgress
 mojo.internal.Struct(
     ash.firmware_update.mojom.InstallationProgressSpec, 'ash.firmware_update.mojom.InstallationProgress', [
-      mojo.internal.StructField('percentage', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('state', 8, 0, ash.firmware_update.mojom.UpdateStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, ash.firmware_update.mojom.UpdateStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('percentage', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 

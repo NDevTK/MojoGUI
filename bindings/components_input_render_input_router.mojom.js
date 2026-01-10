@@ -45,10 +45,10 @@ mojo.internal.Struct(
     input.mojom.TouchTransferStateSpec, 'input.mojom.TouchTransferState', [
       mojo.internal.StructField('down_time_ms', 0, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('root_widget_frame_sink_id', 8, 0, viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('web_contents_y_offset_pix', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('dip_scale', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('browser_would_have_handled', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('down_event', 32, 0, ui.mojom.CachedMotionEventAndroidSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('down_event', 16, 0, ui.mojom.CachedMotionEventAndroidSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('web_contents_y_offset_pix', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('dip_scale', 28, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('browser_would_have_handled', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -61,8 +61,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec, 'input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_Params', [
-      mojo.internal.StructField('force_enable_zoom', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('frame_sink_id', 8, 0, viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('frame_sink_id', 0, 0, viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('force_enable_zoom', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -228,8 +228,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_ParamsSpec, 'input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_Params', [
-      mojo.internal.StructField('is_responsive', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('ack_timeout_ts', 8, 0, mojo_base.mojom.TimeTicksSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('ack_timeout_ts', 0, 0, mojo_base.mojom.TimeTicksSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('is_responsive', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 

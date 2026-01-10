@@ -69,8 +69,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.StorageAreaObserver_AllDeleted_ParamsSpec, 'blink.mojom.StorageAreaObserver_AllDeleted_Params', [
-      mojo.internal.StructField('was_nonempty', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('source', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('source', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('was_nonempty', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -235,8 +235,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.StorageArea_Get_ResponseParamsSpec, 'blink.mojom.StorageArea_Get_ResponseParams', [
-      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('value', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 

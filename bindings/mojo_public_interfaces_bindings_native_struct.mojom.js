@@ -24,8 +24,8 @@ mojo.native.SerializedHandleType = {
 // Struct: SerializedHandle
 mojo.internal.Struct(
     mojo.native.SerializedHandleSpec, 'mojo.native.SerializedHandle', [
-      mojo.internal.StructField('the_handle', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
-      mojo.internal.StructField('type', 8, 0, mojo.native.SerializedHandleTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, mojo.native.SerializedHandleTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('the_handle', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

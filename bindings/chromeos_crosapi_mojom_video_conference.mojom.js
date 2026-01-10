@@ -90,11 +90,11 @@ mojo.internal.Struct(
     crosapi.mojom.VideoConferenceMediaAppInfoSpec, 'crosapi.mojom.VideoConferenceMediaAppInfo', [
       mojo.internal.StructField('id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('last_activity_time', 8, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('is_capturing_camera', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_capturing_microphone', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_capturing_screen', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('title', 24, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('url', 32, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('title', 16, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('url', 24, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('is_capturing_camera', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_capturing_microphone', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_capturing_screen', 32, 2, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('app_type', 40, 0, crosapi.mojom.VideoConferenceAppTypeSpec.$, null, false, 1, undefined),
     ],
     [[0, 48], [1, 56]]);

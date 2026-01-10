@@ -309,10 +309,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     actor.mojom.ActionResultSpec, 'actor.mojom.ActionResult', [
       mojo.internal.StructField('code', 0, 0, actor.mojom.ActionResultCodeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('requires_page_stabilization', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('message', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('script_tool_response', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('execution_end_time', 32, 0, mojo_base.mojom.TimeTicksSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('message', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('script_tool_response', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('execution_end_time', 24, 0, mojo_base.mojom.TimeTicksSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('requires_page_stabilization', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 48]]);
 

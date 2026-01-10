@@ -908,14 +908,14 @@ mojo.internal.Struct(
       mojo.internal.StructField('letter_spacing', 8, 0, read_anything.mojom.LetterSpacingSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('font', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('font_size', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('links_enabled', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('images_enabled', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('color', 40, 0, read_anything.mojom.ColorsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('speech_rate', 48, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('voices', 56, 0, mojo_base.mojom.DictionaryValueSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('languages_enabled_in_pref', 64, 0, mojo_base.mojom.ListValueSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('granularity', 72, 0, read_anything.mojom.HighlightGranularitySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('line_focus', 80, 0, read_anything.mojom.LineFocusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('color', 32, 0, read_anything.mojom.ColorsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('speech_rate', 40, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('voices', 48, 0, mojo_base.mojom.DictionaryValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('languages_enabled_in_pref', 56, 0, mojo_base.mojom.ListValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('granularity', 64, 0, read_anything.mojom.HighlightGranularitySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('line_focus', 72, 0, read_anything.mojom.LineFocusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('links_enabled', 80, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('images_enabled', 80, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 96]]);
 
@@ -944,8 +944,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPage_OnImageDataDownloaded_ParamsSpec, 'read_anything.mojom.UntrustedPage_OnImageDataDownloaded_Params', [
       mojo.internal.StructField('tree_id', 0, 0, ax.mojom.AXTreeIDSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('node_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('image', 16, 0, skia.mojom.BitmapN32Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('image', 8, 0, skia.mojom.BitmapN32Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('node_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 

@@ -15,8 +15,8 @@ content.mojom.ThreadTypeSwitcher_SetThreadType_ParamsSpec = { $: {} };
 // Interface: ThreadTypeSwitcher
 mojo.internal.Struct(
     content.mojom.ThreadTypeSwitcher_SetThreadType_ParamsSpec, 'content.mojom.ThreadTypeSwitcher_SetThreadType_Params', [
-      mojo.internal.StructField('platform_thread_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('thread_type', 8, 0, mojo_base.mojom.ThreadTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('thread_type', 0, 0, mojo_base.mojom.ThreadTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('platform_thread_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 

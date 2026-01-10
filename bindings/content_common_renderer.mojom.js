@@ -52,22 +52,22 @@ content.mojom.RenderProcessVisibleState = {
 // Struct: UpdateScrollbarThemeParams
 mojo.internal.Struct(
     content.mojom.UpdateScrollbarThemeParamsSpec, 'content.mojom.UpdateScrollbarThemeParams', [
-      mojo.internal.StructField('has_initial_button_delay', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('initial_button_delay', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('has_autoscroll_button_delay', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('preferred_scroller_style', 0, 0, content.mojom.ScrollerStyleSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('initial_button_delay', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('autoscroll_button_delay', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('jump_on_track_click', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('preferred_scroller_style', 24, 0, content.mojom.ScrollerStyleSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('redraw', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('scroll_view_rubber_banding', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_initial_button_delay', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_autoscroll_button_delay', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('jump_on_track_click', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('redraw', 16, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('scroll_view_rubber_banding', 16, 4, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 32]]);
 
 // Struct: UpdateSystemColorInfoParams
 mojo.internal.Struct(
     content.mojom.UpdateSystemColorInfoParamsSpec, 'content.mojom.UpdateSystemColorInfoParams', [
-      mojo.internal.StructField('accent_color_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'accent_color_$value', originalFieldName: 'accent_color' }),
-      mojo.internal.StructField('accent_color_$value', 4, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'accent_color_$flag', originalFieldName: 'accent_color' }),
+      mojo.internal.StructField('accent_color_$value', 0, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'accent_color_$flag', originalFieldName: 'accent_color' }),
+      mojo.internal.StructField('accent_color_$flag', 4, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'accent_color_$value', originalFieldName: 'accent_color' }),
     ],
     [[0, 16]]);
 

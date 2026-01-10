@@ -27,8 +27,8 @@ optimization_guide.mojom.TextDumpEvent = {
 // Struct: PageTextDumpRequest
 mojo.internal.Struct(
     optimization_guide.mojom.PageTextDumpRequestSpec, 'optimization_guide.mojom.PageTextDumpRequest', [
-      mojo.internal.StructField('max_size', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('event', 8, 0, optimization_guide.mojom.TextDumpEventSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('event', 0, 0, optimization_guide.mojom.TextDumpEventSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('max_size', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 

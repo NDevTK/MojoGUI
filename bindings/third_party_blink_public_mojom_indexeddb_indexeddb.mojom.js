@@ -385,9 +385,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('name', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('key_path', 16, 0, blink.mojom.IDBKeyPathSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('auto_increment', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('max_index_id', 32, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('indexes', 40, 0, mojo.internal.Map(mojo.internal.Int64, blink.mojom.IDBIndexMetadataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('max_index_id', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('indexes', 32, 0, mojo.internal.Map(mojo.internal.Int64, blink.mojom.IDBIndexMetadataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('auto_increment', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -1160,8 +1160,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('index_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('key_range', 24, 0, blink.mojom.IDBKeyRangeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('result_type', 32, 0, blink.mojom.IDBGetAllResultTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('max_count', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('direction', 48, 0, blink.mojom.IDBCursorDirectionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('direction', 40, 0, blink.mojom.IDBCursorDirectionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('max_count', 48, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -1178,8 +1178,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('index_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('key_range', 24, 0, blink.mojom.IDBKeyRangeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('direction', 32, 0, blink.mojom.IDBCursorDirectionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('key_only', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('task_type', 48, 0, blink.mojom.IDBTaskTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('task_type', 40, 0, blink.mojom.IDBTaskTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('key_only', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -1200,8 +1200,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.IDBDatabase_Count_ResponseParamsSpec, 'blink.mojom.IDBDatabase_Count_ResponseParams', [
-      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('count', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('count', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('success', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -139,9 +139,9 @@ mojo.internal.Struct(
     on_device_model.mojom.LoadModelParamsSpec, 'on_device_model.mojom.LoadModelParams', [
       mojo.internal.StructField('backend_type', 0, 0, on_device_model.mojom.ModelBackendTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('assets', 8, 0, on_device_model.mojom.ModelAssetsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('max_tokens', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('adaptation_ranks', 24, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
-      mojo.internal.StructField('performance_hint', 32, 0, on_device_model.mojom.ModelPerformanceHintSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('adaptation_ranks', 16, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+      mojo.internal.StructField('performance_hint', 24, 0, on_device_model.mojom.ModelPerformanceHintSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('max_tokens', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 48]]);
 

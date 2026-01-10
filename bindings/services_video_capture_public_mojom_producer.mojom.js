@@ -17,8 +17,8 @@ video_capture.mojom.Producer_OnBufferRetired_ParamsSpec = { $: {} };
 // Interface: Producer
 mojo.internal.Struct(
     video_capture.mojom.Producer_OnNewBuffer_ParamsSpec, 'video_capture.mojom.Producer_OnNewBuffer_Params', [
-      mojo.internal.StructField('buffer_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('buffer_handle', 8, 0, media.mojom.VideoBufferHandleSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('buffer_handle', 0, 0, media.mojom.VideoBufferHandleSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('buffer_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 

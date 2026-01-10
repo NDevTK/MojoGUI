@@ -61,24 +61,24 @@ tab_strip.mojom.Page_ThemeChanged_ParamsSpec = { $: {} };
 // Struct: Tab
 mojo.internal.Struct(
     tab_strip.mojom.TabSpec, 'tab_strip.mojom.Tab', [
-      mojo.internal.StructField('active', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('alert_states', 8, 0, mojo.internal.Array(tabs.mojom.TabAlertStateSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('blocked', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('crashed', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('favicon_url', 24, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('active_favicon_url', 32, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('group_id', 40, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('id', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('index', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('is_default_favicon', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('network_state', 64, 0, tabs.mojom.TabNetworkStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('pinned', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('should_hide_throbber', 72, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('show_icon', 72, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('title', 80, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('url', 88, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('alert_states', 0, 0, mojo.internal.Array(tabs.mojom.TabAlertStateSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('favicon_url', 8, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('active_favicon_url', 16, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('group_id', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('network_state', 32, 0, tabs.mojom.TabNetworkStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('title', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('url', 48, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('id', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('index', 60, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('active', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('blocked', 64, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('crashed', 64, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_default_favicon', 64, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('pinned', 64, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('should_hide_throbber', 64, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('show_icon', 64, 6, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 104]]);
+    [[0, 80]]);
 
 // Struct: TabGroupVisualData
 mojo.internal.Struct(
@@ -187,8 +187,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     tab_strip.mojom.PageHandler_GroupTab_ParamsSpec, 'tab_strip.mojom.PageHandler_GroupTab_Params', [
-      mojo.internal.StructField('tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('group_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('group_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('tab_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -548,9 +548,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     tab_strip.mojom.Page_TabGroupStateChanged_ParamsSpec, 'tab_strip.mojom.Page_TabGroupStateChanged_Params', [
-      mojo.internal.StructField('tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('index', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('group_id', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('group_id', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('tab_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('index', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -601,8 +601,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     tab_strip.mojom.Page_TabThumbnailUpdated_ParamsSpec, 'tab_strip.mojom.Page_TabThumbnailUpdated_Params', [
-      mojo.internal.StructField('tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('data_uri', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('data_uri', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('tab_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 

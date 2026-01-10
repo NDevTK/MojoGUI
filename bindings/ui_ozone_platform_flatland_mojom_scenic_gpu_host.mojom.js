@@ -15,8 +15,8 @@ ui.mojom.ScenicGpuHost_AttachSurfaceToWindow_ParamsSpec = { $: {} };
 // Interface: ScenicGpuHost
 mojo.internal.Struct(
     ui.mojom.ScenicGpuHost_AttachSurfaceToWindow_ParamsSpec, 'ui.mojom.ScenicGpuHost_AttachSurfaceToWindow_Params', [
-      mojo.internal.StructField('window_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('view_holder_token', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('view_holder_token', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('window_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 

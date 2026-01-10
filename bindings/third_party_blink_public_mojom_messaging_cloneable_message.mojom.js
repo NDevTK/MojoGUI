@@ -22,9 +22,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('stack_trace_id', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('stack_trace_debugger_id_first', 32, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('stack_trace_debugger_id_second', 40, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('stack_trace_should_pause', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('sender_agent_cluster_id', 56, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('locked_to_sender_agent_cluster', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('file_system_access_tokens', 72, 0, mojo.internal.Array(mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessTransferTokenRemote), false), null, false, 0, undefined),
+      mojo.internal.StructField('sender_agent_cluster_id', 48, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('file_system_access_tokens', 56, 0, mojo.internal.Array(mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessTransferTokenRemote), false), null, false, 0, undefined),
+      mojo.internal.StructField('stack_trace_should_pause', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('locked_to_sender_agent_cluster', 64, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 88]]);
+    [[0, 80]]);

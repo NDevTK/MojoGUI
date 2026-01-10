@@ -63,12 +63,12 @@ mojo.internal.Struct(
       mojo.internal.StructField('io_session', 16, 0, mojo.internal.InterfaceRequest(blink.mojom.DevToolsSessionRemote), null, false, 0, undefined),
       mojo.internal.StructField('reattach_session_state', 24, 0, blink.mojom.DevToolsSessionStateSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('script_to_evaluate_on_load', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('client_expects_binary_responses', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('client_is_trusted', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('session_id', 48, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('session_waits_for_debugger', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('session_id', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('client_expects_binary_responses', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('client_is_trusted', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('session_waits_for_debugger', 48, 2, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 64]]);
 
 mojo.internal.Struct(
     blink.mojom.DevToolsAgent_InspectElement_ParamsSpec, 'blink.mojom.DevToolsAgent_InspectElement_Params', [
@@ -174,8 +174,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('name', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('devtools_worker_token', 32, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('waiting_for_debugger', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('context_type', 48, 0, blink.mojom.DevToolsExecutionContextTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('context_type', 40, 0, blink.mojom.DevToolsExecutionContextTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('waiting_for_debugger', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -285,9 +285,9 @@ blink.mojom.DevToolsAgentHostRequest = blink.mojom.DevToolsAgentHostPendingRecei
 // Interface: DevToolsSession
 mojo.internal.Struct(
     blink.mojom.DevToolsSession_DispatchProtocolCommand_ParamsSpec, 'blink.mojom.DevToolsSession_DispatchProtocolCommand_Params', [
-      mojo.internal.StructField('call_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('method', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('message', 16, 0, mojo_base.mojom.ReadOnlyBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('method', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('message', 8, 0, mojo_base.mojom.ReadOnlyBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('call_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -368,8 +368,8 @@ blink.mojom.DevToolsSessionRequest = blink.mojom.DevToolsSessionPendingReceiver;
 mojo.internal.Struct(
     blink.mojom.DevToolsSessionHost_DispatchProtocolResponse_ParamsSpec, 'blink.mojom.DevToolsSessionHost_DispatchProtocolResponse_Params', [
       mojo.internal.StructField('message', 0, 0, blink.mojom.DevToolsMessageSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('call_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('updates', 16, 0, blink.mojom.DevToolsSessionStateSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('updates', 8, 0, blink.mojom.DevToolsSessionStateSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('call_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 

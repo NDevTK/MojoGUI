@@ -72,12 +72,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerRouterRequestConditionSpec, 'blink.mojom.ServiceWorkerRouterRequestCondition', [
       mojo.internal.StructField('method', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('has_mode', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('mode', 16, 0, network.mojom.RequestModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('has_destination', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('destination', 32, 0, network.mojom.RequestDestinationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('mode', 8, 0, network.mojom.RequestModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('destination', 16, 0, network.mojom.RequestDestinationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('has_mode', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_destination', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 40]]);
 
 // Struct: ServiceWorkerRouterOrCondition
 mojo.internal.Struct(

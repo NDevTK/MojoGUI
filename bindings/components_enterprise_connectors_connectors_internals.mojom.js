@@ -117,11 +117,11 @@ mojo.internal.Struct(
 // Struct: DeviceTrustState
 mojo.internal.Struct(
     connectors_internals.mojom.DeviceTrustStateSpec, 'connectors_internals.mojom.DeviceTrustState', [
-      mojo.internal.StructField('is_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('policy_enabled_levels', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('key_info', 16, 0, connectors_internals.mojom.KeyInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('signals_json', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('consent_metadata', 32, 0, connectors_internals.mojom.ConsentMetadataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('policy_enabled_levels', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('key_info', 8, 0, connectors_internals.mojom.KeyInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('signals_json', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('consent_metadata', 24, 0, connectors_internals.mojom.ConsentMetadataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('is_enabled', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -159,14 +159,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     connectors_internals.mojom.SignalsReportingStateSpec, 'connectors_internals.mojom.SignalsReportingState', [
       mojo.internal.StructField('error_info', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('status_report_enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('signals_report_enabled', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('last_upload_attempt_timestamp', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('last_upload_success_timestamp', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('last_signals_upload_config', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('can_collect_all_fields', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('last_upload_attempt_timestamp', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('last_upload_success_timestamp', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('last_signals_upload_config', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('status_report_enabled', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('signals_report_enabled', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('can_collect_all_fields', 32, 2, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 48]]);
 
 // Interface: PageHandler
 mojo.internal.Struct(

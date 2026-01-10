@@ -160,11 +160,11 @@ mojo.internal.Struct(
     nearby.connections.mojom.AdvertisingOptionsSpec, 'nearby.connections.mojom.AdvertisingOptions', [
       mojo.internal.StructField('strategy', 0, 0, nearby.connections.mojom.StrategySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('allowed_mediums', 8, 0, nearby.connections.mojom.MediumSelectionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('auto_upgrade_bandwidth', 16, 0, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('enforce_topology_constraints', 16, 1, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('enable_bluetooth_listening', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('enable_webrtc_listening', 16, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('fast_advertisement_service_uuid', 24, 0, bluetooth.mojom.UUIDSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('fast_advertisement_service_uuid', 16, 0, bluetooth.mojom.UUIDSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('auto_upgrade_bandwidth', 24, 0, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('enforce_topology_constraints', 24, 1, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('enable_bluetooth_listening', 24, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable_webrtc_listening', 24, 3, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -225,8 +225,8 @@ mojo.internal.Struct(
     nearby.connections.mojom.InitialConnectionInfoV3Spec, 'nearby.connections.mojom.InitialConnectionInfoV3', [
       mojo.internal.StructField('authentication_digits', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('raw_authentication_token', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('is_incoming_connection', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('authentication_status', 24, 0, nearby.connections.mojom.AuthenticationStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('authentication_status', 16, 0, nearby.connections.mojom.AuthenticationStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('is_incoming_connection', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
 

@@ -45,20 +45,20 @@ mojo.internal.Struct(
       mojo.internal.StructField('script', 24, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('script_type', 32, 0, blink.mojom.ScriptTypeSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('version_id', 40, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('is_active', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('last_update_check', 56, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('script_response_time', 64, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('origin_trial_tokens', 72, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Array(mojo.internal.String, false), false), null, true, 0, undefined),
-      mojo.internal.StructField('navigation_preload_state', 80, 0, blink.mojom.NavigationPreloadStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('used_features', 88, 0, mojo.internal.Array(blink.mojom.WebFeatureSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('resources_total_size_bytes', 96, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('policy_container_policies', 104, 0, blink.mojom.PolicyContainerPoliciesSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('ancestor_frame_type', 112, 0, blink.mojom.AncestorFrameTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('router_rules', 120, 0, blink.mojom.ServiceWorkerRouterRulesSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('has_hid_event_handlers', 128, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('has_usb_event_handlers', 128, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('last_update_check', 48, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('script_response_time', 56, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('origin_trial_tokens', 64, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Array(mojo.internal.String, false), false), null, true, 0, undefined),
+      mojo.internal.StructField('navigation_preload_state', 72, 0, blink.mojom.NavigationPreloadStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('used_features', 80, 0, mojo.internal.Array(blink.mojom.WebFeatureSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('resources_total_size_bytes', 88, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('policy_container_policies', 96, 0, blink.mojom.PolicyContainerPoliciesSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('ancestor_frame_type', 104, 0, blink.mojom.AncestorFrameTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('router_rules', 112, 0, blink.mojom.ServiceWorkerRouterRulesSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('is_active', 120, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_hid_event_handlers', 120, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_usb_event_handlers', 120, 2, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 144]]);
+    [[0, 136]]);
 
 // Struct: ServiceWorkerResourceRecord
 mojo.internal.Struct(

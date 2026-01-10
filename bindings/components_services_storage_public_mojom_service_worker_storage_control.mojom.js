@@ -216,9 +216,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ResponseParamsSpec, 'storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('response_head', 8, 0, network.mojom.URLResponseHeadSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('metadata', 16, 0, mojo_base.mojom.BigBufferSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('response_head', 0, 0, network.mojom.URLResponseHeadSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('metadata', 8, 0, mojo_base.mojom.BigBufferSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('status', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 

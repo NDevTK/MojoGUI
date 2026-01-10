@@ -17,9 +17,9 @@ media.mojom.MediaDrmSupport_IsKeySystemSupported_ResponseParamsSpec = { $: {} };
 // Struct: MediaDrmSupportResult
 mojo.internal.Struct(
     media.mojom.MediaDrmSupportResultSpec, 'media.mojom.MediaDrmSupportResult', [
-      mojo.internal.StructField('key_system_supports_video_mp4', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('key_system_supports_video_webm', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('key_system_version', 8, 0, mojo_base.mojom.VersionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('key_system_version', 0, 0, mojo_base.mojom.VersionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('key_system_supports_video_mp4', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('key_system_supports_video_webm', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 

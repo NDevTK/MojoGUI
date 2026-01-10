@@ -110,13 +110,13 @@ mojo.internal.Struct(
     side_panel.mojom.BackgroundImageSpec, 'side_panel.mojom.BackgroundImage', [
       mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('snapshot_url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('is_uploaded_image', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('local_background_id', 24, 0, mojo_base.mojom.TokenSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('title', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('collection_id', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('daily_refresh_enabled', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('local_background_id', 16, 0, mojo_base.mojom.TokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('title', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('collection_id', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('is_uploaded_image', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('daily_refresh_enabled', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 56]]);
 
 // Struct: ThirdPartyThemeInfo
 mojo.internal.Struct(
@@ -788,9 +788,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     side_panel.mojom.CustomizeChromePage_SetMostVisitedSettings_ParamsSpec, 'side_panel.mojom.CustomizeChromePage_SetMostVisitedSettings_Params', [
       mojo.internal.StructField('shortcuts_types', 0, 0, mojo.internal.Array(ntp_tiles.mojom.TileTypeSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('visible', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('personal_shortcuts_visible', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('disabled_shortcuts', 16, 0, mojo.internal.Array(ntp_tiles.mojom.TileTypeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('disabled_shortcuts', 8, 0, mojo.internal.Array(ntp_tiles.mojom.TileTypeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('visible', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('personal_shortcuts_visible', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -802,9 +802,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     side_panel.mojom.CustomizeChromePage_SetFooterSettings_ParamsSpec, 'side_panel.mojom.CustomizeChromePage_SetFooterSettings_Params', [
-      mojo.internal.StructField('visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('extension_policy_enabled', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('management_notice_state', 8, 0, side_panel.mojom.ManagementNoticeStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('management_notice_state', 0, 0, side_panel.mojom.ManagementNoticeStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('visible', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('extension_policy_enabled', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -89,14 +89,14 @@ mojo.internal.Struct(
 // Struct: VirtualSensorMetadata
 mojo.internal.Struct(
     device.mojom.VirtualSensorMetadataSpec, 'device.mojom.VirtualSensorMetadata', [
-      mojo.internal.StructField('available', 0, 0, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('maximum_frequency_$flag', 0, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'maximum_frequency_$value', originalFieldName: 'maximum_frequency' }),
-      mojo.internal.StructField('maximum_frequency_$value', 8, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'maximum_frequency_$flag', originalFieldName: 'maximum_frequency' }),
-      mojo.internal.StructField('minimum_frequency_$flag', 16, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'minimum_frequency_$value', originalFieldName: 'minimum_frequency' }),
-      mojo.internal.StructField('minimum_frequency_$value', 24, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'minimum_frequency_$flag', originalFieldName: 'minimum_frequency' }),
-      mojo.internal.StructField('reporting_mode', 32, 0, device.mojom.ReportingModeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('maximum_frequency_$value', 0, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'maximum_frequency_$flag', originalFieldName: 'maximum_frequency' }),
+      mojo.internal.StructField('minimum_frequency_$value', 8, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'minimum_frequency_$flag', originalFieldName: 'minimum_frequency' }),
+      mojo.internal.StructField('reporting_mode', 16, 0, device.mojom.ReportingModeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('available', 24, 0, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('maximum_frequency_$flag', 24, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'maximum_frequency_$value', originalFieldName: 'maximum_frequency' }),
+      mojo.internal.StructField('minimum_frequency_$flag', 24, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'minimum_frequency_$value', originalFieldName: 'minimum_frequency' }),
     ],
-    [[0, 48]]);
+    [[0, 40]]);
 
 // Struct: VirtualSensorInformation
 mojo.internal.Struct(

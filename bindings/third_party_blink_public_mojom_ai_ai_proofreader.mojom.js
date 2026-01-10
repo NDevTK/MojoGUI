@@ -19,10 +19,10 @@ blink.mojom.AIProofreader_GetCorrectionType_ParamsSpec = { $: {} };
 // Struct: AIProofreaderCreateOptions
 mojo.internal.Struct(
     blink.mojom.AIProofreaderCreateOptionsSpec, 'blink.mojom.AIProofreaderCreateOptions', [
-      mojo.internal.StructField('include_correction_types', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('include_correction_explanations', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('correction_explanation_language', 8, 0, blink.mojom.AILanguageCodeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('expected_input_languages', 16, 0, mojo.internal.Array(blink.mojom.AILanguageCodeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('correction_explanation_language', 0, 0, blink.mojom.AILanguageCodeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('expected_input_languages', 8, 0, mojo.internal.Array(blink.mojom.AILanguageCodeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('include_correction_types', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('include_correction_explanations', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 

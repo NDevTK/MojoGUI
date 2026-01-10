@@ -97,8 +97,8 @@ reload_button.mojom.PageHandlerFactoryRequest = reload_button.mojom.PageHandlerF
 // Interface: PageHandler
 mojo.internal.Struct(
     reload_button.mojom.PageHandler_Reload_ParamsSpec, 'reload_button.mojom.PageHandler_Reload_Params', [
-      mojo.internal.StructField('ignore_cache', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('flags', 8, 0, mojo.internal.Array(reload_button.mojom.ClickDispositionFlagSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('flags', 0, 0, mojo.internal.Array(reload_button.mojom.ClickDispositionFlagSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('ignore_cache', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 

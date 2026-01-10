@@ -86,7 +86,7 @@ mojo.internal.Struct(
 // Struct: InvokePaymentAppValidResult
 mojo.internal.Struct(
     chromeos.payments.mojom.InvokePaymentAppValidResultSpec, 'chromeos.payments.mojom.InvokePaymentAppValidResult', [
-      mojo.internal.StructField('is_activity_result_ok', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('stringified_details', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('stringified_details', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('is_activity_result_ok', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);

@@ -507,17 +507,17 @@ mojo.internal.Union(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.StateResultSpec, 'ash.shimless_rma.mojom.StateResult', [
       mojo.internal.StructField('state', 0, 0, ash.shimless_rma.mojom.StateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('can_exit', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('can_go_back', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('error', 16, 0, ash.shimless_rma.mojom.RmadErrorCodeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('error', 8, 0, ash.shimless_rma.mojom.RmadErrorCodeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('can_exit', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('can_go_back', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: QrCode
 mojo.internal.Struct(
     ash.shimless_rma.mojom.QrCodeSpec, 'ash.shimless_rma.mojom.QrCode', [
-      mojo.internal.StructField('size', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('size', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -569,16 +569,16 @@ mojo.internal.Struct(
 // Struct: UpdateDeviceInfoStateProperty
 mojo.internal.Struct(
     ash.shimless_rma.mojom.UpdateDeviceInfoStatePropertySpec, 'ash.shimless_rma.mojom.UpdateDeviceInfoStateProperty', [
-      mojo.internal.StructField('serial_number_modifiable', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('region_modifiable', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('sku_modifiable', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('custom_label_modifiable', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('dram_part_number_modifiable', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('feature_level_modifiable', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('customized_serial_number_naming', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('hide_google_sku', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('customized_serial_number_naming', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('serial_number_modifiable', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('region_modifiable', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('sku_modifiable', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('custom_label_modifiable', 8, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('dram_part_number_modifiable', 8, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('feature_level_modifiable', 8, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('hide_google_sku', 8, 6, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Interface: ErrorObserver
 mojo.internal.Struct(
@@ -649,8 +649,8 @@ ash.shimless_rma.mojom.ErrorObserverRequest = ash.shimless_rma.mojom.ErrorObserv
 mojo.internal.Struct(
     ash.shimless_rma.mojom.OsUpdateObserver_OnOsUpdateProgressUpdated_ParamsSpec, 'ash.shimless_rma.mojom.OsUpdateObserver_OnOsUpdateProgressUpdated_Params', [
       mojo.internal.StructField('operation', 0, 0, ash.shimless_rma.mojom.OsUpdateOperationSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('progress', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('update_error_code', 16, 0, ash.shimless_rma.mojom.UpdateErrorCodeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('update_error_code', 8, 0, ash.shimless_rma.mojom.UpdateErrorCodeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('progress', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -797,8 +797,8 @@ ash.shimless_rma.mojom.CalibrationObserverRequest = ash.shimless_rma.mojom.Calib
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ProvisioningObserver_OnProvisioningUpdated_ParamsSpec, 'ash.shimless_rma.mojom.ProvisioningObserver_OnProvisioningUpdated_Params', [
       mojo.internal.StructField('status', 0, 0, ash.shimless_rma.mojom.ProvisioningStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('progress', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('error', 16, 0, ash.shimless_rma.mojom.ProvisioningErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('error', 8, 0, ash.shimless_rma.mojom.ProvisioningErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('progress', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -1124,8 +1124,8 @@ ash.shimless_rma.mojom.HardwareVerificationStatusObserverRequest = ash.shimless_
 mojo.internal.Struct(
     ash.shimless_rma.mojom.FinalizationObserver_OnFinalizationUpdated_ParamsSpec, 'ash.shimless_rma.mojom.FinalizationObserver_OnFinalizationUpdated_Params', [
       mojo.internal.StructField('status', 0, 0, ash.shimless_rma.mojom.FinalizationStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('progress', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('error', 16, 0, ash.shimless_rma.mojom.FinalizationErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('error', 8, 0, ash.shimless_rma.mojom.FinalizationErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('progress', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -1342,8 +1342,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ResponseParams', [
-      mojo.internal.StructField('update_available', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('version', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('version', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('update_available', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1683,12 +1683,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_Params', [
       mojo.internal.StructField('serial_number', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('region_index', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('sku_index', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('custom_label_index', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('dram_part_number', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('dram_part_number', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('region_index', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('sku_index', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('custom_label_index', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('hw_compliance_version', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('is_chassis_branded', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('hw_compliance_version', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 48]]);
 

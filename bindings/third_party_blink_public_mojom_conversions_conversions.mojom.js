@@ -33,8 +33,8 @@ mojo.internal.Struct(
     blink.mojom.AttributionHost_RegisterDataHost_ParamsSpec, 'blink.mojom.AttributionHost_RegisterDataHost_Params', [
       mojo.internal.StructField('data_host', 0, 0, mojo.internal.InterfaceRequest(attribution_reporting.mojom.DataHostRemote), null, false, 0, undefined),
       mojo.internal.StructField('registration_eligibility', 8, 0, attribution_reporting.mojom.RegistrationEligibilitySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('is_for_background_requests', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('reporting_origins', 24, 0, mojo.internal.Array(url.mojom.OriginSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('reporting_origins', 16, 0, mojo.internal.Array(url.mojom.OriginSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('is_for_background_requests', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
 

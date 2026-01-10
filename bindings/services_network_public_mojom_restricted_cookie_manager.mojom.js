@@ -125,10 +125,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('site_for_cookies', 8, 0, network.mojom.SiteForCookiesSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('top_frame_origin', 16, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('storage_access_api_status', 24, 0, network.mojom.StorageAccessApiStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('get_version_shared_memory', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_ad_tagged', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('apply_devtools_overrides', 32, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('cookie', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('cookie', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('get_version_shared_memory', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_ad_tagged', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('apply_devtools_overrides', 40, 2, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 56]]);
 

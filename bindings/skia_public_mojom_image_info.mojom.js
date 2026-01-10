@@ -38,10 +38,10 @@ mojo.internal.Struct(
     skia.mojom.ImageInfoSpec, 'skia.mojom.ImageInfo', [
       mojo.internal.StructField('color_type', 0, 0, skia.mojom.ColorTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('alpha_type', 8, 0, skia.mojom.AlphaTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('width', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('height', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('color_transfer_function', 24, 0, mojo.internal.Array(mojo.internal.Float, false), null, true, 0, undefined),
-      mojo.internal.StructField('color_to_xyz_matrix', 32, 0, mojo.internal.Array(mojo.internal.Float, false), null, true, 0, undefined),
+      mojo.internal.StructField('color_transfer_function', 16, 0, mojo.internal.Array(mojo.internal.Float, false), null, true, 0, undefined),
+      mojo.internal.StructField('color_to_xyz_matrix', 24, 0, mojo.internal.Array(mojo.internal.Float, false), null, true, 0, undefined),
+      mojo.internal.StructField('width', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('height', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -49,9 +49,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     skia.mojom.BitmapN32ImageInfoSpec, 'skia.mojom.BitmapN32ImageInfo', [
       mojo.internal.StructField('alpha_type', 0, 0, skia.mojom.AlphaTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('width', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('height', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('color_transfer_function', 16, 0, mojo.internal.Array(mojo.internal.Float, false), null, true, 0, undefined),
-      mojo.internal.StructField('color_to_xyz_matrix', 24, 0, mojo.internal.Array(mojo.internal.Float, false), null, true, 0, undefined),
+      mojo.internal.StructField('color_transfer_function', 8, 0, mojo.internal.Array(mojo.internal.Float, false), null, true, 0, undefined),
+      mojo.internal.StructField('color_to_xyz_matrix', 16, 0, mojo.internal.Array(mojo.internal.Float, false), null, true, 0, undefined),
+      mojo.internal.StructField('width', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('height', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 40]]);

@@ -53,8 +53,8 @@ filesystem.mojom.FsFileType = {
 // Struct: TimespecOrNow
 mojo.internal.Struct(
     filesystem.mojom.TimespecOrNowSpec, 'filesystem.mojom.TimespecOrNow', [
-      mojo.internal.StructField('now', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('seconds', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('seconds', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('now', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 

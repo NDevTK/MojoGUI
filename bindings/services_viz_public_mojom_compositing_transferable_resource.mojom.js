@@ -53,11 +53,11 @@ viz.mojom.ResourceSource = {
 // Struct: MetadataOverride
 mojo.internal.Struct(
     viz.mojom.MetadataOverrideSpec, 'viz.mojom.MetadataOverride', [
-      mojo.internal.StructField('is_overlay_candidate_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'is_overlay_candidate_$value', originalFieldName: 'is_overlay_candidate' }),
-      mojo.internal.StructField('is_overlay_candidate_$value', 0, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'is_overlay_candidate_$flag', originalFieldName: 'is_overlay_candidate' }),
-      mojo.internal.StructField('color_space', 8, 0, gfx.mojom.ColorSpaceSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('origin', 16, 0, skia.mojom.SurfaceOriginSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('alpha_type', 24, 0, skia.mojom.AlphaTypeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('color_space', 0, 0, gfx.mojom.ColorSpaceSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('origin', 8, 0, skia.mojom.SurfaceOriginSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('alpha_type', 16, 0, skia.mojom.AlphaTypeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('is_overlay_candidate_$flag', 24, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'is_overlay_candidate_$value', originalFieldName: 'is_overlay_candidate' }),
+      mojo.internal.StructField('is_overlay_candidate_$value', 24, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'is_overlay_candidate_$flag', originalFieldName: 'is_overlay_candidate' }),
     ],
     [[0, 40]]);
 
@@ -68,13 +68,13 @@ mojo.internal.Struct(
       mojo.internal.StructField('shared_image', 8, 0, gpu.mojom.ExportedSharedImageSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('sync_token', 16, 0, gpu.mojom.SyncTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('synchronization_type', 24, 0, viz.mojom.SynchronizationTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('is_low_latency_rendering', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_backed_by_surface_view', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('wants_promotion_hint', 32, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('hdr_metadata', 40, 0, gfx.mojom.HDRMetadataSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('needs_detiling', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('ycbcr_info', 56, 0, gpu.mojom.VulkanYCbCrInfoSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('resource_source', 64, 0, viz.mojom.ResourceSourceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('metadata_override', 72, 0, viz.mojom.MetadataOverrideSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('hdr_metadata', 32, 0, gfx.mojom.HDRMetadataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('ycbcr_info', 40, 0, gpu.mojom.VulkanYCbCrInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('resource_source', 48, 0, viz.mojom.ResourceSourceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('metadata_override', 56, 0, viz.mojom.MetadataOverrideSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('is_low_latency_rendering', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_backed_by_surface_view', 64, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('wants_promotion_hint', 64, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('needs_detiling', 64, 3, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 88]]);
+    [[0, 80]]);

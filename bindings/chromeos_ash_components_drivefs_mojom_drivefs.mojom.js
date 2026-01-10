@@ -576,8 +576,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('user_type', 0, 0, drivefs.mojom.UserTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('used_user_bytes', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('total_user_bytes', 16, 0, mojo.internal.Int64, -1, false, 0, undefined),
-      mojo.internal.StructField('organization_limit_exceeded', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('organization_name', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('organization_name', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('organization_limit_exceeded', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -610,8 +610,8 @@ mojo.internal.Struct(
 // Struct: HttpResponse
 mojo.internal.Struct(
     drivefs.mojom.HttpResponseSpec, 'drivefs.mojom.HttpResponse', [
-      mojo.internal.StructField('response_code', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('headers', 8, 0, mojo.internal.Array(drivefs.mojom.HttpHeaderSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('headers', 0, 0, mojo.internal.Array(drivefs.mojom.HttpHeaderSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('response_code', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 

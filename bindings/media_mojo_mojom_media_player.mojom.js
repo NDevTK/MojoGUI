@@ -432,9 +432,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.MediaPlayerObserver_OnMediaMetadataChanged_ParamsSpec, 'media.mojom.MediaPlayerObserver_OnMediaMetadataChanged_Params', [
-      mojo.internal.StructField('has_audio', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('has_video', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('content_type', 8, 0, media.mojom.MediaContentTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('content_type', 0, 0, media.mojom.MediaContentTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('has_audio', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_video', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 

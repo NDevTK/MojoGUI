@@ -28,8 +28,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('service_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('txt_records', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, true, 0, undefined),
       mojo.internal.StructField('ip_address', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('port_$flag', 32, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'port_$value', originalFieldName: 'port' }),
-      mojo.internal.StructField('port_$value', 34, 0, mojo.internal.Int16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'port_$flag', originalFieldName: 'port' }),
+      mojo.internal.StructField('port_$value', 32, 0, mojo.internal.Int16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'port_$flag', originalFieldName: 'port' }),
+      mojo.internal.StructField('port_$flag', 34, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'port_$value', originalFieldName: 'port' }),
     ],
     [[0, 48]]);
 

@@ -94,13 +94,13 @@ mojo.internal.Struct(
     ash.audio_config.mojom.AudioDeviceSpec, 'ash.audio_config.mojom.AudioDevice', [
       mojo.internal.StructField('id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('display_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('is_active', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('device_type', 24, 0, ash.audio_config.mojom.AudioDeviceTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('noise_cancellation_state', 32, 0, ash.audio_config.mojom.AudioEffectStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('style_transfer_state', 40, 0, ash.audio_config.mojom.AudioEffectStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('force_respect_ui_gains_state', 48, 0, ash.audio_config.mojom.AudioEffectStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('hfp_mic_sr_state', 56, 0, ash.audio_config.mojom.AudioEffectStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('spatial_audio_state', 64, 0, ash.audio_config.mojom.AudioEffectStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('device_type', 16, 0, ash.audio_config.mojom.AudioDeviceTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('noise_cancellation_state', 24, 0, ash.audio_config.mojom.AudioEffectStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('style_transfer_state', 32, 0, ash.audio_config.mojom.AudioEffectStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('force_respect_ui_gains_state', 40, 0, ash.audio_config.mojom.AudioEffectStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('hfp_mic_sr_state', 48, 0, ash.audio_config.mojom.AudioEffectStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('spatial_audio_state', 56, 0, ash.audio_config.mojom.AudioEffectStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('is_active', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 80]]);
 
@@ -108,12 +108,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.audio_config.mojom.AudioSystemPropertiesSpec, 'ash.audio_config.mojom.AudioSystemProperties', [
       mojo.internal.StructField('output_devices', 0, 0, mojo.internal.Array(ash.audio_config.mojom.AudioDeviceSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('output_volume_percent', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('input_gain_percent', 9, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('output_mute_state', 16, 0, ash.audio_config.mojom.MuteStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('input_devices', 24, 0, mojo.internal.Array(ash.audio_config.mojom.AudioDeviceSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('input_mute_state', 32, 0, ash.audio_config.mojom.MuteStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('voice_isolation_ui_appearance', 40, 0, ash.audio_config.mojom.VoiceIsolationUIAppearanceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('output_mute_state', 8, 0, ash.audio_config.mojom.MuteStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('input_devices', 16, 0, mojo.internal.Array(ash.audio_config.mojom.AudioDeviceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('input_mute_state', 24, 0, ash.audio_config.mojom.MuteStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('voice_isolation_ui_appearance', 32, 0, ash.audio_config.mojom.VoiceIsolationUIAppearanceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('output_volume_percent', 40, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('input_gain_percent', 41, 0, mojo.internal.Uint8, 0, false, 0, undefined),
     ],
     [[0, 56]]);
 

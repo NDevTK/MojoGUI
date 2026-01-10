@@ -208,8 +208,8 @@ media.mojom.AudioLogRequest = media.mojom.AudioLogPendingReceiver;
 mojo.internal.Struct(
     media.mojom.AudioLogFactory_CreateAudioLog_ParamsSpec, 'media.mojom.AudioLogFactory_CreateAudioLog_Params', [
       mojo.internal.StructField('component', 0, 0, media.mojom.AudioLogComponentSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('component_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('audio_log_receiver', 16, 0, mojo.internal.InterfaceRequest(media.mojom.AudioLogRemote), null, false, 0, undefined),
+      mojo.internal.StructField('audio_log_receiver', 8, 0, mojo.internal.InterfaceRequest(media.mojom.AudioLogRemote), null, false, 0, undefined),
+      mojo.internal.StructField('component_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 

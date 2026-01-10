@@ -444,8 +444,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     autofill.mojom.PasswordAutofillAgent_FillIntoFocusedField_ParamsSpec, 'autofill.mojom.PasswordAutofillAgent_FillIntoFocusedField_Params', [
-      mojo.internal.StructField('is_password', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('credential', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('credential', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('is_password', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 

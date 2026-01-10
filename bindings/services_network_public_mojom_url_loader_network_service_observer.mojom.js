@@ -71,10 +71,10 @@ mojo.internal.Struct(
     network.mojom.LoadInfoSpec, 'network.mojom.LoadInfo', [
       mojo.internal.StructField('timestamp', 0, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('host', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('load_state', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('state_param', 24, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('upload_position', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('upload_size', 40, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('state_param', 16, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('upload_position', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('upload_size', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('load_state', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -179,15 +179,15 @@ network.mojom.ClientCertificateResponderRequest = network.mojom.ClientCertificat
 // Interface: SSLPrivateKey
 mojo.internal.Struct(
     network.mojom.SSLPrivateKey_Sign_ParamsSpec, 'network.mojom.SSLPrivateKey_Sign_Params', [
-      mojo.internal.StructField('algorithm', 0, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('input', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('input', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('algorithm', 8, 0, mojo.internal.Uint16, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     network.mojom.SSLPrivateKey_Sign_ResponseParamsSpec, 'network.mojom.SSLPrivateKey_Sign_ResponseParams', [
-      mojo.internal.StructField('net_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('signature', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('signature', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('net_error', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -318,11 +318,11 @@ network.mojom.AuthChallengeResponderRequest = network.mojom.AuthChallengeRespond
 mojo.internal.Struct(
     network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_Params', [
       mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('net_error', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('ssl_info', 16, 0, network.mojom.SSLInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('fatal', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('ssl_info', 8, 0, network.mojom.SSLInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('net_error', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('fatal', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ResponseParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ResponseParams', [
@@ -341,14 +341,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.URLLoaderNetworkServiceObserver_OnAuthRequired_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnAuthRequired_Params', [
       mojo.internal.StructField('window_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('request_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('first_auth_attempt', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('auth_info', 32, 0, network.mojom.AuthChallengeInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('head_headers', 40, 0, network.mojom.HttpResponseHeadersSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('auth_challenge_responder', 48, 0, mojo.internal.InterfaceProxy(network.mojom.AuthChallengeResponderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('auth_info', 16, 0, network.mojom.AuthChallengeInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('head_headers', 24, 0, network.mojom.HttpResponseHeadersSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('auth_challenge_responder', 32, 0, mojo.internal.InterfaceProxy(network.mojom.AuthChallengeResponderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('request_id', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('first_auth_attempt', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 56]]);
 
 mojo.internal.Struct(
     network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_Params', [
@@ -367,11 +367,11 @@ mojo.internal.Struct(
     network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_Params', [
       mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('header_value', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('load_flags', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('cookie_partition_key', 24, 0, network.mojom.CookiePartitionKeySpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('partitioned_state_allowed_only', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('cookie_partition_key', 16, 0, network.mojom.CookiePartitionKeySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('load_flags', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('partitioned_state_allowed_only', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 40]]);
 
 mojo.internal.Struct(
     network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ResponseParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ResponseParams', [
@@ -391,9 +391,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.URLLoaderNetworkServiceObserver_OnDataUseUpdate_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnDataUseUpdate_Params', [
-      mojo.internal.StructField('network_traffic_annotation_id_hash', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('recv_bytes', 8, 0, mojo_base.mojom.ByteSizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('sent_bytes', 16, 0, mojo_base.mojom.ByteSizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('recv_bytes', 0, 0, mojo_base.mojom.ByteSizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('sent_bytes', 8, 0, mojo_base.mojom.ByteSizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('network_traffic_annotation_id_hash', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 

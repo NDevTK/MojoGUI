@@ -52,8 +52,8 @@ cert_verifier.mojom.CertificateTrust = {
 mojo.internal.Struct(
     cert_verifier.mojom.CertVerifierCreationParamsSpec, 'cert_verifier.mojom.CertVerifierCreationParams', [
       mojo.internal.StructField('initial_additional_certificates', 0, 0, cert_verifier.mojom.AdditionalCertificatesSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('wait_for_update', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('ct_policy', 16, 0, network.mojom.CTPolicySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('ct_policy', 8, 0, network.mojom.CTPolicySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('wait_for_update', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 

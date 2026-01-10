@@ -316,9 +316,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.ManifestErrorSpec, 'blink.mojom.ManifestError', [
       mojo.internal.StructField('message', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('critical', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('line', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('column', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('line', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('column', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('critical', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 

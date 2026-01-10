@@ -76,9 +76,9 @@ mojo.internal.Struct(
     lens.mojom.BackgroundImageDataSpec, 'lens.mojom.BackgroundImageData', [
       mojo.internal.StructField('background_image', 0, 0, mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('image_size', 8, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('vertical_padding', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('horizontal_padding', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('text_mask', 24, 0, mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('text_mask', 16, 0, mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('vertical_padding', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('horizontal_padding', 28, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 

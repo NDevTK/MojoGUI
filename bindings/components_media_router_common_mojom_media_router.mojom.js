@@ -162,12 +162,12 @@ mojo.internal.Struct(
       mojo.internal.StructField('media_sink_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('media_sink_name', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('description', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('is_local', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('controller_type', 56, 0, media_router.mojom.RouteControllerTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('is_local_presentation', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_connecting', 64, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('controller_type', 48, 0, media_router.mojom.RouteControllerTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('is_local', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_local_presentation', 56, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_connecting', 56, 2, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 80]]);
+    [[0, 72]]);
 
 // Struct: Issue
 mojo.internal.Struct(
@@ -215,8 +215,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('sink_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('original_presentation_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('origin', 24, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('frame_tree_node_id', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('timeout', 40, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('timeout', 32, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('frame_tree_node_id', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -234,8 +234,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('media_source', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('presentation_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('origin', 16, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('frame_tree_node_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('timeout', 32, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('timeout', 24, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('frame_tree_node_id', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 48]]);
 

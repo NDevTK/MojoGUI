@@ -25,12 +25,12 @@ viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec = { 
 // Struct: FrameCountingPerSinkData
 mojo.internal.Struct(
     viz.mojom.FrameCountingPerSinkDataSpec, 'viz.mojom.FrameCountingPerSinkData', [
-      mojo.internal.StructField('is_root', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('debug_label', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('debug_label', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('presented_frames', 8, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
       mojo.internal.StructField('start_bucket', 16, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('presented_frames', 24, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
+      mojo.internal.StructField('is_root', 18, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 // Struct: FrameCountingData
 mojo.internal.Struct(

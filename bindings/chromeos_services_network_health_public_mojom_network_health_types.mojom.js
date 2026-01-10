@@ -40,9 +40,9 @@ mojo.internal.Struct(
 // Struct: SignalStrengthStats
 mojo.internal.Struct(
     chromeos.network_health.mojom.SignalStrengthStatsSpec, 'chromeos.network_health.mojom.SignalStrengthStats', [
-      mojo.internal.StructField('average', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('deviation', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('samples', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('samples', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('average', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('deviation', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 

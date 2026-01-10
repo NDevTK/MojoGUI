@@ -342,8 +342,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.Widget_WasShown_ParamsSpec, 'blink.mojom.Widget_WasShown_Params', [
-      mojo.internal.StructField('was_evicted', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('record_tab_switch_time_request', 8, 0, blink.mojom.RecordContentToVisibleTimeRequestSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('record_tab_switch_time_request', 0, 0, blink.mojom.RecordContentToVisibleTimeRequestSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('was_evicted', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 

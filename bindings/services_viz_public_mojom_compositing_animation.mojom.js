@@ -158,8 +158,8 @@ mojo.internal.Struct(
 // Struct: StepsTimingFunction
 mojo.internal.Struct(
     viz.mojom.StepsTimingFunctionSpec, 'viz.mojom.StepsTimingFunction', [
-      mojo.internal.StructField('num_steps', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('step_position', 8, 0, viz.mojom.TimingStepPositionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('step_position', 0, 0, viz.mojom.TimingStepPositionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('num_steps', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -191,36 +191,36 @@ mojo.internal.Struct(
 // Struct: AnimationKeyframeModel
 mojo.internal.Struct(
     viz.mojom.AnimationKeyframeModelSpec, 'viz.mojom.AnimationKeyframeModel', [
-      mojo.internal.StructField('id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('group_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('target_property_type', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('element_id', 16, 0, cc.mojom.ElementIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('timing_function', 24, 0, viz.mojom.TimingFunctionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('keyframes', 32, 0, mojo.internal.Array(viz.mojom.AnimationKeyframeSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('scaled_duration', 40, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('direction', 48, 0, viz.mojom.AnimationDirectionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('fill_mode', 56, 0, viz.mojom.AnimationFillModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('playback_rate', 64, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('iterations', 72, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('iteration_start', 80, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('time_offset', 88, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('element_id', 0, 0, cc.mojom.ElementIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('timing_function', 8, 0, viz.mojom.TimingFunctionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('keyframes', 16, 0, mojo.internal.Array(viz.mojom.AnimationKeyframeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('scaled_duration', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('direction', 32, 0, viz.mojom.AnimationDirectionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('fill_mode', 40, 0, viz.mojom.AnimationFillModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('playback_rate', 48, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('iterations', 56, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('iteration_start', 64, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('time_offset', 72, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('id', 80, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('group_id', 84, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('target_property_type', 88, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 104]]);
 
 // Struct: Animation
 mojo.internal.Struct(
     viz.mojom.AnimationSpec, 'viz.mojom.Animation', [
-      mojo.internal.StructField('id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('element_id', 8, 0, cc.mojom.ElementIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('keyframe_models', 16, 0, mojo.internal.Array(viz.mojom.AnimationKeyframeModelSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('element_id', 0, 0, cc.mojom.ElementIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('keyframe_models', 8, 0, mojo.internal.Array(viz.mojom.AnimationKeyframeModelSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: AnimationTimeline
 mojo.internal.Struct(
     viz.mojom.AnimationTimelineSpec, 'viz.mojom.AnimationTimeline', [
-      mojo.internal.StructField('id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('new_animations', 8, 0, mojo.internal.Array(viz.mojom.AnimationSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('removed_animations', 16, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
+      mojo.internal.StructField('new_animations', 0, 0, mojo.internal.Array(viz.mojom.AnimationSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('removed_animations', 8, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
+      mojo.internal.StructField('id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);

@@ -410,9 +410,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.recorder_app.mojom.PageHandler_RecordSpeakerLabelConsent_ParamsSpec, 'ash.recorder_app.mojom.PageHandler_RecordSpeakerLabelConsent_Params', [
-      mojo.internal.StructField('consent_given', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('consent_description_names', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('consent_confirmation_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('consent_description_names', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('consent_confirmation_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('consent_given', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 

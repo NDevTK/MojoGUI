@@ -35,18 +35,18 @@ mojo.internal.Struct(
       mojo.internal.StructField('words', 0, 0, mojo.internal.Array(ash.camera_app.mojom.WordSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('text', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('bounding_box', 16, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('bounding_box_angle', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('language', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('confidence', 40, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('language', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('bounding_box_angle', 32, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('confidence', 36, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 48]]);
 
 // Struct: Word
 mojo.internal.Struct(
     ash.camera_app.mojom.WordSpec, 'ash.camera_app.mojom.Word', [
       mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('bounding_box', 8, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('bounding_box_angle', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('direction', 24, 0, ash.camera_app.mojom.WordDirectionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('direction', 16, 0, ash.camera_app.mojom.WordDirectionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('bounding_box_angle', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 40]]);

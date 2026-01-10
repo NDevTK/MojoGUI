@@ -256,8 +256,8 @@ mojo.internal.Struct(
     video_capture.mojom.VideoSource_CreatePushSubscription_ParamsSpec, 'video_capture.mojom.VideoSource_CreatePushSubscription_Params', [
       mojo.internal.StructField('subscriber', 0, 0, mojo.internal.InterfaceProxy(video_capture.mojom.VideoFrameHandlerRemote), null, false, 0, undefined),
       mojo.internal.StructField('requested_settings', 8, 0, media.mojom.VideoCaptureParamsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('force_reopen_with_new_settings', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('subscription', 24, 0, mojo.internal.InterfaceRequest(video_capture.mojom.PushVideoStreamSubscriptionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('subscription', 16, 0, mojo.internal.InterfaceRequest(video_capture.mojom.PushVideoStreamSubscriptionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('force_reopen_with_new_settings', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
 

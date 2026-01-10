@@ -74,10 +74,10 @@ mojo.internal.Struct(
     side_panel.customize_chrome.mojom.ActionSpec, 'side_panel.customize_chrome.mojom.Action', [
       mojo.internal.StructField('id', 0, 0, side_panel.customize_chrome.mojom.ActionIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('display_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('pinned', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('has_enterprise_controlled_pinned_state', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('category', 24, 0, side_panel.customize_chrome.mojom.CategoryIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('icon_url', 32, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('category', 16, 0, side_panel.customize_chrome.mojom.CategoryIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('icon_url', 24, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('pinned', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_enterprise_controlled_pinned_state', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 48]]);
 

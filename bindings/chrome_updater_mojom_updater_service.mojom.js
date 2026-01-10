@@ -137,17 +137,17 @@ mojo.internal.Struct(
       mojo.internal.StructField('version_key', 72, 0, mojo.internal.String, null, true, 1, undefined),
       mojo.internal.StructField('install_id', 80, 0, mojo.internal.String, null, true, 2, undefined),
       mojo.internal.StructField('lang', 88, 0, mojo.internal.String, null, true, 3, undefined),
-      mojo.internal.StructField('dla_$flag', 96, 0, mojo.internal.Bool, false, false, 4, { isPrimary: true, linkedValueFieldName: 'dla_$value', originalFieldName: 'dla' }),
-      mojo.internal.StructField('dla_$value', 100, 0, mojo.internal.Int32, 0, false, 4, { isPrimary: false, linkedValueFieldName: 'dla_$flag', originalFieldName: 'dla' }),
-      mojo.internal.StructField('dlrc_$flag', 104, 0, mojo.internal.Bool, false, false, 4, { isPrimary: true, linkedValueFieldName: 'dlrc_$value', originalFieldName: 'dlrc' }),
-      mojo.internal.StructField('dlrc_$value', 108, 0, mojo.internal.Int32, 0, false, 4, { isPrimary: false, linkedValueFieldName: 'dlrc_$flag', originalFieldName: 'dlrc' }),
-      mojo.internal.StructField('install_date_$flag', 112, 0, mojo.internal.Bool, false, false, 4, { isPrimary: true, linkedValueFieldName: 'install_date_$value', originalFieldName: 'install_date' }),
-      mojo.internal.StructField('install_date_$value', 116, 0, mojo.internal.Int32, 0, false, 4, { isPrimary: false, linkedValueFieldName: 'install_date_$flag', originalFieldName: 'install_date' }),
-      mojo.internal.StructField('cohort', 120, 0, mojo.internal.String, null, true, 4, undefined),
-      mojo.internal.StructField('cohort_name', 128, 0, mojo.internal.String, null, true, 4, undefined),
-      mojo.internal.StructField('cohort_hint', 136, 0, mojo.internal.String, null, true, 4, undefined),
+      mojo.internal.StructField('cohort', 96, 0, mojo.internal.String, null, true, 4, undefined),
+      mojo.internal.StructField('cohort_name', 104, 0, mojo.internal.String, null, true, 4, undefined),
+      mojo.internal.StructField('cohort_hint', 112, 0, mojo.internal.String, null, true, 4, undefined),
+      mojo.internal.StructField('dla_$value', 120, 0, mojo.internal.Int32, 0, false, 4, { isPrimary: false, linkedValueFieldName: 'dla_$flag', originalFieldName: 'dla' }),
+      mojo.internal.StructField('dlrc_$value', 124, 0, mojo.internal.Int32, 0, false, 4, { isPrimary: false, linkedValueFieldName: 'dlrc_$flag', originalFieldName: 'dlrc' }),
+      mojo.internal.StructField('install_date_$value', 128, 0, mojo.internal.Int32, 0, false, 4, { isPrimary: false, linkedValueFieldName: 'install_date_$flag', originalFieldName: 'install_date' }),
+      mojo.internal.StructField('dla_$flag', 132, 0, mojo.internal.Bool, false, false, 4, { isPrimary: true, linkedValueFieldName: 'dla_$value', originalFieldName: 'dla' }),
+      mojo.internal.StructField('dlrc_$flag', 132, 1, mojo.internal.Bool, false, false, 4, { isPrimary: true, linkedValueFieldName: 'dlrc_$value', originalFieldName: 'dlrc' }),
+      mojo.internal.StructField('install_date_$flag', 132, 2, mojo.internal.Bool, false, false, 4, { isPrimary: true, linkedValueFieldName: 'install_date_$value', originalFieldName: 'install_date' }),
     ],
-    [[0, 56], [1, 88], [2, 96], [3, 104], [4, 152]]);
+    [[0, 56], [1, 88], [2, 96], [3, 104], [4, 144]]);
 
 // Struct: UpdateState
 mojo.internal.Struct(

@@ -66,11 +66,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('mode', 0, 0, device.mojom.XRSessionModeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('required_features', 8, 0, mojo.internal.Array(device.mojom.XRSessionFeatureSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('optional_features', 16, 0, mojo.internal.Array(device.mojom.XRSessionFeatureSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('render_process_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('render_frame_id', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('tracked_images', 32, 0, mojo.internal.Array(device.mojom.XRTrackedImageSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('depth_options', 40, 0, device.mojom.XRDepthOptionsSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('trace_id', 48, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('tracked_images', 24, 0, mojo.internal.Array(device.mojom.XRTrackedImageSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('depth_options', 32, 0, device.mojom.XRDepthOptionsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('trace_id', 40, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('render_process_id', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('render_frame_id', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -359,11 +359,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.ImmersiveOverlay_SubmitOverlayTexture_ParamsSpec, 'device.mojom.ImmersiveOverlay_SubmitOverlayTexture_Params', [
-      mojo.internal.StructField('frame_id', 0, 0, mojo.internal.Int16, 0, false, 0, undefined),
-      mojo.internal.StructField('texture', 8, 0, gfx.mojom.GpuMemoryBufferHandleSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('sync_token', 16, 0, gpu.mojom.SyncTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('left_bounds', 24, 0, gfx.mojom.RectFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('right_bounds', 32, 0, gfx.mojom.RectFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('texture', 0, 0, gfx.mojom.GpuMemoryBufferHandleSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('sync_token', 8, 0, gpu.mojom.SyncTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('left_bounds', 16, 0, gfx.mojom.RectFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('right_bounds', 24, 0, gfx.mojom.RectFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('frame_id', 32, 0, mojo.internal.Int16, 0, false, 0, undefined),
     ],
     [[0, 48]]);
 

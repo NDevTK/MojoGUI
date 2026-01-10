@@ -22,9 +22,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.RendererAudioInputStreamFactoryClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('session_id', 8, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('params', 16, 0, media.mojom.AudioParametersSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('automatic_gain_control', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('shared_memory_count', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('processing_config', 32, 0, media.mojom.AudioProcessingConfigSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('processing_config', 24, 0, media.mojom.AudioProcessingConfigSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('shared_memory_count', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('automatic_gain_control', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -109,8 +109,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('stream', 0, 0, mojo.internal.InterfaceProxy(media.mojom.AudioInputStreamRemote), null, false, 0, undefined),
       mojo.internal.StructField('client_request', 8, 0, mojo.internal.InterfaceRequest(media.mojom.AudioInputStreamClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('data_pipe', 16, 0, media.mojom.ReadWriteAudioDataPipeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('initially_muted', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('stream_id', 32, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('stream_id', 24, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('initially_muted', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 48]]);
 

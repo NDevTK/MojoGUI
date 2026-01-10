@@ -67,12 +67,12 @@ mojo.internal.Struct(
       mojo.internal.StructField('extension_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('source_url', 24, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('context_type', 32, 0, extensions.mojom.ContextTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('request_id', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('has_callback', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('user_gesture', 44, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('worker_thread_id', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('service_worker_version_id', 56, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('js_callstack', 64, 0, mojo.internal.Array(extensions.mojom.StackFrameSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('service_worker_version_id', 40, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('js_callstack', 48, 0, mojo.internal.Array(extensions.mojom.StackFrameSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('request_id', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('worker_thread_id', 60, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('has_callback', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('user_gesture', 64, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 80]]);
 
@@ -132,10 +132,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     extensions.mojom.LocalFrame_ExecuteDeclarativeScript_ParamsSpec, 'extensions.mojom.LocalFrame_ExecuteDeclarativeScript_Params', [
-      mojo.internal.StructField('tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('extension_id', 8, 0, extensions.mojom.ExtensionIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('script_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('url', 24, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('extension_id', 0, 0, extensions.mojom.ExtensionIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('script_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('tab_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -346,10 +346,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     extensions.mojom.LocalFrameHost_Request_ResponseParamsSpec, 'extensions.mojom.LocalFrameHost_Request_ResponseParams', [
-      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('response_wrapper', 8, 0, mojo_base.mojom.ListValueSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('error', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('extra_data', 24, 0, extensions.mojom.ExtraResponseDataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('response_wrapper', 0, 0, mojo_base.mojom.ListValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('error', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('extra_data', 16, 0, extensions.mojom.ExtraResponseDataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('success', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -418,14 +418,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     extensions.mojom.LocalFrameHost_OpenChannelToTab_ParamsSpec, 'extensions.mojom.LocalFrameHost_OpenChannelToTab_Params', [
-      mojo.internal.StructField('tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('frame_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('document_id', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('channel_type', 16, 0, extensions.mojom.ChannelTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('channel_name', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('port_id', 32, 0, extensions.mojom.PortIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('port', 40, 0, mojo.internal.AssociatedInterfaceProxy(extensions.mojom.MessagePortRemote), null, false, 0, undefined),
-      mojo.internal.StructField('port_host', 48, 0, mojo.internal.AssociatedInterfaceRequest(extensions.mojom.MessagePortHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('document_id', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('channel_type', 8, 0, extensions.mojom.ChannelTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('channel_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('port_id', 24, 0, extensions.mojom.PortIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('port', 32, 0, mojo.internal.AssociatedInterfaceProxy(extensions.mojom.MessagePortRemote), null, false, 0, undefined),
+      mojo.internal.StructField('port_host', 40, 0, mojo.internal.AssociatedInterfaceRequest(extensions.mojom.MessagePortHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('tab_id', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('frame_id', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 64]]);
 

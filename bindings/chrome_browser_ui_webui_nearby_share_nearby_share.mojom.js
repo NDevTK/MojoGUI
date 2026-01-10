@@ -128,8 +128,8 @@ nearby_share.mojom.RegisterReceiveSurfaceResult = {
 mojo.internal.Struct(
     nearby_share.mojom.PayloadPreviewSpec, 'nearby_share.mojom.PayloadPreview', [
       mojo.internal.StructField('description', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('file_count', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('share_type', 16, 0, nearby_share.mojom.ShareTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('share_type', 8, 0, nearby_share.mojom.ShareTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('file_count', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -149,12 +149,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     nearby_share.mojom.TransferMetadataSpec, 'nearby_share.mojom.TransferMetadata', [
       mojo.internal.StructField('status', 0, 0, nearby_share.mojom.TransferStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('progress', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('token', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('is_original', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_final_status', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('token', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('progress', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('is_original', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_final_status', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 // Interface: ShareTargetListener
 mojo.internal.Struct(

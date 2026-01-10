@@ -55,7 +55,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('failed_parameter', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('resource_address_space', 16, 0, network.mojom.IPAddressSpaceSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('inconsistent_address_space', 24, 0, network.mojom.IPAddressSpaceSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('has_authorization_covered_by_wildcard_on_preflight', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('issue_id', 40, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('issue_id', 32, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('has_authorization_covered_by_wildcard_on_preflight', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 56]]);

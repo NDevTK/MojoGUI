@@ -23,16 +23,16 @@ network.mojom.AncestorChainBit = {
 mojo.internal.Struct(
     network.mojom.CookiePartitionKeySpec, 'network.mojom.CookiePartitionKey', [
       mojo.internal.StructField('site', 0, 0, network.mojom.SchemefulSiteSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('from_script', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('nonce', 16, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('ancestor_chain_bit', 24, 0, network.mojom.AncestorChainBitSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('nonce', 8, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('ancestor_chain_bit', 16, 0, network.mojom.AncestorChainBitSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('from_script', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: CookiePartitionKeyCollection
 mojo.internal.Struct(
     network.mojom.CookiePartitionKeyCollectionSpec, 'network.mojom.CookiePartitionKeyCollection', [
-      mojo.internal.StructField('contains_all_partitions', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('keys', 8, 0, mojo.internal.Array(network.mojom.CookiePartitionKeySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('keys', 0, 0, mojo.internal.Array(network.mojom.CookiePartitionKeySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('contains_all_partitions', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);

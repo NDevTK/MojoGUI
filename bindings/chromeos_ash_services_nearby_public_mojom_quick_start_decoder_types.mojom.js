@@ -92,8 +92,8 @@ mojo.internal.Union(
 mojo.internal.Struct(
     ash.quick_start.mojom.BootstrapConfigurationsSpec, 'ash.quick_start.mojom.BootstrapConfigurations', [
       mojo.internal.StructField('instance_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('is_supervised_account', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('email', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('email', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('is_supervised_account', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -124,8 +124,8 @@ mojo.internal.Struct(
     ash.quick_start.mojom.WifiCredentialsSpec, 'ash.quick_start.mojom.WifiCredentials', [
       mojo.internal.StructField('ssid', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('security_type', 8, 0, ash.quick_start.mojom.WifiSecurityTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('is_hidden', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('password', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('password', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('is_hidden', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
 

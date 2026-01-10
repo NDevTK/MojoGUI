@@ -205,11 +205,11 @@ network.mojom.NetLogProxySourceRequest = network.mojom.NetLogProxySourcePendingR
 // Interface: NetLogProxySink
 mojo.internal.Struct(
     network.mojom.NetLogProxySink_AddEntry_ParamsSpec, 'network.mojom.NetLogProxySink_AddEntry_Params', [
-      mojo.internal.StructField('type', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('net_log_source', 8, 0, network.mojom.NetLogSourceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('phase', 16, 0, network.mojom.NetLogEventPhaseSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('time', 24, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('params', 32, 0, mojo_base.mojom.DictionaryValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('net_log_source', 0, 0, network.mojom.NetLogSourceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('phase', 8, 0, network.mojom.NetLogEventPhaseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('time', 16, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('params', 24, 0, mojo_base.mojom.DictionaryValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('type', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 48]]);
 

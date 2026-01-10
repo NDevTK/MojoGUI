@@ -33,16 +33,16 @@ mojo.internal.Struct(
       mojo.internal.StructField('display_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('parent_display_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('position', 16, 0, display.mojom.PositionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('offset', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('offset_reference', 32, 0, display.mojom.OffsetReferenceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('offset_reference', 24, 0, display.mojom.OffsetReferenceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('offset', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 48]]);
 
 // Struct: DisplayLayout
 mojo.internal.Struct(
     display.mojom.DisplayLayoutSpec, 'display.mojom.DisplayLayout', [
-      mojo.internal.StructField('default_unified', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('primary_display_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('placement_list', 16, 0, mojo.internal.Array(display.mojom.DisplayPlacementSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('primary_display_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('placement_list', 8, 0, mojo.internal.Array(display.mojom.DisplayPlacementSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('default_unified', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);

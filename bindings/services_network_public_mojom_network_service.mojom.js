@@ -122,15 +122,15 @@ mojo.internal.Struct(
       mojo.internal.StructField('patterns_allowed_to_use_all_schemes', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('server_allowlist', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('delegate_allowlist', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('delegate_by_kdc_policy', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('negotiate_disable_cname_lookup', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('enable_negotiate_port', 32, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('ntlm_v2_enabled', 32, 3, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('android_negotiate_account_type', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('allow_gssapi_library_load', 48, 0, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('basic_over_http_enabled', 48, 1, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('android_negotiate_account_type', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('delegate_by_kdc_policy', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('negotiate_disable_cname_lookup', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable_negotiate_port', 40, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('ntlm_v2_enabled', 40, 3, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('allow_gssapi_library_load', 40, 4, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('basic_over_http_enabled', 40, 5, mojo.internal.Bool, true, false, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 56]]);
 
 // Struct: EnvironmentVariable
 mojo.internal.Struct(
@@ -148,8 +148,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('initial_address_map', 16, 0, network.mojom.InitialAddressMapSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('environment', 24, 0, mojo.internal.Array(network.mojom.EnvironmentVariableSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('default_observer', 32, 0, mojo.internal.InterfaceProxy(network.mojom.URLLoaderNetworkServiceObserverRemote), null, false, 0, undefined),
-      mojo.internal.StructField('first_party_sets_enabled', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('system_dns_resolver', 48, 0, mojo.internal.InterfaceProxy(network.mojom.SystemDnsResolverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('system_dns_resolver', 40, 0, mojo.internal.InterfaceProxy(network.mojom.SystemDnsResolverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('first_party_sets_enabled', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -276,14 +276,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.NetworkService_ConfigureStubHostResolver_ParamsSpec, 'network.mojom.NetworkService_ConfigureStubHostResolver_Params', [
-      mojo.internal.StructField('insecure_dns_client_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('happy_eyeballs_v3_enabled', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('secure_dns_mode', 8, 0, network.mojom.SecureDnsModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('dns_over_https_config', 16, 0, network.mojom.DnsOverHttpsConfigSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('additional_dns_types_enabled', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('fallback_doh_nameservers', 32, 0, mojo.internal.Array(network.mojom.IPEndPointSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('secure_dns_mode', 0, 0, network.mojom.SecureDnsModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('dns_over_https_config', 8, 0, network.mojom.DnsOverHttpsConfigSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('fallback_doh_nameservers', 16, 0, mojo.internal.Array(network.mojom.IPEndPointSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('insecure_dns_client_enabled', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('happy_eyeballs_v3_enabled', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('additional_dns_types_enabled', 24, 2, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 40]]);
 
 mojo.internal.Struct(
     network.mojom.NetworkService_DisableQuic_ParamsSpec, 'network.mojom.NetworkService_DisableQuic_Params', [
@@ -304,8 +304,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.NetworkService_SetRawHeadersAccess_ParamsSpec, 'network.mojom.NetworkService_SetRawHeadersAccess_Params', [
-      mojo.internal.StructField('process_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('origins', 8, 0, mojo.internal.Array(url.mojom.OriginSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('origins', 0, 0, mojo.internal.Array(url.mojom.OriginSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('process_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -68,8 +68,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.wifi_direct.mojom.WifiDirectConnectionPropertiesSpec, 'ash.wifi_direct.mojom.WifiDirectConnectionProperties', [
       mojo.internal.StructField('credentials', 0, 0, ash.wifi_direct.mojom.WifiCredentialsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('frequency', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('ipv4_address', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('ipv4_address', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('frequency', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -90,8 +90,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ParamsSpec, 'ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_Params', [
       mojo.internal.StructField('credentials', 0, 0, ash.wifi_direct.mojom.WifiCredentialsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('frequency_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'frequency_$value', originalFieldName: 'frequency' }),
-      mojo.internal.StructField('frequency_$value', 12, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'frequency_$flag', originalFieldName: 'frequency' }),
+      mojo.internal.StructField('frequency_$value', 8, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'frequency_$flag', originalFieldName: 'frequency' }),
+      mojo.internal.StructField('frequency_$flag', 12, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'frequency_$value', originalFieldName: 'frequency' }),
     ],
     [[0, 24]]);
 

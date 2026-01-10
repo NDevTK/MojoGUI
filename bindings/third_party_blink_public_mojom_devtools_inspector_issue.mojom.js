@@ -349,13 +349,13 @@ mojo.internal.Struct(
     blink.mojom.ContentSecurityPolicyIssueDetailsSpec, 'blink.mojom.ContentSecurityPolicyIssueDetails', [
       mojo.internal.StructField('blocked_url', 0, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('violated_directive', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('is_report_only', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('content_security_policy_violation_type', 24, 0, blink.mojom.ContentSecurityPolicyViolationTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('frame_ancestor', 32, 0, blink.mojom.AffectedFrameSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('affected_location', 40, 0, blink.mojom.AffectedLocationSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('violating_node_id', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('content_security_policy_violation_type', 16, 0, blink.mojom.ContentSecurityPolicyViolationTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('frame_ancestor', 24, 0, blink.mojom.AffectedFrameSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('affected_location', 32, 0, blink.mojom.AffectedLocationSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('violating_node_id', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_report_only', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 56]]);
 
 // Struct: CookieIssueDetails
 mojo.internal.Struct(
@@ -374,23 +374,23 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.SharedArrayBufferIssueDetailsSpec, 'blink.mojom.SharedArrayBufferIssueDetails', [
       mojo.internal.StructField('affected_location', 0, 0, blink.mojom.AffectedLocationSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('is_warning', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('type', 16, 0, blink.mojom.SharedArrayBufferIssueTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, blink.mojom.SharedArrayBufferIssueTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('is_warning', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: LowTextContrastIssue
 mojo.internal.Struct(
     blink.mojom.LowTextContrastIssueSpec, 'blink.mojom.LowTextContrastIssue', [
-      mojo.internal.StructField('violating_node_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('violating_node_selector', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('contrast_ratio', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('threshold_aa', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('threshold_aaa', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('font_size', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('font_weight', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('violating_node_selector', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('font_size', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('font_weight', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('violating_node_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('contrast_ratio', 28, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('threshold_aa', 32, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('threshold_aaa', 36, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 48]]);
 
 // Struct: FederatedAuthRequestIssueDetails
 mojo.internal.Struct(
@@ -425,9 +425,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.CookieDeprecationMetadataIssueDetailsSpec, 'blink.mojom.CookieDeprecationMetadataIssueDetails', [
       mojo.internal.StructField('allowed_sites', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('opt_out_percentage', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('is_opt_out_top_level', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('operation', 16, 0, blink.mojom.CookieOperationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('operation', 8, 0, blink.mojom.CookieOperationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('opt_out_percentage', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_opt_out_top_level', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -436,8 +436,8 @@ mojo.internal.Struct(
     blink.mojom.GenericIssueDetailsSpec, 'blink.mojom.GenericIssueDetails', [
       mojo.internal.StructField('error_type', 0, 0, blink.mojom.GenericIssueErrorTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('frame_id', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('violating_node_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('violating_node_attribute', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('violating_node_attribute', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('violating_node_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 

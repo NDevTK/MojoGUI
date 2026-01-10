@@ -51,17 +51,17 @@ mojo.internal.Union(
 // Struct: MenuItemCommonFields
 mojo.internal.Struct(
     remote_cocoa.mojom.MenuItemCommonFieldsSpec, 'remote_cocoa.mojom.MenuItemCommonFields', [
-      mojo.internal.StructField('command_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('label', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('may_have_mnemonics', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_checked', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('icon', 24, 0, gfx.mojom.ImageSkiaSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('is_enabled', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_visible', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_alerted', 32, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_new_feature', 32, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('label', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('icon', 8, 0, gfx.mojom.ImageSkiaSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('command_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('may_have_mnemonics', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_checked', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_enabled', 20, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_visible', 20, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_alerted', 20, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_new_feature', 20, 5, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 32]]);
 
 // Struct: SubmenuMenuItem
 mojo.internal.Struct(
@@ -77,11 +77,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('badge_font', 0, 0, remote_cocoa.mojom.FontSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('badge_color', 8, 0, skia.mojom.SkColorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('badge_text_color', 16, 0, skia.mojom.SkColorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('badge_horizontal_margin', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('badge_internal_padding', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('badge_min_height', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('badge_radius', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('iph_dot_color', 40, 0, skia.mojom.SkColorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('iph_dot_color', 24, 0, skia.mojom.SkColorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('badge_horizontal_margin', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('badge_internal_padding', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('badge_min_height', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('badge_radius', 44, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -184,10 +184,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     remote_cocoa.mojom.Menu_UpdateMenuItem_ParamsSpec, 'remote_cocoa.mojom.Menu_UpdateMenuItem_Params', [
-      mojo.internal.StructField('command_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('enabled', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('visible', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('label', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('label', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('command_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('enabled', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('visible', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 

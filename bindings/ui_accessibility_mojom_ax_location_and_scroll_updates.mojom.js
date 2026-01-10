@@ -17,8 +17,8 @@ ax.mojom.AXLocationAndScrollUpdatesSpec = { $: {} };
 // Struct: AXLocationChange
 mojo.internal.Struct(
     ax.mojom.AXLocationChangeSpec, 'ax.mojom.AXLocationChange', [
-      mojo.internal.StructField('id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('new_location', 8, 0, ax.mojom.AXRelativeBoundsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('new_location', 0, 0, ax.mojom.AXRelativeBoundsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 

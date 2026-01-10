@@ -32,21 +32,21 @@ theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec = { $: {} };
 // Struct: Theme
 mojo.internal.Struct(
     theme_color_picker.mojom.ThemeSpec, 'theme_color_picker.mojom.Theme', [
-      mojo.internal.StructField('has_background_image', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('has_third_party_theme', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('background_image_main_color', 8, 0, skia.mojom.SkColorSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('is_dark_mode', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('seed_color', 24, 0, skia.mojom.SkColorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('seed_color_hue', 32, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('background_color', 40, 0, skia.mojom.SkColorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('foreground_color', 48, 0, skia.mojom.SkColorSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('color_picker_icon_color', 56, 0, skia.mojom.SkColorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('colors_managed_by_policy', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_grey_baseline', 64, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('browser_color_variant', 72, 0, ui.mojom.BrowserColorVariantSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('follow_device_theme', 80, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('background_image_main_color', 0, 0, skia.mojom.SkColorSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('seed_color', 8, 0, skia.mojom.SkColorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('background_color', 16, 0, skia.mojom.SkColorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('foreground_color', 24, 0, skia.mojom.SkColorSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('color_picker_icon_color', 32, 0, skia.mojom.SkColorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('browser_color_variant', 40, 0, ui.mojom.BrowserColorVariantSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('seed_color_hue', 48, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('has_background_image', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_third_party_theme', 52, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_dark_mode', 52, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('colors_managed_by_policy', 52, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_grey_baseline', 52, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('follow_device_theme', 52, 5, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 96]]);
+    [[0, 64]]);
 
 // Struct: ChromeColor
 mojo.internal.Struct(

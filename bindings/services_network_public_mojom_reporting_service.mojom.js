@@ -36,10 +36,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('group', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('type', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('timestamp', 32, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('depth', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('attempts', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('body', 48, 0, mojo_base.mojom.DictionaryValueSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('status', 56, 0, network.mojom.ReportingApiReportStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('body', 40, 0, mojo_base.mojom.DictionaryValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('status', 48, 0, network.mojom.ReportingApiReportStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('depth', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('attempts', 60, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 72]]);
 
@@ -47,16 +47,16 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.ReportingApiEndpointSpec, 'network.mojom.ReportingApiEndpoint', [
       mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('attempted_uploads', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('successful_uploads', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('attempted_reports', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('successful_reports', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('priority', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('weight', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('origin', 32, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('group_name', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('network_anonymization_key', 48, 0, network.mojom.NetworkAnonymizationKeySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('reporting_source', 56, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('origin', 8, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('group_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('network_anonymization_key', 24, 0, network.mojom.NetworkAnonymizationKeySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('reporting_source', 32, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('attempted_uploads', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('successful_uploads', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('attempted_reports', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('successful_reports', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('priority', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('weight', 60, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 72]]);
 

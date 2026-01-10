@@ -23,9 +23,9 @@ mojo.internal.Struct(
     media.mojom.MediaEngagementScoreDetailsSpec, 'media.mojom.MediaEngagementScoreDetails', [
       mojo.internal.StructField('origin', 0, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('total_score', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('visits', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('media_playbacks', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('last_media_playback_time', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('last_media_playback_time', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('visits', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('media_playbacks', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('is_high', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 48]]);
@@ -33,20 +33,20 @@ mojo.internal.Struct(
 // Struct: MediaEngagementConfig
 mojo.internal.Struct(
     media.mojom.MediaEngagementConfigSpec, 'media.mojom.MediaEngagementConfig', [
-      mojo.internal.StructField('score_min_visits', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('high_score_lower_threshold', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('high_score_upper_threshold', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('feature_record_data', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('feature_bypass_autoplay', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('feature_preload_data', 24, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('feature_https_only', 24, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('feature_autoplay_disable_settings', 24, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('pref_disable_unified_autoplay', 24, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('has_custom_autoplay_policy', 24, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('autoplay_policy', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('preload_version', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('high_score_lower_threshold', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('high_score_upper_threshold', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('autoplay_policy', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('preload_version', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('score_min_visits', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('feature_record_data', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('feature_bypass_autoplay', 36, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('feature_preload_data', 36, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('feature_https_only', 36, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('feature_autoplay_disable_settings', 36, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('pref_disable_unified_autoplay', 36, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_custom_autoplay_policy', 36, 6, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 48]]);
 
 // Interface: MediaEngagementScoreDetailsProvider
 mojo.internal.Struct(

@@ -33,8 +33,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.SystemUiInstance_SetOverlayColor_ParamsSpec, 'arc.mojom.SystemUiInstance_SetOverlayColor_Params', [
-      mojo.internal.StructField('source_color', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('theme_style', 8, 0, arc.mojom.ThemeStyleTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('theme_style', 0, 0, arc.mojom.ThemeStyleTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('source_color', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 

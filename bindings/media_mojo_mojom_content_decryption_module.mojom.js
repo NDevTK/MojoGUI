@@ -67,12 +67,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.CdmPromiseResultSpec, 'media.mojom.CdmPromiseResult', [
       mojo.internal.StructField('Exception', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('exception', 16, 0, media.mojom.ExceptionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('exception', 8, 0, media.mojom.ExceptionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('error_message', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('system_code', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('error_message', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('success', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 40]]);
 
 // Struct: CdmKeyInformation
 mojo.internal.Struct(
@@ -337,8 +337,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec, 'media.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_Params', [
       mojo.internal.StructField('session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('has_additional_usable_key', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('keys_info', 16, 0, mojo.internal.Array(media.mojom.CdmKeyInformationSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('keys_info', 8, 0, mojo.internal.Array(media.mojom.CdmKeyInformationSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('has_additional_usable_key', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 

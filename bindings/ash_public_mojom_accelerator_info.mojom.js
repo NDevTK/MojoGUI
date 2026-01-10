@@ -142,9 +142,9 @@ mojo.internal.Struct(
     ash.mojom.AcceleratorInfoSpec, 'ash.mojom.AcceleratorInfo', [
       mojo.internal.StructField('type', 0, 0, ash.mojom.AcceleratorTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('state', 8, 0, ash.mojom.AcceleratorStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('locked', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('accelerator_locked', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('layout_properties', 24, 0, ash.mojom.LayoutStylePropertiesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('layout_properties', 16, 0, ash.mojom.LayoutStylePropertiesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('locked', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('accelerator_locked', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
 

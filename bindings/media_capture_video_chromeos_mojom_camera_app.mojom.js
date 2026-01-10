@@ -949,8 +949,8 @@ cros.mojom.CameraInfoObserverRequest = cros.mojom.CameraInfoObserverPendingRecei
 mojo.internal.Struct(
     cros.mojom.StillCaptureResultObserver_OnStillCaptureDone_ParamsSpec, 'cros.mojom.StillCaptureResultObserver_OnStillCaptureDone_Params', [
       mojo.internal.StructField('effect', 0, 0, cros.mojom.EffectSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('status', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('blob', 16, 0, media.mojom.BlobSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('blob', 8, 0, media.mojom.BlobSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('status', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 

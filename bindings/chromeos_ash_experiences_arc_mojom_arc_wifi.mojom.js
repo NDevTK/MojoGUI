@@ -32,11 +32,11 @@ mojo.internal.Struct(
     arc.mojom.WifiScanResultSpec, 'arc.mojom.WifiScanResult', [
       mojo.internal.StructField('hex_ssid', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('bssid', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('frequency', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('security', 24, 0, arc.mojom.SecurityTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('rssi', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('security', 16, 0, arc.mojom.SecurityTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('frequency', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('rssi', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 40]]);
 
 // Interface: ArcWifiHost
 mojo.internal.Struct(

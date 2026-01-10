@@ -21,15 +21,15 @@ user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec = { $: {} }
 // Struct: ImportedBookmarkEntry
 mojo.internal.Struct(
     user_data_importer.mojom.ImportedBookmarkEntrySpec, 'user_data_importer.mojom.ImportedBookmarkEntry', [
-      mojo.internal.StructField('is_folder', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('path', 16, 0, mojo.internal.Array(mojo_base.mojom.String16Spec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('title', 24, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('creation_time', 32, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('last_visit_time', 40, 0, mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('in_toolbar', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('path', 8, 0, mojo.internal.Array(mojo_base.mojom.String16Spec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('title', 16, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('creation_time', 24, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('last_visit_time', 32, 0, mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('is_folder', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('in_toolbar', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 56]]);
 
 // Struct: SearchEngineInfo
 mojo.internal.Struct(

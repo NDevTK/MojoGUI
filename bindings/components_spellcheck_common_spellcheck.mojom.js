@@ -53,9 +53,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     spellcheck.mojom.SpellCheckResultSpec, 'spellcheck.mojom.SpellCheckResult', [
       mojo.internal.StructField('decoration', 0, 0, spellcheck.mojom.DecorationSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('location', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('length', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('replacements', 16, 0, mojo.internal.Array(mojo_base.mojom.String16Spec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('replacements', 8, 0, mojo.internal.Array(mojo_base.mojom.String16Spec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('location', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('length', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('should_hide_suggestion_menu', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -224,8 +224,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     spellcheck.mojom.SpellCheckHost_CallSpellingService_ResponseParamsSpec, 'spellcheck.mojom.SpellCheckHost_CallSpellingService_ResponseParams', [
-      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('results', 8, 0, mojo.internal.Array(spellcheck.mojom.SpellCheckResultSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(spellcheck.mojom.SpellCheckResultSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 

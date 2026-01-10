@@ -50,85 +50,85 @@ blink.mojom.AnchorElementUserInteractionEventForMLModelType = {
 // Struct: AnchorElementMetrics
 mojo.internal.Struct(
     blink.mojom.AnchorElementMetricsSpec, 'blink.mojom.AnchorElementMetrics', [
-      mojo.internal.StructField('anchor_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('ratio_area', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('ratio_distance_top_to_visible_top', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('ratio_distance_root_top', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('is_in_iframe', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('contains_image', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_same_host', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_url_incremented_by_one', 16, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('has_text_sibling', 16, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('font_size_px', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('font_weight', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('target_url', 32, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('viewport_size', 40, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('target_url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('viewport_size', 8, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('anchor_id', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('ratio_area', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('ratio_distance_top_to_visible_top', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('ratio_distance_root_top', 28, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('font_size_px', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('font_weight', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_in_iframe', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('contains_image', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_same_host', 40, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_url_incremented_by_one', 40, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_text_sibling', 40, 4, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 56]]);
 
 // Struct: AnchorElementClick
 mojo.internal.Struct(
     blink.mojom.AnchorElementClickSpec, 'blink.mojom.AnchorElementClick', [
-      mojo.internal.StructField('anchor_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('target_url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('navigation_start_to_click', 16, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('target_url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('navigation_start_to_click', 8, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('anchor_id', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: AnchorElementPointerDataOnHoverTimerFired
 mojo.internal.Struct(
     blink.mojom.AnchorElementPointerDataOnHoverTimerFiredSpec, 'blink.mojom.AnchorElementPointerDataOnHoverTimerFired', [
-      mojo.internal.StructField('anchor_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('pointer_data', 8, 0, blink.mojom.AnchorElementPointerDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('pointer_data', 0, 0, blink.mojom.AnchorElementPointerDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('anchor_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: AnchorElementEnteredViewport
 mojo.internal.Struct(
     blink.mojom.AnchorElementEnteredViewportSpec, 'blink.mojom.AnchorElementEnteredViewport', [
-      mojo.internal.StructField('anchor_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('navigation_start_to_entered_viewport', 8, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('navigation_start_to_entered_viewport', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('anchor_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: AnchorElementLeftViewport
 mojo.internal.Struct(
     blink.mojom.AnchorElementLeftViewportSpec, 'blink.mojom.AnchorElementLeftViewport', [
-      mojo.internal.StructField('anchor_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('time_in_viewport', 8, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('time_in_viewport', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('anchor_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: AnchorElementPointerOver
 mojo.internal.Struct(
     blink.mojom.AnchorElementPointerOverSpec, 'blink.mojom.AnchorElementPointerOver', [
-      mojo.internal.StructField('anchor_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('navigation_start_to_pointer_over', 8, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('navigation_start_to_pointer_over', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('anchor_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: AnchorElementPointerOut
 mojo.internal.Struct(
     blink.mojom.AnchorElementPointerOutSpec, 'blink.mojom.AnchorElementPointerOut', [
-      mojo.internal.StructField('anchor_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('hover_dwell_time', 8, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('hover_dwell_time', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('anchor_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: AnchorElementPointerEventForMLModel
 mojo.internal.Struct(
     blink.mojom.AnchorElementPointerEventForMLModelSpec, 'blink.mojom.AnchorElementPointerEventForMLModel', [
-      mojo.internal.StructField('anchor_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('is_mouse', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('user_interaction_event_type', 8, 0, blink.mojom.AnchorElementUserInteractionEventForMLModelTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('user_interaction_event_type', 0, 0, blink.mojom.AnchorElementUserInteractionEventForMLModelTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('anchor_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_mouse', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: AnchorElementPointerDown
 mojo.internal.Struct(
     blink.mojom.AnchorElementPointerDownSpec, 'blink.mojom.AnchorElementPointerDown', [
-      mojo.internal.StructField('anchor_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('navigation_start_to_pointer_down', 8, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('navigation_start_to_pointer_down', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('anchor_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -137,8 +137,8 @@ mojo.internal.Struct(
     blink.mojom.AnchorElementPositionUpdateSpec, 'blink.mojom.AnchorElementPositionUpdate', [
       mojo.internal.StructField('anchor_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('vertical_position_ratio', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('distance_from_pointer_down_ratio_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'distance_from_pointer_down_ratio_$value', originalFieldName: 'distance_from_pointer_down_ratio' }),
-      mojo.internal.StructField('distance_from_pointer_down_ratio_$value', 12, 0, mojo.internal.Float, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'distance_from_pointer_down_ratio_$flag', originalFieldName: 'distance_from_pointer_down_ratio' }),
+      mojo.internal.StructField('distance_from_pointer_down_ratio_$value', 8, 0, mojo.internal.Float, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'distance_from_pointer_down_ratio_$flag', originalFieldName: 'distance_from_pointer_down_ratio' }),
+      mojo.internal.StructField('distance_from_pointer_down_ratio_$flag', 12, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'distance_from_pointer_down_ratio_$value', originalFieldName: 'distance_from_pointer_down_ratio' }),
     ],
     [[0, 24]]);
 

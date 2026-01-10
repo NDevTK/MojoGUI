@@ -175,8 +175,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     webui_browser.mojom.Page_ShowSidePanel_ParamsSpec, 'webui_browser.mojom.Page_ShowSidePanel_Params', [
-      mojo.internal.StructField('guest_contents_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('guest_contents_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -187,8 +187,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     webui_browser.mojom.Page_OnFullscreenModeChanged_ParamsSpec, 'webui_browser.mojom.Page_OnFullscreenModeChanged_Params', [
-      mojo.internal.StructField('is_fullscreen', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('context', 8, 0, webui_browser.mojom.FullscreenContextSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('context', 0, 0, webui_browser.mojom.FullscreenContextSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('is_fullscreen', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 

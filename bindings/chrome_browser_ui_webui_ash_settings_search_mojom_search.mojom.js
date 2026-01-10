@@ -77,9 +77,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('relevance_score', 32, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('settings_page_hierarchy', 40, 0, mojo.internal.Array(mojo_base.mojom.String16Spec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('default_rank', 48, 0, ash.settings.mojom.SearchResultDefaultRankSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('was_generated_from_text_match', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('type', 64, 0, ash.settings.mojom.SearchResultTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('id', 72, 0, ash.settings.mojom.SearchResultIdentifierSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('type', 56, 0, ash.settings.mojom.SearchResultTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('id', 64, 0, ash.settings.mojom.SearchResultIdentifierSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('was_generated_from_text_match', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 88]]);
 
@@ -151,8 +151,8 @@ ash.settings.mojom.SearchResultsObserverRequest = ash.settings.mojom.SearchResul
 mojo.internal.Struct(
     ash.settings.mojom.SearchHandler_Search_ParamsSpec, 'ash.settings.mojom.SearchHandler_Search_Params', [
       mojo.internal.StructField('query', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('max_num_results', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('parent_result_behavior', 16, 0, ash.settings.mojom.ParentResultBehaviorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('parent_result_behavior', 8, 0, ash.settings.mojom.ParentResultBehaviorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('max_num_results', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 

@@ -71,8 +71,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('aggregation_coordinator_origin', 0, 0, url.mojom.OriginSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('context_id', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('filtering_id_max_bytes', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('max_contributions_$flag', 20, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'max_contributions_$value', originalFieldName: 'max_contributions' }),
-      mojo.internal.StructField('max_contributions_$value', 22, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'max_contributions_$flag', originalFieldName: 'max_contributions' }),
+      mojo.internal.StructField('max_contributions_$value', 20, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'max_contributions_$flag', originalFieldName: 'max_contributions' }),
+      mojo.internal.StructField('max_contributions_$flag', 22, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'max_contributions_$value', originalFieldName: 'max_contributions' }),
     ],
     [[0, 32]]);
 
@@ -82,19 +82,19 @@ mojo.internal.Struct(
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('urls_with_metadata', 8, 0, mojo.internal.Array(blink.mojom.SharedStorageUrlWithMetadataSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('serialized_data', 16, 0, blink.mojom.CloneableMessageSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('keep_alive_after_operation', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('private_aggregation_config', 32, 0, blink.mojom.PrivateAggregationConfigSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('resolve_to_config', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('saved_query_name', 48, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('start_time', 56, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('private_aggregation_config', 24, 0, blink.mojom.PrivateAggregationConfigSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('saved_query_name', 32, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('start_time', 40, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('keep_alive_after_operation', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('resolve_to_config', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 64]]);
 
 mojo.internal.Struct(
     blink.mojom.SharedStorageWorkletHost_SelectURL_ResponseParamsSpec, 'blink.mojom.SharedStorageWorkletHost_SelectURL_ResponseParams', [
-      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('error_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('config', 16, 0, blink.mojom.FencedFrameConfigSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('error_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('config', 8, 0, blink.mojom.FencedFrameConfigSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('success', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -102,16 +102,16 @@ mojo.internal.Struct(
     blink.mojom.SharedStorageWorkletHost_Run_ParamsSpec, 'blink.mojom.SharedStorageWorkletHost_Run_Params', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('serialized_data', 8, 0, blink.mojom.CloneableMessageSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('keep_alive_after_operation', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('private_aggregation_config', 24, 0, blink.mojom.PrivateAggregationConfigSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('start_time', 32, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('private_aggregation_config', 16, 0, blink.mojom.PrivateAggregationConfigSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('start_time', 24, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('keep_alive_after_operation', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 48]]);
 
 mojo.internal.Struct(
     blink.mojom.SharedStorageWorkletHost_Run_ResponseParamsSpec, 'blink.mojom.SharedStorageWorkletHost_Run_ResponseParams', [
-      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('error_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('error_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -198,8 +198,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.SharedStorageDocumentService_CreateWorklet_ResponseParamsSpec, 'blink.mojom.SharedStorageDocumentService_CreateWorklet_ResponseParams', [
-      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('error_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('error_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 

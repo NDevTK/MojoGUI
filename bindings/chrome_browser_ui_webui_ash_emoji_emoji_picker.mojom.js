@@ -153,8 +153,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     emoji_picker.mojom.PageHandler_InsertEmoji_ParamsSpec, 'emoji_picker.mojom.PageHandler_InsertEmoji_Params', [
       mojo.internal.StructField('emoji', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('is_variant', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('search_length', 10, 0, mojo.internal.Int16, 0, false, 0, undefined),
+      mojo.internal.StructField('search_length', 8, 0, mojo.internal.Int16, 0, false, 0, undefined),
+      mojo.internal.StructField('is_variant', 10, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 

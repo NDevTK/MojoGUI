@@ -23,8 +23,8 @@ arc.mojom.VideoProtectedBufferAllocator_ReleaseProtectedBuffer_ParamsSpec = { $:
 // Interface: VideoProtectedBufferAllocator
 mojo.internal.Struct(
     arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedSharedMemory_ParamsSpec, 'arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedSharedMemory_Params', [
-      mojo.internal.StructField('handle_fd', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
-      mojo.internal.StructField('size', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('size', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('handle_fd', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -36,9 +36,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedNativePixmap_ParamsSpec, 'arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedNativePixmap_Params', [
-      mojo.internal.StructField('handle_fd', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
-      mojo.internal.StructField('pixel_format', 8, 0, arc.mojom.HalPixelFormatSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('picture_size', 16, 0, arc.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('pixel_format', 0, 0, arc.mojom.HalPixelFormatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('picture_size', 8, 0, arc.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('handle_fd', 16, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

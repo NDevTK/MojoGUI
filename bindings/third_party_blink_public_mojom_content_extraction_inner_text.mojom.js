@@ -54,17 +54,17 @@ mojo.internal.Struct(
 // Struct: InnerTextParams
 mojo.internal.Struct(
     blink.mojom.InnerTextParamsSpec, 'blink.mojom.InnerTextParams', [
-      mojo.internal.StructField('node_id_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'node_id_$value', originalFieldName: 'node_id' }),
-      mojo.internal.StructField('node_id_$value', 4, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'node_id_$flag', originalFieldName: 'node_id' }),
-      mojo.internal.StructField('max_words_per_aggregate_passage_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'max_words_per_aggregate_passage_$value', originalFieldName: 'max_words_per_aggregate_passage' }),
-      mojo.internal.StructField('max_words_per_aggregate_passage_$value', 12, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'max_words_per_aggregate_passage_$flag', originalFieldName: 'max_words_per_aggregate_passage' }),
-      mojo.internal.StructField('greedily_aggregate_sibling_nodes_$flag', 16, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'greedily_aggregate_sibling_nodes_$value', originalFieldName: 'greedily_aggregate_sibling_nodes' }),
-      mojo.internal.StructField('greedily_aggregate_sibling_nodes_$value', 16, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'greedily_aggregate_sibling_nodes_$flag', originalFieldName: 'greedily_aggregate_sibling_nodes' }),
-      mojo.internal.StructField('max_passages', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('min_words_per_passage_$flag', 24, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'min_words_per_passage_$value', originalFieldName: 'min_words_per_passage' }),
-      mojo.internal.StructField('min_words_per_passage_$value', 28, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'min_words_per_passage_$flag', originalFieldName: 'min_words_per_passage' }),
+      mojo.internal.StructField('node_id_$value', 0, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'node_id_$flag', originalFieldName: 'node_id' }),
+      mojo.internal.StructField('max_words_per_aggregate_passage_$value', 4, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'max_words_per_aggregate_passage_$flag', originalFieldName: 'max_words_per_aggregate_passage' }),
+      mojo.internal.StructField('max_passages', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('min_words_per_passage_$value', 12, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'min_words_per_passage_$flag', originalFieldName: 'min_words_per_passage' }),
+      mojo.internal.StructField('node_id_$flag', 16, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'node_id_$value', originalFieldName: 'node_id' }),
+      mojo.internal.StructField('max_words_per_aggregate_passage_$flag', 16, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'max_words_per_aggregate_passage_$value', originalFieldName: 'max_words_per_aggregate_passage' }),
+      mojo.internal.StructField('greedily_aggregate_sibling_nodes_$flag', 16, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'greedily_aggregate_sibling_nodes_$value', originalFieldName: 'greedily_aggregate_sibling_nodes' }),
+      mojo.internal.StructField('greedily_aggregate_sibling_nodes_$value', 16, 3, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'greedily_aggregate_sibling_nodes_$flag', originalFieldName: 'greedily_aggregate_sibling_nodes' }),
+      mojo.internal.StructField('min_words_per_passage_$flag', 16, 4, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'min_words_per_passage_$value', originalFieldName: 'min_words_per_passage' }),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 // Interface: InnerTextAgent
 mojo.internal.Struct(

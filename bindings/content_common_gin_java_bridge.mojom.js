@@ -44,8 +44,8 @@ content.mojom.GinJavaBridgeError = {
 mojo.internal.Struct(
     content.mojom.GinJavaBridge_AddNamedObject_ParamsSpec, 'content.mojom.GinJavaBridge_AddNamedObject_Params', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('object_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('origin_matcher', 16, 0, origin_matcher.mojom.OriginMatcherSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('origin_matcher', 8, 0, origin_matcher.mojom.OriginMatcherSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('object_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -258,8 +258,8 @@ content.mojom.GinJavaBridgeRemoteObjectRequest = content.mojom.GinJavaBridgeRemo
 // Interface: GinJavaBridgeHost
 mojo.internal.Struct(
     content.mojom.GinJavaBridgeHost_GetObject_ParamsSpec, 'content.mojom.GinJavaBridgeHost_GetObject_Params', [
-      mojo.internal.StructField('object_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('receiver', 8, 0, mojo.internal.InterfaceRequest(content.mojom.GinJavaBridgeRemoteObjectRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(content.mojom.GinJavaBridgeRemoteObjectRemote), null, false, 0, undefined),
+      mojo.internal.StructField('object_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 

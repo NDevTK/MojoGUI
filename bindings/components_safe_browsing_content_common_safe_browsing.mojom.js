@@ -114,18 +114,18 @@ mojo.internal.Struct(
 // Struct: ThreatDOMDetailsNode
 mojo.internal.Struct(
     safe_browsing.mojom.ThreatDOMDetailsNodeSpec, 'safe_browsing.mojom.ThreatDOMDetailsNode', [
-      mojo.internal.StructField('node_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('tag_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('parent', 24, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('parent_node_id', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('children', 40, 0, mojo.internal.Array(url.mojom.UrlSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('child_node_ids', 48, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
-      mojo.internal.StructField('attributes', 56, 0, mojo.internal.Array(safe_browsing.mojom.AttributeNameValueSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('child_frame_token', 64, 0, blink.mojom.FrameTokenSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('inner_html', 72, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('tag_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('parent', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('children', 24, 0, mojo.internal.Array(url.mojom.UrlSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('child_node_ids', 32, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
+      mojo.internal.StructField('attributes', 40, 0, mojo.internal.Array(safe_browsing.mojom.AttributeNameValueSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('child_frame_token', 48, 0, blink.mojom.FrameTokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('inner_html', 56, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('node_id', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('parent_node_id', 68, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 88]]);
+    [[0, 80]]);
 
 // Interface: SafeBrowsing
 mojo.internal.Struct(

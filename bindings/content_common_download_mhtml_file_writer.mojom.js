@@ -47,11 +47,11 @@ mojo.internal.Union(
 mojo.internal.Struct(
     content.mojom.SerializeAsMHTMLParamsSpec, 'content.mojom.SerializeAsMHTMLParams', [
       mojo.internal.StructField('mhtml_boundary_marker', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('mhtml_binary_encoding', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('mhtml_popup_overlay_removal', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('digests_of_uris_to_skip', 16, 0, mojo.internal.Array(mojo_base.mojom.ByteStringSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('salt', 24, 0, mojo_base.mojom.ByteStringSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('output_handle', 32, 0, content.mojom.MhtmlOutputHandleSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('digests_of_uris_to_skip', 8, 0, mojo.internal.Array(mojo_base.mojom.ByteStringSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('salt', 16, 0, mojo_base.mojom.ByteStringSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('output_handle', 24, 0, content.mojom.MhtmlOutputHandleSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('mhtml_binary_encoding', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('mhtml_popup_overlay_removal', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 48]]);
 

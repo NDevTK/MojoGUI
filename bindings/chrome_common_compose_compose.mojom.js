@@ -115,8 +115,8 @@ mojo.internal.Struct(
     compose.mojom.ComposeStateSpec, 'compose.mojom.ComposeState', [
       mojo.internal.StructField('webui_state', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('response', 8, 0, compose.mojom.ComposeResponseSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('has_pending_request', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('feedback', 24, 0, compose.mojom.UserFeedbackSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('feedback', 16, 0, compose.mojom.UserFeedbackSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('has_pending_request', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -132,14 +132,14 @@ mojo.internal.Struct(
 // Struct: OpenMetadata
 mojo.internal.Struct(
     compose.mojom.OpenMetadataSpec, 'compose.mojom.OpenMetadata', [
-      mojo.internal.StructField('fre_complete', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('msbb_state', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('initial_input', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('text_selected', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('compose_state', 24, 0, compose.mojom.ComposeStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('configurable_params', 32, 0, compose.mojom.ConfigurableParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('initial_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('compose_state', 8, 0, compose.mojom.ComposeStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('configurable_params', 16, 0, compose.mojom.ConfigurableParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('fre_complete', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('msbb_state', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('text_selected', 24, 2, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 40]]);
 
 // Interface: ComposeSessionUntrustedPageHandlerFactory
 mojo.internal.Struct(

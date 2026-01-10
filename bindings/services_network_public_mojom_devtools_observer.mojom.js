@@ -58,11 +58,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('priority', 16, 0, network.mojom.RequestPrioritySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('referrer_policy', 24, 0, network.mojom.URLRequestReferrerPolicySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('trust_token_params', 32, 0, network.mojom.TrustTokenParamsSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('has_user_gesture', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('resource_type', 44, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('is_ad_related', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('resource_type', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('has_user_gesture', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_ad_related', 44, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 56]]);
 
 // Struct: URLResponseHeadDevToolsInfo
 mojo.internal.Struct(
@@ -72,21 +72,21 @@ mojo.internal.Struct(
       mojo.internal.StructField('mime_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('charset', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('load_timing', 32, 0, network.mojom.LoadTimingInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('cert_status', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('encoded_data_length', 48, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('was_in_prefetch_cache', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('was_fetched_via_service_worker', 56, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('cache_storage_cache_name', 64, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('alpn_negotiated_protocol', 72, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('alternate_protocol_usage', 80, 0, network.mojom.AlternateProtocolUsageSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('was_fetched_via_spdy', 88, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('service_worker_response_source', 96, 0, network.mojom.FetchResponseSourceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('service_worker_router_info', 104, 0, network.mojom.ServiceWorkerRouterInfoSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('ssl_info', 112, 0, network.mojom.SSLInfoSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('remote_endpoint', 120, 0, network.mojom.IPEndPointSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('emitted_extra_info', 128, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('encoded_data_length', 40, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('cache_storage_cache_name', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('alpn_negotiated_protocol', 56, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('alternate_protocol_usage', 64, 0, network.mojom.AlternateProtocolUsageSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('service_worker_response_source', 72, 0, network.mojom.FetchResponseSourceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('service_worker_router_info', 80, 0, network.mojom.ServiceWorkerRouterInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('ssl_info', 88, 0, network.mojom.SSLInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('remote_endpoint', 96, 0, network.mojom.IPEndPointSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('cert_status', 104, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('was_in_prefetch_cache', 108, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('was_fetched_via_service_worker', 108, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('was_fetched_via_spdy', 108, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('emitted_extra_info', 108, 3, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 144]]);
+    [[0, 120]]);
 
 // Struct: OtherPartitionInfo
 mojo.internal.Struct(
@@ -115,8 +115,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('headers', 16, 0, mojo.internal.Array(network.mojom.HttpRawHeaderPairSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('raw_response_headers', 24, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('resource_address_space', 32, 0, network.mojom.IPAddressSpaceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('http_status_code', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('cookie_partition_key', 48, 0, network.mojom.CookiePartitionKeySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('cookie_partition_key', 40, 0, network.mojom.CookiePartitionKeySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('http_status_code', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -131,9 +131,9 @@ mojo.internal.Struct(
     network.mojom.DevToolsObserver_OnPrivateNetworkRequest_ParamsSpec, 'network.mojom.DevToolsObserver_OnPrivateNetworkRequest_Params', [
       mojo.internal.StructField('devtool_request_id', 0, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('is_warning', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('resource_address_space', 24, 0, network.mojom.IPAddressSpaceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('client_security_state', 32, 0, network.mojom.ClientSecurityStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('resource_address_space', 16, 0, network.mojom.IPAddressSpaceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('client_security_state', 24, 0, network.mojom.ClientSecurityStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('is_warning', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 48]]);
 

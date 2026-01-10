@@ -114,11 +114,11 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.projector.mojom.PendingScreencastSpec, 'ash.projector.mojom.PendingScreencast', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('upload_progress', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('created_time', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('upload_failed', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('created_time', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('upload_progress', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('upload_failed', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 // Struct: XhrResponse
 mojo.internal.Struct(

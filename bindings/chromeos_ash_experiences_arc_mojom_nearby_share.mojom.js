@@ -161,9 +161,9 @@ arc.mojom.NearbyShareSessionInstanceRequest = arc.mojom.NearbyShareSessionInstan
 // Interface: NearbyShareHost
 mojo.internal.Struct(
     arc.mojom.NearbyShareHost_StartNearbyShare_ParamsSpec, 'arc.mojom.NearbyShareHost_StartNearbyShare_Params', [
-      mojo.internal.StructField('task_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('info', 8, 0, arc.mojom.ShareIntentInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('instance', 16, 0, mojo.internal.InterfaceProxy(arc.mojom.NearbyShareSessionInstanceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('info', 0, 0, arc.mojom.ShareIntentInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('instance', 8, 0, mojo.internal.InterfaceProxy(arc.mojom.NearbyShareSessionInstanceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('task_id', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 

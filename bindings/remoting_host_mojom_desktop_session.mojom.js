@@ -296,9 +296,9 @@ mojo.internal.Union(
 // Struct: AudioPacket
 mojo.internal.Struct(
     remoting.mojom.AudioPacketSpec, 'remoting.mojom.AudioPacket', [
-      mojo.internal.StructField('timestamp', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('data', 8, 0, mojo.internal.Array(mojo_base.mojom.ByteStringSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('kInvalid', 16, 0, mojo.internal.Pointer, -1, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(mojo_base.mojom.ByteStringSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('kInvalid', 8, 0, mojo.internal.Pointer, -1, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -313,11 +313,11 @@ mojo.internal.Struct(
 // Struct: KeyEvent
 mojo.internal.Struct(
     remoting.mojom.KeyEventSpec, 'remoting.mojom.KeyEvent', [
-      mojo.internal.StructField('pressed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('usb_keycode', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('lock_states', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('caps_lock_state', 16, 0, remoting.mojom.BoolSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('num_lock_state', 24, 0, remoting.mojom.BoolSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('caps_lock_state', 0, 0, remoting.mojom.BoolSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('num_lock_state', 8, 0, remoting.mojom.BoolSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('usb_keycode', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('lock_states', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('pressed', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -347,11 +347,11 @@ mojo.internal.Struct(
 // Struct: TouchEventPoint
 mojo.internal.Struct(
     remoting.mojom.TouchEventPointSpec, 'remoting.mojom.TouchEventPoint', [
-      mojo.internal.StructField('id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('position', 8, 0, gfx.mojom.PointFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('radius', 16, 0, gfx.mojom.PointFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('angle', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('pressure', 28, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('position', 0, 0, gfx.mojom.PointFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('radius', 8, 0, gfx.mojom.PointFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('id', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('angle', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('pressure', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -366,21 +366,21 @@ mojo.internal.Struct(
 // Struct: FractionalCoordinate
 mojo.internal.Struct(
     remoting.mojom.FractionalCoordinateSpec, 'remoting.mojom.FractionalCoordinate', [
-      mojo.internal.StructField('x', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('y', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('screen_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('screen_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('x', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('y', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: DesktopEnvironmentOptions
 mojo.internal.Struct(
     remoting.mojom.DesktopEnvironmentOptionsSpec, 'remoting.mojom.DesktopEnvironmentOptions', [
-      mojo.internal.StructField('enable_curtaining', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('enable_user_interface', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('enable_notifications', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('terminate_upon_input', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('enable_remote_webauthn', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('desktop_capture_options', 8, 0, remoting.mojom.DesktopCaptureOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('desktop_capture_options', 0, 0, remoting.mojom.DesktopCaptureOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('enable_curtaining', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable_user_interface', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable_notifications', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('terminate_upon_input', 8, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable_remote_webauthn', 8, 4, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -439,8 +439,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     remoting.mojom.VideoLayoutSpec, 'remoting.mojom.VideoLayout', [
       mojo.internal.StructField('tracks', 0, 0, mojo.internal.Array(remoting.mojom.VideoTrackLayoutSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('supports_full_desktop_capture', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('primary_screen_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('primary_screen_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('supports_full_desktop_capture', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -551,11 +551,11 @@ remoting.mojom.DesktopSessionRequestHandlerRequest = remoting.mojom.DesktopSessi
 // Interface: DesktopSessionManager
 mojo.internal.Struct(
     remoting.mojom.DesktopSessionManager_CreateDesktopSession_ParamsSpec, 'remoting.mojom.DesktopSessionManager_CreateDesktopSession_Params', [
-      mojo.internal.StructField('terminal_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('screen_resolution', 8, 0, remoting.mojom.ScreenResolutionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('is_virtual_terminal', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('screen_resolution', 0, 0, remoting.mojom.ScreenResolutionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('terminal_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_virtual_terminal', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     remoting.mojom.DesktopSessionManager_CloseDesktopSession_ParamsSpec, 'remoting.mojom.DesktopSessionManager_CloseDesktopSession_Params', [
@@ -565,8 +565,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     remoting.mojom.DesktopSessionManager_SetScreenResolution_ParamsSpec, 'remoting.mojom.DesktopSessionManager_SetScreenResolution_Params', [
-      mojo.internal.StructField('terminal_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('screen_resolution', 8, 0, remoting.mojom.ScreenResolutionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('screen_resolution', 0, 0, remoting.mojom.ScreenResolutionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('terminal_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1252,11 +1252,11 @@ remoting.mojom.VideoCapturerRequest = remoting.mojom.VideoCapturerPendingReceive
 // Interface: VideoCapturerEventHandler
 mojo.internal.Struct(
     remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionCreated_ParamsSpec, 'remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionCreated_Params', [
-      mojo.internal.StructField('id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('region', 8, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('size', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('size', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionReleased_ParamsSpec, 'remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionReleased_Params', [

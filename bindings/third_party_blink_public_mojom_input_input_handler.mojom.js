@@ -156,77 +156,77 @@ blink.mojom.FocusState = {
 // Struct: KeyData
 mojo.internal.Struct(
     blink.mojom.KeyDataSpec, 'blink.mojom.KeyData', [
-      mojo.internal.StructField('dom_key', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('dom_code', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('windows_key_code', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('native_key_code', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('is_system_key', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_browser_shortcut', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_confirmed_physical_keyboard_input', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('text', 24, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('unmodified_text', 32, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('text', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('unmodified_text', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('dom_key', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('dom_code', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('windows_key_code', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('native_key_code', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_system_key', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_browser_shortcut', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_confirmed_physical_keyboard_input', 32, 2, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 48]]);
 
 // Struct: PointerData
 mojo.internal.Struct(
     blink.mojom.PointerDataSpec, 'blink.mojom.PointerData', [
-      mojo.internal.StructField('pointer_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('force', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('tilt_x', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('tilt_y', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('tangential_pressure', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('twist', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('button', 32, 0, blink.mojom.ButtonSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('pointer_type', 40, 0, ui.mojom.EventPointerTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('movement_x', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('movement_y', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('is_raw_movement_event', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('widget_position', 64, 0, gfx.mojom.PointFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('screen_position', 72, 0, gfx.mojom.PointFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('mouse_data', 80, 0, blink.mojom.MouseDataSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('device_id', 88, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('tilt_x', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('tilt_y', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('button', 16, 0, blink.mojom.ButtonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('pointer_type', 24, 0, ui.mojom.EventPointerTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('widget_position', 32, 0, gfx.mojom.PointFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('screen_position', 40, 0, gfx.mojom.PointFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('mouse_data', 48, 0, blink.mojom.MouseDataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('pointer_id', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('force', 60, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('tangential_pressure', 64, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('twist', 68, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('movement_x', 72, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('movement_y', 76, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('device_id', 80, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_raw_movement_event', 84, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 104]]);
+    [[0, 96]]);
 
 // Struct: WheelData
 mojo.internal.Struct(
     blink.mojom.WheelDataSpec, 'blink.mojom.WheelData', [
-      mojo.internal.StructField('delta_x', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('delta_y', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('wheel_ticks_x', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('wheel_ticks_y', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('acceleration_ratio_x', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('acceleration_ratio_y', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('phase', 24, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('momentum_phase', 25, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('cancelable', 32, 0, blink.mojom.DispatchTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('event_action', 40, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('delta_units', 41, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('cancelable', 0, 0, blink.mojom.DispatchTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('delta_x', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('delta_y', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('wheel_ticks_x', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('wheel_ticks_y', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('acceleration_ratio_x', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('acceleration_ratio_y', 28, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('phase', 32, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('momentum_phase', 33, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('event_action', 34, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('delta_units', 35, 0, mojo.internal.Uint8, 0, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 48]]);
 
 // Struct: MouseData
 mojo.internal.Struct(
     blink.mojom.MouseDataSpec, 'blink.mojom.MouseData', [
-      mojo.internal.StructField('click_count', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('wheel_data', 8, 0, blink.mojom.WheelDataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('wheel_data', 0, 0, blink.mojom.WheelDataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('click_count', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: ScrollData
 mojo.internal.Struct(
     blink.mojom.ScrollDataSpec, 'blink.mojom.ScrollData', [
-      mojo.internal.StructField('delta_x', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('delta_y', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('delta_units', 8, 0, ui.mojom.ScrollGranularitySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('target_viewport', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('inertial_phase', 24, 0, blink.mojom.InertialPhaseStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('synthetic', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('pointer_count', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('cursor_control', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('delta_units', 0, 0, ui.mojom.ScrollGranularitySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('inertial_phase', 8, 0, blink.mojom.InertialPhaseStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('delta_x', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('delta_y', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('pointer_count', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('target_viewport', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('synthetic', 28, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('cursor_control', 28, 2, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 40]]);
 
 // Struct: PinchBeginData
 mojo.internal.Struct(
@@ -282,18 +282,18 @@ mojo.internal.Struct(
       mojo.internal.StructField('screen_position', 0, 0, gfx.mojom.PointFSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('widget_position', 8, 0, gfx.mojom.PointFSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('source_device', 16, 0, blink.mojom.GestureDeviceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('is_source_touch_event_set_blocking', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('primary_pointer_type', 32, 0, ui.mojom.EventPointerTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('primary_unique_touch_event_id', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('unique_touch_event_id', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('contact_size', 48, 0, gfx.mojom.SizeSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('scroll_data', 56, 0, blink.mojom.ScrollDataSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('pinch_begin_data', 64, 0, blink.mojom.PinchBeginDataSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('pinch_update_data', 72, 0, blink.mojom.PinchUpdateDataSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('pinch_end_data', 80, 0, blink.mojom.PinchEndDataSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('tap_data', 88, 0, blink.mojom.TapDataSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('tap_down_data', 96, 0, blink.mojom.TapDownDataSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('fling_data', 104, 0, blink.mojom.FlingDataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('primary_pointer_type', 24, 0, ui.mojom.EventPointerTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('contact_size', 32, 0, gfx.mojom.SizeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('scroll_data', 40, 0, blink.mojom.ScrollDataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('pinch_begin_data', 48, 0, blink.mojom.PinchBeginDataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('pinch_update_data', 56, 0, blink.mojom.PinchUpdateDataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('pinch_end_data', 64, 0, blink.mojom.PinchEndDataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('tap_data', 72, 0, blink.mojom.TapDataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('tap_down_data', 80, 0, blink.mojom.TapDownDataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('fling_data', 88, 0, blink.mojom.FlingDataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('primary_unique_touch_event_id', 96, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('unique_touch_event_id', 100, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_source_touch_event_set_blocking', 104, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 120]]);
 
@@ -301,10 +301,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.TouchPointSpec, 'blink.mojom.TouchPoint', [
       mojo.internal.StructField('state', 0, 0, blink.mojom.TouchStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('radius_x', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('radius_y', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('rotation_angle', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('pointer_data', 24, 0, blink.mojom.PointerDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('pointer_data', 8, 0, blink.mojom.PointerDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('radius_x', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('radius_y', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('rotation_angle', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -312,11 +312,11 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.TouchDataSpec, 'blink.mojom.TouchData', [
       mojo.internal.StructField('cancelable', 0, 0, blink.mojom.DispatchTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('moved_beyond_slop_region', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('touch_start_or_first_move', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('hovering', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('unique_touch_event_id', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('touches', 16, 0, mojo.internal.Array(blink.mojom.TouchPointSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('touches', 8, 0, mojo.internal.Array(blink.mojom.TouchPointSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('unique_touch_event_id', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('moved_beyond_slop_region', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('touch_start_or_first_move', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('hovering', 20, 2, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -324,14 +324,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.EventSpec, 'blink.mojom.Event', [
       mojo.internal.StructField('type', 0, 0, blink.mojom.EventTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('modifiers', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('timestamp', 16, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('latency', 24, 0, ui.mojom.LatencyInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('event_latency_metadata', 32, 0, ui.mojom.EventLatencyMetadataSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('key_data', 40, 0, blink.mojom.KeyDataSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('pointer_data', 48, 0, blink.mojom.PointerDataSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('gesture_data', 56, 0, blink.mojom.GestureDataSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('touch_data', 64, 0, blink.mojom.TouchDataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('timestamp', 8, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('latency', 16, 0, ui.mojom.LatencyInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('event_latency_metadata', 24, 0, ui.mojom.EventLatencyMetadataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('key_data', 32, 0, blink.mojom.KeyDataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('pointer_data', 40, 0, blink.mojom.PointerDataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('gesture_data', 48, 0, blink.mojom.GestureDataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('touch_data', 56, 0, blink.mojom.TouchDataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('modifiers', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 80]]);
 
@@ -575,25 +575,25 @@ blink.mojom.WidgetInputHandlerHostRequest = blink.mojom.WidgetInputHandlerHostPe
 // Interface: FrameWidgetInputHandler
 mojo.internal.Struct(
     blink.mojom.FrameWidgetInputHandler_AddImeTextSpansToExistingText_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_AddImeTextSpansToExistingText_Params', [
-      mojo.internal.StructField('start', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('end', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('ime_text_spans', 8, 0, mojo.internal.Array(ui.mojom.ImeTextSpanSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('ime_text_spans', 0, 0, mojo.internal.Array(ui.mojom.ImeTextSpanSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('start', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('end', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     blink.mojom.FrameWidgetInputHandler_ClearImeTextSpansByType_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_ClearImeTextSpansByType_Params', [
-      mojo.internal.StructField('start', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('end', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('type', 8, 0, ui.mojom.ImeTextSpanTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, ui.mojom.ImeTextSpanTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('start', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('end', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     blink.mojom.FrameWidgetInputHandler_SetCompositionFromExistingText_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_SetCompositionFromExistingText_Params', [
-      mojo.internal.StructField('start', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('end', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('ime_text_spans', 8, 0, mojo.internal.Array(ui.mojom.ImeTextSpanSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('ime_text_spans', 0, 0, mojo.internal.Array(ui.mojom.ImeTextSpanSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('start', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('end', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -606,9 +606,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndReplace_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndReplace_Params', [
-      mojo.internal.StructField('before', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('after', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('replacement_text', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('replacement_text', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('before', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('after', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -728,9 +728,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.FrameWidgetInputHandler_AdjustSelectionByCharacterOffset_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_AdjustSelectionByCharacterOffset_Params', [
-      mojo.internal.StructField('start', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('end', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('behavior', 8, 0, blink.mojom.SelectionMenuBehaviorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('behavior', 0, 0, blink.mojom.SelectionMenuBehaviorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('start', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('end', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1205,9 +1205,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('text', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('ime_text_spans', 8, 0, mojo.internal.Array(ui.mojom.ImeTextSpanSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('range', 16, 0, gfx.mojom.RangeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('start', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('end', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('ime_state', 32, 0, blink.mojom.ImeStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('ime_state', 24, 0, blink.mojom.ImeStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('start', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('end', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -1309,8 +1309,8 @@ mojo.internal.Struct(
     blink.mojom.WidgetInputHandler_UpdateBrowserControlsState_ParamsSpec, 'blink.mojom.WidgetInputHandler_UpdateBrowserControlsState_Params', [
       mojo.internal.StructField('constraints', 0, 0, cc.mojom.BrowserControlsStateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('current', 8, 0, cc.mojom.BrowserControlsStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('animate', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('offset_tag_modifications', 24, 0, cc.mojom.BrowserControlsOffsetTagModificationsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('offset_tag_modifications', 16, 0, cc.mojom.BrowserControlsOffsetTagModificationsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('animate', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
 

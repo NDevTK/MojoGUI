@@ -38,12 +38,12 @@ mojo.internal.Struct(
 // Struct: ImageAnnotationScore
 mojo.internal.Struct(
     chromeos.machine_learning.mojom.ImageAnnotationScoreSpec, 'chromeos.machine_learning.mojom.ImageAnnotationScore', [
-      mojo.internal.StructField('id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('DEPRECATED_confidence', 4, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('mid', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('name', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('score', 24, 0, mojo.internal.Float, 0, false, 1, undefined),
-      mojo.internal.StructField('bounding_box', 32, 0, gfx.mojom.RectSpec.$, null, true, 1, undefined),
+      mojo.internal.StructField('mid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('DEPRECATED_confidence', 20, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('bounding_box', 24, 0, gfx.mojom.RectSpec.$, null, true, 1, undefined),
+      mojo.internal.StructField('score', 32, 0, mojo.internal.Float, 0, false, 1, undefined),
     ],
     [[0, 32], [1, 48]]);
 

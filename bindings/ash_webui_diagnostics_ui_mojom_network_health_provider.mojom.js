@@ -104,9 +104,9 @@ mojo.internal.Union(
 mojo.internal.Struct(
     ash.diagnostics.mojom.IPConfigPropertiesSpec, 'ash.diagnostics.mojom.IPConfigProperties', [
       mojo.internal.StructField('name_servers', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('routing_prefix', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('gateway', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('ip_address', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('gateway', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('ip_address', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('routing_prefix', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -116,13 +116,13 @@ mojo.internal.Struct(
       mojo.internal.StructField('iccid', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('eid', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('network_technology', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('roaming', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('roaming_state', 32, 0, ash.diagnostics.mojom.RoamingStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('roaming_state', 24, 0, ash.diagnostics.mojom.RoamingStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('lock_type', 32, 0, ash.diagnostics.mojom.LockTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('signal_strength', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('sim_locked', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('lock_type', 48, 0, ash.diagnostics.mojom.LockTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('roaming', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('sim_locked', 44, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 56]]);
 
 // Struct: EthernetStateProperties
 mojo.internal.Struct(
@@ -134,11 +134,11 @@ mojo.internal.Struct(
 // Struct: WiFiStateProperties
 mojo.internal.Struct(
     ash.diagnostics.mojom.WiFiStatePropertiesSpec, 'ash.diagnostics.mojom.WiFiStateProperties', [
-      mojo.internal.StructField('signal_strength', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('frequency', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('ssid', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('bssid', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('security', 24, 0, ash.diagnostics.mojom.SecurityTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('ssid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('bssid', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('security', 16, 0, ash.diagnostics.mojom.SecurityTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('signal_strength', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('frequency', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 

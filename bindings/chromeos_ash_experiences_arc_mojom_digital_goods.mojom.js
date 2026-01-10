@@ -38,12 +38,12 @@ mojo.internal.Struct(
     arc.mojom.PurchaseDetailsSpec, 'arc.mojom.PurchaseDetails', [
       mojo.internal.StructField('item_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('purchase_token', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('acknowledged', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('purchase_state', 24, 0, arc.mojom.PurchaseStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('purchase_time', 32, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('will_auto_renew', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('purchase_state', 16, 0, arc.mojom.PurchaseStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('purchase_time', 24, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('acknowledged', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('will_auto_renew', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 48]]);
 
 // Interface: DigitalGoodsInstance
 mojo.internal.Struct(

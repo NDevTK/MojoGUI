@@ -71,21 +71,21 @@ mojo.internal.Struct(
       mojo.internal.StructField('visibility', 16, 0, discards.mojom.LifecycleUnitVisibilitySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('loading_state', 24, 0, mojom.LifecycleUnitLoadingStateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('state', 32, 0, mojom.LifecycleUnitStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('can_discard', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('cannot_discard_reasons', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('can_freeze', 56, 0, discards.mojom.CanFreezeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('cannot_freeze_reasons', 64, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('discard_count', 72, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('discard_reason', 80, 0, mojom.LifecycleUnitDiscardReasonSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('utility_rank', 88, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('last_active_seconds', 92, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('id', 96, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('is_auto_discardable', 100, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('site_engagement_score', 104, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('has_focus', 112, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('state_change_time', 120, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('cannot_discard_reasons', 40, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('can_freeze', 48, 0, discards.mojom.CanFreezeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('cannot_freeze_reasons', 56, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('discard_reason', 64, 0, mojom.LifecycleUnitDiscardReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('site_engagement_score', 72, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('state_change_time', 80, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('discard_count', 88, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('utility_rank', 92, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('last_active_seconds', 96, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('id', 100, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('can_discard', 104, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_auto_discardable', 104, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_focus', 104, 2, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 136]]);
+    [[0, 120]]);
 
 // Struct: PageInfo
 mojo.internal.Struct(
@@ -167,8 +167,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     discards.mojom.DetailsProvider_DiscardById_ParamsSpec, 'discards.mojom.DetailsProvider_DiscardById_Params', [
-      mojo.internal.StructField('tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('reason', 8, 0, mojom.LifecycleUnitDiscardReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 0, 0, mojom.LifecycleUnitDiscardReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('tab_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 

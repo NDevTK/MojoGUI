@@ -365,8 +365,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.VideoCaptureFormatSpec, 'media.mojom.VideoCaptureFormat', [
       mojo.internal.StructField('frame_size', 0, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('frame_rate', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('pixel_format', 16, 0, media.mojom.VideoCapturePixelFormatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('pixel_format', 8, 0, media.mojom.VideoCapturePixelFormatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('frame_rate', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -377,9 +377,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('buffer_type', 8, 0, media.mojom.VideoCaptureBufferTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('resolution_change_policy', 16, 0, media.mojom.ResolutionChangePolicySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('power_line_frequency', 24, 0, media.mojom.PowerLineFrequencySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('enable_face_detection', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_high_dpi_enabled', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('capture_version_source', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('capture_version_source', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('enable_face_detection', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_high_dpi_enabled', 36, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -387,14 +387,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.VideoCaptureFeedbackSpec, 'media.mojom.VideoCaptureFeedback', [
       mojo.internal.StructField('resource_utilization', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('max_framerate_fps', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('max_pixels', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('require_mapped_frame', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('DEPRECATED_mapped_sizes', 24, 0, mojo.internal.Array(gfx.mojom.SizeSpec.$, false), null, true, 0, undefined),
-      mojo.internal.StructField('frame_id', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('has_frame_id', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('DEPRECATED_mapped_sizes', 8, 0, mojo.internal.Array(gfx.mojom.SizeSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('max_framerate_fps', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('max_pixels', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('frame_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('require_mapped_frame', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_frame_id', 28, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 40]]);
 
 // Struct: PlaneStrides
 mojo.internal.Struct(

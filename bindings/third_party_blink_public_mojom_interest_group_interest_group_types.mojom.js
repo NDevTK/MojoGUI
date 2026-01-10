@@ -259,11 +259,11 @@ mojo.internal.Struct(
 // Struct: BiddingBrowserSignals
 mojo.internal.Struct(
     blink.mojom.BiddingBrowserSignalsSpec, 'blink.mojom.BiddingBrowserSignals', [
-      mojo.internal.StructField('join_count', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('bid_count', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('prev_wins', 8, 0, mojo.internal.Array(blink.mojom.PreviousWinSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('for_debugging_only_in_cooldown_or_lockout', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('view_and_click_counts', 24, 0, blink.mojom.ViewAndClickCountsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('prev_wins', 0, 0, mojo.internal.Array(blink.mojom.PreviousWinSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('view_and_click_counts', 8, 0, blink.mojom.ViewAndClickCountsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('join_count', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('bid_count', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('for_debugging_only_in_cooldown_or_lockout', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -331,9 +331,9 @@ mojo.internal.Struct(
 // Struct: AuctionReportBuyerDebugModeConfig
 mojo.internal.Struct(
     blink.mojom.AuctionReportBuyerDebugModeConfigSpec, 'blink.mojom.AuctionReportBuyerDebugModeConfig', [
-      mojo.internal.StructField('is_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('debug_key_$flag', 0, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'debug_key_$value', originalFieldName: 'debug_key' }),
-      mojo.internal.StructField('debug_key_$value', 8, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'debug_key_$flag', originalFieldName: 'debug_key' }),
+      mojo.internal.StructField('debug_key_$value', 0, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'debug_key_$flag', originalFieldName: 'debug_key' }),
+      mojo.internal.StructField('is_enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('debug_key_$flag', 8, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'debug_key_$value', originalFieldName: 'debug_key' }),
     ],
     [[0, 24]]);
 
@@ -361,24 +361,24 @@ mojo.internal.Struct(
       mojo.internal.StructField('trusted_scoring_signals_url', 24, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('auction_ad_config_non_shared_params', 32, 0, blink.mojom.AuctionAdConfigNonSharedParamsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('direct_from_seller_signals', 40, 0, blink.mojom.AuctionAdConfigMaybePromiseDirectFromSellerSignalsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('expects_direct_from_seller_signals_header_ad_slot', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('seller_experiment_group_id_$flag', 48, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'seller_experiment_group_id_$value', originalFieldName: 'seller_experiment_group_id' }),
-      mojo.internal.StructField('seller_experiment_group_id_$value', 50, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'seller_experiment_group_id_$flag', originalFieldName: 'seller_experiment_group_id' }),
-      mojo.internal.StructField('all_buyer_experiment_group_id_$flag', 52, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'all_buyer_experiment_group_id_$value', originalFieldName: 'all_buyer_experiment_group_id' }),
-      mojo.internal.StructField('all_buyer_experiment_group_id_$value', 54, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'all_buyer_experiment_group_id_$flag', originalFieldName: 'all_buyer_experiment_group_id' }),
-      mojo.internal.StructField('per_buyer_experiment_group_ids', 56, 0, mojo.internal.Map(url.mojom.OriginSpec.$, mojo.internal.Uint16, false), null, false, 0, undefined),
-      mojo.internal.StructField('expects_additional_bids', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('aggregation_coordinator_origin', 72, 0, url.mojom.OriginSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('send_creative_scanning_metadata_$flag', 80, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'send_creative_scanning_metadata_$value', originalFieldName: 'send_creative_scanning_metadata' }),
-      mojo.internal.StructField('send_creative_scanning_metadata_$value', 80, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'send_creative_scanning_metadata_$flag', originalFieldName: 'send_creative_scanning_metadata' }),
+      mojo.internal.StructField('per_buyer_experiment_group_ids', 48, 0, mojo.internal.Map(url.mojom.OriginSpec.$, mojo.internal.Uint16, false), null, false, 0, undefined),
+      mojo.internal.StructField('aggregation_coordinator_origin', 56, 0, url.mojom.OriginSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('seller_experiment_group_id_$value', 64, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'seller_experiment_group_id_$flag', originalFieldName: 'seller_experiment_group_id' }),
+      mojo.internal.StructField('all_buyer_experiment_group_id_$value', 66, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'all_buyer_experiment_group_id_$flag', originalFieldName: 'all_buyer_experiment_group_id' }),
+      mojo.internal.StructField('expects_direct_from_seller_signals_header_ad_slot', 68, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('seller_experiment_group_id_$flag', 68, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'seller_experiment_group_id_$value', originalFieldName: 'seller_experiment_group_id' }),
+      mojo.internal.StructField('all_buyer_experiment_group_id_$flag', 68, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'all_buyer_experiment_group_id_$value', originalFieldName: 'all_buyer_experiment_group_id' }),
+      mojo.internal.StructField('expects_additional_bids', 68, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('send_creative_scanning_metadata_$flag', 68, 4, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'send_creative_scanning_metadata_$value', originalFieldName: 'send_creative_scanning_metadata' }),
+      mojo.internal.StructField('send_creative_scanning_metadata_$value', 68, 5, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'send_creative_scanning_metadata_$flag', originalFieldName: 'send_creative_scanning_metadata' }),
     ],
-    [[0, 96]]);
+    [[0, 80]]);
 
 // Struct: AuctionDataBuyerConfig
 mojo.internal.Struct(
     blink.mojom.AuctionDataBuyerConfigSpec, 'blink.mojom.AuctionDataBuyerConfig', [
-      mojo.internal.StructField('target_size_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'target_size_$value', originalFieldName: 'target_size' }),
-      mojo.internal.StructField('target_size_$value', 4, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'target_size_$flag', originalFieldName: 'target_size' }),
+      mojo.internal.StructField('target_size_$value', 0, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'target_size_$flag', originalFieldName: 'target_size' }),
+      mojo.internal.StructField('target_size_$flag', 4, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'target_size_$value', originalFieldName: 'target_size' }),
     ],
     [[0, 16]]);
 
@@ -386,8 +386,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.AuctionDataConfigSpec, 'blink.mojom.AuctionDataConfig', [
       mojo.internal.StructField('per_buyer_configs', 0, 0, mojo.internal.Map(url.mojom.OriginSpec.$, blink.mojom.AuctionDataBuyerConfigSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('request_size_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'request_size_$value', originalFieldName: 'request_size' }),
-      mojo.internal.StructField('request_size_$value', 12, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'request_size_$flag', originalFieldName: 'request_size' }),
+      mojo.internal.StructField('request_size_$value', 8, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'request_size_$flag', originalFieldName: 'request_size' }),
+      mojo.internal.StructField('request_size_$flag', 12, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'request_size_$value', originalFieldName: 'request_size' }),
     ],
     [[0, 24]]);
 

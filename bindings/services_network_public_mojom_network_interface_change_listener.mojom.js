@@ -21,11 +21,11 @@ network.mojom.NetworkInterfaceChangeListener_OnNetworkInterfacesChanged_ParamsSp
 // Struct: IfAddrMsg
 mojo.internal.Struct(
     network.mojom.IfAddrMsgSpec, 'network.mojom.IfAddrMsg', [
-      mojo.internal.StructField('ifa_family', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('ifa_prefixlen', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('ifa_flags', 2, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('ifa_scope', 3, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('ifa_index', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('ifa_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('ifa_family', 4, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('ifa_prefixlen', 5, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('ifa_flags', 6, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('ifa_scope', 7, 0, mojo.internal.Uint8, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 

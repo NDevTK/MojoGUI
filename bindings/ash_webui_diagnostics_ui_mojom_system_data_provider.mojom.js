@@ -77,11 +77,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('board_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('marketing_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('cpu_model_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('total_memory_kib', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('cpu_threads_count', 28, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('cpu_max_clock_speed_khz', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('version_info', 40, 0, ash.diagnostics.mojom.VersionInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('device_capabilities', 48, 0, ash.diagnostics.mojom.DeviceCapabilitiesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('version_info', 24, 0, ash.diagnostics.mojom.VersionInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('device_capabilities', 32, 0, ash.diagnostics.mojom.DeviceCapabilitiesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('total_memory_kib', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('cpu_max_clock_speed_khz', 44, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('cpu_threads_count', 48, 0, mojo.internal.Uint16, 0, false, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -97,10 +97,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.diagnostics.mojom.BatteryChargeStatusSpec, 'ash.diagnostics.mojom.BatteryChargeStatus', [
       mojo.internal.StructField('power_time', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('current_now_milliamps', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('charge_now_milliamp_hours', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('battery_state', 16, 0, ash.diagnostics.mojom.BatteryStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('power_adapter_status', 24, 0, ash.diagnostics.mojom.ExternalPowerSourceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('battery_state', 8, 0, ash.diagnostics.mojom.BatteryStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('power_adapter_status', 16, 0, ash.diagnostics.mojom.ExternalPowerSourceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('current_now_milliamps', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('charge_now_milliamp_hours', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -126,11 +126,11 @@ mojo.internal.Struct(
 // Struct: CpuUsage
 mojo.internal.Struct(
     ash.diagnostics.mojom.CpuUsageSpec, 'ash.diagnostics.mojom.CpuUsage', [
-      mojo.internal.StructField('percent_usage_user', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('percent_usage_system', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('percent_usage_free', 2, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('scaling_current_frequency_khz', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('average_cpu_temp_celsius', 4, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('scaling_current_frequency_khz', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('percent_usage_user', 6, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('percent_usage_system', 7, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('percent_usage_free', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 

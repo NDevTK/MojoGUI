@@ -47,8 +47,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.DateTimeChooser_OpenDateTimeDialog_ResponseParamsSpec, 'blink.mojom.DateTimeChooser_OpenDateTimeDialog_ResponseParams', [
-      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('dialog_value', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('dialog_value', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 

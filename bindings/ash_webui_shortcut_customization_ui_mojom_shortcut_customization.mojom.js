@@ -114,8 +114,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shortcut_customization.mojom.SimpleAcceleratorSpec, 'ash.shortcut_customization.mojom.SimpleAccelerator', [
       mojo.internal.StructField('key_code', 0, 0, ash.mojom.VKeySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('modifiers', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('key_state', 16, 0, ui.mojom.AcceleratorKeyStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('key_state', 8, 0, ui.mojom.AcceleratorKeyStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('modifiers', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -286,8 +286,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetConflictAccelerator_ParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetConflictAccelerator_Params', [
       mojo.internal.StructField('source', 0, 0, ash.mojom.AcceleratorSourceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('action_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('accelerator', 16, 0, ash.shortcut_customization.mojom.SimpleAcceleratorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('accelerator', 8, 0, ash.shortcut_customization.mojom.SimpleAcceleratorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('action_id', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -357,8 +357,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddAccelerator_ParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddAccelerator_Params', [
       mojo.internal.StructField('source', 0, 0, ash.mojom.AcceleratorSourceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('action_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('accelerator', 16, 0, ash.shortcut_customization.mojom.SimpleAcceleratorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('accelerator', 8, 0, ash.shortcut_customization.mojom.SimpleAcceleratorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('action_id', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -371,8 +371,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RemoveAccelerator_ParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RemoveAccelerator_Params', [
       mojo.internal.StructField('source', 0, 0, ash.mojom.AcceleratorSourceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('action_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('accelerator', 16, 0, ash.shortcut_customization.mojom.SimpleAcceleratorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('accelerator', 8, 0, ash.shortcut_customization.mojom.SimpleAcceleratorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('action_id', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -385,9 +385,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_ReplaceAccelerator_ParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_ReplaceAccelerator_Params', [
       mojo.internal.StructField('source', 0, 0, ash.mojom.AcceleratorSourceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('action_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('old_accelerator', 16, 0, ash.shortcut_customization.mojom.SimpleAcceleratorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('new_accelerator', 24, 0, ash.shortcut_customization.mojom.SimpleAcceleratorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('old_accelerator', 8, 0, ash.shortcut_customization.mojom.SimpleAcceleratorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('new_accelerator', 16, 0, ash.shortcut_customization.mojom.SimpleAcceleratorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('action_id', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -441,8 +441,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordAddOrEditSubactions_ParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordAddOrEditSubactions_Params', [
-      mojo.internal.StructField('is_add', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('subactions', 8, 0, ash.shortcut_customization.mojom.SubactionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('subactions', 0, 0, ash.shortcut_customization.mojom.SubactionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('is_add', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 

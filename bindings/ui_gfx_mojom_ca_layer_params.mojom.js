@@ -31,9 +31,9 @@ mojo.internal.Union(
 // Struct: CALayerParams
 mojo.internal.Struct(
     gfx.mojom.CALayerParamsSpec, 'gfx.mojom.CALayerParams', [
-      mojo.internal.StructField('is_empty', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('content', 8, 0, gfx.mojom.CALayerContentSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('pixel_size', 16, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('scale_factor', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('content', 0, 0, gfx.mojom.CALayerContentSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('pixel_size', 8, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('scale_factor', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('is_empty', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);

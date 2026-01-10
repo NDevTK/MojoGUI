@@ -108,8 +108,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     data_sharing_internals.mojom.PageHandler_GetAllGroups_ResponseParamsSpec, 'data_sharing_internals.mojom.PageHandler_GetAllGroups_ResponseParams', [
-      mojo.internal.StructField('is_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('data', 8, 0, mojo.internal.Array(data_sharing.mojom.GroupDataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(data_sharing.mojom.GroupDataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('is_success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -187,8 +187,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('event_time', 0, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('log_source', 8, 0, logger_common.mojom.LogSourceSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('source_file', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('source_line', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('message', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('message', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('source_line', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 48]]);
 

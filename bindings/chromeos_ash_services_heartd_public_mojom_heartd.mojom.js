@@ -64,8 +64,8 @@ mojo.internal.Struct(
 // Struct: Action
 mojo.internal.Struct(
     ash.heartd.mojom.ActionSpec, 'ash.heartd.mojom.Action', [
-      mojo.internal.StructField('failure_count', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('action', 8, 0, ash.heartd.mojom.ActionTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('action', 0, 0, ash.heartd.mojom.ActionTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('failure_count', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 

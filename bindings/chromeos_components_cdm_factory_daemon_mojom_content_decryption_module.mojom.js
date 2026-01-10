@@ -123,12 +123,12 @@ chromeos.cdm.mojom.DecryptStatus = {
 // Struct: CdmPromiseResult
 mojo.internal.Struct(
     chromeos.cdm.mojom.CdmPromiseResultSpec, 'chromeos.cdm.mojom.CdmPromiseResult', [
-      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('exception', 8, 0, chromeos.cdm.mojom.PromiseExceptionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('exception', 0, 0, chromeos.cdm.mojom.PromiseExceptionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('error_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('system_code', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('error_message', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('success', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 // Struct: CdmKeyInformation
 mojo.internal.Struct(
@@ -469,8 +469,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_Params', [
       mojo.internal.StructField('session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('has_additional_usable_key', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('keys_info', 16, 0, mojo.internal.Array(chromeos.cdm.mojom.CdmKeyInformationSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('keys_info', 8, 0, mojo.internal.Array(chromeos.cdm.mojom.CdmKeyInformationSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('has_additional_usable_key', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 

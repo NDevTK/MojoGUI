@@ -158,9 +158,9 @@ mojo.internal.Struct(
     auction_worklet.mojom.AggregatableReportForEventContributionSpec, 'auction_worklet.mojom.AggregatableReportForEventContribution', [
       mojo.internal.StructField('bucket', 0, 0, auction_worklet.mojom.ForEventSignalBucketSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('value', 8, 0, auction_worklet.mojom.ForEventSignalValueSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('filtering_id_$flag', 16, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'filtering_id_$value', originalFieldName: 'filtering_id' }),
-      mojo.internal.StructField('filtering_id_$value', 24, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'filtering_id_$flag', originalFieldName: 'filtering_id' }),
-      mojo.internal.StructField('event_type', 32, 0, auction_worklet.mojom.EventTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('filtering_id_$value', 16, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'filtering_id_$flag', originalFieldName: 'filtering_id' }),
+      mojo.internal.StructField('event_type', 24, 0, auction_worklet.mojom.EventTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('filtering_id_$flag', 32, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'filtering_id_$value', originalFieldName: 'filtering_id' }),
     ],
     [[0, 48]]);
 

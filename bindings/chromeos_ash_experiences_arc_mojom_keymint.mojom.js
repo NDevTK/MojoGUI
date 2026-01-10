@@ -680,10 +680,10 @@ mojo.internal.Struct(
 // Struct: CertificateRequest
 mojo.internal.Struct(
     arc.mojom.keymint.CertificateRequestSpec, 'arc.mojom.keymint.CertificateRequest', [
-      mojo.internal.StructField('test_mode', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('keys_to_sign', 8, 0, mojo.internal.Array(arc.mojom.keymint.KeyMintBlobSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('encryption_cert_chain', 16, 0, arc.mojom.keymint.KeyMintBlobSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('challenge', 24, 0, arc.mojom.keymint.KeyMintBlobSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('keys_to_sign', 0, 0, mojo.internal.Array(arc.mojom.keymint.KeyMintBlobSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('encryption_cert_chain', 8, 0, arc.mojom.keymint.KeyMintBlobSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('challenge', 16, 0, arc.mojom.keymint.KeyMintBlobSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('test_mode', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -952,8 +952,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintServer_DeviceLocked_ParamsSpec, 'arc.mojom.keymint.KeyMintServer_DeviceLocked_Params', [
-      mojo.internal.StructField('password_only', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('timestamp_token', 8, 0, arc.mojom.keymint.TimeStampTokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('timestamp_token', 0, 0, arc.mojom.keymint.TimeStampTokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('password_only', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -121,23 +121,23 @@ ash.hotspot_config.mojom.DisableReason = {
 // Struct: HotspotConfig
 mojo.internal.Struct(
     ash.hotspot_config.mojom.HotspotConfigSpec, 'ash.hotspot_config.mojom.HotspotConfig', [
-      mojo.internal.StructField('auto_disable', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('security', 8, 0, ash.hotspot_config.mojom.WiFiSecurityModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('band', 16, 0, ash.hotspot_config.mojom.WiFiBandSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('ssid', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('passphrase', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('bssid_randomization', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('security', 0, 0, ash.hotspot_config.mojom.WiFiSecurityModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('band', 8, 0, ash.hotspot_config.mojom.WiFiBandSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('ssid', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('passphrase', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('auto_disable', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('bssid_randomization', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 48]]);
 
 // Struct: HotspotInfo
 mojo.internal.Struct(
     ash.hotspot_config.mojom.HotspotInfoSpec, 'ash.hotspot_config.mojom.HotspotInfo', [
       mojo.internal.StructField('state', 0, 0, ash.hotspot_config.mojom.HotspotStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('client_count', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('allow_status', 16, 0, ash.hotspot_config.mojom.HotspotAllowStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('allowed_wifi_security_modes', 24, 0, mojo.internal.Array(ash.hotspot_config.mojom.WiFiSecurityModeSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('config', 32, 0, ash.hotspot_config.mojom.HotspotConfigSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('allow_status', 8, 0, ash.hotspot_config.mojom.HotspotAllowStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('allowed_wifi_security_modes', 16, 0, mojo.internal.Array(ash.hotspot_config.mojom.WiFiSecurityModeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('config', 24, 0, ash.hotspot_config.mojom.HotspotConfigSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('client_count', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 48]]);
 

@@ -27,10 +27,10 @@ batch_upload.mojom.Page_SendBatchUploadData_ParamsSpec = { $: {} };
 // Struct: DataItem
 mojo.internal.Struct(
     batch_upload.mojom.DataItemSpec, 'batch_upload.mojom.DataItem', [
-      mojo.internal.StructField('id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('icon_url', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('title', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('subtitle', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('icon_url', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('subtitle', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 

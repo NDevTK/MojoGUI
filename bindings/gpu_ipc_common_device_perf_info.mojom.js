@@ -38,11 +38,11 @@ gpu.mojom.HasDiscreteGpu = {
 // Struct: DevicePerfInfo
 mojo.internal.Struct(
     gpu.mojom.DevicePerfInfoSpec, 'gpu.mojom.DevicePerfInfo', [
-      mojo.internal.StructField('total_physical_memory_mb', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('total_disk_space_mb', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('hardware_concurrency', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('system_commit_limit_mb', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('d3d11_feature_level', 16, 0, gpu.mojom.Direct3DFeatureLevelSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('has_discrete_gpu', 24, 0, gpu.mojom.HasDiscreteGpuSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('d3d11_feature_level', 0, 0, gpu.mojom.Direct3DFeatureLevelSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('has_discrete_gpu', 8, 0, gpu.mojom.HasDiscreteGpuSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('total_physical_memory_mb', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('total_disk_space_mb', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('hardware_concurrency', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('system_commit_limit_mb', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 40]]);

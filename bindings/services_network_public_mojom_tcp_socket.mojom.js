@@ -48,36 +48,36 @@ network.mojom.TCPServerSocket_Accept_ResponseParamsSpec = { $: {} };
 // Struct: TCPKeepAliveOptions
 mojo.internal.Struct(
     network.mojom.TCPKeepAliveOptionsSpec, 'network.mojom.TCPKeepAliveOptions', [
-      mojo.internal.StructField('enable', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('delay', 2, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('delay', 0, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('enable', 2, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: TCPConnectedSocketOptions
 mojo.internal.Struct(
     network.mojom.TCPConnectedSocketOptionsSpec, 'network.mojom.TCPConnectedSocketOptions', [
-      mojo.internal.StructField('send_buffer_size', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('receive_buffer_size', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('no_delay', 8, 0, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('keep_alive_options', 16, 0, network.mojom.TCPKeepAliveOptionsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('keep_alive_options', 0, 0, network.mojom.TCPKeepAliveOptionsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('send_buffer_size', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('receive_buffer_size', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('no_delay', 16, 0, mojo.internal.Bool, true, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: TCPServerSocketOptions
 mojo.internal.Struct(
     network.mojom.TCPServerSocketOptionsSpec, 'network.mojom.TCPServerSocketOptions', [
-      mojo.internal.StructField('backlog', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('ipv6_only_$flag', 4, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'ipv6_only_$value', originalFieldName: 'ipv6_only' }),
-      mojo.internal.StructField('ipv6_only_$value', 4, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'ipv6_only_$flag', originalFieldName: 'ipv6_only' }),
-      mojo.internal.StructField('connection_tracker', 8, 0, mojo.internal.InterfaceProxy(network.mojom.SocketConnectionTrackerRemote), null, true, 0, undefined),
+      mojo.internal.StructField('connection_tracker', 0, 0, mojo.internal.InterfaceProxy(network.mojom.SocketConnectionTrackerRemote), null, true, 0, undefined),
+      mojo.internal.StructField('backlog', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('ipv6_only_$flag', 12, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'ipv6_only_$value', originalFieldName: 'ipv6_only' }),
+      mojo.internal.StructField('ipv6_only_$value', 12, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'ipv6_only_$flag', originalFieldName: 'ipv6_only' }),
     ],
     [[0, 24]]);
 
 // Interface: TCPBoundSocket
 mojo.internal.Struct(
     network.mojom.TCPBoundSocket_Listen_ParamsSpec, 'network.mojom.TCPBoundSocket_Listen_Params', [
-      mojo.internal.StructField('backlog', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('socket', 8, 0, mojo.internal.InterfaceRequest(network.mojom.TCPServerSocketRemote), null, false, 0, undefined),
+      mojo.internal.StructField('socket', 0, 0, mojo.internal.InterfaceRequest(network.mojom.TCPServerSocketRemote), null, false, 0, undefined),
+      mojo.internal.StructField('backlog', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -98,11 +98,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.TCPBoundSocket_Connect_ResponseParamsSpec, 'network.mojom.TCPBoundSocket_Connect_ResponseParams', [
-      mojo.internal.StructField('net_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('local_addr', 8, 0, network.mojom.IPEndPointSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('peer_addr', 16, 0, network.mojom.IPEndPointSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('receive_stream', 24, 0, mojo.internal.Pointer, null, true, 0, undefined),
-      mojo.internal.StructField('send_stream', 32, 0, mojo.internal.Pointer, null, true, 0, undefined),
+      mojo.internal.StructField('local_addr', 0, 0, network.mojom.IPEndPointSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('peer_addr', 8, 0, network.mojom.IPEndPointSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('receive_stream', 16, 0, mojo.internal.Pointer, null, true, 0, undefined),
+      mojo.internal.StructField('send_stream', 24, 0, mojo.internal.Pointer, null, true, 0, undefined),
+      mojo.internal.StructField('net_error', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -187,10 +187,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.TCPConnectedSocket_UpgradeToTLS_ResponseParamsSpec, 'network.mojom.TCPConnectedSocket_UpgradeToTLS_ResponseParams', [
-      mojo.internal.StructField('net_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('receive_stream', 8, 0, mojo.internal.Pointer, null, true, 0, undefined),
-      mojo.internal.StructField('send_stream', 16, 0, mojo.internal.Pointer, null, true, 0, undefined),
-      mojo.internal.StructField('ssl_info', 24, 0, network.mojom.SSLInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('receive_stream', 0, 0, mojo.internal.Pointer, null, true, 0, undefined),
+      mojo.internal.StructField('send_stream', 8, 0, mojo.internal.Pointer, null, true, 0, undefined),
+      mojo.internal.StructField('ssl_info', 16, 0, network.mojom.SSLInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('net_error', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -232,8 +232,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.TCPConnectedSocket_SetKeepAlive_ParamsSpec, 'network.mojom.TCPConnectedSocket_SetKeepAlive_Params', [
-      mojo.internal.StructField('enable', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('delay_secs', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('delay_secs', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('enable', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -431,11 +431,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.TCPServerSocket_Accept_ResponseParamsSpec, 'network.mojom.TCPServerSocket_Accept_ResponseParams', [
-      mojo.internal.StructField('net_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('remote_addr', 8, 0, network.mojom.IPEndPointSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('connected_socket', 16, 0, mojo.internal.InterfaceProxy(network.mojom.TCPConnectedSocketRemote), null, true, 0, undefined),
-      mojo.internal.StructField('send_stream', 24, 0, mojo.internal.Pointer, null, true, 0, undefined),
-      mojo.internal.StructField('receive_stream', 32, 0, mojo.internal.Pointer, null, true, 0, undefined),
+      mojo.internal.StructField('remote_addr', 0, 0, network.mojom.IPEndPointSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('connected_socket', 8, 0, mojo.internal.InterfaceProxy(network.mojom.TCPConnectedSocketRemote), null, true, 0, undefined),
+      mojo.internal.StructField('send_stream', 16, 0, mojo.internal.Pointer, null, true, 0, undefined),
+      mojo.internal.StructField('receive_stream', 24, 0, mojo.internal.Pointer, null, true, 0, undefined),
+      mojo.internal.StructField('net_error', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 48]]);
 

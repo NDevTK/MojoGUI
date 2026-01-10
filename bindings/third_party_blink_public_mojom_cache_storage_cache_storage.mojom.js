@@ -135,9 +135,9 @@ mojo.internal.Struct(
     blink.mojom.CacheStorageCache_Match_ParamsSpec, 'blink.mojom.CacheStorageCache_Match_Params', [
       mojo.internal.StructField('request', 0, 0, blink.mojom.FetchAPIRequestSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('query_options', 8, 0, blink.mojom.CacheQueryOptionsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('in_related_fetch_event', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('in_range_fetch_event', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('trace_id', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('trace_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('in_related_fetch_event', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('in_range_fetch_event', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -344,9 +344,9 @@ mojo.internal.Struct(
     blink.mojom.CacheStorage_Match_ParamsSpec, 'blink.mojom.CacheStorage_Match_Params', [
       mojo.internal.StructField('request', 0, 0, blink.mojom.FetchAPIRequestSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('match_options', 8, 0, blink.mojom.MultiCacheQueryOptionsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('in_related_fetch_event', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('in_range_fetch_event', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('trace_id', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('trace_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('in_related_fetch_event', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('in_range_fetch_event', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
 

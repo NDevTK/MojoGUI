@@ -159,9 +159,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('deprecated_icon_data', 40, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
       mojo.internal.StructField('priority', 48, 0, arc.mojom.ArcNotificationPrioritySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('time', 56, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('progress_current', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('progress_max', 68, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('buttons', 72, 0, mojo.internal.Array(arc.mojom.ArcNotificationButtonSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('buttons', 64, 0, mojo.internal.Array(arc.mojom.ArcNotificationButtonSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('progress_current', 72, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('progress_max', 76, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('no_clear', 80, 0, mojo.internal.Bool, false, false, 1, undefined),
       mojo.internal.StructField('ongoing_event', 80, 1, mojo.internal.Bool, false, false, 1, undefined),
       mojo.internal.StructField('texts', 88, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 3, undefined),
@@ -177,19 +177,19 @@ mojo.internal.Struct(
       mojo.internal.StructField('swipe_input_rect', 168, 0, arc.mojom.RectSpec.$, null, true, 14, undefined),
       mojo.internal.StructField('package_name', 176, 0, mojo.internal.String, null, true, 15, undefined),
       mojo.internal.StructField('flags', 184, 0, arc.mojom.ArcNotificationFlagsSpec.$, null, true, 17, undefined),
-      mojo.internal.StructField('indeterminate_progress', 192, 0, mojo.internal.Bool, false, false, 21, undefined),
-      mojo.internal.StructField('snapshot_image_public', 200, 0, arc.mojom.ArcBitmapSpec.$, null, true, 21, undefined),
-      mojo.internal.StructField('is_media_notification', 208, 0, mojo.internal.Bool, false, false, 23, undefined),
-      mojo.internal.StructField('style', 216, 0, arc.mojom.ArcNotificationStyleSpec.$, null, false, 26, undefined),
-      mojo.internal.StructField('is_action_enabled', 224, 0, mojo.internal.Bool, false, false, 26, undefined),
-      mojo.internal.StructField('is_inline_reply_enabled', 224, 1, mojo.internal.Bool, false, false, 27, undefined),
-      mojo.internal.StructField('render_on_chrome', 224, 2, mojo.internal.Bool, false, false, 28, undefined),
-      mojo.internal.StructField('group_key', 232, 0, mojo.internal.String, null, true, 29, undefined),
-      mojo.internal.StructField('reply_button_index', 240, 0, mojo.internal.Int32, 0, false, 30, undefined),
-      mojo.internal.StructField('children_data', 248, 0, mojo.internal.Array(arc.mojom.ArcNotificationDataSpec.$, false), null, true, 34, undefined),
-      mojo.internal.StructField('messages', 256, 0, mojo.internal.Array(arc.mojom.ArcNotificationMessageSpec.$, false), null, true, 35, undefined),
+      mojo.internal.StructField('snapshot_image_public', 192, 0, arc.mojom.ArcBitmapSpec.$, null, true, 21, undefined),
+      mojo.internal.StructField('indeterminate_progress', 200, 0, mojo.internal.Bool, false, false, 21, undefined),
+      mojo.internal.StructField('is_media_notification', 200, 1, mojo.internal.Bool, false, false, 23, undefined),
+      mojo.internal.StructField('style', 208, 0, arc.mojom.ArcNotificationStyleSpec.$, null, false, 26, undefined),
+      mojo.internal.StructField('is_action_enabled', 216, 0, mojo.internal.Bool, false, false, 26, undefined),
+      mojo.internal.StructField('is_inline_reply_enabled', 216, 1, mojo.internal.Bool, false, false, 27, undefined),
+      mojo.internal.StructField('render_on_chrome', 216, 2, mojo.internal.Bool, false, false, 28, undefined),
+      mojo.internal.StructField('group_key', 224, 0, mojo.internal.String, null, true, 29, undefined),
+      mojo.internal.StructField('reply_button_index', 232, 0, mojo.internal.Int32, 0, false, 30, undefined),
+      mojo.internal.StructField('children_data', 240, 0, mojo.internal.Array(arc.mojom.ArcNotificationDataSpec.$, false), null, true, 34, undefined),
+      mojo.internal.StructField('messages', 248, 0, mojo.internal.Array(arc.mojom.ArcNotificationMessageSpec.$, false), null, true, 35, undefined),
     ],
-    [[0, 88], [1, 96], [3, 112], [5, 120], [6, 128], [7, 144], [8, 152], [10, 160], [11, 168], [12, 176], [14, 184], [15, 192], [17, 200], [21, 216], [23, 224], [26, 240], [27, 240], [28, 240], [29, 248], [30, 256], [34, 264], [35, 272]]);
+    [[0, 88], [1, 96], [3, 112], [5, 120], [6, 128], [7, 144], [8, 152], [10, 160], [11, 168], [12, 176], [14, 184], [15, 192], [17, 200], [21, 216], [23, 216], [26, 232], [27, 232], [28, 232], [29, 240], [30, 248], [34, 256], [35, 264]]);
 
 // Struct: ArcDoNotDisturbStatus
 mojo.internal.Struct(
@@ -201,12 +201,12 @@ mojo.internal.Struct(
 // Struct: ArcNotificationUserActionData
 mojo.internal.Struct(
     arc.mojom.ArcNotificationUserActionDataSpec, 'arc.mojom.ArcNotificationUserActionData', [
-      mojo.internal.StructField('action_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('top_level_notification_key_deprecated', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('defer_until_unlock', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('to_be_focused_after_unlock', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('top_level_notification_key_deprecated', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('action_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('defer_until_unlock', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('to_be_focused_after_unlock', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: ArcLockScreenNotificationSetting
 mojo.internal.Struct(
@@ -511,8 +511,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.NotificationsInstance_SendNotificationButtonClickToAndroid_ParamsSpec, 'arc.mojom.NotificationsInstance_SendNotificationButtonClickToAndroid_Params', [
       mojo.internal.StructField('key', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('action_button_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('input', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('input', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('action_button_index', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 

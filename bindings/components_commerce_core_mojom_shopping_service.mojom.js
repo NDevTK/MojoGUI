@@ -83,8 +83,8 @@ shopping_service.mojom.UserFeedback = {
 mojo.internal.Struct(
     shopping_service.mojom.PricePointSpec, 'shopping_service.mojom.PricePoint', [
       mojo.internal.StructField('date', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('price', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('formatted_price', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('formatted_price', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('price', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 

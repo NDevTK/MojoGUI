@@ -20,8 +20,8 @@ mojo.internal.Struct(
     network.mojom.SystemDnsResolver_Resolve_ParamsSpec, 'network.mojom.SystemDnsResolver_Resolve_Params', [
       mojo.internal.StructField('hostname', 0, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('addr_family', 8, 0, network.mojom.AddressFamilySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('flags', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('network', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('network', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('flags', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 

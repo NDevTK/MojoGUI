@@ -18,8 +18,8 @@ device.mojom.NFCProvider_ResumeNFCOperations_ParamsSpec = { $: {} };
 // Interface: NFCProvider
 mojo.internal.Struct(
     device.mojom.NFCProvider_GetNFCForHost_ParamsSpec, 'device.mojom.NFCProvider_GetNFCForHost_Params', [
-      mojo.internal.StructField('host_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('receiver', 8, 0, mojo.internal.InterfaceRequest(device.mojom.NFCRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(device.mojom.NFCRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 

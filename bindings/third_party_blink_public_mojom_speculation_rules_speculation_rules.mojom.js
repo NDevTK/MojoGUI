@@ -58,15 +58,15 @@ mojo.internal.Struct(
       mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('action', 8, 0, blink.mojom.SpeculationActionSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('referrer', 16, 0, blink.mojom.ReferrerSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('requires_anonymous_client_ip_when_cross_origin', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('target_browsing_context_name_hint', 32, 0, blink.mojom.SpeculationTargetHintSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('eagerness', 40, 0, blink.mojom.SpeculationEagernessSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('no_vary_search_hint', 48, 0, network.mojom.NoVarySearchSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('injection_type', 56, 0, blink.mojom.SpeculationInjectionTypeSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('tags', 64, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('form_submission', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('target_browsing_context_name_hint', 24, 0, blink.mojom.SpeculationTargetHintSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('eagerness', 32, 0, blink.mojom.SpeculationEagernessSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('no_vary_search_hint', 40, 0, network.mojom.NoVarySearchSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('injection_type', 48, 0, blink.mojom.SpeculationInjectionTypeSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('tags', 56, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('requires_anonymous_client_ip_when_cross_origin', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('form_submission', 64, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 88]]);
+    [[0, 80]]);
 
 // Interface: SpeculationHost
 mojo.internal.Struct(

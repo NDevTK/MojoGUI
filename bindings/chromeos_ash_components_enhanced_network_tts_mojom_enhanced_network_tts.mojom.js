@@ -52,9 +52,9 @@ mojo.internal.Union(
 mojo.internal.Struct(
     ash.enhanced_network_tts.mojom.TtsRequestSpec, 'ash.enhanced_network_tts.mojom.TtsRequest', [
       mojo.internal.StructField('utterance', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('rate', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('voice', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('lang', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('voice', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('lang', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('rate', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -62,9 +62,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.enhanced_network_tts.mojom.TimingInfoSpec, 'ash.enhanced_network_tts.mojom.TimingInfo', [
       mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('text_offset', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('time_offset', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('duration', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('time_offset', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('duration', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('text_offset', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 

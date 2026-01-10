@@ -281,13 +281,13 @@ mojo.internal.Struct(
     chromecast.mojom.CastWebContents_SetAppProperties_ParamsSpec, 'chromecast.mojom.CastWebContents_SetAppProperties_Params', [
       mojo.internal.StructField('app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('session_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('is_audio_app', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('app_web_url', 24, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('enforce_feature_permissions', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('feature_permissions', 40, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
-      mojo.internal.StructField('additional_feature_permission_origins', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('app_web_url', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('feature_permissions', 24, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
+      mojo.internal.StructField('additional_feature_permission_origins', 32, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('is_audio_app', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enforce_feature_permissions', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 56]]);
 
 mojo.internal.Struct(
     chromecast.mojom.CastWebContents_SetGroupInfo_ParamsSpec, 'chromecast.mojom.CastWebContents_SetGroupInfo_Params', [

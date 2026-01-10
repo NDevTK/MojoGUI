@@ -55,10 +55,10 @@ device.mojom.LocationProviderManagerMode = {
 mojo.internal.Struct(
     device.mojom.AccessPointDataSpec, 'device.mojom.AccessPointData', [
       mojo.internal.StructField('mac_address', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('radio_signal_strength', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('channel', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('signal_to_noise', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('timestamp', 24, 0, mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('timestamp', 8, 0, mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('radio_signal_strength', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('channel', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('signal_to_noise', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -73,14 +73,14 @@ mojo.internal.Struct(
 // Struct: PositionCacheDiagnostics
 mojo.internal.Struct(
     device.mojom.PositionCacheDiagnosticsSpec, 'device.mojom.PositionCacheDiagnostics', [
-      mojo.internal.StructField('cache_size', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('last_hit', 8, 0, mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('last_miss', 16, 0, mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('hit_rate_$flag', 24, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'hit_rate_$value', originalFieldName: 'hit_rate' }),
-      mojo.internal.StructField('hit_rate_$value', 32, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'hit_rate_$flag', originalFieldName: 'hit_rate' }),
-      mojo.internal.StructField('last_network_result', 40, 0, device.mojom.GeopositionResultSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('last_hit', 0, 0, mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('last_miss', 8, 0, mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('hit_rate_$value', 16, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'hit_rate_$flag', originalFieldName: 'hit_rate' }),
+      mojo.internal.StructField('last_network_result', 24, 0, device.mojom.GeopositionResultSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('cache_size', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('hit_rate_$flag', 36, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'hit_rate_$value', originalFieldName: 'hit_rate' }),
     ],
-    [[0, 56]]);
+    [[0, 48]]);
 
 // Struct: WifiPollingPolicyDiagnostics
 mojo.internal.Struct(
@@ -107,8 +107,8 @@ mojo.internal.Struct(
     device.mojom.NetworkLocationResponseSpec, 'device.mojom.NetworkLocationResponse', [
       mojo.internal.StructField('latitude', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('longitude', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('accuracy_$flag', 16, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'accuracy_$value', originalFieldName: 'accuracy' }),
-      mojo.internal.StructField('accuracy_$value', 24, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'accuracy_$flag', originalFieldName: 'accuracy' }),
+      mojo.internal.StructField('accuracy_$value', 16, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'accuracy_$flag', originalFieldName: 'accuracy' }),
+      mojo.internal.StructField('accuracy_$flag', 24, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'accuracy_$value', originalFieldName: 'accuracy' }),
     ],
     [[0, 40]]);
 

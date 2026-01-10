@@ -83,9 +83,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('body_icon_alt_text', 48, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('progress', 56, 0, help_bubble.mojom.ProgressSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('buttons', 64, 0, mojo.internal.Array(help_bubble.mojom.HelpBubbleButtonParamsSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('focus_on_show_hint_$flag', 72, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'focus_on_show_hint_$value', originalFieldName: 'focus_on_show_hint' }),
-      mojo.internal.StructField('focus_on_show_hint_$value', 72, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'focus_on_show_hint_$flag', originalFieldName: 'focus_on_show_hint' }),
-      mojo.internal.StructField('timeout', 80, 0, mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('timeout', 72, 0, mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('focus_on_show_hint_$flag', 80, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'focus_on_show_hint_$value', originalFieldName: 'focus_on_show_hint' }),
+      mojo.internal.StructField('focus_on_show_hint_$value', 80, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'focus_on_show_hint_$flag', originalFieldName: 'focus_on_show_hint' }),
     ],
     [[0, 96]]);
 

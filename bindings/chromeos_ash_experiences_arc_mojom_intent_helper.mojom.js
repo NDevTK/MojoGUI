@@ -261,9 +261,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.ActivityIconSpec, 'arc.mojom.ActivityIcon', [
       mojo.internal.StructField('activity', 0, 0, arc.mojom.ActivityNameSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('width', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('height', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('icon', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('icon', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('width', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('height', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('icon_png_data', 24, 0, arc.mojom.RawIconPngDataSpec.$, null, true, 40, undefined),
     ],
     [[0, 32], [40, 40]]);
@@ -283,8 +283,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('activity', 8, 0, arc.mojom.ActivityNameSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('title', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('action_intent', 24, 0, arc.mojom.IntentInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('text_classifier_action', 32, 0, mojo.internal.Bool, false, false, 23, undefined),
-      mojo.internal.StructField('bitmap_icon', 40, 0, arc.mojom.ArcBitmapSpec.$, null, true, 23, undefined),
+      mojo.internal.StructField('bitmap_icon', 32, 0, arc.mojom.ArcBitmapSpec.$, null, true, 23, undefined),
+      mojo.internal.StructField('text_classifier_action', 40, 0, mojo.internal.Bool, false, false, 23, undefined),
     ],
     [[0, 40], [23, 56]]);
 
@@ -333,10 +333,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.CaptionStyleSpec, 'arc.mojom.CaptionStyle', [
       mojo.internal.StructField('user_locale', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('font_scale', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('text_color', 16, 0, arc.mojom.CaptionColorSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('background_color', 24, 0, arc.mojom.CaptionColorSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('text_shadow_type', 32, 0, arc.mojom.CaptionTextShadowTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('text_color', 8, 0, arc.mojom.CaptionColorSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('background_color', 16, 0, arc.mojom.CaptionColorSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('text_shadow_type', 24, 0, arc.mojom.CaptionTextShadowTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('font_scale', 32, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -482,14 +482,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.IntentHelperHost_LaunchCameraApp_ParamsSpec, 'arc.mojom.IntentHelperHost_LaunchCameraApp_Params', [
-      mojo.internal.StructField('intent_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('mode', 8, 0, arc.mojom.CameraIntentModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('should_handle_result', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('should_down_scale', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_secure', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('task_id', 20, 0, mojo.internal.Int32, 0, false, 36, undefined),
+      mojo.internal.StructField('mode', 0, 0, arc.mojom.CameraIntentModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('intent_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('should_handle_result', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('should_down_scale', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_secure', 12, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('task_id', 16, 0, mojo.internal.Int32, 0, false, 36, undefined),
     ],
-    [[0, 32], [36, 32]]);
+    [[0, 24], [36, 32]]);
 
 mojo.internal.Struct(
     arc.mojom.IntentHelperHost_OnIntentFiltersUpdatedForPackage_ParamsSpec, 'arc.mojom.IntentHelperHost_OnIntentFiltersUpdatedForPackage_Params', [
@@ -922,9 +922,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.IntentHelperInstance_HandleCameraResult_ParamsSpec, 'arc.mojom.IntentHelperInstance_HandleCameraResult_Params', [
-      mojo.internal.StructField('intent_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('action', 8, 0, arc.mojom.CameraIntentActionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('data', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('action', 0, 0, arc.mojom.CameraIntentActionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('intent_id', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 

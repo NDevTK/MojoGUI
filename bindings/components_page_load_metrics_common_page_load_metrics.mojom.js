@@ -75,8 +75,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('resource_load_timings', 32, 0, page_load_metrics.mojom.LcpResourceLoadTimingsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('type', 40, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('image_bpp', 48, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('image_request_priority_valid', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('image_request_priority_value', 64, 0, network.mojom.RequestPrioritySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('image_request_priority_value', 56, 0, network.mojom.RequestPrioritySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('image_request_priority_valid', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 80]]);
 
@@ -165,84 +165,84 @@ mojo.internal.Struct(
 // Struct: FrameMetadata
 mojo.internal.Struct(
     page_load_metrics.mojom.FrameMetadataSpec, 'page_load_metrics.mojom.FrameMetadata', [
-      mojo.internal.StructField('behavior_flags', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('main_frame_intersection_rect', 8, 0, gfx.mojom.RectSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('main_frame_viewport_rect', 16, 0, gfx.mojom.RectSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('main_frame_ad_rects', 24, 0, mojo.internal.Map(mojo.internal.Int32, gfx.mojom.RectSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('framework_detection_result', 32, 0, blink.mojom.JavaScriptFrameworkDetectionResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('main_frame_intersection_rect', 0, 0, gfx.mojom.RectSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('main_frame_viewport_rect', 8, 0, gfx.mojom.RectSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('main_frame_ad_rects', 16, 0, mojo.internal.Map(mojo.internal.Int32, gfx.mojom.RectSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('framework_detection_result', 24, 0, blink.mojom.JavaScriptFrameworkDetectionResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('behavior_flags', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 48]]);
 
 // Struct: SubresourceLoadMetrics
 mojo.internal.Struct(
     page_load_metrics.mojom.SubresourceLoadMetricsSpec, 'page_load_metrics.mojom.SubresourceLoadMetrics', [
-      mojo.internal.StructField('number_of_subresources_loaded', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('number_of_subresource_loads_handled_by_service_worker', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('service_worker_subresource_load_metrics', 8, 0, page_load_metrics.mojom.ServiceWorkerSubresourceLoadMetricsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('service_worker_subresource_load_metrics', 0, 0, page_load_metrics.mojom.ServiceWorkerSubresourceLoadMetricsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('number_of_subresources_loaded', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('number_of_subresource_loads_handled_by_service_worker', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: ServiceWorkerSubresourceLoadMetrics
 mojo.internal.Struct(
     page_load_metrics.mojom.ServiceWorkerSubresourceLoadMetricsSpec, 'page_load_metrics.mojom.ServiceWorkerSubresourceLoadMetrics', [
-      mojo.internal.StructField('image_handled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('image_fallback', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('css_handled', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('css_fallback', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('script_handled', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('script_fallback', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('font_handled', 0, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('font_fallback', 0, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('raw_handled', 1, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('raw_fallback', 1, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('svg_handled', 1, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('svg_fallback', 1, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('xsl_handled', 1, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('xsl_fallback', 1, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('link_prefetch_handled', 1, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('link_prefetch_fallback', 1, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('text_track_handled', 2, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('text_track_fallback', 2, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('audio_handled', 2, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('audio_fallback', 2, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('video_handled', 2, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('video_fallback', 2, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('manifest_handled', 2, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('manifest_fallback', 2, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('speculation_rules_handled', 3, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('speculation_rules_fallback', 3, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('mock_handled', 3, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('mock_fallback', 3, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('dictionary_handled', 3, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('dictionary_fallback', 3, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('matched_cache_router_source_count', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('matched_fetch_event_router_source_count', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('matched_network_router_source_count', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('matched_race_network_and_fetch_router_source_count', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('matched_race_network_and_cache_router_source_count', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('total_router_evaluation_time_for_subresources', 24, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('total_cache_lookup_time_for_subresources', 32, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('total_router_evaluation_time_for_subresources', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('total_cache_lookup_time_for_subresources', 8, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('matched_cache_router_source_count', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('matched_fetch_event_router_source_count', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('matched_network_router_source_count', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('matched_race_network_and_fetch_router_source_count', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('matched_race_network_and_cache_router_source_count', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('image_handled', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('image_fallback', 36, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('css_handled', 36, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('css_fallback', 36, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('script_handled', 36, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('script_fallback', 36, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('font_handled', 36, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('font_fallback', 36, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('raw_handled', 37, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('raw_fallback', 37, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('svg_handled', 37, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('svg_fallback', 37, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('xsl_handled', 37, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('xsl_fallback', 37, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('link_prefetch_handled', 37, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('link_prefetch_fallback', 37, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('text_track_handled', 38, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('text_track_fallback', 38, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('audio_handled', 38, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('audio_fallback', 38, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('video_handled', 38, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('video_fallback', 38, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('manifest_handled', 38, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('manifest_fallback', 38, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('speculation_rules_handled', 39, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('speculation_rules_fallback', 39, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('mock_handled', 39, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('mock_fallback', 39, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('dictionary_handled', 39, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('dictionary_fallback', 39, 5, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 48]]);
 
 // Struct: ResourceDataUpdate
 mojo.internal.Struct(
     page_load_metrics.mojom.ResourceDataUpdateSpec, 'page_load_metrics.mojom.ResourceDataUpdate', [
-      mojo.internal.StructField('request_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('delta_bytes', 8, 0, mojo_base.mojom.ByteCountSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('received_data_length', 16, 0, mojo_base.mojom.ByteCountSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('encoded_body_length', 24, 0, mojo_base.mojom.ByteCountSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('decoded_body_length', 32, 0, mojo_base.mojom.ByteCountSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('is_complete', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('reported_as_ad_resource', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_main_frame_resource', 40, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('cache_type', 48, 0, page_load_metrics.mojom.CacheTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('is_primary_frame_resource', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('mime_type', 64, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('is_secure_scheme', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('proxy_used', 72, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('delta_bytes', 0, 0, mojo_base.mojom.ByteCountSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('received_data_length', 8, 0, mojo_base.mojom.ByteCountSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('encoded_body_length', 16, 0, mojo_base.mojom.ByteCountSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('decoded_body_length', 24, 0, mojo_base.mojom.ByteCountSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('cache_type', 32, 0, page_load_metrics.mojom.CacheTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('mime_type', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('request_id', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_complete', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('reported_as_ad_resource', 52, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_main_frame_resource', 52, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_primary_frame_resource', 52, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_secure_scheme', 52, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('proxy_used', 52, 5, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 88]]);
+    [[0, 64]]);
 
 // Struct: LayoutShift
 mojo.internal.Struct(
@@ -255,9 +255,9 @@ mojo.internal.Struct(
 // Struct: FrameRenderDataUpdate
 mojo.internal.Struct(
     page_load_metrics.mojom.FrameRenderDataUpdateSpec, 'page_load_metrics.mojom.FrameRenderDataUpdate', [
-      mojo.internal.StructField('layout_shift_delta', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('layout_shift_delta_before_input_or_scroll', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('new_layout_shifts', 8, 0, mojo.internal.Array(page_load_metrics.mojom.LayoutShiftSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('new_layout_shifts', 0, 0, mojo.internal.Array(page_load_metrics.mojom.LayoutShiftSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('layout_shift_delta', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('layout_shift_delta_before_input_or_scroll', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -298,9 +298,9 @@ mojo.internal.Struct(
     page_load_metrics.mojom.SoftNavigationMetricsSpec, 'page_load_metrics.mojom.SoftNavigationMetrics', [
       mojo.internal.StructField('count', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('start_time', 8, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('navigation_id', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('same_document_metrics_token', 24, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('largest_contentful_paint', 32, 0, page_load_metrics.mojom.LargestContentfulPaintTimingSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('same_document_metrics_token', 16, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('largest_contentful_paint', 24, 0, page_load_metrics.mojom.LargestContentfulPaintTimingSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('navigation_id', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 48]]);
 

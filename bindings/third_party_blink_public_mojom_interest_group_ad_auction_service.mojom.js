@@ -351,8 +351,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.AdAuctionService_RunAdAuction_ResponseParamsSpec, 'blink.mojom.AdAuctionService_RunAdAuction_ResponseParams', [
-      mojo.internal.StructField('aborted_by_script', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('config', 8, 0, blink.mojom.FencedFrameConfigSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('config', 0, 0, blink.mojom.FencedFrameConfigSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('aborted_by_script', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 

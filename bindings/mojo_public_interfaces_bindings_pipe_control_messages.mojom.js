@@ -47,16 +47,16 @@ mojo.internal.Struct(
 // Struct: DisconnectReason
 mojo.internal.Struct(
     mojo.pipe_control.DisconnectReasonSpec, 'mojo.pipe_control.DisconnectReason', [
-      mojo.internal.StructField('custom_reason', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('description', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('description', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('custom_reason', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: PeerAssociatedEndpointClosedEvent
 mojo.internal.Struct(
     mojo.pipe_control.PeerAssociatedEndpointClosedEventSpec, 'mojo.pipe_control.PeerAssociatedEndpointClosedEvent', [
-      mojo.internal.StructField('id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('disconnect_reason', 8, 0, mojo.pipe_control.DisconnectReasonSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('disconnect_reason', 0, 0, mojo.pipe_control.DisconnectReasonSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 

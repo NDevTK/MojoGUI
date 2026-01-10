@@ -238,10 +238,10 @@ network.mojom.ResolveHostHandleRequest = network.mojom.ResolveHostHandlePendingR
 // Interface: ResolveHostClient
 mojo.internal.Struct(
     network.mojom.ResolveHostClient_OnComplete_ParamsSpec, 'network.mojom.ResolveHostClient_OnComplete_Params', [
-      mojo.internal.StructField('result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('resolve_error_info', 8, 0, network.mojom.ResolveErrorInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('resolved_addresses', 16, 0, network.mojom.AddressListSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('alternative_endpoints', 24, 0, mojo.internal.Array(network.mojom.HostResolverEndpointResultSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('resolve_error_info', 0, 0, network.mojom.ResolveErrorInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('resolved_addresses', 8, 0, network.mojom.AddressListSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('alternative_endpoints', 16, 0, mojo.internal.Array(network.mojom.HostResolverEndpointResultSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('result', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 

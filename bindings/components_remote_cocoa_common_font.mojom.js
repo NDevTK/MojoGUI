@@ -52,8 +52,8 @@ mojo.internal.Union(
 mojo.internal.Struct(
     remote_cocoa.mojom.FontSpec, 'remote_cocoa.mojom.Font', [
       mojo.internal.StructField('name', 0, 0, remote_cocoa.mojom.FontNameSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('size', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('style', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('weight', 16, 0, remote_cocoa.mojom.FontWeightSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('weight', 8, 0, remote_cocoa.mojom.FontWeightSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('size', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('style', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);

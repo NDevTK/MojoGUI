@@ -48,10 +48,10 @@ mojo.internal.Struct(
 // Struct: Tile
 mojo.internal.Struct(
     viz.mojom.TileSpec, 'viz.mojom.Tile', [
-      mojo.internal.StructField('column_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('row_index', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('update_damage', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('contents', 16, 0, viz.mojom.TileContentsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('contents', 0, 0, viz.mojom.TileContentsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('column_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('row_index', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('update_damage', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 

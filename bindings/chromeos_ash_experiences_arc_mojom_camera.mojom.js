@@ -47,26 +47,26 @@ mojo.internal.Struct(
       mojo.internal.StructField('device_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('usb_vid', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('usb_pid', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('lens_facing', 24, 0, mojo.internal.Uint32, 0, false, 1, undefined),
-      mojo.internal.StructField('sensor_orientation', 28, 0, mojo.internal.Int32, 0, false, 1, undefined),
-      mojo.internal.StructField('frames_to_skip_after_streamon', 32, 0, mojo.internal.Uint32, 0, false, 1, undefined),
-      mojo.internal.StructField('horizontal_view_angle_16_9', 36, 0, mojo.internal.Float, 0, false, 1, undefined),
-      mojo.internal.StructField('horizontal_view_angle_4_3', 40, 0, mojo.internal.Float, 0, false, 1, undefined),
-      mojo.internal.StructField('lens_info_available_focal_lengths', 48, 0, mojo.internal.Array(mojo.internal.Float, false), null, true, 1, undefined),
-      mojo.internal.StructField('lens_info_minimum_focus_distance', 56, 0, mojo.internal.Float, 0, false, 1, undefined),
-      mojo.internal.StructField('lens_info_optimal_focus_distance', 60, 0, mojo.internal.Float, 0, false, 1, undefined),
-      mojo.internal.StructField('vertical_view_angle_16_9', 64, 0, mojo.internal.Float, 0, false, 1, undefined),
-      mojo.internal.StructField('vertical_view_angle_4_3', 68, 0, mojo.internal.Float, 0, false, 1, undefined),
+      mojo.internal.StructField('lens_info_available_focal_lengths', 24, 0, mojo.internal.Array(mojo.internal.Float, false), null, true, 1, undefined),
+      mojo.internal.StructField('lens_facing', 32, 0, mojo.internal.Uint32, 0, false, 1, undefined),
+      mojo.internal.StructField('sensor_orientation', 36, 0, mojo.internal.Int32, 0, false, 1, undefined),
+      mojo.internal.StructField('frames_to_skip_after_streamon', 40, 0, mojo.internal.Uint32, 0, false, 1, undefined),
+      mojo.internal.StructField('horizontal_view_angle_16_9', 44, 0, mojo.internal.Float, 0, false, 1, undefined),
+      mojo.internal.StructField('horizontal_view_angle_4_3', 48, 0, mojo.internal.Float, 0, false, 1, undefined),
+      mojo.internal.StructField('lens_info_minimum_focus_distance', 52, 0, mojo.internal.Float, 0, false, 1, undefined),
+      mojo.internal.StructField('lens_info_optimal_focus_distance', 56, 0, mojo.internal.Float, 0, false, 1, undefined),
+      mojo.internal.StructField('vertical_view_angle_16_9', 60, 0, mojo.internal.Float, 0, false, 1, undefined),
+      mojo.internal.StructField('vertical_view_angle_4_3', 64, 0, mojo.internal.Float, 0, false, 1, undefined),
     ],
     [[0, 32], [1, 80]]);
 
 // Struct: CameraSupportedFormat
 mojo.internal.Struct(
     arc.mojom.CameraSupportedFormatSpec, 'arc.mojom.CameraSupportedFormat', [
-      mojo.internal.StructField('width', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('height', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('fourcc', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('frameRates', 16, 0, mojo.internal.Array(mojo.internal.Float, false), null, false, 0, undefined),
+      mojo.internal.StructField('frameRates', 0, 0, mojo.internal.Array(mojo.internal.Float, false), null, false, 0, undefined),
+      mojo.internal.StructField('width', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('height', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('fourcc', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 

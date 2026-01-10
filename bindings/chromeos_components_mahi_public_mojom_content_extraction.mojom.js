@@ -44,11 +44,11 @@ mojo.internal.Struct(
 // Struct: ExtractionRequest
 mojo.internal.Struct(
     mahi.mojom.ExtractionRequestSpec, 'mahi.mojom.ExtractionRequest', [
-      mojo.internal.StructField('deprecated_ukm_source_id_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'deprecated_ukm_source_id_$value', originalFieldName: 'deprecated_ukm_source_id' }),
-      mojo.internal.StructField('deprecated_ukm_source_id_$value', 8, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'deprecated_ukm_source_id_$flag', originalFieldName: 'deprecated_ukm_source_id' }),
-      mojo.internal.StructField('snapshot', 16, 0, ax.mojom.AXTreeUpdateSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('extraction_methods', 24, 0, mahi.mojom.ExtractionMethodsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('updates', 32, 0, mojo.internal.Array(ax.mojom.AXTreeUpdateSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('deprecated_ukm_source_id_$value', 0, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'deprecated_ukm_source_id_$flag', originalFieldName: 'deprecated_ukm_source_id' }),
+      mojo.internal.StructField('snapshot', 8, 0, ax.mojom.AXTreeUpdateSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('extraction_methods', 16, 0, mahi.mojom.ExtractionMethodsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('updates', 24, 0, mojo.internal.Array(ax.mojom.AXTreeUpdateSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('deprecated_ukm_source_id_$flag', 32, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'deprecated_ukm_source_id_$value', originalFieldName: 'deprecated_ukm_source_id' }),
     ],
     [[0, 48]]);
 
@@ -63,8 +63,8 @@ mojo.internal.Struct(
 // Struct: ContentSizeResponse
 mojo.internal.Struct(
     mahi.mojom.ContentSizeResponseSpec, 'mahi.mojom.ContentSizeResponse', [
-      mojo.internal.StructField('word_count', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('status', 8, 0, mahi.mojom.ResponseStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, mahi.mojom.ResponseStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('word_count', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 

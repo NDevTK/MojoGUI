@@ -357,12 +357,12 @@ mojo.internal.Struct(
     ash.personalization_app.mojom.GooglePhotosAlbumSpec, 'ash.personalization_app.mojom.GooglePhotosAlbum', [
       mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('photo_count', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('preview', 24, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('timestamp', 32, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('is_shared', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('preview', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 24, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('photo_count', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_shared', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 48]]);
 
 // Struct: FetchGooglePhotosAlbumsResponse
 mojo.internal.Struct(
@@ -452,10 +452,10 @@ mojo.internal.Struct(
 // Struct: DefaultUserImage
 mojo.internal.Struct(
     ash.personalization_app.mojom.DefaultUserImageSpec, 'ash.personalization_app.mojom.DefaultUserImage', [
-      mojo.internal.StructField('index', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('title', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('source_info', 24, 0, ash.personalization_app.mojom.DeprecatedSourceInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('title', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('source_info', 16, 0, ash.personalization_app.mojom.DeprecatedSourceInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('index', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -475,14 +475,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.personalization_app.mojom.AmbientModeAlbumSpec, 'ash.personalization_app.mojom.AmbientModeAlbum', [
       mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('checked', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('title', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('description', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('number_of_photos', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('topic_source', 40, 0, ash.personalization_app.mojom.TopicSourceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('url', 48, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('description', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('topic_source', 24, 0, ash.personalization_app.mojom.TopicSourceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('url', 32, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('number_of_photos', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('checked', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 56]]);
 
 // Interface: WallpaperObserver
 mojo.internal.Struct(
@@ -2537,8 +2537,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightZoneColor_ParamsSpec, 'ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightZoneColor_Params', [
-      mojo.internal.StructField('zone', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('backlight_color', 8, 0, ash.personalization_app.mojom.BacklightColorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('backlight_color', 0, 0, ash.personalization_app.mojom.BacklightColorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('zone', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 

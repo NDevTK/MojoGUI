@@ -39,8 +39,8 @@ mojo.internal.Struct(
 // Struct: DebugModeDetails
 mojo.internal.Struct(
     blink.mojom.DebugModeDetailsSpec, 'blink.mojom.DebugModeDetails', [
-      mojo.internal.StructField('is_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('debug_key', 8, 0, blink.mojom.DebugKeySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('debug_key', 0, 0, blink.mojom.DebugKeySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('is_enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 

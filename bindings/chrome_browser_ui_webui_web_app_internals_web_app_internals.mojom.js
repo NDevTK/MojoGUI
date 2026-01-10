@@ -288,8 +288,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojom.WebAppInternalsHandler_SetAllowDowngradesForIsolatedWebApp_ParamsSpec, 'mojom.WebAppInternalsHandler_SetAllowDowngradesForIsolatedWebApp_Params', [
-      mojo.internal.StructField('allow_downgrades', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('app_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('allow_downgrades', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 

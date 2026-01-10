@@ -41,14 +41,14 @@ mojo.internal.Struct(
       mojo.internal.StructField('persistence', 0, 0, paint_preview.mojom.RecordingPersistenceSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('guid', 8, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('geometry_metadata_params', 16, 0, paint_preview.mojom.GeometryMetadataParamsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('is_main_frame', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('capture_links', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('file', 32, 0, mojo_base.mojom.FileSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('max_capture_size', 40, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('max_decoded_image_size_bytes', 48, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('skip_accelerated_content', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('file', 24, 0, mojo_base.mojom.FileSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('max_capture_size', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('max_decoded_image_size_bytes', 40, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('is_main_frame', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('capture_links', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('skip_accelerated_content', 48, 2, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 64]]);
 
 // Struct: LinkData
 mojo.internal.Struct(

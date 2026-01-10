@@ -69,9 +69,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.WebApkInstance_InstallWebApk_ParamsSpec, 'arc.mojom.WebApkInstance_InstallWebApk_Params', [
       mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('version', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('app_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('token', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('app_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('token', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('version', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 

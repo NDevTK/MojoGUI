@@ -177,8 +177,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('title', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('summary', 32, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('icon', 40, 0, arc.mojom.ArcBitmapSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('supports_create', 48, 0, mojo.internal.Bool, false, false, 12, undefined),
-      mojo.internal.StructField('mime_types', 56, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 12, undefined),
+      mojo.internal.StructField('mime_types', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 12, undefined),
+      mojo.internal.StructField('supports_create', 56, 0, mojo.internal.Bool, false, false, 12, undefined),
     ],
     [[0, 56], [12, 72]]);
 
@@ -205,15 +205,15 @@ mojo.internal.Struct(
     arc.mojom.SelectFilesRequestSpec, 'arc.mojom.SelectFilesRequest', [
       mojo.internal.StructField('action_type', 0, 0, arc.mojom.SelectFilesActionTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('mime_types', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('openable_only', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('allow_multiple', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('default_file_name', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('initial_content_uri', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('initial_document_path', 40, 0, arc.mojom.DocumentPathSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('default_file_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('initial_content_uri', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('initial_document_path', 32, 0, arc.mojom.DocumentPathSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('search_query', 40, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('task_id', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('search_query', 56, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('openable_only', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('allow_multiple', 52, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 64]]);
 
 // Struct: DocumentPath
 mojo.internal.Struct(

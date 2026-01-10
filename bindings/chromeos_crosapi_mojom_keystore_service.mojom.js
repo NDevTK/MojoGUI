@@ -320,11 +320,11 @@ mojo.internal.Union(
 // Struct: KeystoreRsaParams
 mojo.internal.Struct(
     crosapi.mojom.KeystoreRsaParamsSpec, 'crosapi.mojom.KeystoreRsaParams', [
-      mojo.internal.StructField('modulus_length', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('public_exponent', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
-      mojo.internal.StructField('sw_backed', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('public_exponent', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('modulus_length', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('sw_backed', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: KeystoreEcdsaParams
 mojo.internal.Struct(
@@ -401,8 +401,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_AddCertificate_ResponseParamsSpec, 'crosapi.mojom.KeystoreService_AddCertificate_ResponseParams', [
-      mojo.internal.StructField('is_error', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('error', 8, 0, crosapi.mojom.KeystoreErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, crosapi.mojom.KeystoreErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('is_error', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -415,8 +415,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_RemoveCertificate_ResponseParamsSpec, 'crosapi.mojom.KeystoreService_RemoveCertificate_ResponseParams', [
-      mojo.internal.StructField('is_error', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('error', 8, 0, crosapi.mojom.KeystoreErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, crosapi.mojom.KeystoreErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('is_error', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -455,18 +455,18 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_RemoveKey_ResponseParamsSpec, 'crosapi.mojom.KeystoreService_RemoveKey_ResponseParams', [
-      mojo.internal.StructField('is_error', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('error', 8, 0, crosapi.mojom.KeystoreErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, crosapi.mojom.KeystoreErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('is_error', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_Sign_ParamsSpec, 'crosapi.mojom.KeystoreService_Sign_Params', [
-      mojo.internal.StructField('is_keystore_provided', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('keystore', 8, 0, crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('public_key', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('scheme', 24, 0, crosapi.mojom.KeystoreSigningSchemeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('data', 32, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('keystore', 0, 0, crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('public_key', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('scheme', 16, 0, crosapi.mojom.KeystoreSigningSchemeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('data', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('is_keystore_provided', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -497,8 +497,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_AddKeyTags_ResponseParamsSpec, 'crosapi.mojom.KeystoreService_AddKeyTags_ResponseParams', [
-      mojo.internal.StructField('is_error', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('error', 8, 0, crosapi.mojom.KeystoreErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, crosapi.mojom.KeystoreErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('is_error', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -525,8 +525,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_SetAttributeForKey_ResponseParamsSpec, 'crosapi.mojom.KeystoreService_SetAttributeForKey_ResponseParams', [
-      mojo.internal.StructField('is_error', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('error', 8, 0, crosapi.mojom.KeystoreErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, crosapi.mojom.KeystoreErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('is_error', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 

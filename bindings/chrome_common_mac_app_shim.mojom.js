@@ -94,9 +94,9 @@ mojo.internal.Struct(
     chrome.mojom.ProfileMenuItemSpec, 'chrome.mojom.ProfileMenuItem', [
       mojo.internal.StructField('name', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('icon', 8, 0, gfx.mojom.ImageSkiaSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('menu_index', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('active', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('profile_path', 24, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('profile_path', 16, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('menu_index', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('active', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
 

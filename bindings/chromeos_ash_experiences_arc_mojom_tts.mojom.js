@@ -35,23 +35,23 @@ arc.mojom.TtsEventType = {
 // Struct: TtsUtterance
 mojo.internal.Struct(
     arc.mojom.TtsUtteranceSpec, 'arc.mojom.TtsUtterance', [
-      mojo.internal.StructField('utteranceId', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('text', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('rate', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('pitch', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('voice_id', 32, 0, mojo.internal.Uint32, 0, false, 2, undefined),
+      mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('rate', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('pitch', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('utteranceId', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('voice_id', 28, 0, mojo.internal.Uint32, 0, false, 2, undefined),
     ],
-    [[0, 40], [2, 48]]);
+    [[0, 40], [2, 40]]);
 
 // Struct: TtsVoice
 mojo.internal.Struct(
     arc.mojom.TtsVoiceSpec, 'arc.mojom.TtsVoice', [
-      mojo.internal.StructField('id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('locale', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('is_network_connection_required', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('locale', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('id', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_network_connection_required', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 // Interface: TtsHost
 mojo.internal.Struct(
@@ -62,11 +62,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.TtsHost_OnTtsEvent_ParamsSpec, 'arc.mojom.TtsHost_OnTtsEvent_Params', [
-      mojo.internal.StructField('utteranceId', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('event_type', 8, 0, arc.mojom.TtsEventTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('char_index', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('length', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('error_msg', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('event_type', 0, 0, arc.mojom.TtsEventTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('error_msg', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('utteranceId', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('char_index', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('length', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 

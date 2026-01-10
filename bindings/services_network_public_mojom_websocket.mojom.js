@@ -65,13 +65,13 @@ mojo.internal.Struct(
     network.mojom.WebSocketHandshakeResponseSpec, 'network.mojom.WebSocketHandshakeResponse', [
       mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('http_version', 8, 0, network.mojom.HttpVersionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('status_code', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('status_text', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('remote_endpoint', 32, 0, network.mojom.IPEndPointSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('headers', 40, 0, mojo.internal.Array(network.mojom.HttpHeaderSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('headers_text', 48, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('selected_protocol', 56, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('extensions', 64, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('status_text', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('remote_endpoint', 24, 0, network.mojom.IPEndPointSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('headers', 32, 0, mojo.internal.Array(network.mojom.HttpHeaderSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('headers_text', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('selected_protocol', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('extensions', 56, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('status_code', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 80]]);
 
@@ -254,17 +254,17 @@ network.mojom.WebSocketHandshakeClientRequest = network.mojom.WebSocketHandshake
 // Interface: WebSocketClient
 mojo.internal.Struct(
     network.mojom.WebSocketClient_OnDataFrame_ParamsSpec, 'network.mojom.WebSocketClient_OnDataFrame_Params', [
-      mojo.internal.StructField('fin', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('type', 8, 0, network.mojom.WebSocketMessageTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('data_length', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, network.mojom.WebSocketMessageTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('data_length', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('fin', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     network.mojom.WebSocketClient_OnDropChannel_ParamsSpec, 'network.mojom.WebSocketClient_OnDropChannel_Params', [
-      mojo.internal.StructField('was_clean', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('code', 2, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('reason', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('code', 8, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('was_clean', 10, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -366,8 +366,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.WebSocket_StartClosingHandshake_ParamsSpec, 'network.mojom.WebSocket_StartClosingHandshake_Params', [
-      mojo.internal.StructField('code', 0, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('reason', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('code', 8, 0, mojo.internal.Uint16, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -173,18 +173,18 @@ mojo.internal.Struct(
     new_tab_page.mojom.ThemeSpec, 'new_tab_page.mojom.Theme', [
       mojo.internal.StructField('text_color', 0, 0, skia.mojom.SkColorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('background_color', 8, 0, skia.mojom.SkColorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('is_baseline', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_gm3', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_custom_background', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('daily_refresh_enabled', 16, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_dark', 16, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('logo_color', 24, 0, skia.mojom.SkColorSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('background_image_collection_id', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('background_image', 40, 0, new_tab_page.mojom.BackgroundImageSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('background_image_attribution_1', 48, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('background_image_attribution_2', 56, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('background_image_attribution_url', 64, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('most_visited', 72, 0, most_visited.mojom.MostVisitedThemeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('logo_color', 16, 0, skia.mojom.SkColorSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('background_image_collection_id', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('background_image', 32, 0, new_tab_page.mojom.BackgroundImageSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('background_image_attribution_1', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('background_image_attribution_2', 48, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('background_image_attribution_url', 56, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('most_visited', 64, 0, most_visited.mojom.MostVisitedThemeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('is_baseline', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_gm3', 72, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_custom_background', 72, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('daily_refresh_enabled', 72, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_dark', 72, 4, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 88]]);
 
@@ -193,11 +193,11 @@ mojo.internal.Struct(
     new_tab_page.mojom.ImageDoodleSpec, 'new_tab_page.mojom.ImageDoodle', [
       mojo.internal.StructField('image_url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('animation_url', 8, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('width', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('height', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('background_color', 24, 0, skia.mojom.SkColorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('image_impression_log_url', 32, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('animation_impression_log_url', 40, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('background_color', 16, 0, skia.mojom.SkColorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('image_impression_log_url', 24, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('animation_impression_log_url', 32, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('width', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('height', 44, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -923,8 +923,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     new_tab_page.mojom.Page_SetDisabledModules_ParamsSpec, 'new_tab_page.mojom.Page_SetDisabledModules_Params', [
-      mojo.internal.StructField('all', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('ids', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('ids', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('all', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 

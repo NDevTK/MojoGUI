@@ -289,8 +289,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     lens.mojom.LensSidePanelPage_SetShowErrorPage_ParamsSpec, 'lens.mojom.LensSidePanelPage_SetShowErrorPage_Params', [
-      mojo.internal.StructField('should_show_error_page', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('status', 8, 0, lens.mojom.SidePanelResultStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, lens.mojom.SidePanelResultStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('should_show_error_page', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 

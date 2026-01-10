@@ -28,9 +28,9 @@ storage.mojom.DisallowInactiveClientReason = {
 // Interface: IndexedDBClientStateChecker
 mojo.internal.Struct(
     storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ParamsSpec, 'storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_Params', [
-      mojo.internal.StructField('connection_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('reason', 8, 0, storage.mojom.DisallowInactiveClientReasonSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('keep_active', 16, 0, mojo.internal.InterfaceRequest(storage.mojom.IndexedDBClientKeepActiveRemote), null, true, 0, undefined),
+      mojo.internal.StructField('reason', 0, 0, storage.mojom.DisallowInactiveClientReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('keep_active', 8, 0, mojo.internal.InterfaceRequest(storage.mojom.IndexedDBClientKeepActiveRemote), null, true, 0, undefined),
+      mojo.internal.StructField('connection_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 

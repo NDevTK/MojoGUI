@@ -20,10 +20,10 @@ content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec =
 // Struct: FrameRoutingInfo
 mojo.internal.Struct(
     content.mojom.FrameRoutingInfoSpec, 'content.mojom.FrameRoutingInfo', [
-      mojo.internal.StructField('routing_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('frame_token', 8, 0, blink.mojom.LocalFrameTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('devtools_frame_token', 16, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('document_token', 24, 0, blink.mojom.DocumentTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('frame_token', 0, 0, blink.mojom.LocalFrameTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('devtools_frame_token', 8, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('document_token', 16, 0, blink.mojom.DocumentTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('routing_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 

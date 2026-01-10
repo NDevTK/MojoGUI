@@ -183,39 +183,39 @@ mojo.internal.Struct(
       mojo.internal.StructField('replication_state', 32, 0, blink.mojom.FrameReplicationStateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('devtools_main_frame_token', 40, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('main_frame', 48, 0, content.mojom.CreateMainFrameUnionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('hidden', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('prerender_param', 64, 0, blink.mojom.PrerenderParamSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('never_composited', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('window_was_opened_by_another_window', 72, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('type', 80, 0, content.mojom.ViewWidgetTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('fenced_frame_mode', 88, 0, blink.mojom.DeprecatedFencedFrameModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('outermost_origin', 96, 0, url.mojom.OriginSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('blink_page_broadcast', 104, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.PageBroadcastRemote), null, false, 0, undefined),
-      mojo.internal.StructField('base_background_color', 112, 0, skia.mojom.SkColorSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('color_provider_colors', 120, 0, blink.mojom.ColorProviderColorMapsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('browsing_context_group_token', 128, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('attribution_support', 136, 0, network.mojom.AttributionSupportSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('navigation_metrics_token', 144, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('history_index', 152, 0, mojo.internal.Int32, -1, false, 0, undefined),
-      mojo.internal.StructField('history_length', 156, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('prerender_param', 56, 0, blink.mojom.PrerenderParamSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('type', 64, 0, content.mojom.ViewWidgetTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('fenced_frame_mode', 72, 0, blink.mojom.DeprecatedFencedFrameModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('outermost_origin', 80, 0, url.mojom.OriginSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('blink_page_broadcast', 88, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.PageBroadcastRemote), null, false, 0, undefined),
+      mojo.internal.StructField('base_background_color', 96, 0, skia.mojom.SkColorSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('color_provider_colors', 104, 0, blink.mojom.ColorProviderColorMapsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('browsing_context_group_token', 112, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('attribution_support', 120, 0, network.mojom.AttributionSupportSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('navigation_metrics_token', 128, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('history_index', 136, 0, mojo.internal.Int32, -1, false, 0, undefined),
+      mojo.internal.StructField('history_length', 140, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('hidden', 144, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('never_composited', 144, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('window_was_opened_by_another_window', 144, 2, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 168]]);
+    [[0, 160]]);
 
 // Struct: CreateLocalMainFrameParams
 mojo.internal.Struct(
     content.mojom.CreateLocalMainFrameParamsSpec, 'content.mojom.CreateLocalMainFrameParams', [
       mojo.internal.StructField('frame_token', 0, 0, blink.mojom.LocalFrameTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('routing_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('frame', 16, 0, mojo.internal.AssociatedInterfaceRequest(content.mojom.FrameRemote), null, false, 0, undefined),
-      mojo.internal.StructField('interface_broker', 24, 0, mojo.internal.InterfaceProxy(blink.mojom.BrowserInterfaceBrokerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('associated_interface_provider_remote', 32, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.AssociatedInterfaceProviderRemote), null, false, 0, undefined),
-      mojo.internal.StructField('is_on_initial_empty_document', 40, 0, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('document_token', 48, 0, blink.mojom.DocumentTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('policy_container', 56, 0, blink.mojom.PolicyContainerSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('widget_params', 64, 0, content.mojom.CreateFrameWidgetParamsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('subresource_loader_factories', 72, 0, blink.mojom.URLLoaderFactoryBundleSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('frame', 8, 0, mojo.internal.AssociatedInterfaceRequest(content.mojom.FrameRemote), null, false, 0, undefined),
+      mojo.internal.StructField('interface_broker', 16, 0, mojo.internal.InterfaceProxy(blink.mojom.BrowserInterfaceBrokerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('associated_interface_provider_remote', 24, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.AssociatedInterfaceProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('document_token', 32, 0, blink.mojom.DocumentTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('policy_container', 40, 0, blink.mojom.PolicyContainerSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('widget_params', 48, 0, content.mojom.CreateFrameWidgetParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('subresource_loader_factories', 56, 0, blink.mojom.URLLoaderFactoryBundleSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('routing_id', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_on_initial_empty_document', 68, 0, mojo.internal.Bool, true, false, 0, undefined),
     ],
-    [[0, 88]]);
+    [[0, 80]]);
 
 // Struct: CreateProvisionalLocalMainFrameParams
 mojo.internal.Struct(
@@ -237,12 +237,12 @@ mojo.internal.Struct(
 // Struct: CreateFrameWidgetParams
 mojo.internal.Struct(
     content.mojom.CreateFrameWidgetParamsSpec, 'content.mojom.CreateFrameWidgetParams', [
-      mojo.internal.StructField('routing_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('frame_widget_host', 8, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.FrameWidgetHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('frame_widget', 16, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.FrameWidgetRemote), null, false, 0, undefined),
-      mojo.internal.StructField('widget_host', 24, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.WidgetHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('widget', 32, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.WidgetRemote), null, false, 0, undefined),
-      mojo.internal.StructField('visual_properties', 40, 0, blink.mojom.VisualPropertiesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('frame_widget_host', 0, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.FrameWidgetHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('frame_widget', 8, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.FrameWidgetRemote), null, false, 0, undefined),
+      mojo.internal.StructField('widget_host', 16, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.WidgetHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('widget', 24, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.WidgetRemote), null, false, 0, undefined),
+      mojo.internal.StructField('visual_properties', 32, 0, blink.mojom.VisualPropertiesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('routing_id', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -250,84 +250,84 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.mojom.CreateFrameParamsSpec, 'content.mojom.CreateFrameParams', [
       mojo.internal.StructField('frame_token', 0, 0, blink.mojom.LocalFrameTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('routing_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('previous_frame_token', 16, 0, blink.mojom.FrameTokenSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('opener_frame_token', 24, 0, blink.mojom.FrameTokenSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('parent_frame_token', 32, 0, blink.mojom.FrameTokenSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('previous_sibling_frame_token', 40, 0, blink.mojom.FrameTokenSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('interface_broker', 48, 0, mojo.internal.InterfaceProxy(blink.mojom.BrowserInterfaceBrokerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('tree_scope_type', 56, 0, blink.mojom.TreeScopeTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('replication_state', 64, 0, blink.mojom.FrameReplicationStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('devtools_frame_token', 72, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('frame_owner_properties', 80, 0, blink.mojom.FrameOwnerPropertiesSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('widget_params', 88, 0, content.mojom.CreateFrameWidgetParamsSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('is_on_initial_empty_document', 96, 0, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('document_token', 104, 0, blink.mojom.DocumentTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('policy_container', 112, 0, blink.mojom.PolicyContainerSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('frame', 120, 0, mojo.internal.AssociatedInterfaceRequest(content.mojom.FrameRemote), null, false, 0, undefined),
-      mojo.internal.StructField('associated_interface_provider_remote', 128, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.AssociatedInterfaceProviderRemote), null, false, 0, undefined),
-      mojo.internal.StructField('is_for_nested_main_frame', 136, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('navigation_metrics_token', 144, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('previous_frame_token', 8, 0, blink.mojom.FrameTokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('opener_frame_token', 16, 0, blink.mojom.FrameTokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('parent_frame_token', 24, 0, blink.mojom.FrameTokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('previous_sibling_frame_token', 32, 0, blink.mojom.FrameTokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('interface_broker', 40, 0, mojo.internal.InterfaceProxy(blink.mojom.BrowserInterfaceBrokerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('tree_scope_type', 48, 0, blink.mojom.TreeScopeTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('replication_state', 56, 0, blink.mojom.FrameReplicationStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('devtools_frame_token', 64, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('frame_owner_properties', 72, 0, blink.mojom.FrameOwnerPropertiesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('widget_params', 80, 0, content.mojom.CreateFrameWidgetParamsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('document_token', 88, 0, blink.mojom.DocumentTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('policy_container', 96, 0, blink.mojom.PolicyContainerSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('frame', 104, 0, mojo.internal.AssociatedInterfaceRequest(content.mojom.FrameRemote), null, false, 0, undefined),
+      mojo.internal.StructField('associated_interface_provider_remote', 112, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.AssociatedInterfaceProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('navigation_metrics_token', 120, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('routing_id', 128, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_on_initial_empty_document', 132, 0, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('is_for_nested_main_frame', 132, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 160]]);
+    [[0, 144]]);
 
 // Struct: SnapshotAccessibilityTreeParams
 mojo.internal.Struct(
     content.mojom.SnapshotAccessibilityTreeParamsSpec, 'content.mojom.SnapshotAccessibilityTreeParams', [
-      mojo.internal.StructField('ax_mode', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('max_nodes', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('timeout', 16, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('max_nodes', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('timeout', 8, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('ax_mode', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: CreateNewWindowParams
 mojo.internal.Struct(
     content.mojom.CreateNewWindowParamsSpec, 'content.mojom.CreateNewWindowParams', [
-      mojo.internal.StructField('allow_popup', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('window_container_type', 8, 0, content.mojom.WindowContainerTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('session_storage_namespace_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('clone_from_session_storage_namespace_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('frame_name', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('opener_suppressed', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_form_submission', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('consumes_user_activation', 40, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('form_submission_post_data', 48, 0, network.mojom.URLRequestBodySpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('form_submission_post_content_type', 56, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('disposition', 64, 0, ui.mojom.WindowOpenDispositionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('target_url', 72, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('referrer', 80, 0, blink.mojom.ReferrerSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('features', 88, 0, blink.mojom.WindowFeaturesSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('impression', 96, 0, blink.mojom.ImpressionSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('download_policy', 104, 0, blink.mojom.NavigationDownloadPolicySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('pip_options', 112, 0, blink.mojom.PictureInPictureWindowOptionsSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('initiator_activation_and_ad_status', 120, 0, blink.mojom.NavigationInitiatorActivationAndAdStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('frame_remote', 128, 0, mojo.internal.AssociatedInterfaceProxy(content.mojom.FrameRemote), null, false, 0, undefined),
-      mojo.internal.StructField('page_broadcast_remote', 136, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.PageBroadcastRemote), null, false, 0, undefined),
-      mojo.internal.StructField('main_frame_interface_broker', 144, 0, mojo.internal.InterfaceRequest(blink.mojom.BrowserInterfaceBrokerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('associated_interface_provider', 152, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.AssociatedInterfaceProviderRemote), null, false, 0, undefined),
-      mojo.internal.StructField('widget_host', 160, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.WidgetHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('widget', 168, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.WidgetRemote), null, false, 0, undefined),
-      mojo.internal.StructField('frame_widget_host', 176, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.FrameWidgetHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('frame_widget', 184, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.FrameWidgetRemote), null, false, 0, undefined),
+      mojo.internal.StructField('window_container_type', 0, 0, content.mojom.WindowContainerTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('session_storage_namespace_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('clone_from_session_storage_namespace_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('frame_name', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('form_submission_post_data', 32, 0, network.mojom.URLRequestBodySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('form_submission_post_content_type', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('disposition', 48, 0, ui.mojom.WindowOpenDispositionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('target_url', 56, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('referrer', 64, 0, blink.mojom.ReferrerSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('features', 72, 0, blink.mojom.WindowFeaturesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('impression', 80, 0, blink.mojom.ImpressionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('download_policy', 88, 0, blink.mojom.NavigationDownloadPolicySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('pip_options', 96, 0, blink.mojom.PictureInPictureWindowOptionsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('initiator_activation_and_ad_status', 104, 0, blink.mojom.NavigationInitiatorActivationAndAdStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('frame_remote', 112, 0, mojo.internal.AssociatedInterfaceProxy(content.mojom.FrameRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page_broadcast_remote', 120, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.PageBroadcastRemote), null, false, 0, undefined),
+      mojo.internal.StructField('main_frame_interface_broker', 128, 0, mojo.internal.InterfaceRequest(blink.mojom.BrowserInterfaceBrokerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('associated_interface_provider', 136, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.AssociatedInterfaceProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('widget_host', 144, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.WidgetHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('widget', 152, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.WidgetRemote), null, false, 0, undefined),
+      mojo.internal.StructField('frame_widget_host', 160, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.FrameWidgetHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('frame_widget', 168, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.FrameWidgetRemote), null, false, 0, undefined),
+      mojo.internal.StructField('allow_popup', 176, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('opener_suppressed', 176, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_form_submission', 176, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('consumes_user_activation', 176, 3, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 200]]);
+    [[0, 192]]);
 
 // Struct: CreateNewWindowReply
 mojo.internal.Struct(
     content.mojom.CreateNewWindowReplySpec, 'content.mojom.CreateNewWindowReply', [
       mojo.internal.StructField('main_frame_token', 0, 0, blink.mojom.LocalFrameTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('main_frame_route_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('widget_routing_id', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('visual_properties', 16, 0, blink.mojom.VisualPropertiesSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('cloned_session_storage_namespace_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('devtools_main_frame_token', 32, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('wait_for_debugger', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('document_token', 48, 0, blink.mojom.DocumentTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('policy_container', 56, 0, blink.mojom.PolicyContainerSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('browsing_context_group_token', 64, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('color_provider_colors', 72, 0, blink.mojom.ColorProviderColorMapsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('widget_screen_rect', 80, 0, gfx.mojom.RectSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('window_screen_rect', 88, 0, gfx.mojom.RectSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('visual_properties', 8, 0, blink.mojom.VisualPropertiesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('cloned_session_storage_namespace_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('devtools_main_frame_token', 24, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('document_token', 32, 0, blink.mojom.DocumentTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('policy_container', 40, 0, blink.mojom.PolicyContainerSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('browsing_context_group_token', 48, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('color_provider_colors', 56, 0, blink.mojom.ColorProviderColorMapsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('widget_screen_rect', 64, 0, gfx.mojom.RectSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('window_screen_rect', 72, 0, gfx.mojom.RectSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('main_frame_route_id', 80, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('widget_routing_id', 84, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('wait_for_debugger', 88, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 104]]);
 
@@ -438,12 +438,12 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content.mojom.Frame_Unload_ParamsSpec, 'content.mojom.Frame_Unload_Params', [
-      mojo.internal.StructField('is_loading', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('new_remote_frame_replication_state', 8, 0, blink.mojom.FrameReplicationStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('new_remote_frame_token', 16, 0, blink.mojom.RemoteFrameTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('new_remote_frame_interfaces', 24, 0, blink.mojom.RemoteFrameInterfacesFromBrowserSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('new_remote_main_frame_interfaces', 32, 0, blink.mojom.RemoteMainFrameInterfacesSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('devtools_frame_token', 40, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('new_remote_frame_replication_state', 0, 0, blink.mojom.FrameReplicationStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('new_remote_frame_token', 8, 0, blink.mojom.RemoteFrameTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('new_remote_frame_interfaces', 16, 0, blink.mojom.RemoteFrameInterfacesFromBrowserSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('new_remote_main_frame_interfaces', 24, 0, blink.mojom.RemoteMainFrameInterfacesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('devtools_frame_token', 32, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('is_loading', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -455,11 +455,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content.mojom.Frame_UndoCommitNavigation_ParamsSpec, 'content.mojom.Frame_UndoCommitNavigation_Params', [
-      mojo.internal.StructField('is_loading', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('new_remote_frame_replication_state', 8, 0, blink.mojom.FrameReplicationStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('new_remote_frame_token', 16, 0, blink.mojom.RemoteFrameTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('new_remote_frame_interfaces', 24, 0, blink.mojom.RemoteFrameInterfacesFromBrowserSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('new_remote_main_frame_interfaces', 32, 0, blink.mojom.RemoteMainFrameInterfacesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('new_remote_frame_replication_state', 0, 0, blink.mojom.FrameReplicationStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('new_remote_frame_token', 8, 0, blink.mojom.RemoteFrameTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('new_remote_frame_interfaces', 16, 0, blink.mojom.RemoteFrameInterfacesFromBrowserSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('new_remote_main_frame_interfaces', 24, 0, blink.mojom.RemoteMainFrameInterfacesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('is_loading', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -485,8 +485,8 @@ mojo.internal.Struct(
     content.mojom.Frame_GetSerializedHtmlWithLocalLinks_ParamsSpec, 'content.mojom.Frame_GetSerializedHtmlWithLocalLinks_Params', [
       mojo.internal.StructField('url_map', 0, 0, mojo.internal.Map(url.mojom.UrlSpec.$, mojo_base.mojom.FilePathSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('frame_token_map', 8, 0, mojo.internal.Map(blink.mojom.FrameTokenSpec.$, mojo_base.mojom.FilePathSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('save_with_empty_url', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('handler_remote', 24, 0, mojo.internal.InterfaceProxy(content.mojom.FrameHTMLSerializerHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler_remote', 16, 0, mojo.internal.InterfaceProxy(content.mojom.FrameHTMLSerializerHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('save_with_empty_url', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -830,11 +830,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('scope', 40, 0, blink.mojom.TreeScopeTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('frame_name', 48, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('frame_unique_name', 56, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('is_created_by_script', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('frame_policy', 72, 0, blink.mojom.FramePolicySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('frame_owner_properties', 80, 0, blink.mojom.FrameOwnerPropertiesSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('child_frame_owner_element_type', 88, 0, content.mojom.ChildFrameOwnerElementTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('document_ukm_source_id', 96, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('frame_policy', 64, 0, blink.mojom.FramePolicySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('frame_owner_properties', 72, 0, blink.mojom.FrameOwnerPropertiesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('child_frame_owner_element_type', 80, 0, content.mojom.ChildFrameOwnerElementTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('document_ukm_source_id', 88, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('is_created_by_script', 96, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 112]]);
 

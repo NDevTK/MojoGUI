@@ -205,10 +205,10 @@ mojo.internal.Struct(
 // Struct: BundleResponse
 mojo.internal.Struct(
     web_package.mojom.BundleResponseSpec, 'web_package.mojom.BundleResponse', [
-      mojo.internal.StructField('response_code', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('response_headers', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('payload_offset', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('payload_length', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('response_headers', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('payload_offset', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('payload_length', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('response_code', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -311,8 +311,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     web_package.mojom.WebBundleParser_ParseMetadata_ParamsSpec, 'web_package.mojom.WebBundleParser_ParseMetadata_Params', [
-      mojo.internal.StructField('offset_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'offset_$value', originalFieldName: 'offset' }),
-      mojo.internal.StructField('offset_$value', 8, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'offset_$flag', originalFieldName: 'offset' }),
+      mojo.internal.StructField('offset_$value', 0, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'offset_$flag', originalFieldName: 'offset' }),
+      mojo.internal.StructField('offset_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'offset_$value', originalFieldName: 'offset' }),
     ],
     [[0, 24]]);
 

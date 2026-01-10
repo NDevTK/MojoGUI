@@ -162,12 +162,12 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.ScreenCaptureSession_SetOutputBuffer_ParamsSpec, 'arc.mojom.ScreenCaptureSession_SetOutputBuffer_Params', [
-      mojo.internal.StructField('graphics_buffer', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
-      mojo.internal.StructField('buffer_format', 8, 0, gfx.mojom.BufferFormatSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('buffer_format_modifier', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('stride', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('buffer_format', 0, 0, gfx.mojom.BufferFormatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('buffer_format_modifier', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('graphics_buffer', 16, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('stride', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     arc.mojom.ScreenCaptureSession_SetOutputBuffer_ResponseParamsSpec, 'arc.mojom.ScreenCaptureSession_SetOutputBuffer_ResponseParams', [

@@ -190,8 +190,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     pdf.mojom.PdfListener_GetMostVisiblePageIndex_ResponseParamsSpec, 'pdf.mojom.PdfListener_GetMostVisiblePageIndex_ResponseParams', [
-      mojo.internal.StructField('page_index_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'page_index_$value', originalFieldName: 'page_index' }),
-      mojo.internal.StructField('page_index_$value', 4, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'page_index_$flag', originalFieldName: 'page_index' }),
+      mojo.internal.StructField('page_index_$value', 0, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'page_index_$flag', originalFieldName: 'page_index' }),
+      mojo.internal.StructField('page_index_$flag', 4, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'page_index_$value', originalFieldName: 'page_index' }),
     ],
     [[0, 16]]);
 
@@ -353,11 +353,11 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     pdf.mojom.PdfHost_SelectionChanged_ParamsSpec, 'pdf.mojom.PdfHost_SelectionChanged_Params', [
       mojo.internal.StructField('left', 0, 0, gfx.mojom.PointFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('left_height', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('right', 16, 0, gfx.mojom.PointFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('right_height', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('right', 8, 0, gfx.mojom.PointFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('left_height', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('right_height', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     pdf.mojom.PdfHost_SetPluginCanSave_ParamsSpec, 'pdf.mojom.PdfHost_SetPluginCanSave_Params', [

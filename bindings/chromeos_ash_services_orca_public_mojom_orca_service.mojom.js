@@ -181,8 +181,8 @@ mojo.internal.Struct(
 // Struct: TriggerContext
 mojo.internal.Struct(
     ash.orca.mojom.TriggerContextSpec, 'ash.orca.mojom.TriggerContext', [
-      mojo.internal.StructField('freeform_selected', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('preset_type_selected', 8, 0, ash.orca.mojom.PresetTextQueryTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('preset_type_selected', 0, 0, ash.orca.mojom.PresetTextQueryTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('freeform_selected', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 

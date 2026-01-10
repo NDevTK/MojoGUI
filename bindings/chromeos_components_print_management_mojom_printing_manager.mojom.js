@@ -87,8 +87,8 @@ mojo.internal.Struct(
 // Struct: ActivePrintJobInfo
 mojo.internal.Struct(
     chromeos.printing.printing_manager.mojom.ActivePrintJobInfoSpec, 'chromeos.printing.printing_manager.mojom.ActivePrintJobInfo', [
-      mojo.internal.StructField('printed_pages', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('active_state', 8, 0, chromeos.printing.printing_manager.mojom.ActivePrintJobStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('active_state', 0, 0, chromeos.printing.printing_manager.mojom.ActivePrintJobStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('printed_pages', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -98,13 +98,13 @@ mojo.internal.Struct(
       mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('title', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('creation_time', 16, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('number_of_pages', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('printer_id', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('printer_name', 40, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('printer_uri', 48, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('printer_error_code', 56, 0, chromeos.printing.printing_manager.mojom.PrinterErrorCodeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('completed_info', 64, 0, chromeos.printing.printing_manager.mojom.CompletedPrintJobInfoSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('active_print_job_info', 72, 0, chromeos.printing.printing_manager.mojom.ActivePrintJobInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('printer_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('printer_name', 32, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('printer_uri', 40, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('printer_error_code', 48, 0, chromeos.printing.printing_manager.mojom.PrinterErrorCodeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('completed_info', 56, 0, chromeos.printing.printing_manager.mojom.CompletedPrintJobInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('active_print_job_info', 64, 0, chromeos.printing.printing_manager.mojom.ActivePrintJobInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('number_of_pages', 72, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 88]]);
 

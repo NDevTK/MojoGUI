@@ -59,16 +59,16 @@ mojo.internal.Struct(
       mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('display_url', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('update_time', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('read', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('display_time_since_update', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('display_time_since_update', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('read', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 56]]);
 
 // Struct: Window
 mojo.internal.Struct(
     reading_list.mojom.WindowSpec, 'reading_list.mojom.Window', [
-      mojo.internal.StructField('active', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('height', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('height', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('active', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -153,8 +153,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     reading_list.mojom.PageHandler_OpenURL_ParamsSpec, 'reading_list.mojom.PageHandler_OpenURL_Params', [
       mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('mark_as_read', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('click_modifiers', 16, 0, ui.mojom.ClickModifiersSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('click_modifiers', 8, 0, ui.mojom.ClickModifiersSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('mark_as_read', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 

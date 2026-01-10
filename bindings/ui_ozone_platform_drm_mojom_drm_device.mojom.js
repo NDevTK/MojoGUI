@@ -167,9 +167,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ui.ozone.mojom.DrmDevice_GetHDCPState_ResponseParamsSpec, 'ui.ozone.mojom.DrmDevice_GetHDCPState_ResponseParams', [
       mojo.internal.StructField('display_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('state', 16, 0, display.mojom.HDCPStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('protection_method', 24, 0, display.mojom.ContentProtectionMethodSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('state', 8, 0, display.mojom.HDCPStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('protection_method', 16, 0, display.mojom.ContentProtectionMethodSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('success', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
 

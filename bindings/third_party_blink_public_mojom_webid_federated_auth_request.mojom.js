@@ -108,9 +108,9 @@ blink.mojom.Format = {
 mojo.internal.Struct(
     blink.mojom.IdentityProviderConfigSpec, 'blink.mojom.IdentityProviderConfig', [
       mojo.internal.StructField('config_url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('from_idp_registration_api', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('type', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('client_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('client_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('from_idp_registration_api', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
 

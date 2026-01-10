@@ -83,8 +83,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.CredentialManager_Get_ParamsSpec, 'blink.mojom.CredentialManager_Get_Params', [
       mojo.internal.StructField('mediation', 0, 0, blink.mojom.CredentialMediationRequirementSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('include_passwords', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('federations', 16, 0, mojo.internal.Array(url.mojom.UrlSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('federations', 8, 0, mojo.internal.Array(url.mojom.UrlSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('include_passwords', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 

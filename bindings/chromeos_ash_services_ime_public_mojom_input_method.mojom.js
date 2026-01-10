@@ -521,8 +521,8 @@ mojo.internal.Struct(
 // Struct: KoreanSettings
 mojo.internal.Struct(
     ash.ime.mojom.KoreanSettingsSpec, 'ash.ime.mojom.KoreanSettings', [
-      mojo.internal.StructField('input_multiple_syllables', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('layout', 8, 0, ash.ime.mojom.KoreanLayoutSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('layout', 0, 0, ash.ime.mojom.KoreanLayoutSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('input_multiple_syllables', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -685,8 +685,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.ime.mojom.InputMethod_OnSurroundingTextChanged_ParamsSpec, 'ash.ime.mojom.InputMethod_OnSurroundingTextChanged_Params', [
       mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('offset', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('selection_range', 16, 0, ash.ime.mojom.SelectionRangeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('selection_range', 8, 0, ash.ime.mojom.SelectionRangeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('offset', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 

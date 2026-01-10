@@ -152,8 +152,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.PrivacyItemsInstance_OnStaticPrivacyIndicatorBoundsChanged_ParamsSpec, 'arc.mojom.PrivacyItemsInstance_OnStaticPrivacyIndicatorBoundsChanged_Params', [
-      mojo.internal.StructField('displayId', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('bounds', 8, 0, mojo.internal.Array(arc.mojom.RectSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('bounds', 0, 0, mojo.internal.Array(arc.mojom.RectSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('displayId', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
