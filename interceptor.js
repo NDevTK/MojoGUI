@@ -3,8 +3,24 @@
  * Interceptor & Proxy Logic
  */
 
-(function (global) {
+(async function (global) {
     'use strict';
+
+    // Automate Version Detection using High Entropy API
+    try {
+        if (navigator.userAgentData && navigator.userAgentData.getHighEntropyValues) {
+            console.log('[Interceptor] Fetching high-entropy version data...');
+            const ua = await navigator.userAgentData.getHighEntropyValues(['fullVersionList']);
+            const chrome = ua.fullVersionList.find(item => item.brand === 'Google Chrome' || item.brand === 'Chromium');
+            if (chrome) {
+                console.log('[Interceptor] Detected Full Chrome Version:', chrome.version);
+                // Set global override for MojoScrambler to pick up
+                window.mojoVersion = chrome.version;
+            }
+        }
+    } catch (e) {
+        console.warn('[Interceptor] Version detection failed:', e);
+    }
 
     // Polyfill for missing PipeControlMessage in some MojoJS environments
     if (typeof mojo !== 'undefined' && mojo.internal && mojo.internal.interfaceSupport) {

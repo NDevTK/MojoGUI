@@ -814,25 +814,26 @@ jobs:
                   if (ms.explicit !== null) return ms.explicit;
                   if (forceNoScramble) return idx;
 
-                  const ua = navigator.userAgent;
-                  const m = ua.match(/Chrome\/([\d.]+)/);
-                  const v = m ? m[1] : "145.0.7625.0";
-                  const p = v.split('.');
-                  const salt = 'MAJOR=' + p[0] + '\\n' + 'MINOR=' + (p[1]||0) + '\\n' + 'BUILD=' + (p[2]||0) + '\\n' + 'PATCH=' + (p[3]||0) + '\\n';
-                  
-                  while (true) {{
-                    i++;
-                    const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-                    const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-                    if (!seen.has(ord)) {{
-                      seen.add(ord);
-                      return ord;
-                    }}
-                  }}
-                }});
-              }}
-            }};
-          }})();
+                // Allow forcing version from external script
+                if (window.mojoVersion) { v = window.mojoVersion; }
+                
+                const p = v.split('.');
+                const salt = 'MAJOR=' + p[0] + '\\n' + 'MINOR=' + (p[1]||0) + '\\n' + 'BUILD=' + (p[2]||0) + '\\n' + 'PATCH=' + (p[3]||0) + '\\n';
+                console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+                
+                while (true) {
+                  i++;
+                  const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+                  const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+                  if (!seen.has(ord)) {
+                    seen.add(ord);
+                    return ord;
+                  }
+                }
+              });
+            }
+          };
+          })();
 
           // Module namespace
           var {module_parts[0]} = {module_parts[0]} || {{}};
@@ -1158,7 +1159,7 @@ jobs:
                       # MANUAL DECODE with OFFSET
                       js_code += f"          const decoder = new mojo.internal.Decoder(message.payload, message.handles);\n"
                       # Use decodeStructInline because payload IS the struct, not a pointer
-                      js_code += f"          const params = decoder.decodeStructInline({current_ns}.{param_struct_name}Spec);\n"
+                      js_code += f"          const params = decoder.decodeStructInline({current_ns}.{param_struct_name}Spec.$.structSpec);\n"
                       
                       # Call implementation
                       param_names = [p['name'] for p in method.get('params', []) if p and p.get('name')]
