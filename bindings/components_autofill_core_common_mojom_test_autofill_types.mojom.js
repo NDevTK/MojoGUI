@@ -289,77 +289,77 @@ autofill.mojom.TypeTraitsTestReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: PassFormData
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(autofill.mojom.TypeTraitsTest_PassFormData_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PassFormData (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: PassFormFieldData
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(autofill.mojom.TypeTraitsTest_PassFormFieldData_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PassFormFieldData (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: PassFormDataPredictions
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PassFormDataPredictions (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: PassFormFieldDataPredictions
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PassFormFieldDataPredictions (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: PassPasswordFormFillData
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PassPasswordFormFillData (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: PassPasswordFormGenerationData
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PassPasswordFormGenerationData (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 6: PassPasswordGenerationUIData
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PassPasswordGenerationUIData (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 7: PassPasswordSuggestionRequest
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PassPasswordSuggestionRequest (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -367,7 +367,7 @@ autofill.mojom.TypeTraitsTestReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 7: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(autofill.mojom.TypeTraitsTest_PassFormData_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.passFormData');
@@ -380,7 +380,7 @@ autofill.mojom.TypeTraitsTestReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(autofill.mojom.TypeTraitsTest_PassFormFieldData_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.passFormFieldData');
@@ -393,7 +393,7 @@ autofill.mojom.TypeTraitsTestReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.passFormDataPredictions');
@@ -406,7 +406,7 @@ autofill.mojom.TypeTraitsTestReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.passFormFieldDataPredictions');
@@ -419,7 +419,7 @@ autofill.mojom.TypeTraitsTestReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.passPasswordFormFillData');
@@ -432,7 +432,7 @@ autofill.mojom.TypeTraitsTestReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.passPasswordFormGenerationData');
@@ -445,7 +445,7 @@ autofill.mojom.TypeTraitsTestReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.passPasswordGenerationUIData');

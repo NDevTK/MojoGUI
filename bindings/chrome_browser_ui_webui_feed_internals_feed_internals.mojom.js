@@ -385,122 +385,122 @@ feed_internals.mojom.PageHandlerReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetGeneralProperties
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(feed_internals.mojom.PageHandler_GetGeneralProperties_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetGeneralProperties (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: GetLastFetchProperties
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(feed_internals.mojom.PageHandler_GetLastFetchProperties_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetLastFetchProperties (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: RefreshForYouFeed
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(feed_internals.mojom.PageHandler_RefreshForYouFeed_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RefreshForYouFeed (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: RefreshFollowingFeed
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(feed_internals.mojom.PageHandler_RefreshFollowingFeed_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RefreshFollowingFeed (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: RefreshWebFeedSuggestions
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(feed_internals.mojom.PageHandler_RefreshWebFeedSuggestions_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RefreshWebFeedSuggestions (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: GetFeedProcessScopeDump
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFeedProcessScopeDump (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 6: GetFeedHistograms
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(feed_internals.mojom.PageHandler_GetFeedHistograms_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFeedHistograms (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 7: OverrideFeedHost
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(feed_internals.mojom.PageHandler_OverrideFeedHost_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OverrideFeedHost (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 8: OverrideDiscoverApiEndpoint
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(feed_internals.mojom.PageHandler_OverrideDiscoverApiEndpoint_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OverrideDiscoverApiEndpoint (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 9: OverrideFeedStreamData
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(feed_internals.mojom.PageHandler_OverrideFeedStreamData_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OverrideFeedStreamData (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 10: SetWebFeedFollowIntroDebugEnabled
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(feed_internals.mojom.PageHandler_SetWebFeedFollowIntroDebugEnabled_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetWebFeedFollowIntroDebugEnabled (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 11: SetUseFeedQueryRequests
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(feed_internals.mojom.PageHandler_SetUseFeedQueryRequests_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUseFeedQueryRequests (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 12: SetFollowingFeedOrder
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(feed_internals.mojom.PageHandler_SetFollowingFeedOrder_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetFollowingFeedOrder (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -508,7 +508,7 @@ feed_internals.mojom.PageHandlerReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 12: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(feed_internals.mojom.PageHandler_GetGeneralProperties_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getGeneralProperties');
@@ -521,7 +521,7 @@ feed_internals.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 12: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(feed_internals.mojom.PageHandler_GetLastFetchProperties_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getLastFetchProperties');
@@ -534,28 +534,28 @@ feed_internals.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 12: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(feed_internals.mojom.PageHandler_RefreshForYouFeed_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.refreshForYouFeed');
           const result = this.impl.refreshForYouFeed();
           break;
         }
-        case 12: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(feed_internals.mojom.PageHandler_RefreshFollowingFeed_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.refreshFollowingFeed');
           const result = this.impl.refreshFollowingFeed();
           break;
         }
-        case 12: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(feed_internals.mojom.PageHandler_RefreshWebFeedSuggestions_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.refreshWebFeedSuggestions');
           const result = this.impl.refreshWebFeedSuggestions();
           break;
         }
-        case 12: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getFeedProcessScopeDump');
@@ -568,7 +568,7 @@ feed_internals.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 12: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(feed_internals.mojom.PageHandler_GetFeedHistograms_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getFeedHistograms');
@@ -581,35 +581,35 @@ feed_internals.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 12: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(feed_internals.mojom.PageHandler_OverrideFeedHost_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.overrideFeedHost');
           const result = this.impl.overrideFeedHost(params.host);
           break;
         }
-        case 12: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(feed_internals.mojom.PageHandler_OverrideDiscoverApiEndpoint_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.overrideDiscoverApiEndpoint');
           const result = this.impl.overrideDiscoverApiEndpoint(params.endpoint_url);
           break;
         }
-        case 12: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(feed_internals.mojom.PageHandler_OverrideFeedStreamData_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.overrideFeedStreamData');
           const result = this.impl.overrideFeedStreamData(params.data);
           break;
         }
-        case 12: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(feed_internals.mojom.PageHandler_SetWebFeedFollowIntroDebugEnabled_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setWebFeedFollowIntroDebugEnabled');
           const result = this.impl.setWebFeedFollowIntroDebugEnabled(params.enabled);
           break;
         }
-        case 12: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(feed_internals.mojom.PageHandler_SetUseFeedQueryRequests_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setUseFeedQueryRequests');

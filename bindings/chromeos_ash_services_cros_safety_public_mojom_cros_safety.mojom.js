@@ -175,23 +175,23 @@ ash.cros_safety.mojom.CloudSafetySessionReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ClassifyTextSafety
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClassifyTextSafety (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: ClassifyImageSafety
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClassifyImageSafety (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -199,7 +199,7 @@ ash.cros_safety.mojom.CloudSafetySessionReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 1: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.classifyTextSafety');
@@ -365,23 +365,23 @@ ash.cros_safety.mojom.OnDeviceSafetySessionReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ClassifyTextSafety
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClassifyTextSafety (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: ClassifyImageSafety
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClassifyImageSafety (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -389,7 +389,7 @@ ash.cros_safety.mojom.OnDeviceSafetySessionReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 1: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.classifyTextSafety');

@@ -186,14 +186,14 @@ help_bubble.mojom.HelpBubbleHandlerFactoryReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateHelpBubbleHandler
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateHelpBubbleHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -318,14 +318,14 @@ help_bubble.mojom.PdfHelpBubbleHandlerFactoryReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateHelpBubbleHandler
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateHelpBubbleHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -485,32 +485,32 @@ help_bubble.mojom.HelpBubbleHandlerReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: BindTrackedElementHandler
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindTrackedElementHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: HelpBubbleButtonPressed
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HelpBubbleButtonPressed (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: HelpBubbleClosed
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HelpBubbleClosed (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -518,14 +518,14 @@ help_bubble.mojom.HelpBubbleHandlerReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 2: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindTrackedElementHandler');
           const result = this.impl.bindTrackedElementHandler(params.handler);
           break;
         }
-        case 2: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.helpBubbleButtonPressed');
@@ -700,41 +700,41 @@ help_bubble.mojom.HelpBubbleClientReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ShowHelpBubble
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowHelpBubble (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: ToggleFocusForAccessibility
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(help_bubble.mojom.HelpBubbleClient_ToggleFocusForAccessibility_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ToggleFocusForAccessibility (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: HideHelpBubble
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(help_bubble.mojom.HelpBubbleClient_HideHelpBubble_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HideHelpBubble (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: ExternalHelpBubbleUpdated
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(help_bubble.mojom.HelpBubbleClient_ExternalHelpBubbleUpdated_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExternalHelpBubbleUpdated (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -742,21 +742,21 @@ help_bubble.mojom.HelpBubbleClientReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 3: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.showHelpBubble');
           const result = this.impl.showHelpBubble(params.params);
           break;
         }
-        case 3: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(help_bubble.mojom.HelpBubbleClient_ToggleFocusForAccessibility_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.toggleFocusForAccessibility');
           const result = this.impl.toggleFocusForAccessibility(params.native_identifier);
           break;
         }
-        case 3: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(help_bubble.mojom.HelpBubbleClient_HideHelpBubble_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.hideHelpBubble');

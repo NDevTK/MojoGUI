@@ -299,23 +299,23 @@ read_anything.mojom.UntrustedPageHandlerFactoryReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateUntrustedPageHandler
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateUntrustedPageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: ShouldShowUI
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPageHandlerFactory_ShouldShowUI_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShouldShowUI (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -323,7 +323,7 @@ read_anything.mojom.UntrustedPageHandlerFactoryReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 1: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createUntrustedPageHandler');
@@ -978,293 +978,293 @@ read_anything.mojom.UntrustedPageHandlerReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetDependencyParserModel
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_GetDependencyParserModel_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDependencyParserModel (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: GetPresentationState
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_GetPresentationState_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPresentationState (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: GetVoicePackInfo
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_GetVoicePackInfo_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetVoicePackInfo (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: InstallVoicePack
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_InstallVoicePack_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InstallVoicePack (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: UninstallVoice
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_UninstallVoice_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UninstallVoice (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: OnCopy
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnCopy_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCopy (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 6: OnLineSpaceChange
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnLineSpaceChange_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLineSpaceChange (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 7: OnLetterSpaceChange
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnLetterSpaceChange_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLetterSpaceChange (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 8: OnFontChange
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnFontChange_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFontChange (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 9: OnFontSizeChange
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnFontSizeChange_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFontSizeChange (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 10: OnLinksEnabledChanged
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnLinksEnabledChanged_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLinksEnabledChanged (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 11: OnImagesEnabledChanged
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnImagesEnabledChanged_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnImagesEnabledChanged (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 12: OnColorChange
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnColorChange_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnColorChange (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 13: OnSpeechRateChange
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnSpeechRateChange_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSpeechRateChange (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 14: OnVoiceChange
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnVoiceChange_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnVoiceChange (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 15: OnLanguagePrefChange
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnLanguagePrefChange_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLanguagePrefChange (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 16: LogExtensionState
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_LogExtensionState_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogExtensionState (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 17: OnHighlightGranularityChanged
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnHighlightGranularityChanged_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHighlightGranularityChanged (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 18: OnLineFocusChanged
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnLineFocusChanged_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLineFocusChanged (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 19: OnReadAloudAudioStateChange
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnReadAloudAudioStateChange_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReadAloudAudioStateChange (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 20: OnLinkClicked
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnLinkClicked_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLinkClicked (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 21: OnImageDataRequested
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnImageDataRequested_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnImageDataRequested (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 22: OnSelectionChange
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnSelectionChange_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSelectionChange (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 23: OnCollapseSelection
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnCollapseSelection_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCollapseSelection (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 24: OnScreenshotRequested
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnScreenshotRequested_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnScreenshotRequested (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 25: OnDistillationStatus
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnDistillationStatus_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDistillationStatus (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 26: ScrollToTargetNode
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_ScrollToTargetNode_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ScrollToTargetNode (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 27: CloseUI
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_CloseUI_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseUI (27)');
              this.mapOrdinal(header.ordinal, 27);
              dispatchId = 27;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 28: TogglePinState
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_TogglePinState_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TogglePinState (28)');
              this.mapOrdinal(header.ordinal, 28);
              dispatchId = 28;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 29: SendPinStateRequest
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_SendPinStateRequest_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendPinStateRequest (29)');
              this.mapOrdinal(header.ordinal, 29);
              dispatchId = 29;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 30: TogglePresentation
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_TogglePresentation_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TogglePresentation (30)');
              this.mapOrdinal(header.ordinal, 30);
              dispatchId = 30;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 31: AckReadingModeHidden
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_AckReadingModeHidden_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AckReadingModeHidden (31)');
              this.mapOrdinal(header.ordinal, 31);
              dispatchId = 31;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -1272,7 +1272,7 @@ read_anything.mojom.UntrustedPageHandlerReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 31: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_GetDependencyParserModel_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getDependencyParserModel');
@@ -1285,210 +1285,210 @@ read_anything.mojom.UntrustedPageHandlerReceiver = class {
           }
           break;
         }
-        case 31: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_GetPresentationState_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getPresentationState');
           const result = this.impl.getPresentationState();
           break;
         }
-        case 31: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_GetVoicePackInfo_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getVoicePackInfo');
           const result = this.impl.getVoicePackInfo(params.language);
           break;
         }
-        case 31: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_InstallVoicePack_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.installVoicePack');
           const result = this.impl.installVoicePack(params.language);
           break;
         }
-        case 31: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_UninstallVoice_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.uninstallVoice');
           const result = this.impl.uninstallVoice(params.language);
           break;
         }
-        case 31: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnCopy_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onCopy');
           const result = this.impl.onCopy();
           break;
         }
-        case 31: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnLineSpaceChange_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onLineSpaceChange');
           const result = this.impl.onLineSpaceChange(params.line_spacing);
           break;
         }
-        case 31: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnLetterSpaceChange_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onLetterSpaceChange');
           const result = this.impl.onLetterSpaceChange(params.letter_spacing);
           break;
         }
-        case 31: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnFontChange_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onFontChange');
           const result = this.impl.onFontChange(params.font);
           break;
         }
-        case 31: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnFontSizeChange_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onFontSizeChange');
           const result = this.impl.onFontSizeChange(params.font_size);
           break;
         }
-        case 31: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnLinksEnabledChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onLinksEnabledChanged');
           const result = this.impl.onLinksEnabledChanged(params.enabled);
           break;
         }
-        case 31: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnImagesEnabledChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onImagesEnabledChanged');
           const result = this.impl.onImagesEnabledChanged(params.enabled);
           break;
         }
-        case 31: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnColorChange_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onColorChange');
           const result = this.impl.onColorChange(params.color);
           break;
         }
-        case 31: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnSpeechRateChange_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onSpeechRateChange');
           const result = this.impl.onSpeechRateChange(params.rate);
           break;
         }
-        case 31: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnVoiceChange_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onVoiceChange');
           const result = this.impl.onVoiceChange(params.voice, params.lang);
           break;
         }
-        case 31: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnLanguagePrefChange_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onLanguagePrefChange');
           const result = this.impl.onLanguagePrefChange(params.lang, params.enabled);
           break;
         }
-        case 31: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_LogExtensionState_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.logExtensionState');
           const result = this.impl.logExtensionState();
           break;
         }
-        case 31: {
+        case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnHighlightGranularityChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onHighlightGranularityChanged');
           const result = this.impl.onHighlightGranularityChanged(params.granularity);
           break;
         }
-        case 31: {
+        case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnLineFocusChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onLineFocusChanged');
           const result = this.impl.onLineFocusChanged(params.granularity);
           break;
         }
-        case 31: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnReadAloudAudioStateChange_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onReadAloudAudioStateChange');
           const result = this.impl.onReadAloudAudioStateChange(params.playing);
           break;
         }
-        case 31: {
+        case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnLinkClicked_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onLinkClicked');
           const result = this.impl.onLinkClicked(params.target_tree_id, params.target_node_id);
           break;
         }
-        case 31: {
+        case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnImageDataRequested_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onImageDataRequested');
           const result = this.impl.onImageDataRequested(params.target_tree_id, params.target_node_id);
           break;
         }
-        case 31: {
+        case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnSelectionChange_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onSelectionChange');
           const result = this.impl.onSelectionChange(params.target_tree_id, params.anchor_node_id, params.anchor_offset, params.focus_node_id, params.focus_offset);
           break;
         }
-        case 31: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnCollapseSelection_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onCollapseSelection');
           const result = this.impl.onCollapseSelection();
           break;
         }
-        case 31: {
+        case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnScreenshotRequested_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onScreenshotRequested');
           const result = this.impl.onScreenshotRequested();
           break;
         }
-        case 31: {
+        case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnDistillationStatus_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onDistillationStatus');
           const result = this.impl.onDistillationStatus(params.status, params.word_count);
           break;
         }
-        case 31: {
+        case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_ScrollToTargetNode_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.scrollToTargetNode');
           const result = this.impl.scrollToTargetNode(params.target_tree_id, params.target_node_id);
           break;
         }
-        case 31: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_CloseUI_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.closeUI');
           const result = this.impl.closeUI();
           break;
         }
-        case 31: {
+        case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_TogglePinState_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.togglePinState');
           const result = this.impl.togglePinState();
           break;
         }
-        case 31: {
+        case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_SendPinStateRequest_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.sendPinStateRequest');
           const result = this.impl.sendPinStateRequest();
           break;
         }
-        case 31: {
+        case 30: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_TogglePresentation_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.togglePresentation');
@@ -1897,158 +1897,158 @@ read_anything.mojom.UntrustedPageReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AccessibilityEventReceived
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPage_AccessibilityEventReceived_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AccessibilityEventReceived (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: OnGetPresentationState
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPage_OnGetPresentationState_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnGetPresentationState (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: OnGetVoicePackInfo
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPage_OnGetVoicePackInfo_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnGetVoicePackInfo (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: AccessibilityLocationChangesReceived
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPage_AccessibilityLocationChangesReceived_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AccessibilityLocationChangesReceived (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: OnActiveAXTreeIDChanged
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPage_OnActiveAXTreeIDChanged_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnActiveAXTreeIDChanged (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: OnAXTreeDestroyed
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPage_OnAXTreeDestroyed_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAXTreeDestroyed (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 6: SetLanguageCode
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPage_SetLanguageCode_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetLanguageCode (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 7: OnDeviceLocked
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPage_OnDeviceLocked_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDeviceLocked (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 8: OnTtsEngineInstalled
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPage_OnTtsEngineInstalled_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTtsEngineInstalled (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 9: SetDefaultLanguageCode
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPage_SetDefaultLanguageCode_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDefaultLanguageCode (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 10: OnSettingsRestoredFromPrefs
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPage_OnSettingsRestoredFromPrefs_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSettingsRestoredFromPrefs (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 11: ScreenAIServiceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPage_ScreenAIServiceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ScreenAIServiceReady (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 12: OnReadingModeHidden
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPage_OnReadingModeHidden_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReadingModeHidden (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 13: OnTabWillDetach
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPage_OnTabWillDetach_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTabWillDetach (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 14: OnTabMuteStateChange
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPage_OnTabMuteStateChange_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTabMuteStateChange (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 15: OnImageDataDownloaded
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPage_OnImageDataDownloaded_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnImageDataDownloaded (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 16: OnPinStatusReceived
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(read_anything.mojom.UntrustedPage_OnPinStatusReceived_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPinStatusReceived (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -2056,112 +2056,112 @@ read_anything.mojom.UntrustedPageReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 16: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPage_AccessibilityEventReceived_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.accessibilityEventReceived');
           const result = this.impl.accessibilityEventReceived(params.tree_id, params.updates, params.events);
           break;
         }
-        case 16: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPage_OnGetPresentationState_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onGetPresentationState');
           const result = this.impl.onGetPresentationState(params.presentation_state);
           break;
         }
-        case 16: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPage_OnGetVoicePackInfo_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onGetVoicePackInfo');
           const result = this.impl.onGetVoicePackInfo(params.voice_pack_info);
           break;
         }
-        case 16: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPage_AccessibilityLocationChangesReceived_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.accessibilityLocationChangesReceived');
           const result = this.impl.accessibilityLocationChangesReceived(params.tree_id, params.details);
           break;
         }
-        case 16: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPage_OnActiveAXTreeIDChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onActiveAXTreeIDChanged');
           const result = this.impl.onActiveAXTreeIDChanged(params.tree_id, params.ukm_source_id, params.is_pdf);
           break;
         }
-        case 16: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPage_OnAXTreeDestroyed_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onAXTreeDestroyed');
           const result = this.impl.onAXTreeDestroyed(params.tree_id);
           break;
         }
-        case 16: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPage_SetLanguageCode_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setLanguageCode');
           const result = this.impl.setLanguageCode(params.code);
           break;
         }
-        case 16: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPage_OnDeviceLocked_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onDeviceLocked');
           const result = this.impl.onDeviceLocked();
           break;
         }
-        case 16: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPage_OnTtsEngineInstalled_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onTtsEngineInstalled');
           const result = this.impl.onTtsEngineInstalled();
           break;
         }
-        case 16: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPage_SetDefaultLanguageCode_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setDefaultLanguageCode');
           const result = this.impl.setDefaultLanguageCode(params.code);
           break;
         }
-        case 16: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPage_OnSettingsRestoredFromPrefs_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onSettingsRestoredFromPrefs');
           const result = this.impl.onSettingsRestoredFromPrefs(params.line_spacing, params.letter_spacing, params.font, params.font_size, params.links_enabled, params.images_enabled, params.color, params.speech_rate, params.voices, params.languages_enabled_in_pref, params.granularity, params.line_focus);
           break;
         }
-        case 16: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPage_ScreenAIServiceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.screenAIServiceReady');
           const result = this.impl.screenAIServiceReady();
           break;
         }
-        case 16: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPage_OnReadingModeHidden_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onReadingModeHidden');
           const result = this.impl.onReadingModeHidden(params.tab_active);
           break;
         }
-        case 16: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPage_OnTabWillDetach_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onTabWillDetach');
           const result = this.impl.onTabWillDetach();
           break;
         }
-        case 16: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPage_OnTabMuteStateChange_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onTabMuteStateChange');
           const result = this.impl.onTabMuteStateChange(params.muted);
           break;
         }
-        case 16: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(read_anything.mojom.UntrustedPage_OnImageDataDownloaded_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onImageDataDownloaded');

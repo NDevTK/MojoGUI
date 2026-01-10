@@ -303,59 +303,59 @@ mantis.mojom.MantisProcessorReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Inpainting
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mantis.mojom.MantisProcessor_Inpainting_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Inpainting (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: GenerativeFill
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mantis.mojom.MantisProcessor_GenerativeFill_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenerativeFill (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: Segmentation
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mantis.mojom.MantisProcessor_Segmentation_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Segmentation (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: ClassifyImageSafety
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mantis.mojom.MantisProcessor_ClassifyImageSafety_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClassifyImageSafety (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: Outpainting
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mantis.mojom.MantisProcessor_Outpainting_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Outpainting (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: InferSegmentationMode
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mantis.mojom.MantisProcessor_InferSegmentationMode_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InferSegmentationMode (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -363,7 +363,7 @@ mantis.mojom.MantisProcessorReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 5: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mantis.mojom.MantisProcessor_Inpainting_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.inpainting');
@@ -376,7 +376,7 @@ mantis.mojom.MantisProcessorReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mantis.mojom.MantisProcessor_GenerativeFill_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.generativeFill');
@@ -389,7 +389,7 @@ mantis.mojom.MantisProcessorReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mantis.mojom.MantisProcessor_Segmentation_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.segmentation');
@@ -402,7 +402,7 @@ mantis.mojom.MantisProcessorReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mantis.mojom.MantisProcessor_ClassifyImageSafety_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.classifyImageSafety');
@@ -415,7 +415,7 @@ mantis.mojom.MantisProcessorReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mantis.mojom.MantisProcessor_Outpainting_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.outpainting');

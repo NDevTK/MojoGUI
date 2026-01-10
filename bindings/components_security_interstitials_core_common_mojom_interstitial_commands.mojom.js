@@ -446,194 +446,194 @@ security_interstitials.mojom.InterstitialCommandsReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: DontProceed
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_DontProceed_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DontProceed (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: Proceed
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_Proceed_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Proceed (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: ShowMoreSection
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_ShowMoreSection_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowMoreSection (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: OpenHelpCenter
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_OpenHelpCenter_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenHelpCenter (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: OpenDiagnostic
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_OpenDiagnostic_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenDiagnostic (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: Reload
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_Reload_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Reload (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 6: OpenDateSettings
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_OpenDateSettings_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenDateSettings (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 7: OpenLogin
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_OpenLogin_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenLogin (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 8: DoReport
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_DoReport_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DoReport (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 9: DontReport
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_DontReport_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DontReport (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 10: OpenReportingPrivacy
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacy_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenReportingPrivacy (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 11: OpenWhitepaper
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_OpenWhitepaper_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenWhitepaper (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 12: OpenHelpCenterInNewTab
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_OpenHelpCenterInNewTab_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenHelpCenterInNewTab (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 13: OpenDiagnosticInNewTab
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_OpenDiagnosticInNewTab_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenDiagnosticInNewTab (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 14: OpenReportingPrivacyInNewTab
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacyInNewTab_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenReportingPrivacyInNewTab (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 15: OpenWhitepaperInNewTab
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_OpenWhitepaperInNewTab_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenWhitepaperInNewTab (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 16: ReportPhishingErrorInNewTab
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_ReportPhishingErrorInNewTab_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportPhishingErrorInNewTab (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 17: ReportPhishingError
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_ReportPhishingError_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportPhishingError (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 18: OpenEnhancedProtectionSettings
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_OpenEnhancedProtectionSettings_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenEnhancedProtectionSettings (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 19: ShowCertificateViewer
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_ShowCertificateViewer_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowCertificateViewer (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 20: OpenAndroidAdvancedProtectionSettings
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_OpenAndroidAdvancedProtectionSettings_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenAndroidAdvancedProtectionSettings (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -641,140 +641,140 @@ security_interstitials.mojom.InterstitialCommandsReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 20: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_DontProceed_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.dontProceed');
           const result = this.impl.dontProceed();
           break;
         }
-        case 20: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_Proceed_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.proceed');
           const result = this.impl.proceed();
           break;
         }
-        case 20: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_ShowMoreSection_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.showMoreSection');
           const result = this.impl.showMoreSection();
           break;
         }
-        case 20: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_OpenHelpCenter_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openHelpCenter');
           const result = this.impl.openHelpCenter();
           break;
         }
-        case 20: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_OpenDiagnostic_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openDiagnostic');
           const result = this.impl.openDiagnostic();
           break;
         }
-        case 20: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_Reload_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.reload');
           const result = this.impl.reload();
           break;
         }
-        case 20: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_OpenDateSettings_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openDateSettings');
           const result = this.impl.openDateSettings();
           break;
         }
-        case 20: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_OpenLogin_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openLogin');
           const result = this.impl.openLogin();
           break;
         }
-        case 20: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_DoReport_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.doReport');
           const result = this.impl.doReport();
           break;
         }
-        case 20: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_DontReport_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.dontReport');
           const result = this.impl.dontReport();
           break;
         }
-        case 20: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacy_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openReportingPrivacy');
           const result = this.impl.openReportingPrivacy();
           break;
         }
-        case 20: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_OpenWhitepaper_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openWhitepaper');
           const result = this.impl.openWhitepaper();
           break;
         }
-        case 20: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_OpenHelpCenterInNewTab_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openHelpCenterInNewTab');
           const result = this.impl.openHelpCenterInNewTab();
           break;
         }
-        case 20: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_OpenDiagnosticInNewTab_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openDiagnosticInNewTab');
           const result = this.impl.openDiagnosticInNewTab();
           break;
         }
-        case 20: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacyInNewTab_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openReportingPrivacyInNewTab');
           const result = this.impl.openReportingPrivacyInNewTab();
           break;
         }
-        case 20: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_OpenWhitepaperInNewTab_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openWhitepaperInNewTab');
           const result = this.impl.openWhitepaperInNewTab();
           break;
         }
-        case 20: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_ReportPhishingErrorInNewTab_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.reportPhishingErrorInNewTab');
           const result = this.impl.reportPhishingErrorInNewTab();
           break;
         }
-        case 20: {
+        case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_ReportPhishingError_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.reportPhishingError');
           const result = this.impl.reportPhishingError();
           break;
         }
-        case 20: {
+        case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_OpenEnhancedProtectionSettings_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openEnhancedProtectionSettings');
           const result = this.impl.openEnhancedProtectionSettings();
           break;
         }
-        case 20: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(security_interstitials.mojom.InterstitialCommands_ShowCertificateViewer_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.showCertificateViewer');

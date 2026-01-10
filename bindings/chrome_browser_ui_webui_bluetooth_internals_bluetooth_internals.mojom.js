@@ -129,14 +129,14 @@ mojom.DebugLogsChangeHandlerReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ChangeDebugLogsState
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.DebugLogsChangeHandler_ChangeDebugLogsState_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ChangeDebugLogsState (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -420,77 +420,77 @@ mojom.BluetoothInternalsHandlerReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetAdapter
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.BluetoothInternalsHandler_GetAdapter_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAdapter (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: GetDebugLogsChangeHandler
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDebugLogsChangeHandler (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: CheckSystemPermissions
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.BluetoothInternalsHandler_CheckSystemPermissions_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CheckSystemPermissions (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: RequestSystemPermissions
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.BluetoothInternalsHandler_RequestSystemPermissions_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestSystemPermissions (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: RequestLocationServices
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.BluetoothInternalsHandler_RequestLocationServices_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestLocationServices (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: RestartSystemBluetooth
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.BluetoothInternalsHandler_RestartSystemBluetooth_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RestartSystemBluetooth (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 6: StartBtsnoop
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.BluetoothInternalsHandler_StartBtsnoop_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartBtsnoop (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 7: IsBtsnoopFeatureEnabled
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsBtsnoopFeatureEnabled (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -498,7 +498,7 @@ mojom.BluetoothInternalsHandlerReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 7: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mojom.BluetoothInternalsHandler_GetAdapter_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getAdapter');
@@ -511,7 +511,7 @@ mojom.BluetoothInternalsHandlerReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getDebugLogsChangeHandler');
@@ -524,7 +524,7 @@ mojom.BluetoothInternalsHandlerReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mojom.BluetoothInternalsHandler_CheckSystemPermissions_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.checkSystemPermissions');
@@ -537,7 +537,7 @@ mojom.BluetoothInternalsHandlerReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mojom.BluetoothInternalsHandler_RequestSystemPermissions_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.requestSystemPermissions');
@@ -550,7 +550,7 @@ mojom.BluetoothInternalsHandlerReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mojom.BluetoothInternalsHandler_RequestLocationServices_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.requestLocationServices');
@@ -563,7 +563,7 @@ mojom.BluetoothInternalsHandlerReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mojom.BluetoothInternalsHandler_RestartSystemBluetooth_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.restartSystemBluetooth');
@@ -576,7 +576,7 @@ mojom.BluetoothInternalsHandlerReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mojom.BluetoothInternalsHandler_StartBtsnoop_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.startBtsnoop');
@@ -716,14 +716,14 @@ mojom.BluetoothBtsnoopReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Stop
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.BluetoothBtsnoop_Stop_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Stop (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;

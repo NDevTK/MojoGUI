@@ -108,14 +108,14 @@ ash.sanitize_ui.mojom.SettingsResetterReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: PerformSanitizeSettings
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.sanitize_ui.mojom.SettingsResetter_PerformSanitizeSettings_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PerformSanitizeSettings (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;

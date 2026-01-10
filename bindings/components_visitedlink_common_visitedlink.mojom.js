@@ -163,41 +163,41 @@ visitedlink.mojom.VisitedLinkNotificationSinkReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: UpdateVisitedLinks
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(visitedlink.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateVisitedLinks (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: AddVisitedLinks
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(visitedlink.mojom.VisitedLinkNotificationSink_AddVisitedLinks_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddVisitedLinks (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: ResetVisitedLinks
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(visitedlink.mojom.VisitedLinkNotificationSink_ResetVisitedLinks_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResetVisitedLinks (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: UpdateOriginSalts
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(visitedlink.mojom.VisitedLinkNotificationSink_UpdateOriginSalts_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateOriginSalts (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -205,21 +205,21 @@ visitedlink.mojom.VisitedLinkNotificationSinkReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 3: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(visitedlink.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.updateVisitedLinks');
           const result = this.impl.updateVisitedLinks(params.table_region);
           break;
         }
-        case 3: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(visitedlink.mojom.VisitedLinkNotificationSink_AddVisitedLinks_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.addVisitedLinks');
           const result = this.impl.addVisitedLinks(params.link_hashes);
           break;
         }
-        case 3: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(visitedlink.mojom.VisitedLinkNotificationSink_ResetVisitedLinks_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.resetVisitedLinks');

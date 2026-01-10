@@ -318,113 +318,113 @@ ash.mojom.status_area_internals.PageHandlerReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ToggleImeTray
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_ToggleImeTray_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ToggleImeTray (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: TogglePaletteTray
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_TogglePaletteTray_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TogglePaletteTray (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: ToggleLogoutTray
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_ToggleLogoutTray_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ToggleLogoutTray (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: ToggleVirtualKeyboardTray
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_ToggleVirtualKeyboardTray_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ToggleVirtualKeyboardTray (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: ToggleDictationTray
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_ToggleDictationTray_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ToggleDictationTray (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: ToggleVideoConferenceTray
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_ToggleVideoConferenceTray_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ToggleVideoConferenceTray (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 6: ToggleAnnotationTray
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_ToggleAnnotationTray_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ToggleAnnotationTray (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 7: SetIsInUserChildSession
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_SetIsInUserChildSession_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIsInUserChildSession (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 8: TriggerPrivacyIndicators
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_TriggerPrivacyIndicators_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TriggerPrivacyIndicators (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 9: ResetHmrConsentStatus
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_ResetHmrConsentStatus_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResetHmrConsentStatus (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 10: SetBatteryIcon
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBatteryIcon (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 11: SetBatteryPercent
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_SetBatteryPercent_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBatteryPercent (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -432,77 +432,77 @@ ash.mojom.status_area_internals.PageHandlerReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 11: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_ToggleImeTray_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.toggleImeTray');
           const result = this.impl.toggleImeTray(params.visible);
           break;
         }
-        case 11: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_TogglePaletteTray_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.togglePaletteTray');
           const result = this.impl.togglePaletteTray(params.visible);
           break;
         }
-        case 11: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_ToggleLogoutTray_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.toggleLogoutTray');
           const result = this.impl.toggleLogoutTray(params.visible);
           break;
         }
-        case 11: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_ToggleVirtualKeyboardTray_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.toggleVirtualKeyboardTray');
           const result = this.impl.toggleVirtualKeyboardTray(params.visible);
           break;
         }
-        case 11: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_ToggleDictationTray_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.toggleDictationTray');
           const result = this.impl.toggleDictationTray(params.visible);
           break;
         }
-        case 11: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_ToggleVideoConferenceTray_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.toggleVideoConferenceTray');
           const result = this.impl.toggleVideoConferenceTray(params.visible);
           break;
         }
-        case 11: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_ToggleAnnotationTray_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.toggleAnnotationTray');
           const result = this.impl.toggleAnnotationTray(params.visible);
           break;
         }
-        case 11: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_SetIsInUserChildSession_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setIsInUserChildSession');
           const result = this.impl.setIsInUserChildSession(params.in_child_session);
           break;
         }
-        case 11: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_TriggerPrivacyIndicators_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.triggerPrivacyIndicators');
           const result = this.impl.triggerPrivacyIndicators(params.app_id, params.app_name, params.is_camera_used, params.is_microphone_used);
           break;
         }
-        case 11: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_ResetHmrConsentStatus_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.resetHmrConsentStatus');
           const result = this.impl.resetHmrConsentStatus();
           break;
         }
-        case 11: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setBatteryIcon');

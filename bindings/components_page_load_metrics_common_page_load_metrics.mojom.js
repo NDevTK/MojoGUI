@@ -440,32 +440,32 @@ page_load_metrics.mojom.PageLoadMetricsReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: UpdateTiming
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateTiming (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: SetUpSharedMemoryForDroppedFrames
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUpSharedMemoryForDroppedFrames (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: AddCustomUserTiming
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddCustomUserTiming (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -473,14 +473,14 @@ page_load_metrics.mojom.PageLoadMetricsReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 2: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.updateTiming');
           const result = this.impl.updateTiming(params.page_load_timing, params.frame_metadata, params.new_features, params.resources, params.render_data, params.cpu_load_timing, params.input_timing_delta, params.subresource_load_metrics, params.soft_navigation_metrics);
           break;
         }
-        case 2: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setUpSharedMemoryForDroppedFrames');

@@ -245,68 +245,68 @@ ntp_promo.mojom.NtpPromoHandlerReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: RequestPromos
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ntp_promo.mojom.NtpPromoHandler_RequestPromos_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestPromos (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: OnPromosShown
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ntp_promo.mojom.NtpPromoHandler_OnPromosShown_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPromosShown (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: OnPromoClicked
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPromoClicked (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: SnoozeSetupList
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ntp_promo.mojom.NtpPromoHandler_SnoozeSetupList_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SnoozeSetupList (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: UnsnoozeSetupList
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ntp_promo.mojom.NtpPromoHandler_UnsnoozeSetupList_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UnsnoozeSetupList (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: DisableSetupList
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ntp_promo.mojom.NtpPromoHandler_DisableSetupList_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisableSetupList (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 6: UndisableSetupList
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ntp_promo.mojom.NtpPromoHandler_UndisableSetupList_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UndisableSetupList (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -314,42 +314,42 @@ ntp_promo.mojom.NtpPromoHandlerReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 6: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ntp_promo.mojom.NtpPromoHandler_RequestPromos_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.requestPromos');
           const result = this.impl.requestPromos();
           break;
         }
-        case 6: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ntp_promo.mojom.NtpPromoHandler_OnPromosShown_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onPromosShown');
           const result = this.impl.onPromosShown(params.eligible_shown, params.completed_shown);
           break;
         }
-        case 6: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onPromoClicked');
           const result = this.impl.onPromoClicked(params.promo_id);
           break;
         }
-        case 6: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ntp_promo.mojom.NtpPromoHandler_SnoozeSetupList_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.snoozeSetupList');
           const result = this.impl.snoozeSetupList();
           break;
         }
-        case 6: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ntp_promo.mojom.NtpPromoHandler_UnsnoozeSetupList_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.unsnoozeSetupList');
           const result = this.impl.unsnoozeSetupList();
           break;
         }
-        case 6: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ntp_promo.mojom.NtpPromoHandler_DisableSetupList_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.disableSetupList');
@@ -473,14 +473,14 @@ ntp_promo.mojom.NtpPromoClientReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetPromos
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ntp_promo.mojom.NtpPromoClient_SetPromos_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPromos (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -605,14 +605,14 @@ ntp_promo.mojom.NtpPromoHandlerFactoryReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateNtpPromoHandler
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateNtpPromoHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;

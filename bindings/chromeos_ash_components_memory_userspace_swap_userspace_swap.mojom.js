@@ -131,14 +131,14 @@ userspace_swap.mojom.UserspaceSwapInitializationReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: TransferUserfaultFD
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TransferUserfaultFD (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -309,32 +309,32 @@ userspace_swap.mojom.UserspaceSwapReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: MovePTEsLeavingMapping
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MovePTEsLeavingMapping (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: MapArea
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(userspace_swap.mojom.UserspaceSwap_MapArea_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MapArea (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: GetPartitionAllocSuperPagesUsed
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPartitionAllocSuperPagesUsed (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -342,14 +342,14 @@ userspace_swap.mojom.UserspaceSwapReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 2: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.movePTEsLeavingMapping');
           const result = this.impl.movePTEsLeavingMapping(params.src, params.dest);
           break;
         }
-        case 2: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(userspace_swap.mojom.UserspaceSwap_MapArea_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.mapArea');

@@ -193,50 +193,50 @@ attribution_reporting.mojom.DataHostReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SourceDataAvailable
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(attribution_reporting.mojom.DataHost_SourceDataAvailable_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SourceDataAvailable (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: TriggerDataAvailable
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(attribution_reporting.mojom.DataHost_TriggerDataAvailable_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TriggerDataAvailable (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: OsSourceDataAvailable
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(attribution_reporting.mojom.DataHost_OsSourceDataAvailable_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OsSourceDataAvailable (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: OsTriggerDataAvailable
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(attribution_reporting.mojom.DataHost_OsTriggerDataAvailable_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OsTriggerDataAvailable (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: ReportRegistrationHeaderError
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(attribution_reporting.mojom.DataHost_ReportRegistrationHeaderError_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportRegistrationHeaderError (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -244,28 +244,28 @@ attribution_reporting.mojom.DataHostReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 4: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(attribution_reporting.mojom.DataHost_SourceDataAvailable_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.sourceDataAvailable');
           const result = this.impl.sourceDataAvailable(params.reporting_origin, params.data, params.was_fetched_via_service_worker);
           break;
         }
-        case 4: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(attribution_reporting.mojom.DataHost_TriggerDataAvailable_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.triggerDataAvailable');
           const result = this.impl.triggerDataAvailable(params.reporting_origin, params.data, params.was_fetched_via_service_worker);
           break;
         }
-        case 4: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(attribution_reporting.mojom.DataHost_OsSourceDataAvailable_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.osSourceDataAvailable');
           const result = this.impl.osSourceDataAvailable(params.registration, params.was_fetched_via_service_worker);
           break;
         }
-        case 4: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(attribution_reporting.mojom.DataHost_OsTriggerDataAvailable_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.osTriggerDataAvailable');

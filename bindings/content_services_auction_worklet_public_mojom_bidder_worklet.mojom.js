@@ -287,23 +287,23 @@ auction_worklet.mojom.GenerateBidClientReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnBiddingSignalsReceived
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(auction_worklet.mojom.GenerateBidClient_OnBiddingSignalsReceived_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBiddingSignalsReceived (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: OnGenerateBidComplete
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(auction_worklet.mojom.GenerateBidClient_OnGenerateBidComplete_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnGenerateBidComplete (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -311,7 +311,7 @@ auction_worklet.mojom.GenerateBidClientReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 1: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(auction_worklet.mojom.GenerateBidClient_OnBiddingSignalsReceived_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onBiddingSignalsReceived');
@@ -447,14 +447,14 @@ auction_worklet.mojom.GenerateBidFinalizerReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: FinishGenerateBid
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(auction_worklet.mojom.GenerateBidFinalizer_FinishGenerateBid_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FinishGenerateBid (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -689,41 +689,41 @@ auction_worklet.mojom.BidderWorkletReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: BeginGenerateBid
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(auction_worklet.mojom.BidderWorklet_BeginGenerateBid_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BeginGenerateBid (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: SendPendingSignalsRequests
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(auction_worklet.mojom.BidderWorklet_SendPendingSignalsRequests_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendPendingSignalsRequests (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: ReportWin
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(auction_worklet.mojom.BidderWorklet_ReportWin_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportWin (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: ConnectDevToolsAgent
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(auction_worklet.mojom.BidderWorklet_ConnectDevToolsAgent_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConnectDevToolsAgent (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -731,21 +731,21 @@ auction_worklet.mojom.BidderWorkletReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 3: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(auction_worklet.mojom.BidderWorklet_BeginGenerateBid_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.beginGenerateBid');
           const result = this.impl.beginGenerateBid(params.bidder_worklet_non_shared_params, params.key_value_signals_cache_key, params.kanon_mode, params.interest_group_join_origin, params.direct_from_seller_per_buyer_signals, params.direct_from_seller_auction_signals, params.browser_signal_seller_origin, params.browser_signal_top_level_seller_origin, params.browser_signal_recency, params.browser_signal_for_debugging_only_sampling, params.bidding_browser_signals, params.auction_start_time, params.requested_ad_size, params.multi_bid_limit, params.group_by_origin_id, params.trace_id, params.generate_bid_client, params.bid_finalizer);
           break;
         }
-        case 3: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(auction_worklet.mojom.BidderWorklet_SendPendingSignalsRequests_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.sendPendingSignalsRequests');
           const result = this.impl.sendPendingSignalsRequests();
           break;
         }
-        case 3: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(auction_worklet.mojom.BidderWorklet_ReportWin_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.reportWin');

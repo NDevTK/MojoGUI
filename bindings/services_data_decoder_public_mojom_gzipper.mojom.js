@@ -191,41 +191,41 @@ data_decoder.mojom.GzipperReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Deflate
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(data_decoder.mojom.Gzipper_Deflate_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Deflate (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: Inflate
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(data_decoder.mojom.Gzipper_Inflate_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Inflate (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: Compress
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(data_decoder.mojom.Gzipper_Compress_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Compress (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: Uncompress
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(data_decoder.mojom.Gzipper_Uncompress_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Uncompress (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -233,7 +233,7 @@ data_decoder.mojom.GzipperReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 3: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(data_decoder.mojom.Gzipper_Deflate_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.deflate');
@@ -246,7 +246,7 @@ data_decoder.mojom.GzipperReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(data_decoder.mojom.Gzipper_Inflate_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.inflate');
@@ -259,7 +259,7 @@ data_decoder.mojom.GzipperReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(data_decoder.mojom.Gzipper_Compress_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.compress');

@@ -254,32 +254,32 @@ chromeos.machine_learning.mojom.TextClassifierReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Annotate
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(chromeos.machine_learning.mojom.TextClassifier_Annotate_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Annotate (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: FindLanguages
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(chromeos.machine_learning.mojom.TextClassifier_FindLanguages_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FindLanguages (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: REMOVED_1
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> REMOVED_1 (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -287,7 +287,7 @@ chromeos.machine_learning.mojom.TextClassifierReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 1: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(chromeos.machine_learning.mojom.TextClassifier_Annotate_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.annotate');
@@ -313,7 +313,7 @@ chromeos.machine_learning.mojom.TextClassifierReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.rEMOVED_1');

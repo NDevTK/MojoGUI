@@ -173,14 +173,14 @@ most_visited.mojom.MostVisitedPageHandlerFactoryReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreatePageHandler
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(most_visited.mojom.MostVisitedPageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -584,149 +584,149 @@ most_visited.mojom.MostVisitedPageHandlerReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AddMostVisitedTile
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddMostVisitedTile (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: DeleteMostVisitedTile
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(most_visited.mojom.MostVisitedPageHandler_DeleteMostVisitedTile_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteMostVisitedTile (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: ReorderMostVisitedTile
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(most_visited.mojom.MostVisitedPageHandler_ReorderMostVisitedTile_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReorderMostVisitedTile (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: RestoreMostVisitedDefaults
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(most_visited.mojom.MostVisitedPageHandler_RestoreMostVisitedDefaults_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RestoreMostVisitedDefaults (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: UndoMostVisitedAutoRemoval
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedAutoRemoval_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UndoMostVisitedAutoRemoval (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: UndoMostVisitedTileAction
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedTileAction_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UndoMostVisitedTileAction (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 6: UpdateMostVisitedInfo
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedInfo_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateMostVisitedInfo (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 7: UpdateMostVisitedTile
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateMostVisitedTile (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 8: PrerenderMostVisitedTile
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(most_visited.mojom.MostVisitedPageHandler_PrerenderMostVisitedTile_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PrerenderMostVisitedTile (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 9: PrefetchMostVisitedTile
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(most_visited.mojom.MostVisitedPageHandler_PrefetchMostVisitedTile_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PrefetchMostVisitedTile (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 10: PreconnectMostVisitedTile
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(most_visited.mojom.MostVisitedPageHandler_PreconnectMostVisitedTile_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PreconnectMostVisitedTile (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 11: CancelPrerender
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(most_visited.mojom.MostVisitedPageHandler_CancelPrerender_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelPrerender (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 12: GetMostVisitedExpandedState
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMostVisitedExpandedState (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 13: SetMostVisitedExpandedState
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(most_visited.mojom.MostVisitedPageHandler_SetMostVisitedExpandedState_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetMostVisitedExpandedState (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 14: OnMostVisitedTilesRendered
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTilesRendered_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMostVisitedTilesRendered (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 15: OnMostVisitedTileNavigation
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTileNavigation_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMostVisitedTileNavigation (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -734,7 +734,7 @@ most_visited.mojom.MostVisitedPageHandlerReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 15: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.addMostVisitedTile');
@@ -747,49 +747,49 @@ most_visited.mojom.MostVisitedPageHandlerReceiver = class {
           }
           break;
         }
-        case 15: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(most_visited.mojom.MostVisitedPageHandler_DeleteMostVisitedTile_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.deleteMostVisitedTile');
           const result = this.impl.deleteMostVisitedTile(params.tile);
           break;
         }
-        case 15: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(most_visited.mojom.MostVisitedPageHandler_ReorderMostVisitedTile_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.reorderMostVisitedTile');
           const result = this.impl.reorderMostVisitedTile(params.tile, params.new_pos);
           break;
         }
-        case 15: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(most_visited.mojom.MostVisitedPageHandler_RestoreMostVisitedDefaults_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.restoreMostVisitedDefaults');
           const result = this.impl.restoreMostVisitedDefaults(params.source);
           break;
         }
-        case 15: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedAutoRemoval_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.undoMostVisitedAutoRemoval');
           const result = this.impl.undoMostVisitedAutoRemoval();
           break;
         }
-        case 15: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedTileAction_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.undoMostVisitedTileAction');
           const result = this.impl.undoMostVisitedTileAction(params.source);
           break;
         }
-        case 15: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedInfo_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.updateMostVisitedInfo');
           const result = this.impl.updateMostVisitedInfo();
           break;
         }
-        case 15: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.updateMostVisitedTile');
@@ -802,35 +802,35 @@ most_visited.mojom.MostVisitedPageHandlerReceiver = class {
           }
           break;
         }
-        case 15: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(most_visited.mojom.MostVisitedPageHandler_PrerenderMostVisitedTile_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.prerenderMostVisitedTile');
           const result = this.impl.prerenderMostVisitedTile(params.tile);
           break;
         }
-        case 15: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(most_visited.mojom.MostVisitedPageHandler_PrefetchMostVisitedTile_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.prefetchMostVisitedTile');
           const result = this.impl.prefetchMostVisitedTile(params.tile);
           break;
         }
-        case 15: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(most_visited.mojom.MostVisitedPageHandler_PreconnectMostVisitedTile_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.preconnectMostVisitedTile');
           const result = this.impl.preconnectMostVisitedTile(params.tile);
           break;
         }
-        case 15: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(most_visited.mojom.MostVisitedPageHandler_CancelPrerender_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.cancelPrerender');
           const result = this.impl.cancelPrerender();
           break;
         }
-        case 15: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getMostVisitedExpandedState');
@@ -843,14 +843,14 @@ most_visited.mojom.MostVisitedPageHandlerReceiver = class {
           }
           break;
         }
-        case 15: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(most_visited.mojom.MostVisitedPageHandler_SetMostVisitedExpandedState_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setMostVisitedExpandedState');
           const result = this.impl.setMostVisitedExpandedState(params.is_expanded);
           break;
         }
-        case 15: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTilesRendered_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onMostVisitedTilesRendered');
@@ -989,23 +989,23 @@ most_visited.mojom.MostVisitedPageReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetMostVisitedInfo
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(most_visited.mojom.MostVisitedPage_SetMostVisitedInfo_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetMostVisitedInfo (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: OnMostVisitedTilesAutoRemoval
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(most_visited.mojom.MostVisitedPage_OnMostVisitedTilesAutoRemoval_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMostVisitedTilesAutoRemoval (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -1013,7 +1013,7 @@ most_visited.mojom.MostVisitedPageReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 1: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(most_visited.mojom.MostVisitedPage_SetMostVisitedInfo_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setMostVisitedInfo');

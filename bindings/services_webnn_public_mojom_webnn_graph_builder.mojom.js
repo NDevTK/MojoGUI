@@ -164,32 +164,32 @@ webnn.mojom.WebNNGraphBuilderReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreatePendingConstant
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(webnn.mojom.WebNNGraphBuilder_CreatePendingConstant_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePendingConstant (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: CreateGraph
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(webnn.mojom.WebNNGraphBuilder_CreateGraph_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateGraph (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: IsValidGraphForTesting
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsValidGraphForTesting (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -197,14 +197,14 @@ webnn.mojom.WebNNGraphBuilderReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 2: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(webnn.mojom.WebNNGraphBuilder_CreatePendingConstant_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createPendingConstant');
           const result = this.impl.createPendingConstant(params.constant_handle, params.data_type, params.data);
           break;
         }
-        case 2: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(webnn.mojom.WebNNGraphBuilder_CreateGraph_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createGraph');
