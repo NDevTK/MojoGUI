@@ -712,8 +712,6 @@ jobs:
                   js_code += f"{current_ns}.{part} = {current_ns}.{part} || {{}};\n"
                   current_ns += f".{part}"
               
-                  current_ns += f".{part}"
-              
               # Declare external namespaces from imports (heuristic)
               # e.g., import "third_party/blink/..." -> var blink = blink || {};
               for imp in parsed.get('imports', []):
@@ -798,6 +796,51 @@ jobs:
                   # Create the interface namespace object
                   js_code += f"\n// Interface: {iface_name}\n"
                   js_code += f"{full_name} = {{}};\n\n"
+                  
+                  # Generate Method Structs (Params & Responses)
+                  for method in interface.get('methods', []):
+                      method_name = method['name']
+                      
+                      # Request Params
+                      params = method.get('params', [])
+                      param_struct_name = f"{iface_name}_{method_name}_Params"
+                      p_fields, p_size, p_versions = get_struct_layout(params)
+                      
+                      js_code += f"{current_ns}.{param_struct_name}Spec = {{\n"
+                      js_code += "  $: {\n"
+                      js_code += "    structSpec: {\n"
+                      js_code += f"      name: '{module}.{param_struct_name}',\n"
+                      js_code += f"      packedSize: {p_size},\n"
+                      js_code += "      fields: [\n"
+                      for field in p_fields:
+                          js_code += f"        {field},\n"
+                      js_code += "      ],\n"
+                      js_code += f"      versions: {p_versions}\n"
+                      js_code += "    }\n"
+                      js_code += "  }\n"
+                      js_code += "};\n\n"
+
+                      # Response Params
+                      if method.get('response_params') is not None: # Check if response exists (even if empty)
+                          resp_params = method.get('response_params', [])
+                          resp_struct_name = f"{iface_name}_{method_name}_ResponseParams"
+                          r_fields, r_size, r_versions = get_struct_layout(resp_params)
+                          
+                          js_code += f"{current_ns}.{resp_struct_name}Spec = {{\n"
+                          js_code += "  $: {\n"
+                          js_code += "    structSpec: {\n"
+                          js_code += f"      name: '{module}.{resp_struct_name}',\n"
+                          js_code += f"      packedSize: {r_size},\n"
+                          js_code += "      fields: [\n"
+                          for field in r_fields:
+                              js_code += f"        {field},\n"
+                          js_code += "      ],\n"
+                          js_code += f"      versions: {r_versions}\n"
+                          js_code += "    }\n"
+                          js_code += "  }\n"
+                          js_code += "};\n\n"
+
+                  # Generate PendingReceiver class first (needed by Remote)
                   
                   # Generate PendingReceiver class first (needed by Remote)
                   js_code += f"{full_name}PendingReceiver = class {{\n"
