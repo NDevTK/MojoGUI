@@ -962,11 +962,11 @@
         const row = document.createElement('tr');
         row.dataset.id = id;
         row.dataset.proxyId = e.detail.proxyId;
-        row.innerHTML = `
+        row.innerHTML = safeHTML(`
             <td>${new Date(timestamp).toLocaleTimeString()}</td>
             <td>${escapeHtml(method)}</td>
             <td><span class="status-dot"></span> Pending</td>
-        `;
+        `);
         row.addEventListener('click', () => showInterceptDetails(e.detail));
 
         elements.interceptorTableBody.prepend(row);
@@ -983,7 +983,7 @@
         const row = elements.interceptorTableBody.querySelector(`tr[data-id="${id}"]`);
         if (row) {
             const statusCell = row.cells[2];
-            statusCell.innerHTML = `<span class="status-dot active"></span> Done`;
+            statusCell.innerHTML = safeHTML(`<span class="status-dot active"></span> Done`);
         }
     }
 
@@ -992,7 +992,7 @@
         const row = elements.interceptorTableBody.querySelector(`tr[data-id="${id}"]`);
         if (row) {
             const statusCell = row.cells[2];
-            statusCell.innerHTML = `<span class="status-dot" style="background:var(--error)"></span> Error`;
+            statusCell.innerHTML = safeHTML(`<span class="status-dot" style="background:var(--error)"></span> Error`);
         }
     }
 
